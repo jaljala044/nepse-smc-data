@@ -1,3 +1,4 @@
+cat << 'EOF' > github_floorsheet_pull.py
 import datetime
 import os
 import re
@@ -7,9 +8,51 @@ import pandas as pd
 from playwright.sync_api import sync_playwright
 
 
+def normalize_date_str(year_str: str, month_str: str, day_str: str) -> str | None:
+    try:
+        dt = datetime.date(int(year_str), int(month_str), int(day_str))
+        if 2000 <= dt.year <= 2100:
+            return dt.strftime("%Y-%m-%d")
+    except ValueError:
+        return None
+    return None
+
+
+def extract_trading_date(page_text: str, cleaned_rows: list[list[str]], fallback_date: str) -> str:
+    combined = page_text + "\n" + " ".join(str(cell) for row in cleaned_rows for cell in row)
+
+    match_ymd = re.search(r"\b(20\d{2})[-/](0[1-9]|1[0-2])[-/](0[1-9]|[12]\d|3[01])\b", combined)
+    if match_ymd:
+        y, m, d = match_ymd.groups()
+        valid = normalize_date_str(y, m, d)
+        if valid:
+            return valid
+
+    match_dmy = re.search(r"\b(0[1-9]|[12]\d|3[01])[-/](0[1-9]|1[0-2])[-/](20\d{2})\b", combined)
+    if match_dmy:
+        d, m, y = match_dmy.groups()
+        valid = normalize_date_str(y, m, d)
+        if valid:
+            return valid
+
+    for row in cleaned_rows:
+        if not row:
+            continue
+        contract_no = str(row[0]).strip()
+        match_contract = re.match(r"^(20\d{2})(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])\d*$", contract_no)
+        if match_contract:
+            y, m, d = match_contract.groups()
+            valid = normalize_date_str(y, m, d)
+            if valid:
+                return valid
+
+    return fallback_date
+
+
 def fetch_floorsheet():
     all_rows = []
     max_pages = 200
+    page_text = ""
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
@@ -20,6 +63,7 @@ def fetch_floorsheet():
         try:
             page.wait_for_selector("table tbody tr", timeout=35000)
             time.sleep(2)
+            page_text = page.evaluate("() => document.body ? document.body.innerText : ''")
         except Exception as e:
             print(f"Timed out waiting for table: {e}")
             browser.close()
@@ -93,17 +137,8 @@ def fetch_floorsheet():
     df = pd.DataFrame(cleaned_rows, columns=headers)
 
     npt = datetime.timezone(datetime.timedelta(hours=5, minutes=45))
-    file_date = datetime.datetime.now(npt).strftime("%Y-%m-%d")
-
-    flat_text = " ".join(str(cell) for row in cleaned_rows for cell in row)
-    match_dmy = re.search(r"\b(\d{2})-(\d{2})-(\d{4})\b", flat_text)
-    match_ymd = re.search(r"\b(\d{4})-(\d{2})-(\d{2})\b", flat_text)
-
-    if match_dmy:
-        dd, mm, yyyy = match_dmy.groups()
-        file_date = f"{yyyy}-{mm}-{dd}"
-    elif match_ymd:
-        file_date = match_ymd.group(0)
+    fallback_date = datetime.datetime.now(npt).strftime("%Y-%m-%d")
+    file_date = extract_trading_date(page_text, cleaned_rows, fallback_date)
 
     os.makedirs("floorsheet", exist_ok=True)
     filepath = f"floorsheet/floorsheet_{file_date}.csv"
@@ -113,3 +148,4 @@ def fetch_floorsheet():
 
 if __name__ == "__main__":
     fetch_floorsheet()
+EOF

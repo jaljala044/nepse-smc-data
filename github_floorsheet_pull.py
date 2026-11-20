@@ -1,149 +1,44 @@
-import datetime
-import os
-import re
-import sys
-import time
-import pandas as pd
-from playwright.sync_api import sync_playwright
+mkdir -p .github/workflows && cat << 'EOF' > .github/workflows/daily_floorsheet.yml
+name: Daily NEPSE Floorsheet Pull
 
+on:
+  schedule:
+    - cron: "15 10 * * 0-4"
+  workflow_dispatch:
 
-def normalize_date_str(year_str: str, month_str: str, day_str: str) -> str | None:
-    try:
-        dt = datetime.date(int(year_str), int(month_str), int(day_str))
-        if 2000 <= dt.year <= 2100:
-            return dt.strftime("%Y-%m-%d")
-    except ValueError:
-        return None
-    return None
+permissions:
+  contents: write
 
+jobs:
+  pull-floorsheet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-def extract_trading_date(page_text: str, cleaned_rows: list[list[str]], fallback_date: str) -> str:
-    combined = page_text + "\n" + " ".join(str(cell) for row in cleaned_rows for cell in row)
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
 
-    match_ymd = re.search(r"\b(20\d{2})[-/](0[1-9]|1[0-2])[-/](0[1-9]|[12]\d|3[01])\b", combined)
-    if match_ymd:
-        y, m, d = match_ymd.groups()
-        valid = normalize_date_str(y, m, d)
-        if valid:
-            return valid
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          playwright install --with-deps chromium
 
-    match_dmy = re.search(r"\b(0[1-9]|[12]\d|3[01])[-/](0[1-9]|1[0-2])[-/](20\d{2})\b", combined)
-    if match_dmy:
-        d, m, y = match_dmy.groups()
-        valid = normalize_date_str(y, m, d)
-        if valid:
-            return valid
+      - name: Pull Data
+        run: python github_floorsheet_pull.py
 
-    for row in cleaned_rows:
-        if not row:
-            continue
-        contract_no = str(row[0]).strip()
-        match_contract = re.match(r"^(20\d{2})(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])\d*$", contract_no)
-        if match_contract:
-            y, m, d = match_contract.groups()
-            valid = normalize_date_str(y, m, d)
-            if valid:
-                return valid
-
-    return fallback_date
-
-
-def fetch_floorsheet():
-    all_rows = []
-    max_pages = 200
-    page_text = ""
-
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
-        page = browser.new_page()
-        print("Navigating to Chukul floorsheet...")
-        page.goto("https://chukul.com/floorsheet", wait_until="domcontentloaded")
-
-        try:
-            page.wait_for_selector("table tbody tr", timeout=35000)
-            time.sleep(2)
-            page_text = page.evaluate("() => document.body ? document.body.innerText : ''")
-        except Exception as e:
-            print(f"Timed out waiting for table: {e}")
-            browser.close()
-            sys.exit(1)
-
-        last_seen_first_row = ""
-        page_count = 0
-
-        while page_count < max_pages:
-            rows = page.eval_on_selector_all(
-                "table tbody tr",
-                """els => els.map(tr =>
-                    Array.from(tr.querySelectorAll('td')).map(td => td.innerText.replace(/\\s+/g, ' ').trim())
-                ).filter(r => r.length > 0)""",
-            )
-
-            if not rows:
-                break
-
-            cur_first_row = rows[0][0]
-            if page_count > 0 and cur_first_row == last_seen_first_row:
-                break
-
-            all_rows.extend(rows)
-            page_count += 1
-            last_seen_first_row = cur_first_row
-            print(f"Scraped Page {page_count} ({len(rows)} rows)")
-
-            next_btn = page.locator('button[aria-label="Next page"]')
-            if next_btn.count() == 0:
-                break
-
-            btn_class = str(next_btn.get_attribute("class") or "").lower()
-            aria_disabled = str(next_btn.get_attribute("aria-disabled") or "").lower()
-            if next_btn.is_disabled() or aria_disabled == "true" or "disabled" in btn_class:
-                print("Reached last page (Next button disabled).")
-                break
-
-            next_btn.scroll_into_view_if_needed()
-            next_btn.click()
-
-            changed = False
-            for _ in range(16):
-                time.sleep(0.5)
-                new_first_row = page.eval_on_selector(
-                    "table tbody tr td",
-                    "el => el ? el.innerText.replace(/\\s+/g, ' ').trim() : ''",
-                )
-                if new_first_row and new_first_row != last_seen_first_row:
-                    changed = True
-                    break
-
-            if not changed:
-                print("Page did not update before timeout; stopping pagination.")
-                break
-
-        browser.close()
-
-    if not all_rows:
-        print("No floorsheet rows collected.")
-        sys.exit(1)
-
-    col_count = max(len(r) for r in all_rows)
-    base_headers = ["Contract_No", "Symbol", "Buyer", "Seller", "Quantity", "Rate", "Amount"]
-    if col_count <= len(base_headers):
-        headers = base_headers[:col_count]
-    else:
-        headers = base_headers + [f"Extra_{i}" for i in range(1, col_count - len(base_headers) + 1)]
-
-    cleaned_rows = [r[:col_count] + [""] * (col_count - len(r)) for r in all_rows]
-    df = pd.DataFrame(cleaned_rows, columns=headers)
-
-    npt = datetime.timezone(datetime.timedelta(hours=5, minutes=45))
-    fallback_date = datetime.datetime.now(npt).strftime("%Y-%m-%d")
-    file_date = extract_trading_date(page_text, cleaned_rows, fallback_date)
-
-    os.makedirs("floorsheet", exist_ok=True)
-    filepath = f"floorsheet/floorsheet_{file_date}.csv"
-    df.to_csv(filepath, index=False)
-    print(f"Successfully saved {len(cleaned_rows)} rows to {filepath}")
-
-
-if __name__ == "__main__":
-    fetch_floorsheet()
+      - name: Commit and Push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add floorsheet/
+          if ! git diff --staged --quiet; then
+            git commit -m "Update daily floorsheet CSV"
+            git push
+          else
+            echo "No changes to commit."
+          fi
+EOF

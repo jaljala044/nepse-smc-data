@@ -1,5 +1,6 @@
 import datetime
 import os
+import re
 import sys
 import time
 import pandas as pd
@@ -91,9 +92,21 @@ def fetch_floorsheet():
     cleaned_rows = [r[:col_count] + [""] * (col_count - len(r)) for r in all_rows]
     df = pd.DataFrame(cleaned_rows, columns=headers)
 
+    npt = datetime.timezone(datetime.timedelta(hours=5, minutes=45))
+    file_date = datetime.datetime.now(npt).strftime("%Y-%m-%d")
+
+    flat_text = " ".join(str(cell) for row in cleaned_rows for cell in row)
+    match_dmy = re.search(r"\b(\d{2})-(\d{2})-(\d{4})\b", flat_text)
+    match_ymd = re.search(r"\b(\d{4})-(\d{2})-(\d{2})\b", flat_text)
+
+    if match_dmy:
+        dd, mm, yyyy = match_dmy.groups()
+        file_date = f"{yyyy}-{mm}-{dd}"
+    elif match_ymd:
+        file_date = match_ymd.group(0)
+
     os.makedirs("floorsheet", exist_ok=True)
-    today = datetime.datetime.now().strftime("%Y-%m-%d")
-    filepath = f"floorsheet/floorsheet_{today}.csv"
+    filepath = f"floorsheet/floorsheet_{file_date}.csv"
     df.to_csv(filepath, index=False)
     print(f"Successfully saved {len(cleaned_rows)} rows to {filepath}")
 

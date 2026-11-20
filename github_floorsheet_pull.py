@@ -1,4 +1,3 @@
-cat << 'EOF' > github_floorsheet_pull.py
 import datetime
 import os
 import re
@@ -148,4 +147,3 @@ def fetch_floorsheet():
 
 if __name__ == "__main__":
     fetch_floorsheet()
-EOF

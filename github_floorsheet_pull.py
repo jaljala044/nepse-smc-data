@@ -135,8 +135,8 @@ def fetch_floorsheet():
     cleaned_rows = [r[:col_count] + [""] * (col_count - len(r)) for r in all_rows]
     df = pd.DataFrame(cleaned_rows, columns=headers)
 
-    npt = datetime.timezone(datetime.timedelta(hours=5, minutes=45))
-    fallback_date = datetime.datetime.now(npt).strftime("%Y-%m-%d")
+    from nepse_session_date import effective_nepse_session_str
+    fallback_date = effective_nepse_session_str()
     file_date = extract_trading_date(page_text, cleaned_rows, fallback_date)
 
     os.makedirs("floorsheet", exist_ok=True)

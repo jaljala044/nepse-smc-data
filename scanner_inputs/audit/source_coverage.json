@@ -1,0 +1,50 @@
+{
+  "viking303": {
+    "ref": "56f57a44416b9783e831fbf9cda9fef261441446",
+    "price_files": 121,
+    "examined_sessions": 20,
+    "fully_reconciled": 0,
+    "raw_files_added": 0
+  },
+  "aabishkar2": {
+    "ref": "b5d75c0830e3aa151a7615590044662a61651690",
+    "comparison_main_ref": "29134e740b69053eb4541610037897a56cf24ede",
+    "comparison_main_symbol_files": 372,
+    "files": 124,
+    "rows": 233328,
+    "failed_ohlcv_or_turnover_checks": 29090,
+    "duplicate_symbol_date_rows": 686,
+    "out_of_sequence_dates": 104,
+    "latest_date": "2024-11-26",
+    "raw_files_added": 0
+  },
+  "socrateai": {
+    "ref": "f602a5b61e68582d28834d16f71151a4bae98d5b",
+    "license": "MIT",
+    "adjusted_history_status": "Sampled corporate-action rows do not establish consistent timing or a complete methodology."
+  },
+  "consolidated_broker_summary": {
+    "first_date": "2026-10-12",
+    "last_date": "2026-11-20",
+    "complete_market_sessions": 20,
+    "trade_rows": 980072,
+    "totals_source": "https://github.com/Shubhamnpk/yonepse/blob/5bb864f0070556205845fc1e02020b6c0c430362/data/market/history.json",
+    "nov_20_raw_source": "https://github.com/jaljala044/nepse-smc-data/blob/3e3556345500c54bf6a6117c9615d64b278eac3f/floorsheet/floorsheet_2026-11-20.csv"
+  },
+  "july_backfill": {
+    "date": "2026-07-24",
+    "market_symbols": 353,
+    "accepted": 219,
+    "withheld": 134,
+    "source": "https://github.com/srijankarki07/nepse-data/blob/e6e6fe77cd3378204c7938e66601cee2339a8b7a/data/daily/2026/2026-07-24.csv",
+    "price_cross_check": "https://github.com/socrateai-official/nepse-open-data/blob/f602a5b61e68582d28834d16f71151a4bae98d5b/ohlc_unadjusted_stock/unadj_2026-07-24.csv",
+    "tape_cross_check": "https://github.com/socrateai-official/nepse-open-data/blob/f602a5b61e68582d28834d16f71151a4bae98d5b/floorsheet/floorsheet_2026-07-24.csv"
+  },
+  "sectors": {
+    "mapping_symbols": 281,
+    "sector_histories": 12,
+    "sector_bars": 1534,
+    "benchmark_bars": 128,
+    "source_ids": "Pinned source links are in the classification CSV and README."
+  }
+}

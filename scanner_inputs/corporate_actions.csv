@@ -1,0 +1,4 @@
+symbol,event_type,announced_date,event_date,quantity_ratio,subscription_price_npr,reference_price_npr,adjusted_base_npr,price_factor,source,notes
+LBBL,BONUS,2025-01-02,2025-01-05,0.03,,480.00,466.02,0.9708750000,https://www.sharesansar.com/eventdetail/price-adjusted-lbbl-2025-01-02,3% bonus. January 5 is the first observed bar after the January 3 book closure.
+DORDI,RIGHTS,2025-02-25,2025-02-27,1.00,100.00,599.00,349.50,0.5834724541,https://eng.merolagani.com/AnnouncementDetail.aspx?id=58764,1:1 rights. February 27 is the first observed ex-adjustment bar after the February 25 raw close.
+BNHC,RIGHTS,2026-02-12,2026-02-16,1.00,100.00,526.20,313.10,0.5950209046,https://merolagani.com/AnnouncementDetail.aspx?id=64427,1:1 rights. February 16 is the first observed ex-adjustment bar after the February 13 book closure.

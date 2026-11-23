@@ -1,0 +1,4 @@
+symbol,date,raw_close,vendor_adjusted_close,observed_ratio,observation
+LBBL,2025-01-02,480,462.168,0.96285000,Last raw close before the January 3 book closure
+DORDI,2025-02-25,599,349.5,0.58347245,The adjusted close equals the announced reference while the raw session still closed before adjustment.
+BNHC,2026-02-12,526.2,526.2,1.00000000,Both exports are identical before the February 13 book closure despite the announced rights adjustment.

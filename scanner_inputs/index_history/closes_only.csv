@@ -1,0 +1,1391 @@
+date,index,close,validation
+2026-01-01,NEPSE,2620.92,YONEPSE + SocrateAI
+2026-01-04,NEPSE,2610.63,YONEPSE + SocrateAI
+2026-01-05,NEPSE,2639.37,YONEPSE + SocrateAI
+2026-01-12,NEPSE,2635.00,YONEPSE + SocrateAI
+2026-01-13,NEPSE,2639.91,YONEPSE + SocrateAI
+2026-01-14,NEPSE,2641.43,YONEPSE + SocrateAI
+2026-01-18,NEPSE,2672.55,YONEPSE + SocrateAI
+2026-01-20,NEPSE,2714.81,YONEPSE + SocrateAI
+2026-01-22,NEPSE,2714.61,YONEPSE + SocrateAI
+2026-01-25,NEPSE,2772.17,YONEPSE + SocrateAI
+2026-01-26,NEPSE,2769.09,YONEPSE + SocrateAI
+2026-01-27,NEPSE,2726.51,YONEPSE + SocrateAI
+2026-02-01,NEPSE,2694.20,YONEPSE + SocrateAI
+2026-02-02,NEPSE,2695.73,YONEPSE + SocrateAI
+2026-02-03,NEPSE,2683.15,YONEPSE + SocrateAI
+2026-02-04,NEPSE,2681.50,YONEPSE + SocrateAI
+2026-02-05,NEPSE,2708.70,YONEPSE + SocrateAI
+2026-02-09,NEPSE,2672.39,YONEPSE + SocrateAI
+2026-02-10,NEPSE,2662.14,YONEPSE + SocrateAI
+2026-02-12,NEPSE,2671.07,YONEPSE + SocrateAI
+2026-02-16,NEPSE,2662.91,YONEPSE + SocrateAI
+2026-02-17,NEPSE,2642.15,YONEPSE + SocrateAI
+2026-02-22,NEPSE,2614.55,YONEPSE + SocrateAI
+2026-02-24,NEPSE,2638.60,YONEPSE + SocrateAI
+2026-02-25,NEPSE,2648.90,YONEPSE + SocrateAI
+2026-02-26,NEPSE,2654.93,YONEPSE + SocrateAI
+2026-03-03,NEPSE,2712.49,YONEPSE + SocrateAI
+2026-03-09,NEPSE,2875.43,YONEPSE + SocrateAI
+2026-03-10,NEPSE,2843.35,YONEPSE + SocrateAI
+2026-03-11,NEPSE,2796.57,YONEPSE + SocrateAI
+2026-03-12,NEPSE,2820.44,YONEPSE + SocrateAI
+2026-03-16,NEPSE,2798.83,YONEPSE + SocrateAI
+2026-03-17,NEPSE,2812.34,YONEPSE + SocrateAI
+2026-03-22,NEPSE,2931.55,YONEPSE + SocrateAI
+2026-03-23,NEPSE,2936.56,YONEPSE + SocrateAI
+2026-03-25,NEPSE,2935.94,YONEPSE + SocrateAI
+2026-03-26,NEPSE,2950.16,YONEPSE + SocrateAI
+2026-03-29,NEPSE,2879.11,YONEPSE + SocrateAI
+2026-03-30,NEPSE,2831.39,YONEPSE + SocrateAI
+2026-04-01,NEPSE,2776.36,YONEPSE + SocrateAI
+2026-04-02,NEPSE,2782.18,YONEPSE + SocrateAI
+2026-04-06,NEPSE,2760.02,YONEPSE + SocrateAI
+2026-04-07,NEPSE,2757.40,YONEPSE + SocrateAI
+2026-04-08,NEPSE,2802.52,YONEPSE + SocrateAI
+2026-04-09,NEPSE,2851.24,YONEPSE + SocrateAI
+2026-04-13,NEPSE,2833.60,YONEPSE + SocrateAI
+2026-04-15,NEPSE,2866.87,YONEPSE + SocrateAI
+2026-04-16,NEPSE,2833.03,YONEPSE + SocrateAI
+2026-04-17,NEPSE,2838.40,YONEPSE + SocrateAI
+2026-04-20,NEPSE,2825.23,YONEPSE + SocrateAI
+2026-04-22,NEPSE,2804.17,YONEPSE + SocrateAI
+2026-04-23,NEPSE,2787.15,YONEPSE + SocrateAI
+2026-04-27,NEPSE,2796.43,YONEPSE + SocrateAI
+2026-04-28,NEPSE,2770.26,YONEPSE + SocrateAI
+2026-04-29,NEPSE,2744.45,YONEPSE + SocrateAI
+2026-04-30,NEPSE,2738.72,YONEPSE + SocrateAI
+2026-01-01,Sensitive,454.29,YONEPSE + SocrateAI
+2026-01-04,Sensitive,451.07,YONEPSE + SocrateAI
+2026-01-05,Sensitive,454.92,YONEPSE + SocrateAI
+2026-01-06,Sensitive,457.23,YONEPSE + SocrateAI
+2026-01-08,Sensitive,455.93,YONEPSE + SocrateAI
+2026-01-12,Sensitive,454.31,YONEPSE + SocrateAI
+2026-01-14,Sensitive,454.73,YONEPSE + SocrateAI
+2026-01-18,Sensitive,459.43,YONEPSE + SocrateAI
+2026-01-20,Sensitive,467.25,YONEPSE + SocrateAI
+2026-01-21,Sensitive,465.90,YONEPSE + SocrateAI
+2026-01-22,Sensitive,465.42,YONEPSE + SocrateAI
+2026-01-25,Sensitive,473.48,YONEPSE + SocrateAI
+2026-01-26,Sensitive,471.83,YONEPSE + SocrateAI
+2026-01-27,Sensitive,464.46,YONEPSE + SocrateAI
+2026-02-01,Sensitive,459.91,YONEPSE + SocrateAI
+2026-02-02,Sensitive,459.16,YONEPSE + SocrateAI
+2026-02-03,Sensitive,456.71,YONEPSE + SocrateAI
+2026-02-04,Sensitive,456.00,YONEPSE + SocrateAI
+2026-02-05,Sensitive,460.48,YONEPSE + SocrateAI
+2026-02-09,Sensitive,455.65,YONEPSE + SocrateAI
+2026-02-10,Sensitive,454.39,YONEPSE + SocrateAI
+2026-02-12,Sensitive,456.72,YONEPSE + SocrateAI
+2026-02-16,Sensitive,455.66,YONEPSE + SocrateAI
+2026-02-17,Sensitive,452.67,YONEPSE + SocrateAI
+2026-02-22,Sensitive,449.39,YONEPSE + SocrateAI
+2026-02-24,Sensitive,453.37,YONEPSE + SocrateAI
+2026-02-25,Sensitive,454.57,YONEPSE + SocrateAI
+2026-02-26,Sensitive,456.51,YONEPSE + SocrateAI
+2026-03-01,Sensitive,459.73,YONEPSE + SocrateAI
+2026-03-03,Sensitive,465.99,YONEPSE + SocrateAI
+2026-03-09,Sensitive,494.10,YONEPSE + SocrateAI
+2026-03-10,Sensitive,489.69,YONEPSE + SocrateAI
+2026-03-11,Sensitive,481.37,YONEPSE + SocrateAI
+2026-03-12,Sensitive,486.38,YONEPSE + SocrateAI
+2026-03-15,Sensitive,486.80,YONEPSE + SocrateAI
+2026-03-16,Sensitive,480.41,YONEPSE + SocrateAI
+2026-03-17,Sensitive,482.56,YONEPSE + SocrateAI
+2026-03-19,Sensitive,494.19,YONEPSE + SocrateAI
+2026-03-22,Sensitive,505.31,YONEPSE + SocrateAI
+2026-03-23,Sensitive,505.02,YONEPSE + SocrateAI
+2026-03-24,Sensitive,507.00,YONEPSE + SocrateAI
+2026-03-25,Sensitive,500.46,YONEPSE + SocrateAI
+2026-03-29,Sensitive,489.48,YONEPSE + SocrateAI
+2026-03-30,Sensitive,481.58,YONEPSE + SocrateAI
+2026-04-01,Sensitive,473.63,YONEPSE + SocrateAI
+2026-04-02,Sensitive,473.23,YONEPSE + SocrateAI
+2026-04-05,Sensitive,457.61,YONEPSE + SocrateAI
+2026-04-06,Sensitive,471.92,YONEPSE + SocrateAI
+2026-04-07,Sensitive,471.13,YONEPSE + SocrateAI
+2026-04-08,Sensitive,476.88,YONEPSE + SocrateAI
+2026-04-09,Sensitive,481.53,YONEPSE + SocrateAI
+2026-04-15,Sensitive,481.87,YONEPSE + SocrateAI
+2026-04-16,Sensitive,477.46,YONEPSE + SocrateAI
+2026-04-17,Sensitive,476.92,YONEPSE + SocrateAI
+2026-04-20,Sensitive,473.71,YONEPSE + SocrateAI
+2026-04-22,Sensitive,471.22,YONEPSE + SocrateAI
+2026-04-23,Sensitive,468.27,YONEPSE + SocrateAI
+2026-04-24,Sensitive,468.07,YONEPSE + SocrateAI
+2026-04-27,Sensitive,469.72,YONEPSE + SocrateAI
+2026-04-28,Sensitive,467.57,YONEPSE + SocrateAI
+2026-05-04,Sensitive,461.05,YONEPSE + SocrateAI
+2026-05-05,Sensitive,462.32,YONEPSE + SocrateAI
+2026-05-06,Sensitive,463.12,YONEPSE + SocrateAI
+2026-05-07,Sensitive,464.08,YONEPSE + SocrateAI
+2026-05-08,Sensitive,467.33,YONEPSE + SocrateAI
+2026-05-11,Sensitive,473.41,YONEPSE + SocrateAI
+2026-05-12,Sensitive,468.26,YONEPSE + SocrateAI
+2026-05-13,Sensitive,467.55,YONEPSE + SocrateAI
+2026-05-14,Sensitive,467.20,YONEPSE + SocrateAI
+2026-05-15,Sensitive,467.55,YONEPSE + SocrateAI
+2026-05-18,Sensitive,468.05,YONEPSE + SocrateAI
+2026-05-19,Sensitive,467.37,YONEPSE + SocrateAI
+2026-05-20,Sensitive,471.06,YONEPSE + SocrateAI
+2026-05-21,Sensitive,469.48,YONEPSE + SocrateAI
+2026-05-22,Sensitive,471.89,YONEPSE + SocrateAI
+2026-05-25,Sensitive,475.74,YONEPSE + SocrateAI
+2026-05-27,Sensitive,475.51,YONEPSE + SocrateAI
+2026-06-02,Sensitive,473.51,YONEPSE + SocrateAI
+2026-06-03,Sensitive,475.44,YONEPSE + SocrateAI
+2026-06-05,Sensitive,471.99,YONEPSE + SocrateAI
+2026-06-08,Sensitive,469.37,YONEPSE + SocrateAI
+2026-06-09,Sensitive,469.07,YONEPSE + SocrateAI
+2026-06-10,Sensitive,468.72,YONEPSE + SocrateAI
+2026-06-11,Sensitive,467.62,YONEPSE + SocrateAI
+2026-06-12,Sensitive,467.09,YONEPSE + SocrateAI
+2026-06-15,Sensitive,466.13,YONEPSE + SocrateAI
+2026-06-16,Sensitive,464.64,YONEPSE + SocrateAI
+2026-06-17,Sensitive,464.43,YONEPSE + SocrateAI
+2026-06-18,Sensitive,463.66,YONEPSE + SocrateAI
+2026-06-19,Sensitive,463.98,YONEPSE + SocrateAI
+2026-06-22,Sensitive,463.80,YONEPSE + SocrateAI
+2026-06-23,Sensitive,461.48,YONEPSE + SocrateAI
+2026-06-24,Sensitive,458.88,YONEPSE + SocrateAI
+2026-06-25,Sensitive,458.23,YONEPSE + SocrateAI
+2026-06-26,Sensitive,457.68,YONEPSE + SocrateAI
+2026-06-30,Sensitive,452.79,YONEPSE + SocrateAI
+2026-07-01,Sensitive,458.57,YONEPSE + SocrateAI
+2026-07-02,Sensitive,462.47,YONEPSE + SocrateAI
+2026-07-03,Sensitive,459.81,YONEPSE + SocrateAI
+2026-07-06,Sensitive,456.27,YONEPSE + SocrateAI
+2026-07-08,Sensitive,456.68,YONEPSE + SocrateAI
+2026-07-09,Sensitive,454.19,YONEPSE + SocrateAI
+2026-07-14,Sensitive,451.34,YONEPSE + SocrateAI
+2026-07-15,Sensitive,453.94,YONEPSE + SocrateAI
+2026-07-16,Sensitive,456.86,YONEPSE + SocrateAI
+2026-07-17,Sensitive,468.38,YONEPSE + SocrateAI
+2026-07-21,Sensitive,472.42,YONEPSE + SocrateAI
+2026-07-22,Sensitive,470.31,YONEPSE + SocrateAI
+2026-07-23,Sensitive,471.30,YONEPSE + SocrateAI
+2026-07-27,Sensitive,471.49,YONEPSE + SocrateAI
+2026-07-29,Sensitive,470.00,YONEPSE + SocrateAI
+2026-07-31,Sensitive,470.13,YONEPSE + SocrateAI
+2026-08-03,Sensitive,470.63,YONEPSE + SocrateAI
+2026-08-04,Sensitive,467.96,YONEPSE + SocrateAI
+2026-08-05,Sensitive,467.36,YONEPSE + SocrateAI
+2026-08-06,Sensitive,464.73,YONEPSE + SocrateAI
+2026-08-07,Sensitive,463.56,YONEPSE + SocrateAI
+2026-08-10,Sensitive,461.36,YONEPSE + SocrateAI
+2026-08-12,Sensitive,463.61,YONEPSE + SocrateAI
+2026-08-14,Sensitive,464.73,YONEPSE + SocrateAI
+2026-08-17,Sensitive,463.64,YONEPSE + SocrateAI
+2026-08-18,Sensitive,461.09,YONEPSE + SocrateAI
+2026-08-19,Sensitive,461.00,YONEPSE + SocrateAI
+2026-08-20,Sensitive,462.89,YONEPSE + SocrateAI
+2026-08-24,Sensitive,458.18,YONEPSE + SocrateAI
+2026-08-25,Sensitive,457.67,YONEPSE + SocrateAI
+2026-08-26,Sensitive,451.66,YONEPSE + SocrateAI
+2026-08-27,Sensitive,451.12,YONEPSE + SocrateAI
+2026-08-31,Sensitive,444.43,YONEPSE + SocrateAI
+2026-09-01,Sensitive,446.16,YONEPSE + SocrateAI
+2026-09-02,Sensitive,449.18,YONEPSE + SocrateAI
+2026-09-03,Sensitive,449.50,YONEPSE + SocrateAI
+2026-09-07,Sensitive,453.96,YONEPSE + SocrateAI
+2026-09-09,Sensitive,452.34,YONEPSE + SocrateAI
+2026-09-10,Sensitive,449.93,YONEPSE + SocrateAI
+2026-09-11,Sensitive,453.92,YONEPSE + SocrateAI
+2026-09-14,Sensitive,458.26,YONEPSE + SocrateAI
+2026-09-15,Sensitive,467.45,YONEPSE + SocrateAI
+2026-09-16,Sensitive,463.68,YONEPSE + SocrateAI
+2026-09-17,Sensitive,465.75,YONEPSE + SocrateAI
+2026-09-18,Sensitive,471.07,YONEPSE + SocrateAI
+2026-09-22,Sensitive,473.79,YONEPSE + SocrateAI
+2026-09-23,Sensitive,467.46,YONEPSE + SocrateAI
+2026-09-24,Sensitive,469.01,YONEPSE + SocrateAI
+2026-09-28,Sensitive,467.67,YONEPSE + SocrateAI
+2026-09-29,Sensitive,466.65,YONEPSE + SocrateAI
+2026-09-30,Sensitive,464.63,YONEPSE + SocrateAI
+2026-10-02,Sensitive,463.02,YONEPSE + SocrateAI
+2026-10-06,Sensitive,461.86,YONEPSE + SocrateAI
+2026-10-07,Sensitive,461.22,closing archive + SocrateAI
+2026-10-08,Sensitive,462.04,closing archive + SocrateAI
+2026-10-09,Sensitive,465.85,closing archive + SocrateAI
+2026-10-12,Sensitive,467.81,closing archive + SocrateAI
+2026-10-13,Sensitive,470.17,closing archive + SocrateAI
+2026-10-14,Sensitive,474.96,closing archive + SocrateAI
+2026-10-15,Sensitive,475.98,closing archive + SocrateAI
+2026-10-16,Sensitive,477.95,closing archive + SocrateAI
+2026-10-26,Sensitive,475.77,closing archive + SocrateAI
+2026-10-27,Sensitive,475.47,closing archive + SocrateAI
+2026-10-28,Sensitive,481.79,closing archive + SocrateAI
+2026-10-29,Sensitive,488.21,closing archive + SocrateAI
+2026-10-30,Sensitive,487.66,closing archive + SocrateAI
+2026-11-02,Sensitive,481.72,closing archive + SocrateAI
+2026-11-03,Sensitive,483.21,closing archive + SocrateAI
+2026-11-04,Sensitive,480.51,closing archive + SocrateAI
+2026-11-05,Sensitive,478.93,closing archive + SocrateAI
+2026-11-06,Sensitive,480.12,closing archive + SocrateAI
+2026-11-13,Sensitive,479.54,closing archive + SocrateAI
+2026-11-17,Sensitive,477.21,closing archive + SocrateAI
+2026-11-18,Sensitive,476.15,closing archive + SocrateAI
+2026-11-19,Sensitive,476.93,closing archive + SocrateAI
+2026-11-20,Sensitive,477.01,closing archive + exchange closing quote
+2026-01-01,Float,179.60,YONEPSE + SocrateAI
+2026-01-04,Float,178.96,YONEPSE + SocrateAI
+2026-01-05,Float,180.98,YONEPSE + SocrateAI
+2026-01-06,Float,181.70,YONEPSE + SocrateAI
+2026-01-08,Float,181.26,YONEPSE + SocrateAI
+2026-01-12,Float,181.08,YONEPSE + SocrateAI
+2026-01-13,Float,181.24,YONEPSE + SocrateAI
+2026-01-14,Float,181.24,YONEPSE + SocrateAI
+2026-01-18,Float,183.65,YONEPSE + SocrateAI
+2026-01-20,Float,186.84,YONEPSE + SocrateAI
+2026-01-21,Float,186.27,YONEPSE + SocrateAI
+2026-01-22,Float,186.94,YONEPSE + SocrateAI
+2026-01-25,Float,190.87,YONEPSE + SocrateAI
+2026-01-26,Float,190.66,YONEPSE + SocrateAI
+2026-01-29,Float,186.73,YONEPSE + SocrateAI
+2026-02-01,Float,185.29,YONEPSE + SocrateAI
+2026-02-02,Float,185.40,YONEPSE + SocrateAI
+2026-02-03,Float,184.41,YONEPSE + SocrateAI
+2026-02-04,Float,184.21,YONEPSE + SocrateAI
+2026-02-05,Float,186.27,YONEPSE + SocrateAI
+2026-02-08,Float,185.65,YONEPSE + SocrateAI
+2026-02-09,Float,183.72,YONEPSE + SocrateAI
+2026-02-10,Float,182.90,YONEPSE + SocrateAI
+2026-02-11,Float,182.97,YONEPSE + SocrateAI
+2026-02-12,Float,183.83,YONEPSE + SocrateAI
+2026-02-16,Float,183.27,YONEPSE + SocrateAI
+2026-02-22,Float,180.00,YONEPSE + SocrateAI
+2026-02-24,Float,181.57,YONEPSE + SocrateAI
+2026-02-25,Float,182.42,YONEPSE + SocrateAI
+2026-02-26,Float,182.91,YONEPSE + SocrateAI
+2026-03-09,Float,198.62,YONEPSE + SocrateAI
+2026-03-10,Float,196.39,YONEPSE + SocrateAI
+2026-03-11,Float,193.15,YONEPSE + SocrateAI
+2026-03-12,Float,195.07,YONEPSE + SocrateAI
+2026-03-15,Float,195.22,YONEPSE + SocrateAI
+2026-03-16,Float,193.14,YONEPSE + SocrateAI
+2026-03-17,Float,194.04,YONEPSE + SocrateAI
+2026-03-19,Float,198.89,YONEPSE + SocrateAI
+2026-03-22,Float,202.95,YONEPSE + SocrateAI
+2026-03-24,Float,204.20,YONEPSE + SocrateAI
+2026-03-25,Float,201.74,YONEPSE + SocrateAI
+2026-03-26,Float,202.77,YONEPSE + SocrateAI
+2026-03-30,Float,194.25,YONEPSE + SocrateAI
+2026-04-02,Float,190.59,YONEPSE + SocrateAI
+2026-04-05,Float,183.18,YONEPSE + SocrateAI
+2026-04-06,Float,189.19,YONEPSE + SocrateAI
+2026-04-08,Float,191.81,YONEPSE + SocrateAI
+2026-04-09,Float,194.83,YONEPSE + SocrateAI
+2026-04-13,Float,192.13,YONEPSE + SocrateAI
+2026-04-15,Float,194.28,YONEPSE + SocrateAI
+2026-04-16,Float,192.00,YONEPSE + SocrateAI
+2026-04-17,Float,191.96,YONEPSE + SocrateAI
+2026-04-20,Float,190.77,YONEPSE + SocrateAI
+2026-04-21,Float,189.65,YONEPSE + SocrateAI
+2026-04-22,Float,189.65,YONEPSE + SocrateAI
+2026-04-24,Float,188.37,YONEPSE + SocrateAI
+2026-04-27,Float,189.13,YONEPSE + SocrateAI
+2026-04-28,Float,187.59,YONEPSE + SocrateAI
+2026-04-29,Float,185.85,YONEPSE + SocrateAI
+2026-05-04,Float,183.34,YONEPSE + SocrateAI
+2026-05-05,Float,183.95,YONEPSE + SocrateAI
+2026-05-06,Float,183.96,YONEPSE + SocrateAI
+2026-05-07,Float,184.26,YONEPSE + SocrateAI
+2026-05-08,Float,186.14,YONEPSE + SocrateAI
+2026-05-11,Float,188.82,YONEPSE + SocrateAI
+2026-05-12,Float,186.26,YONEPSE + SocrateAI
+2026-05-13,Float,185.89,YONEPSE + SocrateAI
+2026-05-14,Float,185.30,YONEPSE + SocrateAI
+2026-05-15,Float,185.35,YONEPSE + SocrateAI
+2026-05-18,Float,185.37,YONEPSE + SocrateAI
+2026-05-19,Float,185.13,YONEPSE + SocrateAI
+2026-05-20,Float,187.04,YONEPSE + SocrateAI
+2026-05-21,Float,186.16,YONEPSE + SocrateAI
+2026-05-22,Float,187.38,YONEPSE + SocrateAI
+2026-05-26,Float,188.53,YONEPSE + SocrateAI
+2026-06-02,Float,188.86,YONEPSE + SocrateAI
+2026-06-03,Float,189.28,YONEPSE + SocrateAI
+2026-06-04,Float,188.58,YONEPSE + SocrateAI
+2026-06-05,Float,187.87,YONEPSE + SocrateAI
+2026-06-08,Float,186.63,YONEPSE + SocrateAI
+2026-06-10,Float,186.63,YONEPSE + SocrateAI
+2026-06-12,Float,185.89,YONEPSE + SocrateAI
+2026-06-15,Float,185.32,YONEPSE + SocrateAI
+2026-06-16,Float,184.79,YONEPSE + SocrateAI
+2026-06-17,Float,184.89,YONEPSE + SocrateAI
+2026-06-18,Float,184.55,YONEPSE + SocrateAI
+2026-06-22,Float,184.67,YONEPSE + SocrateAI
+2026-06-23,Float,183.04,YONEPSE + SocrateAI
+2026-06-25,Float,181.65,YONEPSE + SocrateAI
+2026-06-26,Float,181.32,YONEPSE + SocrateAI
+2026-06-29,Float,180.30,YONEPSE + SocrateAI
+2026-06-30,Float,178.78,YONEPSE + SocrateAI
+2026-07-01,Float,181.61,YONEPSE + SocrateAI
+2026-07-02,Float,182.61,YONEPSE + SocrateAI
+2026-07-06,Float,180.22,YONEPSE + SocrateAI
+2026-07-09,Float,178.68,YONEPSE + SocrateAI
+2026-07-10,Float,178.52,YONEPSE + SocrateAI
+2026-07-14,Float,176.88,YONEPSE + SocrateAI
+2026-07-15,Float,177.96,YONEPSE + SocrateAI
+2026-07-16,Float,178.57,YONEPSE + SocrateAI
+2026-07-17,Float,184.03,YONEPSE + SocrateAI
+2026-07-20,Float,186.42,YONEPSE + SocrateAI
+2026-07-21,Float,186.62,YONEPSE + SocrateAI
+2026-07-22,Float,185.85,YONEPSE + SocrateAI
+2026-07-23,Float,186.58,YONEPSE + SocrateAI
+2026-07-27,Float,185.53,YONEPSE + SocrateAI
+2026-07-28,Float,185.22,YONEPSE + SocrateAI
+2026-07-29,Float,184.57,YONEPSE + SocrateAI
+2026-07-30,Float,183.59,YONEPSE + SocrateAI
+2026-07-31,Float,184.59,YONEPSE + SocrateAI
+2026-08-04,Float,183.33,YONEPSE + SocrateAI
+2026-08-05,Float,183.29,YONEPSE + SocrateAI
+2026-08-06,Float,182.26,YONEPSE + SocrateAI
+2026-08-07,Float,181.79,YONEPSE + SocrateAI
+2026-08-10,Float,181.18,YONEPSE + SocrateAI
+2026-08-11,Float,181.35,YONEPSE + SocrateAI
+2026-08-12,Float,181.56,YONEPSE + SocrateAI
+2026-08-14,Float,181.76,YONEPSE + SocrateAI
+2026-08-18,Float,179.97,YONEPSE + SocrateAI
+2026-08-19,Float,179.95,YONEPSE + SocrateAI
+2026-08-20,Float,180.38,YONEPSE + SocrateAI
+2026-08-21,Float,179.76,YONEPSE + SocrateAI
+2026-08-24,Float,178.42,YONEPSE + SocrateAI
+2026-08-25,Float,178.05,YONEPSE + SocrateAI
+2026-08-26,Float,175.43,YONEPSE + SocrateAI
+2026-08-27,Float,175.26,YONEPSE + SocrateAI
+2026-09-01,Float,172.97,YONEPSE + SocrateAI
+2026-09-02,Float,174.19,YONEPSE + SocrateAI
+2026-09-03,Float,174.35,YONEPSE + SocrateAI
+2026-09-07,Float,175.67,YONEPSE + SocrateAI
+2026-09-09,Float,174.65,YONEPSE + SocrateAI
+2026-09-10,Float,173.82,YONEPSE + SocrateAI
+2026-09-11,Float,175.70,YONEPSE + SocrateAI
+2026-09-14,Float,177.57,YONEPSE + SocrateAI
+2026-09-15,Float,181.13,YONEPSE + SocrateAI
+2026-09-17,Float,180.58,YONEPSE + SocrateAI
+2026-09-18,Float,182.46,YONEPSE + SocrateAI
+2026-09-22,Float,182.99,YONEPSE + SocrateAI
+2026-09-23,Float,180.39,YONEPSE + SocrateAI
+2026-09-24,Float,181.18,YONEPSE + SocrateAI
+2026-09-28,Float,180.07,YONEPSE + SocrateAI
+2026-09-29,Float,179.46,YONEPSE + SocrateAI
+2026-09-30,Float,179.02,YONEPSE + SocrateAI
+2026-10-01,Float,179.17,YONEPSE + SocrateAI
+2026-10-02,Float,178.36,YONEPSE + SocrateAI
+2026-10-05,Float,176.88,YONEPSE + SocrateAI
+2026-10-06,Float,177.71,YONEPSE + SocrateAI
+2026-10-07,Float,177.45,closing archive + SocrateAI
+2026-10-08,Float,177.68,closing archive + SocrateAI
+2026-10-09,Float,179.10,closing archive + SocrateAI
+2026-10-12,Float,179.52,closing archive + SocrateAI
+2026-10-13,Float,180.02,closing archive + SocrateAI
+2026-10-14,Float,181.63,closing archive + SocrateAI
+2026-10-16,Float,182.75,closing archive + SocrateAI
+2026-10-27,Float,182.11,closing archive + SocrateAI
+2026-10-28,Float,184.73,closing archive + SocrateAI
+2026-10-29,Float,187.01,closing archive + SocrateAI
+2026-10-30,Float,186.64,closing archive + SocrateAI
+2026-11-02,Float,184.30,closing archive + SocrateAI
+2026-11-03,Float,184.92,closing archive + SocrateAI
+2026-11-04,Float,184.47,closing archive + SocrateAI
+2026-11-05,Float,183.51,closing archive + SocrateAI
+2026-11-06,Float,184.04,closing archive + SocrateAI
+2026-11-13,Float,183.60,closing archive + YONEPSE
+2026-11-17,Float,182.77,closing archive + SocrateAI
+2026-11-18,Float,182.37,closing archive + YONEPSE
+2026-11-19,Float,182.69,closing archive + SocrateAI
+2026-11-20,Float,182.37,closing archive + exchange closing quote
+2026-01-04,Sensitive Float,153.21,YONEPSE + SocrateAI
+2026-01-05,Sensitive Float,154.76,YONEPSE + SocrateAI
+2026-01-06,Sensitive Float,155.56,YONEPSE + SocrateAI
+2026-01-07,Sensitive Float,154.81,YONEPSE + SocrateAI
+2026-01-08,Sensitive Float,155.17,YONEPSE + SocrateAI
+2026-01-12,Sensitive Float,154.75,YONEPSE + SocrateAI
+2026-01-14,Sensitive Float,154.96,YONEPSE + SocrateAI
+2026-01-18,Sensitive Float,156.70,YONEPSE + SocrateAI
+2026-01-20,Sensitive Float,159.57,YONEPSE + SocrateAI
+2026-01-21,Sensitive Float,159.06,YONEPSE + SocrateAI
+2026-01-22,Sensitive Float,158.92,YONEPSE + SocrateAI
+2026-01-25,Sensitive Float,161.74,YONEPSE + SocrateAI
+2026-01-26,Sensitive Float,161.22,YONEPSE + SocrateAI
+2026-01-27,Sensitive Float,158.57,YONEPSE + SocrateAI
+2026-01-28,Sensitive Float,158.60,YONEPSE + SocrateAI
+2026-02-01,Sensitive Float,156.90,YONEPSE + SocrateAI
+2026-02-02,Sensitive Float,156.77,YONEPSE + SocrateAI
+2026-02-03,Sensitive Float,155.86,YONEPSE + SocrateAI
+2026-02-04,Sensitive Float,155.67,YONEPSE + SocrateAI
+2026-02-05,Sensitive Float,157.42,YONEPSE + SocrateAI
+2026-02-09,Sensitive Float,155.71,YONEPSE + SocrateAI
+2026-02-11,Sensitive Float,155.33,YONEPSE + SocrateAI
+2026-02-12,Sensitive Float,155.90,YONEPSE + SocrateAI
+2026-02-16,Sensitive Float,155.49,YONEPSE + SocrateAI
+2026-02-17,Sensitive Float,154.40,YONEPSE + SocrateAI
+2026-02-22,Sensitive Float,153.24,YONEPSE + SocrateAI
+2026-02-24,Sensitive Float,154.58,YONEPSE + SocrateAI
+2026-02-25,Sensitive Float,155.03,YONEPSE + SocrateAI
+2026-02-26,Sensitive Float,155.65,YONEPSE + SocrateAI
+2026-03-03,Sensitive Float,159.01,YONEPSE + SocrateAI
+2026-03-09,Sensitive Float,168.98,YONEPSE + SocrateAI
+2026-03-11,Sensitive Float,164.10,YONEPSE + SocrateAI
+2026-03-12,Sensitive Float,165.82,YONEPSE + SocrateAI
+2026-03-15,Sensitive Float,166.01,YONEPSE + SocrateAI
+2026-03-16,Sensitive Float,163.91,YONEPSE + SocrateAI
+2026-03-17,Sensitive Float,164.59,YONEPSE + SocrateAI
+2026-03-19,Sensitive Float,168.73,YONEPSE + SocrateAI
+2026-03-22,Sensitive Float,172.56,YONEPSE + SocrateAI
+2026-03-23,Sensitive Float,172.59,YONEPSE + SocrateAI
+2026-03-24,Sensitive Float,173.41,YONEPSE + SocrateAI
+2026-03-25,Sensitive Float,171.15,YONEPSE + SocrateAI
+2026-03-26,Sensitive Float,171.88,YONEPSE + SocrateAI
+2026-03-29,Sensitive Float,167.27,YONEPSE + SocrateAI
+2026-03-30,Sensitive Float,164.72,YONEPSE + SocrateAI
+2026-04-01,Sensitive Float,161.94,YONEPSE + SocrateAI
+2026-04-05,Sensitive Float,156.23,YONEPSE + SocrateAI
+2026-04-06,Sensitive Float,161.27,YONEPSE + SocrateAI
+2026-04-09,Sensitive Float,164.74,YONEPSE + SocrateAI
+2026-04-13,Sensitive Float,161.41,YONEPSE + SocrateAI
+2026-04-15,Sensitive Float,163.06,YONEPSE + SocrateAI
+2026-04-17,Sensitive Float,161.25,YONEPSE + SocrateAI
+2026-04-20,Sensitive Float,160.01,YONEPSE + SocrateAI
+2026-04-22,Sensitive Float,159.30,YONEPSE + SocrateAI
+2026-04-23,Sensitive Float,158.14,YONEPSE + SocrateAI
+2026-04-27,Sensitive Float,158.73,YONEPSE + SocrateAI
+2026-04-28,Sensitive Float,157.89,YONEPSE + SocrateAI
+2026-04-30,Sensitive Float,156.78,YONEPSE + SocrateAI
+2026-05-04,Sensitive Float,155.42,YONEPSE + SocrateAI
+2026-05-05,Sensitive Float,155.89,YONEPSE + SocrateAI
+2026-05-06,Sensitive Float,156.14,YONEPSE + SocrateAI
+2026-05-07,Sensitive Float,156.37,YONEPSE + SocrateAI
+2026-05-08,Sensitive Float,157.61,YONEPSE + SocrateAI
+2026-05-11,Sensitive Float,159.70,YONEPSE + SocrateAI
+2026-05-12,Sensitive Float,157.80,YONEPSE + SocrateAI
+2026-05-13,Sensitive Float,157.54,YONEPSE + SocrateAI
+2026-05-14,Sensitive Float,157.40,YONEPSE + SocrateAI
+2026-05-18,Sensitive Float,157.68,YONEPSE + SocrateAI
+2026-05-20,Sensitive Float,158.78,YONEPSE + SocrateAI
+2026-05-21,Sensitive Float,158.22,YONEPSE + SocrateAI
+2026-05-22,Sensitive Float,159.11,YONEPSE + SocrateAI
+2026-05-25,Sensitive Float,160.40,YONEPSE + SocrateAI
+2026-05-26,Sensitive Float,159.89,YONEPSE + SocrateAI
+2026-05-27,Sensitive Float,160.32,YONEPSE + SocrateAI
+2026-06-02,Sensitive Float,160.15,YONEPSE + SocrateAI
+2026-06-03,Sensitive Float,160.77,YONEPSE + SocrateAI
+2026-06-05,Sensitive Float,159.66,YONEPSE + SocrateAI
+2026-06-10,Sensitive Float,158.59,YONEPSE + SocrateAI
+2026-06-11,Sensitive Float,158.24,YONEPSE + SocrateAI
+2026-06-12,Sensitive Float,158.00,YONEPSE + SocrateAI
+2026-06-15,Sensitive Float,157.74,YONEPSE + SocrateAI
+2026-06-16,Sensitive Float,157.16,YONEPSE + SocrateAI
+2026-06-17,Sensitive Float,157.24,YONEPSE + SocrateAI
+2026-06-18,Sensitive Float,156.90,YONEPSE + SocrateAI
+2026-06-19,Sensitive Float,156.99,YONEPSE + SocrateAI
+2026-06-22,Sensitive Float,157.09,YONEPSE + SocrateAI
+2026-06-23,Sensitive Float,156.20,YONEPSE + SocrateAI
+2026-06-25,Sensitive Float,155.16,YONEPSE + SocrateAI
+2026-06-26,Sensitive Float,154.93,YONEPSE + SocrateAI
+2026-06-29,Sensitive Float,154.34,YONEPSE + SocrateAI
+2026-06-30,Sensitive Float,153.24,YONEPSE + SocrateAI
+2026-07-01,Sensitive Float,155.28,YONEPSE + SocrateAI
+2026-07-06,Sensitive Float,154.42,YONEPSE + SocrateAI
+2026-07-08,Sensitive Float,154.58,YONEPSE + SocrateAI
+2026-07-09,Sensitive Float,153.67,YONEPSE + SocrateAI
+2026-07-14,Sensitive Float,152.50,YONEPSE + SocrateAI
+2026-07-15,Sensitive Float,153.50,YONEPSE + SocrateAI
+2026-07-16,Sensitive Float,154.43,YONEPSE + SocrateAI
+2026-07-17,Sensitive Float,158.56,YONEPSE + SocrateAI
+2026-07-20,Sensitive Float,160.02,YONEPSE + SocrateAI
+2026-07-21,Sensitive Float,160.02,YONEPSE + SocrateAI
+2026-07-23,Sensitive Float,159.73,YONEPSE + SocrateAI
+2026-07-27,Sensitive Float,159.88,YONEPSE + SocrateAI
+2026-07-28,Sensitive Float,159.70,YONEPSE + SocrateAI
+2026-07-29,Sensitive Float,159.27,YONEPSE + SocrateAI
+2026-07-31,Sensitive Float,159.48,YONEPSE + SocrateAI
+2026-08-05,Sensitive Float,158.26,YONEPSE + SocrateAI
+2026-08-06,Sensitive Float,157.34,YONEPSE + SocrateAI
+2026-08-07,Sensitive Float,156.90,YONEPSE + SocrateAI
+2026-08-10,Sensitive Float,156.17,YONEPSE + SocrateAI
+2026-08-12,Sensitive Float,156.96,YONEPSE + SocrateAI
+2026-08-13,Sensitive Float,157.33,YONEPSE + SocrateAI
+2026-08-14,Sensitive Float,157.13,YONEPSE + SocrateAI
+2026-08-18,Sensitive Float,155.76,YONEPSE + SocrateAI
+2026-08-20,Sensitive Float,156.31,YONEPSE + SocrateAI
+2026-08-21,Sensitive Float,155.92,YONEPSE + SocrateAI
+2026-08-24,Sensitive Float,154.81,YONEPSE + SocrateAI
+2026-08-25,Sensitive Float,154.61,YONEPSE + SocrateAI
+2026-08-26,Sensitive Float,152.51,YONEPSE + SocrateAI
+2026-08-31,Sensitive Float,149.77,YONEPSE + SocrateAI
+2026-09-01,Sensitive Float,150.43,YONEPSE + SocrateAI
+2026-09-02,Sensitive Float,151.61,YONEPSE + SocrateAI
+2026-09-03,Sensitive Float,151.73,YONEPSE + SocrateAI
+2026-09-07,Sensitive Float,153.26,YONEPSE + SocrateAI
+2026-09-09,Sensitive Float,152.59,YONEPSE + SocrateAI
+2026-09-10,Sensitive Float,151.78,YONEPSE + SocrateAI
+2026-09-11,Sensitive Float,153.21,YONEPSE + SocrateAI
+2026-09-14,Sensitive Float,154.77,YONEPSE + SocrateAI
+2026-09-15,Sensitive Float,157.91,YONEPSE + SocrateAI
+2026-09-17,Sensitive Float,157.42,YONEPSE + SocrateAI
+2026-09-18,Sensitive Float,159.32,YONEPSE + SocrateAI
+2026-09-22,Sensitive Float,160.00,YONEPSE + SocrateAI
+2026-09-28,Sensitive Float,157.88,YONEPSE + SocrateAI
+2026-09-29,Sensitive Float,157.44,YONEPSE + SocrateAI
+2026-09-30,Sensitive Float,156.78,YONEPSE + SocrateAI
+2026-10-01,Sensitive Float,156.90,YONEPSE + SocrateAI
+2026-10-02,Sensitive Float,156.19,YONEPSE + SocrateAI
+2026-10-06,Sensitive Float,155.84,YONEPSE + SocrateAI
+2026-10-08,Sensitive Float,155.95,closing archive + SocrateAI
+2026-10-09,Sensitive Float,157.46,closing archive + SocrateAI
+2026-10-12,Sensitive Float,158.13,closing archive + SocrateAI
+2026-10-13,Sensitive Float,158.97,closing archive + SocrateAI
+2026-10-14,Sensitive Float,160.68,closing archive + SocrateAI
+2026-10-16,Sensitive Float,161.62,closing archive + SocrateAI
+2026-10-26,Sensitive Float,160.95,closing archive + SocrateAI
+2026-10-27,Sensitive Float,160.69,closing archive + SocrateAI
+2026-10-28,Sensitive Float,163.09,closing archive + SocrateAI
+2026-10-29,Sensitive Float,165.34,closing archive + SocrateAI
+2026-10-30,Sensitive Float,165.16,closing archive + SocrateAI
+2026-11-02,Sensitive Float,163.18,closing archive + SocrateAI
+2026-11-03,Sensitive Float,163.73,closing archive + SocrateAI
+2026-11-04,Sensitive Float,162.74,closing archive + SocrateAI
+2026-11-05,Sensitive Float,162.05,closing archive + SocrateAI
+2026-11-06,Sensitive Float,162.74,closing archive + SocrateAI
+2026-11-13,Sensitive Float,162.50,closing archive + SocrateAI
+2026-11-17,Sensitive Float,161.76,closing archive + SocrateAI
+2026-11-19,Sensitive Float,161.92,closing archive + SocrateAI
+2026-11-20,Sensitive Float,162.00,closing archive + exchange closing quote
+2026-01-04,Mutual Fund,20.51,YONEPSE + SocrateAI
+2026-01-05,Mutual Fund,20.59,YONEPSE + SocrateAI
+2026-01-06,Mutual Fund,20.69,YONEPSE + SocrateAI
+2026-01-08,Mutual Fund,20.59,YONEPSE + SocrateAI
+2026-01-12,Mutual Fund,20.61,YONEPSE + SocrateAI
+2026-01-13,Mutual Fund,20.70,YONEPSE + SocrateAI
+2026-01-14,Mutual Fund,20.72,YONEPSE + SocrateAI
+2026-01-20,Mutual Fund,21.04,YONEPSE + SocrateAI
+2026-01-21,Mutual Fund,20.90,YONEPSE + SocrateAI
+2026-01-22,Mutual Fund,20.89,YONEPSE + SocrateAI
+2026-01-26,Mutual Fund,21.26,YONEPSE + SocrateAI
+2026-01-27,Mutual Fund,21.25,YONEPSE + SocrateAI
+2026-01-28,Mutual Fund,21.31,YONEPSE + SocrateAI
+2026-01-29,Mutual Fund,21.39,YONEPSE + SocrateAI
+2026-02-01,Mutual Fund,21.28,YONEPSE + SocrateAI
+2026-02-02,Mutual Fund,21.26,YONEPSE + SocrateAI
+2026-02-03,Mutual Fund,21.47,YONEPSE + SocrateAI
+2026-02-05,Mutual Fund,21.52,YONEPSE + SocrateAI
+2026-02-08,Mutual Fund,21.39,YONEPSE + SocrateAI
+2026-02-09,Mutual Fund,21.29,YONEPSE + SocrateAI
+2026-02-10,Mutual Fund,21.33,YONEPSE + SocrateAI
+2026-02-11,Mutual Fund,21.25,YONEPSE + SocrateAI
+2026-02-12,Mutual Fund,21.30,YONEPSE + SocrateAI
+2026-02-16,Mutual Fund,21.25,YONEPSE + SocrateAI
+2026-02-22,Mutual Fund,21.31,YONEPSE + SocrateAI
+2026-02-23,Mutual Fund,21.22,YONEPSE + SocrateAI
+2026-02-24,Mutual Fund,21.24,YONEPSE + SocrateAI
+2026-02-26,Mutual Fund,21.18,YONEPSE + SocrateAI
+2026-03-01,Mutual Fund,21.18,YONEPSE + SocrateAI
+2026-03-03,Mutual Fund,21.36,YONEPSE + SocrateAI
+2026-03-09,Mutual Fund,21.40,YONEPSE + SocrateAI
+2026-03-10,Mutual Fund,21.69,YONEPSE + SocrateAI
+2026-03-11,Mutual Fund,21.76,YONEPSE + SocrateAI
+2026-03-12,Mutual Fund,21.87,YONEPSE + SocrateAI
+2026-03-15,Mutual Fund,21.81,YONEPSE + SocrateAI
+2026-03-17,Mutual Fund,21.80,YONEPSE + SocrateAI
+2026-03-22,Mutual Fund,22.08,YONEPSE + SocrateAI
+2026-03-23,Mutual Fund,22.28,YONEPSE + SocrateAI
+2026-03-24,Mutual Fund,22.33,YONEPSE + SocrateAI
+2026-03-26,Mutual Fund,22.25,YONEPSE + SocrateAI
+2026-03-29,Mutual Fund,22.19,YONEPSE + SocrateAI
+2026-03-30,Mutual Fund,21.97,YONEPSE + SocrateAI
+2026-04-01,Mutual Fund,21.74,YONEPSE + SocrateAI
+2026-04-05,Mutual Fund,21.55,YONEPSE + SocrateAI
+2026-04-06,Mutual Fund,21.85,YONEPSE + SocrateAI
+2026-04-07,Mutual Fund,21.73,YONEPSE + SocrateAI
+2026-04-08,Mutual Fund,21.95,YONEPSE + SocrateAI
+2026-04-09,Mutual Fund,21.98,YONEPSE + SocrateAI
+2026-04-10,Mutual Fund,21.87,YONEPSE + SocrateAI
+2026-04-15,Mutual Fund,22.07,YONEPSE + SocrateAI
+2026-04-16,Mutual Fund,22.04,YONEPSE + SocrateAI
+2026-04-17,Mutual Fund,22.01,YONEPSE + SocrateAI
+2026-04-21,Mutual Fund,21.89,YONEPSE + SocrateAI
+2026-04-22,Mutual Fund,21.80,YONEPSE + SocrateAI
+2026-04-23,Mutual Fund,21.81,YONEPSE + SocrateAI
+2026-04-24,Mutual Fund,21.81,YONEPSE + SocrateAI
+2026-04-30,Mutual Fund,21.61,YONEPSE + SocrateAI
+2026-05-04,Mutual Fund,21.47,YONEPSE + SocrateAI
+2026-05-06,Mutual Fund,21.74,YONEPSE + SocrateAI
+2026-05-07,Mutual Fund,21.71,YONEPSE + SocrateAI
+2026-05-08,Mutual Fund,21.83,YONEPSE + SocrateAI
+2026-05-12,Mutual Fund,21.88,YONEPSE + SocrateAI
+2026-05-13,Mutual Fund,21.79,YONEPSE + SocrateAI
+2026-05-14,Mutual Fund,21.81,YONEPSE + SocrateAI
+2026-05-15,Mutual Fund,21.74,YONEPSE + SocrateAI
+2026-05-18,Mutual Fund,21.71,YONEPSE + SocrateAI
+2026-05-19,Mutual Fund,21.66,YONEPSE + SocrateAI
+2026-05-21,Mutual Fund,21.87,YONEPSE + SocrateAI
+2026-05-22,Mutual Fund,21.89,YONEPSE + SocrateAI
+2026-05-25,Mutual Fund,21.85,YONEPSE + SocrateAI
+2026-05-26,Mutual Fund,21.90,YONEPSE + SocrateAI
+2026-05-27,Mutual Fund,21.99,YONEPSE + SocrateAI
+2026-06-02,Mutual Fund,21.86,YONEPSE + SocrateAI
+2026-06-03,Mutual Fund,21.86,YONEPSE + SocrateAI
+2026-06-04,Mutual Fund,21.93,YONEPSE + SocrateAI
+2026-06-05,Mutual Fund,22.00,YONEPSE + SocrateAI
+2026-06-08,Mutual Fund,21.86,YONEPSE + SocrateAI
+2026-06-09,Mutual Fund,21.83,YONEPSE + SocrateAI
+2026-06-10,Mutual Fund,21.83,YONEPSE + SocrateAI
+2026-06-11,Mutual Fund,21.79,YONEPSE + SocrateAI
+2026-06-15,Mutual Fund,21.84,YONEPSE + SocrateAI
+2026-06-17,Mutual Fund,21.84,YONEPSE + SocrateAI
+2026-06-18,Mutual Fund,21.88,YONEPSE + SocrateAI
+2026-06-19,Mutual Fund,21.78,YONEPSE + SocrateAI
+2026-06-23,Mutual Fund,21.74,YONEPSE + SocrateAI
+2026-06-24,Mutual Fund,21.65,YONEPSE + SocrateAI
+2026-06-25,Mutual Fund,21.62,YONEPSE + SocrateAI
+2026-06-26,Mutual Fund,21.67,YONEPSE + SocrateAI
+2026-06-29,Mutual Fund,21.61,YONEPSE + SocrateAI
+2026-07-03,Mutual Fund,21.64,YONEPSE + SocrateAI
+2026-07-06,Mutual Fund,21.56,YONEPSE + SocrateAI
+2026-07-08,Mutual Fund,21.65,YONEPSE + SocrateAI
+2026-07-09,Mutual Fund,21.40,YONEPSE + SocrateAI
+2026-07-10,Mutual Fund,21.47,YONEPSE + SocrateAI
+2026-07-14,Mutual Fund,21.43,YONEPSE + SocrateAI
+2026-07-15,Mutual Fund,21.43,YONEPSE + SocrateAI
+2026-07-16,Mutual Fund,21.79,YONEPSE + SocrateAI
+2026-07-17,Mutual Fund,21.72,YONEPSE + SocrateAI
+2026-07-20,Mutual Fund,21.72,YONEPSE + SocrateAI
+2026-07-21,Mutual Fund,21.56,YONEPSE + SocrateAI
+2026-07-22,Mutual Fund,21.54,YONEPSE + SocrateAI
+2026-07-23,Mutual Fund,21.66,YONEPSE + SocrateAI
+2026-07-27,Mutual Fund,21.24,YONEPSE + SocrateAI
+2026-07-29,Mutual Fund,21.21,YONEPSE + SocrateAI
+2026-07-30,Mutual Fund,21.06,YONEPSE + SocrateAI
+2026-07-31,Mutual Fund,21.11,YONEPSE + SocrateAI
+2026-08-04,Mutual Fund,21.12,YONEPSE + SocrateAI
+2026-08-10,Mutual Fund,20.97,YONEPSE + SocrateAI
+2026-08-11,Mutual Fund,20.89,YONEPSE + SocrateAI
+2026-08-12,Mutual Fund,20.95,YONEPSE + SocrateAI
+2026-08-14,Mutual Fund,20.95,YONEPSE + SocrateAI
+2026-08-17,Mutual Fund,21.02,YONEPSE + SocrateAI
+2026-08-18,Mutual Fund,20.87,YONEPSE + SocrateAI
+2026-08-19,Mutual Fund,20.84,YONEPSE + SocrateAI
+2026-08-20,Mutual Fund,20.70,YONEPSE + SocrateAI
+2026-08-21,Mutual Fund,20.71,YONEPSE + SocrateAI
+2026-08-24,Mutual Fund,20.54,YONEPSE + SocrateAI
+2026-08-25,Mutual Fund,20.43,YONEPSE + SocrateAI
+2026-08-26,Mutual Fund,20.31,YONEPSE + SocrateAI
+2026-08-27,Mutual Fund,19.69,YONEPSE + SocrateAI
+2026-08-31,Mutual Fund,19.49,YONEPSE + SocrateAI
+2026-09-03,Mutual Fund,19.55,YONEPSE + SocrateAI
+2026-09-07,Mutual Fund,19.69,YONEPSE + SocrateAI
+2026-09-09,Mutual Fund,19.59,YONEPSE + SocrateAI
+2026-09-10,Mutual Fund,19.48,YONEPSE + SocrateAI
+2026-09-11,Mutual Fund,19.50,YONEPSE + SocrateAI
+2026-09-14,Mutual Fund,19.44,YONEPSE + SocrateAI
+2026-09-16,Mutual Fund,19.51,YONEPSE + SocrateAI
+2026-09-17,Mutual Fund,19.63,YONEPSE + SocrateAI
+2026-09-22,Mutual Fund,19.61,YONEPSE + SocrateAI
+2026-09-23,Mutual Fund,19.58,YONEPSE + SocrateAI
+2026-09-24,Mutual Fund,19.67,YONEPSE + SocrateAI
+2026-09-29,Mutual Fund,19.43,YONEPSE + SocrateAI
+2026-09-30,Mutual Fund,19.48,YONEPSE + SocrateAI
+2026-10-01,Mutual Fund,19.43,YONEPSE + SocrateAI
+2026-10-06,Mutual Fund,19.50,YONEPSE + SocrateAI
+2026-10-07,Mutual Fund,19.47,closing archive + SocrateAI
+2026-10-08,Mutual Fund,19.48,closing archive + SocrateAI
+2026-10-09,Mutual Fund,19.55,closing archive + SocrateAI
+2026-10-12,Mutual Fund,19.50,closing archive + SocrateAI
+2026-10-14,Mutual Fund,19.56,closing archive + SocrateAI
+2026-10-15,Mutual Fund,19.60,closing archive + SocrateAI
+2026-10-16,Mutual Fund,19.75,closing archive + SocrateAI
+2026-10-26,Mutual Fund,19.76,closing archive + SocrateAI
+2026-10-27,Mutual Fund,19.83,closing archive + SocrateAI
+2026-10-29,Mutual Fund,19.98,closing archive + SocrateAI
+2026-10-30,Mutual Fund,20.03,closing archive + SocrateAI
+2026-11-02,Mutual Fund,19.88,closing archive + SocrateAI
+2026-11-03,Mutual Fund,19.90,closing archive + SocrateAI
+2026-11-04,Mutual Fund,19.92,closing archive + SocrateAI
+2026-11-05,Mutual Fund,19.90,closing archive + SocrateAI
+2026-11-06,Mutual Fund,20.01,closing archive + SocrateAI
+2026-11-13,Mutual Fund,19.92,closing archive + SocrateAI
+2026-11-17,Mutual Fund,19.94,closing archive + SocrateAI
+2026-11-18,Mutual Fund,19.98,closing archive + SocrateAI
+2026-11-19,Mutual Fund,19.98,closing archive + SocrateAI
+2026-11-20,Mutual Fund,20.06,closing archive + published closing quote
+2026-01-04,Commercial Banks,1359.93,YONEPSE + SocrateAI
+2026-01-05,Commercial Banks,1369.15,YONEPSE + SocrateAI
+2026-01-06,Commercial Banks,1375.14,YONEPSE + SocrateAI
+2026-01-07,Commercial Banks,1371.75,YONEPSE + SocrateAI
+2026-01-08,Commercial Banks,1375.98,YONEPSE + SocrateAI
+2026-01-12,Commercial Banks,1372.50,YONEPSE + SocrateAI
+2026-01-13,Commercial Banks,1370.56,YONEPSE + SocrateAI
+2026-01-14,Commercial Banks,1369.44,YONEPSE + SocrateAI
+2026-01-18,Commercial Banks,1381.11,YONEPSE + SocrateAI
+2026-01-20,Commercial Banks,1398.26,YONEPSE + SocrateAI
+2026-01-22,Commercial Banks,1391.66,YONEPSE + SocrateAI
+2026-01-25,Commercial Banks,1416.57,YONEPSE + SocrateAI
+2026-01-26,Commercial Banks,1414.21,YONEPSE + SocrateAI
+2026-01-27,Commercial Banks,1393.12,YONEPSE + SocrateAI
+2026-01-28,Commercial Banks,1391.62,YONEPSE + SocrateAI
+2026-01-29,Commercial Banks,1385.04,YONEPSE + SocrateAI
+2026-02-01,Commercial Banks,1379.17,YONEPSE + SocrateAI
+2026-02-02,Commercial Banks,1377.81,YONEPSE + SocrateAI
+2026-02-03,Commercial Banks,1369.07,YONEPSE + SocrateAI
+2026-02-05,Commercial Banks,1372.22,YONEPSE + SocrateAI
+2026-02-09,Commercial Banks,1359.81,YONEPSE + SocrateAI
+2026-02-10,Commercial Banks,1358.48,YONEPSE + SocrateAI
+2026-02-11,Commercial Banks,1359.97,YONEPSE + SocrateAI
+2026-02-12,Commercial Banks,1364.72,YONEPSE + SocrateAI
+2026-02-16,Commercial Banks,1363.96,YONEPSE + SocrateAI
+2026-02-17,Commercial Banks,1357.79,YONEPSE + SocrateAI
+2026-02-22,Commercial Banks,1350.64,YONEPSE + SocrateAI
+2026-02-24,Commercial Banks,1358.68,YONEPSE + SocrateAI
+2026-02-25,Commercial Banks,1361.79,YONEPSE + SocrateAI
+2026-02-26,Commercial Banks,1370.60,YONEPSE + SocrateAI
+2026-03-03,Commercial Banks,1404.18,YONEPSE + SocrateAI
+2026-03-10,Commercial Banks,1482.25,YONEPSE + SocrateAI
+2026-03-11,Commercial Banks,1455.14,YONEPSE + SocrateAI
+2026-03-12,Commercial Banks,1484.57,YONEPSE + SocrateAI
+2026-03-15,Commercial Banks,1487.73,YONEPSE + SocrateAI
+2026-03-16,Commercial Banks,1463.77,YONEPSE + SocrateAI
+2026-03-17,Commercial Banks,1476.19,YONEPSE + SocrateAI
+2026-03-19,Commercial Banks,1522.89,YONEPSE + SocrateAI
+2026-03-22,Commercial Banks,1560.92,YONEPSE + SocrateAI
+2026-03-23,Commercial Banks,1556.55,YONEPSE + SocrateAI
+2026-03-24,Commercial Banks,1567.10,YONEPSE + SocrateAI
+2026-03-25,Commercial Banks,1545.06,YONEPSE + SocrateAI
+2026-03-26,Commercial Banks,1550.82,YONEPSE + SocrateAI
+2026-03-29,Commercial Banks,1507.57,YONEPSE + SocrateAI
+2026-03-30,Commercial Banks,1479.52,YONEPSE + SocrateAI
+2026-04-01,Commercial Banks,1456.41,YONEPSE + SocrateAI
+2026-04-02,Commercial Banks,1454.77,YONEPSE + SocrateAI
+2026-04-05,Commercial Banks,1406.40,YONEPSE + SocrateAI
+2026-04-06,Commercial Banks,1451.19,YONEPSE + SocrateAI
+2026-04-07,Commercial Banks,1451.87,YONEPSE + SocrateAI
+2026-04-09,Commercial Banks,1486.99,YONEPSE + SocrateAI
+2026-04-10,Commercial Banks,1475.94,YONEPSE + SocrateAI
+2026-04-13,Commercial Banks,1468.90,YONEPSE + SocrateAI
+2026-04-16,Commercial Banks,1475.99,YONEPSE + SocrateAI
+2026-04-17,Commercial Banks,1471.96,YONEPSE + SocrateAI
+2026-04-20,Commercial Banks,1459.49,YONEPSE + SocrateAI
+2026-04-21,Commercial Banks,1452.92,YONEPSE + SocrateAI
+2026-04-22,Commercial Banks,1454.83,YONEPSE + SocrateAI
+2026-04-23,Commercial Banks,1443.63,YONEPSE + SocrateAI
+2026-04-24,Commercial Banks,1446.82,YONEPSE + SocrateAI
+2026-04-27,Commercial Banks,1456.75,YONEPSE + SocrateAI
+2026-04-30,Commercial Banks,1434.32,YONEPSE + SocrateAI
+2026-01-01,Development Banks,5465.73,YONEPSE + SocrateAI
+2026-01-04,Development Banks,5421.57,YONEPSE + SocrateAI
+2026-01-05,Development Banks,5567.95,YONEPSE + SocrateAI
+2026-01-06,Development Banks,5612.37,YONEPSE + SocrateAI
+2026-01-07,Development Banks,5564.95,YONEPSE + SocrateAI
+2026-01-08,Development Banks,5575.07,YONEPSE + SocrateAI
+2026-01-12,Development Banks,5576.54,YONEPSE + SocrateAI
+2026-01-13,Development Banks,5576.95,YONEPSE + SocrateAI
+2026-01-14,Development Banks,5577.85,YONEPSE + SocrateAI
+2026-01-18,Development Banks,5747.37,YONEPSE + SocrateAI
+2026-01-20,Development Banks,5831.09,YONEPSE + SocrateAI
+2026-01-21,Development Banks,5796.46,YONEPSE + SocrateAI
+2026-01-22,Development Banks,5884.12,YONEPSE + SocrateAI
+2026-01-25,Development Banks,5983.21,YONEPSE + SocrateAI
+2026-01-26,Development Banks,5979.42,YONEPSE + SocrateAI
+2026-01-27,Development Banks,5919.44,YONEPSE + SocrateAI
+2026-02-01,Development Banks,5752.70,YONEPSE + SocrateAI
+2026-02-02,Development Banks,5794.56,YONEPSE + SocrateAI
+2026-02-03,Development Banks,5758.83,YONEPSE + SocrateAI
+2026-02-04,Development Banks,5764.90,YONEPSE + SocrateAI
+2026-02-08,Development Banks,5764.60,YONEPSE + SocrateAI
+2026-02-09,Development Banks,5685.52,YONEPSE + SocrateAI
+2026-02-10,Development Banks,5619.84,YONEPSE + SocrateAI
+2026-02-11,Development Banks,5629.97,YONEPSE + SocrateAI
+2026-02-12,Development Banks,5696.77,YONEPSE + SocrateAI
+2026-02-16,Development Banks,5670.10,YONEPSE + SocrateAI
+2026-02-17,Development Banks,5602.74,YONEPSE + SocrateAI
+2026-02-22,Development Banks,5523.64,YONEPSE + SocrateAI
+2026-02-25,Development Banks,5648.16,YONEPSE + SocrateAI
+2026-02-26,Development Banks,5655.54,YONEPSE + SocrateAI
+2026-03-01,Development Banks,5699.34,YONEPSE + SocrateAI
+2026-03-03,Development Banks,5790.39,YONEPSE + SocrateAI
+2026-03-09,Development Banks,6133.13,YONEPSE + SocrateAI
+2026-03-10,Development Banks,6061.57,YONEPSE + SocrateAI
+2026-03-11,Development Banks,5963.83,YONEPSE + SocrateAI
+2026-03-12,Development Banks,6040.19,YONEPSE + SocrateAI
+2026-03-15,Development Banks,6085.48,YONEPSE + SocrateAI
+2026-03-16,Development Banks,6034.01,YONEPSE + SocrateAI
+2026-03-17,Development Banks,6072.71,YONEPSE + SocrateAI
+2026-03-19,Development Banks,6312.93,YONEPSE + SocrateAI
+2026-03-22,Development Banks,6468.70,YONEPSE + SocrateAI
+2026-03-23,Development Banks,6436.33,YONEPSE + SocrateAI
+2026-03-25,Development Banks,6373.53,YONEPSE + SocrateAI
+2026-03-26,Development Banks,6369.68,YONEPSE + SocrateAI
+2026-03-30,Development Banks,6109.69,YONEPSE + SocrateAI
+2026-04-01,Development Banks,5968.73,YONEPSE + SocrateAI
+2026-04-02,Development Banks,5997.67,YONEPSE + SocrateAI
+2026-04-05,Development Banks,5738.12,YONEPSE + SocrateAI
+2026-04-06,Development Banks,5946.50,YONEPSE + SocrateAI
+2026-04-07,Development Banks,5909.18,YONEPSE + SocrateAI
+2026-04-08,Development Banks,6026.71,YONEPSE + SocrateAI
+2026-04-09,Development Banks,6074.02,YONEPSE + SocrateAI
+2026-04-10,Development Banks,6033.17,YONEPSE + SocrateAI
+2026-04-13,Development Banks,5999.85,YONEPSE + SocrateAI
+2026-04-15,Development Banks,6091.70,YONEPSE + SocrateAI
+2026-04-17,Development Banks,5998.07,YONEPSE + SocrateAI
+2026-04-20,Development Banks,5988.41,YONEPSE + SocrateAI
+2026-04-21,Development Banks,5988.35,YONEPSE + SocrateAI
+2026-04-22,Development Banks,5971.63,YONEPSE + SocrateAI
+2026-04-23,Development Banks,5966.55,YONEPSE + SocrateAI
+2026-04-24,Development Banks,5980.07,YONEPSE + SocrateAI
+2026-04-27,Development Banks,6048.34,YONEPSE + SocrateAI
+2026-04-28,Development Banks,5974.06,YONEPSE + SocrateAI
+2026-04-29,Development Banks,5982.43,YONEPSE + SocrateAI
+2026-04-30,Development Banks,5953.49,YONEPSE + SocrateAI
+2026-01-01,Finance,2305.20,YONEPSE + SocrateAI
+2026-01-04,Finance,2302.20,YONEPSE + SocrateAI
+2026-01-05,Finance,2321.52,YONEPSE + SocrateAI
+2026-01-06,Finance,2388.16,YONEPSE + SocrateAI
+2026-01-07,Finance,2393.23,YONEPSE + SocrateAI
+2026-01-08,Finance,2382.65,YONEPSE + SocrateAI
+2026-01-12,Finance,2369.88,YONEPSE + SocrateAI
+2026-01-13,Finance,2362.82,YONEPSE + SocrateAI
+2026-01-14,Finance,2423.26,YONEPSE + SocrateAI
+2026-01-18,Finance,2562.15,YONEPSE + SocrateAI
+2026-01-20,Finance,2587.14,YONEPSE + SocrateAI
+2026-01-21,Finance,2543.86,YONEPSE + SocrateAI
+2026-01-22,Finance,2604.46,YONEPSE + SocrateAI
+2026-01-25,Finance,2649.75,YONEPSE + SocrateAI
+2026-01-26,Finance,2637.61,YONEPSE + SocrateAI
+2026-01-29,Finance,2562.13,YONEPSE + SocrateAI
+2026-02-01,Finance,2550.82,YONEPSE + SocrateAI
+2026-02-02,Finance,2527.98,YONEPSE + SocrateAI
+2026-02-04,Finance,2523.65,YONEPSE + SocrateAI
+2026-02-05,Finance,2535.82,YONEPSE + SocrateAI
+2026-02-09,Finance,2477.26,YONEPSE + SocrateAI
+2026-02-11,Finance,2448.19,YONEPSE + SocrateAI
+2026-02-12,Finance,2456.78,YONEPSE + SocrateAI
+2026-02-17,Finance,2418.23,YONEPSE + SocrateAI
+2026-02-22,Finance,2404.68,YONEPSE + SocrateAI
+2026-02-24,Finance,2433.79,YONEPSE + SocrateAI
+2026-02-25,Finance,2426.97,YONEPSE + SocrateAI
+2026-02-26,Finance,2444.40,YONEPSE + SocrateAI
+2026-03-01,Finance,2498.90,YONEPSE + SocrateAI
+2026-03-03,Finance,2534.72,YONEPSE + SocrateAI
+2026-03-09,Finance,2673.42,YONEPSE + SocrateAI
+2026-03-10,Finance,2618.28,YONEPSE + SocrateAI
+2026-03-11,Finance,2563.78,YONEPSE + SocrateAI
+2026-03-12,Finance,2597.18,YONEPSE + SocrateAI
+2026-03-16,Finance,2584.50,YONEPSE + SocrateAI
+2026-03-17,Finance,2579.52,YONEPSE + SocrateAI
+2026-03-19,Finance,2629.57,YONEPSE + SocrateAI
+2026-03-22,Finance,2685.83,YONEPSE + SocrateAI
+2026-03-23,Finance,2691.39,YONEPSE + SocrateAI
+2026-03-24,Finance,2705.17,YONEPSE + SocrateAI
+2026-03-25,Finance,2648.40,YONEPSE + SocrateAI
+2026-03-26,Finance,2652.93,YONEPSE + SocrateAI
+2026-03-30,Finance,2512.15,YONEPSE + SocrateAI
+2026-04-01,Finance,2463.17,YONEPSE + SocrateAI
+2026-04-02,Finance,2441.57,YONEPSE + SocrateAI
+2026-04-05,Finance,2345.35,YONEPSE + SocrateAI
+2026-04-06,Finance,2440.01,YONEPSE + SocrateAI
+2026-04-07,Finance,2429.78,YONEPSE + SocrateAI
+2026-04-08,Finance,2465.06,YONEPSE + SocrateAI
+2026-04-09,Finance,2501.42,YONEPSE + SocrateAI
+2026-04-10,Finance,2486.22,YONEPSE + SocrateAI
+2026-04-13,Finance,2478.96,YONEPSE + SocrateAI
+2026-04-15,Finance,2509.19,YONEPSE + SocrateAI
+2026-04-17,Finance,2451.33,YONEPSE + SocrateAI
+2026-04-20,Finance,2434.03,YONEPSE + SocrateAI
+2026-04-21,Finance,2407.37,YONEPSE + SocrateAI
+2026-04-22,Finance,2421.50,YONEPSE + SocrateAI
+2026-04-23,Finance,2395.78,YONEPSE + SocrateAI
+2026-04-24,Finance,2380.80,YONEPSE + SocrateAI
+2026-04-29,Finance,2362.27,YONEPSE + SocrateAI
+2026-04-30,Finance,2357.48,YONEPSE + SocrateAI
+2026-01-01,Hotels And Tourism,6916.82,YONEPSE + SocrateAI
+2026-01-04,Hotels And Tourism,6960.20,YONEPSE + SocrateAI
+2026-01-06,Hotels And Tourism,7119.62,YONEPSE + SocrateAI
+2026-01-07,Hotels And Tourism,7019.96,YONEPSE + SocrateAI
+2026-01-08,Hotels And Tourism,7048.58,YONEPSE + SocrateAI
+2026-01-12,Hotels And Tourism,7056.02,YONEPSE + SocrateAI
+2026-01-13,Hotels And Tourism,7021.91,YONEPSE + SocrateAI
+2026-01-14,Hotels And Tourism,7044.37,YONEPSE + SocrateAI
+2026-01-18,Hotels And Tourism,7187.02,YONEPSE + SocrateAI
+2026-01-20,Hotels And Tourism,7428.58,YONEPSE + SocrateAI
+2026-01-21,Hotels And Tourism,7288.25,YONEPSE + SocrateAI
+2026-01-22,Hotels And Tourism,7380.10,YONEPSE + SocrateAI
+2026-01-25,Hotels And Tourism,7627.36,YONEPSE + SocrateAI
+2026-01-26,Hotels And Tourism,7755.05,YONEPSE + SocrateAI
+2026-01-29,Hotels And Tourism,7522.36,YONEPSE + SocrateAI
+2026-02-01,Hotels And Tourism,7390.05,YONEPSE + SocrateAI
+2026-02-02,Hotels And Tourism,7521.28,YONEPSE + SocrateAI
+2026-02-03,Hotels And Tourism,7656.03,YONEPSE + SocrateAI
+2026-02-04,Hotels And Tourism,7670.11,YONEPSE + SocrateAI
+2026-02-05,Hotels And Tourism,7687.19,YONEPSE + SocrateAI
+2026-02-08,Hotels And Tourism,7522.74,YONEPSE + SocrateAI
+2026-02-09,Hotels And Tourism,7418.54,YONEPSE + SocrateAI
+2026-02-10,Hotels And Tourism,7382.88,YONEPSE + SocrateAI
+2026-02-11,Hotels And Tourism,7335.80,YONEPSE + SocrateAI
+2026-02-12,Hotels And Tourism,7214.45,YONEPSE + SocrateAI
+2026-02-16,Hotels And Tourism,7246.09,YONEPSE + SocrateAI
+2026-02-17,Hotels And Tourism,7159.34,YONEPSE + SocrateAI
+2026-02-22,Hotels And Tourism,7080.86,YONEPSE + SocrateAI
+2026-02-23,Hotels And Tourism,7055.69,YONEPSE + SocrateAI
+2026-02-25,Hotels And Tourism,7236.10,YONEPSE + SocrateAI
+2026-02-26,Hotels And Tourism,7223.84,YONEPSE + SocrateAI
+2026-03-01,Hotels And Tourism,7253.52,YONEPSE + SocrateAI
+2026-03-03,Hotels And Tourism,7370.15,YONEPSE + SocrateAI
+2026-03-09,Hotels And Tourism,7793.07,YONEPSE + SocrateAI
+2026-03-10,Hotels And Tourism,7648.23,YONEPSE + SocrateAI
+2026-03-11,Hotels And Tourism,7528.43,YONEPSE + SocrateAI
+2026-03-12,Hotels And Tourism,7501.65,YONEPSE + SocrateAI
+2026-03-15,Hotels And Tourism,7455.03,YONEPSE + SocrateAI
+2026-03-16,Hotels And Tourism,7435.64,YONEPSE + SocrateAI
+2026-03-17,Hotels And Tourism,7422.45,YONEPSE + SocrateAI
+2026-03-19,Hotels And Tourism,7552.91,YONEPSE + SocrateAI
+2026-03-22,Hotels And Tourism,7783.72,YONEPSE + SocrateAI
+2026-03-23,Hotels And Tourism,7716.03,YONEPSE + SocrateAI
+2026-03-25,Hotels And Tourism,7698.78,YONEPSE + SocrateAI
+2026-03-26,Hotels And Tourism,7761.14,YONEPSE + SocrateAI
+2026-03-30,Hotels And Tourism,7497.48,YONEPSE + SocrateAI
+2026-04-01,Hotels And Tourism,7411.84,YONEPSE + SocrateAI
+2026-04-02,Hotels And Tourism,7441.32,YONEPSE + SocrateAI
+2026-04-05,Hotels And Tourism,7214.65,YONEPSE + SocrateAI
+2026-04-06,Hotels And Tourism,7448.59,YONEPSE + SocrateAI
+2026-04-07,Hotels And Tourism,7529.75,YONEPSE + SocrateAI
+2026-04-10,Hotels And Tourism,7872.88,YONEPSE + SocrateAI
+2026-04-13,Hotels And Tourism,7953.24,YONEPSE + SocrateAI
+2026-04-16,Hotels And Tourism,8163.53,YONEPSE + SocrateAI
+2026-04-17,Hotels And Tourism,8276.85,YONEPSE + SocrateAI
+2026-04-20,Hotels And Tourism,8360.91,YONEPSE + SocrateAI
+2026-04-21,Hotels And Tourism,8457.99,YONEPSE + SocrateAI
+2026-04-22,Hotels And Tourism,8258.24,YONEPSE + SocrateAI
+2026-04-23,Hotels And Tourism,8140.53,YONEPSE + SocrateAI
+2026-04-24,Hotels And Tourism,8167.38,YONEPSE + SocrateAI
+2026-04-27,Hotels And Tourism,8246.77,YONEPSE + SocrateAI
+2026-04-28,Hotels And Tourism,8035.56,YONEPSE + SocrateAI
+2026-04-29,Hotels And Tourism,7903.05,YONEPSE + SocrateAI
+2026-04-30,Hotels And Tourism,7899.30,YONEPSE + SocrateAI
+2026-01-04,Hydro Power,3312.57,YONEPSE + SocrateAI
+2026-01-05,Hydro Power,3360.38,YONEPSE + SocrateAI
+2026-01-06,Hydro Power,3365.15,YONEPSE + SocrateAI
+2026-01-07,Hydro Power,3338.35,YONEPSE + SocrateAI
+2026-01-08,Hydro Power,3349.06,YONEPSE + SocrateAI
+2026-01-12,Hydro Power,3345.25,YONEPSE + SocrateAI
+2026-01-13,Hydro Power,3379.49,YONEPSE + SocrateAI
+2026-01-14,Hydro Power,3382.09,YONEPSE + SocrateAI
+2026-01-18,Hydro Power,3405.86,YONEPSE + SocrateAI
+2026-01-20,Hydro Power,3466.47,YONEPSE + SocrateAI
+2026-01-21,Hydro Power,3465.31,YONEPSE + SocrateAI
+2026-01-22,Hydro Power,3495.44,YONEPSE + SocrateAI
+2026-01-25,Hydro Power,3591.43,YONEPSE + SocrateAI
+2026-01-26,Hydro Power,3602.47,YONEPSE + SocrateAI
+2026-01-27,Hydro Power,3551.66,YONEPSE + SocrateAI
+2026-02-01,Hydro Power,3548.77,YONEPSE + SocrateAI
+2026-02-02,Hydro Power,3543.92,YONEPSE + SocrateAI
+2026-02-03,Hydro Power,3509.53,YONEPSE + SocrateAI
+2026-02-04,Hydro Power,3522.93,YONEPSE + SocrateAI
+2026-02-05,Hydro Power,3581.43,YONEPSE + SocrateAI
+2026-02-08,Hydro Power,3570.32,YONEPSE + SocrateAI
+2026-02-09,Hydro Power,3550.71,YONEPSE + SocrateAI
+2026-02-11,Hydro Power,3558.40,YONEPSE + SocrateAI
+2026-02-12,Hydro Power,3593.05,YONEPSE + SocrateAI
+2026-02-16,Hydro Power,3556.32,YONEPSE + SocrateAI
+2026-02-17,Hydro Power,3498.17,YONEPSE + SocrateAI
+2026-02-22,Hydro Power,3434.63,YONEPSE + SocrateAI
+2026-02-24,Hydro Power,3470.25,YONEPSE + SocrateAI
+2026-02-26,Hydro Power,3485.72,YONEPSE + SocrateAI
+2026-03-01,Hydro Power,3502.12,YONEPSE + SocrateAI
+2026-03-09,Hydro Power,3820.70,YONEPSE + SocrateAI
+2026-03-10,Hydro Power,3764.95,YONEPSE + SocrateAI
+2026-03-11,Hydro Power,3738.14,YONEPSE + SocrateAI
+2026-03-12,Hydro Power,3779.53,YONEPSE + SocrateAI
+2026-03-15,Hydro Power,3781.81,YONEPSE + SocrateAI
+2026-03-16,Hydro Power,3758.48,YONEPSE + SocrateAI
+2026-03-17,Hydro Power,3818.47,YONEPSE + SocrateAI
+2026-03-22,Hydro Power,3919.56,YONEPSE + SocrateAI
+2026-03-23,Hydro Power,3957.28,YONEPSE + SocrateAI
+2026-03-24,Hydro Power,4009.67,YONEPSE + SocrateAI
+2026-03-25,Hydro Power,4002.98,YONEPSE + SocrateAI
+2026-03-26,Hydro Power,4065.76,YONEPSE + SocrateAI
+2026-03-29,Hydro Power,3975.81,YONEPSE + SocrateAI
+2026-03-30,Hydro Power,3898.93,YONEPSE + SocrateAI
+2026-04-02,Hydro Power,3819.73,YONEPSE + SocrateAI
+2026-04-05,Hydro Power,3634.74,YONEPSE + SocrateAI
+2026-04-06,Hydro Power,3801.65,YONEPSE + SocrateAI
+2026-04-07,Hydro Power,3807.64,YONEPSE + SocrateAI
+2026-04-08,Hydro Power,3907.16,YONEPSE + SocrateAI
+2026-04-09,Hydro Power,4012.68,YONEPSE + SocrateAI
+2026-04-10,Hydro Power,4016.17,YONEPSE + SocrateAI
+2026-04-13,Hydro Power,4042.84,YONEPSE + SocrateAI
+2026-04-15,Hydro Power,4129.68,YONEPSE + SocrateAI
+2026-04-16,Hydro Power,4067.28,YONEPSE + SocrateAI
+2026-04-17,Hydro Power,4094.65,YONEPSE + SocrateAI
+2026-04-20,Hydro Power,4085.03,YONEPSE + SocrateAI
+2026-04-21,Hydro Power,4034.50,YONEPSE + SocrateAI
+2026-04-22,Hydro Power,4031.94,YONEPSE + SocrateAI
+2026-04-23,Hydro Power,3989.49,YONEPSE + SocrateAI
+2026-04-24,Hydro Power,3999.67,YONEPSE + SocrateAI
+2026-04-27,Hydro Power,3991.88,YONEPSE + SocrateAI
+2026-04-28,Hydro Power,3922.11,YONEPSE + SocrateAI
+2026-04-29,Hydro Power,3865.06,YONEPSE + SocrateAI
+2026-04-30,Hydro Power,3849.42,YONEPSE + SocrateAI
+2026-01-01,Investment,101.87,YONEPSE + SocrateAI
+2026-01-04,Investment,101.53,YONEPSE + SocrateAI
+2026-01-05,Investment,102.81,YONEPSE + SocrateAI
+2026-01-06,Investment,103.15,YONEPSE + SocrateAI
+2026-01-07,Investment,102.58,YONEPSE + SocrateAI
+2026-01-08,Investment,102.36,YONEPSE + SocrateAI
+2026-01-12,Investment,101.92,YONEPSE + SocrateAI
+2026-01-13,Investment,101.97,YONEPSE + SocrateAI
+2026-01-14,Investment,102.09,YONEPSE + SocrateAI
+2026-01-18,Investment,103.05,YONEPSE + SocrateAI
+2026-01-20,Investment,105.67,YONEPSE + SocrateAI
+2026-01-21,Investment,104.99,YONEPSE + SocrateAI
+2026-01-22,Investment,105.09,YONEPSE + SocrateAI
+2026-01-26,Investment,107.48,YONEPSE + SocrateAI
+2026-01-27,Investment,105.65,YONEPSE + SocrateAI
+2026-02-01,Investment,104.52,YONEPSE + SocrateAI
+2026-02-02,Investment,104.31,YONEPSE + SocrateAI
+2026-02-03,Investment,103.77,YONEPSE + SocrateAI
+2026-02-04,Investment,103.86,YONEPSE + SocrateAI
+2026-02-05,Investment,105.14,YONEPSE + SocrateAI
+2026-02-09,Investment,104.28,YONEPSE + SocrateAI
+2026-02-10,Investment,103.72,YONEPSE + SocrateAI
+2026-02-11,Investment,103.79,YONEPSE + SocrateAI
+2026-02-12,Investment,104.45,YONEPSE + SocrateAI
+2026-02-16,Investment,103.81,YONEPSE + SocrateAI
+2026-02-17,Investment,103.30,YONEPSE + SocrateAI
+2026-02-22,Investment,102.33,YONEPSE + SocrateAI
+2026-02-24,Investment,103.34,YONEPSE + SocrateAI
+2026-02-26,Investment,104.05,YONEPSE + SocrateAI
+2026-03-01,Investment,104.66,YONEPSE + SocrateAI
+2026-03-03,Investment,106.26,YONEPSE + SocrateAI
+2026-03-09,Investment,113.77,YONEPSE + SocrateAI
+2026-03-11,Investment,109.86,YONEPSE + SocrateAI
+2026-03-12,Investment,111.11,YONEPSE + SocrateAI
+2026-03-15,Investment,110.51,YONEPSE + SocrateAI
+2026-03-16,Investment,108.82,YONEPSE + SocrateAI
+2026-03-17,Investment,109.49,YONEPSE + SocrateAI
+2026-03-19,Investment,111.43,YONEPSE + SocrateAI
+2026-03-22,Investment,112.29,YONEPSE + SocrateAI
+2026-03-23,Investment,113.11,YONEPSE + SocrateAI
+2026-03-24,Investment,113.24,YONEPSE + SocrateAI
+2026-03-25,Investment,112.63,YONEPSE + SocrateAI
+2026-03-26,Investment,113.21,YONEPSE + SocrateAI
+2026-03-29,Investment,109.83,YONEPSE + SocrateAI
+2026-03-30,Investment,108.08,YONEPSE + SocrateAI
+2026-04-01,Investment,105.79,YONEPSE + SocrateAI
+2026-04-02,Investment,105.95,YONEPSE + SocrateAI
+2026-04-05,Investment,102.42,YONEPSE + SocrateAI
+2026-04-06,Investment,105.83,YONEPSE + SocrateAI
+2026-04-07,Investment,105.34,YONEPSE + SocrateAI
+2026-04-08,Investment,106.77,YONEPSE + SocrateAI
+2026-04-09,Investment,107.84,YONEPSE + SocrateAI
+2026-04-10,Investment,106.63,YONEPSE + SocrateAI
+2026-04-13,Investment,106.77,YONEPSE + SocrateAI
+2026-04-15,Investment,107.72,YONEPSE + SocrateAI
+2026-04-16,Investment,106.35,YONEPSE + SocrateAI
+2026-04-20,Investment,105.36,YONEPSE + SocrateAI
+2026-04-21,Investment,104.72,YONEPSE + SocrateAI
+2026-04-22,Investment,104.83,YONEPSE + SocrateAI
+2026-04-23,Investment,104.27,YONEPSE + SocrateAI
+2026-04-24,Investment,104.24,YONEPSE + SocrateAI
+2026-04-27,Investment,103.94,YONEPSE + SocrateAI
+2026-04-28,Investment,103.45,YONEPSE + SocrateAI
+2026-04-29,Investment,102.76,YONEPSE + SocrateAI
+2026-04-30,Investment,102.32,YONEPSE + SocrateAI
+2026-01-01,Life Insurance,12927.06,YONEPSE + SocrateAI
+2026-01-04,Life Insurance,12813.11,YONEPSE + SocrateAI
+2026-01-05,Life Insurance,12876.94,YONEPSE + SocrateAI
+2026-01-06,Life Insurance,12882.53,YONEPSE + SocrateAI
+2026-01-07,Life Insurance,12872.53,YONEPSE + SocrateAI
+2026-01-08,Life Insurance,12915.30,YONEPSE + SocrateAI
+2026-01-12,Life Insurance,12891.01,YONEPSE + SocrateAI
+2026-01-13,Life Insurance,12868.90,YONEPSE + SocrateAI
+2026-01-18,Life Insurance,13029.39,YONEPSE + SocrateAI
+2026-01-21,Life Insurance,13224.64,YONEPSE + SocrateAI
+2026-01-22,Life Insurance,13228.57,YONEPSE + SocrateAI
+2026-01-25,Life Insurance,13497.25,YONEPSE + SocrateAI
+2026-01-26,Life Insurance,13425.38,YONEPSE + SocrateAI
+2026-01-27,Life Insurance,13175.72,YONEPSE + SocrateAI
+2026-01-28,Life Insurance,13163.77,YONEPSE + SocrateAI
+2026-01-29,Life Insurance,13079.68,YONEPSE + SocrateAI
+2026-02-01,Life Insurance,13011.38,YONEPSE + SocrateAI
+2026-02-02,Life Insurance,12965.17,YONEPSE + SocrateAI
+2026-02-04,Life Insurance,12898.39,YONEPSE + SocrateAI
+2026-02-05,Life Insurance,13042.24,YONEPSE + SocrateAI
+2026-02-08,Life Insurance,12949.09,YONEPSE + SocrateAI
+2026-02-11,Life Insurance,12695.91,YONEPSE + SocrateAI
+2026-02-12,Life Insurance,12759.14,YONEPSE + SocrateAI
+2026-02-22,Life Insurance,12509.01,YONEPSE + SocrateAI
+2026-02-24,Life Insurance,12606.93,YONEPSE + SocrateAI
+2026-02-25,Life Insurance,12832.74,YONEPSE + SocrateAI
+2026-02-26,Life Insurance,12837.31,YONEPSE + SocrateAI
+2026-03-01,Life Insurance,12914.08,YONEPSE + SocrateAI
+2026-03-03,Life Insurance,13050.12,YONEPSE + SocrateAI
+2026-03-09,Life Insurance,13660.44,YONEPSE + SocrateAI
+2026-03-10,Life Insurance,13730.91,YONEPSE + SocrateAI
+2026-03-11,Life Insurance,13458.63,YONEPSE + SocrateAI
+2026-03-12,Life Insurance,13508.36,YONEPSE + SocrateAI
+2026-03-15,Life Insurance,13446.03,YONEPSE + SocrateAI
+2026-03-16,Life Insurance,13318.34,YONEPSE + SocrateAI
+2026-03-17,Life Insurance,13275.78,YONEPSE + SocrateAI
+2026-03-19,Life Insurance,13643.08,YONEPSE + SocrateAI
+2026-03-22,Life Insurance,13916.15,YONEPSE + SocrateAI
+2026-03-23,Life Insurance,13850.53,YONEPSE + SocrateAI
+2026-03-24,Life Insurance,13798.66,YONEPSE + SocrateAI
+2026-03-25,Life Insurance,13605.93,YONEPSE + SocrateAI
+2026-03-26,Life Insurance,13600.30,YONEPSE + SocrateAI
+2026-03-29,Life Insurance,13299.80,YONEPSE + SocrateAI
+2026-03-30,Life Insurance,13113.53,YONEPSE + SocrateAI
+2026-04-01,Life Insurance,12914.31,YONEPSE + SocrateAI
+2026-04-05,Life Insurance,12425.98,YONEPSE + SocrateAI
+2026-04-06,Life Insurance,12756.62,YONEPSE + SocrateAI
+2026-04-07,Life Insurance,12698.52,YONEPSE + SocrateAI
+2026-04-08,Life Insurance,12865.81,YONEPSE + SocrateAI
+2026-04-09,Life Insurance,12993.36,YONEPSE + SocrateAI
+2026-04-10,Life Insurance,12899.98,YONEPSE + SocrateAI
+2026-04-13,Life Insurance,12840.53,YONEPSE + SocrateAI
+2026-04-16,Life Insurance,12783.60,YONEPSE + SocrateAI
+2026-04-17,Life Insurance,12773.56,YONEPSE + SocrateAI
+2026-04-20,Life Insurance,12693.38,YONEPSE + SocrateAI
+2026-04-21,Life Insurance,12663.86,YONEPSE + SocrateAI
+2026-04-22,Life Insurance,12631.88,YONEPSE + SocrateAI
+2026-04-23,Life Insurance,12577.35,YONEPSE + SocrateAI
+2026-04-24,Life Insurance,12543.62,YONEPSE + SocrateAI
+2026-04-27,Life Insurance,12560.48,YONEPSE + SocrateAI
+2026-04-29,Life Insurance,12434.07,YONEPSE + SocrateAI
+2026-04-30,Life Insurance,12401.21,YONEPSE + SocrateAI
+2026-01-01,Microfinance,4904.59,YONEPSE + SocrateAI
+2026-01-04,Microfinance,4888.78,YONEPSE + SocrateAI
+2026-01-05,Microfinance,4914.75,YONEPSE + SocrateAI
+2026-01-06,Microfinance,4955.95,YONEPSE + SocrateAI
+2026-01-07,Microfinance,4935.83,YONEPSE + SocrateAI
+2026-01-08,Microfinance,4933.63,YONEPSE + SocrateAI
+2026-01-12,Microfinance,4900.85,YONEPSE + SocrateAI
+2026-01-13,Microfinance,4890.92,YONEPSE + SocrateAI
+2026-01-14,Microfinance,4888.18,YONEPSE + SocrateAI
+2026-01-18,Microfinance,4952.24,YONEPSE + SocrateAI
+2026-01-20,Microfinance,5028.84,YONEPSE + SocrateAI
+2026-01-22,Microfinance,5034.43,YONEPSE + SocrateAI
+2026-01-25,Microfinance,5115.54,YONEPSE + SocrateAI
+2026-01-26,Microfinance,5089.99,YONEPSE + SocrateAI
+2026-01-27,Microfinance,5016.85,YONEPSE + SocrateAI
+2026-01-29,Microfinance,4980.04,YONEPSE + SocrateAI
+2026-02-01,Microfinance,4951.64,YONEPSE + SocrateAI
+2026-02-02,Microfinance,4943.54,YONEPSE + SocrateAI
+2026-02-03,Microfinance,4922.64,YONEPSE + SocrateAI
+2026-02-04,Microfinance,4907.50,YONEPSE + SocrateAI
+2026-02-05,Microfinance,4937.05,YONEPSE + SocrateAI
+2026-02-08,Microfinance,4926.40,YONEPSE + SocrateAI
+2026-02-09,Microfinance,4896.34,YONEPSE + SocrateAI
+2026-02-10,Microfinance,4872.16,YONEPSE + SocrateAI
+2026-02-11,Microfinance,4868.83,YONEPSE + SocrateAI
+2026-02-12,Microfinance,4868.13,YONEPSE + SocrateAI
+2026-02-16,Microfinance,4856.71,YONEPSE + SocrateAI
+2026-02-17,Microfinance,4832.27,YONEPSE + SocrateAI
+2026-02-22,Microfinance,4809.00,YONEPSE + SocrateAI
+2026-02-24,Microfinance,4843.60,YONEPSE + SocrateAI
+2026-02-25,Microfinance,4850.94,YONEPSE + SocrateAI
+2026-03-03,Microfinance,4936.48,YONEPSE + SocrateAI
+2026-03-09,Microfinance,5137.58,YONEPSE + SocrateAI
+2026-03-11,Microfinance,5043.56,YONEPSE + SocrateAI
+2026-03-12,Microfinance,5057.41,YONEPSE + SocrateAI
+2026-03-15,Microfinance,5065.24,YONEPSE + SocrateAI
+2026-03-16,Microfinance,5027.07,YONEPSE + SocrateAI
+2026-03-17,Microfinance,5013.53,YONEPSE + SocrateAI
+2026-03-19,Microfinance,5076.16,YONEPSE + SocrateAI
+2026-03-22,Microfinance,5289.94,YONEPSE + SocrateAI
+2026-03-23,Microfinance,5312.77,YONEPSE + SocrateAI
+2026-03-25,Microfinance,5201.37,YONEPSE + SocrateAI
+2026-03-26,Microfinance,5211.85,YONEPSE + SocrateAI
+2026-03-30,Microfinance,5035.09,YONEPSE + SocrateAI
+2026-04-01,Microfinance,4960.13,YONEPSE + SocrateAI
+2026-04-02,Microfinance,4945.43,YONEPSE + SocrateAI
+2026-04-05,Microfinance,4775.56,YONEPSE + SocrateAI
+2026-04-06,Microfinance,4891.63,YONEPSE + SocrateAI
+2026-04-07,Microfinance,4881.91,YONEPSE + SocrateAI
+2026-04-08,Microfinance,4944.55,YONEPSE + SocrateAI
+2026-04-09,Microfinance,5003.96,YONEPSE + SocrateAI
+2026-04-10,Microfinance,4966.96,YONEPSE + SocrateAI
+2026-04-13,Microfinance,4945.92,YONEPSE + SocrateAI
+2026-04-15,Microfinance,4977.73,YONEPSE + SocrateAI
+2026-04-16,Microfinance,4942.11,YONEPSE + SocrateAI
+2026-04-17,Microfinance,4925.53,YONEPSE + SocrateAI
+2026-04-20,Microfinance,4901.00,YONEPSE + SocrateAI
+2026-04-21,Microfinance,4876.58,YONEPSE + SocrateAI
+2026-04-22,Microfinance,4868.93,YONEPSE + SocrateAI
+2026-04-23,Microfinance,4842.76,YONEPSE + SocrateAI
+2026-04-24,Microfinance,4825.55,YONEPSE + SocrateAI
+2026-04-27,Microfinance,4839.84,YONEPSE + SocrateAI
+2026-04-28,Microfinance,4818.11,YONEPSE + SocrateAI
+2026-04-29,Microfinance,4791.73,YONEPSE + SocrateAI
+2026-04-30,Microfinance,4775.31,YONEPSE + SocrateAI
+2026-10-13,Microfinance,4430.76,YONEPSE + SocrateAI
+2026-01-04,Non Life Insurance,10879.21,YONEPSE + SocrateAI
+2026-01-05,Non Life Insurance,10942.25,YONEPSE + SocrateAI
+2026-01-06,Non Life Insurance,10950.42,YONEPSE + SocrateAI
+2026-01-07,Non Life Insurance,10884.72,YONEPSE + SocrateAI
+2026-01-08,Non Life Insurance,10914.03,YONEPSE + SocrateAI
+2026-01-12,Non Life Insurance,10898.34,YONEPSE + SocrateAI
+2026-01-14,Non Life Insurance,10949.02,YONEPSE + SocrateAI
+2026-01-18,Non Life Insurance,11024.53,YONEPSE + SocrateAI
+2026-01-21,Non Life Insurance,11172.87,YONEPSE + SocrateAI
+2026-01-22,Non Life Insurance,11199.63,YONEPSE + SocrateAI
+2026-01-25,Non Life Insurance,11420.39,YONEPSE + SocrateAI
+2026-01-26,Non Life Insurance,11401.06,YONEPSE + SocrateAI
+2026-01-27,Non Life Insurance,11201.64,YONEPSE + SocrateAI
+2026-01-28,Non Life Insurance,11193.08,YONEPSE + SocrateAI
+2026-02-01,Non Life Insurance,11039.39,YONEPSE + SocrateAI
+2026-02-02,Non Life Insurance,11061.20,YONEPSE + SocrateAI
+2026-02-03,Non Life Insurance,11021.75,YONEPSE + SocrateAI
+2026-02-04,Non Life Insurance,11036.94,YONEPSE + SocrateAI
+2026-02-05,Non Life Insurance,11255.86,YONEPSE + SocrateAI
+2026-02-09,Non Life Insurance,11064.97,YONEPSE + SocrateAI
+2026-02-10,Non Life Insurance,10996.40,YONEPSE + SocrateAI
+2026-02-11,Non Life Insurance,11006.06,YONEPSE + SocrateAI
+2026-02-12,Non Life Insurance,10989.78,YONEPSE + SocrateAI
+2026-02-16,Non Life Insurance,10938.65,YONEPSE + SocrateAI
+2026-02-22,Non Life Insurance,10810.10,YONEPSE + SocrateAI
+2026-02-25,Non Life Insurance,10863.19,YONEPSE + SocrateAI
+2026-02-26,Non Life Insurance,10982.59,YONEPSE + SocrateAI
+2026-03-01,Non Life Insurance,11028.51,YONEPSE + SocrateAI
+2026-03-03,Non Life Insurance,11151.72,YONEPSE + SocrateAI
+2026-03-09,Non Life Insurance,11569.63,YONEPSE + SocrateAI
+2026-03-11,Non Life Insurance,11511.81,YONEPSE + SocrateAI
+2026-03-12,Non Life Insurance,11507.16,YONEPSE + SocrateAI
+2026-03-15,Non Life Insurance,11526.65,YONEPSE + SocrateAI
+2026-03-16,Non Life Insurance,11473.99,YONEPSE + SocrateAI
+2026-03-17,Non Life Insurance,11470.35,YONEPSE + SocrateAI
+2026-03-19,Non Life Insurance,11677.78,YONEPSE + SocrateAI
+2026-03-22,Non Life Insurance,11996.38,YONEPSE + SocrateAI
+2026-03-23,Non Life Insurance,11991.39,YONEPSE + SocrateAI
+2026-03-24,Non Life Insurance,11945.64,YONEPSE + SocrateAI
+2026-03-25,Non Life Insurance,11808.08,YONEPSE + SocrateAI
+2026-03-26,Non Life Insurance,11858.96,YONEPSE + SocrateAI
+2026-03-29,Non Life Insurance,11594.31,YONEPSE + SocrateAI
+2026-03-30,Non Life Insurance,11382.73,YONEPSE + SocrateAI
+2026-04-01,Non Life Insurance,11214.58,YONEPSE + SocrateAI
+2026-04-02,Non Life Insurance,11176.56,YONEPSE + SocrateAI
+2026-04-07,Non Life Insurance,11024.09,YONEPSE + SocrateAI
+2026-04-08,Non Life Insurance,11135.74,YONEPSE + SocrateAI
+2026-04-09,Non Life Insurance,11247.69,YONEPSE + SocrateAI
+2026-04-13,Non Life Insurance,11245.96,YONEPSE + SocrateAI
+2026-04-15,Non Life Insurance,11290.17,YONEPSE + SocrateAI
+2026-04-16,Non Life Insurance,11144.58,YONEPSE + SocrateAI
+2026-04-17,Non Life Insurance,11086.70,YONEPSE + SocrateAI
+2026-04-20,Non Life Insurance,11073.86,YONEPSE + SocrateAI
+2026-04-21,Non Life Insurance,10977.55,YONEPSE + SocrateAI
+2026-04-22,Non Life Insurance,11020.28,YONEPSE + SocrateAI
+2026-04-23,Non Life Insurance,10888.87,YONEPSE + SocrateAI
+2026-04-24,Non Life Insurance,10881.84,YONEPSE + SocrateAI
+2026-04-27,Non Life Insurance,10898.21,YONEPSE + SocrateAI
+2026-04-28,Non Life Insurance,10854.86,YONEPSE + SocrateAI
+2026-04-29,Non Life Insurance,10733.97,YONEPSE + SocrateAI
+2026-04-30,Non Life Insurance,10730.98,YONEPSE + SocrateAI
+2026-01-01,Others,2368.71,YONEPSE + SocrateAI
+2026-01-04,Others,2328.60,YONEPSE + SocrateAI
+2026-01-05,Others,2345.73,YONEPSE + SocrateAI
+2026-01-06,Others,2363.90,YONEPSE + SocrateAI
+2026-01-07,Others,2351.21,YONEPSE + SocrateAI
+2026-01-08,Others,2349.50,YONEPSE + SocrateAI
+2026-01-12,Others,2342.55,YONEPSE + SocrateAI
+2026-01-13,Others,2360.90,YONEPSE + SocrateAI
+2026-01-14,Others,2357.74,YONEPSE + SocrateAI
+2026-01-18,Others,2368.42,YONEPSE + SocrateAI
+2026-01-20,Others,2402.67,YONEPSE + SocrateAI
+2026-01-21,Others,2409.02,YONEPSE + SocrateAI
+2026-01-22,Others,2417.92,YONEPSE + SocrateAI
+2026-01-25,Others,2455.89,YONEPSE + SocrateAI
+2026-01-27,Others,2395.30,YONEPSE + SocrateAI
+2026-02-02,Others,2347.70,YONEPSE + SocrateAI
+2026-02-03,Others,2334.53,YONEPSE + SocrateAI
+2026-02-05,Others,2373.57,YONEPSE + SocrateAI
+2026-02-08,Others,2384.56,YONEPSE + SocrateAI
+2026-02-09,Others,2337.80,YONEPSE + SocrateAI
+2026-02-10,Others,2329.56,YONEPSE + SocrateAI
+2026-02-11,Others,2323.80,YONEPSE + SocrateAI
+2026-02-12,Others,2317.58,YONEPSE + SocrateAI
+2026-02-16,Others,2315.85,YONEPSE + SocrateAI
+2026-02-17,Others,2302.38,YONEPSE + SocrateAI
+2026-02-22,Others,2282.80,YONEPSE + SocrateAI
+2026-02-24,Others,2292.30,YONEPSE + SocrateAI
+2026-02-25,Others,2300.52,YONEPSE + SocrateAI
+2026-02-26,Others,2301.72,YONEPSE + SocrateAI
+2026-03-01,Others,2329.16,YONEPSE + SocrateAI
+2026-03-03,Others,2353.19,YONEPSE + SocrateAI
+2026-03-09,Others,2484.12,YONEPSE + SocrateAI
+2026-03-11,Others,2403.67,YONEPSE + SocrateAI
+2026-03-12,Others,2385.87,YONEPSE + SocrateAI
+2026-03-15,Others,2386.64,YONEPSE + SocrateAI
+2026-03-16,Others,2360.38,YONEPSE + SocrateAI
+2026-03-17,Others,2357.98,YONEPSE + SocrateAI
+2026-03-19,Others,2404.63,YONEPSE + SocrateAI
+2026-03-22,Others,2445.92,YONEPSE + SocrateAI
+2026-03-23,Others,2446.35,YONEPSE + SocrateAI
+2026-03-24,Others,2442.25,YONEPSE + SocrateAI
+2026-03-25,Others,2400.63,YONEPSE + SocrateAI
+2026-03-26,Others,2416.42,YONEPSE + SocrateAI
+2026-03-29,Others,2355.37,YONEPSE + SocrateAI
+2026-03-30,Others,2305.19,YONEPSE + SocrateAI
+2026-04-05,Others,2038.83,YONEPSE + SocrateAI
+2026-04-06,Others,2087.09,YONEPSE + SocrateAI
+2026-04-07,Others,2102.04,YONEPSE + SocrateAI
+2026-04-09,Others,2177.62,YONEPSE + SocrateAI
+2026-04-10,Others,2147.24,YONEPSE + SocrateAI
+2026-04-13,Others,2112.45,YONEPSE + SocrateAI
+2026-04-16,Others,2074.49,YONEPSE + SocrateAI
+2026-04-17,Others,2086.23,YONEPSE + SocrateAI
+2026-04-20,Others,2077.86,YONEPSE + SocrateAI
+2026-04-21,Others,2051.45,YONEPSE + SocrateAI
+2026-04-23,Others,2033.25,YONEPSE + SocrateAI
+2026-04-28,Others,2018.19,YONEPSE + SocrateAI
+2026-04-29,Others,1999.58,YONEPSE + SocrateAI
+2026-01-01,Tradings,3758.02,YONEPSE + SocrateAI
+2026-01-05,Tradings,3779.38,YONEPSE + SocrateAI
+2026-01-08,Tradings,3791.75,YONEPSE + SocrateAI
+2026-01-12,Tradings,3747.66,YONEPSE + SocrateAI
+2026-01-13,Tradings,3784.46,YONEPSE + SocrateAI
+2026-01-18,Tradings,3830.58,YONEPSE + SocrateAI
+2026-01-20,Tradings,3845.09,YONEPSE + SocrateAI
+2026-01-22,Tradings,3748.37,YONEPSE + SocrateAI
+2026-01-25,Tradings,3805.31,YONEPSE + SocrateAI
+2026-01-27,Tradings,3784.92,YONEPSE + SocrateAI
+2026-01-28,Tradings,3793.40,YONEPSE + SocrateAI
+2026-01-29,Tradings,3786.59,YONEPSE + SocrateAI
+2026-02-02,Tradings,3808.38,YONEPSE + SocrateAI
+2026-02-03,Tradings,3790.66,YONEPSE + SocrateAI
+2026-02-04,Tradings,3809.58,YONEPSE + SocrateAI
+2026-02-05,Tradings,3791.06,YONEPSE + SocrateAI
+2026-02-08,Tradings,3741.72,YONEPSE + SocrateAI
+2026-02-10,Tradings,3770.43,YONEPSE + SocrateAI
+2026-02-11,Tradings,3761.66,YONEPSE + SocrateAI
+2026-02-12,Tradings,3758.09,YONEPSE + SocrateAI
+2026-02-17,Tradings,3740.89,YONEPSE + SocrateAI
+2026-02-24,Tradings,3658.23,YONEPSE + SocrateAI
+2026-02-26,Tradings,3640.45,YONEPSE + SocrateAI
+2026-03-01,Tradings,3681.36,YONEPSE + SocrateAI
+2026-03-09,Tradings,3931.32,YONEPSE + SocrateAI
+2026-03-10,Tradings,3847.65,YONEPSE + SocrateAI
+2026-03-11,Tradings,3716.56,YONEPSE + SocrateAI
+2026-03-12,Tradings,3722.05,YONEPSE + SocrateAI
+2026-03-15,Tradings,3827.51,YONEPSE + SocrateAI
+2026-03-16,Tradings,3819.34,YONEPSE + SocrateAI
+2026-03-17,Tradings,3810.94,YONEPSE + SocrateAI
+2026-03-22,Tradings,3812.27,YONEPSE + SocrateAI
+2026-03-23,Tradings,3788.14,YONEPSE + SocrateAI
+2026-03-24,Tradings,4133.82,YONEPSE + SocrateAI
+2026-03-26,Tradings,4155.10,YONEPSE + SocrateAI
+2026-03-30,Tradings,3948.10,YONEPSE + SocrateAI
+2026-04-01,Tradings,3819.61,YONEPSE + SocrateAI
+2026-04-05,Tradings,3775.80,YONEPSE + SocrateAI
+2026-04-06,Tradings,3866.69,YONEPSE + SocrateAI
+2026-04-07,Tradings,3793.86,YONEPSE + SocrateAI
+2026-04-08,Tradings,3817.38,YONEPSE + SocrateAI
+2026-04-09,Tradings,3841.31,YONEPSE + SocrateAI
+2026-04-10,Tradings,3800.37,YONEPSE + SocrateAI
+2026-04-13,Tradings,3792.16,YONEPSE + SocrateAI
+2026-04-15,Tradings,3880.89,YONEPSE + SocrateAI
+2026-04-16,Tradings,3841.66,YONEPSE + SocrateAI
+2026-04-17,Tradings,3843.03,YONEPSE + SocrateAI
+2026-04-21,Tradings,3825.23,YONEPSE + SocrateAI
+2026-04-22,Tradings,3783.02,YONEPSE + SocrateAI
+2026-04-23,Tradings,3799.66,YONEPSE + SocrateAI
+2026-04-24,Tradings,3821.95,YONEPSE + SocrateAI
+2026-04-30,Tradings,3770.87,YONEPSE + SocrateAI

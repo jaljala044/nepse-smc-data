@@ -1,0 +1,196 @@
+date,traded_shares,turnover_npr,traded_securities,transactions,advancers,decliners,unchanged,breadth_scope,validation
+2026-01-01,10153226,4713905470.50,336,,,,,,published market summary + sum of per-security EOD totals
+2026-01-04,10274126,5017587294.34,323,,,,,,published market summary + sum of per-security EOD totals
+2026-01-05,12459951,6473736099.27,335,,,,,,published market summary + sum of per-security EOD totals
+2026-01-06,14831241,7123365296.18,334,,,,,,published market summary + sum of per-security EOD totals
+2026-01-07,10633717,5175091991.60,323,,,,,,published market summary + sum of per-security EOD totals
+2026-01-08,10431760,4908094092.74,328,,,,,,published market summary + sum of per-security EOD totals
+2026-01-12,12309744,6472607801.61,333,,,,,,published market summary + sum of per-security EOD totals
+2026-01-13,13624824,6990484039.45,349,,,,,,published market summary + sum of per-security EOD totals
+2026-01-14,12504970,6209438906.37,320,,,,,,published market summary + sum of per-security EOD totals
+2026-01-18,16611479,8402797775.59,338,,,,,,published market summary + sum of per-security EOD totals
+2026-01-20,25185647,11858421070.67,339,,,,,,published market summary + sum of per-security EOD totals
+2026-01-21,21641883,8923650346.99,324,,,,,,published market summary + sum of per-security EOD totals
+2026-01-22,19075756,9073978098.79,332,,,,,,published market summary + sum of per-security EOD totals
+2026-01-25,30915183,13785729645.05,331,,,,,,published market summary + sum of per-security EOD totals
+2026-01-26,36264873,16355730466.82,332,,,,,,published market summary + sum of per-security EOD totals
+2026-01-27,30262710,14167179442.72,333,,,,,,published market summary + sum of per-security EOD totals
+2026-01-28,23618186,11493989185.27,334,,,,,,published market summary + sum of per-security EOD totals
+2026-01-29,35477939,14563138865.71,320,,,,,,published market summary + sum of per-security EOD totals
+2026-02-01,22060454,9109457278.45,329,,,,,,published market summary + sum of per-security EOD totals
+2026-02-02,17507776,8223965669.86,330,,,,,,published market summary + sum of per-security EOD totals
+2026-02-03,18703183,8631512542.17,322,,,,,,published market summary + sum of per-security EOD totals
+2026-02-04,16682626,7499742098.46,326,,,,,,published market summary + sum of per-security EOD totals
+2026-02-08,26236204,11659752143.11,330,,,,,,published market summary + sum of per-security EOD totals
+2026-02-09,26766347,10773915289.22,324,,,,,,published market summary + sum of per-security EOD totals
+2026-02-10,21715868,8616410132.46,324,,,,,,published market summary + sum of per-security EOD totals
+2026-02-11,22282050,8692250855.88,329,,,,,,published market summary + sum of per-security EOD totals
+2026-02-12,27780584,11102550966.56,337,,,,,,published market summary + sum of per-security EOD totals
+2026-02-16,19616395,7942760220.64,335,,,,,,published market summary + sum of per-security EOD totals
+2026-02-17,20559055,8364424555.43,354,,,,,,published market summary + sum of per-security EOD totals
+2026-02-22,15989430,6699721204.48,324,,,,,,published market summary + sum of per-security EOD totals
+2026-02-23,12621188,5138649946.77,329,,,,,,published market summary + sum of per-security EOD totals
+2026-02-24,9364938,4232407613.56,328,,,,,,published market summary + sum of per-security EOD totals
+2026-02-25,10456980,4451149080.41,333,,,,,,published market summary + sum of per-security EOD totals
+2026-02-26,10053145,4174630515.28,335,,,,,,published market summary + sum of per-security EOD totals
+2026-03-01,13193462,5648319041.36,341,,,,,,published market summary + sum of per-security EOD totals
+2026-03-03,15184607,6234381480.75,329,,,,,,published market summary + sum of per-security EOD totals
+2026-03-09,1143767,555963894.66,261,,,,,,published market summary + sum of per-security EOD totals
+2026-03-11,36049451,13180255157.52,329,,,,,,published market summary + sum of per-security EOD totals
+2026-03-15,39549033,14329604315.90,350,,,,,,published market summary + sum of per-security EOD totals
+2026-03-16,30790211,11974696088.01,345,,,,,,published market summary + sum of per-security EOD totals
+2026-03-17,34852760,12034406328.72,340,,,,,,published market summary + sum of per-security EOD totals
+2026-03-19,56920608,21223494886.98,342,,,,,,published market summary + sum of per-security EOD totals
+2026-03-22,61407074,23597712182.84,364,,,,,,published market summary + sum of per-security EOD totals
+2026-03-23,38073945,15786313440.12,342,,,,,,published market summary + sum of per-security EOD totals
+2026-03-24,35822191,14839183643.29,341,,,,,,published market summary + sum of per-security EOD totals
+2026-03-25,35819829,15090416846.15,345,,,,,,published market summary + sum of per-security EOD totals
+2026-03-26,30438305,13162298717.48,342,,,,,,published market summary + sum of per-security EOD totals
+2026-03-29,35248397,15033310867.98,333,,,,,,published market summary + sum of per-security EOD totals
+2026-03-31,27942779,11112418806.96,339,,,,,,published market summary + sum of per-security EOD totals
+2026-04-01,30292452,12109525561.59,347,,,,,,published market summary + sum of per-security EOD totals
+2026-04-02,21318929,8819723335.29,328,,,,,,published market summary + sum of per-security EOD totals
+2026-04-06,25155854,10928506863.02,345,,,,,,published market summary + sum of per-security EOD totals
+2026-04-07,17406616,6737148150.66,345,,,,,,published market summary + sum of per-security EOD totals
+2026-04-08,18816808,8318908441.52,346,,,,,,published market summary + sum of per-security EOD totals
+2026-04-09,27931770,9919210211.24,338,,,,,,published market summary + sum of per-security EOD totals
+2026-04-10,21087628,8993280967.98,335,,,,,,published market summary + sum of per-security EOD totals
+2026-04-13,20163793,8665568641.79,342,,,,,,published market summary + sum of per-security EOD totals
+2026-04-15,26438521,10537008796.56,344,,,,,,published market summary + sum of per-security EOD totals
+2026-04-16,20743884,9312860808.27,342,,,,,,published market summary + sum of per-security EOD totals
+2026-04-17,18063728,7460698098.48,335,,,,,,published market summary + sum of per-security EOD totals
+2026-04-20,11653370,5434240276.30,349,,,,,,published market summary + sum of per-security EOD totals
+2026-04-21,13019055,5774317879.28,347,,,,,,published market summary + sum of per-security EOD totals
+2026-04-22,17588854,7813947342.89,342,,,,,,published market summary + sum of per-security EOD totals
+2026-04-23,11375699,5095905757.17,348,,,,,,published market summary + sum of per-security EOD totals
+2026-04-24,12174516,5270399727.64,351,,,,,,published market summary + sum of per-security EOD totals
+2026-04-27,10928617,4748809127.76,351,,,,,,published market summary + sum of per-security EOD totals
+2026-04-28,14018920,6531723226.36,349,,,,,,published market summary + sum of per-security EOD totals
+2026-04-29,12134360,4986303313.38,351,,,,,,published market summary + sum of per-security EOD totals
+2026-04-30,10977783,4916626848.56,346,,,,,,published market summary + sum of per-security EOD totals
+2026-05-04,10074524,4265390204.72,341,,,,,,published market summary + sum of per-security EOD totals
+2026-05-05,7734012,3439068392.77,335,,,,,,published market summary + sum of per-security EOD totals
+2026-05-06,7131557,3197766779.16,336,,,,,,published market summary + sum of per-security EOD totals
+2026-05-07,6684007,2931968877.57,334,,,,,,published market summary + sum of per-security EOD totals
+2026-05-08,7478562,3286870559.39,335,,,,,,published market summary + sum of per-security EOD totals
+2026-05-11,10439432,4613563635.83,332,,,,,,published market summary + sum of per-security EOD totals
+2026-05-12,10678550,4665020677.74,338,,,,,,published market summary + sum of per-security EOD totals
+2026-05-13,5643288,2807446361.53,339,,,,,,published market summary + sum of per-security EOD totals
+2026-05-14,7958752,3290244619.94,337,,,,,,published market summary + sum of per-security EOD totals
+2026-05-15,7934444,3097953486.78,338,,,,,,published market summary + sum of per-security EOD totals
+2026-05-18,5828604,2450878449.30,339,,,,,,published market summary + sum of per-security EOD totals
+2026-05-19,7816478,3087730962.64,346,,,,,,published market summary + sum of per-security EOD totals
+2026-05-20,10661476,3820896966.85,346,,,,,,published market summary + sum of per-security EOD totals
+2026-05-21,8955545,3898418385.27,348,,,,,,published market summary + sum of per-security EOD totals
+2026-05-22,10888739,4498516094.11,336,,,,,,published market summary + sum of per-security EOD totals
+2026-05-25,14540022,5986412600.49,342,,,,,,published market summary + sum of per-security EOD totals
+2026-05-26,11872507,4854444170.67,342,,,,,,published market summary + sum of per-security EOD totals
+2026-05-27,15249712,6030064840.96,354,,,,,,published market summary + sum of per-security EOD totals
+2026-06-01,13383816,5614374928.74,349,,,,,,published market summary + sum of per-security EOD totals
+2026-06-02,11385100,5265275299.01,346,,,,,,published market summary + sum of per-security EOD totals
+2026-06-03,13521619,5738178165.24,347,,,,,,published market summary + sum of per-security EOD totals
+2026-06-04,10617483,4703326944.97,353,,,,,,published market summary + sum of per-security EOD totals
+2026-06-05,12732868,5625611823.70,351,,,,,,published market summary + sum of per-security EOD totals
+2026-06-08,9236677,4084896190.31,356,,,,,,published market summary + sum of per-security EOD totals
+2026-06-09,12382017,6443190291.71,357,,,,,,published market summary + sum of per-security EOD totals
+2026-06-10,9283326,4297464327.60,356,,,,,,published market summary + sum of per-security EOD totals
+2026-06-11,9231216,3906244894.06,350,,,,,,published market summary + sum of per-security EOD totals
+2026-06-12,9856525,4341094764.19,342,,,,,,published market summary + sum of per-security EOD totals
+2026-06-15,10739998,4412048609.90,350,,,,,,published market summary + sum of per-security EOD totals
+2026-06-16,10708596,4047858084.12,355,,,,,,published market summary + sum of per-security EOD totals
+2026-06-17,8375471,3637589010.09,352,,,,,,published market summary + sum of per-security EOD totals
+2026-06-18,7743030,3414823798.68,347,,,,,,published market summary + sum of per-security EOD totals
+2026-06-19,10922525,4534983568.16,353,,,,,,published market summary + sum of per-security EOD totals
+2026-06-22,8138433,4446520247.39,353,,,,,,published market summary + sum of per-security EOD totals
+2026-06-23,10040164,4362194771.59,353,,,,,,published market summary + sum of per-security EOD totals
+2026-06-24,10777582,4418607486.62,338,,,,,,published market summary + sum of per-security EOD totals
+2026-06-25,6480599,2838279411.62,338,,,,,,published market summary + sum of per-security EOD totals
+2026-06-26,7727649,3945804552.36,359,,,,,,published market summary + sum of per-security EOD totals
+2026-06-29,7699227,2671832965.38,351,,,,,,published market summary + sum of per-security EOD totals
+2026-06-30,8737392,3258758014.10,365,,,,,,published market summary + sum of per-security EOD totals
+2026-07-01,9547678,3861183410.26,362,,,,,,published market summary + sum of per-security EOD totals
+2026-07-03,8584401,4412340537.05,345,,,,,,published market summary + sum of per-security EOD totals
+2026-07-06,7540418,3557981498.91,356,,,,,,published market summary + sum of per-security EOD totals
+2026-07-07,9519452,4400752542.10,352,,,,,,published market summary + sum of per-security EOD totals
+2026-07-08,8463015,4826084825.28,362,,,,,,published market summary + sum of per-security EOD totals
+2026-07-09,8751380,4611954782.83,361,,,,,,published market summary + sum of per-security EOD totals
+2026-07-10,10660537,6860718658.00,367,,,,,,published market summary + sum of per-security EOD totals
+2026-07-13,41725323,7468416116.81,368,,,,,,published market summary + sum of per-security EOD totals
+2026-07-14,18293596,8417570425.82,383,,,,,,published market summary + sum of per-security EOD totals
+2026-07-15,8473016,4170398049.64,362,,,,,,published market summary + sum of per-security EOD totals
+2026-07-16,9469099,4562950700.46,371,,,,,,published market summary + sum of per-security EOD totals
+2026-07-17,10389077,4575094723.51,335,,,,,,published market summary + sum of per-security EOD totals
+2026-07-20,12245337,5512688979.28,343,,,,,,published market summary + sum of per-security EOD totals
+2026-07-21,14924302,6671017971.84,343,,,,,,published market summary + sum of per-security EOD totals
+2026-07-22,11362465,5187467073.77,346,,,,,,published market summary + sum of per-security EOD totals
+2026-07-23,10077222,4693449370.68,338,,,,,,published market summary + sum of per-security EOD totals
+2026-07-24,13769100,6267226722.57,353,70158,,,,,published market summary + reconciled raw tape
+2026-07-27,13925337,6080863354.65,360,,,,,,published market summary + sum of per-security EOD totals
+2026-07-28,10421863,4427305542.17,342,,,,,,published market summary + sum of per-security EOD totals
+2026-07-29,9777442,4029330921.28,343,,,,,,published market summary + sum of per-security EOD totals
+2026-07-30,7548591,3381318248.02,337,,,,,,published market summary + sum of per-security EOD totals
+2026-07-31,8851216,3759722340.76,337,,,,,,published market summary + sum of per-security EOD totals
+2026-08-03,11449987,4572084231.40,349,,,,,,published market summary + sum of per-security EOD totals
+2026-08-04,10761396,4070853610.94,343,,,,,,published market summary + sum of per-security EOD totals
+2026-08-05,10067732,4409886457.71,350,,,,,,published market summary + sum of per-security EOD totals
+2026-08-06,10804426,4622777442.29,347,,,,,,published market summary + sum of per-security EOD totals
+2026-08-07,10313979,3774361541.21,334,,,,,,published market summary + sum of per-security EOD totals
+2026-08-10,10966745,3674419766.30,352,,,,,,published market summary + sum of per-security EOD totals
+2026-08-11,9534221,4110974674.86,340,,,,,,published market summary + sum of per-security EOD totals
+2026-08-12,8701944,3532105518.27,348,,,,,,published market summary + sum of per-security EOD totals
+2026-08-13,10225874,3724770077.50,347,,,,,,published market summary + sum of per-security EOD totals
+2026-08-14,9754403,4275675402.84,344,,,,,,published market summary + sum of per-security EOD totals
+2026-08-18,15196982,5073518662.90,347,,,,,,published market summary + sum of per-security EOD totals
+2026-08-19,9508882,3298019571.29,346,,,,,,published market summary + sum of per-security EOD totals
+2026-08-20,9500766,4401409858.14,345,,,,,,published market summary + sum of per-security EOD totals
+2026-08-21,10022765,4167618882.32,344,,,,,,published market summary + sum of per-security EOD totals
+2026-08-24,8572970,3239760549.52,350,,,,,,published market summary + sum of per-security EOD totals
+2026-08-25,10044164,4109751730.03,357,,,,,,published market summary + sum of per-security EOD totals
+2026-08-26,13582320,4773857657.46,348,,,,,,published market summary + sum of per-security EOD totals
+2026-08-27,10626370,3786455070.27,348,,,,,,published market summary + sum of per-security EOD totals
+2026-08-31,9322185,3648609878.00,347,,,,,,published market summary + sum of per-security EOD totals
+2026-09-01,7613681,2906943633.00,341,,,,,,published market summary + sum of per-security EOD totals
+2026-09-02,7268202,2942781826.16,354,,,,,,published market summary + sum of per-security EOD totals
+2026-09-03,12163763,3465201042.79,346,,,,,,published market summary + sum of per-security EOD totals
+2026-09-07,9298094,3831584423.16,352,,,,,,published market summary + sum of per-security EOD totals
+2026-09-09,10965542,4198921039.07,352,,,,,,published market summary + sum of per-security EOD totals
+2026-09-10,10588653,4000971898.77,341,44198,,,,,published market summary + reconciled raw tape
+2026-09-11,12089709,4360159487.26,345,49006,,,,,published market summary + reconciled raw tape
+2026-09-14,11595654,4688682303.71,336,49074,,,,,published market summary + reconciled raw tape
+2026-09-15,20387413,8290017115.61,347,78869,,,,,published market summary + reconciled raw tape
+2026-09-16,15101543,5389570064.00,350,55830,,,,,published EOD totals + reconciled raw tape
+2026-09-17,13610496,5499316643.53,339,51728,,,,,published market summary + reconciled raw tape
+2026-09-18,21272761,6745631607.18,345,64072,,,,,published market summary + reconciled raw tape
+2026-09-22,21589761,7050398624.97,356,70691,,,,,published market summary + reconciled raw tape
+2026-09-23,21622728,6356611395.73,352,57947,,,,,published market summary + reconciled raw tape
+2026-09-24,17270449,5447313168.20,356,51716,,,,,published market summary + reconciled raw tape
+2026-09-28,13178128,5385785414.91,357,58500,,,,,published market summary + reconciled raw tape
+2026-09-29,11069074,4654878045.47,363,51274,,,,,published market summary + reconciled raw tape
+2026-09-30,12655374,4765127885.07,352,47900,,,,,published market summary + reconciled raw tape
+2026-10-01,12065555,4891876325.04,353,51745,,,,,published market summary + reconciled raw tape
+2026-10-02,11912550,4293774181.11,356,43685,,,,,published market summary + reconciled raw tape
+2026-10-05,9003388,3279509836.32,359,44777,,,,,published market summary + reconciled raw tape
+2026-10-06,8955230,3138119528.46,359,41607,,,,,published market summary + reconciled raw tape
+2026-10-07,10300688,3748080303.08,359,39466,,,,,published market summary + reconciled raw tape
+2026-10-08,11233636,3930560952.76,354,43812,,,,,published market summary + reconciled raw tape
+2026-10-09,12905942,4837723076.79,353,52044,,,,,published market summary + reconciled raw tape
+2026-10-12,12719734,4465246360.73,354,49809,,,,,published market summary + reconciled raw tape
+2026-10-13,13553097,4736926409.85,351,46659,,,,,published market summary + reconciled raw tape
+2026-10-14,11674209,4136161331.43,354,39183,,,,,published market summary + reconciled raw tape
+2026-10-15,13624407,4717028104.35,349,38861,,,,,published market summary + reconciled raw tape
+2026-10-16,13376489,4880089108.16,348,39295,,,,,published market summary + reconciled raw tape
+2026-10-26,10343709,4002421168.07,341,38788,,,,,published market summary + reconciled raw tape
+2026-10-27,15346226,5799330203.01,360,53030,,,,,published market summary + reconciled raw tape
+2026-10-28,19397548,7458677368.14,348,63744,,,,,published market summary + reconciled raw tape
+2026-10-29,23258009,8570098823.35,350,69619,,,,,published market summary + reconciled raw tape
+2026-10-30,22862554,8891595145.90,348,74054,,,,,published market summary + reconciled raw tape
+2026-11-02,19822392,7183713047.01,343,70228,,,,,published market summary + reconciled raw tape
+2026-11-03,15420920,5651142523.49,349,57449,,,,,published market summary + reconciled raw tape
+2026-11-04,21223414,7439366049.62,358,59185,,,,,published market summary + reconciled raw tape
+2026-11-05,12373841,4722236623.35,349,44412,,,,,published market summary + reconciled raw tape
+2026-11-06,10713842,3462059323.07,336,33215,,,,,published market summary + reconciled raw tape
+2026-11-13,7844267,3054274725.06,335,31323,,,,,published market summary + reconciled raw tape
+2026-11-17,11293450,4731178017.24,353,48788,,,,,published market summary + reconciled raw tape
+2026-11-18,10162605,4154925107.54,347,41627,,,,,published market summary + reconciled raw tape
+2026-11-19,9437842,3877645728.62,347,40837,,,,,published market summary + reconciled raw tape
+2026-11-20,10602468,3887563470.82,352,39966,89,181,9,279 ordinary equities,published market summary + reconciled raw tape

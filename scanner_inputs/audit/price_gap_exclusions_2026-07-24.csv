@@ -1,0 +1,133 @@
+date,symbol,reason
+2026-07-24,ACLBSL,OHLC differs between price archives | high or low differs from executed trades
+2026-07-24,ADBL,OHLC differs between price archives | high or low differs from executed trades
+2026-07-24,AHL,OHLC differs between price archives
+2026-07-24,AHPC,high or low differs from executed trades
+2026-07-24,AKPL,OHLC differs between price archives | high or low differs from executed trades
+2026-07-24,BANDIPUR,OHLC differs between price archives
+2026-07-24,BFC,high or low differs from executed trades
+2026-07-24,BNHC,high or low differs from executed trades
+2026-07-24,BPCL,high or low differs from executed trades
+2026-07-24,CBBL,high or low differs from executed trades
+2026-07-24,CHCL,OHLC differs between price archives | high or low differs from executed trades
+2026-07-24,CHDC,high or low differs from executed trades
+2026-07-24,CHL,high or low differs from executed trades
+2026-07-24,CIT,high or low differs from executed trades
+2026-07-24,CLI,high or low differs from executed trades
+2026-07-24,CORBL,OHLC differs between price archives
+2026-07-24,CREST,OHLC differs between price archives
+2026-07-24,CYCL,OHLC differs between price archives | high or low differs from executed trades
+2026-07-24,CZBIL,OHLC differs between price archives
+2026-07-24,DDBL,high or low differs from executed trades
+2026-07-24,DHEL,OHLC differs between price archives
+2026-07-24,EDBL,OHLC differs between price archives | high or low differs from executed trades
+2026-07-24,GBBL,high or low differs from executed trades
+2026-07-24,GBILD86/87,symbol absent from starter archive | OHLC differs between price archives | high or low differs from executed trades
+2026-07-24,GBIME,OHLC differs between price archives | high or low differs from executed trades
+2026-07-24,GBLBS,high or low differs from executed trades
+2026-07-24,GLBSL,OHLC differs between price archives | high or low differs from executed trades
+2026-07-24,GMFBS,OHLC differs between price archives
+2026-07-24,GMLI,OHLC differs between price archives | high or low differs from executed trades
+2026-07-24,GRDBL,high or low differs from executed trades
+2026-07-24,GUFL,OHLC differs between price archives
+2026-07-24,GVL,high or low differs from executed trades
+2026-07-24,HATHY,high or low differs from executed trades
+2026-07-24,HDL,high or low differs from executed trades
+2026-07-24,HEI,OHLC differs between price archives
+2026-07-24,HFIN,OHLC differs between price archives
+2026-07-24,HHL,high or low differs from executed trades
+2026-07-24,HIDCL,high or low differs from executed trades
+2026-07-24,HLI,high or low differs from executed trades
+2026-07-24,HRL,high or low differs from executed trades
+2026-07-24,ICFC,high or low differs from executed trades
+2026-07-24,IGI,OHLC differs between price archives
+2026-07-24,ILI,high or low differs from executed trades
+2026-07-24,JBLB,high or low differs from executed trades
+2026-07-24,JOSHI,high or low differs from executed trades
+2026-07-24,JSLBB,OHLC differs between price archives | high or low differs from executed trades
+2026-07-24,KBL,high or low differs from executed trades
+2026-07-24,KKHC,OHLC differs between price archives
+2026-07-24,KPCL,high or low differs from executed trades
+2026-07-24,LEC,OHLC differs between price archives
+2026-07-24,LICN,high or low differs from executed trades
+2026-07-24,LSL,high or low differs from executed trades
+2026-07-24,MABEL,high or low differs from executed trades
+2026-07-24,MDB,OHLC differs between price archives
+2026-07-24,MHNL,high or low differs from executed trades
+2026-07-24,MLBL,high or low differs from executed trades
+2026-07-24,MPFL,high or low differs from executed trades
+2026-07-24,NABBC,OHLC differs between price archives
+2026-07-24,NADEP,OHLC differs between price archives | high or low differs from executed trades
+2026-07-24,NBBD2085,OHLC differs between price archives | high or low differs from executed trades | invalid OHLCV
+2026-07-24,NBL,high or low differs from executed trades
+2026-07-24,NFS,high or low differs from executed trades
+2026-07-24,NGPL,high or low differs from executed trades
+2026-07-24,NHDL,high or low differs from executed trades
+2026-07-24,NICGF2,OHLC differs between price archives
+2026-07-24,NICL,high or low differs from executed trades
+2026-07-24,NICLBSL,high or low differs from executed trades
+2026-07-24,NIFRA,high or low differs from executed trades
+2026-07-24,NIL,high or low differs from executed trades
+2026-07-24,NIMBPO,OHLC differs between price archives
+2026-07-24,NLG,OHLC differs between price archives
+2026-07-24,NLIC,high or low differs from executed trades
+2026-07-24,NLICL,OHLC differs between price archives | high or low differs from executed trades
+2026-07-24,NMB,high or low differs from executed trades
+2026-07-24,NTC,OHLC differs between price archives | high or low differs from executed trades
+2026-07-24,NUBL,high or low differs from executed trades
+2026-07-24,PBD84,OHLC differs between price archives
+2026-07-24,PMLI,high or low differs from executed trades
+2026-07-24,PPCL,high or low differs from executed trades
+2026-07-24,PRIN,high or low differs from executed trades
+2026-07-24,PRVU,high or low differs from executed trades
+2026-07-24,RBBD83,OHLC differs between price archives
+2026-07-24,RBCL,OHLC differs between price archives
+2026-07-24,RNLI,high or low differs from executed trades
+2026-07-24,RSDC,high or low differs from executed trades
+2026-07-24,RSML,OHLC differs between price archives
+2026-07-24,SADBL,OHLC differs between price archives
+2026-07-24,SAGAR,high or low differs from executed trades
+2026-07-24,SAHAS,high or low differs from executed trades
+2026-07-24,SALICO,high or low differs from executed trades
+2026-07-24,SAND2085,OHLC differs between price archives | high or low differs from executed trades
+2026-07-24,SBCF,OHLC differs between price archives
+2026-07-24,SBI,high or low differs from executed trades
+2026-07-24,SBID89,OHLC differs between price archives
+2026-07-24,SBL,high or low differs from executed trades
+2026-07-24,SCB,high or low differs from executed trades
+2026-07-24,SGHC,OHLC differs between price archives | high or low differs from executed trades
+2026-07-24,SGIC,high or low differs from executed trades
+2026-07-24,SHEL,OHLC differs between price archives | high or low differs from executed trades
+2026-07-24,SHINE,OHLC differs between price archives | high or low differs from executed trades
+2026-07-24,SHIVM,high or low differs from executed trades
+2026-07-24,SHL,OHLC differs between price archives
+2026-07-24,SICL,high or low differs from executed trades
+2026-07-24,SIFC,high or low differs from executed trades
+2026-07-24,SIPD,OHLC differs between price archives
+2026-07-24,SJLIC,high or low differs from executed trades
+2026-07-24,SKHL,OHLC differs between price archives
+2026-07-24,SLBSL,high or low differs from executed trades
+2026-07-24,SLCF,OHLC differs between price archives
+2026-07-24,SMHL,OHLC differs between price archives | high or low differs from executed trades
+2026-07-24,SMJC,OHLC differs between price archives
+2026-07-24,SMPDA,high or low differs from executed trades
+2026-07-24,SNLI,OHLC differs between price archives | high or low differs from executed trades
+2026-07-24,SOHL,OHLC differs between price archives
+2026-07-24,SOPL,high or low differs from executed trades
+2026-07-24,SPDL,high or low differs from executed trades
+2026-07-24,SPHL,high or low differs from executed trades
+2026-07-24,SPIL,high or low differs from executed trades
+2026-07-24,SPL,OHLC differs between price archives
+2026-07-24,SRLI,high or low differs from executed trades
+2026-07-24,STC,high or low differs from executed trades
+2026-07-24,SWASTIK,OHLC differs between price archives
+2026-07-24,SWMF,high or low differs from executed trades
+2026-07-24,SYPNL,OHLC differs between price archives
+2026-07-24,TPKHL,OHLC differs between price archives
+2026-07-24,UMHL,OHLC differs between price archives
+2026-07-24,UMRH,high or low differs from executed trades
+2026-07-24,UNHPL,OHLC differs between price archives
+2026-07-24,UNLB,high or low differs from executed trades
+2026-07-24,UPCL,high or low differs from executed trades
+2026-07-24,USHL,high or low differs from executed trades
+2026-07-24,USLB,OHLC differs between price archives

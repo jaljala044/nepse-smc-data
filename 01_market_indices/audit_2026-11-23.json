@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-23",
+  "sources": {
+    "https://www.sharesansar.com/today-share-price": "658606ebe3277317a3bbb676efa2611bf425b9867fcf57889225edec2569d093",
+    "https://www.sharesansar.com/index.php/market": "ce1307aaa9e6b98217f8c047a44212570ac8cb156d48a6c9e5ebd0f0a153ead3"
+  },
+  "published_totals": {
+    "date": "2026-11-23",
+    "traded_shares": 10826913,
+    "turnover_npr": "3827606590.77",
+    "traded_securities": 360,
+    "transactions": 42854,
+    "validation": "Published session summary reconciled to all 360 source EOD rows before OHLCV exclusions"
+  },
+  "accepted_stock_rows": 359,
+  "excluded_stock_rows": [
+    {
+      "Symbol": "NIFRAUR85/86",
+      "Open": 1045.2,
+      "High": 1045.2,
+      "Low": 1045.2,
+      "Close": 1045.1,
+      "Vol": 30.0,
+      "Turnover": 31355.6,
+      "Trans.": 2
+    }
+  ],
+  "index_open_conflicts": {
+    "NEPSE Index": 2616.33,
+    "Sensitive Index": 476.35,
+    "Float Index": 181.98,
+    "Sensitive Float Index": 161.72
+  },
+  "index_open_conflict_reference": "https://sharehubnepal.com/nepse/indices",
+  "notes": "The four major index opens differ across providers. The history repo stores closing levels only. The SMC table leaves those opens empty."
+}

@@ -1,0 +1,2 @@
+date,traded_shares,turnover_npr,traded_securities,transactions,validation
+2026-11-23,10826913,3827606590.77,360,42854,Published session summary reconciled to all 360 source EOD rows before OHLCV exclusions

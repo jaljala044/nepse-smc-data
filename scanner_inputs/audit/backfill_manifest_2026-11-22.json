@@ -1,0 +1,45 @@
+{
+  "repository_base": "2ebbe980c635181291d32fc8a731203c17b76726",
+  "cutoff": "2026-11-20",
+  "sources": {
+    "exchange": "https://nepalstock.com.np/",
+    "eod": "https://github.com/srijankarki07/nepse-data/tree/e6e6fe77cd3378204c7938e66601cee2339a8b7a/data",
+    "socrateai": "https://github.com/socrateai-official/nepse-open-data/tree/f602a5b61e68582d28834d16f71151a4bae98d5b",
+    "yonepse": "https://github.com/Shubhamnpk/yonepse/tree/e5798a24549ef80d37c6531c690c7a16120971e5/data",
+    "latest_official_breadth_crosscheck": "https://github.com/OmitNomis/ShareSansarScraper/blob/d5949bd628d6b5ca9ebb2b4a15e001a434c6732c/docs/Data/2026_11_20.csv"
+  },
+  "prior_stock_history": {
+    "files_matched_to_repository": 525,
+    "calendar_approved_sessions": 616,
+    "new_stock_bars": 2,
+    "reviewed_sessions": 40,
+    "withheld_stock_rows": 208,
+    "remaining_july_24_rows": 132
+  },
+  "market": {
+    "audited_sessions": 202,
+    "market_totals_added": 195,
+    "with_transaction_counts": 40,
+    "with_breadth": 1
+  },
+  "index": {
+    "full_ohlc": 139,
+    "benchmark_full_ohlc": 10,
+    "ordinary_sector_full_ohlc": 24,
+    "additional_index_full_ohlc": 105,
+    "close_only": 1390,
+    "ignored_existing_keys": 1662,
+    "without_corroboration": 243,
+    "source_identical_duplicates_collapsed": 107,
+    "source_conflicting_keys_excluded": 37,
+    "source_date_or_timestamp_rejects": 0
+  },
+  "broker": {
+    "trading_sessions_added": 20,
+    "reconciled_trades": 1062269,
+    "total_repo_sessions_after_update": 40,
+    "withheld_sessions": [
+      "2026-09-16"
+    ]
+  }
+}

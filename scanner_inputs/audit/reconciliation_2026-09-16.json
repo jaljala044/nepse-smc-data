@@ -1,0 +1,36 @@
+{
+  "session": "2026-09-16",
+  "decision": "Reconciled to published end-of-day counts; use the normalized broker summary for this session.",
+  "eod_export": {
+    "github_blob": "9d20dc69ac8378709724796afe9951d45addb8b1",
+    "attachment_sha256": "b31b3bae17b6ebb11c795e4eb6b29221763c4b2e4ab88559a9c1bf2ac4b5294d",
+    "url": "https://github.com/OmitNomis/ShareSansarScraper/blob/d5949bd628d6b5ca9ebb2b4a15e001a434c6732c/docs/Data/2026_09_16.csv",
+    "symbols": 350,
+    "transactions": 55830,
+    "traded_shares": 15101543,
+    "turnover_npr": "5389570064.00",
+    "ohlc_out_of_range": [
+      "GBBD85",
+      "ICFCD83",
+      "PBLD86"
+    ]
+  },
+  "checks": {
+    "socrateai_raw_blob": "d1d4fb534d6de18eb2f0801677ef3fcf4fcda454",
+    "socrateai_and_yonepse_raw_total_trades": 55831,
+    "yonepse_raw_blob": "41c95c9552982014e3f7072fe96c607794addcad",
+    "viking_raw_blob": "d89ad7d59fa9f296a29fb4aec3212c5bfdeddd6b",
+    "viking_matching_gcil_contracts": 194,
+    "viking_total_contracts": 55794,
+    "eod_volume_turnover_crosscheck": "https://github.com/srijankarki07/nepse-data/blob/e6e6fe77cd3378204c7938e66601cee2339a8b7a/data/daily/2026/2026-09-16.csv",
+    "matched_all_350_symbols_on": "Shares, value and trade counts were matched against the attachment; shares and value also matched the second dated EOD archive."
+  },
+  "excluded_from_normalized_summary": {
+    "contract_id": "2026091605002177",
+    "symbol": "GCIL",
+    "shares": 12,
+    "price_npr": "382.00",
+    "amount_npr": "4584.00",
+    "reason": "Present in the two matching 55,831-trade snapshots and absent from the independent Viking GCIL set. All 194 other GCIL contracts matched by ID, broker sides, quantity, price and amount. No claim is made as to why this trade is absent at EOD."
+  }
+}

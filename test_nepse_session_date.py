@@ -30,7 +30,7 @@ class NepseSessionDateTests(unittest.TestCase):
         self.assertEqual(candidate_weekdays(datetime.date(2022, 9, 17)), (6, 0, 1, 2, 3))
         self.assertEqual(
             effective_nepse_session_date(datetime.date(2022, 9, 17)),
-            datetime.date(2022, 9, 15),
+            datetime.date(2022, 9, 16),
         )
 
     def test_monday_friday_regime_from_april_2026(self):

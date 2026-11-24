@@ -38,14 +38,14 @@ def normalize_date_str(year_str: str, month_str: str, day_str: str) -> str | Non
 
 
 def extract_trading_date(page_text: str, rows: list[list[str]], fallback_date: str) -> str:
-    combined = page_text + "\\n" + " ".join(str(cell) for row in rows for cell in row)
-    match = re.search(r"\\b(20\\d{2})[-/](0[1-9]|1[0-2])[-/](0[1-9]|[12]\\d|3[01])\\b", combined)
+    combined = page_text + "\n" + " ".join(str(cell) for row in rows for cell in row)
+    match = re.search(r"\b(20\d{2})[-/](0[1-9]|1[0-2])[-/](0[1-9]|[12]\d|3[01])\b", combined)
     if match:
         y, m, d = match.groups()
         value = normalize_date_str(y, m, d)
         if value:
             return value
-    match = re.search(r"\\b(0[1-9]|[12]\\d|3[01])[-/](0[1-9]|1[0-2])[-/](20\\d{2})\\b", combined)
+    match = re.search(r"\b(0[1-9]|[12]\d|3[01])[-/](0[1-9]|1[0-2])[-/](20\d{2})\b", combined)
     if match:
         d, m, y = match.groups()
         value = normalize_date_str(y, m, d)
@@ -54,7 +54,7 @@ def extract_trading_date(page_text: str, rows: list[list[str]], fallback_date: s
     for row in rows:
         if row:
             contract = str(row[0]).strip()
-            match = re.match(r"^(20\\d{2})(0[1-9]|1[0-2])(0[1-9]|[12]\\d|3[01])\\d*$", contract)
+            match = re.match(r"^(20\d{2})(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])\d*$", contract)
             if match:
                 value = normalize_date_str(*match.groups())
                 if value:
@@ -63,7 +63,7 @@ def extract_trading_date(page_text: str, rows: list[list[str]], fallback_date: s
 
 
 def row_signature(row: list[str]) -> tuple[str, ...]:
-    return tuple(re.sub(r"\\s+", " ", str(value)).strip() for value in row)
+    return tuple(re.sub(r"\s+", " ", str(value)).strip() for value in row)
 
 
 def scrape_complete_pages() -> tuple[list[list[str]], str, int]:
@@ -85,7 +85,7 @@ def scrape_complete_pages() -> tuple[list[list[str]], str, int]:
                     "table tbody tr",
                     """els => els.map(tr =>
                         Array.from(tr.querySelectorAll('td')).map(td =>
-                            td.innerText.replace(/\\s+/g, ' ').trim()
+                            td.innerText.replace(/\s+/g, ' ').trim()
                         )
                     ).filter(r => r.length > 0)""",
                 )
@@ -132,7 +132,7 @@ def scrape_complete_pages() -> tuple[list[list[str]], str, int]:
                         page.wait_for_function(
                             """old => {
                                 const cell = document.querySelector('table tbody tr td');
-                                return !!cell && cell.innerText.replace(/\\s+/g, ' ').trim() !== old;
+                                return !!cell && cell.innerText.replace(/\s+/g, ' ').trim() !== old;
                             }""",
                             arg=old_first,
                             timeout=PAGE_CHANGE_TIMEOUT_MS,
@@ -206,7 +206,7 @@ def main() -> None:
             "Source publication and retrieval timestamps are not interchangeable.",
         ],
     }
-    atomic_write(output.with_suffix(".manifest.json"), json.dumps(manifest, indent=2) + "\\n")
+    atomic_write(output.with_suffix(".manifest.json"), json.dumps(manifest, indent=2) + "\n")
     print(f"Published complete snapshot: {output} ({len(frame)} contracts, {page_count} pages)")
     print(f"SHA-256: {digest}")
 

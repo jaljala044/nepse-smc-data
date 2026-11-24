@@ -139,8 +139,21 @@ def scrape_complete_pages() -> tuple[list[list[str]], str, int]:
                         )
                         advanced = True
                         break
-                    except (PlaywrightTimeoutError, Exception) as exc:
+                    except Exception as exc:
                         last_error = exc
+                        # A click may have succeeded even if the wait timed out.
+                        # Check the live page before retrying, otherwise a second
+                        # click could skip a page and silently lose contracts.
+                        try:
+                            current_first = page.eval_on_selector(
+                                "table tbody tr td",
+                                "el => el ? el.innerText.replace(/\\s+/g, ' ').trim() : ''",
+                            )
+                        except Exception:
+                            current_first = ""
+                        if current_first and current_first != old_first:
+                            advanced = True
+                            break
                         print(f"Page advance attempt {attempt}/{CLICK_ATTEMPTS} failed: {exc}")
                 if not advanced:
                     raise RuntimeError(

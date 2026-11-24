@@ -1,0 +1,113 @@
+{
+  "date": "2026-11-24",
+  "source_sha256": {
+    "https://www.sharesansar.com/today-share-price": "64e031be74603aff783bb91fbfd760f1ec44bd943a1f232b82f7c439a957c5fb",
+    "https://www.sharesansar.com/market": "dd99a5de4fbd1edcf190f827d8b9ff1d2cd102703299692d288d24702a995123",
+    "https://sharehubnepal.com/nepse/indices": "6f6294a5a3df6f97c80bb21f8f73c375e65d8abbf505edd127a039965345e200",
+    "https://sharehubnepal.com/landing-pages/live-nepse": "af29be29a85a978ffd7b8e1cc18bd429028eb2ed82723843e66c1d219a1af936",
+    "https://cdn.merolagani.com/Floorsheet.aspx": "c3b4572b9ead590d8d95e415ce4822e4dace8809d1e1e32562194c5b7ab2e9d3"
+  },
+  "published_totals": {
+    "date": "2026-11-24",
+    "traded_shares": 14670177,
+    "turnover_npr": "5553019249.46",
+    "traded_securities": 350,
+    "transactions": 52387,
+    "advancers": 192,
+    "decliners": 144,
+    "unchanged": 14,
+    "breadth_scope": "all 350 traded securities",
+    "validation": "ShareSansar market and EOD totals + ShareHub volume/trades + Merolagani turnover"
+  },
+  "accepted_stock_rows": 350,
+  "cross_checked_stock_ohlc": 350,
+  "full_sector_ohlc": 9,
+  "index_field_conflicts": {
+    "NEPSE": {
+      "open": {
+        "ShareSansar": 2624.94,
+        "ShareHub": 2625.13
+      }
+    },
+    "Sensitive": {
+      "open": {
+        "ShareSansar": 479.04,
+        "ShareHub": 479.14
+      }
+    },
+    "Float": {
+      "open": {
+        "ShareSansar": 182.8,
+        "ShareHub": 182.82
+      },
+      "high": {
+        "ShareSansar": 183.89,
+        "ShareHub": 183.9
+      }
+    },
+    "Sensitive Float": {
+      "open": {
+        "ShareSansar": 162.59,
+        "ShareHub": 162.63
+      }
+    },
+    "Commercial Banks": {
+      "open": {
+        "ShareSansar": 1596.49,
+        "ShareHub": 1596.39
+      }
+    },
+    "Hotels And Tourism": {
+      "open": {
+        "ShareSansar": 6959.4,
+        "ShareHub": 6960.58
+      }
+    },
+    "Hydro Power": {
+      "open": {
+        "ShareSansar": 3576.27,
+        "ShareHub": 3577.54
+      }
+    },
+    "Others": {
+      "open": {
+        "ShareSansar": 1839.44,
+        "ShareHub": 1840.0
+      }
+    }
+  },
+  "notes": [
+    "ShareHub live shows turnover NPR 5,553,019,249.45, one paisa below the exact ShareSansar stock total and Merolagani.",
+    "Hotels and Tourism close 6,970.78 agrees in the detailed index tables. ShareHub live widget displays 6,967.25."
+  ],
+  "prior_gap_recheck": {
+    "date": "2026-11-23",
+    "symbol": "NIFRAUR85/86",
+    "contract_rates": [
+      {
+        "Contract_No": "2026112301004203",
+        "Symbol": "NIFRAUR85/86",
+        "Buyer": "47",
+        "Seller": "49",
+        "Quantity": "4",
+        "Rate": "1045.1",
+        "Amount": "4180.40"
+      },
+      {
+        "Contract_No": "2026112301004202",
+        "Symbol": "NIFRAUR85/86",
+        "Buyer": "36",
+        "Seller": "49",
+        "Quantity": "26",
+        "Rate": "1045.2",
+        "Amount": "27175.20"
+      }
+    ],
+    "status": "OHLCV held out. The archived tape includes 1,045.10, and Merolagani confirms that last traded price. ShareSansar still reports a low of 1,045.20, and an independently corrected low was not located.",
+    "sources": [
+      "https://www.merolagani.com/CompanyDetail.aspx?symbol=NIFRAUR85%2F86",
+      "https://www.sharesansar.com/company/nifraur85/86"
+    ],
+    "prior_index_open_status": "Four main index opens remain unresolved across the dated sources checked."
+  }
+}

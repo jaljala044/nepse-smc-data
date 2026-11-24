@@ -1,0 +1,29 @@
+name: NEPSE Session Date Tests
+
+on:
+  push:
+    paths:
+      - "nepse_session_date.py"
+      - "tests/test_nepse_session_date.py"
+      - ".github/workflows/session-date-tests.yml"
+  pull_request:
+    paths:
+      - "nepse_session_date.py"
+      - "tests/test_nepse_session_date.py"
+      - ".github/workflows/session-date-tests.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  session-date-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run session date tests
+        run: python -m unittest discover -s tests -v

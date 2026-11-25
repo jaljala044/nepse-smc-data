@@ -45,3 +45,12 @@ The tracked OHLCV discrepancy reconciliation is complete: all seven flagged symb
 
 Proceed with the exchange-session calendar and instrument-register work tracked in issue #4. A partial 2026 official NEPSE holiday-API closure snapshot and its source manifest have been imported under `reference/`; this is not a complete historical calendar and contains no inferred open dates. The instrument register remains pending primary-source capture.
 https://github.com/jaljala044/nepse-smc-data/issues/4
+
+
+## Final read-back correction — 2026-11-26
+
+A final repository read-back identified that the BGWT row for 2025-07-28 still contained the earlier conflicting OHLC values despite the user-finalized disposition above. This was corrected directly in `03_stock_charts_ohlcv/BGWT_OHLCV.csv` and read back successfully as:
+
+`2025-07-28,824.56,870.18,818.77,839.62,14028.0`
+
+The seven target rows were checked again during this review. All seven now match the user-finalized OHLCV values and quantities in the project files. This is a project-level user-authorized reconciliation, not a claim of independent NEPSE historical OHLC verification.

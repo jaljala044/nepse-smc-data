@@ -33,7 +33,15 @@ The user-finalized records are:
 
 **Remaining unresolved discrepancies in this tracked set: 0.**
 
-## Next action
+## Floorsheet aggregate totals
 
-Resume the exchange-session calendar and instrument-register work tracked in issue #4:
+The user-finalized aggregate totals for API and HRL are also recorded in `FLOORSHEET_TOTALS_RECONCILIATION_2026-11-19.csv`. The earlier five user-finalized 2025-07-28 totals remain in `FLOORSHEET_TOTALS_RECONCILIATION_2025-07-28.csv`.
+
+## Step disposition
+
+The tracked OHLCV discrepancy reconciliation is complete: all seven flagged symbols are finalized by the user, and both updated OHLCV rows were re-fetched from GitHub after commit. User-supplied values are accepted as project-final but are not represented as independently verified NEPSE records.
+
+## Next step
+
+Proceed with the exchange-session calendar and instrument-register work tracked in issue #4. A partial 2026 official NEPSE holiday-API closure snapshot and its source manifest have been imported under `reference/`; this is not a complete historical calendar and contains no inferred open dates. The instrument register remains pending primary-source capture.
 https://github.com/jaljala044/nepse-smc-data/issues/4

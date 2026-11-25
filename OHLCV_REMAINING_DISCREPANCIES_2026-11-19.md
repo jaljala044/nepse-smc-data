@@ -1,27 +1,39 @@
-# Remaining OHLCV discrepancies after user-finalized records
+# OHLCV discrepancy reconciliation — 2026-11-19
 
 Review date: 2026-11-26
 
-## Scope
+## Resolution
 
-Compared the existing `nepse-smc-data/03_stock_charts_ohlcv` histories against the imported `nepse-history-starter/03_stock_charts_ohlcv` histories on shared trading dates, using numeric field comparisons (not string formatting).
+The user supplied the final OHLCV and floorsheet totals for API and HRL on 2026-11-19. These values are accepted as the project basis, following the same user-finalization rule previously applied to BGWT, MEHL, RAWA, RHGCL, and ULHC.
 
-The user has explicitly accepted their own data as final for the 2025-07-28 records for BGWT, MEHL, RAWA, RHGCL, and ULHC. Those five symbols are excluded from this remaining-discrepancy queue, regardless of earlier A/B/C source conflicts.
+| Symbol | Open | High | Low | Close | Quantity | Turnover (Rs.) | Calculated VWAP |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| API | 331.00 | 334.20 | 330.00 | 331.80 | 105,340 | 34,929,701 | 331.59 |
+| HRL | 483.00 | 488.00 | 483.90 | 483.90 | 49,184 | 23,836,472 | 484.64 |
 
-## Remaining unresolved symbols
+### Source and interpretation
 
-| Symbol | Date | Existing OHLCV (O,H,L,C,Volume) | Imported OHLCV (O,H,L,C,Volume) | Difference |
-|---|---|---|---|---|
-| API | 2026-11-19 | 331, 334.2, 330.2, 333, 26717 | 331, 334.2, 330, 331.8, 105340 | Low, close, volume |
-| HRL | 2026-11-19 | 483, 488, 480, 486, 18817 | 483, 488, 480, 483.9, 49184 | Close, volume |
+- Values above are user-supplied and accepted as final for this project.
+- Quantity and turnover are the user's supplied floorsheet totals.
+- VWAP is calculated as turnover divided by quantity; it is not substituted for the chart close.
+- The existing project OHLCV rows have been updated to the user-finalized OHLCV and volume values.
+- The imported-history values are retained as historical comparison evidence; they are not treated as the final values for these records.
+- No claim is made that the figures were independently verified against NEPSE.
 
-## Result
+## Earlier discrepancies now closed
 
-- Remaining symbols requiring review: **2** (API, HRL).
-- Remaining differing symbol-date rows: **2**, both dated 2026-11-19.
-- User-finalized symbols excluded: BGWT, MEHL, RAWA, RHGCL, ULHC.
-- No values have been silently overwritten. Both versions are preserved pending a decision on the correct source/price basis.
+The user-finalized records are:
+- API — 2026-11-19
+- HRL — 2026-11-19
+- BGWT — 2025-07-28
+- MEHL — 2025-07-28
+- RAWA — 2025-07-28
+- RHGCL — 2025-07-28 (including the previously flagged comparison rows)
+- ULHC — 2025-07-28
+
+**Remaining unresolved discrepancies in this tracked set: 0.**
 
 ## Next action
 
-Resolve API and HRL for 2026-11-19 by inspecting the source records and provenance for that date. Do not change either OHLCV file until the source basis is established. Then resume the exchange-session calendar and instrument-register work tracked in issue #4.
+Resume the exchange-session calendar and instrument-register work tracked in issue #4:
+https://github.com/jaljala044/nepse-smc-data/issues/4

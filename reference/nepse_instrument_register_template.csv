@@ -1,0 +1,1 @@
+security_id,symbol,security_name,instrument_type,status,valid_from,valid_to,source_id,source_record_id,evidence_uri,raw_payload_sha256,retrieved_at_utc,verified_at_utc,source_tier,target_in_scope,notes

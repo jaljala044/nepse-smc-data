@@ -1,0 +1,72 @@
+{
+  "date": "2026-11-25",
+  "stock_rows": 356,
+  "session_summary": {
+    "date": "2026-11-25",
+    "traded_shares": 16523974,
+    "turnover_npr": "6146043909.54",
+    "traded_securities": 356,
+    "transactions": 52669,
+    "advancers": 210,
+    "decliners": 133,
+    "unchanged": 13,
+    "breadth_scope": "all traded securities",
+    "validation": "ShareSansar market and dated security totals, Shikhar Signals published totals"
+  },
+  "index_field_conflicts_share_sansar_vs_sharehub": {
+    "NEPSE Index": {
+      "Open": [
+        "2644.68",
+        "2643.79"
+      ]
+    },
+    "Sensitive Index": {
+      "Open": [
+        "484.21",
+        "483.83"
+      ]
+    },
+    "Float Index": {
+      "Open": [
+        "184.33",
+        "184.23"
+      ]
+    },
+    "Sensitive Float Index": {
+      "Open": [
+        "164.55",
+        "164.37"
+      ]
+    },
+    "Banking SubIndex": {
+      "Open": [
+        "1626.0",
+        "1624.32"
+      ]
+    },
+    "Finance Index": {
+      "Open": [
+        "2126.6",
+        "2136.55"
+      ]
+    },
+    "HydroPower Index": {
+      "Open": [
+        "3598.76",
+        "3598.0"
+      ]
+    },
+    "Investment": {
+      "Open": [
+        "93.07",
+        "92.94"
+      ]
+    }
+  },
+  "sources": {
+    "https://www.sharesansar.com/today-share-price": "e2de20da6f828f6037bd7a4ee5dbd0af5058ab73d7ff84ac77590314a0f7e35f",
+    "https://www.sharesansar.com/market": "45b3309d43cd7f6a7f4d2ea523fbfcffa810c2f9fcd7abae9bbe329c9b42c22c",
+    "https://sharehubnepal.com/nepse/indices": "058e21410801007a4844ef3fe2b4b59fc7a6ca615d020c66cc6ab930f53eeebd",
+    "https://shikharsignals.com/api/floorsheet?page=0&size=500": "cb585e163fb18dc3926e9fc2ea63af4893bb6f79e96298b331f2d55070bed73c"
+  }
+}

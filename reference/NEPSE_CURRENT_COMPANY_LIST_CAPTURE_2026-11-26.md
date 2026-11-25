@@ -1,30 +1,27 @@
 # NEPSE current company-list snapshot and 525-file comparison — 2026-11-26
 
 ## Source and scope
-- Source: official NEPSE Company list page, https://nepalstock.com.np/company
+- Source: official NEPSE Company page, https://nepalstock.com.np/company
 - Captured: 2026-11-26, through the rendered public browser table.
-- Displayed rows: 281.
-- Displayed fields: row number, company/security name, symbol, status, sector, instrument label, and company-detail route ID.
-- The UI showed 281 rows with status Active and instrument Equity.
-- The exact backing XHR endpoint was not captured. This is a rendered page capture, not a raw API payload.
-- The numeric value in `/company/detail/{id}` is stored as a company-detail route ID. It is **not accepted as a stable NEPSE security ID**.
+- First-pass table: 281 rows, parsed into 278 unique symbols. The parsed rows include duplicate USLB and SYPNL entries and duplicate company-detail route IDs.
+- A later structured pass reported 281 unique equity symbols with no duplicates, but its exposed row-level payload contained only the first 20 rows. These capture outputs conflict.
+- A separate instrument-filter pass reported 281 active Equity rows and 47 active Mutual Funds (328 total active rows); Preference Shares and Non-Convertible Debentures filters returned 0 rows. Suspended/Delisted rows were not extracted.
+- The exact backing XHR endpoint and raw API payload were not captured.
+- Numeric `/company/detail/{id}` values are company-detail route IDs, not verified stable NEPSE security IDs.
 
 ## Full historical-file comparison
-- OHLCV files in `03_STOCK_CHARTS_OHLCV`: 525.
-- Current company-list unique symbols: 278.
-- OHLCV filenames with a current company-list symbol match: 278.
-- OHLCV filenames without a current company-list symbol match: 247.
-- This is a current company-list membership comparison only. An unmatched ticker may be a debt/debenture, mutual fund, promoter/preference class, delisted or renamed instrument, or a data naming issue. No such classification is assigned without evidence.
+- OHLCV files: 525.
+- First-pass current equity unique symbols: 278.
+- First-pass OHLCV filenames matching those equity symbols: 278.
+- First-pass filenames not matching those equity symbols: 247.
+- Structured mutual funds: 47 unique symbols; 46 match OHLCV files; NICEF has no OHLCV file.
+- The first-pass comparison is provisional because the later equity capture reported a different unique-symbol count. Do not treat 201 residual unmatched files (after subtracting mutual-fund matches) as unknown securities.
 
-## Duplicate and identifier anomalies preserved
-- `USLB` appears twice with different company-detail route IDs (2774 and 8063).
-- `SYPNL` appears three times with the same company-detail route ID (9303).
-- Company-detail route ID `2917` is assigned in the table to both `CGH` and `CHDC`.
-- Company-detail route ID `9166` is assigned in the table to both `MAKAR` and `BENH`.
-- These conflicts mean the rendered company-detail route ID cannot be treated as a globally unique security ID from this capture.
+## Duplicate and identifier anomalies
+- First-pass extraction reported USLB twice and SYPNL three times.
+- It assigned route ID 2917 to both CGH and CHDC, and 9166 to both MAKAR and BENH.
+- The later structured pass reported no duplicates, so these are unresolved capture inconsistencies, not confirmed NEPSE duplicates.
+- No stable securityId field was captured for equities.
 
 ## Canonical-data policy
-- Do not populate the official instrument register from this company-list snapshot alone.
-- Do not mark the 247 unmatched files as unknown securities; they remain unclassified.
-- Do not infer listing/delisting dates, symbol rename dates, or historical active status from the current list.
-- Obtain the full NEPSE security-list response with its actual `securityId`, instrument type and lifecycle fields (or equivalent authoritative historical evidence) before promotion.
+Do not populate the official instrument register from this company-list snapshot alone. Do not mark unmatched files as unknown, inactive, delisted or renamed. Obtain the complete NEPSE security register with stable IDs and historical lifecycle fields before promotion.

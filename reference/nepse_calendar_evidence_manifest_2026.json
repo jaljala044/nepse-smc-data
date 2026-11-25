@@ -1,0 +1,513 @@
+{
+  "schema_version": "1.0",
+  "captures": [
+    {
+      "source_id": "NEPSE_OFFICIAL_HOLIDAY_API_2026",
+      "final_url": "https://nepalstock.com.np/api/nots/holiday/list?year=2026",
+      "raw_evidence_path": "data/evidence/raw/nepse/holiday-api-authenticated/2026-11-25/response-body.bin",
+      "raw_evidence_sha256": "dd1777e3c61623048e00dc170d860659b14b8821ffabff8338002ccafdb2ea8f",
+      "retrieved_at_utc": "2026-11-25T13:13:17.600880Z",
+      "content_type": "application/json",
+      "http_status": 200,
+      "response_bytes": 4932,
+      "response_record_count": 41,
+      "source_type": "official_nepse_holiday_api",
+      "capture_method": "nepse-client 0.1.4; authenticated public website API flow; raw response captured before parsing"
+    }
+  ],
+  "claims": [
+    {
+      "date": "2026-12-30",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Tamu Lhosar",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-12-25",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Christmas Day",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-12-24",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Udhauli Parva and Yomari Punhi",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-11-16",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Chhath Parva",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-11-15",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Chhath Parva",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-11-12",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Tihar Bida",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-11-11",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Tihar Bida",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-11-10",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Tihar Bida",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-11-09",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Tihar Bida",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-11-08",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Tihar Bida",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-10-23",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Dashain bida",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-10-22",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Dashain bida",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-10-21",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Bijaya Dashami",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-10-20",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "MahaNawami",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-10-19",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Astami",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-10-18",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "MahaAstami",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-10-17",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Fulpati",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-10-11",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Ghatasthapana",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-09-25",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Indra Jatra",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-09-21",
+      "status": "verified_exceptional_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Emergengy Market Close",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-09-08",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Gen Z Sahid Diwas",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-09-04",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Shree Krishna Janmasthami",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-08-28",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Janai Purnima",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-05-29",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Republic Day",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-05-28",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Bakar EID",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-05-01",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Buddha Jyanti",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-04-14",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "New Year",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-03-27",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Ram Nawami",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-03-18",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Ghode Jatra",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-03-08",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "International Woman Day",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-03-06",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Election Holiday",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-03-05",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Election Holiday",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-03-04",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Election Holiday",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-03-02",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Fagu Purnima",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-02-19",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Prajatantra Diwas",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-02-18",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Gyalpo Lhosar",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-02-15",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Mahashiva Ratri",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-01-30",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Martyrs Day",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-01-19",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Sonam Lhosar",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-01-15",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Maghe Sankranti",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    },
+    {
+      "date": "2026-01-11",
+      "status": "verified_closed",
+      "scope": "all_securities",
+      "source_ids": [
+        "NEPSE_OFFICIAL_HOLIDAY_API_2026"
+      ],
+      "holiday_description": "Prithvi Jayanti",
+      "instrument_type_id": null,
+      "active_status": null,
+      "notes": "Listed by the official NEPSE holiday API for 2026; instrumentTypeId is null. Explicit closure evidence only; no inference for dates absent from this response."
+    }
+  ],
+  "policy": "explicit_primary_nepse_holiday_api_evidence_only_no_inference_for_unlisted_dates"
+}

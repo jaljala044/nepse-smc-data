@@ -1,0 +1,6 @@
+trade_date,symbol,total_quantity,total_turnover_npr,calculated_vwap_npr,source,verification_status,notes
+2025-07-28,BGWT,14028,13256345,944.99,user_supplied_chukul_floorsheet_totals,user_supplied_not_independently_verified,"Correct symbol BGWT; BGWAT was a typo. Aggregate totals supplied by user; contract rows and trade count not available."
+2025-07-28,MEHL,29753,14008898,470.84,user_supplied_chukul_floorsheet_totals,user_supplied_not_independently_verified,"Aggregate totals supplied by user; contract rows and trade count not available."
+2025-07-28,RAWA,3165,2515663,794.84,user_supplied_chukul_floorsheet_totals,user_supplied_not_independently_verified,"Aggregate totals supplied by user; contract rows and trade count not available."
+2025-07-28,RHGCL,296715,103872614,350.08,user_supplied_chukul_floorsheet_totals,user_supplied_not_independently_verified,"Aggregate totals supplied by user; contract rows and trade count not available."
+2025-07-28,ULHC,32288,16273342,504.01,user_supplied_chukul_floorsheet_totals,user_supplied_not_independently_verified,"Aggregate totals supplied by user; contract rows and trade count not available."

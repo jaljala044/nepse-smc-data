@@ -5,11 +5,13 @@ on:
       - p433-first-trade-floorsheet-capture
     paths:
       - "tools/capture_p433_first_trade_floorsheets.py"
+      - "tools/discover_p433_hf_dataset_objects.py"
       - "tools/tests/test_capture_p433_first_trade_floorsheets.py"
       - ".github/workflows/p433-first-trade-floorsheet-capture.yml"
   pull_request:
     paths:
       - "tools/capture_p433_first_trade_floorsheets.py"
+      - "tools/discover_p433_hf_dataset_objects.py"
       - "tools/tests/test_capture_p433_first_trade_floorsheets.py"
       - ".github/workflows/p433-first-trade-floorsheet-capture.yml"
 permissions:
@@ -29,6 +31,8 @@ jobs:
         run: |
           cd tools
           python -m unittest discover -s tests -p 'test_capture_p433_first_trade_floorsheets.py' -v
+      - name: Discover actual Hugging Face repository objects
+        run: python tools/discover_p433_hf_dataset_objects.py
       - name: Attempt four exact-date archive captures
         run: python tools/capture_p433_first_trade_floorsheets.py
       - name: Commit raw captures and evidence report

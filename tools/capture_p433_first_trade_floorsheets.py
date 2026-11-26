@@ -1,119 +1,88 @@
 #!/usr/bin/env python3
-"""Capture four date-scoped third-party floorsheets for P4.33; fail closed on gaps."""
+"""Capture and verify four exact-date compressed HF floorsheets; never infer NO_TRADE."""
 import csv
+import gzip
 import hashlib
 import io
 import json
 import urllib.request
 from datetime import datetime, timezone
-from decimal import Decimal, InvalidOperation
+from decimal import Decimal, InvalidOperation, ROUND_FLOOR
 from pathlib import Path
 
-BASE = "https://huggingface.co/datasets/urekmazino69/Nepse-floorsheet-and-indices/resolve/main/floorsheet"
-TARGETS = [
-    {"symbol":"NMLBBL","date":"2024-05-19","role":"candidate_first_positive_volume_date"},
-    {"symbol":"NMLBBL","date":"2024-05-16","role":"immediately_preceding_candidate_session"},
-    {"symbol":"SMPDA","date":"2024-08-18","role":"candidate_first_positive_volume_date"},
-    {"symbol":"SMPDA","date":"2024-08-14","role":"immediately_preceding_candidate_session"},
+BASE="https://huggingface.co/datasets/urekmazino69/Nepse-floorsheet-and-indices/resolve/main/"
+TREE_PATH=Path("reference/p433_floorsheets/huggingface_repo_tree.json")
+TARGETS=[
+ {"symbol":"NMLBBL","date":"2024-05-19","role":"candidate_first_positive_volume_date"},
+ {"symbol":"NMLBBL","date":"2024-05-16","role":"immediately_preceding_candidate_session"},
+ {"symbol":"SMPDA","date":"2024-08-18","role":"candidate_first_positive_volume_date"},
+ {"symbol":"SMPDA","date":"2024-08-14","role":"immediately_preceding_candidate_session"},
 ]
-ALIASES = {
-    "contract_no":("contract_no","contractno","contract_id","contractid"),
-    "date":("calculation_date","business_date","businessdate","date"),
-    "symbol":("stock_symbol","symbol","scrip"),
-    "quantity":("quantity","qty"),
-    "rate":("rate","price"),
-    "amount":("amount","amt","total_amount"),
-}
-
-def pick(row, key):
-    for name in ALIASES[key]:
-        if name in row and str(row[name]).strip():
-            return str(row[name]).strip()
-    return ""
-
+ALIASES={"contract_no":("contract_no","contractno","contract_id","contractid"),"date":("calculation_date","business_date","businessdate","date"),"symbol":("stock_symbol","symbol","scrip"),"quantity":("quantity","qty"),"rate":("rate","price"),"amount":("amount","amt","total_amount")}
+def pick(row,key):
+ for name in ALIASES[key]:
+  if name in row and str(row[name]).strip(): return str(row[name]).strip()
+ return ""
 def fetch(url):
-    req=urllib.request.Request(url,headers={"User-Agent":"NEPSE-P433-Evidence-Audit/1.0"})
-    with urllib.request.urlopen(req,timeout=45) as res:
-        return res.status,dict(res.headers.items()),res.read()
-
-def validate_rows(raw, symbol, date):
-    text=raw.decode("utf-8-sig")
-    reader=csv.DictReader(io.StringIO(text))
-    headers=[(h or "").strip().lower() for h in (reader.fieldnames or [])]
-    if not headers:
-        return {"status":"schema_unknown","row_count":0,"errors":["CSV has no header"],"symbol_contracts":0}
-    rows=[{(k or "").strip().lower():(v or "").strip() for k,v in row.items()} for row in reader]
-    errors=[]
-    missing=[k for k in ("contract_no","date","symbol","quantity","rate","amount") if not any(a in headers for a in ALIASES[k])]
-    if missing: errors.append("missing required column(s): "+",".join(missing))
-    ids=[]; target_rows=[]; arithmetic_errors=0; date_mismatches=0; invalid_numeric=0
-    for i,row in enumerate(rows,2):
-        cid=pick(row,"contract_no")
-        if not cid: errors.append(f"row {i}: missing contract id")
-        ids.append(cid)
-        rowdate=pick(row,"date")[:10]
-        if rowdate and rowdate!=date: date_mismatches+=1
-        rowsymbol=pick(row,"symbol").upper()
-        if rowsymbol==symbol: target_rows.append(row)
-        if not all(pick(row,k) for k in ("quantity","rate","amount")): invalid_numeric+=1; continue
-        try:
-            qty=Decimal(pick(row,"quantity").replace(",",""))
-            rate=Decimal(pick(row,"rate").replace(",",""))
-            amount=Decimal(pick(row,"amount").replace(",",""))
-            if qty<=0 or rate<=0 or amount<=0: invalid_numeric+=1
-            elif abs(qty*rate-amount)>Decimal("0.01") and amount!= (qty*rate).to_integral_value(rounding="ROUND_FLOOR"):
-                arithmetic_errors+=1
-        except (InvalidOperation,ValueError): invalid_numeric+=1
-    duplicate_ids=len(ids)-len(set(ids))
-    if duplicate_ids: errors.append(f"duplicate contract ids: {duplicate_ids}")
-    if date_mismatches: errors.append(f"business-date mismatches: {date_mismatches}")
-    if arithmetic_errors: errors.append(f"quantity*rate amount mismatches: {arithmetic_errors}")
-    if invalid_numeric: errors.append(f"invalid numeric rows: {invalid_numeric}")
-    return {
-        "status":"validated" if not errors else "validation_failed",
-        "row_count":len(rows),"headers":reader.fieldnames or [],
-        "duplicate_contract_ids":duplicate_ids,"date_mismatches":date_mismatches,
-        "arithmetic_errors":arithmetic_errors,"invalid_numeric_rows":invalid_numeric,
-        "target_symbol_contracts":len(target_rows),
-        "target_symbol_quantity":str(sum((Decimal(pick(r,"quantity").replace(",","")) for r in target_rows if pick(r,"quantity")),Decimal(0))),
-        "errors":errors
-    }
-
-def capture(output_dir, fetcher=fetch, retrieved_at=None):
-    out=Path(output_dir); out.mkdir(parents=True,exist_ok=True)
-    stamp=retrieved_at or datetime.now(timezone.utc).isoformat()
-    records=[]
-    for target in TARGETS:
-        rec=dict(target); rec["source_url"]=f"{BASE}/{target['date']}.csv"; rec["retrieved_at_utc"]=stamp
-        try:
-            status,headers,body=fetcher(rec["source_url"])
-            rec.update(http_status=status,content_type=headers.get("Content-Type") or headers.get("content-type"),response_bytes=len(body),response_sha256=hashlib.sha256(body).hexdigest())
-            if status!=200:
-                rec["capture_status"]="http_error"
-            elif not body or body.lstrip().startswith((b"<!DOCTYPE",b"<html")):
-                rec["capture_status"]="non_csv_response"
-            else:
-                name=f"floorsheet_{target['date']}.csv"
-                (out/name).write_bytes(body)
-                rec["filename"]=name
-                rec["validation"]=validate_rows(body,target["symbol"],target["date"])
-                rec["capture_status"]="captured"
-        except Exception as exc:
-            rec["capture_status"]="unavailable"; rec["error"]=f"{type(exc).__name__}: {exc}"
-        records.append(rec)
-    report={
-        "task":"P4.33","source_class":"third_party_huggingface_archive_claiming_nepse_floorsheet_data",
-        "dataset":"urekmazino69/Nepse-floorsheet-and-indices","retrieved_at_utc":stamp,
-        "records":records,
-        "interpretation":"A downloaded CSV and valid contract rows are third-party archive evidence only. Dataset completeness, exchange-origin and full-session pagination are not independently proven. A zero-symbol-row result never establishes NO_TRADE. First-trade boundaries remain UNKNOWN pending complete primary or independently validated full-session evidence."
-    }
-    (out/"capture_report.json").write_text(json.dumps(report,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
-    return report
-
+ req=urllib.request.Request(url,headers={"User-Agent":"NEPSE-P433-Evidence-Audit/1.0"})
+ with urllib.request.urlopen(req,timeout=60) as res: return res.status,dict(res.headers.items()),res.read()
+def validate_rows(raw,symbol,date):
+ reader=csv.DictReader(io.StringIO(raw.decode("utf-8-sig")))
+ headers=[(h or "").strip().lower() for h in (reader.fieldnames or [])]
+ if not headers:return {"status":"schema_unknown","row_count":0,"errors":["CSV has no header"],"target_symbol_contracts":0}
+ rows=[{(k or "").strip().lower():(v or "").strip() for k,v in row.items()} for row in reader]
+ errors=[];missing=[k for k in ALIASES if not any(a in headers for a in ALIASES[k])]
+ if missing:errors.append("missing required columns: "+",".join(missing))
+ ids=[];target=[];date_mismatch=0;arithmetic=0;invalid=0
+ for i,row in enumerate(rows,2):
+  cid=pick(row,"contract_no")
+  if not cid:errors.append(f"row {i}: missing contract id")
+  ids.append(cid)
+  d=pick(row,"date")[:10]
+  if d and d!=date:date_mismatch+=1
+  if pick(row,"symbol").upper()==symbol:target.append(row)
+  if not all(pick(row,k) for k in ("quantity","rate","amount")):invalid+=1;continue
+  try:
+   q=Decimal(pick(row,"quantity").replace(",",""));rate=Decimal(pick(row,"rate").replace(",",""));amt=Decimal(pick(row,"amount").replace(",",""))
+   if q<=0 or rate<=0 or amt<=0:invalid+=1
+   elif abs(q*rate-amt)>Decimal("0.01") and amt!=q.to_integral_value(rounding=ROUND_FLOOR)*rate if False else False: pass
+   elif abs(q*rate-amt)>Decimal("0.01") and amt!=(q*rate).to_integral_value(rounding=ROUND_FLOOR):arithmetic+=1
+  except (InvalidOperation,ValueError):invalid+=1
+ dup=len(ids)-len(set(ids))
+ if dup:errors.append(f"duplicate contract ids: {dup}")
+ if date_mismatch:errors.append(f"business-date mismatches: {date_mismatch}")
+ if arithmetic:errors.append(f"quantity*rate amount mismatches: {arithmetic}")
+ if invalid:errors.append(f"invalid numeric rows: {invalid}")
+ qty=sum((Decimal(pick(r,"quantity").replace(",","")) for r in target if pick(r,"quantity")),Decimal(0))
+ return {"status":"validated" if not errors else "validation_failed","row_count":len(rows),"headers":reader.fieldnames or [],"duplicate_contract_ids":dup,"date_mismatches":date_mismatch,"arithmetic_errors":arithmetic,"invalid_numeric_rows":invalid,"target_symbol_contracts":len(target),"target_symbol_quantity":str(qty),"errors":errors}
+def tree_metadata():
+ if not TREE_PATH.exists():return {}
+ data=json.loads(TREE_PATH.read_text(encoding="utf-8"))
+ return {x["path"]:x for x in data.get("files",[])}
+def capture(output_dir,fetcher=fetch,retrieved_at=None,metadata=None):
+ out=Path(output_dir);out.mkdir(parents=True,exist_ok=True);stamp=retrieved_at or datetime.now(timezone.utc).isoformat();metadata=metadata if metadata is not None else tree_metadata();records=[]
+ for target in TARGETS:
+  rec=dict(target);path=f"floorsheet/{target['date']}.csv.gz";rec["source_url"]=BASE+path;rec["source_path"]=path;rec["retrieved_at_utc"]=stamp
+  meta=metadata.get(path)
+  if meta:rec["source_git_oid"]=meta.get("oid");rec["expected_compressed_bytes"]=meta.get("size");rec["expected_lfs_sha256"]=(meta.get("lfs") or {}).get("oid")
+  try:
+   status,headers,compressed=fetcher(rec["source_url"]);rec.update(http_status=status,content_type=headers.get("Content-Type") or headers.get("content-type"),compressed_bytes=len(compressed),compressed_sha256=hashlib.sha256(compressed).hexdigest())
+   if status!=200:rec["capture_status"]="http_error"
+   elif not compressed.startswith(b"\x1f\x8b"):rec["capture_status"]="non_gzip_response"
+   else:
+    raw=gzip.decompress(compressed);rec["uncompressed_bytes"]=len(raw);rec["uncompressed_sha256"]=hashlib.sha256(raw).hexdigest()
+    if meta and meta.get("size")!=len(compressed):rec["integrity_error"]="compressed size differs from HF tree metadata"
+    if meta and (meta.get("lfs") or {}).get("oid")!=rec["compressed_sha256"]:rec["integrity_error"]="LFS SHA-256 differs from downloaded bytes"
+    gz_name=f"floorsheet_{target['date']}.csv.gz";csv_name=f"floorsheet_{target['date']}.csv"
+    (out/gz_name).write_bytes(compressed);(out/csv_name).write_bytes(raw);rec["compressed_filename"]=gz_name;rec["filename"]=csv_name
+    rec["validation"]=validate_rows(raw,target["symbol"],target["date"])
+    rec["capture_status"]="captured" if "integrity_error" not in rec else "integrity_failed"
+  except Exception as exc:rec["capture_status"]="unavailable";rec["error"]=f"{type(exc).__name__}: {exc}"
+  records.append(rec)
+ result={"task":"P4.33","source_class":"third_party_huggingface_archive_claiming_nepse_floorsheet_data","dataset":"urekmazino69/Nepse-floorsheet-and-indices","retrieved_at_utc":stamp,"records":records,"interpretation":"The dataset card and repository are third-party evidence. Captured files and validated contracts do not independently prove exchange origin or full-session completeness. Zero target rows never establishes NO_TRADE. First-trade boundaries remain UNKNOWN pending complete primary or independently validated session evidence."}
+ (out/"capture_report.json").write_text(json.dumps(result,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+ return result
 if __name__=="__main__":
-    result=capture("reference/p433_floorsheets")
-    for r in result["records"]:
-        v=r.get("validation",{})
-        print(f"{r['symbol']} {r['date']}: {r['capture_status']} rows={v.get('row_count','?')} target_contracts={v.get('target_symbol_contracts','?')} sha256={r.get('response_sha256','-')}")
-    if any(r["capture_status"]!="captured" for r in result["records"]):
-        print("UNKNOWN: one or more exact-date archive objects were unavailable.")
+ result=capture("reference/p433_floorsheets")
+ for r in result["records"]:
+  v=r.get("validation",{});print(f"{r['symbol']} {r['date']}: {r['capture_status']} rows={v.get('row_count','?')} target_contracts={v.get('target_symbol_contracts','?')} sha256={r.get('compressed_sha256','-')}")

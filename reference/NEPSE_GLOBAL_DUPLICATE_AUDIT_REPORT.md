@@ -3,7 +3,7 @@
 **Status: reproducible audit baseline complete; adjudication and canonical-ingestion acceptance remain open.**
 
 **Pinned input:** `main` at `56362fb4f65b91fdcca8f50b50e53ad80e703649`.  
-**Latest completed strict workflow:** [Run 205](https://github.com/jaljala044/nepse-smc-data/actions/runs/45899093388), head `7d24f589fef069cdc161ece039ac89cc77cd691b`; all strict audit stages passed. The current branch-head strict run [Run 213](https://github.com/jaljala044/nepse-smc-data/actions/runs/45899542346) is still in progress and is not counted as passed. Separate priority-floorsheet recovery [Run 11](https://github.com/jaljala044/nepse-smc-data/actions/runs/45899542388) and secondary-priority comparison [Run 2](https://github.com/jaljala044/nepse-smc-data/actions/runs/45899542326) both passed.  
+**Latest completed strict workflow:** [Run 224](https://github.com/jaljala044/nepse-smc-data/actions/runs/45899859071) passed all 30 steps on head `c65237bced95896d9fe6fd73ad53c469e45c08c9`. A later reference-only parity evidence CSV was added; it does not change scanner code or pinned audit inputs. The separate priority-floorsheet recovery [Run 21](https://github.com/jaljala044/nepse-smc-data/actions/runs/45899859106), secondary comparison [Run 12](https://github.com/jaljala044/nepse-smc-data/actions/runs/45899859057), and full-session parity [Run 6](https://github.com/jaljala044/nepse-smc-data/actions/runs/45899859073) passed on the same head.  
 **Method:** deterministic, read-only scan of pinned file blobs. Findings are review flags, not automatic corrections.
 
 ## Coverage
@@ -53,6 +53,21 @@ These are **third-party archive observations**, not independently authenticated 
 A second read-only workflow compared five of the ten observations against a separate public Hugging Face floorsheet archive. **All five** returned `EXACT_SECONDARY_MATCH`: BNT 2026-06-29 and 2026-07-01; UNL 2026-08-24; ENL 2026-08-25 and 2026-08-26. For each, the secondary archive's file SHA-256 and byte count matched its repository LFS metadata; the full session file had zero duplicate contract-number occurrences and zero invalid transaction rows; exactly one target-symbol row matched the contract number, buyer and seller broker IDs, quantity, rate and amount. Evidence is preserved in `P443_SECONDARY_PRIORITY_CONTRACT_EVIDENCE_2026-11-27.csv` (workflow run 2, artifact 15155390598).
 
 This is stronger row-level cross-archive corroboration than a daily OHLCV match, but it still does **not** prove independent upstream lineage, authoritative exchange publication, complete archive capture, or point-in-time contract-ID authority. The two archive datasets may share upstream collection or transformations; that has not been ruled out. The five rows remain `promotion_allowed=false`; no canonical OHLCV values were changed.
+
+### Full-session contract multiset parity
+
+A follow-on full-session check compared **all contract rows** across the two archives for those five dates, not just the selected priority contracts. It matched the multiset on date, contract number, symbol, buyer broker ID, seller broker ID, quantity, rate and amount:
+
+| Date | Symbol focus | Primary rows | Secondary rows | Exact matched rows | Primary-only / secondary-only |
+|---|---|---:|---:|---:|---:|
+| 2026-06-29 | BNT | 44,942 | 44,942 | 44,942 | 0 / 0 |
+| 2026-07-01 | BNT | 56,850 | 56,850 | 56,850 | 0 / 0 |
+| 2026-08-24 | UNL | 53,153 | 53,153 | 53,153 | 0 / 0 |
+| 2026-08-25 | ENL | 46,589 | 46,589 | 46,589 | 0 / 0 |
+| 2026-08-26 | ENL | 61,442 | 61,442 | 61,442 | 0 / 0 |
+| **Total** | | **262,976** | **262,976** | **262,976** | **0 / 0** |
+
+Workflow [Run 6](https://github.com/jaljala044/nepse-smc-data/actions/runs/45899859073) passed on head `c65237bced95896d9fe6fd73ad53c469e45c08c9`; its artifact is 15155515864. Per-date hashes and counts are preserved in `P443_FULL_SESSION_CONTRACT_PARITY_2026-11-27.csv`. The comparison rejects invalid rows and repeated contract numbers within either session file before comparing the full shared-field multisets. It does **not** compare timestamps, establish that either archive is complete, prove independent upstream data lineage, or make either archive an authoritative exchange record. All 262,976 matches remain corroboration only; `promotion_allowed=false`.
 
 ### Priority-equity external archive comparisons
 
@@ -159,7 +174,7 @@ Preserve all rows. The source capture report reports unique archive-local record
 
 ## Reproducibility and machine-readable outputs
 
-- Latest completed strict workflow: [Run 205](https://github.com/jaljala044/nepse-smc-data/actions/runs/45899093388); all strict scan, quarantine, cross-repository contract, strict-byte, exception join, pair-calendar triage, disjoint queue, row-hold, authenticated-holiday, open-pair check, equity-first triage, all-58,972-pair official-history check, recovery-queue regression, and artifact-preservation stages passed. Current-head strict run [Run 213](https://github.com/jaljala044/nepse-smc-data/actions/runs/45899542346) is still in progress. Priority floorsheet recovery [Run 11](https://github.com/jaljala044/nepse-smc-data/actions/runs/45899542388) and secondary archive comparison [Run 2](https://github.com/jaljala044/nepse-smc-data/actions/runs/45899542326) passed; outputs are preserved in the two `p443-*` workflow artifacts and the row-level reference CSVs.
+- Latest completed strict workflow: [Run 224](https://github.com/jaljala044/nepse-smc-data/actions/runs/45899859071), 30/30 steps passed. Priority floorsheet recovery [Run 21](https://github.com/jaljala044/nepse-smc-data/actions/runs/45899859106), secondary priority comparison [Run 12](https://github.com/jaljala044/nepse-smc-data/actions/runs/45899859057), and full-session contract parity [Run 6](https://github.com/jaljala044/nepse-smc-data/actions/runs/45899859073) also passed. The full-session artifact matched 262,976/262,976 shared-field contract rows across five dates with zero differences; results are preserved in `P443_FULL_SESSION_CONTRACT_PARITY_2026-11-27.csv`.
 - Standard row-level CSV findings: `NEPSE_GLOBAL_DUPLICATE_AUDIT_FINDINGS.csv`.
 - Per-file scan coverage: `NEPSE_GLOBAL_DUPLICATE_AUDIT_SCAN_SUMMARY.csv`.
 - Strict pinned-byte row-level findings and exception join: preserved in the run's `p443-strict-content-audit` artifact (`findings.jsonl`, `coverage.json`, `summary.json`, `exception_join.csv`, `exception_join_summary.json`, `open_pair_security_evidence.csv`, `open_pair_security_summary.json`, `unresolved_pair_security_evidence.csv`, `unresolved_pair_security_summary.json`, `equity_first_repeat_review.csv`, `equity_first_repeat_summary.json`, `equity_security_date_recovery_queue.csv`, `equity_security_date_source_lineage.csv`, `equity_security_date_recovery_summary.json`).

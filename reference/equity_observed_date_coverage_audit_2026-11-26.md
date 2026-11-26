@@ -65,8 +65,8 @@ The per-symbol CSV stores each file's blob SHA, total row count, first/last date
 ## Interpretation
 
 - The 12 lowest-overlap symbols other than NLO have archive start dates from February through October 2026. Their low overlap may reflect later listing/trading start, not missing historical sessions. Lifecycle dates must be checked before classifying them as data gaps.
-- NLO is a separate high-priority review case: its file begins in March 2024 but ends on 2026-09-30, substantially earlier than the other archive files. Verify whether this reflects a trading suspension, listing/lifecycle change, or incomplete data capture.
-- BNL and PFL also warrant symbol-specific review because their overlap is materially below the main cluster despite older archive start dates.
+- NLO is a separate sparse-trading case: its 43-row trade-only archive ends on 2026-09-30, but Hamroshare, Sajilo and QuantNepal report no later executed trades / zero volume through 2026-11-26. Do not classify this as collector staleness or pad zero-volume candles; see the NLO sparse-trading review.
+- BNL and PFL warrant symbol-specific review. BNL's archive omits a 2026-11-23 trade corroborated by two third-party sources; PFL's low overlap partly aligns with a merger suspension/relisting window. See their lifecycle reviews.
 - The common 225-date reference belongs to security ID 8108. It is not a full exchange session calendar and does not establish that all 281 equities should have traded on every reference date.
 - No duplicate dates were found within the audited sample-window rows. This does not replace the full OHLCV value/row-quality audit planned in Task 5.
 

@@ -1,0 +1,45 @@
+{
+  "task": "P4.33",
+  "source_class": "third_party_huggingface_archive_claiming_nepse_floorsheet_data",
+  "dataset": "urekmazino69/Nepse-floorsheet-and-indices",
+  "retrieved_at_utc": "2026-11-26T18:22:10.576721+00:00",
+  "records": [
+    {
+      "symbol": "NMLBBL",
+      "date": "2024-05-19",
+      "role": "candidate_first_positive_volume_date",
+      "source_url": "https://huggingface.co/datasets/urekmazino69/Nepse-floorsheet-and-indices/resolve/main/floorsheet/2024-05-19.csv",
+      "retrieved_at_utc": "2026-11-26T18:22:10.576721+00:00",
+      "capture_status": "unavailable",
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "symbol": "NMLBBL",
+      "date": "2024-05-16",
+      "role": "immediately_preceding_candidate_session",
+      "source_url": "https://huggingface.co/datasets/urekmazino69/Nepse-floorsheet-and-indices/resolve/main/floorsheet/2024-05-16.csv",
+      "retrieved_at_utc": "2026-11-26T18:22:10.576721+00:00",
+      "capture_status": "unavailable",
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "symbol": "SMPDA",
+      "date": "2024-08-18",
+      "role": "candidate_first_positive_volume_date",
+      "source_url": "https://huggingface.co/datasets/urekmazino69/Nepse-floorsheet-and-indices/resolve/main/floorsheet/2024-08-18.csv",
+      "retrieved_at_utc": "2026-11-26T18:22:10.576721+00:00",
+      "capture_status": "unavailable",
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    },
+    {
+      "symbol": "SMPDA",
+      "date": "2024-08-14",
+      "role": "immediately_preceding_candidate_session",
+      "source_url": "https://huggingface.co/datasets/urekmazino69/Nepse-floorsheet-and-indices/resolve/main/floorsheet/2024-08-14.csv",
+      "retrieved_at_utc": "2026-11-26T18:22:10.576721+00:00",
+      "capture_status": "unavailable",
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    }
+  ],
+  "interpretation": "A downloaded CSV and valid contract rows are third-party archive evidence only. Dataset completeness, exchange-origin and full-session pagination are not independently proven. A zero-symbol-row result never establishes NO_TRADE. First-trade boundaries remain UNKNOWN pending complete primary or independently validated full-session evidence."
+}

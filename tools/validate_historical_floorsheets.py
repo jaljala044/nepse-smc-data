@@ -394,6 +394,10 @@ def main():
     content = Counter(r["content_status"] for r in summaries)
     complete = Counter(r["completeness_status"] for r in summaries)
     statuses = Counter(r["trade_status"] for r in equity_rows)
+    conflict_by_symbol = Counter(r["symbol"] for r in equity_rows if r["ohlcv_comparison"] == "CONFLICT")
+    absent_by_symbol = Counter(r["symbol"] for r in equity_rows if r["ohlcv_comparison"] == "OHLCV_ROW_ABSENT")
+    unl_rows = [r for r in equity_rows if r["symbol"] == "UNL"]
+    unl_traded = [r for r in unl_rows if r["trade_status"] == "TRADED"]
     failed_dates = [
         {key: row.get(key) for key in ("date", "content_status", "rows", "trades", "shares", "turnover_npr",
                                        "symbols", "duplicate_contracts", "amount_identity_failures",
@@ -409,6 +413,17 @@ def main():
         "sha256_calculated_for": sum(bool(r.get("actual_sha256")) for r in download_rows),
         "failed_downloads": [r for r in download_rows if r["download_status"] != "PASS"],
         "failed_content_dates": failed_dates,
+        "top_20_ohlcv_conflict_symbols": conflict_by_symbol.most_common(20),
+        "top_20_ohlcv_absent_symbols": absent_by_symbol.most_common(20),
+        "unl_sample": {
+            "observed_dates": len(unl_rows),
+            "traded_dates": len(unl_traded),
+            "contracts": sum(int(r["contracts"]) for r in unl_traded),
+            "shares": sum(int(r["floorsheet_shares"]) for r in unl_traded),
+            "turnover_npr": str(sum((Decimal(r["floorsheet_turnover_npr"]) for r in unl_traded), Decimal("0")).quantize(Decimal("0.01"))),
+            "unknown_dates": sum(r["trade_status"] == "UNKNOWN" for r in unl_rows),
+            "no_trade_dates": sum(r["trade_status"] == "NO_TRADE" for r in unl_rows),
+        },
         "ohlcv_comparison_totals": {
             "matches": sum(r["ohlcv_matches"] for r in summaries),
             "conflicts": sum(r["ohlcv_conflicts"] for r in summaries),

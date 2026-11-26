@@ -16,7 +16,7 @@ import urllib.request
 from collections import Counter, defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
-from decimal import Decimal, InvalidOperation
+from decimal import Decimal, InvalidOperation, ROUND_FLOOR
 from pathlib import Path
 
 
@@ -115,6 +115,9 @@ def validate_file(item, downloaded, equity_symbols, ohlcv, independent_verificat
     turnover = Decimal("0")
     symbols = set()
     amount_failures = 0
+    amount_exact_matches = 0
+    amount_floor_matches = 0
+    invalid_by_symbol = Counter()
     rows_read = 0
     headers = []
     if downloaded["download_status"] != "PASS":
@@ -179,11 +182,25 @@ def validate_file(item, downloaded, equity_symbols, ohlcv, independent_verificat
                 errors["missing_or_invalid_broker_id"] += 1
                 invalid = True
             if qty is not None and rate is not None and amount is not None:
-                if abs(qty * rate - amount) > Decimal("0.01"):
+                exact_amount_match = abs(qty * rate - amount) <= Decimal("0.01")
+                whole_rupee_floor_match = (
+                    amount == amount.to_integral_value()
+                    and amount == (qty * rate).to_integral_value(rounding=ROUND_FLOOR)
+                )
+                if exact_amount_match:
+                    amount_exact_matches += 1
+                elif whole_rupee_floor_match:
+                    # Older daily archive partitions expose whole-rupee amount
+                    # values truncated from quantity × rate. This is accepted
+                    # only when the published amount exactly equals that floor.
+                    amount_floor_matches += 1
+                else:
                     errors["amount_identity_failure"] += 1
                     amount_failures += 1
                     invalid = True
             if invalid:
+                if symbol:
+                    invalid_by_symbol[symbol] += 1
                 continue
 
             q = int(qty)
@@ -196,7 +213,17 @@ def validate_file(item, downloaded, equity_symbols, ohlcv, independent_verificat
             by_symbol[symbol]["turnover"] += amount
 
     invalid_count = sum(errors.values())
-    content_status = "PASS" if rows_read > 0 and invalid_count == 0 else "FAIL"
+    content_status = (
+        "PASS" if rows_read > 0 and invalid_count == 0 else
+        "PARTIAL_FAIL" if trades > 0 else "FAIL"
+    )
+    amount_policy = (
+        "MIXED_DECIMAL_AND_WHOLE_RUPEE_FLOOR"
+        if amount_floor_matches and amount_exact_matches else
+        "WHOLE_RUPEE_FLOOR_TRUNCATION"
+        if amount_floor_matches else
+        "DECIMAL_EXACT_WITH_0_01_TOLERANCE"
+    )
     # Only 2026-11-20 has an independent, contract-level, full-session
     # market-total comparison currently admitted by this audit.
     expected = None
@@ -234,7 +261,7 @@ def validate_file(item, downloaded, equity_symbols, ohlcv, independent_verificat
         agg = by_symbol.get(symbol, {"contracts": 0, "shares": 0, "turnover": Decimal("0")})
         bar = ohlcv.get((symbol, date), "ABSENT")
         if agg["contracts"] > 0:
-            status = "TRADED" if content_status == "PASS" else "UNKNOWN"
+            status = "TRADED" if invalid_by_symbol[symbol] == 0 else "UNKNOWN"
             if bar == "ABSENT":
                 comparison = "OHLCV_ROW_ABSENT"
                 ohlcv_absent += 1
@@ -276,6 +303,9 @@ def validate_file(item, downloaded, equity_symbols, ohlcv, independent_verificat
         "symbols": len(symbols),
         "duplicate_contracts": errors["duplicate_or_missing_contract"],
         "amount_identity_failures": amount_failures,
+        "amount_exact_matches": amount_exact_matches,
+        "amount_floor_matches": amount_floor_matches,
+        "amount_identity_policy": amount_policy,
         "date_mismatches": errors["date_mismatch"],
         "invalid_rows": invalid_count,
         "broker_ids_missing": errors["missing_or_invalid_broker_id"],
@@ -365,8 +395,9 @@ def main():
     complete = Counter(r["completeness_status"] for r in summaries)
     statuses = Counter(r["trade_status"] for r in equity_rows)
     failed_dates = [
-        {key: row.get(key) for key in ("date", "rows", "trades", "shares", "turnover_npr",
+        {key: row.get(key) for key in ("date", "content_status", "rows", "trades", "shares", "turnover_npr",
                                        "symbols", "duplicate_contracts", "amount_identity_failures",
+                                       "amount_exact_matches", "amount_floor_matches", "amount_identity_policy",
                                        "date_mismatches", "invalid_rows", "broker_ids_missing",
                                        "validation_errors")}
         for row in summaries if row["content_status"] != "PASS"

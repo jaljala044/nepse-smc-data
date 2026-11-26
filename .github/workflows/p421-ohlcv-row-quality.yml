@@ -1,0 +1,47 @@
+name: P4.21 281-equity OHLCV row-quality audit
+on:
+  pull_request:
+    paths:
+      - 'tools/audit_ohlcv_row_quality.py'
+      - 'tools/tests/test_audit_ohlcv_row_quality.py'
+      - 'reference/p410_stage1_coverage_matrix_2026-11-26.csv'
+      - '.github/workflows/p421-ohlcv-row-quality.yml'
+  push:
+    paths:
+      - 'tools/audit_ohlcv_row_quality.py'
+      - 'tools/tests/test_audit_ohlcv_row_quality.py'
+      - '.github/workflows/p421-ohlcv-row-quality.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/checkout@v4
+        with:
+          repository: jaljala044/nepse-history-starter
+          path: starter
+          persist-credentials: false
+      - name: Run row-quality regression tests
+        run: python -m unittest discover -s tools/tests -p 'test_audit_ohlcv_row_quality.py' -v
+      - name: Audit all 281 equity files
+        run: |
+          mkdir -p audit-output/p421
+          python tools/audit_ohlcv_row_quality.py \
+            --universe reference/p410_stage1_coverage_matrix_2026-11-26.csv \
+            --ohlcv-dir starter/03_stock_charts_ohlcv \
+            --expected-symbol-count 281 \
+            --output audit-output/p421/281_equity_ohlcv_row_quality.csv
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: p421-281-equity-ohlcv-row-quality
+          path: audit-output/p421/
+          if-no-files-found: error
+          retention-days: 90

@@ -23,6 +23,11 @@ The source README attributes the feed to the NEPSE Official API. This is source 
 
 Each transaction row is interpreted using the declared columns: `contractId, stockId, buyer, seller, qty, rate, amount, time`. Per-symbol high/low are the extrema of `rate`; volume is the sum of `qty`; turnover is the sum of `amount`. Open/close require chronological first/last trades, which cannot be established because every `time` is blank. No inferred ordering is used.
 
+## Comparison snapshot provenance
+
+- Canonical SMC source: `jaljala044/nepse-smc-data` at main commit `77992c29c6f3936da92170e240638789b8c5cf00`; 86 date-matched rows read from `03_stock_charts_ohlcv/{symbol}_OHLCV.csv` and preserved in `canonical_snapshot.csv`.
+- Secondary counterpart: `srijankarki07/nepse-data` at commit `688d59c03915dcee73ecad4230d2083a41c61764`, path `data/daily/2025/2025-07-28.csv`; the 86-row pinned copy is `external_counterpart.csv`.
+
 ## Reconciliation
 
 - Floorsheet quantity matches canonical chart volume for all 86 symbols.
@@ -50,13 +55,14 @@ All 86 remain `CONFLICT_UNRESOLVED_PRIMARY_PENDING`. This archive supports candi
 Run:
 
 ```bash
+python reference/p423_2025-07-28/fetch_source.py /tmp/yonepse_floorsheet_2025-07-28.json
+python -m unittest discover -s reference/p423_2025-07-28/tests
 python reference/p423_2025-07-28/reconstruct.py \
-  --archive reference/p423_2025-07-28/source/yonepse_floorsheet_2025-07-28.json \
+  --archive /tmp/yonepse_floorsheet_2025-07-28.json \
   --lookup reference/p423_2025-07-28/source/stocks.json \
   --canonical reference/p423_2025-07-28/canonical_snapshot.csv \
   --external reference/p423_2025-07-28/external_counterpart.csv \
   --out reference/p423_2025-07-28/recomputed
-python -m unittest discover -s reference/p423_2025-07-28/tests
 ```
 
 The raw archive duplicate could not be committed because the GitHub upload transport rejected the 8.56 MB request. The exact immutable upstream blob and SHA-256 above are preserved as the authoritative input pointer; the PR does not claim a duplicate archive copy exists.

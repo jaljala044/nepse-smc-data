@@ -64,3 +64,6 @@ Resolution protocol: keep both raw observations and basis labels, identify the *
 - This index reconciles previously saved GitHub issue/PR reports with direct repository and Drive metadata readback on 2026-11-26. It does not assert unseen ZIP contents or full historical NEPSE primary verification.
 - Open PR #5 is marked `mergeable=false`; open PR #6 is a draft. Treat branch changes as **not yet merged**.
 - No canonical data promotion, production signal activation, or live provider deployment is authorized by this archive.
+
+## P1 follow-up — 2026-11-26
+Direct readback of both repositories confirmed corrected BGWT and HRL values. The saved seven-stock ShareHub audit and Issue #4 comments 7183852195/7183897894 establish the controlling project inputs. PR #6 test expectations corrected in commit abec5ac029f6f5a630b1dcfd28fda0fc7dbc0440; direct comparison against main: 7/7 matches. No market data changed. Fresh CI and branch integration still require verification. The original conflict section above is retained as historical context, superseded by this decision. Next: PR #5 mergeability repair.

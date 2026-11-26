@@ -10,7 +10,7 @@ This register triages the 26 provisional common-equity symbols below 90% observe
 |---|---:|---|---|
 | Symbol-specific reviewed | 3 | NLO, BNL, PFL | Evidence reports linked below; classifications updated |
 | Later-start candidates | 12 | First archive dates are between 2026-05-26 and 2026-10-15, inside the sample window | Verify first listing / first-trade date before treating earlier absent rows as gaps |
-| Older archive, low overlap | 11 | Files start before the sample window but have materially fewer matching observations | Requires trade-level / floorsheet / lifecycle review; do not assume data defect |
+| Mid-2026 start / low overlap unresolved | 11 | Files start before the sample window but have materially fewer matching observations | Requires trade-level / floorsheet / lifecycle review; do not assume data defect |
 
 ## Symbol-specific reviewed
 
@@ -44,7 +44,7 @@ Evidence:
 
 These are *later-start candidates*, not confirmed late listings. Verify each symbol's listing date, first trade date, and any suspension / relisting before excluding pre-start dates from the denominator.
 
-## Older archive, low overlap — unresolved
+## Mid-2026 start / low overlap unresolved
 
 | Symbol | Overlap | First archive date | Last archive date |
 |---|---:|---|---|
@@ -65,7 +65,7 @@ PCIL through RSML have archive starts within 2026 and need listing/lifecycle ver
 ## Next validation sequence
 
 1. Verify listing / first-trade / suspension dates for the 12 later-start candidates.
-2. Obtain symbol-specific executed-trade calendars or daily floorsheet summaries for the 11 older-archive low-overlap symbols.
+2. Obtain symbol-specific executed-trade calendars or daily floorsheet summaries for the 11 mid-2026-start low-overlap symbols.
 3. Reconcile the BNL 23 November row and obtain independent confirmation of the 24 November candidate.
 4. Keep no-trade dates separate from missing-source records; never synthesize OHLCV from a carried-forward close.
 5. Recompute coverage only against symbol-specific expected-trade evidence, retaining the original proxy audit for reproducibility.

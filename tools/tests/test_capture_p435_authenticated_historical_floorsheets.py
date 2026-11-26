@@ -89,7 +89,7 @@ class P435AuthenticatedFloorsheetTests(unittest.TestCase):
                 return 200,{},json.dumps({"floorsheets":{"content":content,"totalElements":len(content),"totalPages":1 if content else 0}}).encode()
             raise AssertionError(url)
         with tempfile.TemporaryDirectory() as tmp:
-            result=capture(tmp,fake,lambda obj,path:("A","R"),"2026-11-26T00:00:00Z")
+            result=capture(tmp,fake,lambda obj,path:("A","R"),"2026-11-26T00:00:00Z",include_controls=False)
         self.assertEqual(len(post_calls),8)
         self.assertTrue(all("page=0" not in url for url,_ in post_calls))
         self.assertTrue(all("id" in body for _,body in post_calls))

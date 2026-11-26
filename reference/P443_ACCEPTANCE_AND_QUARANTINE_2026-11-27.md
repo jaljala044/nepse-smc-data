@@ -24,6 +24,8 @@ Both archives remain third-party datasets. File completeness, independent upstre
 
 A full-session contract multiset comparison also passed for the five dates available in both archives: **262,976 / 262,976** rows matched on date, contract number, symbol, buyer/seller broker IDs, quantity, rate and amount; zero rows were unique to either side. The check did not compare timestamps or establish completeness/independent lineage. Its per-date counts and hashes are preserved in `P443_FULL_SESSION_CONTRACT_PARITY_2026-11-27.csv`; all results remain non-promotable.
 
+The current strict workflow **Run 252 (45901012377)** passed all 32 steps, including bulk-recovery tests and a bounded first batch. The first batch validated 22 pinned daily partitions (1,752,046 trade rows, zero invalid rows) and checked 5,235 P2 security/date requests: 3,177 H/L/volume matches, 2,058 H/L/volume conflicts, and 63,538 requests without a matching pinned partition in this archive inventory. Among the available requests, high matched 5,074, low 3,365, and volume 5,018. Open/close, archive completeness and upstream independence remain unverified. No rows were promoted. Summary is in `P443_BULK_EQUITY_FLOORSHEET_BATCH01_2026-11-27.json`; row-level 68,773-row disposition and per-field flags are in strict workflow artifact 15155667000.
+
 ## Quarantine disposition (policy record, not full canonical-ingestion enforcement)
 
 | Path | Git blob SHA | Rows | Repeated contract occurrences | Disposition |

@@ -1,0 +1,66 @@
+name: Derived OHLCV v3 official Open corrections
+on:
+  push:
+    branches:
+      - p431-derived-ohlcv-v3-official-open-corrections
+  pull_request:
+    paths:
+      - 'tools/build_derived_ohlcv_v3.py'
+      - 'tools/audit_derived_ohlcv_v3.py'
+      - 'tools/tests/test_build_derived_ohlcv_v3.py'
+      - 'tools/tests/test_audit_derived_ohlcv_v3.py'
+      - '.github/workflows/derived-ohlcv-v3-official-open-corrections.yml'
+      - 'reference/p430_11_recent_anomaly_official_reconciliation_2026-11-26.csv'
+      - 'reference/p430_11_official_open_corrections_2026-11-26.csv'
+permissions:
+  contents: write
+jobs:
+  build-and-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: \${{ github.head_ref || github.ref_name }}
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run v3 build regression tests
+        run: python -m unittest discover -s tools/tests -p 'test_build_derived_ohlcv_v3.py' -v
+      - name: Run v3 integrity-audit regression tests
+        run: python -m unittest discover -s tools/tests -p 'test_audit_derived_ohlcv_v3.py' -v
+      - name: Build v3 with the 11 official Open corrections
+        run: |
+          python tools/build_derived_ohlcv_v3.py \
+            --v2-dir derived/ohlcv_v2 \
+            --raw-dir 03_stock_charts_ohlcv \
+            --matrix reference/p430_11_recent_anomaly_official_reconciliation_2026-11-26.csv \
+            --corrections reference/p430_11_official_open_corrections_2026-11-26.csv \
+            --output-dir derived/ohlcv_v3 \
+            --overwrite
+      - name: Audit v3 against v2, raw sources and official evidence
+        run: |
+          python tools/audit_derived_ohlcv_v3.py \
+            --v2-dir derived/ohlcv_v2 \
+            --v3-dir derived/ohlcv_v3 \
+            --raw-dir 03_stock_charts_ohlcv \
+            --matrix reference/p430_11_recent_anomaly_official_reconciliation_2026-11-26.csv \
+            --corrections reference/p430_11_official_open_corrections_2026-11-26.csv \
+            --output-dir derived/ohlcv_v3/quality_audit
+      - name: Commit v3 derived release
+        if: github.event_name == 'push' && success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add derived/ohlcv_v3
+          if ! git diff --cached --quiet; then
+            git commit -m "data(p4.31): publish OHLCV v3 with official Open corrections"
+            git push
+          fi
+      - name: Upload v3 derived release artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: nepse-derived-ohlcv-v3-official-open-corrections
+          path: derived/ohlcv_v3/
+          retention-days: 90

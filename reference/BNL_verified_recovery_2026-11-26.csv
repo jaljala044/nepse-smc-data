@@ -1,0 +1,2 @@
+symbol,date,open,high,low,close,volume,turnover,trades,buyer_broker,seller_broker,contract_no,status,source_urls
+BNL,2026-11-23,14600,14600,14600,14600,10,146000,1,46,58,,provider_corroborated_contract_id_missing,https://nepsealpha.com/live-market?t=0611;https://www.sharesansar.com/company/BNL;https://nepview.com/explore/BNL

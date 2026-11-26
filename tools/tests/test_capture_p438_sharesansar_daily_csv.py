@@ -34,7 +34,7 @@ class P438ShareSansarTests(unittest.TestCase):
         with patch("capture_p438_sharesansar_daily_csv.FILES",[record]):
             with tempfile.TemporaryDirectory() as tmp:
                 result=capture(tmp,lambda url:(200,raw),"2026-11-26T00:00:00Z")
-                self.assertTrue(result["summary"]["all_five_files_integrity_verified"] is False)
+                self.assertEqual(result["files"][0]["status"],"CAPTURED")
                 self.assertTrue(result["source_capture_policy_verified"])
                 self.assertEqual((Path(tmp)/"README.md").read_bytes(),raw)
 

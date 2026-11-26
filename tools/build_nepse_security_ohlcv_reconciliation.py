@@ -59,9 +59,9 @@ def build(raw_path, ohlcv_dir, inventory_commit):
 def write_csv(rows):
     import io
     s=io.StringIO(newline="")
-    w=csv.writer(s,lineterminator="\\n",quoting=csv.QUOTE_ALL)
+    w=csv.writer(s,lineterminator="\n",quoting=csv.QUOTE_ALL)
     w.writerows([[row.get(field,"") for field in FIELDS] for row in rows])
-    return ",".join(FIELDS)+"\\n"+s.getvalue()
+    return ",".join(FIELDS)+"\n"+s.getvalue()
 
 def main():
     p=argparse.ArgumentParser()

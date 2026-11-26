@@ -5,7 +5,7 @@ from validate_nepse_holiday_capture_index import validate
 class HolidayCaptureIndexTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.data = json.loads(Path("reference/nepse_official_holiday_api_capture_mirror_2015_2025.json").read_text())
+        cls.data = json.loads(Path("../reference/nepse_official_holiday_api_capture_mirror_2015_2025.json").read_text())
 
     def test_committed_index_passes(self):
         self.assertEqual(validate(self.data), [])

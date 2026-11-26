@@ -1,3 +1,4 @@
+import csv
 import hashlib
 import tempfile
 import unittest
@@ -12,6 +13,39 @@ SPEC.loader.exec_module(ENGINE)
 
 
 class HistoricalFloorsheetValidationTests(unittest.TestCase):
+    def _fixture(self, amount="20.00"):
+        tmp = tempfile.TemporaryDirectory()
+        root = Path(tmp.name)
+        p = root / "floorsheet.csv"
+        with p.open("w", newline="", encoding="utf-8") as handle:
+            writer = csv.writer(handle)
+            writer.writerow(["transaction", "symbol", "buyer", "seller", "quantity", "rate", "amount", "date"])
+            writer.writerow(["C1", "ABC", "12", "34", "2.0", "10.0", amount, "2025-11-25"])
+        item = {"date": "2025-11-25", "path": "floorsheet/floorsheet_2025-11-25.csv"}
+        downloaded = {"download_status": "PASS", "path": str(p), "actual_sha256": "fixture",
+                      "git_blob_match": True, "size_match": True}
+        return tmp, item, downloaded
+
+    def test_valid_contract_proves_traded_but_not_session_completeness(self):
+        tmp, item, downloaded = self._fixture()
+        try:
+            summary, equities = ENGINE.validate_file(item, downloaded, ["ABC", "XYZ"], {}, {})
+            self.assertEqual(summary["content_status"], "PASS")
+            self.assertEqual(summary["completeness_status"], "UNKNOWN")
+            self.assertEqual([r["trade_status"] for r in equities], ["TRADED", "UNKNOWN"])
+        finally:
+            tmp.cleanup()
+
+    def test_amount_identity_failure_fails_content_gate(self):
+        tmp, item, downloaded = self._fixture(amount="19.00")
+        try:
+            summary, equities = ENGINE.validate_file(item, downloaded, ["ABC"], {}, {})
+            self.assertEqual(summary["content_status"], "FAIL")
+            self.assertEqual(summary["amount_identity_failures"], 1)
+            self.assertEqual(equities[0]["trade_status"], "UNKNOWN")
+        finally:
+            tmp.cleanup()
+
     def test_git_blob_hash_uses_git_header(self):
         with tempfile.TemporaryDirectory() as tmp:
             p = Path(tmp) / "x"

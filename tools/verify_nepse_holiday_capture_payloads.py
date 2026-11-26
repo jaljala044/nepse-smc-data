@@ -9,7 +9,7 @@ import urllib.request
 from pathlib import Path
 
 def git_blob_sha(data):
-    return hashlib.sha1(f"blob {len(data)}\\0".encode("ascii") + data).hexdigest()
+    return hashlib.sha1(f"blob {len(data)}\0".encode("ascii") + data).hexdigest()
 
 def verify_file(record, fetch):
     data = fetch(record["url"])
@@ -88,7 +88,7 @@ def main():
     args = parser.parse_args()
     result = verify(json.loads(args.manifest.read_text(encoding="utf-8")))
     if result["errors"]:
-        raise SystemExit("\\n".join(result["errors"]))
+        raise SystemExit("\n".join(result["errors"]))
     print(f"PASS: fetched and verified {result['checked_files']}/72 files; Git blob SHA, size, raw-body SHA-256, JSON parity and annual metadata match")
 
 if __name__ == "__main__":

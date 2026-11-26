@@ -14,6 +14,8 @@ class StrictAuditTests(unittest.TestCase):
         raw=b"Date,ContractNo,Quantity\n2025-01-01,1,5\n2025-01-02,1,5\n2025-01-02,1,6\n"
         _,_,findings=scan(raw,entry)
         self.assertEqual([f["classification"] for f in findings],["conflicting_business_key"])
+        self.assertIn("previous=", findings[0]["evidence"])
+        self.assertIn("current=", findings[0]["evidence"])
     def test_empty_json_capture(self):
         self.assertEqual(list(records(b"  ", "json")), [])
     def test_duplicate_display_headers_are_disambiguated(self):

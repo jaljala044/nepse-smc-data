@@ -4,21 +4,26 @@ on:
     paths:
       - "reference/nepse_official_holiday_api_capture_mirror_2015_2026.json"
       - "tools/validate_nepse_holiday_capture_index.py"
+      - "tools/verify_nepse_holiday_capture_payloads.py"
       - "tools/tests/test_validate_nepse_holiday_capture_index.py"
+      - "tools/tests/test_verify_nepse_holiday_capture_payloads.py"
       - ".github/workflows/p427-holiday-capture-index.yml"
   push:
     branches:
-      - p427-import-official-holiday-captures-2015-2025
+      - p427-live-holiday-payload-verification
     paths:
       - "reference/nepse_official_holiday_api_capture_mirror_2015_2026.json"
       - "tools/validate_nepse_holiday_capture_index.py"
+      - "tools/verify_nepse_holiday_capture_payloads.py"
       - "tools/tests/test_validate_nepse_holiday_capture_index.py"
+      - "tools/tests/test_verify_nepse_holiday_capture_payloads.py"
       - ".github/workflows/p427-holiday-capture-index.yml"
 permissions:
   contents: read
 jobs:
   validate-index:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -30,5 +35,9 @@ jobs:
         run: |
           cd tools
           python -m unittest discover -s tests -p 'test_validate_nepse_holiday_capture_index.py' -v
+          python -m unittest discover -s tests -p 'test_verify_nepse_holiday_capture_payloads.py' -v
+      - name: Fetch and verify all 72 immutable source files
+        run: python tools/verify_nepse_holiday_capture_payloads.py reference/nepse_official_holiday_api_capture_mirror_2015_2026.json
 
-# CI validates immutable references and preserves the unverified 616-session boundary.
+# CI validates immutable Git blob hashes, byte counts, raw-body SHA-256, parsed JSON parity,
+# annual capture metadata, and preserves the unverified 616-session boundary.

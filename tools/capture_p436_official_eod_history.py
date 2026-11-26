@@ -167,7 +167,9 @@ def capture(output_dir,requester=request,parser=token_parser,retrieved_at=None):
                       observed_symbols=sorted(set(r["symbol"] for r in inspected if r.get("symbol"))),
                       date_fields_observed=sorted(set(r["date_field"] for r in inspected if r.get("date_field"))),
                       volume_fields_observed=sorted(set(r["volume_field"] for r in inspected if r.get("volume_field"))),
-                      all_ohlc_present_rows=sum(1 for r in inspected if r.get("has_all_ohlc")),\n                      all_hlc_present_rows=sum(1 for r in inspected if r.get("has_hlc")),\n                      open_present_rows=sum(1 for r in inspected if r.get("has_open")),
+                      all_ohlc_present_rows=sum(1 for r in inspected if r.get("has_all_ohlc")),
+                      all_hlc_present_rows=sum(1 for r in inspected if r.get("has_hlc")),
+                      open_present_rows=sum(1 for r in inspected if r.get("has_open")),
                       rows_summary=inspected)
             window_results.append(wr)
             for target in window.get("targets",[]):

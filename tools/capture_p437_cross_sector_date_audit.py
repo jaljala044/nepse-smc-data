@@ -101,13 +101,14 @@ def summarize_rows(rows):
         if row.get("totalTradedQuantity") is None:
             missing_volume+=1
         try:
-            trades=int(row.get("totalTrades",0))
-            quantity=Decimal(str(row.get("totalTradedQuantity",0)))
-            turnover=Decimal(str(row.get("totalTradedValue",0)))
-            if trades==0 and quantity==0 and turnover==0:
-                zero_trade_rows+=1
-            elif trades>0 and quantity>0:
-                positive_trade_rows+=1
+            if all(row.get(k) is not None for k in ("totalTrades","totalTradedQuantity","totalTradedValue")):
+                trades=int(row["totalTrades"])
+                quantity=Decimal(str(row["totalTradedQuantity"]))
+                turnover=Decimal(str(row["totalTradedValue"]))
+                if trades==0 and quantity==0 and turnover==0:
+                    zero_trade_rows+=1
+                elif trades>0 and quantity>0:
+                    positive_trade_rows+=1
         except (ValueError,TypeError,InvalidOperation):
             pass
         kind=weekday_class(day)

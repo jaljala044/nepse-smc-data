@@ -20,7 +20,7 @@ WASM_GIT_BLOB_SHA="06162abc9206c6a855648ed5c0abb2fd515aa555"
 WASM_B64="AGFzbQEAAAABGgVgBX9/f39/AX9gAAF/YAAAYAF/AGABfwF/AwwLAgAAAAAAAAEDBAEEBQFwAQICBQYBAYACgAIGCAF/AUGwiQQLB5sBDgZtZW1vcnkCAARfcmR4AAEEX2NkeAABA2NkeAACA3JkeAADA2JkeAAEA25keAAFA21keAAGGV9faW5kaXJlY3RfZnVuY3Rpb25fdGFibGUBAAtfaW5pdGlhbGl6ZQAAEF9fZXJybm9fbG9jYXRpb24ACglzdGFja1NhdmUABwxzdGFja1Jlc3RvcmUACApzdGFja0FsbG9jAAkJBwEAQQELAQAK0QILAwABCzEAIAFB5ABtQQpvIAFBCm0iAEEKb2oiAiACIAEgAEEKbGtqQQJ0QYAIaigCAGpBFmoLLAAgAUEKbSIAQQpvIAEgAEEKbGtqIAFB5ABtQQpvakECdEGACGooAgBBFmoLMQAgAUHkAG1BCm8gAUEKbSIAQQpvaiICIAIgASAAQQpsa2pBAnRBgAhqKAIAakEgagsxACABQeQAbUEKbyABQQptIgBBCm9qIgIgAiABIABBCmxrakECdEGACGooAgBqQTxqCzIAIAFBCm0iAEEKbyICIAIgASAAQQpsa2ogAUHkAG1BCm9qQQJ0QYAIaigCAGpB2ABqCzIAIAFB5ABtQQpvIgAgACABQQptIgJBCm8gASACQQpsa2pqQQJ0QYAIaigCAGpB7gBqCwQAIwALBgAgACQACxAAIwAgAGtBcHEiACQAIAALBQBBoAkLC6UBAQBBgAgLnQEFAAAACAAAAAQAAAAHAAAACQAAAAQAAAAGAAAACQAAAAUAAAAFAAAABgAAAAUAAAADAAAABQAAAAQAAAAEAAAACQAAAAYAAAAGAAAACAAAAAgAAAAGAAAACAAAAAYAAAAFAAAACAAAAAQAAAAJAAAABQAAAAkAAAAIAAAABQAAAAMAAAAEAAAABwAAAAcAAAAEAAAABwAAAAMAAAAJ"
 DUMMY_DATA=[147,117,239,143,157,312,161,612,512,804,411,527,170,511,421,667,764,621,301,106,133,793,411,511,312,423,344,346,653,758,342,222,236,811,711,611,122,447,128,199,183,135,489,703,800,745,152,863,134,211,142,564,375,793,212,153,138,153,648,611,151,649,318,143,117,756,119,141,717,113,112,146,162,660,693,261,362,354,251,641,157,178,631,192,734,445,192,883,187,122,591,731,852,384,565,596,451,772,624,691]
 DATES=[("NMLBBL","2024-05-19",864),("NMLBBL","2024-05-16",0),("SMPDA","2024-08-18",5314),("SMPDA","2024-08-14",0)]
-HEADERS={"User-Agent":"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0","Accept":"application/json, text/plain, */*","Accept-Language":"en-US,en;q=0.5","Connection":"close","Referer":BASE,"Pragma":"no-cache","Cache-Control":"no-cache"}
+HEADERS={"User-Agent":"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0","Accept":"application/json, text/plain, */*","Accept-Language":"en-US,en;q=0.5","Connection":"close","Host":"www.nepalstock.com","Referer":"www.nepalstock.com","Pragma":"no-cache","Cache-Control":"no-cache","TE":"Trailers"}
 
 def git_blob_sha(data):
  return hashlib.sha1(f"blob {len(data)}\0".encode("ascii")+data).hexdigest()
@@ -64,7 +64,7 @@ def compute_floor_payload_id(dummy_id,salts,server_day):
  ix=1 if e%10<4 else 3
  return e+salts[ix]*server_day-salts[ix-1]
 
-def capture(output_dir,requester=request,parser=token_parser,retrieved_at=None):
+def capture(output_dir,requester=request,parser=token_parser,retrieved_at=None,include_controls=True):
  out=Path(output_dir);out.mkdir(parents=True,exist_ok=True);stamp=retrieved_at or datetime.now(ZoneInfo("UTC")).isoformat();records=[]
  wasm=base64.b64decode(WASM_B64);wasm_sha=git_blob_sha(wasm)
  if wasm_sha!=WASM_GIT_BLOB_SHA:raise ValueError("pinned upstream WASM Git blob SHA mismatch")
@@ -102,6 +102,31 @@ def capture(output_dir,requester=request,parser=token_parser,retrieved_at=None):
   utc_day=datetime.now(ZoneInfo("UTC")).day
   payload_options=[(server_day,payload_id)]
   if utc_day!=server_day:payload_options.append((utc_day,compute_floor_payload_id(dummy_id,salts,utc_day)))
+  control_results=[]
+  if include_controls:
+   current_date=str(market.get("asOf",""))[:10]
+   controls=[("marketwide_current",f"{BASE}/api/nots/nepse-data/floorsheet?&size=500&sort=contractId,desc",None)]
+   for symbol in ("NMLBBL","SMPDA"):
+    sid=idmap.get(symbol)
+    if sid is not None and len(current_date)==10:
+     controls.append((f"{symbol}_company_current",f"{BASE}/api/nots/security/floorsheet/{sid}?&businessDate={current_date}&size=500&sort=contractid,desc",symbol))
+   for name,url,control_symbol in controls:
+    status=headers=raw=None;day_used=None
+    for payload_day,payload_value in payload_options:
+     status,headers,raw=requester("POST",url,{"id":payload_value},auth)
+     if status==200:day_used=payload_day;break
+     if status!=403:break
+    obj=parse_json(raw);rec={"name":name,"url":url,"payload_day_used":day_used,**metadata(status,headers,raw)}
+    fs=obj.get("floorsheets") if isinstance(obj,dict) else None
+    if status==200 and isinstance(fs,dict):
+     content=fs.get("content",[])
+     rec.update(status="page0_captured",content_count=len(content) if isinstance(content,list) else None,total_elements=fs.get("totalElements"),total_pages=fs.get("totalPages"))
+     filename=f"control_{name}_page0.json";(out/filename).write_bytes(raw);rec["filename"]=filename
+    else:
+     rec["status"]="invalid_or_http_error"
+     try:rec["response_snippet"]=raw.decode("utf-8","replace")[:240]
+     except Exception:pass
+    control_results.append(rec)
   floor_results=[]
   for symbol,date,expected_volume in DATES:
    sid=idmap.get(symbol);item={"symbol":symbol,"business_date":date,"security_id":sid,"expected_ohlcv_volume":expected_volume}
@@ -153,7 +178,7 @@ def capture(output_dir,requester=request,parser=token_parser,retrieved_at=None):
    content_valid=(len(ids)==len(total_rows) and unique_ids==len(ids) and bad_amount==0 and date_mismatches==0 and missing_dates==0)
    item.update(status="captured" if not failed else "request_or_schema_failure",pages=page_summaries,total_elements=total_elements,total_pages=page_count,rows=len(total_rows),unique_contract_ids=unique_ids,duplicate_contract_ids=len(ids)-unique_ids,target_shares=str(qty),target_turnover=str(amount),amount_arithmetic_errors=bad_amount,business_date_mismatches=date_mismatches,missing_business_dates=missing_dates,pagination_complete=pagination_complete,content_valid=content_valid,evidence_gate_pass=(pagination_complete and content_valid and qty==expected_volume),volume_matches_ohlcv=(qty==expected_volume))
    floor_results.append(item)
-  result={"task":"P4.35","source":"NEPSE official API domain","retrieved_at_utc":stamp,"upstream_client":{"repo":UPSTREAM_REPO,"commit":UPSTREAM_COMMIT,"token_parser_path":"nepse/TokenUtils.py","wasm_path":"nepse/data/css.wasm","wasm_git_blob_sha":wasm_sha,"dummy_data_path":"nepse/data/DUMMY_DATA.json"},"authentication_status":"authenticated_market_and_security_list" if idmap else "authenticated_but_security_list_missing","server_day_nepal":server_day,"payload_id_sent":True,"payload_id_value_saved":False,"floor_results":floor_results,"records":records,"interpretation":"Tokens and salts were held in memory only and not persisted. A page set is complete only when all pages were retrieved and summed row count equals upstream totalElements. Historical businessDate must be echoed by returned rows; missing or mismatched dates, absent totals, or contract identity failures keep the result UNKNOWN."}
+  result={"task":"P4.35","source":"NEPSE official API domain","retrieved_at_utc":stamp,"upstream_client":{"repo":UPSTREAM_REPO,"commit":UPSTREAM_COMMIT,"token_parser_path":"nepse/TokenUtils.py","wasm_path":"nepse/data/css.wasm","wasm_git_blob_sha":wasm_sha,"dummy_data_path":"nepse/data/DUMMY_DATA.json"},"authentication_status":"authenticated_market_and_security_list" if idmap else "authenticated_but_security_list_missing","server_day_nepal":server_day,"payload_id_sent":True,"payload_id_value_saved":False,"control_results":control_results,"floor_results":floor_results,"records":records,"interpretation":"Tokens and salts were held in memory only and not persisted. A page set is complete only when all pages were retrieved and summed row count equals upstream totalElements. Historical businessDate must be echoed by returned rows; missing or mismatched dates, absent totals, or contract identity failures keep the result UNKNOWN."}
   (out/"capture_report.json").write_text(json.dumps(result,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
   return result
 if __name__=="__main__":

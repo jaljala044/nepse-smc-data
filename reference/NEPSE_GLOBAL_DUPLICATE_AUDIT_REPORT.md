@@ -40,9 +40,18 @@ The strict workflow joined all 1,331 invalid-OHLCV rows to the existing historic
 
 An exception-register match is reconciliation, **not independent validation**. The prior P4.35 source-lineage audit found no qualified independent historical source; the affected OHLCV rows remain UNKNOWN. No values were repaired or promoted.
 
-### Floorsheet row classification
+### Floorsheet row classification and contract-number reuse
 
 The strict parser now requires transaction-shaped fields before classifying a record as a trade. This removed 364 false identity flags from archive inventories, symbol/session aggregates, capture metadata, and research summaries. The earlier 2,687 missing-session flags reduced to **604** trade-shaped records still lacking a session date. Those 604 are not yet adjudicated.
+
+The two quarantined P4.33 historical floorsheet files contain **544,937** trade rows in total. Within each file/session, the strict scan reports:
+
+| Source file | Trade rows | Distinct contract-number values | Values reused | Repeated occurrences (beyond first) | Values appearing across symbols |
+|---|---:|---:|---:|---:|---:|
+| 2024-08-14 | 244,019 | 24,404 | 24,404 | 219,615 | 22,329 |
+| 2024-08-18 | 300,918 | 30,093 | 30,093 | 270,825 | 27,893 |
+
+These are **contract-number field collisions**, not confirmed duplicate exchange contract IDs. The P4.33 capture report states that all 544,937 archive-local source record IDs are unique and that zero exact repeated rows were found. Do not infer a duplicate trade, invent identifiers, or assume a contract number is globally unique across securities. Both source files remain `BLOCK_CANONICAL` pending explanation of the identifier precision/collision pattern.
 
 ### Repeated JSON summary records
 

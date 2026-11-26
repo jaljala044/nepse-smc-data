@@ -2,7 +2,7 @@
   "task": "P4.33",
   "source_class": "third_party_huggingface_archive_claiming_nepse_floorsheet_data",
   "dataset": "urekmazino69/Nepse-floorsheet-and-indices",
-  "retrieved_at_utc": "2026-11-26T18:24:19.544061+00:00",
+  "retrieved_at_utc": "2026-11-26T18:25:05.997434+00:00",
   "records": [
     {
       "symbol": "NMLBBL",
@@ -10,7 +10,7 @@
       "role": "candidate_first_positive_volume_date",
       "source_url": "https://huggingface.co/datasets/urekmazino69/Nepse-floorsheet-and-indices/resolve/main/floorsheet/2024-05-19.csv.gz",
       "source_path": "floorsheet/2024-05-19.csv.gz",
-      "retrieved_at_utc": "2026-11-26T18:24:19.544061+00:00",
+      "retrieved_at_utc": "2026-11-26T18:25:05.997434+00:00",
       "source_git_oid": "dbd9ce881b109018d683cd6b6fe1e693a1505470",
       "expected_compressed_bytes": 1167345,
       "expected_lfs_sha256": "ff4b995c4b6fd6c9a0716b7ea86e7f1a8b4645819fcf28f1bd506bd1212c3f46",
@@ -38,12 +38,56 @@
           "amount",
           "id"
         ],
+        "unique_contract_ids": 74991,
         "duplicate_contract_ids": 0,
+        "duplicate_contract_id_groups": 0,
+        "duplicate_contract_id_examples": [],
+        "blank_contract_ids": 0,
+        "unique_record_ids": 74991,
+        "duplicate_full_rows": 0,
         "date_mismatches": 0,
         "arithmetic_errors": 0,
         "invalid_numeric_rows": 0,
         "target_symbol_contracts": 15,
         "target_symbol_quantity": "864",
+        "target_symbol_turnover": "557461.60",
+        "target_contract_samples": [
+          {
+            "contract_no": "2024051903000469",
+            "id": "20240519073398",
+            "quantity": "10",
+            "rate": "599.60",
+            "amount": "5996.00"
+          },
+          {
+            "contract_no": "2024051903000582",
+            "id": "20240519073111",
+            "quantity": "10",
+            "rate": "611.50",
+            "amount": "6115.00"
+          },
+          {
+            "contract_no": "2024051903000657",
+            "id": "20240519072874",
+            "quantity": "12",
+            "rate": "623.70",
+            "amount": "7484.40"
+          },
+          {
+            "contract_no": "2024051903000753",
+            "id": "20240519072613",
+            "quantity": "10",
+            "rate": "636.10",
+            "amount": "6361.00"
+          },
+          {
+            "contract_no": "2024051903000855",
+            "id": "20240519072317",
+            "quantity": "10",
+            "rate": "646.60",
+            "amount": "6466.00"
+          }
+        ],
         "errors": []
       },
       "capture_status": "captured"
@@ -54,7 +98,7 @@
       "role": "immediately_preceding_candidate_session",
       "source_url": "https://huggingface.co/datasets/urekmazino69/Nepse-floorsheet-and-indices/resolve/main/floorsheet/2024-05-16.csv.gz",
       "source_path": "floorsheet/2024-05-16.csv.gz",
-      "retrieved_at_utc": "2026-11-26T18:24:19.544061+00:00",
+      "retrieved_at_utc": "2026-11-26T18:25:05.997434+00:00",
       "source_git_oid": "cb8feb27d4f90e43fc7446054fb8e660b7536c60",
       "expected_compressed_bytes": 903408,
       "expected_lfs_sha256": "6e22f059df3ca7018e59f4aca64c0bfb164c1d3ab3a7375331b460b235d9af4b",
@@ -82,12 +126,20 @@
           "amount",
           "id"
         ],
+        "unique_contract_ids": 57218,
         "duplicate_contract_ids": 0,
+        "duplicate_contract_id_groups": 0,
+        "duplicate_contract_id_examples": [],
+        "blank_contract_ids": 0,
+        "unique_record_ids": 57218,
+        "duplicate_full_rows": 0,
         "date_mismatches": 0,
         "arithmetic_errors": 0,
         "invalid_numeric_rows": 0,
         "target_symbol_contracts": 0,
         "target_symbol_quantity": "0",
+        "target_symbol_turnover": "0",
+        "target_contract_samples": [],
         "errors": []
       },
       "capture_status": "captured"
@@ -98,7 +150,7 @@
       "role": "candidate_first_positive_volume_date",
       "source_url": "https://huggingface.co/datasets/urekmazino69/Nepse-floorsheet-and-indices/resolve/main/floorsheet/2024-08-18.csv.gz",
       "source_path": "floorsheet/2024-08-18.csv.gz",
-      "retrieved_at_utc": "2026-11-26T18:24:19.544061+00:00",
+      "retrieved_at_utc": "2026-11-26T18:25:05.997434+00:00",
       "source_git_oid": "a7c682db36ca7fe52b1a98b11caf932623e6b755",
       "expected_compressed_bytes": 4145349,
       "expected_lfs_sha256": "7bf52ca5f7b029f9188b34dc5276e805eede2ce2b65c50edf8e45e251d264ffb",
@@ -126,12 +178,132 @@
           "amount",
           "id"
         ],
+        "unique_contract_ids": 30093,
         "duplicate_contract_ids": 270825,
+        "duplicate_contract_id_groups": 30093,
+        "duplicate_contract_id_examples": [
+          {
+            "contract_no": "2024081801000000",
+            "occurrences": 9,
+            "symbols": [
+              "NABIL",
+              "NIMB"
+            ],
+            "record_ids": [
+              "20240818017868",
+              "20240818017867",
+              "20240818017847",
+              "20240818017846",
+              "20240818017845"
+            ]
+          },
+          {
+            "contract_no": "2024081801000010",
+            "occurrences": 10,
+            "symbols": [
+              "NIMB"
+            ],
+            "record_ids": [
+              "20240818017840",
+              "20240818017839",
+              "20240818017838",
+              "20240818017837",
+              "20240818017836"
+            ]
+          },
+          {
+            "contract_no": "2024081801000020",
+            "occurrences": 10,
+            "symbols": [
+              "NIMB"
+            ],
+            "record_ids": [
+              "20240818017830",
+              "20240818017829",
+              "20240818017828",
+              "20240818017827",
+              "20240818017826"
+            ]
+          },
+          {
+            "contract_no": "2024081801000030",
+            "occurrences": 10,
+            "symbols": [
+              "HBL",
+              "NICA",
+              "NIMB"
+            ],
+            "record_ids": [
+              "20240818017820",
+              "20240818017819",
+              "20240818017818",
+              "20240818017817",
+              "20240818017770"
+            ]
+          },
+          {
+            "contract_no": "2024081801000040",
+            "occurrences": 10,
+            "symbols": [
+              "LSL",
+              "MBL",
+              "NICA"
+            ],
+            "record_ids": [
+              "20240818017752",
+              "20240818017751",
+              "20240818017750",
+              "20240818017749",
+              "20240818017748"
+            ]
+          }
+        ],
+        "blank_contract_ids": 0,
+        "unique_record_ids": 300918,
+        "duplicate_full_rows": 0,
         "date_mismatches": 0,
         "arithmetic_errors": 0,
         "invalid_numeric_rows": 0,
         "target_symbol_contracts": 192,
         "target_symbol_quantity": "5314",
+        "target_symbol_turnover": "6175193.80",
+        "target_contract_samples": [
+          {
+            "contract_no": "2024081803000190",
+            "id": "20240818016952",
+            "quantity": "9",
+            "rate": "1057.40",
+            "amount": "9516.60"
+          },
+          {
+            "contract_no": "2024081803000200",
+            "id": "20240818016914",
+            "quantity": "10",
+            "rate": "1078.10",
+            "amount": "10781.00"
+          },
+          {
+            "contract_no": "2024081803000280",
+            "id": "20240818016532",
+            "quantity": "10",
+            "rate": "1099.60",
+            "amount": "10996.00"
+          },
+          {
+            "contract_no": "2024081803000380",
+            "id": "20240818016054",
+            "quantity": "10",
+            "rate": "1121.50",
+            "amount": "11215.00"
+          },
+          {
+            "contract_no": "2024081803000450",
+            "id": "20240818015603",
+            "quantity": "10",
+            "rate": "1143.90",
+            "amount": "11439.00"
+          }
+        ],
         "errors": [
           "duplicate contract ids: 270825"
         ]
@@ -144,7 +316,7 @@
       "role": "immediately_preceding_candidate_session",
       "source_url": "https://huggingface.co/datasets/urekmazino69/Nepse-floorsheet-and-indices/resolve/main/floorsheet/2024-08-14.csv.gz",
       "source_path": "floorsheet/2024-08-14.csv.gz",
-      "retrieved_at_utc": "2026-11-26T18:24:19.544061+00:00",
+      "retrieved_at_utc": "2026-11-26T18:25:05.997434+00:00",
       "source_git_oid": "fa5e317c34c2f9a277004fed5284c08181eea4c5",
       "expected_compressed_bytes": 3333535,
       "expected_lfs_sha256": "205d9aaa6184efdf222102c856737a114fb060a4a9f19d7fb2c38d7ff8340142",
@@ -172,12 +344,108 @@
           "amount",
           "id"
         ],
+        "unique_contract_ids": 24404,
         "duplicate_contract_ids": 219615,
+        "duplicate_contract_id_groups": 24404,
+        "duplicate_contract_id_examples": [
+          {
+            "contract_no": "2024081401000000",
+            "occurrences": 9,
+            "symbols": [
+              "EBL",
+              "GBIME",
+              "KBL",
+              "MBL",
+              "NABIL"
+            ],
+            "record_ids": [
+              "20240814244017",
+              "20240814244006",
+              "20240814243967",
+              "20240814243932",
+              "20240814243896"
+            ]
+          },
+          {
+            "contract_no": "2024081401000010",
+            "occurrences": 10,
+            "symbols": [
+              "ADBL",
+              "GBIME",
+              "JBLB",
+              "MKJC",
+              "NBL"
+            ],
+            "record_ids": [
+              "20240814243862",
+              "20240814243861",
+              "20240814243860",
+              "20240814243810",
+              "20240814243785"
+            ]
+          },
+          {
+            "contract_no": "2024081401000020",
+            "occurrences": 10,
+            "symbols": [
+              "BHL",
+              "GVL",
+              "MKJC",
+              "TPC"
+            ],
+            "record_ids": [
+              "20240814243639",
+              "20240814243638",
+              "20240814243637",
+              "20240814243636",
+              "20240814243635"
+            ]
+          },
+          {
+            "contract_no": "2024081401000030",
+            "occurrences": 10,
+            "symbols": [
+              "DORDI",
+              "HHL",
+              "HIDCLP",
+              "USHEC"
+            ],
+            "record_ids": [
+              "20240814243625",
+              "20240814243624",
+              "20240814243623",
+              "20240814243622",
+              "20240814243621"
+            ]
+          },
+          {
+            "contract_no": "2024081401000040",
+            "occurrences": 10,
+            "symbols": [
+              "HIDCLP",
+              "PPL",
+              "SHLB",
+              "SPL"
+            ],
+            "record_ids": [
+              "20240814243615",
+              "20240814243614",
+              "20240814243613",
+              "20240814243611",
+              "20240814243610"
+            ]
+          }
+        ],
+        "blank_contract_ids": 0,
+        "unique_record_ids": 244019,
+        "duplicate_full_rows": 0,
         "date_mismatches": 0,
         "arithmetic_errors": 0,
         "invalid_numeric_rows": 0,
         "target_symbol_contracts": 0,
         "target_symbol_quantity": "0",
+        "target_symbol_turnover": "0",
+        "target_contract_samples": [],
         "errors": [
           "duplicate contract ids: 219615"
         ]

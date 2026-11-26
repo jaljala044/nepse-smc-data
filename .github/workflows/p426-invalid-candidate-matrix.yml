@@ -51,7 +51,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add reference/p426_109_invalid_candidate_matrix_2026-11-26.csv
+          git add reference/p426_109_invalid_candidate_snapshot_matrix_2026-11-26.csv
           if ! git diff --cached --quiet; then
             git commit -m "data(p4.26): publish 109 invalid candidate evidence matrix"
             git push
@@ -60,5 +60,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: p426-109-invalid-candidate-matrix
-          path: reference/p426_109_invalid_candidate_matrix_2026-11-26.csv
+          path: reference/p426_109_invalid_candidate_snapshot_matrix_2026-11-26.csv
           retention-days: 90

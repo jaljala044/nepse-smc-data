@@ -32,7 +32,7 @@ EXPECTED = {
 }
 
 def git_blob_sha(data):
-    return hashlib.sha1(f"blob {len(data)}\\0".encode("ascii") + data).hexdigest()
+    return hashlib.sha1(f"blob {len(data)}\0".encode("ascii") + data).hexdigest()
 
 def fetch(url):
     request = urllib.request.Request(url, headers={"User-Agent": "NEPSE-P438-SecondaryEvidenceAudit/1.0"})

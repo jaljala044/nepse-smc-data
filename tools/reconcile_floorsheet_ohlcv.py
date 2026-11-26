@@ -38,7 +38,7 @@ def field(row, *names):
 def parse_amount(value):
     """Parse numeric NPR amounts and common display suffixes without hiding rounding."""
     raw = str(value or "").strip().replace(",", "")
-    match = re.fullmatch(r"([+-]?\\d+(?:\\.\\d+)?)\\s*(K|L|LAC|LAKH|CR|CRORE|M|B)?", raw, re.I)
+    match = re.fullmatch(r"([+-]?\d+(?:\.\d+)?)\s*(K|L|LAC|LAKH|CR|CRORE|M|B)?", raw, re.I)
     if not match:
         return None, None
     number = Decimal(match.group(1))

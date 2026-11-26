@@ -1,72 +1,88 @@
-# P4.33 — NMLBBL and SMPDA first-trade floorsheet retrieval attempt
+# P4.33 — NMLBBL and SMPDA first-trade floorsheet reconstruction
 
 **Audit date:** 2026-11-26  
-**Branch:** `p433-first-trade-floorsheet-capture`  
-**Workflow run:** https://github.com/jaljala044/nepse-smc-data/actions/runs/45875343647
+**Evidence branch:** `p433-first-trade-floorsheet-capture`  
+**Capture workflow:** https://github.com/jaljala044/nepse-smc-data/actions/runs/45875627906  
+**Source-tree capture:** `reference/p433_floorsheets/huggingface_repo_tree.json`
 
 ## Objective
 
-Retrieve exact-date trade-level floorsheets for the candidate first-positive-volume dates and immediately preceding candidate sessions:
+Test the candidate first-positive-volume dates against the immediately preceding candidate NEPSE sessions:
 
-| Symbol | Candidate date | Prior session to inspect |
+| Symbol | Candidate date | Prior session checked |
 |---|---|---|
 | NMLBBL | 2024-05-19 | 2024-05-16 |
 | SMPDA | 2024-08-18 | 2024-08-14 |
 
-A positive target-symbol contract on the candidate date plus a complete prior-session floorsheet with no target contracts would be needed to substantiate a first-trade boundary. A missing or partial archive can never prove `NO_TRADE`.
+A candidate-day positive contract plus a complete prior-session floorsheet with no target contracts is necessary evidence for a first-trade boundary. Absence from an incomplete archive is never `NO_TRADE`.
 
-## Retrieval result
+## Source discovery and capture
 
-The Hugging Face dataset card for `urekmazino69/Nepse-floorsheet-and-indices` describes daily floorsheet files from 2024-01-02 and trade-level fields including contract number, calculation date, symbol, buyer, seller, quantity, rate and amount. The dataset card is a third-party provider statement, not NEPSE primary evidence.
+The Hugging Face dataset repository tree API returned HTTP 200 and 998 file entries. The actual date objects are gzip files (`.csv.gz`); the earlier first attempt against the uncompressed `.csv` path returned 404. The corrected capture retrieved all four immutable gzip objects.
 
-The CI runner attempted the four exact documented object paths:
+Each compressed payload SHA-256 matches the LFS SHA-256 declared in the repository tree, and compressed byte counts match the tree metadata.
 
-| Symbol | Date | Requested object | HTTP result | Disposition |
-|---|---|---|---:|---|
-| NMLBBL | 2024-05-19 | `floorsheet/2024-05-19.csv` | 404 | `UNAVAILABLE` |
-| NMLBBL | 2024-05-16 | `floorsheet/2024-05-16.csv` | 404 | `UNAVAILABLE` |
-| SMPDA | 2024-08-18 | `floorsheet/2024-08-18.csv` | 404 | `UNAVAILABLE` |
-| SMPDA | 2024-08-14 | `floorsheet/2024-08-14.csv` | 404 | `UNAVAILABLE` |
+| Symbol | Date | Compressed bytes | LFS SHA-256 verified | Parsed rows | Target rows | Target shares | Target turnover (NPR) |
+|---|---|---:|---|---:|---:|---:|---:|
+| NMLBBL | 2024-05-19 | 1,167,345 | Yes | 74,991 | 15 | 864 | 557,461.60 |
+| NMLBBL | 2024-05-16 | 903,408 | Yes | 57,218 | 0 | 0 | 0.00 |
+| SMPDA | 2024-08-18 | 4,145,349 | Yes | 300,918 | 192 | 5,314 | 6,175,193.80 |
+| SMPDA | 2024-08-14 | 3,333,535 | Yes | 244,019 | 0 | 0 | 0.00 |
 
-The source URLs, retrieval timestamp and exact HTTP errors are preserved in `reference/p433_floorsheets/capture_report.json`. No raw CSV was received, so no file hash, contract count, daily total, target-symbol contract count, or arithmetic result is asserted.
+Raw compressed files and decompressed CSVs are preserved under `reference/p433_floorsheets/`, with SHA-256 and retrieval details in `capture_report.json`.
 
-The public dataset card currently also reports a dataset-generation parsing error for a malformed contract-number value. This is an additional reason not to infer completeness from the card's advertised layout.
+## OHLCV cross-check
 
-## Validation implementation
+The captured target-symbol quantities match the existing OHLCV volumes exactly on both candidate dates:
 
-Added:
-- `tools/capture_p433_first_trade_floorsheets.py`
-- `tools/tests/test_capture_p433_first_trade_floorsheets.py`
-- `.github/workflows/p433-first-trade-floorsheet-capture.yml`
-- `reference/p433_floorsheets/capture_report.json`
+| Symbol | Date | OHLCV O/H/L/C | OHLCV volume | Floorsheet target shares | Result |
+|---|---|---|---:|---:|---|
+| NMLBBL | 2024-05-19 | 599.60 / 646.60 / 599.60 / 646.60 | 864 | 864 | Exact volume match |
+| SMPDA | 2024-08-18 | 1,078.10 / 1,162.70 / 1,078.10 / 1,162.70 | 5,314 | 5,314 | Exact volume match |
 
-The four regression tests passed. They cover:
-- valid target-symbol contract counting and SHA-256 preservation;
-- duplicate contract IDs and wrong-date rejection;
-- HTML/non-CSV response rejection;
-- unavailable source handling without converting absence into `NO_TRADE`.
+The OHLCV source files are `03_stock_charts_ohlcv/NMLBBL_OHLCV.csv` and `03_stock_charts_ohlcv/SMPDA_OHLCV.csv`. The prior-session archive files contain market-wide rows but zero target-symbol rows; the OHLCV files also have no target rows on those prior dates.
 
-## Evidence classification and decision
+## Contract identity caveat
 
-- Dataset layout/coverage: third-party dataset-card claim.
-- Four exact-date requests: observed HTTP 404 responses from the pinned URL pattern.
-- Contract-level records: none retrieved.
-- Full-session completeness: not demonstrated.
-- First-trade boundary: **UNKNOWN for both symbols**.
-- No lifecycle `valid_from`, canonical OHLCV, session-calendar status, training labels, or scanner scores were changed.
+The source schema contains both `contract_no` and `id`. On the SMPDA candidate/prior files, `contract_no` values are reused across different symbols, while the row `id` values are unique. Therefore a global uniqueness check on `contract_no` would falsely classify cross-symbol reuse as duplicate trades. The validator now distinguishes:
+- duplicate contract numbers within the same symbol;
+- contract-number reuse across different symbols;
+- duplicate row IDs;
+- duplicate full rows.
 
-The 404s establish that these exact objects are not retrievable at the documented paths at retrieval time. They do **not** establish that the target securities did not trade, or that no alternative object path/archive exists.
+The `id` is a unique archive row identifier, but its semantics as an exchange contract identifier have not been independently proven. This schema ambiguity remains a source-quality warning. No transaction-identity claim should rely on `contract_no` alone.
 
-## Next retrieval route
+## What this supports
 
-1. Inspect the Hugging Face repository tree and dataset-server export to identify the actual immutable data objects; do not assume the dataset-card example path exists.
-2. If the repository exposes a consolidated Parquet/CSV object, retrieve the immutable file, hash it, and filter the four exact dates by contract-level rows.
-3. Independently validate date, symbol, contract ID uniqueness, quantity/rate/amount and session totals.
-4. Seek primary NEPSE floorsheet/API records or independently controlled complete-session capture before promoting first-trade boundaries.
-5. If no date-specific complete evidence can be obtained, preserve `UNKNOWN`; do not create zero-trade assertions.
+- The third-party archive contains positive NMLBBL rows on 2024-05-19, and their total quantity matches the OHLCV volume.
+- The third-party archive contains positive SMPDA rows on 2024-08-18, and their total quantity matches the OHLCV volume.
+- The two immediately preceding candidate-session files contain no rows for the respective symbols.
+- All four compressed files pass byte-count and LFS SHA-256 checks against the Hugging Face repository tree.
+- The rows pass the implemented date, numeric, and amount-arithmetic checks, subject to the contract-number identity caveat recorded above.
 
-## Source references
+## What this does not yet prove
 
-- Dataset card: https://huggingface.co/datasets/urekmazino69/Nepse-floorsheet-and-indices
-- Exact candidate/prior object URLs are recorded in `capture_report.json`.
-- Earlier source investigation and evidence requirements: `reference/p414_merger_successor_first_trade_floorsheet_audit_2026-11-26.md`.
+The source is a third-party dataset that describes itself as NEPSE floorsheet data. It is not a direct NEPSE primary-source capture. The dataset card currently reports a dataset-generation parsing error for a malformed contract-number value. The repository tree and LFS hashes prove which third-party objects were downloaded, not that every exchange contract was captured.
+
+No upstream NEPSE `totalElements`, page count, complete-pagination receipt, official session totals, or independently verified complete-session control total was retrieved for these four dates. Thus zero target rows on the prior dates cannot yet establish that the securities had no trades.
+
+## Lifecycle disposition
+
+| Symbol | Candidate first trade | Prior-date result in third-party archive | Lifecycle `valid_from` |
+|---|---|---|---|
+| NMLBBL | 2024-05-19 (positive rows; OHLCV volume matches) | 2024-05-16 has zero target rows | **UNKNOWN — primary/full-session completeness pending** |
+| SMPDA | 2024-08-18 (positive rows; OHLCV volume matches) | 2024-08-14 has zero target rows | **UNKNOWN — primary/full-session completeness pending** |
+
+Do not promote either lifecycle date yet. Do not label the prior dates `NO_TRADE` from this archive alone. No canonical OHLCV, lifecycle `valid_from`, calendar status, training label, or scanner score was changed.
+
+## Next evidence requirement
+
+Obtain official NEPSE date-specific floorsheets or an independently controlled complete-session capture for all four dates, including upstream pagination totals and full-page retrieval logs. Reconcile the official contract rows to these third-party files and same-date OHLCV totals. Only then can the first-trade boundary be promoted.
+
+## Reproducibility
+
+- Capture code: `tools/capture_p433_first_trade_floorsheets.py`
+- Repository-tree discovery: `tools/discover_p433_hf_dataset_objects.py`
+- Regression tests: `tools/tests/test_capture_p433_first_trade_floorsheets.py`
+- Workflow: `.github/workflows/p433-first-trade-floorsheet-capture.yml`
+- The first corrected capture run retrieved all four files and verified the LFS checksums. Subsequent CI runs test the refined per-symbol contract identity diagnostics and commit the immutable artifacts.

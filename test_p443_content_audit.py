@@ -1,5 +1,5 @@
 import unittest
-from p443_content_audit import scan, records, non_json_capture
+from p443_content_audit import scan, records, non_json_capture, floorsheet_date_from_filename
 
 class StrictAuditTests(unittest.TestCase):
     def test_ohlcv(self):
@@ -16,6 +16,13 @@ class StrictAuditTests(unittest.TestCase):
         self.assertEqual([f["classification"] for f in findings],["conflicting_business_key"])
     def test_empty_json_capture(self):
         self.assertEqual(list(records(b"  ", "json")), [])
+    def test_duplicate_display_headers_are_disambiguated(self):
+        rows = list(records(b"Date,Diff,Diff %\\n2024-01-01,1,2\\n", "csv"))
+        self.assertEqual(rows[0][1]["diff"], "1")
+        self.assertEqual(rows[0][1]["diff__duplicate_2"], "2")
+    def test_floorsheet_session_date_from_filename(self):
+        self.assertEqual(floorsheet_date_from_filename("reference/floorsheet/floorsheet_2024-08-18.csv.gz"), "2024-08-18")
+        self.assertEqual(floorsheet_date_from_filename("reference/audit_2024-08-18.json"), "")
     def test_provider_error_body_is_not_parsed_as_json(self):
         self.assertTrue(non_json_capture(b"<html><body>WARNING: UNAUTHORIZED ACCESS</body></html>"))
         self.assertTrue(non_json_capture(b"Searched Date is not valid."))

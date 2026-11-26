@@ -1,0 +1,75 @@
+name: P4.28 official NEPSE EOD batch validation
+on:
+  push:
+    branches:
+      - p428-official-eod-batch-validation
+  pull_request:
+    paths:
+      - 'tools/capture_nepse_official_eod_board.py'
+      - 'tools/audit_p428_official_eod_batch.py'
+      - 'tools/tests/test_audit_p428_official_eod_batch.py'
+      - '.github/workflows/p428-official-eod-batch.yml'
+permissions:
+  contents: write
+  actions: read
+jobs:
+  capture-and-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install official NEPSE API client
+        run: python -m pip install "httpx>=0.27" "nepse @ git+https://github.com/basic-bgnr/NepseUnofficialApi.git"
+      - name: Run batch-audit regression tests
+        run: python -m unittest discover -s tools/tests -p 'test_audit_p428_official_eod_batch.py' -v
+      - name: Compile official capture and audit scripts
+        run: python -m py_compile tools/capture_nepse_official_eod_board.py tools/audit_p428_official_eod_batch.py
+      - name: Download original 599-candidate recovery artifact
+        uses: actions/download-artifact@v4
+        with:
+          artifact-ids: "15132011878"
+          repository: jaljala044/nepse-smc-data
+          run-id: "45846116991"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: evidence/p422-recovery
+      - name: Capture complete official NEPSE EOD board for all six dates
+        run: |
+          set -euo pipefail
+          for d in 2026-03-01 2026-07-24 2026-04-24 2026-04-27 2026-04-28 2026-04-29; do
+            python tools/capture_nepse_official_eod_board.py \
+              --date "$d" \
+              --output-dir "evidence/nepse-official-batch/$d"
+          done
+      - name: Reconcile 599 candidates to official EOD
+        run: |
+          python tools/audit_p428_official_eod_batch.py \
+            --queue evidence/p422-recovery/missing-equity-recovery-queue/all_candidates.csv \
+            --mapping reference/nepse_security_id_snapshot_2026-11-25.csv \
+            --capture-dir evidence/nepse-official-batch \
+            --output reference/p428_599_official_eod_reconciliation_2026-11-26.csv
+      - name: Commit deterministic reconciliation matrix
+        if: github.event_name == 'push' && success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reference/p428_599_official_eod_reconciliation_2026-11-26.csv
+          if ! git diff --cached --quiet; then
+            git commit -m "data(p4.28): publish official EOD reconciliation matrix"
+            git push
+          fi
+      - name: Upload original official payloads, manifests and matrix
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p428-official-nepse-eod-six-date-batch
+          path: |
+            evidence/nepse-official-batch/
+            reference/p428_599_official_eod_reconciliation_2026-11-26.csv
+          if-no-files-found: warn
+          retention-days: 90

@@ -23,7 +23,7 @@ python tools/validate_nepse_eod_capture.py \
   --payload evidence/nepse_eod_2026-11-19.json \
   --symbol RHGCL \
   --date 2026-11-19 \
-  --source-url 'https://www.nepalstock.com/<exact-eod-endpoint>' \
+  --source-url 'https://www.nepalstock.com/api/nots/nepse-data/today-price?size=500&page=0&businessDate=2026-11-19' \\
   --retrieved-at '2026-11-26T10:00:00+05:45' \
   --output evidence/validated/RHGCL_2026-11-19.json
 ```

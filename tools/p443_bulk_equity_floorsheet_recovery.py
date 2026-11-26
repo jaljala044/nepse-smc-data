@@ -198,7 +198,7 @@ def main():
                 status,
                 inventory.get(day, {}).get("git_blob_sha", ""),
                 len(observed),
-                *source_values if source_values else ["", "", "", "", ""],
+                *(source_values if source_values else ("", "", "", "", "")),
                 observed_high if observed_high is not None else "",
                 observed_low if observed_low is not None else "",
                 observed_volume if observed_volume is not None else "",

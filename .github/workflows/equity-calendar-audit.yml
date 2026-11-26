@@ -5,6 +5,8 @@ on:
     paths:
       - '.github/workflows/equity-calendar-audit.yml'
       - 'tools/audit_equity_calendar.py'
+      - 'tools/reconcile_floorsheet_ohlcv.py'
+      - 'reference/floorsheet_reconciliation_manifest_template.csv'
 permissions:
   contents: read
 jobs:

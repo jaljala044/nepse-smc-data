@@ -69,6 +69,7 @@ def scan(raw, entry):
     seen, business, previous = {}, {}, {}
     findings, schemas = [], Counter()
     count = 0
+    conflict_sample_count = 0
     def flag(kind, loc, key, other="", evidence=""):
         findings.append(dict(path=path, blob_sha=entry["git_blob_sha"], row=loc,
                              key=key, classification=kind, previous_row=other,
@@ -123,10 +124,13 @@ def scan(raw, entry):
         if key:
             if key in business:
                 prior, old=business[key]
+                evidence = ""
+                if old != signature and conflict_sample_count < 5:
+                    evidence = "previous=" + old + ";current=" + signature
+                if old != signature:
+                    conflict_sample_count += 1
                 flag("duplicate_business_key" if old==signature else "conflicting_business_key",
-                     loc,str(key),prior)
-            else:
-                business[key]=(loc,signature)
+                     loc,str(key),prior,evidence)
     return count, dict(schemas), findings
 
 def main():

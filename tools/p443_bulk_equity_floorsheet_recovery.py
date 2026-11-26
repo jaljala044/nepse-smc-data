@@ -7,8 +7,12 @@ from concurrent.futures import ThreadPoolExecutor
 from decimal import Decimal
 from pathlib import Path
 
-from p443_classify_repeated_candles import source_rows
-from validate_historical_floorsheets import download_one, validate_file
+try:
+    from tools.p443_classify_repeated_candles import source_rows
+    from tools.validate_historical_floorsheets import download_one, validate_file
+except ModuleNotFoundError:
+    from p443_classify_repeated_candles import source_rows
+    from validate_historical_floorsheets import download_one, validate_file
 
 EXPECTED_P2_REQUESTS = 68773
 INVENTORY_PATH = "reference/p419_observed_date_floorsheet_archive_inventory_2026-11-26.csv"

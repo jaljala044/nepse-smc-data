@@ -124,7 +124,8 @@ def summarize_rows(rows):
         "weekly_closure_records":weekly_closures,"observed_dates":sorted(counts),
     }
 
-def build_quarantine_rows(symbol,sector,official_rows,start_date,end_date,canonical_dir="03_stock_charts_ohlcv"):
+def build_quarantine_rows(symbol,sector,official_rows,start_date,end_date,canonical_dir="03_stock_charts_ohlcv",
+                           session_calendar_path="reference/nepse_canonical_session_calendar_2025-2026.csv"):
     canonical_path=Path(canonical_dir)/f"{symbol}_OHLCV.csv"
     if not canonical_path.exists():
         canonical_path=Path("..")/canonical_path
@@ -133,6 +134,16 @@ def build_quarantine_rows(symbol,sector,official_rows,start_date,end_date,canoni
     with canonical_path.open(newline="",encoding="utf-8-sig") as handle:
         canonical=[row for row in csv.DictReader(handle)
                    if start_date<=row.get("Date","")<=end_date]
+    calendar_path=Path(session_calendar_path)
+    if not calendar_path.exists():
+        calendar_path=Path("..")/calendar_path
+    calendar={}
+    if calendar_path.exists():
+        with calendar_path.open(newline="",encoding="utf-8-sig") as handle:
+            calendar={row["date"]:row for row in csv.DictReader(handle)}
+    def session_fields(day):
+        row=calendar.get(day,{})
+        return (row.get("status","UNKNOWN"),row.get("scope",""),row.get("reason",""))
     def key(row,official):
         fields=("highPrice","lowPrice","closePrice","totalTradedQuantity") if official else ("High","Low","Close","Volume")
         try:
@@ -161,8 +172,11 @@ def build_quarantine_rows(symbol,sector,official_rows,start_date,end_date,canoni
         if official:
             left,right=key(official,True),key(row,False)
             if left!=right:
+                cal_status,cal_scope,cal_reason=session_fields(day)
                 result.append({"sector":sector,"symbol":symbol,"disposition":"EXACT_DATE_HLCV_MISMATCH",
                     "canonical_date":day,"official_date":day,"calendar_day_offset":0,
+                    "canonical_session_status":cal_status,"canonical_session_scope":cal_scope,
+                    "canonical_session_reason":cal_reason,
                     "canonical_open":value(row,"Open"),"canonical_high":value(row,"High"),
                     "canonical_low":value(row,"Low"),"canonical_close":value(row,"Close"),
                     "canonical_volume":value(row,"Volume"),"official_high":value(official,"highPrice"),
@@ -173,18 +187,23 @@ def build_quarantine_rows(symbol,sector,official_rows,start_date,end_date,canoni
                     "canonical_weekday":weekday(day),"official_weekday":weekday(day)})
             continue
         matches=official_by_tuple.get(key(row,False),[]) if key(row,False) is not None else []
+        cal_status,cal_scope,cal_reason=session_fields(day)
         if matches:
             from datetime import date as date_type
             chosen=sorted(matches,key=lambda d:(abs((date_type.fromisoformat(day)-date_type.fromisoformat(d)).days),
                                                  (date_type.fromisoformat(day)-date_type.fromisoformat(d)).days))[0]
             delta=(date_type.fromisoformat(day)-date_type.fromisoformat(chosen)).days
             official=official_by_date[chosen]
-            disposition="CANONICAL_ONLY_TUPLE_MATCHES_OTHER_OFFICIAL_DATE"
+            disposition=("CANONICAL_CLOSED_DATE_CARRY_FORWARD" if cal_status=="verified_closed"
+                         else "CANONICAL_ONLY_TUPLE_MATCHES_OTHER_OFFICIAL_DATE")
         else:
             chosen="";delta="";official={}
-            disposition="CANONICAL_ONLY_NO_OFFICIAL_TUPLE_MATCH"
+            disposition=("CANONICAL_CLOSED_DATE_NO_OFFICIAL_TUPLE_MATCH" if cal_status=="verified_closed"
+                         else "CANONICAL_ONLY_NO_OFFICIAL_TUPLE_MATCH")
         result.append({"sector":sector,"symbol":symbol,"disposition":disposition,
             "canonical_date":day,"official_date":chosen,"calendar_day_offset":delta,
+            "canonical_session_status":cal_status,"canonical_session_scope":cal_scope,
+            "canonical_session_reason":cal_reason,
             "canonical_open":value(row,"Open"),"canonical_high":value(row,"High"),
             "canonical_low":value(row,"Low"),"canonical_close":value(row,"Close"),
             "canonical_volume":value(row,"Volume"),"official_high":value(official,"highPrice"),
@@ -201,11 +220,16 @@ def build_quarantine_rows(symbol,sector,official_rows,start_date,end_date,canoni
             chosen=sorted(matches,key=lambda d:(abs((date_type.fromisoformat(d)-date_type.fromisoformat(day)).days),
                                                  (date_type.fromisoformat(d)-date_type.fromisoformat(day)).days))[0]
             delta=(date_type.fromisoformat(chosen)-date_type.fromisoformat(day)).days
-            disposition="OFFICIAL_ONLY_TUPLE_MATCHES_OTHER_CANONICAL_DATE"
+            cal_status,cal_scope,cal_reason=session_fields(chosen)
+            disposition=("OFFICIAL_ONLY_MATCHES_CANONICAL_CLOSED_DATE" if cal_status=="verified_closed"
+                         else "OFFICIAL_ONLY_TUPLE_MATCHES_OTHER_CANONICAL_DATE")
         else:
-            chosen="";delta="";disposition="OFFICIAL_ONLY_NO_CANONICAL_TUPLE_MATCH"
+            chosen="";delta="";cal_status,cal_scope,cal_reason="UNKNOWN","",""
+            disposition="OFFICIAL_ONLY_NO_CANONICAL_TUPLE_MATCH"
         result.append({"sector":sector,"symbol":symbol,"disposition":disposition,
             "canonical_date":chosen,"official_date":day,"calendar_day_offset":delta,
+            "canonical_session_status":cal_status,"canonical_session_scope":cal_scope,
+            "canonical_session_reason":cal_reason,
             "canonical_open":value(canonical_by_date.get(chosen,{}),"Open"),
             "canonical_high":value(canonical_by_date.get(chosen,{}),"High"),
             "canonical_low":value(canonical_by_date.get(chosen,{}),"Low"),
@@ -220,7 +244,8 @@ def build_quarantine_rows(symbol,sector,official_rows,start_date,end_date,canoni
 
 def write_quarantine_matrix(path,rows):
     fields=["sector","symbol","disposition","canonical_date","official_date","calendar_day_offset",
-            "canonical_weekday","official_weekday","canonical_open","canonical_high","canonical_low",
+            "canonical_weekday","official_weekday","canonical_session_status",
+            "canonical_session_scope","canonical_session_reason","canonical_open","canonical_high","canonical_low",
             "canonical_close","canonical_volume","official_high","official_low","official_close",
             "official_volume","official_total_trades","official_total_traded_value"]
     with Path(path).open("w",newline="",encoding="utf-8") as handle:
@@ -332,6 +357,13 @@ def capture(output_dir,requester=request,parser=token_parser,retrieved_at=None):
     (out/"quarantine_matrix.csv").parent.mkdir(parents=True,exist_ok=True)
     write_quarantine_matrix(out/"quarantine_matrix.csv",quarantine_rows)
     disposition_counts=dict(Counter(row["disposition"] for row in quarantine_rows))
+    closed_carry=[row for row in quarantine_rows if row["disposition"]=="CANONICAL_CLOSED_DATE_CARRY_FORWARD"]
+    closed_dates={row["canonical_date"] for row in closed_carry}
+    closed_date_reasons={row["canonical_date"]:row["canonical_session_reason"] for row in closed_carry}
+    closed_carry_summary={"rows":len(closed_carry),"unique_dates":len(closed_dates),
+        "weekly_closure_dates":sum(1 for reason in closed_date_reasons.values() if reason=="regular_weekly_closure"),
+        "listed_holiday_dates":sum(1 for reason in closed_date_reasons.values() if reason=="listed_holiday"),
+        "unverified_session_dates":sum(1 for row in closed_carry if row["canonical_session_status"]!="verified_closed")}
     date_sets={tuple(x.get("observed_dates",[])) for x in symbol_results if x.get("status")=="captured"}
     date_set_consistency={"unique_date_sets":len(date_sets),
         "all_captured_symbols_share_same_date_set":len(date_sets)==1,
@@ -345,6 +377,7 @@ def capture(output_dir,requester=request,parser=token_parser,retrieved_at=None):
         "authentication_status":"authenticated" if security_map else "authenticated_but_security_master_unavailable",
         "canonical_data_provenance":SOURCE_PROVENANCE,
         "quarantine_matrix":{"rows":len(quarantine_rows),"disposition_counts":disposition_counts,
+                             "closed_date_carry_forward":closed_carry_summary,
                              "path":"reference/p437_cross_sector_date_audit/quarantine_matrix.csv"},
         "sample_design":{"method":"stratified purposive sample","symbols":len(SAMPLE),
           "sectors":12,"per_sector":2,"sector_source":"scanner_inputs/sectors.csv",

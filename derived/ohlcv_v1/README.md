@@ -15,6 +15,10 @@
 6. Adjacent repeated OHLCV rows are retained pending date-level session adjudication. Do not automatically interpret them as executed trades.
 7. This release does not certify full expected-session completeness, lifecycle coverage, or every upstream price/volume value.
 
+## Quality flags
+
+A date-level adjacent-repeat classification pilot is available in [quality_flags/](./quality_flags/). It currently covers 14 of 281 symbols; see its README for scope and limitations. These flags do not delete or alter OHLCV rows.
+
 ## Files
 
 - `{SYMBOL}_OHLCV.csv`: one six-column CSV per symbol (Date, Open, High, Low, Close, Volume).

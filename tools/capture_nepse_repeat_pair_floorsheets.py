@@ -64,21 +64,31 @@ def capture_pair(client, symbol, day, security_id, output_dir):
     total_pages = None
     total_elements = None
     schema_status = "OK"
+    access_status = ""
     page = 0
 
     while total_pages is None or page < total_pages:
         url = base_url if page == 0 else f"{base_url}&page={page}"
         response = post_page(client, url)
         retrieved_at = datetime.now(NPT).isoformat()
-        if response.status_code != 200:
-            raise RuntimeError(
-                f"NEPSE floorsheet failed for {symbol} {day}: "
-                f"HTTP {response.status_code}: {response.text[:300]!r}"
-            )
         content_type = response.headers.get("content-type", "")
         if "json" not in content_type.lower():
             raise RuntimeError(f"NEPSE floorsheet returned non-JSON content: {content_type}")
         raw = response.content
+        if response.status_code != 200:
+            file_path = output_dir / f"{symbol}_{day}_page_{page}.json"
+            file_path.parent.mkdir(parents=True, exist_ok=True)
+            file_path.write_bytes(raw)
+            captures.append({
+                "page": page, "file": str(file_path), "url": str(response.request.url),
+                "retrieved_at": retrieved_at, "http_status": response.status_code,
+                "content_type": content_type, "bytes": len(raw),
+                "sha256": hashlib.sha256(raw).hexdigest(), "rows": 0,
+            })
+            access_status = f"HTTP_{response.status_code}_ACCESS_DENIED" if response.status_code == 403 else f"HTTP_{response.status_code}_ERROR"
+            schema_status = access_status
+            total_pages, total_elements = 0, 0
+            break
         payload = json.loads(raw.decode("utf-8"))
         page_rows, pages, elements, status = page_parts(payload)
 

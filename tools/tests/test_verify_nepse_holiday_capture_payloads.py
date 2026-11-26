@@ -27,6 +27,9 @@ class HolidayPayloadVerificationTests(unittest.TestCase):
             ]
         }]}
 
+    def test_git_blob_hash_uses_git_object_header(self):
+        self.assertEqual(git_blob_sha(b"hello\n"),"ce013625030ba8dba906f756967f9e9ca394464a")
+
     def test_valid_payloads_pass(self):
         result=verify(self.manifest, lambda url:self.payloads[url.rsplit("/",1)[1]])
         self.assertEqual(result,{"checked_files":6,"errors":[]})
@@ -40,7 +43,6 @@ class HolidayPayloadVerificationTests(unittest.TestCase):
     def test_raw_and_parsed_json_must_match(self):
         changed=dict(self.payloads)
         changed["parsed-response.json"]=b"[]"
-        # Update the manifest hash to isolate the JSON-parity rule.
         rec=next(f for f in self.manifest["annual_captures"][0]["files"] if f["name"]=="parsed-response.json")
         rec["size_bytes"]=2
         rec["git_blob_sha"]=git_blob_sha(b"[]")

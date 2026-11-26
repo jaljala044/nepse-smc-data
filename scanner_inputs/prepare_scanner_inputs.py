@@ -78,7 +78,9 @@ BLOCKED_FLOORSHEET_SHA256 = {
 def validate_floorsheet(path, closed_dates):
     """Validate canonical trade CSV; reject ambiguous schemas and unsupported formats."""
     raw = path.read_bytes()
-    if hashlib.sha1(f"blob {len(raw)}\0".encode() + raw).hexdigest() in BLOCKED_FLOORSHEET_BLOBS:
+    blob_sha = hashlib.sha1(f"blob {len(raw)}\\0".encode() + raw).hexdigest()
+    content_sha256 = hashlib.sha256(raw).hexdigest()
+    if blob_sha in BLOCKED_FLOORSHEET_BLOBS or content_sha256 in BLOCKED_FLOORSHEET_SHA256:
         raise ValueError("Quarantined floorsheet archive")
     if path.suffix != ".csv":
         raise ValueError("Unsupported floorsheet format; verified CSV required")

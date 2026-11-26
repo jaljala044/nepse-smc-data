@@ -26,8 +26,8 @@ def signature(row, secondary, day, stats=None):
     ]
     raw_contract = get("contract_no").strip()
     contract = raw_contract
-    # Some CSV exports prefix numeric IDs with an Excel text marker. Preserve
-    # that fact in per-source counters, but compare the underlying digits.
+    # Some CSV exports prefix numeric IDs with one apostrophe. Preserve that
+    # fact in per-source counters, but compare the underlying digits only.
     if raw_contract.startswith("'") and raw_contract[1:].isdigit():
         contract = raw_contract[1:]
         if stats is not None:

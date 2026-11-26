@@ -58,3 +58,16 @@ The 599 official rows cover 254 symbols across six business dates. All official 
 ## Next priority — P4.30
 
 Run the full 281-symbol v2 integrity gate: validate all OHLCV invariants, duplicate dates, calendar alignment, the 1,329 retained source OHLC invariant flags, repeated-candle classifications and corporate-action adjustment basis. Only after this gate should the scanner consume v2 as its historical price input; any uncovered or conflicting row must remain UNKNOWN.
+
+
+## P4.30 integrity audit
+
+The full v2 integrity audit is documented in [derived OHLCV v2 integrity audit](derived_ohlcv_v2_integrity_audit_2026-11-26.md). CI run [45868691178](https://github.com/jaljala044/nepse-smc-data/actions/runs/45868691178) passed and retained the findings in artifact [15141173903](https://github.com/jaljala044/nepse-smc-data/actions/runs/45868691178/artifacts/15141173903).
+
+- 281/281 raw source Git blob hashes and 599/599 official provenance rows verified; zero duplicate dates or ordering flags.
+- 1,329 unique invalid OHLCV rows remain across 13 symbols (1,379 reason flags); no automatic repair.
+- 71,806 adjacent repeated rows remain flagged; five open-session repeat pairs require per-security floorsheet verification.
+- Corporate-action coverage remains partial: three recorded events, 278 symbols without records, and one NLIC split proposal without a verified effective date.
+- T+2/swing use is conditional on valid bars and liquidity checks; positional/investment adjusted-return metrics remain unsafe until corporate actions are validated.
+
+P4.31 is capturing the official company floorsheets for the five repeat pairs. UNL remains UNKNOWN until its exact symbol/date evidence is reconciled.

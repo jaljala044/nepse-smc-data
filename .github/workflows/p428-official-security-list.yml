@@ -1,0 +1,34 @@
+name: P4.28 official NEPSE security-list audit
+on:
+  pull_request:
+    paths:
+      - "reference/nepse_official_security_list_2026-11-25.raw.json"
+      - "reference/nepse_official_security_list_2026-11-25.audit.json"
+      - "reference/nepse_equity_security_id_crosswalk_2026-11-26.csv"
+      - "tools/audit_nepse_official_security_list.py"
+      - "tools/tests/test_audit_nepse_official_security_list.py"
+      - ".github/workflows/p428-official-security-list.yml"
+  push:
+    branches: [p428-official-security-list-2026-11-25]
+    paths:
+      - "reference/nepse_official_security_list_2026-11-25.raw.json"
+      - "reference/nepse_equity_security_id_crosswalk_2026-11-26.csv"
+      - "tools/audit_nepse_official_security_list.py"
+      - "tools/tests/test_audit_nepse_official_security_list.py"
+      - ".github/workflows/p428-official-security-list.yml"
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify official raw response and equity crosswalk
+        run: python tools/audit_nepse_official_security_list.py --raw reference/nepse_official_security_list_2026-11-25.raw.json --crosswalk reference/nepse_equity_security_id_crosswalk_2026-11-26.csv
+      - name: Run regression tests
+        run: |
+          cd tools
+          python -m unittest discover -s tests -p 'test_audit_nepse_official_security_list.py' -v

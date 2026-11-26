@@ -1,0 +1,282 @@
+symbol,security_id,security_name,snapshot_date,active_status,ohlcv_file_present,baseline_278_candidate,addition_evidence,crosswalk_status,source_snapshot_blob_sha
+ACLBSL,2790,"Aarambha Chautari Laghubitta Bittiya Sanstha Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+ADBL,397,"Agricultural Development Bank Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+AHL,9150,"Asian Hydropower Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+AHPC,360,"Arun Valley Hydropower Development Co. Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+AKJCL,2788,"Ankhu Khola Jalvidhyut Company Ltd",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+AKPL,2757,"Arun Kabeli Power Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+ALBSL,2807,"Asha Laghubitta Bittiya Sanstha Ltd",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+ALICL,385,"Asian Life Insurance Co. Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+ANLB,9161,"Aatmanirbhar Laghubitta Bittiya Sanstha Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+APHL,9337,"Appolo Hydropower Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+API,697,"Api Power Company Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+AVYAN,8117,"Aviyan Laghubitta Bittiya Sanstha Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+BANDIPUR,9297,"Bandipur Cablecar and Tourism Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+BARUN,686,"Barun Hydropower Co. Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+BBC,156,"Bishal Bazar Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+BEDC,9171,"Bhugol Energy Development Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+BENH,9356,"Beni Hydropower Project Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+BFC,227,"Best Finance Company Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+BGWT,9214,"Bhagawati Hydropower Development Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+BHCL,9267,"Bikash Hydropower Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+BHDC,8075,"Bindhyabasini Hydropower Development Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+BHL,8055,"Balephi Hydropower Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+BHPL,9135,"Barahi Hydropower Public Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+BJHL,9322,"Bhujung Hydropower Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+BNHC,8032,"Buddha Bhumi Nepal Hydropower Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+BNL,195,"Bottlers Nepal (Balaju) Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+BNT,213,"Bottlers Nepal (Terai) Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+BPCL,153,"Butwal Power Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+BUNGAL,9296,"Bungal Hydro Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+CBBL,164,"Chhimek Laghubitta Bittiya Sanstha Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+CFCL,245,"Central Finance Co. Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+CGH,2917,"Chandragiri Hills Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+CHCL,154,"Chilime Hydropower Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+CHDC,3946,"CEDB Holdings Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+CHL,2766,"Chhyangdi Hydropower Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+CIT,210,"Citizen Investment Trust",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+CITY,9173,"City Hotel Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+CKHL,9232,"Chirkhwa Hydropower Limited ",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+CLI,9209,"Citizen Life Insurance Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+CORBL,450,"Corporate Development Bank Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+CREST,9252,"Crest Micro Life Insurance Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+CYCL,8065,"CYC Nepal Laghubitta Bittiya Sanstha Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+CZBIL,348,"Citizens Bank International Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+DDBL,166,"Deprosc Laghubitta Bittiya Sanstha Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+DHEL,9293,"Daramkhola Hydro Energy Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+DHPL,2754,"Dibyashwori Hydropower Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+DLBS,8123,"Dhaulagiri Laghubitta Bittiya Sanstha Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+DOLTI,9170,"Dolti Power Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+DORDI,8070,"Dordi Khola Jal Bidyut Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+EBL,137,"Everest Bank Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+ECL,9347,"Everest Colour Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+EDBL,274,"Excel Development Bank Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+EHPL,8131,"Eastern Hydropower Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+ENL,8034,"Emerging Nepal Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+FMDBL,490,"First Micro Finance Laghubitta Bittiya Sanstha Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+FOWAD,2758,"Forward Microfinance Laghubitta Bittiya Sanstha Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+GBBL,417,"Garima Bikas Bank Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+GBIME,341,"Global IME Bank Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+GBLBS,583,"Grameen Bikas Laghubitta Bittiya Sanstha Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+GCIL,9193,"Ghorahi Cement Industry Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+GFCL,232,"Goodwill Finance Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+GHL,2806,"Ghalemdi Hydro Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+GILB,705,"Global IME Laghubitta Bittiya Sanstha Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+GLBSL,2826,"Gurans Laghubitta Bittiya Sanstha Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+GLH,2924,"GreenLife Hydropower Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+GMFBS,2815,"Ganapati Laghubitta Bittiya Sanstha Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+GMFIL,263,"Guheshowori Merchant Bank & Finance Co. Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+GMLI,9246,"Guardian Micro Life Insurance Limited ",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+GRDBL,2744,"Green Development Bank Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+GUFL,204,"Gurkhas Finance Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+GVL,8045,"Green Ventures Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+HATHY,9213,"Hathway Investment Nepal Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+HBL,134,"Himalayan Bank Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+HDHPC,2880,"Himal Dolakha Hydropower Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+HDL,235,"Himalayan Distillery Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+HEI,179,"Himalayan Everest Insurance Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+HFIN,9308,"Hotel Forest Inn Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+HHL,8076,"Himalayan Hydropower Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+HIDCL,2742,"Hydorelectricity Investment and Development Company Ltd",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+HIMSTAR,9270,"Him Star Urja Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+HLBSL,693,"Himalayan Laghubitta Bittiya Sanstha Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+HLI,393,"Himalayan Life Insurance Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+HPPL,2767,"Himalayan Power Partner Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+HRL,9234,"Himalayan Reinsurance Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+HURJA,2824,"Himalaya Urja Bikas Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+ICFC,273,"ICFC Finance Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+IGI,186,"IGI Prudential insurance Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+IHL,9176,"Ingwa Hydropower Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+ILBS,2832,"Infinity Laghubitta Bittiya Sanstha Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+ILI,9184,"IME Life Insurance Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+JBBL,418,"Jyoti Bikas Bank Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+JBLB,4951,"Jeevan Bikas Laghubitta  Bittya Sanstha Ltd",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+JFL,250,"Janaki Finance Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+JHAPA,9300,"Jhapa Energy Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+JOSHI,2789,"Joshi Hydropower Development Company Ltd",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+JSLBB,695,"Janautthan Samudayic Laghubitta Bittya Sanstha Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+KAHL,9346,"Kalanga Hydro Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+KBL,142,"Kumari Bank Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+KBSH,9196,"Kutheli Bukhari Small Hydropower Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+KDL,9151,"Kalinchowk Darshan Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+KHPL,9334,"Kalinchock Hydropower Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+KKHC,2751,"Khanikhola Hydropower Co. Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+KMCDB,593,"Kalika Laghubitta Bittiya Sanstha Ltd",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+KPCL,2787,"Kalika power Company Ltd",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+KSBBL,459,"Kamana Sewa Bikas Bank Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+LBBL,358,"Lumbini Bikas Bank Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+LEC,2903,"Liberty Energy Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+LICN,188,"Life Insurance Corporation (Nepal) Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+LLBS,618,"Laxmi Laghubitta Bittiya Sanstha Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+LSL,141,"Laxmi Sunrise Bank Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+MABEL,9287,"Mabilung Energy Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+MAKAR,9166,"Makar Jitumaya Suri Hydropower Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+MANDU,9212,"Mandu Hydropower Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+MATRI,694,"Matribhumi Lagubitta Bittiya Sanstha Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+MBJC,8031,"Madhya Bhotekoshi Jalavidyut Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+MBL,140,"Machhapuchhre Bank Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+MCHL,9175,"Menchhiyam Hydropower Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+MDB,371,"Miteri Development Bank Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+MEHL,9203,"Manakamana Engineering Hydropower Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+MEL,9179,"Modi Energy Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+MEN,2913,"Mountain Energy Nepal Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+MEPDL,9352,"Mount Everest Power Development Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+MERO,1741,"Mero Microfinance Bittiya Sanstha Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+MFIL,516,"Manjushree Finance Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+MHCL,9158,"Molung Hydropower Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+MHL,8102,"Mandakini Hydropower Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+MHNL,2811,"Mountain Hydro Nepal Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+MKCL,9230,"Muktinath Krishi Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+MKHC,9149,"Maya Khola Hydropower Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+MKHL,9167,"Mai Khola Hydropower Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+MKJC,8005,"Mailung Khola Jal Vidhyut Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+MLBBL,601,"Mithila LaghuBitta Bittiya Sanstha Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+MLBL,401,"Mahalaxmi Bikas Bank Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+MLBS,8018,"Manushi Laghubitta Bittiya Sanstha Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+MLBSL,2925,"Mahila Lagubitta Bittiya Sanstha Limited ",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+MMKJL,9217,"Mathillo Mailun Khola Jalvidhyut Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+MNBBL,474,"Muktinath Bikas Bank Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+MPFL,471,"Multipurpose Finance Company  Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+MSHL,9215,"Mid Solu Hydropower Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+MSLB,2768,"Mahuli Laghubitta Bittiya Sanstha Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+NABBC,172,"Narayani Development Bank Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+NABIL,131,"Nabil Bank Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+NADEP,2784,"Nadep Laghubittiya bittya Sanstha Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+NBL,517,"Nepal Bank Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+NESDO,8041,"NESDO Sambridha Laghubitta Bittiya Sanstha Limited",2026-11-25,A,yes,false,"Priority 94 company-profile/share listing evidence; ID 8041 from 2026-11-25 snapshot",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+NFS,194,"Nepal Finance Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+NGPL,2743,"Ngadi Group Power Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+NHDL,2769,"Nepal Hydro Developers Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+NHPC,152,"National Hydro Power Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+NICA,139,"NIC Asia Bank Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+NICL,176,"Nepal Insurance Co. Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+NICLBSL,2887,"NIC ASIA Laghubitta Bittiya Sanstha Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+NIFRA,2919,"Nepal Infrastructure Bank Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+NIL,183,"Neco Insurance Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+NIMB,132,"Nepal Investment Mega Bank Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+NLG,559,"NLG Insurance Company Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+NLIC,187,"Nepal Life Insurance Co. Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+NLICL,178,"National Life Insurance Co. Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+NLO,198,"Nepal Lube Oil Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+NMB,238,"NMB Bank Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+NMBMF,704,"NMB  Microfinance Bittiya Sanstha Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+NMFBS,2746,"National Laghubitta Bittiya Sanstha Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+NMIC,9250,"Nepal Micro Insurance Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+NMLBBL,396,"Nerude Mirmire Laghubitta Bittiya Sanstha Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+NRIC,2881,"Nepal Reinsurance Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+NRM,9183,"Nepal Republic Media Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+NRN,2898,"NRN Infrastructure and Development Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+NTC,307,"Nepal Doorsanchar Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+NUBL,163,"Nirdhan Utthan Laghubitta Bittiya Sanstha Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+NWCL,9233,"Nepal Warehousing Company Limited ",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+NYADI,8026,"Nyadi Hydropower Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+OHL,149,"Oriental Hotels Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+OMPL,9256,"Om Megashree Pharmaceuticals Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+PCBL,357,"Prime Commercial Bank Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+PCIL,9330,"Palpa Cement Industries Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+PFL,236,"Pokhara Finance Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+PHCL,8133,"Peoples Hydropower Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+PMHPL,2786,"Panchakanya Mai Hydropower Ltd",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+PMLI,2915,"Prabhu Mahalaxmi Life Insurance Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+PPCL,2813,"Panchthar Power Compant Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+PPL,8122,"People's Power Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+PRIN,184,"Prabhu Insurance Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+PROFL,338,"Progressive Finance Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+PRVU,255,"Prabhu  Bank Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+PURE,9258,"Pure Energy Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+RADHI,2776,"Radhi Bidyut Company Ltd",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+RAWA,9181,"Rawa Energy Development Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+RBCL,177,"Rastriya Beema Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+RFPL,8066,"River Falls Power Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+RHGCL,8108,"Rapti Hydro And General Construction Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+RHPL,2841,"RASUWAGADHI HYDROPOWER COMPANY LIMITED",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+RIDI,610,"Ridi Power Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+RLEL,9324,"Ridge Line Energy Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+RLFL,587,"Reliance Finance Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+RNLI,9199,"Reliable Nepal Life Insurance Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+RSDC,2748,"RSDC Laghubitta Bittiya Sanstha Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+RSML,9306,"Reliance Spinning Mills Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+RURU,2935,"Ru Ru Jalbidhyut Pariyojana Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SABBL,9305,"Salapa Bikas Bank Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SADBL,472,"Shangrila Development Bank Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SAGAR,9294,"Sagar Distillery Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SAHAS,8021,"Sahas Urja Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SAIL,9301,"Shreenagar Agritech Industries Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SALICO,185,"Sagarmatha Lumbini Insurance Co. Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SANIMA,171,"Sanima Bank Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SANVI,9263,"Sanvi Energy Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SAPDBL,2860,"Saptakoshi Development Bank Ltd",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SAPIL,9353,"Sarvottam Paints Industries Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SARBTM,9242,"Sarbottam Cement Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SBI,135,"Nepal SBI Bank Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SBL,145,"Siddhartha Bank Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SCB,133,"Standard Chartered Bank Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SGHC,8100,"Swet-Ganga Hydropower & Construction Limited ",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SGHL,9345,"Sanigad Hydro Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SGIC,2908,"Sanima GIC Insurance Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SHEL,2934,"Singati Hydro Energy Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SHINE,473,"Shine Resunga Development Bank Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SHIVM,2809,"SHIVAM CEMENTS LTD",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SHL,147,"Soaltee Hotel Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SHLB,8132,"Shrijanshil Laghubitta Bittiya Sanstha Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SHPC,591,"Sanima Mai Hydropower Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SICL,192,"Shikhar Insurance Co. Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SIFC,244,"Shree Investment Finance Co. Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SIKLES,8126,"Sikles Hydropower Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SINDU,561,"Sindhu Bikash Bank Ltd",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SIPD,9329,"Shikhar power Development Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SJCL,2842,"SANJEN JALAVIDHYUT COMPANY LIMITED",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SJLIC,403,"SuryaJyoti Life Insurance Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SKBBL,574,"Sana Kisan Bikas Laghubitta Bittiya Sanstha Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SKHEL,9325,"Suryakunda Hydro Electric Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SKHL,9323,"Super Khudi Hydropower Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SLBBL,545,"Swarojgar Laghubitta Bittiya Sanstha Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SLBSL,2804,"Samudayik Laghubitta Bittiya Sanstha Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SMATA,2761,"Samata Gharelu Laghubitta Bittiya Sanstha Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SMB,2771,"Support Microfinance Bittiya Sanstha Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SMFBS,2829,"Swabhimaan Laghubitta Bittiya Sanstha Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SMH,9148,"Super Mai Hydropower Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SMHL,9146,"Super Madi Hydropower Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SMJC,9159,"Sagarmatha Jalabidhyut Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SMPDA,2896,"Sampada Laghubitta Bittiya Sanstha Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SNLI,9201,"Sun Nepal Life Insurance Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SNORL,9344,"Snow Rivers Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SOHL,9311,"Solu Hydropower Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SONA,9216,"Sonapur Minerals And Oil Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SOPL,9336,"Sopan Pharmaceuticals Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SPC,8025,"Samling Power Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SPDL,2759,"Synergy Power Development Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SPHL,8121,"Sayapatri Hydropower Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SPIL,182,"Siddhartha Premier Insurance Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SPL,9147,"Shuvam Power Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SRLI,5982,"Sanima Reliance Life Insurance Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SSHL,2907,"Shiva Shree Hydropower Ltd",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+STC,155,"Salt Trading Corporation",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SWASTIK,9295,"Swastik Laghubitta Bittiya Sanstha Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SWBBL,268,"Swabalamban Laghubitta Bittiya Sanstha Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SWMF,706,"Suryodaya Womi Laghubitta Bittiya Sanstha Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+SYPNL,9303,"SY Panel Nepal Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+TAMOR,9156,"Sanima Middle Tamor Hydropower Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+TPC,8022,"Terhathum Power Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+TPKHL,9343,"Taksar Pikhuwa Khola Hydropower Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+TRH,148,"Taragaon Regency Hotel Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+TSHL,9194,"Three Star Hydropower Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+TTL,9262,"Trade Tower Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+TVCL,9218,"Trishuli Jal Vidhyut Company Limited ",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+UAIL,180,"United Ajod Insurance Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+UHEWA,8099,"Upper Hewakhola Hydropower Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+ULBSL,8063,"Upakar Laghubitta Bittiya Sanstha Limited",2026-11-25,A,yes,false,"Priority 94 company-profile/share listing evidence; ID 8063 from 2026-11-25 snapshot",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+ULHC,9208,"Upper Lohore Khola Hydropower Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+UMHL,2760,"United Modi Hydropower Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+UMRH,2914,"United IDI Mardi RB Hydropower Limited.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+UNHPL,2831,"Union Hydropower Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+UNL,219,"Unilever Nepal Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+UNLB,9140,"Unique Nepal Laghubitta Bittiya Sanstha Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+UPCL,2810,"UNIVERSAL POWER COMPANY LTD",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+UPPER,2792,"Upper Tamakoshi Hydropower Ltd",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+USHEC,8104,"Upper Solu Hydro Electric Company Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+USHL,9192,"Upper Syange Hydropower Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+USLB,2774,"Unnati Sahakarya Laghubitta Bittiya Sanstha Limited",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+VLBS,687,"Vijaya laghubitta Bittiya Sanstha Ltd.",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+VLUCL,9225,"Vision Lumbini Urja Company Limited ",2026-11-25,A,yes,true,"",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef
+YMHL,9342,"Yambaling Hydropower Limited",2026-11-25,A,yes,false,"Priority 94 company-profile and NEPSE listing notice (listing 2026-06-19; trading 2026-06-22); ID 9342 from 2026-11-25 snapshot",snapshot_id_match_active_status_A,eed3bbb3152e83d4abcb0ee8d03d720c33c63cef

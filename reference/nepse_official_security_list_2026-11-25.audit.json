@@ -1,0 +1,47 @@
+{
+  "source_id": "NEPSE_OFFICIAL_SECURITY_LIST",
+  "source_url": "https://nepalstock.com.np/api/nots/security",
+  "host": "nepalstock.com.np",
+  "capture_report_retrieved_at_utc": "2026-11-25T18:45:52.683284Z",
+  "raw_artifact_source_repository": "jaljala044/nepse-elite-ai-scanner-pro",
+  "raw_artifact_source_commit": "39747bd2ade2bdb59ef7665f454bcbc04b3060df",
+  "raw_artifact_source_path": "data/evidence/raw/nepse/conflict-ohlcv/2026-11-25/responses/security-list.response-body.bin",
+  "raw_artifact_source_git_blob_sha": "0891e10b56de572816680c8065718ecd4420bd03",
+  "raw_artifact_size_bytes": 87572,
+  "raw_artifact_sha256": "5495d99a73aeb44e573936f59fc6a6d8dbf9ffc45c5a8ba62e672f0b0c6fa2f7",
+  "parsed_record_count": 573,
+  "unique_security_ids": 573,
+  "unique_symbols": 573,
+  "duplicate_security_ids": 0,
+  "duplicate_symbols": 0,
+  "active_status_raw_counts": {
+    "A": 546,
+    "S": 27
+  },
+  "field_scope": [
+    "id",
+    "symbol",
+    "securityName",
+    "name",
+    "activeStatus"
+  ],
+  "unavailable_fields": [
+    "instrument_type",
+    "listing_date",
+    "delisting_date",
+    "effective_date",
+    "symbol_change_history"
+  ],
+  "crosswalk_reconciliation": {
+    "equity_crosswalk_rows": 281,
+    "security_id_symbol_mismatches": 0,
+    "crosswalk_symbols_missing_from_official_snapshot": 0,
+    "note": "All 281 current equity crosswalk security_id/symbol pairs match this official current security-list snapshot. This validates current mapping only, not historical identity or effective-dated lifecycle."
+  },
+  "limitations": [
+    "The activeStatus values A and S are preserved as raw exchange codes; this audit does not infer their meanings beyond the returned codes.",
+    "The endpoint response does not expose instrument type or effective-dated lifecycle fields.",
+    "Do not infer equity/mutual-fund/debenture/promoter-share classification from symbol suffixes or names.",
+    "Do not use this current snapshot as proof of historical security identity or listing/delisting dates."
+  ]
+}

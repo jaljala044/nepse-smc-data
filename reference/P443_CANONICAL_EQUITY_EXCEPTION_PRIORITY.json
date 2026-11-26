@@ -1,8 +1,8 @@
 {
   "task": "Historical exception resolution: canonical equity hold policy",
   "evidence": {
-    "run": 45896661332,
-    "verified_commit": "281ce71756cd86f1609be7f817bce9999537d1c5",
+    "run": 45897149333,
+    "verified_commit": "2a840c24b1dbb7bffe9586441d87b91be2610a7d",
     "pinned_source": "56362fb4f65b91fdcca8f50b50e53ad80e703649"
   },
   "queues": [
@@ -103,5 +103,23 @@
     "promoted": 0,
     "action": "REQUIRE_INDEPENDENT_SECURITY_DATE_EVIDENCE",
     "note": "Missing capture is not proof of no trade; no row correction or promotion."
+  },
+  "repeat_pair_priority": {
+    "source": "reference/nepse_ohlcv_active_instrument_crosscheck_2026-11-26.csv",
+    "status": "CURRENT_CLASSIFICATION_ONLY_NOT_POINT_IN_TIME",
+    "insufficient_session_pairs": {
+      "current_equity_first_pass": 44283,
+      "current_mutual_fund": 6351,
+      "unclassified": 8265,
+      "total": 58899
+    },
+    "both_open_pairs": {
+      "current_equity_first_pass": 5,
+      "current_mutual_fund": 5,
+      "unclassified": 63,
+      "total": 73
+    },
+    "promoted": 0,
+    "note": "Current instrument status is a prioritization aid only; it does not establish historical identity or execution. All pairs remain held from promotion."
   }
 }

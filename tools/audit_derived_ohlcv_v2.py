@@ -48,7 +48,7 @@ def inspect_ohlcv(symbol, rows, calendar):
     if date_order != sorted(date_order):
         invariant_flags.append({
             "symbol": symbol, "date": "", "flag": "DATE_ORDER_NOT_SORTED",
-            "details": "rows are not in ascending ISO date order",
+            "details": "rows are not in ascending ISO date order", "risk_disposition": "REVIEW_DATE_ORDER_BEFORE_USE",
         })
     for row in rows:
         day = row.get("Date", "")
@@ -56,7 +56,7 @@ def inspect_ohlcv(symbol, rows, calendar):
         if seen[day] > 1:
             invariant_flags.append({
                 "symbol": symbol, "date": day, "flag": "DUPLICATE_DATE",
-                "details": f"{seen[day]} rows share this date",
+                "details": f"{seen[day]} rows share this date", "risk_disposition": "DUPLICATE_DATE_MUST_NOT_BE_SILENTLY_DEDUPLICATED",
             })
         values = {k: dec(row.get(k)) for k in OHLCV}
         o, h, l, c, v = (values[k] for k in OHLCV)
@@ -77,7 +77,7 @@ def inspect_ohlcv(symbol, rows, calendar):
         for reason in reasons:
             invariant_flags.append({
                 "symbol": symbol, "date": day, "flag": reason,
-                "details": "|".join(str(row.get(k, "")) for k in OHLCV),
+                "details": "|".join(str(row.get(k, "")) for k in OHLCV), "risk_disposition": "EXCLUDE_INVALID_BAR_FROM_INDICATORS_UNKNOWN_UNTIL_PRIMARY_EVIDENCE",
             })
 
         session_status = calendar.get(day, "outside_calendar")
@@ -85,13 +85,13 @@ def inspect_ohlcv(symbol, rows, calendar):
             calendar_flags.append({
                 "symbol": symbol, "date": day, "calendar_status": session_status,
                 "flag": "ROW_ON_VERIFIED_CLOSED_DATE",
-                "details": "retain for review; may be a repeated/forward-filled source candle",
+                "details": "retain for review; may be a repeated/forward-filled source candle", "risk_disposition": "EXCLUDE_FROM_REGULAR_SESSION_INDICATORS_RETAIN_RAW",
             })
         elif session_status == "outside_calendar":
             calendar_flags.append({
                 "symbol": symbol, "date": day, "calendar_status": session_status,
                 "flag": "OUTSIDE_CALENDAR_EVIDENCE_WINDOW",
-                "details": "session status unknown; do not infer open/closed",
+                "details": "session status unknown; do not infer open/closed", "risk_disposition": "UNKNOWN_SESSION_STATUS_DO_NOT_INFER",
             })
 
         current_tuple = tuple(values[k] for k in OHLCV)
@@ -103,6 +103,11 @@ def inspect_ohlcv(symbol, rows, calendar):
                     "CLOSED_SESSION_REPEAT_CANDIDATE" if session_status == "verified_closed"
                     else "OPEN_SESSION_REPEAT_REVIEW" if session_status == "verified_open_observed"
                     else "UNCLASSIFIED_ADJACENT_REPEAT"
+                ),
+                "risk_disposition": (
+                    "EXCLUDE_FROM_REGULAR_SESSION_INDICATORS_RETAIN_RAW" if session_status == "verified_closed"
+                    else "UNKNOWN_PENDING_PER_SECURITY_FLOORSHEET" if session_status == "verified_open_observed"
+                    else "UNKNOWN_PENDING_SESSION_CALENDAR_AND_FLOORSHEET"
                 ),
                 "ohlcv": "|".join(str(row.get(k, "")) for k in OHLCV),
             })
@@ -212,11 +217,11 @@ def audit(v2_dir, raw_dir, calendar_path, corporate_actions_path, output_dir,
 
     output_dir.mkdir(parents=True, exist_ok=True)
     write_csv(output_dir / "ohlcv_invariant_flags.csv", invariant_flags,
-              ["symbol", "date", "flag", "details"])
+              ["symbol", "date", "flag", "details", "risk_disposition"])
     write_csv(output_dir / "adjacent_repeat_flags.csv", repeats,
-              ["symbol", "previous_date", "date", "calendar_status", "classification", "ohlcv"])
+              ["symbol", "previous_date", "date", "calendar_status", "classification", "risk_disposition", "ohlcv"])
     write_csv(output_dir / "calendar_alignment_flags.csv", calendar_flags,
-              ["symbol", "date", "calendar_status", "flag", "details"])
+              ["symbol", "date", "calendar_status", "flag", "details", "risk_disposition"])
     write_csv(output_dir / "corporate_action_coverage.csv", corporate_coverage,
               ["symbol", "event_type", "announced_date", "event_date", "quantity_ratio",
                "price_factor", "first_bar_on_or_after_event", "event_bar_found",
@@ -240,6 +245,10 @@ def audit(v2_dir, raw_dir, calendar_path, corporate_actions_path, output_dir,
                "verified_effective_date", "assessment", "disposition"])
 
     symbols_with_no_action_records = expected_symbols - symbols_with_actions
+    invariant_by_reason = Counter(r["flag"] for r in invariant_flags)
+    invariant_unique_rows = len({(r["symbol"], r["date"]) for r in invariant_flags if r["date"]})
+    repeat_by_classification = Counter(r["classification"] for r in repeats)
+    calendar_by_flag = Counter(r["flag"] for r in calendar_flags)
     totals = {
         "status": "INTEGRITY_CHECKED_WITH_RETAINED_FLAGS",
         "symbols": expected_symbols,
@@ -248,8 +257,17 @@ def audit(v2_dir, raw_dir, calendar_path, corporate_actions_path, output_dir,
         "official_provenance_rows_verified": official_rows_verified,
         "official_correction_ledger_fields": dict(correction_counts),
         "ohlcv_invariant_flag_rows": len(invariant_flags),
+        "ohlcv_invariant_unique_rows": invariant_unique_rows,
+        "ohlcv_invariant_multi_reason_rows": len(invariant_flags) - invariant_unique_rows,
+        "ohlcv_invariant_by_reason": dict(invariant_by_reason),
+        "symbols_with_invariant_flags": len({r["symbol"] for r in invariant_flags}),
+        "duplicate_date_flags": invariant_by_reason.get("DUPLICATE_DATE", 0),
+        "date_order_flags": invariant_by_reason.get("DATE_ORDER_NOT_SORTED", 0),
         "adjacent_identical_ohlcv_rows": len(repeats),
+        "adjacent_repeats_by_classification": dict(repeat_by_classification),
+        "symbols_with_adjacent_repeats": len({r["symbol"] for r in repeats}),
         "calendar_alignment_flags": len(calendar_flags),
+        "calendar_alignment_by_flag": dict(calendar_by_flag),
         "corporate_action_event_records": len(corporate_actions),
         "symbols_with_known_action_records": symbols_with_actions,
         "symbols_without_action_records_not_verified": symbols_with_no_action_records,
@@ -259,6 +277,12 @@ def audit(v2_dir, raw_dir, calendar_path, corporate_actions_path, output_dir,
         ),
         "raw_source_files_modified": 0,
         "flags_auto_repaired_or_deleted": 0,
+        "scanner_gate": {
+            "t2_swing": "CONDITIONAL_VALIDATED_BARS_ONLY_LOW_LIQUIDITY_AND_REPEAT_FLAGS_REQUIRE_REVIEW",
+            "positional_investment": "NOT_READY_FOR_ADJUSTED_RETURN_METRICS_CORPORATE_ACTION_COVERAGE_PARTIAL",
+            "invalid_ohlcv_rows": "EXCLUDE_FROM_INDICATORS_UNTIL_PRIMARY_EVIDENCE",
+            "unknown_repeat_rows": "KEEP_UNKNOWN_UNTIL_PER_SECURITY_FLOORSHEET",
+        },
     }
     (output_dir / "audit_totals.json").write_text(json.dumps(totals, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(totals, indent=2))

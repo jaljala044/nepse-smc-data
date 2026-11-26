@@ -5,7 +5,7 @@ import hashlib
 import io
 import json
 from collections import Counter
-from decimal import Decimal
+from decimal import Decimal, ROUND_FLOOR
 from pathlib import Path
 
 try:
@@ -38,6 +38,11 @@ def signature(row, secondary, day, stats=None):
     quantity, rate, amount = (
         Decimal(get(key).replace(",", "")) for key in ("quantity", "rate", "amount")
     )
+    amount_exact_match = abs(quantity * rate - amount) <= Decimal("0.01")
+    amount_floor_match = (
+        amount == amount.to_integral_value()
+        and amount == (quantity * rate).to_integral_value(rounding=ROUND_FLOOR)
+    )
     if (
         not contract.isdigit()
         or date != day
@@ -49,9 +54,14 @@ def signature(row, secondary, day, stats=None):
         or quantity != quantity.to_integral_value()
         or rate <= 0
         or amount <= 0
-        or abs(quantity * rate - amount) > Decimal("0.01")
+        or not (amount_exact_match or amount_floor_match)
     ):
         raise ValueError("invalid contract " + raw_contract)
+    if stats is not None:
+        if amount_exact_match:
+            stats["amount_exact_match"] += 1
+        elif amount_floor_match:
+            stats["amount_floor_truncated"] += 1
     return (date, contract, symbol, buyer, seller, quantity, rate, amount)
 
 
@@ -158,6 +168,10 @@ def main():
                 secondary_bytes=len(compressed),
                 primary_leading_apostrophe_contract_ids=primary_stats["leading_apostrophe_contract_ids"],
                 secondary_leading_apostrophe_contract_ids=secondary_stats["leading_apostrophe_contract_ids"],
+                primary_amount_exact_rows=primary_stats["amount_exact_match"],
+                primary_amount_floor_rows=primary_stats["amount_floor_truncated"],
+                secondary_amount_exact_rows=secondary_stats["amount_exact_match"],
+                secondary_amount_floor_rows=secondary_stats["amount_floor_truncated"],
                 status="EXACT_PARITY" if primary_contracts == secondary_contracts else "ROW_CONFLICT",
             )
 

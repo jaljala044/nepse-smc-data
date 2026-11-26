@@ -1,0 +1,59 @@
+name: P4.32 capture official NEPSE listing notices
+on:
+  push:
+    branches: [p432-capture-official-nepse-listing-notices]
+    paths:
+      - "tools/capture_official_notice.py"
+      - "tools/tests/test_capture_official_notice.py"
+      - ".github/workflows/p432-capture-official-notices.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test official notice capture guards
+        run: |
+          cd tools
+          python -m unittest discover -s tests -p 'test_capture_official_notice.py' -v
+      - name: Capture NEPSE NMLBBL listing and trading-release PDF
+        run: |
+          python tools/capture_official_notice.py \
+            --url 'https://www.nepalstock.com/api/nots/security/fetchFiles?fileLocation=rita_listing%2F2024-05-17%2FNMLBBL_1715925622934.pdf' \
+            --source-id 'nepse-nmlbbl-post-merger-listing-2024-05-17' \
+            --output-dir reference/nepse_official_notices
+      - name: Capture NEPSE SMPDA post-merger listing PDF
+        run: |
+          python tools/capture_official_notice.py \
+            --url 'https://www.nepalstock.com/api/nots/security/fetchFiles?fileLocation=rita_listing%2F2024-08-15%2FSMPDA_1723716902880.pdf' \
+            --source-id 'nepse-smpda-post-merger-listing-2024-08-15' \
+            --output-dir reference/nepse_official_notices
+      - name: Capture NEPSE 2022 market-session schedule notice
+        run: |
+          python tools/capture_official_notice.py \
+            --url 'https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=santosh_thapa%2F2022-06-16%2Fmarket+session+notice_1655356331971.PDF' \
+            --source-id 'nepse-market-session-schedule-2022-06-16' \
+            --output-dir reference/nepse_official_notices
+      - name: Commit content-addressed official notice bytes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reference/nepse_official_notices
+          if ! git diff --cached --quiet; then
+            git commit -m "data(p4.32): capture official NEPSE listing notices"
+            git push
+          fi
+      - name: Upload raw notice evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nepse-official-notices-${{ github.run_id }}
+          path: reference/nepse_official_notices/
+          if-no-files-found: warn
+          retention-days: 90

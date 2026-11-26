@@ -11,6 +11,23 @@ def candle(**kwargs):
     return dict(dict(zip(FIELDS, ["ABC", "2026-01-04", "10", "11", "9", "10", "5"])), **kwargs)
 
 class QuarantineTests(unittest.TestCase):
+    def test_weekly_aggregation(self):
+        data = [candle(date="2026-01-05", open="12", high="15", low="10", close="14", volume="7"),
+                candle(), candle(date="2026-01-11"), candle(symbol="XYZ")]
+        result = mod.aggregate_daily(data, "weekly", set())
+        self.assertEqual(len(result), 3)
+        b = result[0]
+        self.assertEqual(b["date"], "2026-01-05")
+        self.assertEqual([b[k] for k in ("open", "high", "low", "close", "volume")], [10, 15, 9, 14, 12])
+
+    def test_month_boundary(self):
+        data = [candle(date="2026-01-31"), candle(date="2026-02-01")]
+        self.assertEqual(len(mod.aggregate_daily(data, "monthly", set())), 2)
+
+    def test_aggregate_rejects_invalid(self):
+        with self.assertRaises(ValueError):
+            mod.aggregate_daily([candle(open="0")], "weekly", set())
+
     def test_valid(self):
         mod.validate_daily([candle(), candle(date="2026-01-05")], set())
 
@@ -62,6 +79,8 @@ class QuarantineTests(unittest.TestCase):
             source = original / "daily_prices.csv"
             mod.write(source, FIELDS, [original_row])
             before = source.read_bytes()
+            stale = original / "weekly_prices.csv"
+            stale.write_text("stale\\n")
             mod.write(supplement / "benchmark_daily.csv", FIELDS, [supplemental_row] if supplemental_row else [])
             for name in ("sectors", "sector_data", "corporate_actions", "broker_summary"):
                 (original / (name + ".csv")).write_text("fixture\n")
@@ -69,6 +88,9 @@ class QuarantineTests(unittest.TestCase):
                 if success:
                     mod.prepare(original, output)
                     self.assertEqual(len(list(mod.rows(output / "daily_prices.csv"))), 2)
+                    for period in ("weekly", "monthly"):
+                        self.assertEqual(len(list(mod.rows(output / (period + "_prices.csv")))), 2)
+                    self.assertEqual(stale.read_text(), "stale\\n")
                 else:
                     with self.assertRaises(ValueError):
                         mod.prepare(original, output)

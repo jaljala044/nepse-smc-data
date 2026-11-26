@@ -133,9 +133,10 @@ def main():
                     raw = stream.read()
                 if not raw.strip():
                     status = "empty_capture"
+                    error = "Empty provider capture; no market data verified"
                 elif raw.lstrip().startswith("<html") or raw.strip().startswith("Searched Date is not valid."):
                     status = "non_json_response"
-                    totals["non_json_responses"] += 1
+                    error = "Non-JSON provider capture; no market data verified"
                 else:
                     json.loads(raw)
                     stats["records"] = 1
@@ -148,6 +149,7 @@ def main():
         except Exception as exc:
             status, error = "parse_error", f"{type(exc).__name__}: {exc}"
             totals["parse_errors"] += 1
+            totals["parse_error"] += 1
         summaries.append({"path":item["path"],"category":item["category"],"format":fmt,"status":status,"records":stats["records"],"unsupported_checks":stats["unsupported"],"error":error})
     totals["findings"] = len(findings)
     totals["ohlcv_key_duplicates"] = sum(x["finding_type"]=="duplicate_symbol_date_key" for x in findings)
@@ -180,7 +182,8 @@ def main():
             f"- Parseable CSV data rows plus parsed JSON documents: {totals['records']}",
             f"- Parsed CSV files: {totals['parsed_csv']}",
             f"- Parsed JSON documents: {totals['parsed_json_document']}",
-            f"- Empty/whitespace-only captures: {totals['empty_captures']}",
+            f"- Empty/whitespace-only captures: {totals['empty_capture']}",
+            f"- Non-JSON provider responses: {totals['non_json_response']}",
             f"- Unsupported file/check combinations: {totals['unsupported']}",
             f"- Parse errors: {totals['parse_errors']}",
             f"- Findings: {totals['findings']}",

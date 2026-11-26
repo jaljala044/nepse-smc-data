@@ -3,7 +3,7 @@ import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import patch
-from capture_p438_sharesansar_daily_csv import git_blob_sha, audit_csv, capture
+from capture_p438_sharesansar_daily_csv import git_blob_sha, audit_csv, audit_history_json, capture
 
 HEADER="S.No,Symbol,Conf.,Open,High,Low,Close,VWAP,Vol,Prev. Close,Turnover,Trans.,Diff,Range,Diff %,Range %,VWAP %,120 Days,180 Days,52 Weeks High,52 Weeks Low"
 def csvrow(n,symbol,open_,high,low,close,volume,turnover,trans):
@@ -44,5 +44,11 @@ class P438ShareSansarTests(unittest.TestCase):
         result=audit_csv(raw,rec)
         self.assertEqual(result["duplicate_symbols"],["NMLBBL"])
         self.assertEqual(result["target_row_count"],2)
+
+    def test_derived_history_index_first_date_matches_candidate(self):
+        raw=b'{"symbol":"NMLBBL","cols":["d","o","h","l","c"],"rows":[["2024-05-19",1,1,1,1],["2024-05-20",1,1,1,1]]}'
+        result=audit_history_json(raw,{"symbol":"NMLBBL","expected_first_date":"2024-05-19"})
+        self.assertTrue(result["first_date_matches_candidate"])
+        self.assertTrue(result["derived_from_daily_csv_archive"])
 
 if __name__=="__main__":unittest.main()

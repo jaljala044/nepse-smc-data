@@ -1,0 +1,50 @@
+{
+  "task": "P4.43.6.4",
+  "pinned_commit": "56362fb4f65b91fdcca8f50b50e53ad80e703649",
+  "source_run": 45892854164,
+  "artifact": 15151713962,
+  "reviewed_flags": 1331,
+  "classification_counts": {
+    "open_outside_only": 1299,
+    "inverted_high_low_with_open_close_outside": 22,
+    "open_outside_and_nonpositive": 4,
+    "close_outside_only": 4,
+    "open_and_close_outside": 2
+  },
+  "symbol_counts": {
+    "AHPC": 588,
+    "SKBBL": 379,
+    "API": 122,
+    "MERO": 102,
+    "SPDL": 53,
+    "CHL": 45,
+    "HIDCL": 30,
+    "RADHI": 2,
+    "RAWA": 2,
+    "UAIL": 2,
+    "UNHPL": 2,
+    "BGWT": 1,
+    "HRL": 1,
+    "KDBY": 1,
+    "KEF": 1
+  },
+  "priority_period_flags": 13,
+  "prior_period_flags": 1318,
+  "existing_evidence": {
+    "path": "reference/P4_10_floorsheet_open_review_2026-04-29.csv",
+    "blob_sha": "68f351df096e0e70983af11b20b493aa0927df1a",
+    "header": "symbol,date,published_open,contract_sorted_open,high,low,contract_sorted_close,volume,turnover,contracts,published_contracts,first_contract,last_contract,status",
+    "rows": [
+      "BGWT,2026-04-29,740,720,731,700.4,730,1573,1133907.4,32,32,2026042905001005,2026042905014105,MISMATCH",
+      "HRL,2026-04-29,685.5,685,685,659.4,679.2,74867,50842816.6,900,900,2026042905000025,2026042905014268,MISMATCH",
+      "KDBY,2026-04-29,11.54,11.25,11.5,11.25,11.38,23420,266506.6,42,42,2026042905000087,2026042905012234,MATCH_TOTALS_CONTRACT_ORDER_REVIEW",
+      "RADHI,2026-04-29,780,775,775,749.9,764.8,57510,43931577.6,276,276,2026042904000225,2026042904013930,MISMATCH",
+      "RAWA,2026-04-29,615,610,610,587,610,2840,1694525.4,58,58,2026042905000407,2026042905014115,MATCH_TOTALS_CONTRACT_ORDER_REVIEW",
+      "UAIL,2026-04-29,446,442.6,444.9,424.9,438,9360,4124579.2,102,102,2026042904000760,2026042904013274,MISMATCH",
+      "UNHPL,2026-04-29,487.9,480.2,487,475,475.4,46481,22184529.2,150,150,2026042904000127,2026042904014035,MATCH_TOTALS_CONTRACT_ORDER_REVIEW"
+    ]
+  },
+  "disposition": "All flagged candles remain unsuitable for validated OHLCV until source-level adjudication; preserve raw. Existing contract-sorted opening values are not necessarily chronological opening trades. No substitution, no automatic high/low expansion, no promotion.",
+  "confirmed_repaired": 0,
+  "limitations": "Numerical classification from strict audit artifact; seven recent flags cross-referenced against existing floorsheet review; six recent flags and 1318 older flags not independently adjudicated. Corporate-action and prior-close interpretation not verified."
+}

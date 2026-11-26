@@ -67,3 +67,11 @@ Resolution protocol: keep both raw observations and basis labels, identify the *
 
 ## P1 follow-up — 2026-11-26
 Direct readback of both repositories confirmed corrected BGWT and HRL values. The saved seven-stock ShareHub audit and Issue #4 comments 7183852195/7183897894 establish the controlling project inputs. PR #6 test expectations corrected in commit abec5ac029f6f5a630b1dcfd28fda0fc7dbc0440; direct comparison against main: 7/7 matches. No market data changed. Fresh CI and branch integration still require verification. The original conflict section above is retained as historical context, superseded by this decision. Next: PR #5 mergeability repair.
+
+## P2–P6 checkpoint — 2026-11-26
+- P2: PR #5 merged successfully, commit 1cdb9e3d924104a4e8c5f5e843d585bb70ee51d2. Fresh CI run 45779354004 succeeded. P1 corrected regression commit CI run 45778976984 succeeded; PR #6 integration remains separate.
+- P3: recovered official 2026-11-25 security-list parsed response from companion scanner repo. 573 unique IDs and symbols; 546 active, 27 suspended; 488/525 exact filename matches, 37 unresolved; 85 captured symbols lack exact OHLCV filename. NICEF ID 9357. Snapshot at reference/nepse_security_id_snapshot_2026-11-25.csv. No instrument classes or historical effective dates inferred.
+- P4: recovered authenticated holiday API archive audit, 2015–2026: 499 rows, 498 distinct dates, one duplicate date 2020-04-13, HTTP 200 for all years. Index at reference/nepse_holiday_api_coverage_2015-2026.csv. No inferred open sessions or canonical closure promotion; pre-2015 coverage and annual completeness remain unresolved.
+- RHGCL 2026-11-19: companion scanner official capture-report.json confirms ID 8108, H 259.5, L 252.1, C 258, volume 9054, 47 trades, turnover 2332952.5. Open not returned; keep quarantine; no market rows changed.
+- P5: exact-symbol inventory reconciliation established; per-security date coverage denominator still blocked by historical instrument lifecycles and verified session calendar.
+- P6: no production signal or training enablement. End-to-end scanner readiness not demonstrated in this checkpoint.

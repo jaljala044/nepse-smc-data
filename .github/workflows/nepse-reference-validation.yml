@@ -8,6 +8,14 @@ on:
       - "nepse_session_date.py"
       - "test_nepse_session_date.py"
       - "test_nepse_positive_open_sessions.py"
+      - "test_user_finalized_ohlcv.py"
+      - "03_stock_charts_ohlcv/BGWT_OHLCV.csv"
+      - "03_stock_charts_ohlcv/MEHL_OHLCV.csv"
+      - "03_stock_charts_ohlcv/RAWA_OHLCV.csv"
+      - "03_stock_charts_ohlcv/RHGCL_OHLCV.csv"
+      - "03_stock_charts_ohlcv/ULHC_OHLCV.csv"
+      - "03_stock_charts_ohlcv/API_OHLCV.csv"
+      - "03_stock_charts_ohlcv/HRL_OHLCV.csv"
       - "reference/nepse_positive_open_sessions_2025-11-26_2026-11-25.csv"
       - "reference/nepse_session_calendar_2026.csv"
       - "reference/p437_cross_sector_date_audit/ACLBSL_page_0.json"
@@ -37,4 +45,4 @@ jobs:
         with:
           python-version: "3.11"
       - name: Run NEPSE reference-data tests
-        run: python -m unittest test_nepse_reference_validation test_nepse_session_date test_nepse_positive_open_sessions -v
+        run: python -m unittest test_nepse_reference_validation test_nepse_session_date test_nepse_positive_open_sessions test_user_finalized_ohlcv -v

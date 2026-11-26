@@ -46,6 +46,34 @@ class HistoricalFloorsheetValidationTests(unittest.TestCase):
         finally:
             tmp.cleanup()
 
+    def test_whole_rupee_floor_amount_is_accepted_when_exactly_matching_floor(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            p = Path(tmp) / "floorsheet.csv"
+            with p.open("w", newline="", encoding="utf-8") as handle:
+                writer = csv.writer(handle)
+                writer.writerow(["transaction", "symbol", "buyer", "seller", "quantity", "rate", "amount", "date"])
+                writer.writerow(["C1", "ABC", "12", "34", "2.0", "9.8", "19.0", "2025-11-25"])
+            item = {"date": "2025-11-25", "path": "floorsheet/floorsheet_2025-11-25.csv"}
+            downloaded = {"download_status": "PASS", "path": str(p), "actual_sha256": "fixture"}
+            summary, equities = ENGINE.validate_file(item, downloaded, ["ABC"], {}, {})
+            self.assertEqual(summary["content_status"], "PASS")
+            self.assertEqual(summary["amount_floor_matches"], 1)
+            self.assertEqual(equities[0]["trade_status"], "TRADED")
+
+    def test_invalid_zero_price_row_does_not_erase_other_valid_trades(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            p = Path(tmp) / "floorsheet.csv"
+            with p.open("w", newline="", encoding="utf-8") as handle:
+                writer = csv.writer(handle)
+                writer.writerow(["transaction", "symbol", "buyer", "seller", "quantity", "rate", "amount", "date"])
+                writer.writerow(["C1", "ABC", "12", "34", "2.0", "10.0", "20.0", "2025-11-25"])
+                writer.writerow(["C2", "NIBLGF", "62", "53", "1000.0", "0.0", "0.0", "2025-11-25"])
+            item = {"date": "2025-11-25", "path": "floorsheet/floorsheet_2025-11-25.csv"}
+            downloaded = {"download_status": "PASS", "path": str(p), "actual_sha256": "fixture"}
+            summary, equities = ENGINE.validate_file(item, downloaded, ["ABC", "XYZ"], {}, {})
+            self.assertEqual(summary["content_status"], "PARTIAL_FAIL")
+            self.assertEqual([r["trade_status"] for r in equities], ["TRADED", "UNKNOWN"])
+
     def test_git_blob_hash_uses_git_header(self):
         with tempfile.TemporaryDirectory() as tmp:
             p = Path(tmp) / "x"

@@ -39,10 +39,10 @@ def reconcile_date(date, floor_path, ohlcv_dir, calendar, manifest):
     meta = manifest.get(date, {})
     raw_hash = sha256(floor_path) if floor_path.is_file() else ""
     hash_matches = bool(meta.get("source_sha256")) and raw_hash == meta.get("source_sha256")
-    complete = (
+    claimed_complete = (
         str(meta.get("floorsheet_complete", "")).strip().lower() == "true"
         and bool(meta.get("completeness_evidence", "").strip())
-        and bool(meta.get("source_uri", "").strip())
+        and str(meta.get("source_uri", "")).strip().lower().startswith("https://")
         and hash_matches
     )
 
@@ -69,6 +69,18 @@ def reconcile_date(date, floor_path, ohlcv_dir, calendar, manifest):
             trades[symbol]["quantity"] += int(qty)
             trades[symbol]["turnover"] += qty * rate
 
+    observed_trade_count = sum(item["contracts"] for item in trades.values())
+    observed_share_count = sum(item["quantity"] for item in trades.values())
+    observed_turnover = sum((item["turnover"] for item in trades.values()), Decimal("0"))
+    observed_symbol_count = sum(item["contracts"] > 0 for item in trades.values())
+    totals_match = (
+        dec(meta.get("expected_trades")) == observed_trade_count
+        and dec(meta.get("expected_shares")) == observed_share_count
+        and dec(meta.get("expected_turnover_npr")) == observed_turnover
+        and dec(meta.get("expected_symbols")) == observed_symbol_count
+    )
+    complete = claimed_complete and file_valid and totals_match
+
     ohlcv_by_symbol = {}
     universe_symbols = set()
     for path in sorted(ohlcv_dir.glob("*_OHLCV.csv")):
@@ -88,7 +100,8 @@ def reconcile_date(date, floor_path, ohlcv_dir, calendar, manifest):
         if contracts > 0 and t["bad_rows"] == 0 and file_valid:
             status = "TRADED"
         elif (contracts == 0 and file_valid and complete and hash_matches
-              and session_status == "verified_open"):
+              and session_status == "verified_open"
+              and (ohlcv_by_symbol.get(symbol) is None or ohlcv_by_symbol.get(symbol) == 0)):
             status = "NO_TRADE"
         else:
             status = "UNKNOWN"
@@ -107,6 +120,12 @@ def reconcile_date(date, floor_path, ohlcv_dir, calendar, manifest):
             "completeness_evidence": meta.get("completeness_evidence", ""),
             "source_uri": meta.get("source_uri", ""),
             "manifest_hash_match": hash_matches,
+            "floorsheet_claimed_complete": claimed_complete,
+            "floorsheet_totals_match": totals_match,
+            "observed_market_trades": observed_trade_count,
+            "observed_market_shares": observed_share_count,
+            "observed_market_turnover_npr": str(observed_turnover.quantize(Decimal("0.01"))),
+            "observed_market_symbols": observed_symbol_count,
             "floorsheet_file_valid": file_valid,
             "contracts": contracts,
             "floorsheet_quantity": int(qty),
@@ -114,9 +133,14 @@ def reconcile_date(date, floor_path, ohlcv_dir, calendar, manifest):
             "floorsheet_vwap_npr": str((turnover / qty).quantize(Decimal("0.01"))) if qty else "",
             "ohlcv_volume": str(ohlcv_volume) if ohlcv_volume is not None else "",
             "volume_match": (ohlcv_volume == qty) if ohlcv_volume is not None and status == "TRADED" else "",
+            "ohlcv_reconciliation": (
+                "MATCH" if status == "TRADED" and ohlcv_volume == qty else
+                "CONFLICT" if status == "TRADED" and ohlcv_volume is not None else
+                "NOT_COMPARABLE"
+            ),
             "resolution_reason": (
                 "Positive valid date-matched contracts observed" if status == "TRADED" else
-                "Verified-open session plus complete evidence-backed hash-matched floorsheet with zero symbol contracts" if status == "NO_TRADE" else
+                "Verified-open session plus hash-matched complete extract, independently matching market totals, and zero symbol contracts/volume" if status == "NO_TRADE" else
                 "Insufficient session, file validity, completeness, provenance or hash evidence"
             ),
         })

@@ -63,3 +63,15 @@ The existing `02_floorsheet_daily/floorsheet_2026-11-20.csv` contains 500 rows a
 - Third-party EOD board Git blob used for inspection only: `33784c60c509be30812cd2c8004276271fc0df8a`
 - Existing local floorsheet sample Git blob: `0ca3de49d855b240ddf568fa95ce5999e4603c40`
 - Existing five-symbol OHLCV blobs are recorded in the five-symbol reconciliation report dated 2026-11-26.
+
+
+## Adapter implementation and CI
+
+PR #12 added a schema adapter for the inspected third-party column names (`transaction`, `symbol`, `buyer`, `seller`, `quantity`, `rate`, `amount`, `date`). It also parses common display suffixes (K, lakh, crore, M, B) with precision-aware rounding tolerance and rejects rows where a numeric amount fails quantity × rate validation. Invalid rows cannot establish positive `TRADED` evidence.
+
+- PR: https://github.com/jaljala044/nepse-smc-data/pull/12
+- Merged commit: `91cf082b53cb2ed3564d06c85cc08a7964a5eaee`
+- CI run: https://github.com/jaljala044/nepse-smc-data/actions/runs/45839623070
+- Result: success; 16 tests ran and passed (`Ran 16 tests`, `OK`).
+
+The adapter enables parsing the candidate format; it does not upgrade the candidate's completeness classification. `NO_TRADE` remains blocked without independently verifiable per-date upstream totals and pagination evidence.

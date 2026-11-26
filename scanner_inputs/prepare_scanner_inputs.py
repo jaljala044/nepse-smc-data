@@ -2,6 +2,8 @@
 import argparse
 import csv
 import shutil
+from datetime import date
+from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
@@ -26,6 +28,42 @@ def has_table(directory, *names):
                for name in names for suffix in TABLE_EXTENSIONS)
 
 
+def validate_daily(values, closed_dates):
+    """Fail closed before publishing; never silently remove or repair rows."""
+    seen = set()
+    for number, row in enumerate(values, 2):
+        symbol = row["symbol"].strip().upper()
+        day = row["date"].strip()
+        try:
+            if not symbol or date.fromisoformat(day).isoformat() != day:
+                raise ValueError("invalid symbol/date")
+            o, h, l, c, v = (Decimal(row[k]) for k in ("open", "high", "low", "close", "volume"))
+            if not all(x.is_finite() for x in (o, h, l, c, v)):
+                raise ValueError("non-finite OHLCV")
+            if min(o, h, l, c) <= 0 or v < 0 or h < max(o, l, c) or l > min(o, h, c):
+                raise ValueError("invalid OHLCV")
+            if day in closed_dates:
+                raise ValueError("verified closed session")
+            key = (symbol, day)
+            if key in seen:
+                raise ValueError("duplicate symbol/date")
+            seen.add(key)
+        except (ValueError, InvalidOperation, TypeError, KeyError, AttributeError) as exc:
+            raise ValueError(f"Rejected daily row {number}: {symbol} {day}: {exc}") from exc
+
+
+def verified_closed_dates():
+    reference = SUPPLEMENT.parent / "reference"
+    calendar = reference / "nepse_canonical_session_calendar_2025-2026.csv"
+    positive = reference / "nepse_positive_open_sessions_2025-11-26_2026-11-25.csv"
+    closed = {r["date"] for r in rows(calendar)
+              if r["status"] == "verified_closed" and r["scope"] == "all_securities"}
+    opened = {r["date"] for r in rows(positive) if r["status"] == "verified_open"}
+    if not closed or not opened or closed & opened:
+        raise ValueError("Missing or conflicting session evidence")
+    return closed
+
+
 def prepare(original, output):
     if output.exists():
         raise FileExistsError(f"Choose a new output folder: {output}")
@@ -39,6 +77,8 @@ def prepare(original, output):
         if not fields or not {"symbol", "date", "open", "high", "low", "close", "volume"}.issubset(fields):
             raise ValueError("Expected a scanner-format daily_prices.csv in the input folder.")
         original_rows = list(rows(daily))
+        closed_dates = verified_closed_dates()
+        validate_daily(original_rows, closed_dates)
         present = {(row["symbol"].strip().upper(), row["date"]) for row in original_rows}
         additions = []
         for path in [SUPPLEMENT / "benchmark_daily.csv", *sorted((SUPPLEMENT / "price_gap_fills").glob("*.csv"))]:
@@ -47,6 +87,7 @@ def prepare(original, output):
                 if key not in present:
                     additions.append(row)
                     present.add(key)
+        validate_daily(original_rows + additions, closed_dates)
         if additions:
             extra = dict.fromkeys(field for row in additions for field in row if field not in fields)
             combined = sorted(original_rows + additions, key=lambda row: (row["symbol"], row["date"]))

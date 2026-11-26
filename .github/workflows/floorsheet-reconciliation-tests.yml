@@ -47,35 +47,35 @@ jobs:
         run: python -m pip install --disable-pip-version-check pyarrow==21.0.0
       - name: Download independent pipeline partition
         env:
-          AUDIT_DATE: \${{ matrix.date }}
+          AUDIT_DATE: ${{ matrix.date }}
         run: |
-          mkdir -p "audit-input/\${AUDIT_DATE}" "audit-output/\${AUDIT_DATE}"
+          mkdir -p "audit-input/$AUDIT_DATE" "audit-output/$AUDIT_DATE"
           curl --fail --location --retry 3 --retry-delay 2 \
-            "https://huggingface.co/datasets/AnkitSanjyal/nepse-market-data/resolve/main/floorsheet/business_date=\${AUDIT_DATE}/part-0.parquet" \
-            --output "audit-input/\${AUDIT_DATE}/pipeline.parquet"
+            "https://huggingface.co/datasets/AnkitSanjyal/nepse-market-data/resolve/main/floorsheet/business_date=$AUDIT_DATE/part-0.parquet" \
+            --output "audit-input/$AUDIT_DATE/pipeline.parquet"
       - name: Download SocrateAI full-session candidate
         env:
-          AUDIT_DATE: \${{ matrix.date }}
+          AUDIT_DATE: ${{ matrix.date }}
         run: |
           curl --fail --location --retry 3 --retry-delay 2 \
-            "https://raw.githubusercontent.com/socrateai-official/nepse-open-data/main/floorsheet/floorsheet_\${AUDIT_DATE}.csv" \
-            --output "audit-input/\${AUDIT_DATE}/socrateai.csv"
+            "https://raw.githubusercontent.com/socrateai-official/nepse-open-data/main/floorsheet/floorsheet_$AUDIT_DATE.csv" \
+            --output "audit-input/$AUDIT_DATE/socrateai.csv"
       - name: Compare normalized trade multisets
         env:
-          AUDIT_DATE: \${{ matrix.date }}
+          AUDIT_DATE: ${{ matrix.date }}
         run: |
-          args=(--date "\${AUDIT_DATE}" \
-            --parquet "audit-input/\${AUDIT_DATE}/pipeline.parquet" \
-            --candidate "audit-input/\${AUDIT_DATE}/socrateai.csv" \
-            --out "audit-output/\${AUDIT_DATE}/cross_source_reconciliation.json")
-          if [[ "\${AUDIT_DATE}" == "2026-11-20" ]]; then
+          args=(--date "$AUDIT_DATE" \
+            --parquet "audit-input/$AUDIT_DATE/pipeline.parquet" \
+            --candidate "audit-input/$AUDIT_DATE/socrateai.csv" \
+            --out "audit-output/$AUDIT_DATE/cross_source_reconciliation.json")
+          if [[ "$AUDIT_DATE" == "2026-11-20" ]]; then
             args+=(--local "02_floorsheet_daily/floorsheet_2026-11-20.csv")
           fi
-          python tools/reconcile_nov20_independent_floorsheet.py "\${args[@]}"
+          python tools/reconcile_nov20_independent_floorsheet.py "${args[@]}"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: floorsheet-\${{ matrix.date }}-cross-source-audit
-          path: audit-output/\${{ matrix.date }}/
+          name: floorsheet-${{ matrix.date }}-cross-source-audit
+          path: audit-output/${{ matrix.date }}/
           if-no-files-found: warn
           retention-days: 30

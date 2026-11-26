@@ -75,7 +75,7 @@ permissions:
 jobs:
   global-integrity-scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
         with:
@@ -146,6 +146,12 @@ jobs:
         run: python -m unittest test_p443_hf_bulk_equity_floorsheet_recovery -v
       - name: Map and reconcile first HF-only equity floorsheet batch
         run: python tools/p443_hf_bulk_equity_floorsheet_recovery.py --directory audit-strict --max-dates 22 --offset 0
+      - name: Map and reconcile second HF-only equity floorsheet batch
+        run: python tools/p443_hf_bulk_equity_floorsheet_recovery.py --directory audit-strict --max-dates 22 --offset 22
+      - name: Map and reconcile third HF-only equity floorsheet batch
+        run: python tools/p443_hf_bulk_equity_floorsheet_recovery.py --directory audit-strict --max-dates 22 --offset 44
+      - name: Map and reconcile fourth HF-only equity floorsheet batch
+        run: python tools/p443_hf_bulk_equity_floorsheet_recovery.py --directory audit-strict --max-dates 22 --offset 66
       - name: Preserve strict audit outputs
         if: always()
         uses: actions/upload-artifact@v4

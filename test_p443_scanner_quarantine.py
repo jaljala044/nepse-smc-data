@@ -33,7 +33,7 @@ class QuarantineTests(unittest.TestCase):
 
     def test_bad_values(self):
         for change in [dict(open="0"), dict(low="-1"), dict(high="8"), dict(close="12"),
-                       dict(volume="-1"), dict(volume="NaN"), dict(high="Infinity"),
+                       dict(volume="-1"), dict(volume="1.5"), dict(volume="NaN"), dict(high="Infinity"),
                        dict(date="2026-02-30"), dict(symbol=" "), dict(open="bad")]:
             with self.subTest(change=change), self.assertRaises(ValueError):
                 mod.validate_daily([candle(**change)], set())

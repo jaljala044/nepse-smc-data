@@ -47,7 +47,8 @@ def inspect(rows, symbol):
 
 
 def audit(v2_dir, v3_dir, raw_dir, matrix_path, correction_path, output_dir,
-          expected_symbols=281, expected_corrections=11):
+          expected_symbols=281, expected_corrections=11,
+          expected_invariant_flags=1368, expected_open_flags=1314):
     v2_dir, v3_dir, raw_dir, output_dir = map(Path, (v2_dir, v3_dir, raw_dir, output_dir))
     v2_manifest = read_csv(v2_dir / "manifest.csv")
     v3_manifest = read_csv(v3_dir / "manifest.csv")
@@ -132,7 +133,7 @@ def audit(v2_dir, v3_dir, raw_dir, matrix_path, correction_path, output_dir,
     if min(raw_verified, v2_verified, v3_verified) != expected_symbols or changed_rows != expected_corrections:
         raise ValueError("incomplete raw/v2/v3 verification or official correction count")
     flag_counts = Counter(flag for _, _, flag in all_flags)
-    if sum(flag_counts.values()) != 1368 or flag_counts.get("OPEN_OUTSIDE_RANGE", 0) != 1314:
+    if sum(flag_counts.values()) != expected_invariant_flags or flag_counts.get("OPEN_OUTSIDE_RANGE", 0) != expected_open_flags:
         raise ValueError(f"unexpected remaining invariant flag counts: {dict(flag_counts)}")
     if any(day.startswith("2026-") for _, day, _ in all_flags):
         raise ValueError("recent 2026 invariant flags remain after official corrections")
@@ -165,8 +166,14 @@ def main():
     parser.add_argument("--matrix", type=Path, required=True)
     parser.add_argument("--corrections", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument("--expected-symbols", type=int, default=281)
+    parser.add_argument("--expected-corrections", type=int, default=11)
+    parser.add_argument("--expected-invariant-flags", type=int, default=1368)
+    parser.add_argument("--expected-open-flags", type=int, default=1314)
     args = parser.parse_args()
-    audit(args.v2_dir, args.v3_dir, args.raw_dir, args.matrix, args.corrections, args.output_dir)
+    audit(args.v2_dir, args.v3_dir, args.raw_dir, args.matrix, args.corrections, args.output_dir,
+          args.expected_symbols, args.expected_corrections,
+          args.expected_invariant_flags, args.expected_open_flags)
 
 
 if __name__ == "__main__":

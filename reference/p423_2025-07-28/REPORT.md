@@ -33,7 +33,7 @@ Each transaction row is interpreted using the declared columns: `contractId, sto
 - Floorsheet quantity matches canonical chart volume for all 86 symbols.
 - Floorsheet quantity matches the pinned secondary counterpart volume for all 86 symbols.
 - Floorsheet turnover matches the pinned secondary counterpart turnover for all 86 symbols.
-- High/low are compared individually in `results.csv` and `results.json`; the floorsheet extrema do not agree with every canonical/secondary row.
+- Floorsheet high matches canonical/secondary high for 85/86 symbols; low matches for 53/86. The mismatches are retained explicitly in `results.csv` and `results.json`.
 - Open and close are UNKNOWN against both comparison sources because chronological ordering is absent.
 - Canonical chart files do not expose turnover in the captured OHLCV row, so that comparison is UNAVAILABLE.
 

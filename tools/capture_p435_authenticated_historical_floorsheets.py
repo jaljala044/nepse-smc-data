@@ -99,19 +99,32 @@ def capture(output_dir,requester=request,parser=token_parser,retrieved_at=None):
    (out/"capture_report.json").write_text(json.dumps(result,indent=2)+"\n");return result
   idmap={str(x.get("symbol","")).upper():x.get("id") for x in securities if isinstance(x,dict) and x.get("symbol") and isinstance(x.get("id"),int)}
   payload_id=compute_floor_payload_id(dummy_id,salts,server_day)
+  utc_day=datetime.now(ZoneInfo("UTC")).day
+  payload_options=[(server_day,payload_id)]
+  if utc_day!=server_day:payload_options.append((utc_day,compute_floor_payload_id(dummy_id,salts,utc_day)))
   floor_results=[]
   for symbol,date,expected_volume in DATES:
    sid=idmap.get(symbol);item={"symbol":symbol,"business_date":date,"security_id":sid,"expected_ohlcv_volume":expected_volume}
    if sid is None:item["status"]="security_id_missing";floor_results.append(item);continue
-   total_rows=[];page_summaries=[];page_count=None;total_elements=None;failed=False
+   total_rows=[];page_summaries=[];page_count=None;total_elements=None;failed=False;payload_day_used=None
    for page in range(0,1000):
-    query=urllib.parse.urlencode({"businessDate":date,"size":500,"sort":"contractid,desc","page":page})
+    query=f"businessDate={date}&size=500&sort=contractid,desc"
+    if page>0:query+=f"&page={page}"
     url=f"{BASE}/api/nots/security/floorsheet/{sid}?&{query}"
-    status,headers,raw=requester("POST",url,{"id":payload_id},auth)
+    attempts=payload_options if page==0 else [(payload_day_used,compute_floor_payload_id(dummy_id,salts,payload_day_used))]
+    status=headers=raw=None
+    for payload_day,payload_value in attempts:
+     status,headers,raw=requester("POST",url,{"id":payload_value},auth)
+     if status==200:
+      payload_day_used=payload_day;break
+     if status!=403:break
     page_meta=metadata(status,headers,raw);obj=parse_json(raw)
-    ps={"page":page,"url":url,**page_meta}
+    ps={"page":page,"url":url,"payload_day_used":payload_day_used,**page_meta}
     if status!=200 or not isinstance(obj,dict) or not isinstance(obj.get("floorsheets"),dict):
-     ps["status"]="invalid_or_http_error";page_summaries.append(ps);failed=True;break
+     ps["status"]="invalid_or_http_error"
+     try:ps["response_snippet"]=raw.decode("utf-8","replace")[:240]
+     except Exception:pass
+     page_summaries.append(ps);failed=True;break
     fs=obj["floorsheets"];content=fs.get("content")
     if not isinstance(content,list):ps["status"]="content_missing";page_summaries.append(ps);failed=True;break
     if page==0:

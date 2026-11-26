@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0",
+  "workflow_run_id": 45844039616,
+  "workflow_run_url": "https://github.com/jaljala044/nepse-smc-data/actions/runs/45844039616",
+  "workflow_conclusion": "success",
+  "dates": {
+    "2026-11-19": {
+      "status": "CROSS_SOURCE_PARITY_CONFIRMED_COMPLETENESS_NOT_YET_VERIFIED",
+      "pipeline_rows": 40837,
+      "csv_rows": 40837,
+      "valid_rows": 40837,
+      "invalid_rows": 0,
+      "distinct_symbols": 347,
+      "shares": 9437842,
+      "turnover_npr": "3877645728.62",
+      "exact_multiset_match": true,
+      "matched_rows": 40837,
+      "parquet_only": 0,
+      "csv_only": 0,
+      "parquet_sha256": "cecce1d713aabdf198f8df50b71b5a42a54d58918ae6890852ed9711c0ee6fc1",
+      "socrateai_csv_sha256": "76d1ef207f2b06dc05ac74ccc8386a32c28dba4151bf23b26e27151712eae40d",
+      "unl": {
+        "trades": 8,
+        "shares": 80,
+        "turnover_npr": "3854360.00"
+      }
+    },
+    "2026-11-20": {
+      "status": "VERIFIED_COMPLETE_BY_INDEPENDENT_UPSTREAM_CAPTURE",
+      "pipeline_rows": 39966,
+      "csv_rows": 39966,
+      "valid_rows": 39966,
+      "invalid_rows": 0,
+      "distinct_symbols": 352,
+      "shares": 10602468,
+      "turnover_npr": "3887563470.82",
+      "exact_multiset_match": true,
+      "matched_rows": 39966,
+      "parquet_only": 0,
+      "csv_only": 0,
+      "parquet_sha256": "7f52d0004418a7aa82a5930e84438968022a14e3acf94ac9e3e51c431ccbc480",
+      "socrateai_csv_sha256": "abafc3b8eaa8d2b9b884e9f2df974deb267485d4476f2a4e953d6324787fc43d",
+      "unl": {
+        "trades": 4,
+        "shares": 50,
+        "turnover_npr": "2408700.00"
+      },
+      "upstream_capture_run_id": 44748903787,
+      "upstream_total_elements": 39966,
+      "pages_read": 80,
+      "total_pages": 80,
+      "rejected_rows": 0,
+      "empty_pages": 0,
+      "raw_bronze_archived": false
+    },
+    "2026-11-24": {
+      "status": "CROSS_SOURCE_PARITY_CONFIRMED_COMPLETENESS_NOT_YET_VERIFIED",
+      "pipeline_rows": 52387,
+      "csv_rows": 52387,
+      "valid_rows": 52387,
+      "invalid_rows": 0,
+      "distinct_symbols": 350,
+      "shares": 14670177,
+      "turnover_npr": "5553019249.46",
+      "exact_multiset_match": true,
+      "matched_rows": 52387,
+      "parquet_only": 0,
+      "csv_only": 0,
+      "parquet_sha256": "f84c71f66cdd027571e35492a6b7cd7125866bda1317beee718358c418248f0e",
+      "socrateai_csv_sha256": "53b864b52033663940dae20b2a4113765ec90657ef79e9ce7fc9887b4be0955d",
+      "unl": {
+        "trades": 8,
+        "shares": 72,
+        "turnover_npr": "3501589.00"
+      }
+    }
+  },
+  "limitations": [
+    "Only 2026-11-20 has independently recovered upstream totalElements and full-pagination capture logs.",
+    "Nov 19 and Nov 24 exact source parity does not establish that either file is a complete session capture.",
+    "Private raw-page bronze archive was not configured for the Nov 20 capture run.",
+    "UNL TRADED is supported on all three dates; no claim is made for any other date."
+  ],
+  "merge_commit": "ad79a4493ca69df4ed16c29401c8f0e12c09627c"
+}

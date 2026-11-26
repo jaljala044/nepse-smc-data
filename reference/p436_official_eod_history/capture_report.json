@@ -1,7 +1,7 @@
 {
   "task": "P4.36",
   "source": "NEPSE official API domain",
-  "retrieved_at_utc": "2026-11-26T19:21:44.647135+00:00",
+  "retrieved_at_utc": "2026-11-26T19:23:46.563805+00:00",
   "upstream_authentication_client": {
     "repo": "basic-bgnr/NepseUnofficialApi",
     "commit": "180a550c60f1959983b854659e650a4c189a3c0f",
@@ -14,8 +14,8 @@
       "url": "https://www.nepalstock.com/api/authenticate/prove",
       "http_status": 200,
       "content_type": "application/json",
-      "response_bytes": 723,
-      "response_sha256": "d63b8c3f023bb73546c5265ff1b51c385a8a43cc67c5187c6a29a1550c5823c3",
+      "response_bytes": 722,
+      "response_sha256": "043c3ff0c67e760c0f9ebb9cf02131e8b5c3d9d716fd8b5a9ecaf71d093ad414",
       "etag": null,
       "last_modified": null,
       "token_fields_present": {
@@ -42,19 +42,19 @@
       "filename": "security_list.json"
     }
   ],
-  "results": [
+  "windows": [
     {
       "symbol": "NMLBBL",
       "security_id": 396,
-      "expected_security_id_from_prior_audit": 396,
-      "business_date": "2024-05-19",
-      "expected_ohlcv_volume": 864,
-      "endpoint": "/api/nots/market/history/security/396",
+      "known_security_id": 396,
+      "start_date": "2024-05-01",
+      "end_date": "2024-05-31",
+      "control_window": false,
       "status": "captured",
       "pages": [
         {
           "page": 0,
-          "url": "https://www.nepalstock.com/api/nots/market/history/security/396?size=500&startDate=2024-05-19&endDate=2024-05-19&page=0",
+          "url": "https://www.nepalstock.com/api/nots/market/history/security/396?size=500&startDate=2024-05-01&endDate=2024-05-31&page=0",
           "http_status": 200,
           "content_type": "application/json",
           "response_bytes": 317,
@@ -67,38 +67,32 @@
           "total_elements": 0,
           "total_pages": 0,
           "total_metadata_path": "$",
-          "filename": "NMLBBL_2024-05-19_page_0.json"
+          "filename": "NMLBBL_2024-05-01_2024-05-31_page_0.json"
         }
       ],
       "rows": 0,
       "total_elements": 0,
       "total_pages": 0,
       "pagination_complete": true,
-      "date_fields_observed": [],
-      "symbol_fields_observed": [],
-      "volume_fields_observed": [],
-      "all_ohlc_present_rows": 0,
-      "missing_date_rows": 0,
-      "wrong_date_rows": 0,
       "observed_dates": [],
       "observed_symbols": [],
-      "row_summaries": [],
-      "volume_values": [],
-      "eod_volume_matches_expected": false,
-      "evidence_gate_pass": false
+      "date_fields_observed": [],
+      "volume_fields_observed": [],
+      "all_ohlc_present_rows": 0,
+      "rows_summary": []
     },
     {
-      "symbol": "NMLBBL",
-      "security_id": 396,
-      "expected_security_id_from_prior_audit": 396,
-      "business_date": "2024-05-16",
-      "expected_ohlcv_volume": 0,
-      "endpoint": "/api/nots/market/history/security/396",
+      "symbol": "SMPDA",
+      "security_id": 2896,
+      "known_security_id": 2896,
+      "start_date": "2024-08-01",
+      "end_date": "2024-08-31",
+      "control_window": false,
       "status": "captured",
       "pages": [
         {
           "page": 0,
-          "url": "https://www.nepalstock.com/api/nots/market/history/security/396?size=500&startDate=2024-05-16&endDate=2024-05-16&page=0",
+          "url": "https://www.nepalstock.com/api/nots/market/history/security/2896?size=500&startDate=2024-08-01&endDate=2024-08-31&page=0",
           "http_status": 200,
           "content_type": "application/json",
           "response_bytes": 317,
@@ -111,114 +105,606 @@
           "total_elements": 0,
           "total_pages": 0,
           "total_metadata_path": "$",
-          "filename": "NMLBBL_2024-05-16_page_0.json"
+          "filename": "SMPDA_2024-08-01_2024-08-31_page_0.json"
         }
       ],
       "rows": 0,
       "total_elements": 0,
       "total_pages": 0,
       "pagination_complete": true,
-      "date_fields_observed": [],
-      "symbol_fields_observed": [],
-      "volume_fields_observed": [],
-      "all_ohlc_present_rows": 0,
-      "missing_date_rows": 0,
-      "wrong_date_rows": 0,
       "observed_dates": [],
       "observed_symbols": [],
-      "row_summaries": [],
-      "volume_values": [],
-      "eod_volume_matches_expected": false,
-      "evidence_gate_pass": false
+      "date_fields_observed": [],
+      "volume_fields_observed": [],
+      "all_ohlc_present_rows": 0,
+      "rows_summary": []
     },
     {
-      "symbol": "SMPDA",
-      "security_id": 2896,
-      "expected_security_id_from_prior_audit": 2896,
-      "business_date": "2024-08-18",
-      "expected_ohlcv_volume": 5314,
-      "endpoint": "/api/nots/market/history/security/2896",
+      "symbol": "NMLBBL",
+      "security_id": 396,
+      "known_security_id": 396,
+      "start_date": "2026-11-01",
+      "end_date": "2026-11-26",
+      "control_window": true,
       "status": "captured",
       "pages": [
         {
           "page": 0,
-          "url": "https://www.nepalstock.com/api/nots/market/history/security/2896?size=500&startDate=2024-08-18&endDate=2024-08-18&page=0",
+          "url": "https://www.nepalstock.com/api/nots/market/history/security/396?size=500&startDate=2026-11-01&endDate=2026-11-26&page=0",
           "http_status": 200,
           "content_type": "application/json",
-          "response_bytes": 317,
-          "response_sha256": "85a3954f1d02636a39b43dcff4c0d5fa505ae0982548d65b071fecb3b9b307da",
+          "response_bytes": 2514,
+          "response_sha256": "f96a79f32f8d41204ec0ca64381fd482e919fe805d2f1a4ee8eaf13366a6fe4e",
           "etag": null,
           "last_modified": null,
           "status": "captured",
           "rows_path": "$.content",
-          "row_count": 0,
-          "total_elements": 0,
-          "total_pages": 0,
+          "row_count": 13,
+          "total_elements": 13,
+          "total_pages": 1,
           "total_metadata_path": "$",
-          "filename": "SMPDA_2024-08-18_page_0.json"
+          "filename": "NMLBBL_2026-11-01_2026-11-26_page_0.json"
         }
       ],
-      "rows": 0,
-      "total_elements": 0,
-      "total_pages": 0,
+      "rows": 13,
+      "total_elements": 13,
+      "total_pages": 1,
       "pagination_complete": true,
-      "date_fields_observed": [],
-      "symbol_fields_observed": [],
-      "volume_fields_observed": [],
-      "all_ohlc_present_rows": 0,
-      "missing_date_rows": 0,
-      "wrong_date_rows": 0,
-      "observed_dates": [],
+      "observed_dates": [
+        "2026-11-02",
+        "2026-11-03",
+        "2026-11-04",
+        "2026-11-05",
+        "2026-11-06",
+        "2026-11-13",
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19",
+        "2026-11-20",
+        "2026-11-23",
+        "2026-11-24",
+        "2026-11-25"
+      ],
       "observed_symbols": [],
-      "row_summaries": [],
-      "volume_values": [],
-      "eod_volume_matches_expected": false,
-      "evidence_gate_pass": false
+      "date_fields_observed": [
+        "businessDate"
+      ],
+      "volume_fields_observed": [
+        "totalTradedQuantity"
+      ],
+      "all_ohlc_present_rows": 0,
+      "rows_summary": [
+        {
+          "date": "2026-11-25",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "5304",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "467.0",
+            "low": "460.1",
+            "close": "460.2"
+          },
+          "has_all_ohlc": false
+        },
+        {
+          "date": "2026-11-24",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "3144",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "465.0",
+            "low": "460.0",
+            "close": "465.0"
+          },
+          "has_all_ohlc": false
+        },
+        {
+          "date": "2026-11-23",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "9390",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "468.0",
+            "low": "460.1",
+            "close": "468.0"
+          },
+          "has_all_ohlc": false
+        },
+        {
+          "date": "2026-11-20",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "2213",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "470.0",
+            "low": "462.0",
+            "close": "470.0"
+          },
+          "has_all_ohlc": false
+        },
+        {
+          "date": "2026-11-19",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "9759",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "475.9",
+            "low": "462.2",
+            "close": "475.0"
+          },
+          "has_all_ohlc": false
+        },
+        {
+          "date": "2026-11-18",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "6533",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "474.8",
+            "low": "462.6",
+            "close": "470.0"
+          },
+          "has_all_ohlc": false
+        },
+        {
+          "date": "2026-11-17",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "9615",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "485.0",
+            "low": "461.1",
+            "close": "474.5"
+          },
+          "has_all_ohlc": false
+        },
+        {
+          "date": "2026-11-13",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "2570",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "494.0",
+            "low": "480.0",
+            "close": "484.0"
+          },
+          "has_all_ohlc": false
+        },
+        {
+          "date": "2026-11-06",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "2054",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "494.9",
+            "low": "483.3",
+            "close": "485.0"
+          },
+          "has_all_ohlc": false
+        },
+        {
+          "date": "2026-11-05",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "6367",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "493.0",
+            "low": "480.1",
+            "close": "493.0"
+          },
+          "has_all_ohlc": false
+        },
+        {
+          "date": "2026-11-04",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "1959",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "498.8",
+            "low": "489.0",
+            "close": "493.9"
+          },
+          "has_all_ohlc": false
+        },
+        {
+          "date": "2026-11-03",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "2372",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "499.0",
+            "low": "486.0",
+            "close": "493.0"
+          },
+          "has_all_ohlc": false
+        },
+        {
+          "date": "2026-11-02",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "3637",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "495.0",
+            "low": "486.2",
+            "close": "495.0"
+          },
+          "has_all_ohlc": false
+        }
+      ]
     },
     {
       "symbol": "SMPDA",
       "security_id": 2896,
-      "expected_security_id_from_prior_audit": 2896,
-      "business_date": "2024-08-14",
-      "expected_ohlcv_volume": 0,
-      "endpoint": "/api/nots/market/history/security/2896",
+      "known_security_id": 2896,
+      "start_date": "2026-11-01",
+      "end_date": "2026-11-26",
+      "control_window": true,
       "status": "captured",
       "pages": [
         {
           "page": 0,
-          "url": "https://www.nepalstock.com/api/nots/market/history/security/2896?size=500&startDate=2024-08-14&endDate=2024-08-14&page=0",
+          "url": "https://www.nepalstock.com/api/nots/market/history/security/2896?size=500&startDate=2026-11-01&endDate=2026-11-26&page=0",
           "http_status": 200,
           "content_type": "application/json",
-          "response_bytes": 317,
-          "response_sha256": "85a3954f1d02636a39b43dcff4c0d5fa505ae0982548d65b071fecb3b9b307da",
+          "response_bytes": 2501,
+          "response_sha256": "1dc8927a969a4ad277a02a11aa91d2d048d4de3c487e740aed6541034bbb0dc3",
           "etag": null,
           "last_modified": null,
           "status": "captured",
           "rows_path": "$.content",
-          "row_count": 0,
-          "total_elements": 0,
-          "total_pages": 0,
+          "row_count": 13,
+          "total_elements": 13,
+          "total_pages": 1,
           "total_metadata_path": "$",
-          "filename": "SMPDA_2024-08-14_page_0.json"
+          "filename": "SMPDA_2026-11-01_2026-11-26_page_0.json"
         }
       ],
-      "rows": 0,
-      "total_elements": 0,
-      "total_pages": 0,
+      "rows": 13,
+      "total_elements": 13,
+      "total_pages": 1,
       "pagination_complete": true,
-      "date_fields_observed": [],
-      "symbol_fields_observed": [],
-      "volume_fields_observed": [],
-      "all_ohlc_present_rows": 0,
-      "missing_date_rows": 0,
-      "wrong_date_rows": 0,
-      "observed_dates": [],
+      "observed_dates": [
+        "2026-11-02",
+        "2026-11-03",
+        "2026-11-04",
+        "2026-11-05",
+        "2026-11-06",
+        "2026-11-13",
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19",
+        "2026-11-20",
+        "2026-11-23",
+        "2026-11-24",
+        "2026-11-25"
+      ],
       "observed_symbols": [],
-      "row_summaries": [],
-      "volume_values": [],
-      "eod_volume_matches_expected": false,
-      "evidence_gate_pass": false
+      "date_fields_observed": [
+        "businessDate"
+      ],
+      "volume_fields_observed": [
+        "totalTradedQuantity"
+      ],
+      "all_ohlc_present_rows": 0,
+      "rows_summary": [
+        {
+          "date": "2026-11-25",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "632",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "707.9",
+            "low": "700.0",
+            "close": "707.9"
+          },
+          "has_all_ohlc": false
+        },
+        {
+          "date": "2026-11-24",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "1580",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "707.0",
+            "low": "700.3",
+            "close": "707.0"
+          },
+          "has_all_ohlc": false
+        },
+        {
+          "date": "2026-11-23",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "766",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "710.0",
+            "low": "700.1",
+            "close": "710.0"
+          },
+          "has_all_ohlc": false
+        },
+        {
+          "date": "2026-11-20",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "921",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "710.0",
+            "low": "706.3",
+            "close": "708.0"
+          },
+          "has_all_ohlc": false
+        },
+        {
+          "date": "2026-11-19",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "1215",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "720.0",
+            "low": "701.0",
+            "close": "709.0"
+          },
+          "has_all_ohlc": false
+        },
+        {
+          "date": "2026-11-18",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "1067",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "712.0",
+            "low": "703.2",
+            "close": "705.2"
+          },
+          "has_all_ohlc": false
+        },
+        {
+          "date": "2026-11-17",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "833",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "715.0",
+            "low": "700.2",
+            "close": "710.3"
+          },
+          "has_all_ohlc": false
+        },
+        {
+          "date": "2026-11-13",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "1237",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "720.0",
+            "low": "705.1",
+            "close": "715.0"
+          },
+          "has_all_ohlc": false
+        },
+        {
+          "date": "2026-11-06",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "197",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "725.0",
+            "low": "710.0",
+            "close": "722.5"
+          },
+          "has_all_ohlc": false
+        },
+        {
+          "date": "2026-11-05",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "3893",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "735.0",
+            "low": "701.0",
+            "close": "719.9"
+          },
+          "has_all_ohlc": false
+        },
+        {
+          "date": "2026-11-04",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "3425",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "730.0",
+            "low": "715.1",
+            "close": "721.0"
+          },
+          "has_all_ohlc": false
+        },
+        {
+          "date": "2026-11-03",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "1531",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "725.1",
+            "low": "719.3",
+            "close": "719.3"
+          },
+          "has_all_ohlc": false
+        },
+        {
+          "date": "2026-11-02",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "1177",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "731.0",
+            "low": "716.1",
+            "close": "725.0"
+          },
+          "has_all_ohlc": false
+        }
+      ]
     }
   ],
-  "interpretation": "Official EOD price-volume cross-check only. These responses are not floorsheets, do not establish contract identity or broker flow, and cannot establish a first-trade boundary without complete prior-session evidence. Tokens and salts were held in memory only."
+  "target_results": [
+    {
+      "symbol": "NMLBBL",
+      "security_id": 396,
+      "business_date": "2024-05-19",
+      "role": "candidate",
+      "expected_ohlcv_volume": 864,
+      "source_window": [
+        "2024-05-01",
+        "2024-05-31"
+      ],
+      "window_pagination_complete": true,
+      "matching_date_rows": 0,
+      "matching_symbol_rows": 0,
+      "observed_volume_values": [],
+      "observed_ohlc": [],
+      "eod_volume_matches_expected": false,
+      "status": "no_record_returned",
+      "evidence_gate_pass": false,
+      "limitation": "No record in an EOD query is not proof of NO_TRADE; this is not floorsheet or contract-level evidence."
+    },
+    {
+      "symbol": "NMLBBL",
+      "security_id": 396,
+      "business_date": "2024-05-16",
+      "role": "prior_session",
+      "expected_ohlcv_volume": 0,
+      "source_window": [
+        "2024-05-01",
+        "2024-05-31"
+      ],
+      "window_pagination_complete": true,
+      "matching_date_rows": 0,
+      "matching_symbol_rows": 0,
+      "observed_volume_values": [],
+      "observed_ohlc": [],
+      "eod_volume_matches_expected": false,
+      "status": "no_record_returned",
+      "evidence_gate_pass": false,
+      "limitation": "No record in an EOD query is not proof of NO_TRADE; this is not floorsheet or contract-level evidence."
+    },
+    {
+      "symbol": "SMPDA",
+      "security_id": 2896,
+      "business_date": "2024-08-18",
+      "role": "candidate",
+      "expected_ohlcv_volume": 5314,
+      "source_window": [
+        "2024-08-01",
+        "2024-08-31"
+      ],
+      "window_pagination_complete": true,
+      "matching_date_rows": 0,
+      "matching_symbol_rows": 0,
+      "observed_volume_values": [],
+      "observed_ohlc": [],
+      "eod_volume_matches_expected": false,
+      "status": "no_record_returned",
+      "evidence_gate_pass": false,
+      "limitation": "No record in an EOD query is not proof of NO_TRADE; this is not floorsheet or contract-level evidence."
+    },
+    {
+      "symbol": "SMPDA",
+      "security_id": 2896,
+      "business_date": "2024-08-14",
+      "role": "prior_session",
+      "expected_ohlcv_volume": 0,
+      "source_window": [
+        "2024-08-01",
+        "2024-08-31"
+      ],
+      "window_pagination_complete": true,
+      "matching_date_rows": 0,
+      "matching_symbol_rows": 0,
+      "observed_volume_values": [],
+      "observed_ohlc": [],
+      "eod_volume_matches_expected": false,
+      "status": "no_record_returned",
+      "evidence_gate_pass": false,
+      "limitation": "No record in an EOD query is not proof of NO_TRADE; this is not floorsheet or contract-level evidence."
+    }
+  ],
+  "interpretation": "Authenticated official EOD endpoint was tested with month-wide historical windows and a current-month control. EOD responses can cross-check published daily price/volume only. They are not floorsheets, do not prove contract identity or broker flow, and cannot alone establish a first-trade boundary. Empty dates remain UNKNOWN; tokens and salts were never persisted."
 }

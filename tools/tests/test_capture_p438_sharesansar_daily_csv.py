@@ -13,7 +13,7 @@ class P438ShareSansarTests(unittest.TestCase):
         self.assertEqual(git_blob_sha(b"hello\n"),"ce013625030ba8dba906f756967f9e9ca394464a")
 
     def test_candidate_row_matches_floorsheet_values(self):
-        raw=(HEADER+"\n"+csvrow(1,"NMLBBL","599.60","646.60","599.60","646.60","864.00","557,461.60","15")+"\n").encode()
+        raw=(HEADER+"\n"+csvrow(1,"NMLBBL","599.60","646.60","599.60","646.60","864.00","557461.60","15")+"\n").encode()
         rec={"date":"2024-05-19","target_symbol":"NMLBBL","target_role":"candidate","expected_rows":1}
         result=audit_csv(raw,rec)
         self.assertEqual(result["target_row_count"],1)

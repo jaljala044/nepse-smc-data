@@ -186,7 +186,7 @@ def build(v2_dir, raw_dir, matrix_path, correction_path, output_dir,
         for index, line in enumerate(lines[1:], start=1):
             if line.strip():
                 out_lines.append(changes_by_line.get(index, line))
-        output_bytes = ("\n".join(out_lines) + "\n").encode("utf-8")
+        output_bytes = v2_bytes if not changed_for_symbol else ("\n".join(out_lines) + "\n").encode("utf-8")
         (output_dir / f"{symbol}_OHLCV.csv").write_bytes(output_bytes)
         rows_updated += len(changed_for_symbol)
         new_manifest.append({

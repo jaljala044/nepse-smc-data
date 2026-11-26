@@ -105,6 +105,38 @@ class FloorsheetReconciliationTests(unittest.TestCase):
         xyz = next(r for r in rows if r["symbol"] == "XYZ")
         self.assertEqual(xyz["trade_status"], "UNKNOWN")
 
+    def test_no_trade_rejected_when_ohlcv_has_positive_volume(self):
+        with (self.ohlcv / "XYZ_OHLCV.csv").open("w", newline="") as handle:
+            writer = csv.DictWriter(handle, fieldnames=["Date", "Open", "High", "Low", "Close", "Volume"])
+            writer.writeheader()
+            writer.writerow({"Date": "2026-11-20", "Open": "1", "High": "1", "Low": "1", "Close": "1", "Volume": "5"})
+        digest = hashlib.sha256(self.floor.read_bytes()).hexdigest()
+        rows = self.run_reconcile(complete="true", evidence="full-day totals verified",
+                                  uri="https://source.example/floorsheet/2026-11-20", digest=digest)
+        xyz = next(r for r in rows if r["symbol"] == "XYZ")
+        self.assertEqual(xyz["trade_status"], "UNKNOWN")
+
+    def test_no_trade_rejected_when_market_totals_do_not_match(self):
+        digest = hashlib.sha256(self.floor.read_bytes()).hexdigest()
+        manifest = {"floorsheet_complete": "true", "completeness_evidence": "full-day totals verified",
+                    "source_uri": "https://source.example/floorsheet/2026-11-20", "source_sha256": digest,
+                    "expected_trades": "2", "expected_shares": "20",
+                    "expected_turnover_npr": "2000", "expected_symbols": "1"}
+        rows = ENGINE.reconcile_date("2026-11-20", self.floor, self.ohlcv,
+                                     {"2026-11-20": "verified_open"}, {"2026-11-20": manifest})
+        xyz = next(r for r in rows if r["symbol"] == "XYZ")
+        self.assertEqual(xyz["trade_status"], "UNKNOWN")
+        self.assertFalse(xyz["floorsheet_totals_match"])
+
+    def test_traded_contract_with_volume_mismatch_is_explicit_conflict(self):
+        with self.ohlcv_file.open("w", newline="") as handle:
+            writer = csv.DictWriter(handle, fieldnames=["Date", "Open", "High", "Low", "Close", "Volume"])
+            writer.writeheader()
+            writer.writerow({"Date": "2026-11-20", "Open": "100", "High": "100", "Low": "100", "Close": "100", "Volume": "9"})
+        abc = next(r for r in self.run_reconcile() if r["symbol"] == "ABC")
+        self.assertEqual(abc["trade_status"], "TRADED")
+        self.assertEqual(abc["ohlcv_reconciliation"], "CONFLICT")
+
 
 if __name__ == "__main__":
     unittest.main()

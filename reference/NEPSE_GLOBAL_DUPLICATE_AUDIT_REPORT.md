@@ -3,7 +3,7 @@
 **Status: reproducible audit baseline complete; adjudication and canonical-ingestion acceptance remain open.**
 
 **Pinned input:** `main` at `56362fb4f65b91fdcca8f50b50e53ad80e703649`.  
-**Latest validated workflow:** [Run 141](https://github.com/jaljala044/nepse-smc-data/actions/runs/45895851920), head `b8e48c1d936f984caf0b50f2efec9dcdd28fcf19`.  
+**Latest validated workflow:** [Run 151](https://github.com/jaljala044/nepse-smc-data/actions/runs/45896380619), head `d0d12c5a87a436a86afb5d24e657a40c7c7f5f5b`; all workflow stages passed.  
 **Method:** deterministic, read-only scan of pinned file blobs. Findings are review flags, not automatic corrections.
 
 ## Coverage
@@ -34,11 +34,9 @@ Finding classes overlap and must not be summed as unique affected rows.
 
 The strict workflow joined all 1,331 invalid-OHLCV rows to the existing historical exception registers:
 - **1,329** matched an existing exception register exactly.
-- **2** remain unmatched and require review:
-  - KDBY, 2026-04-29, source row 854, blob `21764adf5c5a030dbdd5ca570225a07e2f4c41f7`.
-  - KEF, 2026-04-28, source row 1160, blob `e0039a5b74f53c84e5ce48047b3bbd8e3b9e02f3`.
+- **2** do not match the historical equity exception registers: KDBY, 2026-04-29 (row 854), and KEF, 2026-04-28 (row 1160). Both are independently identified in the pinned official security master (`reference/p435_official_historical_floorsheets/security_list.json`, blob `0891e10b56de572816680c8065718ecd4420bd03`) as investment-fund instruments: Kumari Dhanabriddhi Yojana and Kumari Equity Fund. They are recorded separately in `P443_NON_EQUITY_OHLCV_EXCEPTIONS_2026-11-27.csv` and remain quarantined from the equity candle set; this classification does **not** validate or repair their prices.
 
-An exception-register match is reconciliation, **not independent validation**. The prior P4.35 source-lineage audit found no qualified independent historical source; the affected OHLCV rows remain UNKNOWN. No values were repaired or promoted.
+An exception-register match is reconciliation, **not independent validation**. The prior P4.35 source-lineage audit found no qualified independent historical source for the affected equity candles; matched rows remain UNKNOWN pending source adjudication. No values were repaired or promoted.
 
 ### Floorsheet row classification and contract-number reuse
 
@@ -106,7 +104,7 @@ Preserve all rows. The source capture report reports unique archive-local record
 
 ## Reproducibility and machine-readable outputs
 
-- Workflow and artifacts: [Run 141](https://github.com/jaljala044/nepse-smc-data/actions/runs/45895851920).
+- Latest complete workflow and artifacts: [Run 151](https://github.com/jaljala044/nepse-smc-data/actions/runs/45896380619); all scan, quarantine, cross-repository contract, strict-byte, reconciliation, queue-export, regression and artifact-preservation stages passed.
 - Standard row-level CSV findings: `NEPSE_GLOBAL_DUPLICATE_AUDIT_FINDINGS.csv`.
 - Per-file scan coverage: `NEPSE_GLOBAL_DUPLICATE_AUDIT_SCAN_SUMMARY.csv`.
 - Strict pinned-byte row-level findings and exception join: preserved in the run's `p443-strict-content-audit` artifact (`findings.jsonl`, `coverage.json`, `summary.json`, `exception_join.csv`, `exception_join_summary.json`).
@@ -114,8 +112,8 @@ Preserve all rows. The source capture report reports unique archive-local record
 ## Acceptance still open
 
 1. Classify the 94,543 repeated adjacent tuples using exact overlap with verified open/closed-session evidence and prior P4.37/P4.42 row-level matrices.
-2. Review the two unmatched invalid-OHLCV rows (KDBY and KEF) against existing provenance and exception records.
-3. Complete date-shift/misdated candidate reconciliation across the full 928-file scope, not only the P4.37/P4.42 samples.
-4. Decide whether ingestion quarantine enforcement belongs in a separate implementation issue; do not silently add runtime mutation to this read-only audit PR.
+2. Complete date-shift/misdated candidate reconciliation across the full 928-file scope, not only the P4.37/P4.42 samples; historical session evidence is incomplete for much of the 2011–2026 OHLCV span.
+3. Obtain independent security/date and execution evidence to adjudicate the 35,571 quarantine-review pairs and 58,972 evidence-review pairs; current calendar/API corroboration is not proof of security-specific execution.
+4. Decide whether full canonical-ingestion quarantine enforcement belongs in a separate implementation issue; the scanner-preparation guard is not a canonical ingestion gate.
 
 **P4.43 is not complete.** The audit pipeline and pinned scan now pass; evidence adjudication and final acceptance items remain open. PR #80 remains draft until those items are resolved or explicitly accepted as documented blockers.

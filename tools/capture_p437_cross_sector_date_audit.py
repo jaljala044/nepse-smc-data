@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """Stratified official NEPSE EOD parity audit across 12 equity sectors."""
 import base64
+import csv
 import json
 import tempfile
+from decimal import Decimal, InvalidOperation
 from collections import Counter
 from datetime import date, datetime
 from pathlib import Path
@@ -16,6 +18,26 @@ from capture_p436_official_eod_history import find_rows, find_total, compare_can
 
 WINDOW_START="2025-11-26"
 WINDOW_END="2026-11-26"
+SOURCE_PROVENANCE={
+    "canonical_import_repository":"jaljala044/nepse-history-starter",
+    "canonical_import_commit":"12002cdc679061192c1ea3cbd5300257286e66af",
+    "canonical_import_manifest":"historical_imports/sharesansar_2026-11-20.json",
+    "canonical_import_manifest_metrics":{
+        "archived_sessions":937,"source_symbols":525,"imported_symbols":525,
+        "source_rows":303438,"imported_rows":301632,"flagged_rows":1806
+    },
+    "upstream_data_repository":"OmitNomis/ShareSansarScraper",
+    "upstream_data_commit":"d5949bd628d6b5ca9ebb2b4a15e001a434c6732c",
+    "upstream_workbook":"docs/Data/combined_excel.xlsx",
+    "upstream_workbook_git_blob_sha":"e200c06f47a0d529baae61680bb40a55d1114fa1",
+    "upstream_workbook_size_bytes":41946267,
+    "upstream_workbook_sha256":"dc9534bd1e38a467452196548f82a20b14a1fedc9a2e64983484d9137386c38c",
+    "upstream_source_type":"ShareSansar scraped daily-price page; secondary source, not NEPSE primary",
+    "scraper_date_assignment":"datetime.now().strftime('%Y_%m_%d')",
+    "scraper_duplicate_guard":"exact full table row comparison excluding serial number; does not validate official businessDate",
+    "downstream_import_date_validation":"Gregorian ISO date and date bounds; no authoritative NEPSE session-calendar check",
+    "downstream_history_date_key":"source CSV filename date"
+}
 SAMPLE=[
     ("Microfinance","ACLBSL",2790),("Microfinance","NUBL",163),
     ("Commercial Banks","NABIL",131),("Commercial Banks","NMB",238),
@@ -64,6 +86,7 @@ def validate_sample(sectors_csv):
 
 def summarize_rows(rows):
     dates=[];missing_date=0;wrong_date=[];missing_hlc=0;missing_volume=0;weekly_closures=[]
+    zero_trade_rows=0;positive_trade_rows=0
     for row in rows:
         if not isinstance(row,dict):
             missing_date+=1;continue
@@ -77,6 +100,16 @@ def summarize_rows(rows):
             missing_hlc+=1
         if row.get("totalTradedQuantity") is None:
             missing_volume+=1
+        try:
+            trades=int(row.get("totalTrades",0))
+            quantity=Decimal(str(row.get("totalTradedQuantity",0)))
+            turnover=Decimal(str(row.get("totalTradedValue",0)))
+            if trades==0 and quantity==0 and turnover==0:
+                zero_trade_rows+=1
+            elif trades>0 and quantity>0:
+                positive_trade_rows+=1
+        except (ValueError,TypeError,InvalidOperation):
+            pass
         kind=weekday_class(day)
         if kind!="trading_weekday":
             weekly_closures.append({"date":day,"weekday":kind})
@@ -86,8 +119,112 @@ def summarize_rows(rows):
         "duplicate_dates":sorted(d for d,n in counts.items() if n>1),
         "missing_date_rows":missing_date,"out_of_window_dates":sorted(set(wrong_date)),
         "missing_hlc_rows":missing_hlc,"missing_volume_rows":missing_volume,
+        "zero_trade_rows":zero_trade_rows,"positive_trade_rows":positive_trade_rows,
         "weekly_closure_records":weekly_closures,"observed_dates":sorted(counts),
     }
+
+def build_quarantine_rows(symbol,sector,official_rows,start_date,end_date,canonical_dir="03_stock_charts_ohlcv"):
+    canonical_path=Path(canonical_dir)/f"{symbol}_OHLCV.csv"
+    if not canonical_path.exists():
+        canonical_path=Path("..")/canonical_path
+    if not canonical_path.exists():
+        return []
+    with canonical_path.open(newline="",encoding="utf-8-sig") as handle:
+        canonical=[row for row in csv.DictReader(handle)
+                   if start_date<=row.get("Date","")<=end_date]
+    def key(row,official):
+        fields=("highPrice","lowPrice","closePrice","totalTradedQuantity") if official else ("High","Low","Close","Volume")
+        try:
+            return tuple(Decimal(str(row[name])) for name in fields)
+        except (KeyError,TypeError,InvalidOperation,ValueError):
+            return None
+    def value(row,name):
+        item=row.get(name)
+        return "" if item is None else str(item)
+    def weekday(day):
+        return date.fromisoformat(day).strftime("%A")
+    official_by_date={str(r.get("businessDate",""))[:10]:r for r in official_rows
+                      if isinstance(r,dict) and r.get("businessDate")}
+    canonical_by_date={r.get("Date",""):r for r in canonical}
+    official_by_tuple={}
+    canonical_by_tuple={}
+    for day,row in official_by_date.items():
+        item=key(row,True)
+        if item is not None:official_by_tuple.setdefault(item,[]).append(day)
+    for day,row in canonical_by_date.items():
+        item=key(row,False)
+        if item is not None:canonical_by_tuple.setdefault(item,[]).append(day)
+    result=[]
+    for day,row in canonical_by_date.items():
+        official=official_by_date.get(day)
+        if official:
+            left,right=key(official,True),key(row,False)
+            if left!=right:
+                result.append({"sector":sector,"symbol":symbol,"disposition":"EXACT_DATE_HLCV_MISMATCH",
+                    "canonical_date":day,"official_date":day,"calendar_day_offset":0,
+                    "canonical_open":value(row,"Open"),"canonical_high":value(row,"High"),
+                    "canonical_low":value(row,"Low"),"canonical_close":value(row,"Close"),
+                    "canonical_volume":value(row,"Volume"),"official_high":value(official,"highPrice"),
+                    "official_low":value(official,"lowPrice"),"official_close":value(official,"closePrice"),
+                    "official_volume":value(official,"totalTradedQuantity"),
+                    "official_total_trades":value(official,"totalTrades"),
+                    "official_total_traded_value":value(official,"totalTradedValue"),
+                    "canonical_weekday":weekday(day),"official_weekday":weekday(day)})
+            continue
+        matches=official_by_tuple.get(key(row,False),[]) if key(row,False) is not None else []
+        if matches:
+            from datetime import date as date_type
+            chosen=sorted(matches,key=lambda d:(abs((date_type.fromisoformat(day)-date_type.fromisoformat(d)).days),
+                                                 (date_type.fromisoformat(day)-date_type.fromisoformat(d)).days))[0]
+            delta=(date_type.fromisoformat(day)-date_type.fromisoformat(chosen)).days
+            official=official_by_date[chosen]
+            disposition="CANONICAL_ONLY_TUPLE_MATCHES_OTHER_OFFICIAL_DATE"
+        else:
+            chosen="";delta="";official={}
+            disposition="CANONICAL_ONLY_NO_OFFICIAL_TUPLE_MATCH"
+        result.append({"sector":sector,"symbol":symbol,"disposition":disposition,
+            "canonical_date":day,"official_date":chosen,"calendar_day_offset":delta,
+            "canonical_open":value(row,"Open"),"canonical_high":value(row,"High"),
+            "canonical_low":value(row,"Low"),"canonical_close":value(row,"Close"),
+            "canonical_volume":value(row,"Volume"),"official_high":value(official,"highPrice"),
+            "official_low":value(official,"lowPrice"),"official_close":value(official,"closePrice"),
+            "official_volume":value(official,"totalTradedQuantity"),
+            "official_total_trades":value(official,"totalTrades"),
+            "official_total_traded_value":value(official,"totalTradedValue"),
+            "canonical_weekday":weekday(day),"official_weekday":weekday(chosen) if chosen else ""})
+    for day,row in official_by_date.items():
+        if day in canonical_by_date:continue
+        matches=canonical_by_tuple.get(key(row,True),[]) if key(row,True) is not None else []
+        if matches:
+            from datetime import date as date_type
+            chosen=sorted(matches,key=lambda d:(abs((date_type.fromisoformat(d)-date_type.fromisoformat(day)).days),
+                                                 (date_type.fromisoformat(d)-date_type.fromisoformat(day)).days))[0]
+            delta=(date_type.fromisoformat(chosen)-date_type.fromisoformat(day)).days
+            disposition="OFFICIAL_ONLY_TUPLE_MATCHES_OTHER_CANONICAL_DATE"
+        else:
+            chosen="";delta="";disposition="OFFICIAL_ONLY_NO_CANONICAL_TUPLE_MATCH"
+        result.append({"sector":sector,"symbol":symbol,"disposition":disposition,
+            "canonical_date":chosen,"official_date":day,"calendar_day_offset":delta,
+            "canonical_open":value(canonical_by_date.get(chosen,{}),"Open"),
+            "canonical_high":value(canonical_by_date.get(chosen,{}),"High"),
+            "canonical_low":value(canonical_by_date.get(chosen,{}),"Low"),
+            "canonical_close":value(canonical_by_date.get(chosen,{}),"Close"),
+            "canonical_volume":value(canonical_by_date.get(chosen,{}),"Volume"),
+            "official_high":value(row,"highPrice"),"official_low":value(row,"lowPrice"),
+            "official_close":value(row,"closePrice"),"official_volume":value(row,"totalTradedQuantity"),
+            "official_total_trades":value(row,"totalTrades"),
+            "official_total_traded_value":value(row,"totalTradedValue"),
+            "canonical_weekday":weekday(chosen) if chosen else "","official_weekday":weekday(day)})
+    return result
+
+def write_quarantine_matrix(path,rows):
+    fields=["sector","symbol","disposition","canonical_date","official_date","calendar_day_offset",
+            "canonical_weekday","official_weekday","canonical_open","canonical_high","canonical_low",
+            "canonical_close","canonical_volume","official_high","official_low","official_close",
+            "official_volume","official_total_trades","official_total_traded_value"]
+    with Path(path).open("w",newline="",encoding="utf-8") as handle:
+        writer=csv.DictWriter(handle,fieldnames=fields,extrasaction="ignore")
+        writer.writeheader();writer.writerows(rows)
 
 def capture(output_dir,requester=request,parser=token_parser,retrieved_at=None):
     out=Path(output_dir);out.mkdir(parents=True,exist_ok=True)
@@ -99,7 +236,7 @@ def capture(output_dir,requester=request,parser=token_parser,retrieved_at=None):
     wasm_sha=git_blob_sha(wasm)
     if wasm_sha!=WASM_GIT_BLOB_SHA:
         raise ValueError("pinned upstream WASM Git blob SHA mismatch")
-    records=[];symbol_results=[]
+    records=[];symbol_results=[];quarantine_rows=[]
     with tempfile.TemporaryDirectory() as td:
         wasm_path=Path(td)/"css.wasm";wasm_path.write_bytes(wasm)
         token_url=BASE+"/api/authenticate/prove"
@@ -162,6 +299,7 @@ def capture(output_dir,requester=request,parser=token_parser,retrieved_at=None):
             pagination_complete=(not failed and isinstance(total_elements,int) and isinstance(total_pages,int)
                                  and len(rows_all)==total_elements and len(pages)==max(1,total_pages))
             canonical=compare_canonical(symbol,rows_all,WINDOW_START,WINDOW_END)
+            quarantine_rows.extend(build_quarantine_rows(symbol,sector,rows_all,WINDOW_START,WINDOW_END))
             item.update(status="captured" if not failed else "request_or_schema_failure",
                         pages=pages,total_elements=total_elements,total_pages=total_pages,
                         pagination_complete=pagination_complete,**row_summary,
@@ -188,6 +326,9 @@ def capture(output_dir,requester=request,parser=token_parser,retrieved_at=None):
                 "exact_date_mismatches":sum(x.get("canonical_comparison",{}).get("exact_date_hlc_volume_mismatch_count",0) for x in valid),
                 "evidence_gates_passed":sum(bool(x.get("evidence_gate_pass")) for x in valid),
             }
+    (out/"quarantine_matrix.csv").parent.mkdir(parents=True,exist_ok=True)
+    write_quarantine_matrix(out/"quarantine_matrix.csv",quarantine_rows)
+    disposition_counts=dict(Counter(row["disposition"] for row in quarantine_rows))
     report={
         "task":"P4.37","source":"NEPSE official API domain",
         "retrieved_at_utc":stamp,
@@ -195,6 +336,9 @@ def capture(output_dir,requester=request,parser=token_parser,retrieved_at=None):
         "upstream_authentication_client":{"repo":"basic-bgnr/NepseUnofficialApi",
           "commit":"180a550c60f1959983b854659e650a4c189a3c0f","wasm_git_blob_sha":wasm_sha},
         "authentication_status":"authenticated" if security_map else "authenticated_but_security_master_unavailable",
+        "canonical_data_provenance":SOURCE_PROVENANCE,
+        "quarantine_matrix":{"rows":len(quarantine_rows),"disposition_counts":disposition_counts,
+                             "path":"reference/p437_cross_sector_date_audit/quarantine_matrix.csv"},
         "sample_design":{"method":"stratified purposive sample","symbols":len(SAMPLE),
           "sectors":12,"per_sector":2,"sector_source":"scanner_inputs/sectors.csv",
           "security_ids_cross_checked_against_official_security_master":True,
@@ -202,7 +346,7 @@ def capture(output_dir,requester=request,parser=token_parser,retrieved_at=None):
         "records":records,"aggregate":dict(aggregate),"sector_rollup":sector_rollup,
         "results":symbol_results,
         "weekday_regime":{"through_2026-04-05":"Sunday-Thursday regular sessions; Friday/Saturday weekly closures","from_2026-04-06":"Monday-Friday regular sessions; Saturday/Sunday weekly closures","limitation":"Weekday compatibility does not establish an actual open session; holidays and exceptional closures require the evidence-backed calendar."},
-        "interpretation":"Exploratory stratified sample only; not a full-universe finding. Official EOD HLCV comparisons do not prove contract-level execution or broker flow. Canonical rows are not modified. Suspected date-shift patterns remain quarantined pending provenance investigation."
+        "interpretation":"Exploratory stratified sample only; not a full-universe finding. Canonical source is ShareSansar-derived, not NEPSE primary. The importer does not enforce an authoritative session calendar; date-stamped duplicate rows remain quarantined. Official EOD HLCV comparisons do not prove contract-level execution or broker flow. Canonical rows are not modified."
     }
     (out/"capture_report.json").write_text(json.dumps(report,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
     return report

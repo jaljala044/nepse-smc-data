@@ -48,8 +48,10 @@ jobs:
       - name: Validate scan outputs
         run: python -m unittest test_global_duplicate_audit_scan -v
       - name: Strict content audit regression tests
+        if: ${{ !cancelled() }}
         run: python -m unittest test_p443_content_audit -v
       - name: Run strict pinned-byte cross-check
+        if: ${{ !cancelled() }}
         run: python p443_content_audit.py --output audit-strict
       - name: Preserve strict audit outputs
         if: always()
@@ -59,6 +61,7 @@ jobs:
           path: audit-strict/
           if-no-files-found: warn
       - name: Preserve machine-readable audit outputs
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: p443-global-integrity-audit

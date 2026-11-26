@@ -3,7 +3,7 @@
 **Status: reproducible audit baseline complete; adjudication and canonical-ingestion acceptance remain open.**
 
 **Pinned input:** `main` at `56362fb4f65b91fdcca8f50b50e53ad80e703649`.  
-**Latest validated workflow:** [Run 120](https://github.com/jaljala044/nepse-smc-data/actions/runs/45895028736), head `9c83653e2d183b6be955d1c2ffbbd5e9e6e53ab9`.  
+**Latest validated workflow:** [Run 141](https://github.com/jaljala044/nepse-smc-data/actions/runs/45895851920), head `b8e48c1d936f984caf0b50f2efec9dcdd28fcf19`.  
 **Method:** deterministic, read-only scan of pinned file blobs. Findings are review flags, not automatic corrections.
 
 ## Coverage
@@ -80,6 +80,11 @@ The two review queues contain **35,571** pair candidates for quarantine review a
 
 Full row-level pair dispositions and the two disjoint review queues are retained in the workflow artifact: `repeat_calendar_triage.csv`, `repeat_quarantine_candidates.csv`, and `repeat_evidence_review.csv`.
 
+Two additional read-only row-hold exports narrow the pair queues to unique source rows:
+- Recorded verified-closure evidence: 9,027 pairs resolve to **6,232 unique source rows**, across 20 dates and 379 symbols. The hold is `EXCLUDE_RECORDED_CLOSURE_PENDING_INDEPENDENT_ADJUDICATION`; no replacement is allowed.
+- Authenticated API holiday-list corroboration: all 26,544 historical-listed-holiday pairs were corroborated by the pinned API holiday evidence, producing **22,244 unique candidate rows** across 77 dates. This is corroboration of the listing only, not independent proof of universal closure or individual-security execution.
+- The two unique-row sets are disjoint: **28,476 candidate rows total** (6,232 recorded-closure rows + 22,244 API-holiday rows). These remain hold candidates, not applied exclusions or corrected data. No replacements occurred.
+
 P4.37 independently identified 1,455 canonical-only rows across 24 sampled symbols that match official HLCV tuples on 81 verified closed dates. P4.42 traced the NMLBBL/SMPDA date-label pattern to ShareSansar scrape-date filenames. These source-backed findings are useful context, but they do not establish a cause for every repeated pair across the full historical universe.
 
 Historical session evidence remains incomplete outside the captured one-year official EOD window. Do not infer an open session from weekdays or absence from a closure list. Do not label repeated tuples as NO_TRADE or as erroneous solely because values repeat.
@@ -94,13 +99,14 @@ Preserve all rows. The source capture report reports unique archive-local record
 
 - No raw, canonical, or user-finalized OHLCV values were modified.
 - No date shifts, deletions, deduplication, or canonical promotion occurred.
-- Added a fail-closed validator to `scanner_inputs/prepare_scanner_inputs.py`: it validates the original daily-price rows and supplemental rows for OHLCV invariants, duplicate symbol/date keys, and pinned verified-closed dates before publishing to a new output directory. It does not edit the input folder, silently filter rows, or repair values; rejected input aborts publication.
-- This is a scanner-preparation guard, not a full canonical-ingestion quarantine implementation. The two historical SMPDA floorsheet archives remain blocked by documented disposition and are not imported.
+- Added a fail-closed validator to `scanner_inputs/prepare_scanner_inputs.py`: it validates original and supplemental daily-price rows for OHLCV invariants, duplicate symbol/date keys, and pinned verified-closed dates; validates supported floorsheet CSV schemas, identities, arithmetic, and session dates; and rebuilds weekly/monthly aggregates from observed daily sessions before publishing to a new output directory.
+- Both quarantined SMPDA floorsheet archives are blocked by their exact Git blob fingerprints and verified uncompressed SHA-256 fingerprints, so a decompressed copy is also rejected. Regression tests cover this.
+- The guard does not edit the input folder, silently filter rows, or repair values; rejected input aborts publication. It is a scanner-preparation guard, not a full canonical-ingestion quarantine implementation.
 - No AI recommendations or training labels were enabled or promoted.
 
 ## Reproducibility and machine-readable outputs
 
-- Workflow and artifacts: [Run 120](https://github.com/jaljala044/nepse-smc-data/actions/runs/45895028736).
+- Workflow and artifacts: [Run 141](https://github.com/jaljala044/nepse-smc-data/actions/runs/45895851920).
 - Standard row-level CSV findings: `NEPSE_GLOBAL_DUPLICATE_AUDIT_FINDINGS.csv`.
 - Per-file scan coverage: `NEPSE_GLOBAL_DUPLICATE_AUDIT_SCAN_SUMMARY.csv`.
 - Strict pinned-byte row-level findings and exception join: preserved in the run's `p443-strict-content-audit` artifact (`findings.jsonl`, `coverage.json`, `summary.json`, `exception_join.csv`, `exception_join_summary.json`).

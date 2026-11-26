@@ -72,6 +72,23 @@ def classify_request(expected_tuples, observed, has_inventory, fetched_status):
     return "HIGH_LOW_VOLUME_CONFLICT"
 
 
+def compare_high_low_volume(source_tuple, observed):
+    """Compare floorsheet-derived high/low/volume only; leave open/close unverified."""
+    if len(source_tuple) != 5 or not observed:
+        return None
+    observed_high = max(row[0] for row in observed)
+    observed_low = min(row[0] for row in observed)
+    observed_volume = sum((row[1] for row in observed), Decimal("0"))
+    return {
+        "observed_high": observed_high,
+        "observed_low": observed_low,
+        "observed_volume": observed_volume,
+        "high_match": observed_high == source_tuple[1],
+        "low_match": observed_low == source_tuple[2],
+        "volume_match": observed_volume == source_tuple[4],
+    }
+
+
 def read_inventory():
     inventory = {}
     with open(INVENTORY_PATH, newline="") as handle:
@@ -180,17 +197,13 @@ def main():
                 result["status"] if result is not None else None,
             )
             source_values = next(iter(source_tuple_set)) if len(source_tuple_set) == 1 else ()
-            observed_high = max((row[0] for row in observed), default=None)
-            observed_low = min((row[0] for row in observed), default=None)
-            observed_volume = (
-                sum((row[1] for row in observed), Decimal("0")) if observed else None
-            )
-            if source_values and observed:
-                high_match = observed_high == source_values[1]
-                low_match = observed_low == source_values[2]
-                volume_match = observed_volume == source_values[4]
-            else:
-                high_match = low_match = volume_match = None
+            field_comparison = compare_high_low_volume(source_values, observed)
+            observed_high = field_comparison["observed_high"] if field_comparison else None
+            observed_low = field_comparison["observed_low"] if field_comparison else None
+            observed_volume = field_comparison["observed_volume"] if field_comparison else None
+            high_match = field_comparison["high_match"] if field_comparison else None
+            low_match = field_comparison["low_match"] if field_comparison else None
+            volume_match = field_comparison["volume_match"] if field_comparison else None
             counts[status] += 1
             writer.writerow([
                 symbol,

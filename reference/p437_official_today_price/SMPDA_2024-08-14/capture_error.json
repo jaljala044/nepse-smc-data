@@ -4,7 +4,7 @@
   "symbol": "SMPDA",
   "business_date": "2024-08-14",
   "url": "https://www.nepalstock.com/api/nots/nepse-data/today-price?size=500&page=0&businessDate=2024-08-14",
-  "retrieved_at": "2026-11-27T00:35:31.053453+05:45",
+  "retrieved_at": "2026-11-27T00:36:37.744729+05:45",
   "http_status": 500,
   "content_type": "application/json",
   "bytes": 27,

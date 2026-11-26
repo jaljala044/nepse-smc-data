@@ -1,0 +1,55 @@
+{
+  "status": "TARGET_ROW_FOUND",
+  "symbol": "NMLBBL",
+  "business_date": "2026-11-26",
+  "returned_business_dates": [
+    "2026-11-26"
+  ],
+  "symbol_row_count": 1,
+  "target_row_count": 1,
+  "target_row": {
+    "id": null,
+    "businessDate": "2026-11-26",
+    "securityId": 396,
+    "symbol": "NMLBBL",
+    "securityName": "Nerude Mirmire Laghubitta Bittiya Sanstha Limited",
+    "openPrice": 457.0,
+    "highPrice": 468.0,
+    "lowPrice": 457.0,
+    "closePrice": 467.9,
+    "totalTradedQuantity": 3596,
+    "totalTradedValue": 1667704.2,
+    "previousDayClosePrice": 460.2,
+    "fiftyTwoWeekHigh": 697.6,
+    "fiftyTwoWeekLow": 460.0,
+    "lastUpdatedTime": "2026-11-26T14:59:42.480675",
+    "lastUpdatedPrice": 467.9,
+    "totalTrades": 42,
+    "averageTradedPrice": 463.76,
+    "marketCapitalization": 6540.14
+  },
+  "captured_rows": 355,
+  "upstream_total_elements": 355,
+  "pagination_row_count_matches": true,
+  "raw_archive_mutated": false,
+  "source": "NEPSE official EOD API",
+  "base_url": "https://www.nepalstock.com",
+  "total_pages": 1,
+  "captured_pages": [
+    {
+      "page": 0,
+      "file": "reference/p437_official_today_price/NMLBBL_2026-11-26/nepse_eod_2026-11-26_page_0.json",
+      "url": "https://www.nepalstock.com/api/nots/nepse-data/today-price?size=500&page=0&businessDate=2026-11-26",
+      "retrieved_at": "2026-11-27T00:36:41.069369+05:45",
+      "http_status": 200,
+      "content_type": "application/json",
+      "bytes": 179729,
+      "sha256": "6b01523566d9bf714c88febbbae8f554494440eef1f7f8081b7056599ed3b442",
+      "rows": 355
+    }
+  ],
+  "target_page_file": "reference/p437_official_today_price/NMLBBL_2026-11-26/nepse_eod_2026-11-26_page_0.json",
+  "target_page_url": "https://www.nepalstock.com/api/nots/nepse-data/today-price?size=500&page=0&businessDate=2026-11-26",
+  "target_page_retrieved_at": "2026-11-27T00:36:41.069369+05:45",
+  "target_page_index": 0
+}

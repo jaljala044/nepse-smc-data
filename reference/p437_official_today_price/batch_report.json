@@ -1,12 +1,13 @@
 {
   "task": "P4.37",
   "source": "NEPSE official today-price EOD API",
-  "retrieved_at_utc": "2026-11-26T18:50:31.077062+00:00",
+  "retrieved_at_utc": "2026-11-26T18:51:41.098956+00:00",
   "timezone_policy": "TZ=Asia/Kathmandu for date.today() used by pinned public client",
   "records": [
     {
       "symbol": "NMLBBL",
       "business_date": "2024-05-19",
+      "role": "candidate",
       "command_exit_code": 1,
       "output_dir": "reference/p437_official_today_price/NMLBBL_2024-05-19",
       "status": "CAPTURE_ERROR",
@@ -16,7 +17,7 @@
         "symbol": "NMLBBL",
         "business_date": "2024-05-19",
         "url": "https://www.nepalstock.com/api/nots/nepse-data/today-price?size=500&page=0&businessDate=2024-05-19",
-        "retrieved_at": "2026-11-27T00:35:19.852953+05:45",
+        "retrieved_at": "2026-11-27T00:36:28.956670+05:45",
         "http_status": 500,
         "content_type": "application/json",
         "bytes": 27,
@@ -28,6 +29,7 @@
     {
       "symbol": "NMLBBL",
       "business_date": "2024-05-16",
+      "role": "prior_session",
       "command_exit_code": 1,
       "output_dir": "reference/p437_official_today_price/NMLBBL_2024-05-16",
       "status": "CAPTURE_ERROR",
@@ -37,7 +39,7 @@
         "symbol": "NMLBBL",
         "business_date": "2024-05-16",
         "url": "https://www.nepalstock.com/api/nots/nepse-data/today-price?size=500&page=0&businessDate=2024-05-16",
-        "retrieved_at": "2026-11-27T00:35:23.708386+05:45",
+        "retrieved_at": "2026-11-27T00:36:31.867042+05:45",
         "http_status": 500,
         "content_type": "application/json",
         "bytes": 27,
@@ -49,6 +51,7 @@
     {
       "symbol": "SMPDA",
       "business_date": "2024-08-18",
+      "role": "candidate",
       "command_exit_code": 1,
       "output_dir": "reference/p437_official_today_price/SMPDA_2024-08-18",
       "status": "CAPTURE_ERROR",
@@ -58,7 +61,7 @@
         "symbol": "SMPDA",
         "business_date": "2024-08-18",
         "url": "https://www.nepalstock.com/api/nots/nepse-data/today-price?size=500&page=0&businessDate=2024-08-18",
-        "retrieved_at": "2026-11-27T00:35:27.112073+05:45",
+        "retrieved_at": "2026-11-27T00:36:34.829755+05:45",
         "http_status": 500,
         "content_type": "application/json",
         "bytes": 27,
@@ -70,6 +73,7 @@
     {
       "symbol": "SMPDA",
       "business_date": "2024-08-14",
+      "role": "prior_session",
       "command_exit_code": 1,
       "output_dir": "reference/p437_official_today_price/SMPDA_2024-08-14",
       "status": "CAPTURE_ERROR",
@@ -79,13 +83,63 @@
         "symbol": "SMPDA",
         "business_date": "2024-08-14",
         "url": "https://www.nepalstock.com/api/nots/nepse-data/today-price?size=500&page=0&businessDate=2024-08-14",
-        "retrieved_at": "2026-11-27T00:35:31.053453+05:45",
+        "retrieved_at": "2026-11-27T00:36:37.744729+05:45",
         "http_status": 500,
         "content_type": "application/json",
         "bytes": 27,
         "sha256": "cca881461d563205a8c609c97ca56ed629037478322de2eefdd297a31825710e",
         "error_body_preview": "Searched Date is not valid.",
         "raw_payload_file": "reference/p437_official_today_price/SMPDA_2024-08-14/nepse_eod_2024-08-14_page_0.json"
+      }
+    },
+    {
+      "symbol": "NMLBBL",
+      "business_date": "2026-11-26",
+      "role": "current_session_control",
+      "command_exit_code": 0,
+      "output_dir": "reference/p437_official_today_price/NMLBBL_2026-11-26",
+      "status": "TARGET_ROW_FOUND",
+      "returned_business_dates": [
+        "2026-11-26"
+      ],
+      "target_row_count": 1,
+      "symbol_row_count": 1,
+      "total_pages": 1,
+      "upstream_total_elements": 355,
+      "pagination_row_count_matches": true,
+      "captured_pages": [
+        {
+          "page": 0,
+          "file": "reference/p437_official_today_price/NMLBBL_2026-11-26/nepse_eod_2026-11-26_page_0.json",
+          "url": "https://www.nepalstock.com/api/nots/nepse-data/today-price?size=500&page=0&businessDate=2026-11-26",
+          "retrieved_at": "2026-11-27T00:36:41.069369+05:45",
+          "http_status": 200,
+          "content_type": "application/json",
+          "bytes": 179729,
+          "sha256": "6b01523566d9bf714c88febbbae8f554494440eef1f7f8081b7056599ed3b442",
+          "rows": 355
+        }
+      ],
+      "target_row": {
+        "id": null,
+        "businessDate": "2026-11-26",
+        "securityId": 396,
+        "symbol": "NMLBBL",
+        "securityName": "Nerude Mirmire Laghubitta Bittiya Sanstha Limited",
+        "openPrice": 457.0,
+        "highPrice": 468.0,
+        "lowPrice": 457.0,
+        "closePrice": 467.9,
+        "totalTradedQuantity": 3596,
+        "totalTradedValue": 1667704.2,
+        "previousDayClosePrice": 460.2,
+        "fiftyTwoWeekHigh": 697.6,
+        "fiftyTwoWeekLow": 460.0,
+        "lastUpdatedTime": "2026-11-26T14:59:42.480675",
+        "lastUpdatedPrice": 467.9,
+        "totalTrades": 42,
+        "averageTradedPrice": 463.76,
+        "marketCapitalization": 6540.14
       }
     }
   ],

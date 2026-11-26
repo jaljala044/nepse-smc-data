@@ -13,7 +13,7 @@ import tempfile
 WINDOWS=[
  {"symbol":"NMLBBL","start":"2024-05-16","end":"2024-05-19","candidate":"2024-05-19","prior":"2024-05-16","expected":{"open":599.60,"high":646.60,"low":599.60,"close":646.60,"volume":864}},
  {"symbol":"SMPDA","start":"2024-08-14","end":"2024-08-18","candidate":"2024-08-18","prior":"2024-08-14","expected":{"open":1078.10,"high":1162.70,"low":1078.10,"close":1162.70,"volume":5314}},
-}
+]
 DATE_KEYS=("businessDate","business_date","date","tradeDate","transactionDate")
 ALIASES={
  "open":("openPrice","open","openingPrice"),

@@ -103,6 +103,10 @@ def sha256(path: Path) -> str:
 def summarize(rows: list[dict[str, Any]], source: str) -> tuple[dict, Counter]:
     keys = Counter()
     symbols = Counter()
+    symbol_shares = Counter()
+    symbol_turnover = defaultdict(lambda: Decimal("0"))
+    symbol_broker_pairs = defaultdict(Counter)
+    unl_contracts = []
     shares = 0
     turnover = Decimal("0")
     dates = Counter()
@@ -113,8 +117,17 @@ def summarize(rows: list[dict[str, Any]], source: str) -> tuple[dict, Counter]:
             keys[key] += 1
             dates[key[0]] += 1
             symbols[key[1]] += 1
+            symbol_shares[key[1]] += key[4]
+            symbol_turnover[key[1]] += key[6]
+            symbol_broker_pairs[key[1]][(key[2], key[3])] += 1
             shares += key[4]
             turnover += key[6]
+            if key[1] == "UNL":
+                unl_contracts.append({
+                    "date": key[0], "symbol": key[1], "buyer": key[2],
+                    "seller": key[3], "quantity": key[4],
+                    "rate": str(key[5]), "amount_npr": str(key[6])
+                })
         except (KeyError, ValueError, InvalidOperation, TypeError):
             invalid += 1
     meta = {
@@ -127,6 +140,19 @@ def summarize(rows: list[dict[str, Any]], source: str) -> tuple[dict, Counter]:
         "turnover_npr": str(turnover.quantize(Decimal("0.01"))),
         "date_counts": dict(sorted(dates.items())),
         "symbol_counts": dict(sorted(symbols.items())),
+        "symbol_metrics": {
+            sym: {
+                "trades": symbols[sym],
+                "shares": symbol_shares[sym],
+                "turnover_npr": str(symbol_turnover[sym].quantize(Decimal("0.01"))),
+                "top_buyer_seller_pairs": [
+                    {"buyer": pair[0], "seller": pair[1], "trades": n}
+                    for pair, n in symbol_broker_pairs[sym].most_common(5)
+                ],
+            }
+            for sym in sorted(symbols)
+        },
+        "unl_contracts": unl_contracts,
         "sha256": None,
     }
     return meta, keys

@@ -6,7 +6,7 @@ on:
       - 'tools/reconcile_floorsheet_ohlcv.py'
       - 'reference/floorsheet_reconciliation_manifest_2026-11-20.csv'
       - 'reference/nepse_canonical_session_calendar_2025-2026.csv'
-      - 'reference/nepse_target_universe_candidates_2026-11-26.csv'
+      - 'reference/p410_stage1_coverage_matrix_2026-11-26.csv'
       - 'tools/tests/test_reconcile_floorsheet_ohlcv.py'
       - 'tools/reconcile_nov20_independent_floorsheet.py'
       - '02_floorsheet_daily/floorsheet_2026-11-20.csv'
@@ -59,7 +59,7 @@ jobs:
             --ohlcv-dir starter/03_stock_charts_ohlcv \
             --calendar reference/nepse_canonical_session_calendar_2025-2026.csv \
             --manifest reference/floorsheet_reconciliation_manifest_2026-11-20.csv \
-            --symbol-universe-csv reference/nepse_target_universe_candidates_2026-11-26.csv \
+            --symbol-universe-csv reference/p410_stage1_coverage_matrix_2026-11-26.csv \
             --expected-symbol-count 281 \
             --output audit-output/2026-11-20_equity_trade_status.csv
       - uses: actions/upload-artifact@v4

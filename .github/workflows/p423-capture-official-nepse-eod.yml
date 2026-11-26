@@ -20,6 +20,9 @@ permissions:
 jobs:
   capture:
     runs-on: ubuntu-latest
+    env:
+      EOD_DATE: ${{ inputs.business_date || '2026-11-19' }}
+      EOD_SYMBOL: ${{ inputs.symbol || 'RHGCL' }}
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
@@ -35,8 +38,8 @@ jobs:
       - name: Capture exact official EOD response pages
         run: |
           python tools/capture_nepse_official_eod.py \
-            --date "${{ inputs.business_date }}" \
-            --symbol "${{ inputs.symbol }}" \
+            --date "$EOD_DATE" \
+            --symbol "$EOD_SYMBOL" \
             --output-dir evidence/nepse-official-eod
       - name: Validate target symbol/date row
         run: |
@@ -60,7 +63,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: nepse-official-eod-${{ inputs.symbol }}-${{ inputs.business_date }}
+          name: nepse-official-eod-$EOD_SYMBOL-$EOD_DATE
           path: evidence/nepse-official-eod/
           if-no-files-found: warn
           retention-days: 90

@@ -23,12 +23,12 @@ python tools/validate_nepse_eod_capture.py \
   --payload evidence/nepse_eod_2026-11-19.json \
   --symbol RHGCL \
   --date 2026-11-19 \
-  --source-url 'https://www.nepalstock.com/<exact-eod-endpoint>' \
+  --source-url 'https://www.nepalstock.com/api/nots/nepse-data/today-price?size=500&page=0&businessDate=2026-11-19' \\
   --retrieved-at '2026-11-26T10:00:00+05:45' \
   --output evidence/validated/RHGCL_2026-11-19.json
 ```
 
-The URL above is a placeholder path: operators must record the exact endpoint used for the actual capture. Do not invent an endpoint or claim that a capture exists because the validator passes synthetic tests.
+The enforced path is `/api/nots/nepse-data/today-price`, identified in the NEPSE capture client's EOD request implementation. The query's `businessDate` must exactly match the requested exchange date. Operators must still preserve the actual request URL and unmodified response bytes; passing synthetic tests does not establish that a real capture exists.
 
 ## Current RHGCL state
 

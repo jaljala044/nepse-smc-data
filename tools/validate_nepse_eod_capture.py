@@ -11,7 +11,7 @@ import json
 from datetime import date, datetime
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import parse_qs, urlparse
 
 OFFICIAL_HOSTS = {"www.nepalstock.com", "nepalstock.com", "www.nepalstock.com.np", "nepalstock.com.np"}
 REQUIRED = (
@@ -55,14 +55,20 @@ def _retrieved_at(value):
     return result
 
 
-def _check_official_url(value):
+def _check_official_url(value, expected_date):
     parsed = urlparse(value)
     if parsed.scheme != "https" or parsed.hostname not in OFFICIAL_HOSTS:
         raise EvidenceError("source_url must use HTTPS on an official NEPSE host")
+    if parsed.path.rstrip("/") != "/api/nots/nepse-data/today-price":
+        raise EvidenceError("source_url path must be the official NEPSE today-price EOD endpoint")
+    query = parse_qs(parsed.query)
+    if query.get("businessDate") != [expected_date.isoformat()]:
+        raise EvidenceError("source_url businessDate must exactly match the expected exchange date")
 
 
 def validate_capture(payload_bytes, expected_symbol, expected_date, source_url, retrieved_at, raw_payload_file):
-    _check_official_url(source_url)
+    expected_day = date.fromisoformat(expected_date)
+    _check_official_url(source_url, expected_day)
     captured_at = _retrieved_at(retrieved_at)
     try:
         payload = json.loads(payload_bytes.decode("utf-8"))
@@ -72,8 +78,17 @@ def validate_capture(payload_bytes, expected_symbol, expected_date, source_url, 
     if not isinstance(payload, dict) or not isinstance(payload.get("content"), list):
         raise EvidenceError("expected NEPSE EOD response object with a content array")
 
+    try:
+        total_elements = int(payload["totalElements"])
+        total_pages = int(payload["totalPages"])
+    except (KeyError, TypeError, ValueError) as exc:
+        raise EvidenceError("official EOD response must include integer totalElements and totalPages metadata") from exc
+    if total_elements < len(payload["content"]) or total_pages < 1:
+        raise EvidenceError("invalid EOD pagination metadata")
+    if total_elements < 1:
+        raise EvidenceError("official EOD response contains no records")
+
     symbol = expected_symbol.strip().upper()
-    expected_day = date.fromisoformat(expected_date)
     matches = [
         row for row in payload["content"]
         if isinstance(row, dict)
@@ -84,6 +99,13 @@ def validate_capture(payload_bytes, expected_symbol, expected_date, source_url, 
         raise EvidenceError(f"expected exactly one {symbol} row for {expected_day}; found {len(matches)}")
 
     row = matches[0]
+    try:
+        security_id = int(row["securityId"])
+    except (KeyError, TypeError, ValueError) as exc:
+        raise EvidenceError("securityId must be a positive integer") from exc
+    if security_id <= 0:
+        raise EvidenceError("securityId must be a positive integer")
+
     missing = [field for field in REQUIRED if field not in row or row[field] is None]
     if missing:
         raise EvidenceError(f"official row missing required fields: {', '.join(missing)}")
@@ -124,6 +146,12 @@ def validate_capture(payload_bytes, expected_symbol, expected_date, source_url, 
         "business_date": expected_day.isoformat(),
         "source_url": source_url,
         "retrieved_at": captured_at.isoformat(),
+        "response_metadata": {
+            "total_elements": total_elements,
+            "total_pages": total_pages,
+            "page": payload.get("number"),
+            "page_size": payload.get("size"),
+        },
         "raw_payload_file": str(raw_payload_file),
         "raw_payload_sha256": hashlib.sha256(payload_bytes).hexdigest(),
         "row": normalized,

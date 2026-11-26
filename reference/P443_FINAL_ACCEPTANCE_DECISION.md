@@ -5,10 +5,12 @@ Audit scope: pinned base 56362fb4f65b91fdcca8f50b50e53ad80e703649. Audit investi
 ## Verified execution
 - Run 125 (45895296361) completed successfully.
 - Runs 143 (45896041494) and 145 (45896124933) passed the scanner quarantine and pinned cross-repository contract stages. Backend pin e5790632d293a477cc930a25649f39f8829cbf05.
-- The 26 scanner test methods are fixture/contract tests, not independent historical trade validation or full strategy replay.
-- Integer-volume and blocked fingerprint corrections committed at 4b14fd4515fd2c03f597e8649983b0d6ebb5496d; fractional-volume regression at f9df78f1f0bd8631d19d3c7f669873b2d05170fd. Latest execution not yet verified.
+- Run 149 (45896232001) exposed a test-fixture typo in the expected Git blob SHA; the production quarantine fingerprint was correct. The fixture was corrected.
+- **Run 151 (45896380619) passed all stages** on head `d0d12c5a87a436a86afb5d24e657a40c7c7f5f5b`: inventory, standard scan, strict tests, scanner quarantine tests, pinned backend contract tests, strict pinned-byte audit, exception join, pair-calendar triage, disjoint queues, row-hold tests, authenticated holiday reconciliation, and artifact preservation.
+- The 23 scanner quarantine test methods and cross-repository contract tests are fixture/contract tests, not independent historical trade validation or full strategy replay.
 
 ## Audit evidence
+- The two unmatched equity-register rows (KDBY 2026-04-29 and KEF 2026-04-28) are classified by the pinned official security master as investment-fund instruments (Kumari Dhanabriddhi Yojana and Kumari Equity Fund), not ordinary equity securities. They remain quarantined from the equity candle universe; this is an instrument-class disposition, not price validation.
 Six P443_*_RECONCILIATION.json reports preserve initial classifications. Use the latest successful strict audit and pair-level/holiday review artifacts for authoritative current counts; older aggregate reports are snapshots, not replacement data. Preserve raw records. No invented contract IDs, dates or prices.
 
 ## Outstanding acceptance gates

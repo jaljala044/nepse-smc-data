@@ -14,6 +14,7 @@ on:
       - 'tools/validate_historical_floorsheets.py'
       - 'tools/tests/test_validate_historical_floorsheets.py'
       - 'reference/p419_observed_date_floorsheet_archive_inventory_2026-11-26.csv'
+      - 'reference/p420_226_historical_floorsheet_validation_contract_2026-11-26.md'
       - 'reference/floorsheet_source_verification_2026-11-20.json'
       - 'reference/p417_281_equity_observed_session_archive_gap_audit_2026-11-26.md'
       - 'tools/reconcile_nov20_independent_floorsheet.py'
@@ -144,6 +145,7 @@ jobs:
             --universe reference/p410_stage1_coverage_matrix_2026-11-26.csv \
             --ohlcv-dir starter/03_stock_charts_ohlcv \
             --output-dir audit-output/p420 \
+            --independent-verification-json reference/floorsheet_source_verification_2026-11-20.json \
             --download-workers 8
       - uses: actions/upload-artifact@v4
         if: always()

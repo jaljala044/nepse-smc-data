@@ -1,0 +1,217 @@
+#!/usr/bin/env python3
+"""Capture pinned ShareSansar daily-market CSVs for P4.38 secondary triangulation."""
+import csv
+import hashlib
+import io
+import json
+import urllib.request
+from decimal import Decimal, InvalidOperation
+from datetime import datetime, timezone
+from pathlib import Path
+
+UPSTREAM_REPO = "OmitNomis/ShareSansarScraper"
+UPSTREAM_COMMIT = "524442d518d2f2705ade0680c9d2e3f90738e3d6"
+BASE = f"https://raw.githubusercontent.com/{UPSTREAM_REPO}/{UPSTREAM_COMMIT}/"
+
+FILES = [
+    {"name": "README.md", "path": "README.md", "size_bytes": 6688, "git_blob_sha": "4c8da344a80c284572e32a702094008c444856da", "kind": "readme"},
+    {"name": "2024_05_16.csv", "path": "docs/Data/2024_05_16.csv", "size_bytes": 45048, "git_blob_sha": "13c32e676ee615da6e0534d35eae2938f615d9e2", "kind": "daily", "date": "2024-05-16", "expected_rows": 315, "target_symbol": "NMLBBL", "target_role": "prior"},
+    {"name": "2024_05_19.csv", "path": "docs/Data/2024_05_19.csv", "size_bytes": 46196, "git_blob_sha": "764b0e048b48a5716998c52e6ca370d3959436e5", "kind": "daily", "date": "2024-05-19", "expected_rows": 323, "target_symbol": "NMLBBL", "target_role": "candidate"},
+    {"name": "2024_08_14.csv", "path": "docs/Data/2024_08_14.csv", "size_bytes": 49567, "git_blob_sha": "d80ed95cd98e6abc3ddc6c2c85485f060d3442fc", "kind": "daily", "date": "2024-08-14", "expected_rows": 332, "target_symbol": "SMPDA", "target_role": "prior"},
+    {"name": "2024_08_18.csv", "path": "docs/Data/2024_08_18.csv", "size_bytes": 49725, "git_blob_sha": "3838b8175e0fda6015a753d1145838150c2fbdf8", "kind": "daily", "date": "2024-08-18", "expected_rows": 330, "target_symbol": "SMPDA", "target_role": "candidate"},
+]
+
+HISTORY_FILES = [
+    {"name": "NMLBBL_history.json", "path": "docs/api/history/NMLBBL.json", "size_bytes": 57596, "git_blob_sha": "fa727fd59f34e06eae74039e55988969dea4ae1e", "symbol": "NMLBBL", "expected_first_date": "2024-05-19"},
+    {"name": "SMPDA_history.json", "path": "docs/api/history/SMPDA.json", "size_bytes": 51467, "git_blob_sha": "7f54e6fa59d3f914a0d83472c0ff5ad04691be0b", "symbol": "SMPDA", "expected_first_date": "2024-08-18"},
+]
+
+EXPECTED = {
+    ("NMLBBL", "2024-05-19"): {"open": "599.60", "high": "646.60", "low": "599.60", "close": "646.60", "volume": "864", "turnover": "557461.60", "transactions": 15, "floorsheet_rows": 15},
+    ("SMPDA", "2024-08-18"): {"open": "1078.10", "high": "1162.70", "low": "1078.10", "close": "1162.70", "volume": "5314", "turnover": "6175193.80", "transactions": 192, "floorsheet_rows": 192},
+}
+
+def git_blob_sha(data):
+    return hashlib.sha1(f"blob {len(data)}\0".encode("ascii") + data).hexdigest()
+
+def fetch(url):
+    request = urllib.request.Request(url, headers={"User-Agent": "NEPSE-P438-SecondaryEvidenceAudit/1.0"})
+    with urllib.request.urlopen(request, timeout=35) as response:
+        return response.status, response.read()
+
+def dec(value):
+    if value is None:
+        return None
+    value = str(value).strip().replace(",", "")
+    if value in ("", "-"):
+        return None
+    try:
+        return Decimal(value)
+    except InvalidOperation:
+        return None
+
+def audit_csv(raw, record):
+    text = raw.decode("utf-8-sig")
+    reader = csv.DictReader(io.StringIO(text))
+    header = reader.fieldnames or []
+    rows = list(reader)
+    symbols = [str(row.get("Symbol", "")).strip().upper() for row in rows]
+    serials = [int(row["S.No"]) for row in rows if str(row.get("S.No", "")).isdigit()]
+    duplicate_symbols = sorted({symbol for symbol in symbols if symbols.count(symbol) > 1})
+    target_symbol = record["target_symbol"]
+    matches = [row for row in rows if str(row.get("Symbol", "")).strip().upper() == target_symbol]
+    target_row = matches[0] if len(matches) == 1 else None
+    normalized = None
+    if target_row:
+        transaction_value = str(target_row.get("Trans.", "")).strip()
+        normalized = {
+            "symbol": target_symbol,
+            "open": str(dec(target_row.get("Open"))),
+            "high": str(dec(target_row.get("High"))),
+            "low": str(dec(target_row.get("Low"))),
+            "close": str(dec(target_row.get("Close"))),
+            "volume": str(dec(target_row.get("Vol"))),
+            "turnover": str(dec(target_row.get("Turnover"))),
+            "transactions": int(transaction_value) if transaction_value.isdigit() else None,
+            "source_row": target_row,
+        }
+    expected = EXPECTED.get((target_symbol, record["date"]))
+    parity = {}
+    if expected and normalized:
+        for key in ("open", "high", "low", "close", "volume", "turnover"):
+            parity[key] = dec(normalized[key]) == dec(expected[key])
+        parity["transactions"] = normalized["transactions"] == expected["transactions"]
+        parity["floorsheet_row_count"] = normalized["transactions"] == expected["floorsheet_rows"]
+    return {
+        "date": record["date"],
+        "target_symbol": target_symbol,
+        "target_role": record["target_role"],
+        "header": header,
+        "row_count": len(rows),
+        "expected_row_count": record["expected_rows"],
+        "row_count_matches": len(rows) == record["expected_rows"],
+        "symbol_count": len(set(symbols)),
+        "duplicate_symbols": duplicate_symbols,
+        "serial_sequence_valid": serials == list(range(1, len(rows) + 1)),
+        "target_row_count": len(matches),
+        "target_row": normalized,
+        "target_absent_in_secondary_table": len(matches) == 0,
+        "expected_candidate_parity": parity,
+        "candidate_fields_match": bool(parity) and all(parity.values()),
+    }
+
+def audit_history_json(raw, record):
+    obj = json.loads(raw.decode("utf-8"))
+    columns = obj.get("cols", [])
+    rows = obj.get("rows", [])
+    date_index = columns.index("d") if "d" in columns else None
+    dates = [str(row[date_index])[:10] for row in rows if date_index is not None and len(row) > date_index]
+    return {
+        "symbol": record["symbol"],
+        "row_count": len(rows),
+        "first_date": min(dates) if dates else None,
+        "last_date": max(dates) if dates else None,
+        "expected_first_date": record["expected_first_date"],
+        "first_date_matches_candidate": bool(dates) and min(dates) == record["expected_first_date"],
+        "derived_from_daily_csv_archive": True,
+    }
+
+def capture(output_dir, fetcher=fetch, retrieved_at=None):
+    output = Path(output_dir)
+    output.mkdir(parents=True, exist_ok=True)
+    timestamp = retrieved_at or datetime.now(timezone.utc).isoformat()
+    files = []
+    daily_results = []
+    history_results = []
+    readme_text = ""
+
+    for record in FILES:
+        url = BASE + record["path"]
+        try:
+            status, raw = fetcher(url)
+            item = {
+                "name": record["name"], "path": record["path"], "url": url, "http_status": status,
+                "response_bytes": len(raw), "expected_bytes": record["size_bytes"],
+                "git_blob_sha": git_blob_sha(raw), "expected_git_blob_sha": record["git_blob_sha"],
+                "sha256": hashlib.sha256(raw).hexdigest(),
+            }
+            item["size_matches"] = len(raw) == record["size_bytes"]
+            item["git_blob_matches"] = item["git_blob_sha"] == record["git_blob_sha"]
+            (output / record["name"]).write_bytes(raw)
+            item["filename"] = record["name"]
+            if status != 200 or not item["size_matches"] or not item["git_blob_matches"]:
+                item["status"] = "SOURCE_INTEGRITY_FAILURE"
+            else:
+                item["status"] = "CAPTURED"
+                if record["kind"] == "readme":
+                    readme_text = raw.decode("utf-8", "replace")
+                    item["source_policy_markers"] = {
+                        "scrapes_sharesansar_today_price": "ShareSansar today's-share-price page" in readme_text,
+                        "skips_market_closed_days": "market was closed" in readme_text,
+                        "archive_since_march_2024": "March 2024" in readme_text,
+                    }
+                else:
+                    audit = audit_csv(raw, record)
+                    item["audit"] = audit
+                    daily_results.append(audit)
+            files.append(item)
+        except Exception as exc:
+            files.append({"name": record["name"], "path": record["path"], "url": url, "status": "FETCH_FAILED", "error": f"{type(exc).__name__}: {exc}"})
+
+    for record in HISTORY_FILES:
+        url = BASE + record["path"]
+        try:
+            status, raw = fetcher(url)
+            item = {
+                "name": record["name"], "path": record["path"], "url": url, "http_status": status,
+                "response_bytes": len(raw), "expected_bytes": record["size_bytes"],
+                "git_blob_sha": git_blob_sha(raw), "expected_git_blob_sha": record["git_blob_sha"],
+                "sha256": hashlib.sha256(raw).hexdigest(),
+            }
+            item["size_matches"] = len(raw) == record["size_bytes"]
+            item["git_blob_matches"] = item["git_blob_sha"] == record["git_blob_sha"]
+            (output / record["name"]).write_bytes(raw)
+            item["filename"] = record["name"]
+            if status == 200 and item["size_matches"] and item["git_blob_matches"]:
+                item["status"] = "CAPTURED"
+                item["history_audit"] = audit_history_json(raw, record)
+                history_results.append(item["history_audit"])
+            else:
+                item["status"] = "SOURCE_INTEGRITY_FAILURE"
+            files.append(item)
+        except Exception as exc:
+            files.append({"name": record["name"], "path": record["path"], "url": url, "status": "FETCH_FAILED", "error": f"{type(exc).__name__}: {exc}"})
+
+    source_policy_ok = bool(readme_text) and "ShareSansar today's-share-price page" in readme_text and "market was closed" in readme_text
+    candidate_checks = [item for item in daily_results if item["target_role"] == "candidate"]
+    prior_checks = [item for item in daily_results if item["target_role"] == "prior"]
+    result = {
+        "task": "P4.38",
+        "source_tier": "SECONDARY_PROVIDER_ARCHIVE",
+        "provider": "ShareSansar daily share-price page, archived by OmitNomis/ShareSansarScraper",
+        "upstream_repo": UPSTREAM_REPO,
+        "upstream_commit": UPSTREAM_COMMIT,
+        "retrieved_at_utc": timestamp,
+        "source_capture_policy_verified": source_policy_ok,
+        "source_policy": "The pinned README states that a Scrapy job captures ShareSansar's daily share-price table and skips days when the market is closed. This is provider-level secondary evidence, not NEPSE primary evidence.",
+        "files": files,
+        "daily_results": daily_results,
+        "derived_history_index": history_results,
+        "summary": {
+            "all_source_files_integrity_verified": len(files) == 7 and all(item.get("status") == "CAPTURED" for item in files),
+            "candidate_rows_match_historical_floorsheet": len(candidate_checks) == 2 and all(item["candidate_fields_match"] for item in candidate_checks),
+            "both_prior_tables_contain_other_market_rows": len(prior_checks) == 2 and all(item["row_count"] > 0 for item in prior_checks),
+            "both_target_symbols_absent_on_prior_dates": len(prior_checks) == 2 and all(item["target_absent_in_secondary_table"] for item in prior_checks),
+            "candidate_transaction_counts_match_floorsheet_rows": len(candidate_checks) == 2 and all(item["expected_candidate_parity"].get("floorsheet_row_count") for item in candidate_checks),
+            "derived_history_first_dates_match_candidates": len(history_results) == 2 and all(item["first_date_matches_candidate"] for item in history_results),
+        },
+        "disposition": "Secondary corroboration only. Missing target rows on prior dates are not promoted to primary NO_TRADE. No canonical OHLCV or lifecycle valid_from is changed.",
+    }
+    (output / "capture_report.json").write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    return result
+
+if __name__ == "__main__":
+    report = capture("reference/p438_sharesansar_daily_csv")
+    print(json.dumps(report["summary"], indent=2))
+    for item in report["daily_results"]:
+        print(item["date"], item["target_symbol"], "rows=", item["row_count"], "target_rows=", item["target_row_count"], "candidate_match=", item["candidate_fields_match"])

@@ -1,8 +1,8 @@
 {
   "task": "Historical exception resolution: canonical equity hold policy",
   "evidence": {
-    "run": 45898089926,
-    "verified_commit": "bee8e164e8e9866baddbde557890b90fb953e7b0",
+    "run": 45898354789,
+    "verified_commit": "d6c43d84ea1d98f32e7ae8074e2ad15a2a119530",
     "pinned_source": "56362fb4f65b91fdcca8f50b50e53ad80e703649"
   },
   "queues": [
@@ -140,5 +140,18 @@
     "p2_session_and_execution_dates": 68773,
     "promoted": 0,
     "status": "EVIDENCE_ACQUISITION_QUEUE_ONLY"
+  },
+  "unl_secondary_source_recheck": {
+    "rows": 3,
+    "dates": [
+      "2026-08-24",
+      "2026-08-27",
+      "2026-09-28"
+    ],
+    "source_type": "secondary_aggregators",
+    "source_lineage_independence": "UNKNOWN",
+    "contract_verified": false,
+    "promoted": 0,
+    "note": "OHLCV/volume fields matched secondary pages; no exchange contract IDs or authoritative transaction evidence established."
   }
 }

@@ -23,6 +23,10 @@ Scope: common equities only. NICEF/mutual funds are excluded. Raw OHLCV is prese
 - Adjacent repeats are not automatically treated as executed trades or definitively labelled forward-filled without date-level/source validation.
 - No raw OHLCV files were changed.
 
+## Repeated-row quality flag pilot
+
+A date-level adjacent-identical-OHLCV overlay has been added to branch [derived/ohlcv-v1](https://github.com/jaljala044/nepse-smc-data/tree/derived/ohlcv-v1/derived/ohlcv_v1/quality_flags), commit `e532fff6c03ad3670079d20b362a730092c35d8d`. It covers the first 14 of 281 symbols and records 3,288 adjacent-repeat rows: 688 weekly-closed-day candidates, 187 weekly-open-weekday repeats, and 2,413 rows outside the currently supported calendar-regime evidence window. This is explicitly a pilot; no OHLCV rows were removed or changed. [Pilot README](https://github.com/jaljala044/nepse-smc-data/blob/derived/ohlcv-v1/derived/ohlcv_v1/quality_flags/README.md).
+
 ## Remaining work after this queue
 
 1. Apply the source-supported RHGCL 2026-11-19 value only in a separately versioned derived dataset; keep both raw versions. [RHGCL reconciliation](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/RHGCL_2026-11-19_source_reconciliation_2026-11-26.md) · [Candidate register](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/ohlcv_derived_correction_candidates_2026-11-26.csv).

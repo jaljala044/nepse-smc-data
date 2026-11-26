@@ -1,0 +1,11 @@
+{
+  "source": "ShareSansarScraper historical daily CSV",
+  "repository": "OmitNomis/ShareSansarScraper",
+  "commit": "524442d518d2f2705ade0680c9d2e3f90738e3d6",
+  "path": "docs/Data/2025_07_28.csv",
+  "git_blob_sha": "28b5edf90ea5ebfe7e419c5162eedd0f30a9ce82",
+  "date": "2025-07-28",
+  "archive_total_rows": 320,
+  "target_symbols": 86,
+  "provenance_note": "Repository README states the archive scrapes ShareSansar's daily share-price page and commits date-stamped CSVs. This is an independent secondary publication, not direct NEPSE exchange data."
+}

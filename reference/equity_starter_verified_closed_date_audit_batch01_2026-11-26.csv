@@ -1,0 +1,6 @@
+symbol,rows,verified_closed_date_rows,closed_date_adjacent_repeat_rows,outside_calendar_rows,verified_open_observed_date_rows,other_calendar_status_rows,source_blob_sha
+ACLBSL,934,81,79,630,222,1,7eb1a2c7ae261db2aecc2ea9555ab7a026fb3d27
+ADBL,935,81,79,631,222,1,179531d7d3060e758be651a1c6ac63d3ae682eec
+AHL,936,81,79,631,223,1,849d48c09dc376d5ea4872dc980358a2b90d4e13
+AHPC,936,81,79,631,223,1,003a8c1d99a573cd5ffaf96c17100dbc6251a194
+AKJCL,936,81,79,631,223,1,1d9e25da110be52dc7522cded1db4efe31c1b03b

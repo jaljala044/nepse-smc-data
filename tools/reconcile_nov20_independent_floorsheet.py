@@ -158,6 +158,46 @@ def summarize(rows: list[dict[str, Any]], source: str) -> tuple[dict, Counter]:
     return meta, keys
 
 
+def compare_core(left: Counter, right: Counter) -> dict:
+    """Compare trade identity without amount, then quantify rounded amount drift."""
+    l_by_core = defaultdict(list)
+    r_by_core = defaultdict(list)
+    for key, count in left.items():
+        l_by_core[key[:-1]].extend([key[-1]] * count)
+    for key, count in right.items():
+        r_by_core[key[:-1]].extend([key[-1]] * count)
+    matched = 0
+    deltas = []
+    left_only = 0
+    right_only = 0
+    for core in set(l_by_core) | set(r_by_core):
+        la = sorted(l_by_core.get(core, []))
+        ra = sorted(r_by_core.get(core, []))
+        n = min(len(la), len(ra))
+        matched += n
+        deltas.extend(abs(la[i] - ra[i]) for i in range(n))
+        left_only += max(len(la) - len(ra), 0)
+        right_only += max(len(ra) - len(la), 0)
+    bands = {"exact": 0, "le_1_npr": 0, "le_10_npr": 0, "le_100_npr": 0, "gt_100_npr": 0}
+    for delta in deltas:
+        if delta == 0:
+            bands["exact"] += 1
+        elif delta <= Decimal("1"):
+            bands["le_1_npr"] += 1
+        elif delta <= Decimal("10"):
+            bands["le_10_npr"] += 1
+        elif delta <= Decimal("100"):
+            bands["le_100_npr"] += 1
+        else:
+            bands["gt_100_npr"] += 1
+    return {
+        "matched_trade_identity_rows_excluding_amount": matched,
+        "left_only_trade_identity_rows": left_only,
+        "right_only_trade_identity_rows": right_only,
+        "amount_delta_bands_npr": bands,
+    }
+
+
 def compare(left: Counter, right: Counter) -> dict:
     common = left & right
     left_only = left - right
@@ -200,7 +240,9 @@ def main() -> None:
         "comparisons": {
             "pipeline_vs_socrateai": compare(counters["independent_nepse_pipeline_parquet"], counters["socrateai_full_session_csv"]),
             "pipeline_vs_local_500": compare(counters["independent_nepse_pipeline_parquet"], counters["local_500_row_extract"]),
+            "pipeline_vs_local_500_identity_without_amount": compare_core(counters["independent_nepse_pipeline_parquet"], counters["local_500_row_extract"]),
             "socrateai_vs_local_500": compare(counters["socrateai_full_session_csv"], counters["local_500_row_extract"]),
+            "socrateai_vs_local_500_identity_without_amount": compare_core(counters["socrateai_full_session_csv"], counters["local_500_row_extract"]),
         },
         "gates": {
             "pipeline_and_candidate_same_date": summaries["independent_nepse_pipeline_parquet"]["date_counts"] == {DATE: summaries["independent_nepse_pipeline_parquet"]["rows"]} and summaries["socrateai_full_session_csv"]["date_counts"] == {DATE: summaries["socrateai_full_session_csv"]["rows"]},

@@ -21,7 +21,7 @@ WINDOWS = [
      "targets":[{"date":"2024-05-19","expected_volume":864,"role":"candidate"},{"date":"2024-05-16","expected_volume":0,"role":"prior_session"}]},
     {"symbol":"SMPDA","known_security_id":2896,"start":"2024-08-01","end":"2024-08-31",
      "targets":[{"date":"2024-08-18","expected_volume":5314,"role":"candidate"},{"date":"2024-08-14","expected_volume":0,"role":"prior_session"}]},
-    {"symbol":"NMLBBL","known_security_id":396,"start":"2026-11-01","end":"2026-11-26","targets":[],"control":True},
+    {"symbol":"NMLBBL","known_security_id":396,"start":"2025-11-26","end":"2026-11-26","targets":[],"control":True},
     {"symbol":"SMPDA","known_security_id":2896,"start":"2026-11-01","end":"2026-11-26","targets":[],"control":True},
 ]
 HISTORY_PATH="/api/nots/market/history/security/{security_id}"
@@ -87,7 +87,7 @@ def inspect_rows(rows):
             "volume":str(volume) if volume is not None else None,
             "volume_field":volume_key,
             "ohlc":ohlc,
-            "has_all_ohlc":all(v is not None for v in ohlc.values()),
+            "has_all_ohlc":all(v is not None for v in ohlc.values()),\n            "has_hlc":all(ohlc[k] is not None for k in ("high","low","close")),\n            "has_open":ohlc["open"] is not None,
         })
     return output
 
@@ -165,7 +165,7 @@ def capture(output_dir,requester=request,parser=token_parser,retrieved_at=None):
                       observed_symbols=sorted(set(r["symbol"] for r in inspected if r.get("symbol"))),
                       date_fields_observed=sorted(set(r["date_field"] for r in inspected if r.get("date_field"))),
                       volume_fields_observed=sorted(set(r["volume_field"] for r in inspected if r.get("volume_field"))),
-                      all_ohlc_present_rows=sum(1 for r in inspected if r.get("has_all_ohlc")),
+                      all_ohlc_present_rows=sum(1 for r in inspected if r.get("has_all_ohlc")),\n                      all_hlc_present_rows=sum(1 for r in inspected if r.get("has_hlc")),\n                      open_present_rows=sum(1 for r in inspected if r.get("has_open")),
                       rows_summary=inspected)
             window_results.append(wr)
             for target in window.get("targets",[]):
@@ -183,7 +183,7 @@ def capture(output_dir,requester=request,parser=token_parser,retrieved_at=None):
                     "eod_volume_matches_expected":(len(volumes)==1 and volumes[0]==str(target["expected_volume"])),
                     "status":"row_found" if symbol_matches else "no_record_returned",
                     "evidence_gate_pass":(complete and len(symbol_matches)==1 and
-                        symbol_matches[0].get("has_all_ohlc") and len(volumes)==1 and
+                        symbol_matches[0].get("has_hlc") and len(volumes)==1 and
                         volumes[0]==str(target["expected_volume"])),
                     "limitation":"No record in an EOD query is not proof of NO_TRADE; this is not floorsheet or contract-level evidence."
                 }

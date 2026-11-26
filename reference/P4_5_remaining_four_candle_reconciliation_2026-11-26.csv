@@ -1,0 +1,5 @@
+symbol,external_date,matching_raw_date,open,high,low,close,volume,turnover,status,raw_blob_sha,external_blob_sha,source_url
+SABBL,2026-03-01,2026-03-02,578.8,642.9,578.8,642.9,690,441531,EXACT_DATE_SHIFT_CANDIDATE,0f9479983bf022f003173f4bbfbd35e3da873ddc,01e623aa2cebc5a47532e7f11da1283bb4d8865e,https://github.com/srijankarki07/nepse-data/blob/main/data/series/SABBL.csv
+RSML,2026-03-01,2026-03-02,561.9,624.2,561.9,624.2,110,66647,EXACT_DATE_SHIFT_CANDIDATE,a4feea3c57ced51e4924b84b8daa433f85c24efc,6899cf418af3104514ec81098cbceb382aba8a99,https://github.com/srijankarki07/nepse-data/blob/main/data/series/RSML.csv
+SKHEL,2026-04-27,,1635,1633.5,1563,1570,18600,29584808,QUARANTINE_OPEN_ABOVE_HIGH,0f53a515bab018fd106385aa53736ee8f7c8920c,2c65c47ddb785e957acf1f3024bfe58c521fd61e,https://github.com/srijankarki07/nepse-data/blob/main/data/series/SKHEL.csv
+SABBL,2026-04-29,,1429,1410,1355,1366,37096,51384151.8,QUARANTINE_OPEN_ABOVE_HIGH,0f9479983bf022f003173f4bbfbd35e3da873ddc,01e623aa2cebc5a47532e7f11da1283bb4d8865e,https://github.com/srijankarki07/nepse-data/blob/main/data/series/SABBL.csv

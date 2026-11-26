@@ -71,4 +71,28 @@ class P435AuthenticatedFloorsheetTests(unittest.TestCase):
             result=capture(tmp,fake,lambda obj,path:("A","R"),"2026-11-26T00:00:00Z")
             self.assertFalse(result["floor_results"][0]["evidence_gate_pass"])
 
+    def test_403_retries_utc_day_and_uses_source_clients_page_zero_shape(self):
+        from datetime import datetime, timezone
+        server_time=int(datetime(2026,11,26,18,30,tzinfo=timezone.utc).timestamp()*1000)
+        token={"accessToken":"A","refreshToken":"R","salt1":10,"salt2":20,"salt3":30,"salt4":40,"salt5":50,"serverTime":server_time}
+        post_calls=[]
+        def fake(method,url,body=None,headers=None):
+            if url.endswith("/api/authenticate/prove"):return 200,{},json.dumps(token).encode()
+            if url.endswith("/api/nots/nepse-data/market-open"):return 200,{},b'{"id":5}'
+            if "/api/nots/security?" in url:return 200,{},b'[{"id":100,"symbol":"NMLBBL"},{"id":200,"symbol":"SMPDA"}]'
+            if method=="POST":
+                post_calls.append((url,body))
+                if len(post_calls)%2==1:return 403,{"Content-Type":"text/html"},b"forbidden"
+                date=parse_qs(urlparse(url).query)["businessDate"][0]
+                qty={"2024-05-19":864,"2024-05-16":0,"2024-08-18":5314,"2024-08-14":0}[date]
+                content=[] if qty==0 else [{"contractId":date.replace("-",""),"businessDate":date,"contractQuantity":qty,"contractRate":100,"contractAmount":qty*100}]
+                return 200,{},json.dumps({"floorsheets":{"content":content,"totalElements":len(content),"totalPages":1 if content else 0}}).encode()
+            raise AssertionError(url)
+        with tempfile.TemporaryDirectory() as tmp:
+            result=capture(tmp,fake,lambda obj,path:("A","R"),"2026-11-26T00:00:00Z")
+        self.assertEqual(len(post_calls),8)
+        self.assertTrue(all("page=0" not in url for url,_ in post_calls))
+        self.assertTrue(all("id" in body for _,body in post_calls))
+        self.assertEqual(result["floor_results"][0]["pages"][0]["payload_day_used"],26)
+
 if __name__=="__main__":unittest.main()

@@ -30,3 +30,5 @@ jobs:
         run: |
           cd tools
           python -m unittest discover -s tests -p 'test_validate_nepse_holiday_capture_index.py' -v
+
+# CI validates immutable references and preserves the unverified 616-session boundary.

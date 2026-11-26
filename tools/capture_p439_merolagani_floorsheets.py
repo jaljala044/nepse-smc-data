@@ -11,7 +11,7 @@ from pathlib import Path
 import httpx
 from bs4 import BeautifulSoup
 
-BASE_URL="https://www.eng.merolagani.com/Floorsheet.aspx"
+BASE_URL="https://merolagani.com/Floorsheet.aspx"
 UPSTREAM_IMPLEMENTATION_REPO="vuwon/NEPSEAPI"
 UPSTREAM_IMPLEMENTATION_COMMIT="ae8c1ded3007d8105be6ba987734994ea7f56eac"
 DATE_FIELD="ctl00$ContentPlaceHolder1$txtFloorsheetDateFilter"

@@ -15,25 +15,33 @@ class P437CrossSectorDateAuditTests(unittest.TestCase):
         self.assertEqual(len(result["sector_counts"]),12)
         self.assertTrue(all(n==2 for n in result["sector_counts"].values()))
 
-    def test_nepse_weekend_classification_uses_friday_saturday(self):
+    def test_nepse_weekend_classification_respects_2026_regime_change(self):
+        self.assertEqual(weekday_class("2026-04-03"),"friday")
+        self.assertEqual(weekday_class("2026-04-04"),"saturday")
+        self.assertEqual(weekday_class("2026-04-05"),"trading_weekday")
+        self.assertEqual(weekday_class("2026-04-06"),"trading_weekday")
+        self.assertEqual(weekday_class("2026-04-10"),"trading_weekday")
+        self.assertEqual(weekday_class("2026-04-11"),"saturday")
+        self.assertEqual(weekday_class("2026-04-12"),"sunday")
         self.assertEqual(weekday_class("2026-11-26"),"trading_weekday")
-        self.assertEqual(weekday_class("2026-11-27"),"friday")
+        self.assertEqual(weekday_class("2026-11-27"),"trading_weekday")
         self.assertEqual(weekday_class("2026-11-28"),"saturday")
-        self.assertEqual(weekday_class("2026-11-29"),"trading_weekday")
+        self.assertEqual(weekday_class("2026-11-29"),"sunday")
 
     def test_row_summary_flags_duplicate_dates_weekends_and_missing_fields(self):
         rows=[
             {"businessDate":"2026-11-26","highPrice":10,"lowPrice":8,"closePrice":9,"totalTradedQuantity":100},
             {"businessDate":"2026-11-27","highPrice":10,"lowPrice":8,"closePrice":9,"totalTradedQuantity":100},
+            {"businessDate":"2026-11-28","highPrice":10,"lowPrice":8,"closePrice":9,"totalTradedQuantity":100},
             {"businessDate":"2026-11-26","highPrice":10,"lowPrice":8,"closePrice":9,"totalTradedQuantity":100},
             {"businessDate":"2026-11-30","highPrice":None,"lowPrice":8,"closePrice":9},
         ]
         result=summarize_rows(rows)
         self.assertEqual(result["duplicate_dates"],["2026-11-26"])
-        self.assertEqual(result["friday_saturday_records"],[{"date":"2026-11-27","weekday":"friday"}])
+        self.assertEqual(result["weekly_closure_records"],[{"date":"2026-11-28","weekday":"saturday"}])
         self.assertEqual(result["missing_hlc_rows"],1)
         self.assertEqual(result["missing_volume_rows"],1)
-        self.assertEqual(result["out_of_window_dates"],["2026-11-27","2026-11-30"])
+        self.assertEqual(result["out_of_window_dates"],["2026-11-27","2026-11-28","2026-11-30"])
 
     def test_capture_checks_all_security_ids_and_keeps_tokens_out(self):
         token={"accessToken":"SECRET_ACCESS","refreshToken":"SECRET_REFRESH",

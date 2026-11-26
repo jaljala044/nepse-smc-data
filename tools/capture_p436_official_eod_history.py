@@ -93,6 +93,89 @@ def inspect_rows(rows):
         })
     return output
 
+def compare_canonical(symbol, official_rows, start_date, end_date, canonical_dir="03_stock_charts_ohlcv"):
+    path=Path(canonical_dir)/f"{symbol}_OHLCV.csv"
+    if not path.exists():
+        return {"status":"canonical_file_missing","path":str(path)}
+    with path.open(newline="",encoding="utf-8-sig") as handle:
+        canonical=[row for row in csv.DictReader(handle)
+                   if start_date <= row.get("Date","") <= end_date]
+    canonical_by_date={}
+    duplicate_dates=[]
+    for row in canonical:
+        date=row.get("Date")
+        if date in canonical_by_date:
+            duplicate_dates.append(date)
+        canonical_by_date[date]=row
+    official_by_date={}
+    for row in official_rows:
+        if isinstance(row,dict):
+            date=str(row.get("businessDate",""))[:10]
+            if date:
+                official_by_date[date]=row
+    def tuple_values(row, official):
+        names=("highPrice","lowPrice","closePrice","totalTradedQuantity") if official else ("High","Low","Close","Volume")
+        values=[row.get(name) for name in names]
+        try:
+            return tuple(Decimal(str(v)) for v in values)
+        except (InvalidOperation,TypeError,ValueError):
+            return None
+    overlap=sorted(set(canonical_by_date)&set(official_by_date))
+    mismatches=[]
+    for date in overlap:
+        left=tuple_values(official_by_date[date],True)
+        right=tuple_values(canonical_by_date[date],False)
+        if left is None or right is None or left!=right:
+            mismatches.append({"date":date,"official_hlc_volume":list(map(str,left)) if left else None,
+                               "canonical_hlc_volume":list(map(str,right)) if right else None})
+    official_only=sorted(set(official_by_date)-set(canonical_by_date))
+    canonical_only=sorted(set(canonical_by_date)-set(official_by_date))
+    official_tuple_index={}
+    for date,row in official_by_date.items():
+        value=tuple_values(row,True)
+        if value is not None:
+            official_tuple_index.setdefault(value,[]).append(date)
+    offset_histogram={}
+    canonical_tuple_matches=[]
+    for date in canonical_only:
+        value=tuple_values(canonical_by_date[date],False)
+        matches=official_tuple_index.get(value,[]) if value is not None else []
+        if matches:
+            from datetime import date as date_type
+            offsets=[(date_type.fromisoformat(date)-date_type.fromisoformat(match)).days for match in matches]
+            chosen=sorted(offsets,key=lambda x:(abs(x),x))[0]
+            offset_histogram[str(chosen)]=offset_histogram.get(str(chosen),0)+1
+            canonical_tuple_matches.append({"canonical_date":date,"matched_official_date":matches[offsets.index(chosen)],
+                                            "calendar_day_offset":chosen})
+    official_only_tuple_matches=[]
+    canonical_tuple_index={}
+    for date,row in canonical_by_date.items():
+        value=tuple_values(row,False)
+        if value is not None:
+            canonical_tuple_index.setdefault(value,[]).append(date)
+    for date in official_only:
+        value=tuple_values(official_by_date[date],True)
+        matches=canonical_tuple_index.get(value,[]) if value is not None else []
+        if matches:
+            from datetime import date as date_type
+            offsets=[(date_type.fromisoformat(match)-date_type.fromisoformat(date)).days for match in matches]
+            chosen=sorted(offsets,key=lambda x:(abs(x),x))[0]
+            official_only_tuple_matches.append({"official_date":date,"matched_canonical_date":matches[offsets.index(chosen)],
+                                                "calendar_day_offset":chosen})
+    return {
+        "status":"compared","canonical_path":str(path),"canonical_rows_in_window":len(canonical),
+        "canonical_unique_dates":len(canonical_by_date),"canonical_duplicate_dates":sorted(set(duplicate_dates)),
+        "official_rows":len(official_by_date),"official_unique_dates":len(official_by_date),
+        "exact_date_overlap_count":len(overlap),"exact_date_hlc_volume_mismatch_count":len(mismatches),
+        "exact_date_mismatches":mismatches[:20],"official_only_dates":official_only,
+        "official_only_tuple_matches_on_other_dates":official_only_tuple_matches,
+        "canonical_only_dates_count":len(canonical_only),
+        "canonical_only_exact_hlc_volume_tuple_match_count":len(canonical_tuple_matches),
+        "canonical_only_tuple_match_calendar_day_offset_histogram":offset_histogram,
+        "canonical_only_tuple_match_examples":canonical_tuple_matches[:20],
+        "comparison_scope":"High, Low, Close and Volume only; official endpoint does not return Open in observed rows."
+    }
+
 def capture(output_dir,requester=request,parser=token_parser,retrieved_at=None):
     out=Path(output_dir);out.mkdir(parents=True,exist_ok=True)
     stamp=retrieved_at or datetime.now(ZoneInfo("UTC")).isoformat()

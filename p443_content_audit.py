@@ -131,6 +131,8 @@ def scan(raw, entry):
                     conflict_sample_count += 1
                 flag("duplicate_business_key" if old==signature else "conflicting_business_key",
                      loc,str(key),prior,evidence)
+            else:
+                business[key]=(loc,signature)
     return count, dict(schemas), findings
 
 def main():

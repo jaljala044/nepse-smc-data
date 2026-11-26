@@ -17,7 +17,7 @@ class StrictAuditTests(unittest.TestCase):
     def test_empty_json_capture(self):
         self.assertEqual(list(records(b"  ", "json")), [])
     def test_duplicate_display_headers_are_disambiguated(self):
-        rows = list(records(b"Date,Diff,Diff %\\n2024-01-01,1,2\\n", "csv"))
+        rows = list(records(b"Date,Diff,Diff %\n2024-01-01,1,2\n", "csv"))
         self.assertEqual(rows[0][1]["diff"], "1")
         self.assertEqual(rows[0][1]["diff__duplicate_2"], "2")
     def test_floorsheet_session_date_from_filename(self):

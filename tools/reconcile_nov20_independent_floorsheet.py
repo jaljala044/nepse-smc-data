@@ -1,0 +1,200 @@
+#!/usr/bin/env python3
+"""Compare NEPSE pipeline Parquet, SocrateAI full-session CSV, and local extract.
+
+This is an audit-only tool: it downloads nothing, changes no canonical data, and
+never upgrades a source status. It compares normalized executed-trade tuples.
+"""
+from __future__ import annotations
+
+import argparse
+import csv
+import hashlib
+import json
+import re
+from collections import Counter, defaultdict
+from decimal import Decimal, InvalidOperation
+from pathlib import Path
+from typing import Any
+
+DATE = "2026-11-20"
+
+
+def dec(value: Any) -> Decimal:
+    return Decimal(str(value).strip().replace(",", ""))
+
+
+def amount(value: Any) -> Decimal:
+    if isinstance(value, (int, float, Decimal)):
+        return dec(value).quantize(Decimal("0.01"))
+    s = str(value).strip().replace(",", "").upper().replace(" ", "")
+    m = re.fullmatch(r"([0-9]+(?:\.[0-9]+)?)(K|LAC\.?|LAKH|L|CR\.?|CRORE)?", s)
+    if not m:
+        raise ValueError(f"unsupported amount: {value!r}")
+    n = dec(m.group(1))
+    suffix = (m.group(2) or "").rstrip(".")
+    factor = {"": 1, "K": 1000, "L": 100000, "LAC": 100000,
+              "LAKH": 100000, "CR": 10000000, "CRORE": 10000000}[suffix]
+    return (n * factor).quantize(Decimal("0.01"))
+
+
+def pick(row: dict[str, Any], *names: str) -> Any:
+    for name in names:
+        if name in row and row[name] not in (None, ""):
+            return row[name]
+    raise KeyError(f"missing all aliases {names}; got {sorted(row)}")
+
+
+def norm_date(v: Any) -> str:
+    return str(v).strip()[:10]
+
+
+def norm_row(row: dict[str, Any], source: str) -> tuple:
+    if source == "parquet":
+        d = pick(row, "business_date")
+        symbol = pick(row, "stock_symbol")
+        buyer = pick(row, "buyer_member_id")
+        seller = pick(row, "seller_member_id")
+        qty = pick(row, "contract_quantity")
+        rate = pick(row, "contract_rate")
+        amt = pick(row, "contract_amount")
+    else:
+        d = pick(row, "date", "Trading_Date", "trading_date")
+        symbol = pick(row, "symbol", "Symbol")
+        buyer = pick(row, "buyer", "Buyer")
+        seller = pick(row, "seller", "Seller")
+        qty = pick(row, "quantity", "Quantity")
+        rate = pick(row, "rate", "Rate")
+        amt = pick(row, "amount", "Amount")
+    return (
+        norm_date(d),
+        str(symbol).strip().upper(),
+        str(int(dec(buyer))),
+        str(int(dec(seller))),
+        int(dec(qty)),
+        dec(rate).quantize(Decimal("0.0001")),
+        amount(amt),
+    )
+
+
+def read_csv(path: Path, label: str) -> list[dict[str, Any]]:
+    with path.open("r", encoding="utf-8-sig", newline="") as f:
+        rows = list(csv.DictReader(f))
+    if not rows:
+        raise ValueError(f"{label}: no CSV rows")
+    return rows
+
+
+def read_parquet(path: Path) -> list[dict[str, Any]]:
+    try:
+        import pyarrow.parquet as pq
+    except ImportError as exc:
+        raise SystemExit("pyarrow is required: pip install pyarrow") from exc
+    return pq.read_table(path).to_pylist()
+
+
+def sha256(path: Path) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as f:
+        for chunk in iter(lambda: f.read(1024 * 1024), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def summarize(rows: list[dict[str, Any]], source: str) -> tuple[dict, Counter]:
+    keys = Counter()
+    symbols = Counter()
+    shares = 0
+    turnover = Decimal("0")
+    dates = Counter()
+    invalid = 0
+    for row in rows:
+        try:
+            key = norm_row(row, source)
+            keys[key] += 1
+            dates[key[0]] += 1
+            symbols[key[1]] += 1
+            shares += key[4]
+            turnover += key[6]
+        except (KeyError, ValueError, InvalidOperation, TypeError):
+            invalid += 1
+    meta = {
+        "rows": len(rows),
+        "valid_rows": sum(keys.values()),
+        "invalid_rows": invalid,
+        "duplicate_normalized_trade_keys": sum(v - 1 for v in keys.values() if v > 1),
+        "distinct_symbols": len(symbols),
+        "shares": shares,
+        "turnover_npr": str(turnover.quantize(Decimal("0.01"))),
+        "date_counts": dict(sorted(dates.items())),
+        "symbol_counts": dict(sorted(symbols.items())),
+        "sha256": None,
+    }
+    return meta, keys
+
+
+def compare(left: Counter, right: Counter) -> dict:
+    common = left & right
+    left_only = left - right
+    right_only = right - left
+    return {
+        "matched_trade_rows": sum(common.values()),
+        "left_only_trade_rows": sum(left_only.values()),
+        "right_only_trade_rows": sum(right_only.values()),
+        "left_only_examples": [list(k) for k in list(left_only)[:10]],
+        "right_only_examples": [list(k) for k in list(right_only)[:10]],
+        "exact_multiset_match": not left_only and not right_only,
+    }
+
+
+def main() -> None:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--parquet", type=Path, required=True)
+    ap.add_argument("--candidate", type=Path, required=True)
+    ap.add_argument("--local", type=Path, required=True)
+    ap.add_argument("--out", type=Path, required=True)
+    args = ap.parse_args()
+
+    datasets = {
+        "independent_nepse_pipeline_parquet": (read_parquet(args.parquet), "parquet", args.parquet),
+        "socrateai_full_session_csv": (read_csv(args.candidate, "candidate"), "csv", args.candidate),
+        "local_500_row_extract": (read_csv(args.local, "local"), "csv", args.local),
+    }
+    summaries = {}
+    counters = {}
+    for name, (rows, source, path) in datasets.items():
+        meta, keys = summarize(rows, source)
+        meta["sha256"] = sha256(path)
+        summaries[name] = meta
+        counters[name] = keys
+
+    report = {
+        "audit_date": DATE,
+        "classification": "AUDIT_ONLY_NOT_CANONICAL",
+        "sources": summaries,
+        "comparisons": {
+            "pipeline_vs_socrateai": compare(counters["independent_nepse_pipeline_parquet"], counters["socrateai_full_session_csv"]),
+            "pipeline_vs_local_500": compare(counters["independent_nepse_pipeline_parquet"], counters["local_500_row_extract"]),
+            "socrateai_vs_local_500": compare(counters["socrateai_full_session_csv"], counters["local_500_row_extract"]),
+        },
+        "gates": {
+            "pipeline_and_candidate_same_date": summaries["independent_nepse_pipeline_parquet"]["date_counts"] == {DATE: summaries["independent_nepse_pipeline_parquet"]["rows"]} and summaries["socrateai_full_session_csv"]["date_counts"] == {DATE: summaries["socrateai_full_session_csv"]["rows"]},
+            "pipeline_candidate_equal_rows_and_symbols": summaries["independent_nepse_pipeline_parquet"]["rows"] == summaries["socrateai_full_session_csv"]["rows"] and summaries["independent_nepse_pipeline_parquet"]["distinct_symbols"] == summaries["socrateai_full_session_csv"]["distinct_symbols"],
+            "pipeline_candidate_exact_trade_multiset": not (counters["independent_nepse_pipeline_parquet"] - counters["socrateai_full_session_csv"]) and not (counters["socrateai_full_session_csv"] - counters["independent_nepse_pipeline_parquet"]),
+            "local_extract_is_full_session": summaries["local_500_row_extract"]["rows"] == summaries["independent_nepse_pipeline_parquet"]["rows"],
+        },
+        "limitations": [
+            "The independent capture workflow log is separate evidence; this script compares the published Parquet bytes after download.",
+            "Buyer/seller member identifiers are compared to CSV buyer/seller numeric identifiers after integer normalization; any semantic mapping mismatch will appear as unmatched rows rather than being silently coerced.",
+            "A matching published partition does not replace missing private bronze raw-page replay evidence.",
+            "This audit does not promote canonical data or authorize NO_TRADE inference."
+        ],
+    }
+    args.out.parent.mkdir(parents=True, exist_ok=True)
+    args.out.write_text(json.dumps(report, indent=2, default=str) + "\n", encoding="utf-8")
+    print(json.dumps(report, indent=2, default=str))
+    if any(meta["invalid_rows"] for meta in summaries.values()):
+        raise SystemExit(2)
+
+
+if __name__ == "__main__":
+    main()

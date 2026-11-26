@@ -82,3 +82,10 @@ Direct readback of both repositories confirmed corrected BGWT and HRL values. Th
 - Task 3: recovered 225 distinct primary positive-trade dates from RHGCL official captured history (2025-11-25 to 2026-11-19), no overlap with 2026 closure calendar. Single-security observations not a complete canonical exchange calendar. Dataset: reference/nepse_primary_observed_open_sessions_2025-2026.csv.
 - Task 4: sample seven symbols all have 225 observed dates; 5 date-level structural/uniqueness exceptions across API, BGWT, HRL and RAWA. NICEF absent. Full universe and listing-adjusted coverage still pending. Sample: reference/nepse_observed_session_coverage_sample_2026-11-26.csv.
 - Task 5: scanner route still uses date-only as_of filtering, not available_at timestamp eligibility. Keep training and production signals disabled until integrated no-lookahead and canonical eligibility enforcement are tested. No existing market-price rows changed.
+
+
+## Low-overlap lifecycle and UNL source audit checkpoint — 2026-11-26
+- First-trade boundary reconciliation commit `7011860a405d2f047ff6c69af1053cd2e3ae094b`: APHL and KHPL scheduled-vs-actual first execution dates resolved; six additional mid-2026 debut dates aligned with archive first positive-volume rows.
+- Low-overlap triage commit `fb1384021a336d55e2faeb5b8b4e50994d3e6b42` and mid-2026 boundary review commit `d8bca6a0b43135618ffe61587a48b1ad208e8712` were reviewed. Their current `main` text lagged the later first-trade reconciliation and requires a documentation consistency correction. Ten 2026-start equity archive boundaries have lifecycle-aligned explanations; this is not proof of later daily completeness.
+- UNL audit commit `560ac404d6585f00fad4abbd4879def6c71de7ad`: alternate 2011–2026 CSV is rejected for ingestion due to 362/2,018 OHLC-invalid rows (361/1,467 pre-2024); 545 shared dates match numerically, but independent source lineage is unproven. Do not merge, splice, repair or promote it. UNL historical backtests before 2024 remain blocked.
+- No OHLCV rows changed; no canonical/training promotion; production signals remain disabled.

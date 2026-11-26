@@ -9,8 +9,9 @@ This register triages the 26 provisional common-equity symbols below 90% observe
 | Triage group | Count | Interpretation | Current disposition |
 |---|---:|---|---|
 | Symbol-specific reviewed | 4 | NLO, BNL, PFL, BENH | Evidence reports linked below; classifications updated |
-| Later-start candidates lifecycle-checked (9 aligned; 2 boundary exceptions) | 11 | Dated notices and archive first-volume rows checked for all 11; APHL and KHPL scheduled-vs-actual first-trade dates reconciled | Verify first listing / first-trade date before treating earlier absent rows as gaps |
-| Mid-2026 start / low overlap unresolved | 11 | Files start before the sample window but have materially fewer matching observations | Requires trade-level / floorsheet / lifecycle review; do not assume data defect |
+| Later-start candidates lifecycle-checked | 11 | All 11 archive start boundaries reviewed; APHL and KHPL first execution occurred one session after scheduled commencement; archive first positive-volume rows align with reported actual debut dates | Boundary disposition reviewed using dated secondary evidence; not exchange-authenticated floorsheet proof |
+| Mid-2026 start / low overlap boundary-reviewed | 10 | PCIL, SIPD, SKHEL, RLEL and six further equities have archive starts aligned with published commencement or reported first-debut evidence | Start-boundary explanation is documented; later session-by-session completeness remains unproven |
+| Long-history source boundary | 1 | UNL archive begins 2024-03-05 despite long-established listing; alternate source audit found 1,467 earlier rows but severe OHLC defects | Alternate file rejected for ingestion; historical backfill remains blocked |
 
 ## Symbol-specific reviewed
 
@@ -44,7 +45,7 @@ Evidence:
 | SOPL | 45.78% | 2026-06-08 | 2026-11-20 | 110 |
 | KHPL | 48.89% | 2026-05-26 | 2026-11-20 | 123 |
 
-Nine symbols have matching dated commencement/debut evidence and first positive-volume archive rows. APHL (notice 2026-06-09; archive first row 2026-06-10) and KHPL (scheduled commencement 2026-05-25; archive/debut first trade 2026-05-26) retain one-session discrepancies pending floorsheet confirmation. See [later-start lifecycle validation](later_start_equity_lifecycle_validation_2026-11-26.md). Dates before supported commencement should not be counted as missing OHLCV; do not infer an execution on a scheduled date.
+Nine symbols have matching dated commencement/debut evidence and first positive-volume archive rows. APHL (scheduled commencement 2026-06-09; first reported execution/archive row 2026-06-10) and KHPL (scheduled commencement 2026-05-25; first reported execution/archive row 2026-05-26) are now reconciled as scheduled-vs-actual first-trade shifts, not unresolved archive defects. See [first-trade boundary reconciliation](first_trade_boundary_reconciliation_2026-11-26.md). Dates before supported first execution must not be counted as missing OHLCV; do not infer an execution on a scheduled date.
 
 ## Mid-2026 start / low overlap unresolved
 
@@ -62,12 +63,12 @@ Nine symbols have matching dated commencement/debut evidence and first positive-
 | RSML | 76.00% | 2026-02-16 | 2026-11-20 |
 | UNL | 80.89% | 2024-03-05 | 2026-11-20 |
 
-PCIL through RSML have archive starts within 2026 and need listing/lifecycle verification first; UNL has a much longer history and should receive a dedicated source/coverage audit. The overlap score alone is not enough to determine which dates should have OHLCV.
+PCIL, SIPD, SKHEL and RLEL have archive starts aligned with published commencement or reported first special pre-open trades. SKHL, BJHL, SOHL, HFIN, SABBL and RSML have dated first-trading/debut evidence aligned with archive first positive-volume rows. See [mid-2026 boundary review](mid_2026_low_overlap_equity_archive_boundary_review_2026-11-26.md) and [first-trade reconciliation](first_trade_boundary_reconciliation_2026-11-26.md). These are secondary-source lifecycle checks, not independent proof of every later expected session. UNL is a distinct historical source-coverage issue; see [UNL alternate-source audit](UNL_historical_coverage_alternate_source_audit_2026-11-26.md).
 
 ## Next validation sequence
 
-1. APHL/KHPL scheduled-vs-actual debut differences reconciled from dated reports; retain source provenance caveat. Nine other later-start candidates have aligned published commencement and archive first-volume dates.
-2. Obtain symbol-specific executed-trade calendars or daily floorsheet summaries for the 11 mid-2026-start low-overlap symbols.
+1. APHL/KHPL scheduled-vs-actual debut differences reconciled from dated reports; all 11 later-start archive boundaries now have a documented lifecycle disposition, with secondary-source provenance caveat.
+2. Obtain symbol-specific executed-trade calendars or daily floorsheet summaries to distinguish no-trade sessions from source omissions after the first-debut boundary for the 10 mid-2026-start equities.
 3. Reconcile the BNL 23 November row and obtain independent confirmation of the 24 November candidate.
 4. Keep no-trade dates separate from missing-source records; never synthesize OHLCV from a carried-forward close.
 5. Recompute coverage only against symbol-specific expected-trade evidence, retaining the original proxy audit for reproducibility.
@@ -75,3 +76,8 @@ PCIL through RSML have archive starts within 2026 and need listing/lifecycle ver
 ## Release control
 
 No raw OHLCV was edited by this triage. No symbol is promoted to canonical or training data by this register. NLO and BNL remain excluded from ordinary BUY eligibility on liquidity grounds pending repeated executable trading.
+
+
+## Reconciliation update — 2026-11-26
+
+The 2026-11-26 first-trade reconciliation resolves the APHL/KHPL scheduled-vs-actual debut exceptions and documents matching archive first positive-volume rows for SKHL, BJHL, SOHL, HFIN, SABBL and RSML. The mid-2026 boundary review also documents PCIL, SIPD, SKHEL and RLEL. Therefore, the earlier label “11 unresolved” is superseded for archive-start boundaries: ten 2026-start equities have lifecycle-aligned start boundaries, while UNL remains a separate historical source-coverage issue. This does not establish complete daily OHLCV coverage after those dates. No raw rows were added, removed, or promoted.

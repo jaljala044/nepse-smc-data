@@ -35,7 +35,7 @@ class PositiveOpenSessionEvidenceTests(unittest.TestCase):
         for row in self.rows:
             with self.subTest(date=row["date"]):
                 self.assertEqual(row["status"], "verified_open")
-                self.assertEqual(row["source_id"], "NEPSE_OFFICIAL_SECURITY_EOD_HISTORY_P437")
+                self.assertEqual(row["source_id"], "NEPSE_OFFICIAL_EOD_SECURITY_HISTORY_P437")
                 self.assertEqual(row["scope"], "equity_session_positive_trade")
                 self.assertEqual(len(row["raw_evidence_sha256"]), 64)
 

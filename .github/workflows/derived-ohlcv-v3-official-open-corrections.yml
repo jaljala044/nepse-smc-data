@@ -6,9 +6,9 @@ on:
   pull_request:
     paths:
       - 'tools/build_derived_ohlcv_v3.py'
-      - 'tools/audit_derived_ohlcv_v3.py'
+      - 'tools/audit_derived_ohlcv_v3_release.py'
       - 'tools/tests/test_build_derived_ohlcv_v3.py'
-      - 'tools/tests/test_audit_derived_ohlcv_v3.py'
+      - 'tools/tests/test_audit_derived_ohlcv_v3_release2.py'
       - '.github/workflows/derived-ohlcv-v3-official-open-corrections.yml'
       - 'reference/p430_11_recent_anomaly_official_reconciliation_2026-11-26.csv'
       - 'reference/p430_11_official_open_corrections_2026-11-26.csv'
@@ -29,7 +29,7 @@ jobs:
       - name: Run v3 build regression tests
         run: python -m unittest discover -s tools/tests -p 'test_build_derived_ohlcv_v3.py' -v
       - name: Run v3 integrity-audit regression tests
-        run: python -m unittest discover -s tools/tests -p 'test_audit_derived_ohlcv_v3.py' -v
+        run: python -m unittest discover -s tools/tests -p 'test_audit_derived_ohlcv_v3_release2.py' -v
       - name: Build v3 with the 11 official Open corrections
         run: |
           python tools/build_derived_ohlcv_v3.py \
@@ -41,7 +41,7 @@ jobs:
             --overwrite
       - name: Audit v3 against v2, raw sources and official evidence
         run: |
-          python tools/audit_derived_ohlcv_v3.py \
+          python tools/audit_derived_ohlcv_v3_release.py \
             --v2-dir derived/ohlcv_v2 \
             --v3-dir derived/ohlcv_v3 \
             --raw-dir 03_stock_charts_ohlcv \

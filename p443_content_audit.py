@@ -109,7 +109,7 @@ def scan(raw, entry):
                     previous[(scope,symbol)]=(dt,values,loc)
             except (ValueError,InvalidOperation):
                 flag("invalid_ohlcv_or_date",loc,str(key))
-        elif contract:
+        elif contract and entry["category"] == "floorsheet_or_reconciliation":
             schemas["contract"] += 1
             if d:
                 key=("contract",scope,d,contract)

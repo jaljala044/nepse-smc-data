@@ -40,6 +40,17 @@ class StrictAuditTests(unittest.TestCase):
         raw=b"ContractNo,Symbol,Buyer,Seller,Quantity,Rate\n123,ABC,1,2,5,10\n"
         _,_,findings=scan(raw,entry)
         self.assertEqual([f["classification"] for f in findings],["contract_session_missing"])
+    def test_metadata_contract_sample_is_not_trade(self):
+        entry=dict(path="capture_report.json",git_blob_sha="fixture",format="json",category="floorsheet_or_reconciliation")
+        _,schemas,findings=scan(b'{"sample":{"contract_no":"123","id":"456","quantity":"5","rate":"10"}}',entry)
+        self.assertEqual(findings,[])
+        self.assertEqual(schemas["non_transaction_record"],1)
+    def test_official_contract_aliases_and_calculation_date(self):
+        entry=dict(path="trades.csv",git_blob_sha="fixture",format="csv",category="floorsheet_or_reconciliation")
+        raw=b"calculation_date,contractId,stockSymbol,buyerMemberId,sellerMemberId,contractQuantity,contractRate\n2025-01-01,123,ABC,1,2,5,10\n"
+        _,schemas,findings=scan(raw,entry)
+        self.assertEqual(findings,[])
+        self.assertEqual(schemas["contract"],1)
     def test_empty_json_capture(self):
         self.assertEqual(list(records(b"  ", "json")), [])
     def test_duplicate_display_headers_are_disambiguated(self):

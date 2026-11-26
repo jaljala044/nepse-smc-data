@@ -10,6 +10,7 @@ on:
       - "tools/audit_global_data_integrity.py"
       - "tools/p443_join_ohlcv_exceptions.py"
       - "tools/p443_classify_repeated_candles.py"
+      - "tools/p443_export_repeat_review_queues.py"
       - "p443_content_audit.py"
       - "test_p443_content_audit.py"
       - "test_global_duplicate_audit_inventory.py"
@@ -24,6 +25,7 @@ on:
       - "tools/audit_global_data_integrity.py"
       - "tools/p443_join_ohlcv_exceptions.py"
       - "tools/p443_classify_repeated_candles.py"
+      - "tools/p443_export_repeat_review_queues.py"
       - "p443_content_audit.py"
       - "test_p443_content_audit.py"
       - "test_global_duplicate_audit_inventory.py"
@@ -65,6 +67,8 @@ jobs:
           python tools/p443_join_ohlcv_exceptions.py p443-join-input.zip --output audit-strict/exception_join.csv | tee audit-strict/exception_join_summary.json
       - name: Classify repeated candles against pinned calendar evidence
         run: python tools/p443_classify_repeated_candles.py --input audit-strict/findings.jsonl --output audit-strict
+      - name: Export disjoint repeat review queues
+        run: python tools/p443_export_repeat_review_queues.py --directory audit-strict
       - name: Preserve strict audit outputs
         if: always()
         uses: actions/upload-artifact@v4

@@ -45,10 +45,10 @@ def extract_form_state(soup):
  if "__VIEWSTATE" not in state:raise ValueError("Missing ASP.NET __VIEWSTATE; page layout may have changed or request was blocked")
  return state
 def get_total_pages(soup):
- match=re.search(r"Total pages:\\s*(\\d+)",soup.get_text(" ",strip=True),re.I)
+ match=re.search(r"Total pages:\s*(\d+)",soup.get_text(" ",strip=True),re.I)
  return int(match.group(1)) if match else None
 def get_total_records(soup):
- match=re.search(r"of\\s+([\\d,]+)\\s+records",soup.get_text(" ",strip=True),re.I)
+ match=re.search(r"of\s+([\d,]+)\s+records",soup.get_text(" ",strip=True),re.I)
  return int(match.group(1).replace(",","")) if match else None
 def parse_rows(soup,trade_date):
  target=None

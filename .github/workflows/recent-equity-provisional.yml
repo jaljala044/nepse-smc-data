@@ -1,0 +1,20 @@
+name: Recent equity provisional build
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/recent-equity-provisional.yml'
+      - 'tools/build_recent_equity_provisional.py'
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and validate
+        run: python3 tools/build_recent_equity_provisional.py --root . --output derived-output
+      - uses: actions/upload-artifact@v4
+        with:
+          name: recent-equity-provisional
+          path: derived-output/

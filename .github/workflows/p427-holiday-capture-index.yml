@@ -1,0 +1,34 @@
+name: P4.27 holiday capture index validation
+on:
+  pull_request:
+    paths:
+      - "reference/nepse_official_holiday_api_capture_mirror_2015_2026.json"
+      - "tools/validate_nepse_holiday_capture_index.py"
+      - "tools/tests/test_validate_nepse_holiday_capture_index.py"
+      - ".github/workflows/p427-holiday-capture-index.yml"
+  push:
+    branches:
+      - p427-import-official-holiday-captures-2015-2025
+    paths:
+      - "reference/nepse_official_holiday_api_capture_mirror_2015_2026.json"
+      - "tools/validate_nepse_holiday_capture_index.py"
+      - "tools/tests/test_validate_nepse_holiday_capture_index.py"
+      - ".github/workflows/p427-holiday-capture-index.yml"
+permissions:
+  contents: read
+jobs:
+  validate-index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate immutable capture index
+        run: python tools/validate_nepse_holiday_capture_index.py reference/nepse_official_holiday_api_capture_mirror_2015_2026.json
+      - name: Run regression tests
+        run: |
+          cd tools
+          python -m unittest discover -s tests -p 'test_validate_nepse_holiday_capture_index.py' -v
+
+# CI validates immutable references and preserves the unverified 616-session boundary.

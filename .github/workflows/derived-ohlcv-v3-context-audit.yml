@@ -1,0 +1,54 @@
+name: Derived OHLCV v3 context audit
+on:
+  push:
+    branches:
+      - p432-v3-full-session-calendar-audit
+  pull_request:
+    paths:
+      - 'tools/audit_derived_ohlcv_v3_context.py'
+      - 'tools/tests/test_audit_derived_ohlcv_v3_context.py'
+      - '.github/workflows/derived-ohlcv-v3-context-audit.yml'
+      - 'derived/ohlcv_v3/**'
+      - 'reference/nepse_canonical_session_calendar_2025-2026.csv'
+      - 'scanner_inputs/corporate_actions.csv'
+      - 'scanner_inputs/audit/stock_split_review.csv'
+permissions:
+  contents: write
+jobs:
+  context-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run v3 context audit regression tests
+        run: python -m unittest discover -s tools/tests -p 'test_audit_derived_ohlcv_v3_context.py' -v
+      - name: Recompute adjacent repeats, calendar and corporate-action coverage
+        run: |
+          python tools/audit_derived_ohlcv_v3_context.py \
+            --v3-dir derived/ohlcv_v3 \
+            --calendar reference/nepse_canonical_session_calendar_2025-2026.csv \
+            --corporate-actions scanner_inputs/corporate_actions.csv \
+            --split-review scanner_inputs/audit/stock_split_review.csv \
+            --output-dir derived/ohlcv_v3/quality_audit
+      - name: Commit v3 context audit
+        if: github.event_name == 'push' && success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add derived/ohlcv_v3/quality_audit
+          if ! git diff --cached --quiet; then
+            git commit -m "audit(p4.32): publish v3 repeat and calendar diagnostics"
+            git push
+          fi
+      - name: Upload v3 context audit artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: nepse-derived-ohlcv-v3-context-audit
+          path: derived/ohlcv_v3/quality_audit/
+          retention-days: 90

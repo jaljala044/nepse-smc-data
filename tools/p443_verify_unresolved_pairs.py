@@ -8,8 +8,12 @@ import json
 from collections import Counter
 from pathlib import Path
 
-from p443_classify_repeated_candles import source_rows
-from p443_verify_open_pairs import compare, load_evidence
+try:
+    from tools.p443_classify_repeated_candles import source_rows
+    from tools.p443_verify_open_pairs import compare, load_evidence
+except ModuleNotFoundError:
+    from p443_classify_repeated_candles import source_rows
+    from p443_verify_open_pairs import compare, load_evidence
 
 TARGET_CLASSES = {"BOTH_OPEN_TUPLE_UNVERIFIED", "INSUFFICIENT_SESSION_EVIDENCE"}
 

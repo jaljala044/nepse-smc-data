@@ -1,0 +1,1523 @@
+{
+  "symbol": "HIDCL",
+  "register_blob": "94783d943aec38bb88b6aa7d5936336d1510fac9",
+  "records": 30,
+  "results": [
+    {
+      "source": "Aabishkar2/nepse-data",
+      "path": "data/company-wise/HIDCL.csv",
+      "ref": "main",
+      "blob": "7d762b315fd0bcce5e01654949e9812ae0bce669",
+      "header": "published_date,open,high,low,close,per_change,traded_quantity,traded_amount,status",
+      "counts": {
+        "MISSING": 6,
+        "EXACT_SAME_INVALID": 24
+      },
+      "detail": [
+        {
+          "date": "2016-07-12",
+          "status": "MISSING",
+          "candidate": []
+        },
+        {
+          "date": "2016-07-13",
+          "status": "MISSING",
+          "candidate": []
+        },
+        {
+          "date": "2016-07-21",
+          "status": "MISSING",
+          "candidate": []
+        },
+        {
+          "date": "2016-08-08",
+          "status": "MISSING",
+          "candidate": []
+        },
+        {
+          "date": "2016-08-09",
+          "status": "MISSING",
+          "candidate": []
+        },
+        {
+          "date": "2016-08-22",
+          "status": "MISSING",
+          "candidate": []
+        },
+        {
+          "date": "2016-10-24",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "300.0",
+              "299.0",
+              "293.0",
+              "296.0",
+              "6900.0"
+            ]
+          ]
+        },
+        {
+          "date": "2016-10-26",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "293.0",
+              "291.0",
+              "281.0",
+              "283.0",
+              "14748.0"
+            ]
+          ]
+        },
+        {
+          "date": "2016-11-13",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "282.0",
+              "281.0",
+              "270.0",
+              "277.0",
+              "23973.0"
+            ]
+          ]
+        },
+        {
+          "date": "2016-11-17",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "283.0",
+              "280.0",
+              "273.0",
+              "278.0",
+              "18364.0"
+            ]
+          ]
+        },
+        {
+          "date": "2016-11-27",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "269.0",
+              "264.0",
+              "248.0",
+              "257.0",
+              "13181.0"
+            ]
+          ]
+        },
+        {
+          "date": "2016-12-08",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "260.0",
+              "257.0",
+              "249.0",
+              "251.0",
+              "6283.0"
+            ]
+          ]
+        },
+        {
+          "date": "2016-12-18",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "253.0",
+              "252.0",
+              "247.0",
+              "249.0",
+              "5913.0"
+            ]
+          ]
+        },
+        {
+          "date": "2016-12-21",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "242.0",
+              "241.0",
+              "234.0",
+              "238.0",
+              "14245.0"
+            ]
+          ]
+        },
+        {
+          "date": "2017-04-23",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "212.0",
+              "228.0",
+              "216.0",
+              "218.0",
+              "23829.0"
+            ]
+          ]
+        },
+        {
+          "date": "2017-05-02",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "215.0",
+              "213.0",
+              "210.0",
+              "211.0",
+              "5402.0"
+            ]
+          ]
+        },
+        {
+          "date": "2017-05-18",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "216.0",
+              "215.0",
+              "210.0",
+              "213.0",
+              "8684.0"
+            ]
+          ]
+        },
+        {
+          "date": "2017-05-28",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "211.0",
+              "210.0",
+              "207.0",
+              "209.0",
+              "11732.0"
+            ]
+          ]
+        },
+        {
+          "date": "2017-07-10",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "197.0",
+              "196.0",
+              "192.0",
+              "196.0",
+              "15012.0"
+            ]
+          ]
+        },
+        {
+          "date": "2017-07-12",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "197.0",
+              "195.0",
+              "191.0",
+              "193.0",
+              "8745.0"
+            ]
+          ]
+        },
+        {
+          "date": "2017-07-16",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "197.0",
+              "196.0",
+              "193.0",
+              "195.0",
+              "5966.0"
+            ]
+          ]
+        },
+        {
+          "date": "2017-07-23",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "198.0",
+              "196.0",
+              "193.0",
+              "195.0",
+              "15373.0"
+            ]
+          ]
+        },
+        {
+          "date": "2017-08-27",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "188.0",
+              "186.0",
+              "180.0",
+              "183.0",
+              "11247.0"
+            ]
+          ]
+        },
+        {
+          "date": "2017-09-24",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "185.0",
+              "184.0",
+              "181.0",
+              "182.0",
+              "5196.0"
+            ]
+          ]
+        },
+        {
+          "date": "2017-10-31",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "182.0",
+              "187.0",
+              "183.0",
+              "186.0",
+              "25164.0"
+            ]
+          ]
+        },
+        {
+          "date": "2017-11-05",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "193.0",
+              "190.0",
+              "184.0",
+              "188.0",
+              "8057.0"
+            ]
+          ]
+        },
+        {
+          "date": "2017-11-08",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "182.0",
+              "181.0",
+              "178.0",
+              "180.0",
+              "6888.0"
+            ]
+          ]
+        },
+        {
+          "date": "2017-12-04",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "186.0",
+              "184.0",
+              "180.0",
+              "181.0",
+              "9488.0"
+            ]
+          ]
+        },
+        {
+          "date": "2018-02-14",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "166.0",
+              "165.0",
+              "162.0",
+              "165.0",
+              "2459.0"
+            ]
+          ]
+        },
+        {
+          "date": "2018-11-06",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "160.0",
+              "158.0",
+              "158.0",
+              "161.0",
+              "56.0"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "source": "SamirWagle/Nepse-All-Scraper",
+      "path": "data/company-wise/HIDCL/prices.csv",
+      "ref": "main",
+      "blob": "da38b7462e6e5c82e925ff1daf5f99f11d9e98e8",
+      "header": "date,open,high,low,ltp,percent_change,qty,turnover",
+      "counts": {
+        "EXACT_SAME_INVALID": 30
+      },
+      "detail": [
+        {
+          "date": "2016-07-12",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "0.0",
+              "359.0",
+              "328.0",
+              "359.0",
+              "29034"
+            ]
+          ]
+        },
+        {
+          "date": "2016-07-13",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "359.0",
+              "394.0",
+              "366.0",
+              "394.0",
+              "36508"
+            ]
+          ]
+        },
+        {
+          "date": "2016-07-21",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "400.0",
+              "430.0",
+              "402.0",
+              "410.0",
+              "49398"
+            ]
+          ]
+        },
+        {
+          "date": "2016-08-08",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "390.0",
+              "387.0",
+              "369.0",
+              "369.0",
+              "29440"
+            ]
+          ]
+        },
+        {
+          "date": "2016-08-09",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "369.0",
+              "397.0",
+              "376.0",
+              "395.0",
+              "16573"
+            ]
+          ]
+        },
+        {
+          "date": "2016-08-22",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "346.0",
+              "341.0",
+              "326.0",
+              "329.0",
+              "30973"
+            ]
+          ]
+        },
+        {
+          "date": "2016-10-24",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "300.0",
+              "299.0",
+              "293.0",
+              "296.0",
+              "6900"
+            ]
+          ]
+        },
+        {
+          "date": "2016-10-26",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "293.0",
+              "291.0",
+              "281.0",
+              "283.0",
+              "14748"
+            ]
+          ]
+        },
+        {
+          "date": "2016-11-13",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "282.0",
+              "281.0",
+              "270.0",
+              "277.0",
+              "23973"
+            ]
+          ]
+        },
+        {
+          "date": "2016-11-17",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "283.0",
+              "280.0",
+              "273.0",
+              "278.0",
+              "18364"
+            ]
+          ]
+        },
+        {
+          "date": "2016-11-27",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "269.0",
+              "264.0",
+              "248.0",
+              "257.0",
+              "13181"
+            ]
+          ]
+        },
+        {
+          "date": "2016-12-08",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "260.0",
+              "257.0",
+              "249.0",
+              "251.0",
+              "6283"
+            ]
+          ]
+        },
+        {
+          "date": "2016-12-18",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "253.0",
+              "252.0",
+              "247.0",
+              "249.0",
+              "5913"
+            ]
+          ]
+        },
+        {
+          "date": "2016-12-21",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "242.0",
+              "241.0",
+              "234.0",
+              "238.0",
+              "14245"
+            ]
+          ]
+        },
+        {
+          "date": "2017-04-23",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "212.0",
+              "228.0",
+              "216.0",
+              "218.0",
+              "23829"
+            ]
+          ]
+        },
+        {
+          "date": "2017-05-02",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "215.0",
+              "213.0",
+              "210.0",
+              "211.0",
+              "5402"
+            ]
+          ]
+        },
+        {
+          "date": "2017-05-18",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "216.0",
+              "215.0",
+              "210.0",
+              "213.0",
+              "8684"
+            ]
+          ]
+        },
+        {
+          "date": "2017-05-28",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "211.0",
+              "210.0",
+              "207.0",
+              "209.0",
+              "11732"
+            ]
+          ]
+        },
+        {
+          "date": "2017-07-10",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "197.0",
+              "196.0",
+              "192.0",
+              "196.0",
+              "15012"
+            ]
+          ]
+        },
+        {
+          "date": "2017-07-12",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "197.0",
+              "195.0",
+              "191.0",
+              "193.0",
+              "8745"
+            ]
+          ]
+        },
+        {
+          "date": "2017-07-16",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "197.0",
+              "196.0",
+              "193.0",
+              "195.0",
+              "5966"
+            ]
+          ]
+        },
+        {
+          "date": "2017-07-23",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "198.0",
+              "196.0",
+              "193.0",
+              "195.0",
+              "15373"
+            ]
+          ]
+        },
+        {
+          "date": "2017-08-27",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "188.0",
+              "186.0",
+              "180.0",
+              "183.0",
+              "11247"
+            ]
+          ]
+        },
+        {
+          "date": "2017-09-24",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "185.0",
+              "184.0",
+              "181.0",
+              "182.0",
+              "5196"
+            ]
+          ]
+        },
+        {
+          "date": "2017-10-31",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "182.0",
+              "187.0",
+              "183.0",
+              "186.0",
+              "25164"
+            ]
+          ]
+        },
+        {
+          "date": "2017-11-05",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "193.0",
+              "190.0",
+              "184.0",
+              "188.0",
+              "8057"
+            ]
+          ]
+        },
+        {
+          "date": "2017-11-08",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "182.0",
+              "181.0",
+              "178.0",
+              "180.0",
+              "6888"
+            ]
+          ]
+        },
+        {
+          "date": "2017-12-04",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "186.0",
+              "184.0",
+              "180.0",
+              "181.0",
+              "9488"
+            ]
+          ]
+        },
+        {
+          "date": "2018-02-14",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "166.0",
+              "165.0",
+              "162.0",
+              "165.0",
+              "2459"
+            ]
+          ]
+        },
+        {
+          "date": "2018-11-06",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "160.0",
+              "158.0",
+              "158.0",
+              "161.0",
+              "56"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "source": "binayabaral/nepal-market-data",
+      "path": "data/nepse/HIDCL.csv",
+      "ref": "944bc95872e46b299625091f6c9f32f57010e71a",
+      "blob": "65593a8ede7b9a3422e5d5d47b397e824a56f82a",
+      "header": "published_date,open,high,low,close,per_change,traded_quantity,traded_amount,status",
+      "counts": {
+        "MISSING": 6,
+        "EXACT_SAME_INVALID": 24
+      },
+      "detail": [
+        {
+          "date": "2016-07-12",
+          "status": "MISSING",
+          "candidate": []
+        },
+        {
+          "date": "2016-07-13",
+          "status": "MISSING",
+          "candidate": []
+        },
+        {
+          "date": "2016-07-21",
+          "status": "MISSING",
+          "candidate": []
+        },
+        {
+          "date": "2016-08-08",
+          "status": "MISSING",
+          "candidate": []
+        },
+        {
+          "date": "2016-08-09",
+          "status": "MISSING",
+          "candidate": []
+        },
+        {
+          "date": "2016-08-22",
+          "status": "MISSING",
+          "candidate": []
+        },
+        {
+          "date": "2016-10-24",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "300.0",
+              "299.0",
+              "293.0",
+              "296.0",
+              "6900.0"
+            ]
+          ]
+        },
+        {
+          "date": "2016-10-26",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "293.0",
+              "291.0",
+              "281.0",
+              "283.0",
+              "14748.0"
+            ]
+          ]
+        },
+        {
+          "date": "2016-11-13",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "282.0",
+              "281.0",
+              "270.0",
+              "277.0",
+              "23973.0"
+            ]
+          ]
+        },
+        {
+          "date": "2016-11-17",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "283.0",
+              "280.0",
+              "273.0",
+              "278.0",
+              "18364.0"
+            ]
+          ]
+        },
+        {
+          "date": "2016-11-27",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "269.0",
+              "264.0",
+              "248.0",
+              "257.0",
+              "13181.0"
+            ]
+          ]
+        },
+        {
+          "date": "2016-12-08",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "260.0",
+              "257.0",
+              "249.0",
+              "251.0",
+              "6283.0"
+            ]
+          ]
+        },
+        {
+          "date": "2016-12-18",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "253.0",
+              "252.0",
+              "247.0",
+              "249.0",
+              "5913.0"
+            ]
+          ]
+        },
+        {
+          "date": "2016-12-21",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "242.0",
+              "241.0",
+              "234.0",
+              "238.0",
+              "14245.0"
+            ]
+          ]
+        },
+        {
+          "date": "2017-04-23",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "212.0",
+              "228.0",
+              "216.0",
+              "218.0",
+              "23829.0"
+            ]
+          ]
+        },
+        {
+          "date": "2017-05-02",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "215.0",
+              "213.0",
+              "210.0",
+              "211.0",
+              "5402.0"
+            ]
+          ]
+        },
+        {
+          "date": "2017-05-18",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "216.0",
+              "215.0",
+              "210.0",
+              "213.0",
+              "8684.0"
+            ]
+          ]
+        },
+        {
+          "date": "2017-05-28",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "211.0",
+              "210.0",
+              "207.0",
+              "209.0",
+              "11732.0"
+            ]
+          ]
+        },
+        {
+          "date": "2017-07-10",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "197.0",
+              "196.0",
+              "192.0",
+              "196.0",
+              "15012.0"
+            ]
+          ]
+        },
+        {
+          "date": "2017-07-12",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "197.0",
+              "195.0",
+              "191.0",
+              "193.0",
+              "8745.0"
+            ]
+          ]
+        },
+        {
+          "date": "2017-07-16",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "197.0",
+              "196.0",
+              "193.0",
+              "195.0",
+              "5966.0"
+            ]
+          ]
+        },
+        {
+          "date": "2017-07-23",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "198.0",
+              "196.0",
+              "193.0",
+              "195.0",
+              "15373.0"
+            ]
+          ]
+        },
+        {
+          "date": "2017-08-27",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "188.0",
+              "186.0",
+              "180.0",
+              "183.0",
+              "11247.0"
+            ]
+          ]
+        },
+        {
+          "date": "2017-09-24",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "185.0",
+              "184.0",
+              "181.0",
+              "182.0",
+              "5196.0"
+            ]
+          ]
+        },
+        {
+          "date": "2017-10-31",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "182.0",
+              "187.0",
+              "183.0",
+              "186.0",
+              "25164.0"
+            ]
+          ]
+        },
+        {
+          "date": "2017-11-05",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "193.0",
+              "190.0",
+              "184.0",
+              "188.0",
+              "8057.0"
+            ]
+          ]
+        },
+        {
+          "date": "2017-11-08",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "182.0",
+              "181.0",
+              "178.0",
+              "180.0",
+              "6888.0"
+            ]
+          ]
+        },
+        {
+          "date": "2017-12-04",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "186.0",
+              "184.0",
+              "180.0",
+              "181.0",
+              "9488.0"
+            ]
+          ]
+        },
+        {
+          "date": "2018-02-14",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "166.0",
+              "165.0",
+              "162.0",
+              "165.0",
+              "2459.0"
+            ]
+          ]
+        },
+        {
+          "date": "2018-11-06",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "160.0",
+              "158.0",
+              "158.0",
+              "161.0",
+              "56.0"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "source": "srijankarki07/nepse-data",
+      "path": "data/series/HIDCL.csv",
+      "ref": "main",
+      "blob": "c519422607e431db404ca8b9e2d5b876b0eb0cc0",
+      "header": "date,symbol,open,high,low,close,volume,turnover",
+      "counts": {
+        "EXACT_SAME_INVALID": 30
+      },
+      "detail": [
+        {
+          "date": "2016-07-12",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "0",
+              "359",
+              "328",
+              "359",
+              "29034"
+            ]
+          ]
+        },
+        {
+          "date": "2016-07-13",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "359",
+              "394",
+              "366",
+              "394",
+              "36508"
+            ]
+          ]
+        },
+        {
+          "date": "2016-07-21",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "400",
+              "430",
+              "402",
+              "410",
+              "49398"
+            ]
+          ]
+        },
+        {
+          "date": "2016-08-08",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "390",
+              "387",
+              "369",
+              "369",
+              "29440"
+            ]
+          ]
+        },
+        {
+          "date": "2016-08-09",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "369",
+              "397",
+              "376",
+              "395",
+              "16573"
+            ]
+          ]
+        },
+        {
+          "date": "2016-08-22",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "346",
+              "341",
+              "326",
+              "329",
+              "30973"
+            ]
+          ]
+        },
+        {
+          "date": "2016-10-24",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "300",
+              "299",
+              "293",
+              "296",
+              "6900"
+            ]
+          ]
+        },
+        {
+          "date": "2016-10-26",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "293",
+              "291",
+              "281",
+              "283",
+              "14748"
+            ]
+          ]
+        },
+        {
+          "date": "2016-11-13",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "282",
+              "281",
+              "270",
+              "277",
+              "23973"
+            ]
+          ]
+        },
+        {
+          "date": "2016-11-17",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "283",
+              "280",
+              "273",
+              "278",
+              "18364"
+            ]
+          ]
+        },
+        {
+          "date": "2016-11-27",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "269",
+              "264",
+              "248",
+              "257",
+              "13181"
+            ]
+          ]
+        },
+        {
+          "date": "2016-12-08",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "260",
+              "257",
+              "249",
+              "251",
+              "6283"
+            ]
+          ]
+        },
+        {
+          "date": "2016-12-18",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "253",
+              "252",
+              "247",
+              "249",
+              "5913"
+            ]
+          ]
+        },
+        {
+          "date": "2016-12-21",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "242",
+              "241",
+              "234",
+              "238",
+              "14245"
+            ]
+          ]
+        },
+        {
+          "date": "2017-04-23",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "212",
+              "228",
+              "216",
+              "218",
+              "23829"
+            ]
+          ]
+        },
+        {
+          "date": "2017-05-02",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "215",
+              "213",
+              "210",
+              "211",
+              "5402"
+            ]
+          ]
+        },
+        {
+          "date": "2017-05-18",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "216",
+              "215",
+              "210",
+              "213",
+              "8684"
+            ]
+          ]
+        },
+        {
+          "date": "2017-05-28",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "211",
+              "210",
+              "207",
+              "209",
+              "11732"
+            ]
+          ]
+        },
+        {
+          "date": "2017-07-10",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "197",
+              "196",
+              "192",
+              "196",
+              "15012"
+            ]
+          ]
+        },
+        {
+          "date": "2017-07-12",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "197",
+              "195",
+              "191",
+              "193",
+              "8745"
+            ]
+          ]
+        },
+        {
+          "date": "2017-07-16",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "197",
+              "196",
+              "193",
+              "195",
+              "5966"
+            ]
+          ]
+        },
+        {
+          "date": "2017-07-23",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "198",
+              "196",
+              "193",
+              "195",
+              "15373"
+            ]
+          ]
+        },
+        {
+          "date": "2017-08-27",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "188",
+              "186",
+              "180",
+              "183",
+              "11247"
+            ]
+          ]
+        },
+        {
+          "date": "2017-09-24",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "185",
+              "184",
+              "181",
+              "182",
+              "5196"
+            ]
+          ]
+        },
+        {
+          "date": "2017-10-31",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "182",
+              "187",
+              "183",
+              "186",
+              "25164"
+            ]
+          ]
+        },
+        {
+          "date": "2017-11-05",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "193",
+              "190",
+              "184",
+              "188",
+              "8057"
+            ]
+          ]
+        },
+        {
+          "date": "2017-11-08",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "182",
+              "181",
+              "178",
+              "180",
+              "6888"
+            ]
+          ]
+        },
+        {
+          "date": "2017-12-04",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "186",
+              "184",
+              "180",
+              "181",
+              "9488"
+            ]
+          ]
+        },
+        {
+          "date": "2018-02-14",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "166",
+              "165",
+              "162",
+              "165",
+              "2459"
+            ]
+          ]
+        },
+        {
+          "date": "2018-11-06",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "160",
+              "158",
+              "158",
+              "161",
+              "56"
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "verified_replacements": 0,
+  "limitations": "Schema mappings follow prior comparisons; LTP/close equivalence and source independence not certified. Corporate-action and execution evidence not independently verified. No canonical promotion."
+}

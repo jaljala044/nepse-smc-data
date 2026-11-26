@@ -1,8 +1,8 @@
 {
   "task": "Historical exception resolution: canonical equity hold policy",
   "evidence": {
-    "run": 45896380619,
-    "verified_commit": "d0d12c5a87a436a86afb5d24e657a40c7c7f5f5b",
+    "run": 45896661332,
+    "verified_commit": "281ce71756cd86f1609be7f817bce9999537d1c5",
     "pinned_source": "56362fb4f65b91fdcca8f50b50e53ad80e703649"
   },
   "queues": [
@@ -96,5 +96,12 @@
     "Require independent execution/session evidence and corporate-action price basis.",
     "No raw mutation, canonical publication or recommendation enablement."
   ],
-  "status": "REVIEW_POLICY_RECORDED_NOT_RUNTIME_APPLIED"
+  "status": "REVIEW_POLICY_RECORDED_NOT_RUNTIME_APPLIED",
+  "open_session_pair_review": {
+    "pairs": 73,
+    "current_and_previous_without_security_date_capture": 73,
+    "promoted": 0,
+    "action": "REQUIRE_INDEPENDENT_SECURITY_DATE_EVIDENCE",
+    "note": "Missing capture is not proof of no trade; no row correction or promotion."
+  }
 }

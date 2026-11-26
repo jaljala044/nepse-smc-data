@@ -41,7 +41,7 @@ def validate_daily(values, closed_dates):
             o, h, l, c, v = (Decimal(row[k]) for k in ("open", "high", "low", "close", "volume"))
             if not all(x.is_finite() for x in (o, h, l, c, v)):
                 raise ValueError("non-finite OHLCV")
-            if min(o, h, l, c) <= 0 or v < 0 or h < max(o, l, c) or l > min(o, h, c):
+            if min(o, h, l, c) <= 0 or v < 0 or v != v.to_integral_value() or h < max(o, l, c) or l > min(o, h, c):
                 raise ValueError("invalid OHLCV")
             if day in closed_dates:
                 raise ValueError("verified closed session")
@@ -67,7 +67,7 @@ def verified_closed_dates():
 
 BLOCKED_FLOORSHEET_BLOBS = {
     "0dd938bc5e6bfd50fa09bf85f0836d443ab15983",
-    "49d6498b30681b7896b6c5c824b518e50f941d",
+    "49d6498bfb30681b7896b6c5c824b518e50f941d",
 }
 BLOCKED_FLOORSHEET_SHA256 = {
     "441f2b64106b48086a0326604ab92c40f2e02fa163bca97cfe17385c9f88ebc8",

@@ -54,9 +54,6 @@ def aggregate_transactions(transactions, lookup, target_symbols):
             audit["duplicate_rows"].append(idx)
             if symbol in target_symbols: incomplete.add(symbol)
         seen_rows.add(key)
-        if symbol is None:
-            audit["unknown_stock_ids"].add(str(sid))
-            continue
         try:
             q, rate_d, amount_d = dec(qty), dec(rate), dec(amount)
             if q <= 0 or rate_d <= 0 or amount_d < 0:
@@ -64,6 +61,11 @@ def aggregate_transactions(transactions, lookup, target_symbols):
         except (ValueError, InvalidOperation):
             audit["invalid_rows"].append(idx)
             if symbol in target_symbols: incomplete.add(symbol)
+            continue
+        audit["quantity_sum"] += q
+        audit["turnover_sum"] += amount_d
+        if symbol is None:
+            audit["unknown_stock_ids"].add(str(sid))
             continue
         if symbol in target_symbols:
             grouped[symbol].append({"contractId": str(cid), "qty": q, "rate": rate_d,
@@ -121,6 +123,11 @@ def run(archive_path, lookup_path, canonical_path, external_path, out_dir):
     if len(symbols) != 86 or len(set(symbols)) != 86:
         raise ValueError("expected exactly 86 unique target symbols")
     agg, audit = aggregate_transactions(archive["transactions"], lookup, symbols)
+    audit["archive_integrity"] = {
+        "row_count_matches": len(archive["transactions"]) == archive.get("totalTrades"),
+        "quantity_matches": audit["quantity_sum"] == dec(archive.get("totalQty")),
+        "turnover_matches": audit["turnover_sum"] == dec(archive.get("totalAmount")),
+    }
     rows = []
     for ext in external_rows:
         sym = ext["symbol"]; a = agg[sym]; can = canonical.get(sym, {})

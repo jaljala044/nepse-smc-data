@@ -29,7 +29,7 @@ FIELDS = [
     "symbol", "external_date", "raw_date", "external_session_status",
     "raw_date_session_status", "open", "high", "low", "close", "volume",
     "raw_open", "raw_high", "raw_low", "raw_close", "raw_volume",
-    "raw_tuple_matches", "raw_file_sha256_expected", "raw_file_sha256_actual",
+    "raw_tuple_matches", "derived_series_sha256_from_recovery_artifact", "raw_file_sha256_actual",
     "shifted_date_snapshot_open", "shifted_date_snapshot_high",
     "shifted_date_snapshot_low", "shifted_date_snapshot_close",
     "shifted_date_snapshot_volume", "shifted_snapshot_tuple_matches",
@@ -149,14 +149,14 @@ def build(queue_path, raw_dir, calendar_path, snapshot_dir, output_path,
         external_tuple = tuple_from(item, ("open", "high", "low", "close", "volume"))
         raw_tuple = tuple_from(raw_row or {}, ("Open", "High", "Low", "Close", "Volume"))
         raw_match = raw_row is not None and raw_tuple == external_tuple
-        raw_hash_match = bool(raw_sha) and raw_sha == item.get("derived_sha256", "")
+        
 
         snap_tuple = tuple_from(snap or {}, ("Open", "High", "Low", "Close", "Vol"))
         snap_match = snap is not None and snap_tuple == external_tuple
 
         ext_status = calendar.get(external_date, "NOT_IN_CALENDAR")
         raw_status = calendar.get(raw_date, "NOT_IN_CALENDAR")
-        if raw_match and raw_hash_match and ext_status == "verified_open_observed" and raw_status == "verified_closed" and snap_match:
+        if raw_match and ext_status == "verified_open_observed" and raw_status == "verified_closed" and snap_match:
             disposition = "SECONDARY_CORROBORATED_ONE_DAY_DATE_SHIFT_PRIMARY_PENDING"
         elif raw_match and ext_status == "verified_open_observed" and raw_status == "verified_closed":
             disposition = "RAW_MATCH_AND_CALENDAR_SHIFT_CONFIRMED_SNAPSHOT_INCOMPLETE"
@@ -174,7 +174,7 @@ def build(queue_path, raw_dir, calendar_path, snapshot_dir, output_path,
             "raw_close": raw_row.get("Close", "") if raw_row else "",
             "raw_volume": raw_row.get("Volume", "") if raw_row else "",
             "raw_tuple_matches": str(raw_match).upper(),
-            "raw_file_sha256_expected": item.get("derived_sha256", ""),
+            "derived_series_sha256_from_recovery_artifact": item.get("derived_sha256", ""),
             "raw_file_sha256_actual": raw_sha,
             "shifted_date_snapshot_open": snap.get("Open", "") if snap else "",
             "shifted_date_snapshot_high": snap.get("High", "") if snap else "",

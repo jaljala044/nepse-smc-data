@@ -1,0 +1,39 @@
+{
+  "task": "P4.31",
+  "source_repository": "jaljala044/nepse-elite-ai-scanner-pro",
+  "source_commit": "c88a3d84e1b2becd150bc0f1d3160109f5e398df",
+  "source_files": {
+    "lifecycle_input": {
+      "path": "data/reference/nepse_equity_lifecycle_coverage_input_2026-11-26.csv",
+      "git_blob_sha": "be1567fadb69bdca11b0d7890da10ebc8df96d51",
+      "bytes": 62756
+    },
+    "typed_event_ledger": {
+      "path": "data/reference/nepse_security_lifecycle_events_2026-11-26.csv",
+      "git_blob_sha": "5fd15b55e4c6a671fe337ccd270555e0c467abfd",
+      "bytes": 2482
+    }
+  },
+  "equity_lifecycle_rows": 281,
+  "typed_lifecycle_events": 6,
+  "instrument_type_counts": {
+    "equity": 281
+  },
+  "valid_from_evidence_status_counts": {
+    "unverified": 237,
+    "verified_secondary_first_trade_archive_match": 30,
+    "verified_secondary_notice": 14
+  },
+  "dated_valid_from_rows": 44,
+  "blank_valid_from_rows": 237,
+  "current_official_id_symbol_matches": 281,
+  "current_official_id_symbol_mismatches": 0,
+  "disposition": "SECONDARY_LIFECYCLE_CANDIDATE_REGISTER_ONLY",
+  "limitations": [
+    "The 44 dated valid_from records are secondary evidence only; none are exchange-primary first-trade proofs.",
+    "Listing, merger-effective, trading-release and first-executed-trade events remain distinct types.",
+    "237 rows remain undated and unverified.",
+    "No historical security-ID continuity is proven by the current 2026-11-25 ID snapshot.",
+    "No canonical session calendar, OHLCV, scoring, training, or BUY eligibility promotion is authorized."
+  ]
+}

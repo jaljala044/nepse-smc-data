@@ -29,7 +29,7 @@ Each compressed payload SHA-256 matches the LFS SHA-256 declared in the reposito
 | SMPDA | 2024-08-18 | 4,145,349 | Yes | 300,918 | 192 | 5,314 | 6,175,193.80 |
 | SMPDA | 2024-08-14 | 3,333,535 | Yes | 244,019 | 0 | 0 | 0.00 |
 
-Raw compressed files and decompressed CSVs are preserved under `reference/p433_floorsheets/`, with SHA-256 and retrieval details in `capture_report.json`.
+The immutable compressed source files are preserved under `reference/p433_floorsheets/`; decompression is performed in memory for validation to avoid committing redundant copies. SHA-256 and retrieval details are in `capture_report.json`.
 
 ## OHLCV cross-check
 
@@ -45,11 +45,11 @@ The prior-session archive files contain market-wide rows but zero target-symbol 
 ## Contract identity and source-quality caveat
 
 The source schema contains both `contract_no` and `id`. The archive's `id` values are unique row identifiers across the four files, and no exact full-row duplicates were found. However, `contract_no` is reused many times within the same symbol on the two SMPDA dates:
-- SMPDA 2024-08-18: 300,918 rows, 30,093 unique `contract_no` values, 142,724 excess repeated values within symbol.
-- SMPDA 2024-08-14: 244,019 rows, 24,404 unique `contract_no` values, 119,389 excess repeated values within symbol.
+- SMPDA 2024-08-18: 300,918 rows, 30,093 unique `contract_no` values, 142,724 excess repeated values within symbol. The 192 SMPDA target rows themselves contain 177 distinct `contract_no` values (15 excess repeated values), while all 192 archive row `id` values are unique.
+- SMPDA 2024-08-14: 244,019 rows, 24,404 unique `contract_no` values, 119,389 excess repeated values within symbol. The target-symbol count is zero.
 - NMLBBL files have no repeated `contract_no` values.
 
-This is a major schema/identity anomaly. The row `id` is unique but its semantics as an exchange contract identifier have not been independently established. Do not treat the 192 SMPDA rows as 192 independently verified exchange contracts solely on the basis of the third-party row `id`. The target-symbol quantities nevertheless match the corresponding OHLCV volumes exactly.
+This is a major schema/identity anomaly. The row `id` is unique but its semantics as an exchange contract identifier have not been independently established. Do not treat the 192 SMPDA rows as 192 independently verified exchange contracts: only 177 distinct `contract_no` values are present for the target symbol, and the third-party row `id` semantics are not independently established. The target-symbol quantities nevertheless match the corresponding OHLCV volumes exactly.
 
 ## What this supports
 

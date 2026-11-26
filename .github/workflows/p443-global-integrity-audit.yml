@@ -11,6 +11,8 @@ on:
       - "tools/p443_join_ohlcv_exceptions.py"
       - "tools/p443_classify_repeated_candles.py"
       - "tools/p443_export_repeat_review_queues.py"
+      - "tools/p443_recorded_closure_row_hold.py"
+      - "test_p443_recorded_closure_row_hold.py"
       - "p443_content_audit.py"
       - "test_p443_content_audit.py"
       - "test_p443_scanner_quarantine.py"
@@ -28,6 +30,8 @@ on:
       - "tools/p443_join_ohlcv_exceptions.py"
       - "tools/p443_classify_repeated_candles.py"
       - "tools/p443_export_repeat_review_queues.py"
+      - "tools/p443_recorded_closure_row_hold.py"
+      - "test_p443_recorded_closure_row_hold.py"
       - "p443_content_audit.py"
       - "test_p443_content_audit.py"
       - "test_p443_scanner_quarantine.py"
@@ -75,6 +79,10 @@ jobs:
         run: python tools/p443_classify_repeated_candles.py --input audit-strict/findings.jsonl --output audit-strict
       - name: Export disjoint repeat review queues
         run: python tools/p443_export_repeat_review_queues.py --directory audit-strict
+      - name: Verify recorded closure row hold regression tests
+        run: python -m unittest test_p443_recorded_closure_row_hold -v
+      - name: Export unique recorded closure row holds
+        run: python tools/p443_recorded_closure_row_hold.py --directory audit-strict
       - name: Preserve strict audit outputs
         if: always()
         uses: actions/upload-artifact@v4

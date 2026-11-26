@@ -16,6 +16,9 @@ on:
       - ".github/workflows/p433-first-trade-floorsheet-capture.yml"
 permissions:
   contents: write
+concurrency:
+  group: p433-capture-${{ github.ref }}
+  cancel-in-progress: false
 jobs:
   capture:
     runs-on: ubuntu-latest
@@ -43,5 +46,6 @@ jobs:
           git add reference/p433_floorsheets
           if ! git diff --cached --quiet; then
             git commit -m "evidence(p4.33): capture four first-trade boundary floorsheets"
+            git pull --rebase origin "$GITHUB_REF_NAME"
             git push
           fi

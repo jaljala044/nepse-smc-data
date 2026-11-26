@@ -3,7 +3,7 @@
 **Status: reproducible audit baseline complete; adjudication and canonical-ingestion acceptance remain open.**
 
 **Pinned input:** `main` at `56362fb4f65b91fdcca8f50b50e53ad80e703649`.  
-**Latest validated workflow:** [Run 190](https://github.com/jaljala044/nepse-smc-data/actions/runs/45898089926), head `bee8e164e8e9866baddbde557890b90fb953e7b0`; all workflow stages passed, including equity-first triage, two-date unresolved-pair evidence checks, recovery-queue regression tests, and artifact preservation.  
+**Latest validated workflow:** [Run 195](https://github.com/jaljala044/nepse-smc-data/actions/runs/45898354789), head `d6c43d84ea1d98f32e7ae8074e2ad15a2a119530`; all workflow stages passed, including the all-58,972-pair official-history check, equity-first prioritization, unique recovery-queue tests, and artifact preservation.  
 **Method:** deterministic, read-only scan of pinned file blobs. Findings are review flags, not automatic corrections.
 
 ## Coverage
@@ -37,6 +37,10 @@ The strict workflow joined all 1,331 invalid-OHLCV rows to the existing historic
 - **2** do not match the historical equity exception registers: KDBY, 2026-04-29 (row 854), and KEF, 2026-04-28 (row 1160). Both are independently identified in the pinned official security master (`reference/p435_official_historical_floorsheets/security_list.json`, blob `0891e10b56de572816680c8065718ecd4420bd03`) as investment-fund instruments: Kumari Dhanabriddhi Yojana and Kumari Equity Fund. They are recorded separately in `P443_NON_EQUITY_OHLCV_EXCEPTIONS_2026-11-27.csv` and remain quarantined from the equity candle set; this classification does **not** validate or repair their prices.
 
 An exception-register match is reconciliation, **not independent validation**. The prior P4.35 source-lineage audit found no qualified independent historical source for the affected equity candles; matched rows remain UNKNOWN pending source adjudication. No values were repaired or promoted.
+
+### UNL secondary-source recheck (not transaction verification)
+
+The branch preserves three UNL rows from `03_stock_charts_ohlcv/UNL_OHLCV.csv` in `P443_UNL_PRIORITY_PRICE_CORROBORATION_2026-11-27.csv` (source blob `107d1ef058992cfd1b8b4a88db9f6304edf22932`, rows 809, 810, 822). A secondary-source recheck found matching published OHLCV/volume values for 2026-08-24 and 2026-08-27 on ArthaKendra's UNL price-history page, and for 2026-09-28 on the NEPSEAlpha UNL history result. These are **secondary aggregator matches**; their upstream lineage/independence is unknown and they provide no exchange contract IDs. The separate `P443_UNL_SECONDARY_SOURCE_RECHECK_2026-11-27.csv` records the URLs and exact fields matched. All three remain `contract_verified=false` and `promotion_allowed=false`; no canonical value was changed.
 
 ### Floorsheet row classification and contract-number reuse
 
@@ -130,7 +134,7 @@ Preserve all rows. The source capture report reports unique archive-local record
 
 ## Reproducibility and machine-readable outputs
 
-- Latest complete workflow and artifacts: [Run 190](https://github.com/jaljala044/nepse-smc-data/actions/runs/45898089926); all scan, quarantine, cross-repository contract, strict-byte, exception join, pair-calendar triage, disjoint queue, row-hold, authenticated-holiday, open-pair check, equity-first triage, all-58,972-pair official-history check, recovery-queue regression, and artifact-preservation stages passed.
+- Latest complete workflow and artifacts: [Run 195](https://github.com/jaljala044/nepse-smc-data/actions/runs/45898354789); all scan, quarantine, cross-repository contract, strict-byte, exception join, pair-calendar triage, disjoint queue, row-hold, authenticated-holiday, open-pair check, equity-first triage, all-58,972-pair official-history check, recovery-queue regression, and artifact-preservation stages passed.
 - Standard row-level CSV findings: `NEPSE_GLOBAL_DUPLICATE_AUDIT_FINDINGS.csv`.
 - Per-file scan coverage: `NEPSE_GLOBAL_DUPLICATE_AUDIT_SCAN_SUMMARY.csv`.
 - Strict pinned-byte row-level findings and exception join: preserved in the run's `p443-strict-content-audit` artifact (`findings.jsonl`, `coverage.json`, `summary.json`, `exception_join.csv`, `exception_join_summary.json`, `open_pair_security_evidence.csv`, `open_pair_security_summary.json`, `unresolved_pair_security_evidence.csv`, `unresolved_pair_security_summary.json`, `equity_first_repeat_review.csv`, `equity_first_repeat_summary.json`, `equity_security_date_recovery_queue.csv`, `equity_security_date_source_lineage.csv`, `equity_security_date_recovery_summary.json`).

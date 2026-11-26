@@ -5,7 +5,9 @@ EOD records are not floorsheets and do not prove individual executed contracts.
 Tokens and salts remain in memory and are never persisted or printed.
 """
 import base64
+import csv
 import json
+from decimal import Decimal, InvalidOperation
 import tempfile
 from datetime import datetime
 from pathlib import Path
@@ -254,6 +256,8 @@ def capture(output_dir,requester=request,parser=token_parser,retrieved_at=None):
                       all_hlc_present_rows=sum(1 for r in inspected if r.get("has_hlc")),
                       open_present_rows=sum(1 for r in inspected if r.get("has_open")),
                       rows_summary=inspected)
+            if window.get("control"):
+                wr["canonical_comparison"]=compare_canonical(symbol,all_rows,window["start"],window["end"])
             window_results.append(wr)
             for target in window.get("targets",[]):
                 date=target["date"]

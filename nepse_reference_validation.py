@@ -79,14 +79,33 @@ def instrument_active_on(row: Mapping[str, str], on_date: str) -> bool:
     return start <= target and (end is None or target <= end)
 
 
+def _effective_interval(row: Mapping[str, str], line: int) -> tuple[date, date] | None:
+    start_text = row.get("valid_from", "").strip()
+    end_text = row.get("valid_to", "").strip()
+    if not start_text:
+        return None
+    start = _parse_date(start_text, f"line {line} valid_from")
+    end = _parse_date(end_text, f"line {line} valid_to") if end_text else date.max
+    if end < start:
+        raise ValueError(f"line {line}: valid_to precedes valid_from")
+    return start, end
+
+
 def validate_instrument_rows(
     rows: Iterable[Mapping[str, str]],
     dataset_symbols: Iterable[str] = (),
 ) -> list[str]:
-    """Validate stable IDs, effective-date intervals, duplicates and coverage."""
+    """Validate stable IDs, symbol/date intervals, duplicates and dataset coverage.
+
+    Reusing one stable security ID for a later, non-overlapping symbol rename is
+    permitted. Overlapping records for one ID, or one symbol assigned to different
+    IDs during an overlapping interval, are rejected.
+    """
     errors: list[str] = []
     materialized = list(rows)
     normalized_symbols: set[str] = set()
+    normalized: list[tuple[int, str, str, tuple[date, date] | None]] = []
+
     for line, row in enumerate(materialized, start=2):
         symbol = row.get("symbol", "").strip().upper()
         security_id = row.get("security_id", "").strip()
@@ -96,42 +115,34 @@ def validate_instrument_rows(
         normalized_symbols.add(symbol)
         if not security_id:
             errors.append(f"line {line}: {symbol} missing stable security_id")
-        start_text = row.get("valid_from", "").strip()
-        end_text = row.get("valid_to", "").strip()
-        if start_text:
-            try:
-                start = _parse_date(start_text, f"line {line} valid_from")
-                end = _parse_date(end_text, f"line {line} valid_to") if end_text else None
-                if end and end < start:
-                    errors.append(f"line {line}: {symbol} valid_to precedes valid_from")
-            except ValueError as exc:
-                errors.append(str(exc))
-        elif end_text:
-            errors.append(f"line {line}: {symbol} has valid_to without valid_from")
-
-    # Different security IDs must not claim the same symbol over overlapping
-    # effective intervals. Adjacent inclusive intervals overlap on their shared day.
-    for i, left in enumerate(materialized):
-        ls = left.get("symbol", "").strip().upper()
-        if not ls or not left.get("valid_from", "").strip():
-            continue
         try:
-            lstart = _parse_date(left["valid_from"], "valid_from")
-            lend = _parse_date(left.get("valid_to", "").strip(), "valid_to") if left.get("valid_to", "").strip() else date.max
-        except ValueError:
+            interval = _effective_interval(row, line)
+            if interval is None:
+                errors.append(f"line {line}: {symbol} missing valid_from")
+        except ValueError as exc:
+            errors.append(str(exc))
+            interval = None
+        normalized.append((line, symbol, security_id, interval))
+
+    for index, left in enumerate(normalized):
+        lline, lsymbol, lid, lint = left
+        if not lid or lint is None:
             continue
-        for right in materialized[i + 1:]:
-            if right.get("symbol", "").strip().upper() != ls or not right.get("valid_from", "").strip():
+        for rline, rsymbol, rid, rint in normalized[index + 1:]:
+            if not rid or rint is None:
                 continue
-            try:
-                rstart = _parse_date(right["valid_from"], "valid_from")
-                rend = _parse_date(right.get("valid_to", "").strip(), "valid_to") if right.get("valid_to", "").strip() else date.max
-            except ValueError:
+            overlaps = max(lint[0], rint[0]) <= min(lint[1], rint[1])
+            if not overlaps:
                 continue
-            if max(lstart, rstart) <= min(lend, rend):
-                if left.get("security_id", "").strip() != right.get("security_id", "").strip():
-                    errors.append(f"overlapping symbol mapping for {ls}: different security IDs")
-                    break
+            if lid == rid:
+                errors.append(
+                    f"overlapping stable security_id {lid}: rows {lline} and {rline} "
+                    f"claim {lsymbol} and {rsymbol}"
+                )
+            elif lsymbol == rsymbol:
+                errors.append(
+                    f"overlapping symbol mapping for {lsymbol}: different security IDs"
+                )
 
     for symbol in sorted({s.strip().upper() for s in dataset_symbols if s.strip()} - normalized_symbols):
         errors.append(f"unknown instrument symbol in dataset: {symbol}")

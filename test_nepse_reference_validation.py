@@ -74,6 +74,30 @@ class InstrumentValidationTests(unittest.TestCase):
         errors = validate_instrument_rows(rows)
         self.assertTrue(any("valid_to precedes valid_from" in e for e in errors))
 
+    def test_overlapping_stable_id_across_symbols_is_rejected(self):
+        rows = [
+            {"security_id": "1001", "symbol": "OLD", "valid_from": "2020-01-01", "valid_to": "2021-06-30"},
+            {"security_id": "1001", "symbol": "NEW", "valid_from": "2021-06-30", "valid_to": ""},
+        ]
+        errors = validate_instrument_rows(rows)
+        self.assertTrue(any("overlapping stable security_id" in e for e in errors))
+
+    def test_non_overlapping_symbol_rename_can_reuse_stable_id(self):
+        rows = [
+            {"security_id": "1001", "symbol": "OLD", "valid_from": "2020-01-01", "valid_to": "2021-06-30"},
+            {"security_id": "1001", "symbol": "NEW", "valid_from": "2021-07-01", "valid_to": ""},
+        ]
+        self.assertEqual(validate_instrument_rows(rows), [])
+
+    def test_duplicate_overlapping_register_row_is_rejected(self):
+        row = {"security_id": "1001", "symbol": "ABC", "valid_from": "2020-01-01", "valid_to": ""}
+        errors = validate_instrument_rows([row, dict(row)])
+        self.assertTrue(any("overlapping stable security_id" in e for e in errors))
+
+    def test_missing_valid_from_is_rejected(self):
+        rows = [{"security_id": "1001", "symbol": "ABC", "valid_from": "", "valid_to": ""}]
+        self.assertTrue(any("missing valid_from" in e for e in validate_instrument_rows(rows)))
+
 
 if __name__ == "__main__":
     unittest.main()

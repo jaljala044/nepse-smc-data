@@ -3,7 +3,7 @@ import tempfile
 import unittest
 from pathlib import Path
 from urllib.parse import urlparse,parse_qs
-from capture_p436_official_historical_price_volume import capture
+from capture_p436_official_historical_price_volume import capture, normalize_row
 
 class P436OfficialPriceVolumeTests(unittest.TestCase):
     def test_candidate_ohlcv_matches_and_token_is_redacted(self):
@@ -49,5 +49,11 @@ class P436OfficialPriceVolumeTests(unittest.TestCase):
             result=capture(tmp,fake,lambda obj,path:("A","R"),"2026-11-26T00:00:00Z")
         self.assertEqual(result["security_results"][0]["date_mismatches"],1)
         self.assertFalse(result["security_results"][0]["candidate_all_expected_fields_match"])
+
+    def test_normalizer_preserves_official_price_volume_fields(self):
+        row=normalize_row({"businessDate":"2024-05-19T00:00:00","openPrice":599.6,"highPrice":646.6,"lowPrice":599.6,"closePrice":646.6,"totalTradedQuantity":864,"totalTradedValue":557461.6})
+        self.assertEqual(row["date"],"2024-05-19")
+        self.assertEqual(row["volume"],864)
+        self.assertEqual(row["turnover"],557461.6)
 
 if __name__=="__main__":unittest.main()

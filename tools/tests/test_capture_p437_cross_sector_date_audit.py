@@ -64,6 +64,23 @@ class P437CrossSectorDateAuditTests(unittest.TestCase):
             self.assertEqual(shifted["calendar_day_offset"],1)
             self.assertEqual(shifted["official_date"],"2026-01-05")
 
+    def test_session_calendar_confirms_weekly_closed_carry_forward(self):
+        import csv
+        with tempfile.TemporaryDirectory() as tmp:
+            path=Path(tmp)/"TEST_OHLCV.csv"
+            with path.open("w",newline="") as handle:
+                writer=csv.DictWriter(handle,fieldnames=["Date","Open","High","Low","Close","Volume"])
+                writer.writeheader()
+                writer.writerow({"Date":"2026-01-10","Open":"10","High":"11","Low":"9","Close":"10","Volume":"100"})
+            official=[{"businessDate":"2026-01-09","totalTrades":5,"totalTradedQuantity":100,
+                       "totalTradedValue":1000,"highPrice":11,"lowPrice":9,"closePrice":10}]
+            rows=build_quarantine_rows("TEST","Finance",official,"2026-01-01","2026-01-31",tmp)
+            self.assertEqual(len(rows),1)
+            self.assertEqual(rows[0]["disposition"],"CANONICAL_CLOSED_DATE_CARRY_FORWARD")
+            self.assertEqual(rows[0]["canonical_session_status"],"verified_closed")
+            self.assertEqual(rows[0]["canonical_session_scope"],"market_weekly_schedule")
+            self.assertEqual(rows[0]["canonical_session_reason"],"regular_weekly_closure")
+
     def test_capture_checks_all_security_ids_and_keeps_tokens_out(self):
         token={"accessToken":"SECRET_ACCESS","refreshToken":"SECRET_REFRESH",
                "salt1":1,"salt2":2,"salt3":3,"salt4":4,"salt5":5,"serverTime":1}

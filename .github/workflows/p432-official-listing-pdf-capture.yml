@@ -1,0 +1,44 @@
+name: P4.32 official listing PDF evidence capture
+on:
+  push:
+    branches:
+      - p432-official-listing-pdf-capture
+    paths:
+      - "tools/capture_nepse_listing_pdfs.py"
+      - "tools/tests/test_capture_nepse_listing_pdfs.py"
+      - ".github/workflows/p432-official-listing-pdf-capture.yml"
+  pull_request:
+    paths:
+      - "tools/capture_nepse_listing_pdfs.py"
+      - "tools/tests/test_capture_nepse_listing_pdfs.py"
+      - ".github/workflows/p432-official-listing-pdf-capture.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run capture tests
+        run: |
+          cd tools
+          python -m unittest discover -s tests -p 'test_capture_nepse_listing_pdfs.py' -v
+      - name: Attempt official NEPSE PDF capture
+        run: python tools/capture_nepse_listing_pdfs.py --output-dir reference/p432_official_listing_documents
+      - name: Commit immutable capture results
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reference/p432_official_listing_documents
+          if ! git diff --cached --quiet; then
+            git commit -m "evidence(p4.32): preserve official listing PDF capture results"
+            git push
+          fi

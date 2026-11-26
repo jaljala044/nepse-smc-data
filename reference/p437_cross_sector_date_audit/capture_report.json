@@ -1,7 +1,7 @@
 {
   "task": "P4.37",
   "source": "NEPSE official API domain",
-  "retrieved_at_utc": "2026-11-26T19:40:59.931613+00:00",
+  "retrieved_at_utc": "2026-11-26T19:59:11.080336+00:00",
   "window": {
     "start": "2025-11-26",
     "end": "2026-11-26",
@@ -13,6 +13,47 @@
     "wasm_git_blob_sha": "06162abc9206c6a855648ed5c0abb2fd515aa555"
   },
   "authentication_status": "authenticated",
+  "canonical_data_provenance": {
+    "canonical_import_repository": "jaljala044/nepse-history-starter",
+    "canonical_import_commit": "12002cdc679061192c1ea3cbd5300257286e66af",
+    "canonical_import_manifest": "historical_imports/sharesansar_2026-11-20.json",
+    "canonical_import_manifest_metrics": {
+      "archived_sessions": 937,
+      "source_symbols": 525,
+      "imported_symbols": 525,
+      "source_rows": 303438,
+      "imported_rows": 301632,
+      "flagged_rows": 1806
+    },
+    "upstream_data_repository": "OmitNomis/ShareSansarScraper",
+    "upstream_data_commit": "d5949bd628d6b5ca9ebb2b4a15e001a434c6732c",
+    "upstream_workbook": "docs/Data/combined_excel.xlsx",
+    "upstream_workbook_git_blob_sha": "e200c06f47a0d529baae61680bb40a55d1114fa1",
+    "upstream_workbook_size_bytes": 41946267,
+    "upstream_workbook_sha256": "dc9534bd1e38a467452196548f82a20b14a1fedc9a2e64983484d9137386c38c",
+    "upstream_source_type": "ShareSansar scraped daily-price page; secondary source, not NEPSE primary",
+    "scraper_date_assignment": "datetime.now().strftime('%Y_%m_%d')",
+    "scraper_duplicate_guard": "exact full table row comparison excluding serial number; does not validate official businessDate",
+    "downstream_import_date_validation": "Gregorian ISO date and date bounds; no authoritative NEPSE session-calendar check",
+    "downstream_history_date_key": "source CSV filename date"
+  },
+  "quarantine_matrix": {
+    "rows": 1800,
+    "disposition_counts": {
+      "CANONICAL_CLOSED_DATE_CARRY_FORWARD": 1455,
+      "OFFICIAL_ONLY_NO_CANONICAL_TUPLE_MATCH": 306,
+      "OFFICIAL_ONLY_MATCHES_CANONICAL_CLOSED_DATE": 36,
+      "EXACT_DATE_HLCV_MISMATCH": 3
+    },
+    "closed_date_carry_forward": {
+      "rows": 1455,
+      "unique_dates": 81,
+      "weekly_closure_dates": 60,
+      "listed_holiday_dates": 21,
+      "unverified_session_dates": 0
+    },
+    "path": "reference/p437_cross_sector_date_audit/quarantine_matrix.csv"
+  },
   "sample_design": {
     "method": "stratified purposive sample",
     "symbols": 24,
@@ -42,7 +83,7 @@
       "http_status": 200,
       "content_type": "application/json",
       "response_bytes": 722,
-      "response_sha256": "5b7391cfc7ac72b0671497b88b207823b1e636513048311be8e3ca94b437e81f",
+      "response_sha256": "2c605af657e106047dbde090c752993ac18ac42b7ef56068ac7bd98280616bd6",
       "etag": null,
       "last_modified": null,
       "token_fields_present": {
@@ -76,7 +117,9 @@
     "canonical_only_tuple_matches": 1455,
     "exact_date_overlaps": 5130,
     "exact_date_mismatches": 3,
-    "weekly_closure_rows": 0
+    "weekly_closure_rows": 0,
+    "zero_trade_rows": 223,
+    "positive_trade_rows": 5249
   },
   "sector_rollup": {
     "Microfinance": {
@@ -188,6 +231,11 @@
       "evidence_gates_passed": 2
     }
   },
+  "date_set_consistency": {
+    "unique_date_sets": 1,
+    "all_captured_symbols_share_same_date_set": true,
+    "shared_date_count": 228
+  },
   "results": [
     {
       "sector": "Microfinance",
@@ -207,7 +255,7 @@
           "http_status": 200,
           "content_type": "application/json",
           "response_bytes": 38694,
-          "response_sha256": "2132e727b4ed2ddcf0e2ed6dbfb188c0673bbd8bf4c89f996c650947f7b44029",
+          "response_sha256": "278685f7c1f5a589888e4f28c77c8cfa35ddd4664c965edde2f8711f8bc8f7a1",
           "etag": null,
           "last_modified": null,
           "status": "captured",
@@ -229,6 +277,8 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
+      "zero_trade_rows": 1,
+      "positive_trade_rows": 227,
       "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
@@ -646,6 +696,8 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
+      "zero_trade_rows": 1,
+      "positive_trade_rows": 227,
       "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
@@ -1063,6 +1115,8 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
+      "zero_trade_rows": 0,
+      "positive_trade_rows": 228,
       "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
@@ -1479,6 +1533,8 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
+      "zero_trade_rows": 0,
+      "positive_trade_rows": 228,
       "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
@@ -1895,6 +1951,8 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
+      "zero_trade_rows": 0,
+      "positive_trade_rows": 228,
       "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
@@ -2186,7 +2244,7 @@
           "http_status": 200,
           "content_type": "application/json",
           "response_bytes": 39860,
-          "response_sha256": "0fcba99d9ac6cade3dbc2f8f013c00635cccac8ce7a1af37f2aa83052543501c",
+          "response_sha256": "0668f14310f31daef55be6fb8e5a79b7d992c8d9171b763263352f8ce022cfbe",
           "etag": null,
           "last_modified": null,
           "status": "captured",
@@ -2208,6 +2266,8 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
+      "zero_trade_rows": 0,
+      "positive_trade_rows": 228,
       "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
@@ -2505,6 +2565,8 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
+      "zero_trade_rows": 0,
+      "positive_trade_rows": 228,
       "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
@@ -2899,7 +2961,7 @@
           "http_status": 200,
           "content_type": "application/json",
           "response_bytes": 39163,
-          "response_sha256": "eefeecb04bbd2392f4f69d51b5c88486a958ca17c718904b85970841c65d091a",
+          "response_sha256": "ba6160e70cea3833b0d104ba1782f2d05fa6630507bb31407017d2aaadf85f8a",
           "etag": null,
           "last_modified": null,
           "status": "captured",
@@ -2921,6 +2983,8 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
+      "zero_trade_rows": 0,
+      "positive_trade_rows": 228,
       "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
@@ -3337,6 +3401,8 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
+      "zero_trade_rows": 0,
+      "positive_trade_rows": 228,
       "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
@@ -3732,7 +3798,7 @@
           "http_status": 200,
           "content_type": "application/json",
           "response_bytes": 39253,
-          "response_sha256": "44b4e08d71d87f00b484a57f4319b97fdcd812de144781add10cf19085a0565f",
+          "response_sha256": "a1f425d95ac684fe54138e99f660b79ea6543a556d866a1ab57f16e10e612946",
           "etag": null,
           "last_modified": null,
           "status": "captured",
@@ -3754,6 +3820,8 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
+      "zero_trade_rows": 0,
+      "positive_trade_rows": 228,
       "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
@@ -4171,6 +4239,8 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
+      "zero_trade_rows": 0,
+      "positive_trade_rows": 228,
       "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
@@ -4565,7 +4635,7 @@
           "http_status": 200,
           "content_type": "application/json",
           "response_bytes": 39222,
-          "response_sha256": "57f7e47eab8d2073425ea6965914c1067a19f6d653172c60bb4d189dbefcf0de",
+          "response_sha256": "fcd6e1faa0a9bb81464d9c42f36b9dff50e8d84d5a3b6bdfbbd03091b1a5f9b3",
           "etag": null,
           "last_modified": null,
           "status": "captured",
@@ -4587,6 +4657,8 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
+      "zero_trade_rows": 0,
+      "positive_trade_rows": 228,
       "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
@@ -4981,7 +5053,7 @@
           "http_status": 200,
           "content_type": "application/json",
           "response_bytes": 39475,
-          "response_sha256": "3a79a8ad38c2266af626dd27f16935ef38dc5cafe8db163ef441f0a878f9ac51",
+          "response_sha256": "ca94e81a3f3d8f9535e61f382796512d1ab13a3791d5ba1c937e406ce12f2413",
           "etag": null,
           "last_modified": null,
           "status": "captured",
@@ -5003,6 +5075,8 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
+      "zero_trade_rows": 0,
+      "positive_trade_rows": 228,
       "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
@@ -5436,6 +5510,8 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
+      "zero_trade_rows": 0,
+      "positive_trade_rows": 228,
       "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
@@ -5831,7 +5907,7 @@
           "http_status": 200,
           "content_type": "application/json",
           "response_bytes": 40299,
-          "response_sha256": "1b5d0a5acc26e0103848e844072c060fb4cbae0748ebe5b614a6319a90f3a2b5",
+          "response_sha256": "7a063aca6148464489330a5760807f15aab261e126bb030e976a0ece4f9f6ff7",
           "etag": null,
           "last_modified": null,
           "status": "captured",
@@ -5853,6 +5929,8 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
+      "zero_trade_rows": 0,
+      "positive_trade_rows": 228,
       "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
@@ -6263,7 +6341,7 @@
           "http_status": 200,
           "content_type": "application/json",
           "response_bytes": 36603,
-          "response_sha256": "92f5e43aaaace4288ac69d45f6e12735580f481c17551692175c5e435fb8511e",
+          "response_sha256": "b84c224ed3228430e559fc6cfbf6a95efa05d2a13d754aa81b7ba4454a406492",
           "etag": null,
           "last_modified": null,
           "status": "captured",
@@ -6285,6 +6363,8 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
+      "zero_trade_rows": 221,
+      "positive_trade_rows": 7,
       "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
@@ -6819,6 +6899,8 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
+      "zero_trade_rows": 0,
+      "positive_trade_rows": 228,
       "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
@@ -7116,6 +7198,8 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
+      "zero_trade_rows": 0,
+      "positive_trade_rows": 228,
       "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
@@ -7390,7 +7474,7 @@
           "http_status": 200,
           "content_type": "application/json",
           "response_bytes": 39397,
-          "response_sha256": "ba4508e8595aa9ed94225e715d95b4e4a131d2469ff9d5dfb8f76e7a4b3710e2",
+          "response_sha256": "a9a5dfeb96cdbe0dc366fe5d3cf71fba01a5099106ebc45bef20db86c5d49e43",
           "etag": null,
           "last_modified": null,
           "status": "captured",
@@ -7412,6 +7496,8 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
+      "zero_trade_rows": 0,
+      "positive_trade_rows": 228,
       "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
@@ -7831,6 +7917,8 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
+      "zero_trade_rows": 0,
+      "positive_trade_rows": 228,
       "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
@@ -8225,7 +8313,7 @@
           "http_status": 200,
           "content_type": "application/json",
           "response_bytes": 39095,
-          "response_sha256": "2d1e72ee79c1fe43672ae32a3cd67c31c80be92351912fcce61da934354c27f5",
+          "response_sha256": "2dc38b6333052a825c75f0216399a6d4deb3203ce52ccb126cb9e904dfeb2ef3",
           "etag": null,
           "last_modified": null,
           "status": "captured",
@@ -8247,6 +8335,8 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
+      "zero_trade_rows": 0,
+      "positive_trade_rows": 228,
       "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
@@ -8642,7 +8732,7 @@
           "http_status": 200,
           "content_type": "application/json",
           "response_bytes": 39120,
-          "response_sha256": "f0f55b5e08be25d890c91c04cedc2b3945fc410880f4b41bddbacab82e0c1e5b",
+          "response_sha256": "5f0e832f53407f845ab6ef26991a6b3a14b4ec687d9a50f2a179c19281ce0839",
           "etag": null,
           "last_modified": null,
           "status": "captured",
@@ -8664,6 +8754,8 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
+      "zero_trade_rows": 0,
+      "positive_trade_rows": 228,
       "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
@@ -9059,7 +9151,7 @@
           "http_status": 200,
           "content_type": "application/json",
           "response_bytes": 39301,
-          "response_sha256": "516eed071773db75c4e92379ae095cf70c917a48f2fd266071498fd461733e87",
+          "response_sha256": "49e64bd3ef612a48386c0c8fc283f703bcb99545caa3d1623c961c838778b2f3",
           "etag": null,
           "last_modified": null,
           "status": "captured",
@@ -9081,6 +9173,8 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
+      "zero_trade_rows": 0,
+      "positive_trade_rows": 228,
       "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
@@ -9498,6 +9592,8 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
+      "zero_trade_rows": 0,
+      "positive_trade_rows": 228,
       "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
@@ -9761,5 +9857,5 @@
     "from_2026-04-06": "Monday-Friday regular sessions; Saturday/Sunday weekly closures",
     "limitation": "Weekday compatibility does not establish an actual open session; holidays and exceptional closures require the evidence-backed calendar."
   },
-  "interpretation": "Exploratory stratified sample only; not a full-universe finding. Official EOD HLCV comparisons do not prove contract-level execution or broker flow. Canonical rows are not modified. Suspected date-shift patterns remain quarantined pending provenance investigation."
+  "interpretation": "Exploratory stratified sample only; not a full-universe finding. Canonical source is ShareSansar-derived, not NEPSE primary. The importer does not enforce an authoritative session calendar; date-stamped duplicate rows remain quarantined. Official EOD HLCV comparisons do not prove contract-level execution or broker flow. Canonical rows are not modified."
 }

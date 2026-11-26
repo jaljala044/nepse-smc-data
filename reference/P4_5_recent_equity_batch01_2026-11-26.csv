@@ -1,0 +1,6 @@
+symbol,rows,first_date,last_date,duplicate_dates,invalid_ohlcv,closed_date_rows,observed_date_gaps_within_span,gap_dates,closed_dates,source_blob_sha
+SAPIL,57,2026-08-13,2026-11-20,0,0,0,0,,,fa7e9296ca283bcadecbd335ccd65786f0dfd8b6
+MEPDL,58,2026-08-12,2026-11-20,0,0,0,0,,,8eedef6c0df99ed62306827f06b3321f20dded56
+ECL,76,2026-07-17,2026-11-20,0,0,1,1,2026-07-24,2026-07-25,04f0cf4fc35191a3a5738ac0cf7853e39939b91b
+KAHL,87,2026-07-02,2026-11-20,0,0,1,1,2026-07-24,2026-07-25,aab8665091745c3bce58ca2721f1ee4618c1fa51
+SGHL,87,2026-07-02,2026-11-20,0,0,1,1,2026-07-24,2026-07-25,f67eb256784dd3e5d51025927eb4b8ab674687e7

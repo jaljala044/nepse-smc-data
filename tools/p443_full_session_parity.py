@@ -5,7 +5,7 @@ import hashlib
 import io
 import json
 from collections import Counter
-from decimal import Decimal, ROUND_FLOOR
+from decimal import Decimal, InvalidOperation, ROUND_FLOOR
 from pathlib import Path
 
 try:
@@ -26,44 +26,50 @@ def signature(row, secondary, day, stats=None):
     ]
     raw_contract = get("contract_no").strip()
     contract = raw_contract
-    # Some CSV exports prefix numeric IDs with one apostrophe. Preserve that
-    # fact in per-source counters, but compare the underlying digits only.
     if raw_contract.startswith("'") and raw_contract[1:].isdigit():
         contract = raw_contract[1:]
         if stats is not None:
             stats["leading_apostrophe_contract_ids"] += 1
+
     date = get("date")[:10]
     symbol = get("symbol").strip().upper()
     buyer, seller = (row[key].strip() for key in ("buyer", "seller"))
-    quantity, rate, amount = (
-        Decimal(get(key).replace(",", "")) for key in ("quantity", "rate", "amount")
-    )
+    if not contract.isdigit():
+        raise ValueError("contract_id_non_numeric")
+    if date != day:
+        raise ValueError("session_date_mismatch")
+    if not symbol:
+        raise ValueError("symbol_missing")
+    if not buyer.isdigit() or not seller.isdigit():
+        raise ValueError("broker_id_non_numeric")
+    try:
+        quantity, rate, amount = (
+            Decimal(get(key).replace(",", "")) for key in ("quantity", "rate", "amount")
+        )
+    except (InvalidOperation, ValueError):
+        raise ValueError("transaction_field_non_numeric")
+    if not all(value.is_finite() for value in (quantity, rate, amount)):
+        raise ValueError("transaction_field_non_finite")
+    if quantity <= 0 or quantity != quantity.to_integral_value():
+        raise ValueError("quantity_non_positive_or_non_integral")
+    if rate <= 0:
+        raise ValueError("rate_non_positive")
+    if amount <= 0:
+        raise ValueError("amount_non_positive")
+
     amount_exact_match = abs(quantity * rate - amount) <= Decimal("0.01")
     amount_floor_match = (
         amount == amount.to_integral_value()
         and amount == (quantity * rate).to_integral_value(rounding=ROUND_FLOOR)
     )
-    if (
-        not contract.isdigit()
-        or date != day
-        or not symbol
-        or not buyer.isdigit()
-        or not seller.isdigit()
-        or not all(value.is_finite() for value in (quantity, rate, amount))
-        or quantity <= 0
-        or quantity != quantity.to_integral_value()
-        or rate <= 0
-        or amount <= 0
-        or not (amount_exact_match or amount_floor_match)
-    ):
-        raise ValueError("invalid contract " + raw_contract)
+    if not (amount_exact_match or amount_floor_match):
+        raise ValueError("amount_arithmetic_mismatch")
     if stats is not None:
         if amount_exact_match:
             stats["amount_exact_match"] += 1
         elif amount_floor_match:
             stats["amount_floor_truncated"] += 1
     return (date, contract, symbol, buyer, seller, quantity, rate, amount)
-
 
 def parse(reader, secondary, day, stats=None):
     counts = Counter()

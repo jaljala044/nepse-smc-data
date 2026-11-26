@@ -30,7 +30,8 @@ def aggregate_transactions(transactions, lookup, target_symbols):
     grouped = defaultdict(list)
     audit = {"rows_seen": len(transactions), "malformed_rows": [], "invalid_rows": [],
              "bad_date_rows": [], "duplicate_contract_ids": [], "duplicate_rows": [],
-             "unknown_stock_ids": set(), "null_field_values": 0,\n             "quantity_sum": Decimal(0), "turnover_sum": Decimal(0)}
+             "unknown_stock_ids": set(), "null_field_values": 0,
+             "quantity_sum": Decimal(0), "turnover_sum": Decimal(0)}
     seen_ids, seen_rows = set(), set()
     incomplete = set()
     for idx, row in enumerate(transactions):

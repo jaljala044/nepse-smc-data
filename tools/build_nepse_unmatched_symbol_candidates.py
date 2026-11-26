@@ -43,7 +43,7 @@ def build(raw_path,matrix_path):
     report={"task":"P4.30","source_security_list_sha256":"5495d99a73aeb44e573936f59fc6a6d8dbf9ffc45c5a8ba62e672f0b0c6fa2f7",
       "file_only_stems":len(a),"reversible_escape_candidates":counts.get("REVERSIBLE_ESCAPE_CANDIDATE_NOT_CONFIRMED",0),
       "nonmatching_stems":counts.get("NO_EXACT_CANDIDATE",0),"missing_official_ohlcv":len(b),
-      "name_hint_counts":hint_counts,"no_name_hint_count":hint_counts.get("NO_NAME_HINT",0),
+      "name_hint_counts":hint_counts,"no_name_hint_count":sum(1 for r in b if r["name_hints"]=="NO_NAME_HINT"),
       "status_by_hint":status_by_hint,
       "policy":"Candidate aliases and name hints are investigative leads only. No filename normalization, instrument-type assignment, or canonical promotion."}
     return a,b,report

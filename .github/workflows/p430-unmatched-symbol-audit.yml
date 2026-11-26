@@ -1,0 +1,43 @@
+name: P4.30 unmatched symbol candidate audit
+on:
+  pull_request:
+    paths:
+      - "reference/p430_*.csv"
+      - "reference/p430_*.json"
+      - "reference/p429_official_security_ohlcv_reconciliation_2026-11-26.csv"
+      - "reference/nepse_official_security_list_2026-11-25.raw.json"
+      - "tools/build_nepse_unmatched_symbol_candidates.py"
+      - "tools/tests/test_build_nepse_unmatched_symbol_candidates.py"
+      - ".github/workflows/p430-unmatched-symbol-audit.yml"
+  push:
+    branches: [p430-unmatched-symbol-candidate-audit]
+    paths:
+      - "reference/p430_*.csv"
+      - "reference/p430_*.json"
+      - "reference/p429_official_security_ohlcv_reconciliation_2026-11-26.csv"
+      - "reference/nepse_official_security_list_2026-11-25.raw.json"
+      - "tools/build_nepse_unmatched_symbol_candidates.py"
+      - "tools/tests/test_build_nepse_unmatched_symbol_candidates.py"
+      - ".github/workflows/p430-unmatched-symbol-audit.yml"
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Reproduce candidate and hint matrices
+        run: |
+          python tools/build_nepse_unmatched_symbol_candidates.py \
+            --raw reference/nepse_official_security_list_2026-11-25.raw.json \
+            --matrix reference/p429_official_security_ohlcv_reconciliation_2026-11-26.csv \
+            --aliases reference/p430_ohlcv_filename_escape_candidates_2026-11-26.csv \
+            --missing reference/p430_official_missing_ohlcv_name_hints_2026-11-26.csv \
+            --report reference/p430_unmatched_symbol_candidate_audit_2026-11-26.json --check
+      - name: Run candidate audit tests
+        run: |
+          cd tools
+          python -m unittest discover -s tests -p 'test_build_nepse_unmatched_symbol_candidates.py' -v

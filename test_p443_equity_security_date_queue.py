@@ -29,9 +29,9 @@ class EquitySecurityDateQueueTests(unittest.TestCase):
         })
         self.assertEqual(len(requests), 3)
         self.assertEqual(len(requests[("AAA", "2025-01-02")]), 2)
-        self.assertEqual(
+        self.assertIn(
             "BOTH_OPEN_TUPLE_UNVERIFIED",
-            next(iter(requests[("AAA", "2025-01-02")]))[3]
+            {ref[3] for ref in requests[("AAA", "2025-01-02")]}
         )
 
     def test_non_equity_priority_rows_are_not_included(self):

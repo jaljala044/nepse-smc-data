@@ -18,6 +18,7 @@ on:
       - "p443_content_audit.py"
       - "test_p443_content_audit.py"
       - "test_p443_scanner_quarantine.py"
+      - "test_p443_cross_repository.py"
       - "scanner_inputs/prepare_scanner_inputs.py"
       - "test_global_duplicate_audit_inventory.py"
       - "test_global_duplicate_audit_scan.py"
@@ -39,6 +40,7 @@ on:
       - "p443_content_audit.py"
       - "test_p443_content_audit.py"
       - "test_p443_scanner_quarantine.py"
+      - "test_p443_cross_repository.py"
       - "scanner_inputs/prepare_scanner_inputs.py"
       - "test_global_duplicate_audit_inventory.py"
       - "test_global_duplicate_audit_scan.py"
@@ -70,6 +72,17 @@ jobs:
         run: python -m unittest test_p443_content_audit -v
       - name: Scanner quarantine regression tests
         run: python -m unittest test_p443_scanner_quarantine -v
+      - name: Checkout pinned public scanner backend
+        uses: actions/checkout@v4
+        with:
+          repository: jaljala044/nepse-elite-ai-scanner-pro
+          ref: e5790632d293a477cc930a25649f39f8829cbf05
+          path: scanner-backend
+          persist-credentials: false
+      - name: Verify scanner backend revision and contract
+        run: |
+          test "$(git -C scanner-backend rev-parse HEAD)" = e5790632d293a477cc930a25649f39f8829cbf05
+          python -m unittest test_p443_cross_repository -v
       - name: Run strict pinned-byte cross-check
         if: ${{ !cancelled() }}
         run: python p443_content_audit.py --output audit-strict

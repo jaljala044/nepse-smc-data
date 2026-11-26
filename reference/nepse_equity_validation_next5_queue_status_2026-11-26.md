@@ -15,7 +15,7 @@ Scope: common equities only. NICEF/mutual funds are excluded. Raw OHLCV is prese
 
 - 281/281 provisional equity OHLCV paths exist in both repositories.
 - 258 pairs are byte-identical; 23 pairs differ.
-- SMC repository: 246,129 rows across the 281 equity files; 1,329 invalid OHLC rows, all within the 23 divergent pairs.
+- SMC repository: 246,129 rows across the 281 equity files; 1,329 OHLC invariant flags, all within the 23 divergent pairs. A 13-symbol sample matched the ShareSansar-derived archive exactly, so these are source-reported anomalies, not automatically repository corruption. See [source corroboration evidence](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/shareSansar_source_corroboration_ohlc_flags_2026-11-26.md).
 - History starter: 233,457 rows across the 281 equity files; 0 invalid OHLC rows under the tested invariant.
 - No duplicate dates or zero-volume rows were found in either repository's audited files.
 - The 258 identical pairs contain 71,801 adjacent repeated OHLCV rows across 252 symbols.
@@ -25,7 +25,7 @@ Scope: common equities only. NICEF/mutual funds are excluded. Raw OHLCV is prese
 
 ## Remaining work after this queue
 
-1. Reconcile all 23 divergent symbol histories using ShareHub, Chukul, ShareSansar and NepseAlpha, keeping both raw versions.
-2. Investigate the 1,329 SMC OHLC invariant failures and produce a provenance-tracked derived view rather than editing raw files.
+1. Reconcile all 23 divergent symbol histories using ShareHub, Chukul, ShareSansar and NepseAlpha, keeping both raw versions. [ShareSansar OHLC corroboration sample](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/shareSansar_source_corroboration_ohlc_flags_2026-11-26.csv).
+2. Continue source-level adjudication of the 1,329 SMC OHLC invariant flags; 13 sampled rows are already corroborated by ShareSansar. Preserve raw values and produce only a provenance-tracked derived view if stronger evidence supports a correction.
 3. Classify repeated OHLCV rows against the correct weekly closure regime.
 4. Validate listing/suspension/lifecycle dates before claiming expected-session completeness.

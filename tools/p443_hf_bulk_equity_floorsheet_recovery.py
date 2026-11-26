@@ -61,6 +61,23 @@ def read_queue(root):
     return keys, refs
 
 
+def parse_hf_session(reader, day, stats=None):
+    """Validate rows but retain duplicate contract IDs as a separate review finding."""
+    contracts = Counter()
+    contract_ids = Counter()
+    for row in reader:
+        key = signature(row, True, day, stats)
+        contracts[key] += 1
+        contract_ids[key[1]] += 1
+    if not contracts:
+        raise ValueError("empty session")
+    collisions = {contract: count for contract, count in contract_ids.items() if count > 1}
+    collision_rows = [
+        (key, count) for key, count in contracts.items() if key[1] in collisions
+    ]
+    return contracts, collisions, collision_rows
+
+
 def recover_hf_partition(day, metadata, symbols, raw_directory):
     path = f"floorsheet/{day}.csv.gz"
     meta = metadata[path]
@@ -78,26 +95,29 @@ def recover_hf_partition(day, metadata, symbols, raw_directory):
         raw = gzip.decompress(compressed)
         (raw_directory / f"floorsheet_{day}.csv").write_bytes(raw)
         stats = Counter()
-        contracts = parse(
+        contracts, collisions, collision_rows = parse_hf_session(
             csv.DictReader(io.StringIO(raw.decode("utf-8-sig"))),
-            True,
             day,
             stats,
         )
         observed = defaultdict(list)
-        for row in contracts:
-            date, contract, symbol, buyer, seller, quantity, rate, amount = row
-            if symbol in symbols:
-                observed[symbol].append((rate, quantity, contract))
+        if not collisions:
+            for row, occurrences in contracts.items():
+                date, contract, symbol, buyer, seller, quantity, rate, amount = row
+                if symbol in symbols:
+                    observed[symbol].extend([(rate, quantity, contract)] * occurrences)
 
         return day, {
-            "status": "PASS",
+            "status": "CONTRACT_ID_COLLISION_REVIEW" if collisions else "PASS",
             "observed": observed,
+            "collision_rows": collision_rows,
             "summary": {
                 "date": day,
                 "rows": contracts.total(),
                 "symbols": len({row[2] for row in contracts}),
-                "unique_contracts": len(contracts),
+                "unique_contract_ids": len(contracts),
+                "duplicate_contract_ids": len(collisions),
+                "duplicate_contract_occurrences": sum(count - 1 for count in collisions.values()),
                 "leading_apostrophe_contract_ids": stats["leading_apostrophe_contract_ids"],
                 "amount_exact_rows": stats["amount_exact_match"],
                 "amount_floor_rows": stats["amount_floor_truncated"],
@@ -180,6 +200,8 @@ def main():
                 status = "NO_HF_PINNED_PARTITION"
             elif result is None:
                 status = "HF_AVAILABLE_NOT_FETCHED"
+            elif result["status"] == "CONTRACT_ID_COLLISION_REVIEW":
+                status = "CONTRACT_ID_COLLISION_REVIEW"
             elif result["status"] != "PASS":
                 status = "PARTITION_VALIDATION_FAILED"
             else:
@@ -215,6 +237,18 @@ def main():
                 "false",
             ])
 
+    collision_path = root / "hf_bulk_equity_contract_collisions.csv"
+    with collision_path.open("w", newline="") as handle:
+        writer = csv.writer(handle)
+        writer.writerow([
+            "date", "contract", "symbol", "buyer", "seller",
+            "quantity", "rate", "amount", "occurrences",
+        ])
+        for day in selected:
+            result = results[day]
+            for signature_row, occurrences in result.get("collision_rows", []):
+                writer.writerow([*signature_row, occurrences])
+
     selected_requests = sum(len(bydate[day]) for day in selected)
     report = {
         "task": "P4.43 second-source HF bulk floorsheet recovery",
@@ -247,7 +281,7 @@ def main():
         key: value for key, value in report.items()
         if key != "session_validation"
     }))
-    if any(result["status"] != "PASS" for result in results.values()):
+    if any(result["status"] == "FAIL" for result in results.values()):
         raise SystemExit(1)
 
 

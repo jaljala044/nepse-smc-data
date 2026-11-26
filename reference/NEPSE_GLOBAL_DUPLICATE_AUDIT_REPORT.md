@@ -1,40 +1,85 @@
-# P4.43 global duplicate and data-integrity audit — inventory checkpoint
+# P4.43 global duplicate and data-integrity audit
 
-**Status:** metadata inventory captured; content-level duplicate scan not yet complete.  
-**Pinned repository ref:** `main` at `56362fb4f65b91fdcca8f50b50e53ad80e703649`  
-**Inventory file:** `reference/NEPSE_GLOBAL_DUPLICATE_AUDIT_INVENTORY.csv`
+**Status: reproducible audit baseline complete; adjudication and canonical-ingestion acceptance remain open.**
 
-## Inventory scope
+**Pinned input:** `main` at `56362fb4f65b91fdcca8f50b50e53ad80e703649`.  
+**Latest validated workflow:** [Run 90](https://github.com/jaljala044/nepse-smc-data/actions/runs/45893985453), head `1099f8f16878bf25222d54f7d7fbd5e6bf3e3ac5`.  
+**Method:** deterministic, read-only scan of pinned file blobs. Findings are review flags, not automatic corrections.
 
-The inventory is a deduplicated Git-tree listing of the relevant OHLCV, floorsheet, calendar, market-summary, scanner-input, and reference/provider/archive paths. Each entry records repository, ref, commit SHA, path, Git blob SHA, byte count, category, format, and scan status.
+## Coverage
 
 - Files inventoried: **928**
-- Total bytes: **60662491**
-- OHLCV symbol files: **525**
-- Floorsheet/reconciliation artifacts: **33**
-- Calendar/session artifacts: **32**
-- Provider/audit archive files: **226**
-- Scanner input archive files: **63**
-- Market/floorsheet summaries: **13**
-- Related named project artifacts: **36**
+- Structured files parsed: **784**
+- Inventory-only/unsupported: **138** (88 Markdown, 36 Python, 11 workflow YAML, 2 PDF, 1 text)
+- Non-JSON provider responses: **6**
+- Parseable records: **1,668,641**
+- Pinned-byte verification and regression tests: **passed**
+- File failures: **0**
 
-## Category counts
+The six non-JSON responses are two unauthorized HTML responses from the P4.34 probe and four `Searched Date is not valid.` responses from P4.37 historical EOD probes. They are not counted as parsed market data.
 
-- `related_project_artifact`: 36
-- `session_calendar`: 32
-- `market_or_floorsheet_summary`: 13
-- `floorsheet_or_reconciliation`: 33
-- `ohlcv_symbol_archive`: 525
-- `provider_or_audit_archive`: 226
-- `scanner_input_archive`: 63
+## Strict content findings
 
-## Limitations at this checkpoint
+| Finding class | Count | Disposition |
+|---|---:|---|
+| Repeated adjacent OHLCV tuples | 94,543 | UNRESOLVED; not presumed duplicate trades |
+| Invalid OHLCV invariants | 1,331 | 1,329 exact matches to historical exception registers; 2 unmatched review rows |
+| Trade-shaped floorsheet records with missing session date | 604 | UNRESOLVED; require source/session evidence |
+| Missing trade identity after transaction-row gating | 0 | Prior 364 flags were metadata/summary rows, not trade records |
+| Exact repeated JSON records | 10 | Summary-object repeats in two P4.37 capture reports; not duplicate trade rows |
 
-- This file is a **metadata inventory**, not a completed content scan. Structured CSV/JSON/GZIP files are marked `metadata_indexed_content_scan_pending`; PDFs, Markdown, and other formats are marked inventory-only.
-- No file is counted as content-scanned yet. Content scan results and parse failures must be reported separately in the next stage.
-- No duplicate counts, OHLCV corrections, row deletions, date shifts, or canonical promotions are claimed.
-- Existing P4.27/P4.29–P4.37/P4.42 findings will be cross-referenced rather than added together as independent counts.
+Finding classes overlap and must not be summed as unique affected rows.
 
-## Safety
+### OHLCV exception-register reconciliation
 
-Read-only. No source file was modified. Inventory blob SHAs and byte sizes pin the exact inputs for subsequent reproducible scanning.
+The strict workflow joined all 1,331 invalid-OHLCV rows to the existing historical exception registers:
+- **1,329** matched an existing exception register exactly.
+- **2** remain unmatched and require review:
+  - KDBY, 2026-04-29, source row 854, blob `21764adf5c5a030dbdd5ca570225a07e2f4c41f7`.
+  - KEF, 2026-04-28, source row 1160, blob `e0039a5b74f53c84e5ce48047b3bbd8e3b9e02f3`.
+
+An exception-register match is reconciliation, **not independent validation**. The prior P4.35 source-lineage audit found no qualified independent historical source; the affected OHLCV rows remain UNKNOWN. No values were repaired or promoted.
+
+### Floorsheet row classification
+
+The strict parser now requires transaction-shaped fields before classifying a record as a trade. This removed 364 false identity flags from archive inventories, symbol/session aggregates, capture metadata, and research summaries. The earlier 2,687 missing-session flags reduced to **604** trade-shaped records still lacking a session date. Those 604 are not yet adjudicated.
+
+### Repeated JSON summary records
+
+The ten exact-repeat flags occur in the `sector_rollup` objects of two preserved P4.37 capture reports (five repeated rollup objects in each report). These are summary-statistic repeats, not repeated floorsheet trades. The reports intentionally preserve separate evidence copies; no deletion is warranted.
+
+## Existing date-lineage evidence and remaining scope
+
+P4.37 independently identified 1,455 canonical-only rows across 24 sampled symbols that match official HLCV tuples on 81 verified closed dates. P4.42 traced the NMLBBL/SMPDA date-label pattern to ShareSansar scrape-date filenames. These are important, source-backed findings, but they do not classify all 94,543 adjacent tuples across the full historical universe.
+
+Historical session evidence is incomplete outside the captured one-year official EOD window. Do not infer an open session from weekdays or absence from a closure list. Do not label repeated tuples as NO_TRADE or as erroneous solely because values repeat.
+
+## Quarantine and safeguards
+
+The two 2024 SMPDA floorsheet archives remain `BLOCK_CANONICAL`:
+- `reference/p433_floorsheets/floorsheet_2024-08-14.csv.gz` — blob `0dd938bc5e6bfd50fa09bf85f0836d443ab15983`.
+- `reference/p433_floorsheets/floorsheet_2024-08-18.csv.gz` — blob `49d6498b30681b7896b6c5c824b518e50f941d`.
+
+Preserve all rows. The source capture report reports unique archive-local record IDs and zero exact repeated rows; repeated contract-number values do not establish duplicate trades or exchange-contract identity.
+
+- No raw, canonical, or user-finalized OHLCV values were modified.
+- No date shifts, deletions, deduplication, or canonical promotion occurred.
+- No quarantine rule was integrated into production ingestion in this audit-only task.
+- AI recommendations and scanner/training eligibility were not changed.
+
+## Reproducibility and machine-readable outputs
+
+- Workflow and artifacts: [Run 90](https://github.com/jaljala044/nepse-smc-data/actions/runs/45893985453).
+- Standard row-level CSV findings: `NEPSE_GLOBAL_DUPLICATE_AUDIT_FINDINGS.csv`.
+- Per-file scan coverage: `NEPSE_GLOBAL_DUPLICATE_AUDIT_SCAN_SUMMARY.csv`.
+- Strict pinned-byte row-level findings and exception join: preserved in the run's `p443-strict-content-audit` artifact (`findings.jsonl`, `coverage.json`, `summary.json`, `exception_join.csv`, `exception_join_summary.json`).
+
+## Acceptance still open
+
+1. Classify the 94,543 repeated adjacent tuples using exact overlap with verified open/closed-session evidence and prior P4.37/P4.42 row-level matrices.
+2. Reconcile the 604 missing-session trade-shaped rows against source filenames, embedded dates, and authoritative session evidence.
+3. Review the two unmatched invalid-OHLCV rows (KDBY and KEF) against existing provenance and exception records.
+4. Complete date-shift/misdated candidate reconciliation across the full 928-file scope, not only the P4.37/P4.42 samples.
+5. Decide whether ingestion quarantine enforcement belongs in a separate implementation issue; do not silently add runtime mutation to this read-only audit PR.
+
+**P4.43 is not complete.** The audit pipeline and pinned scan now pass; evidence adjudication and final acceptance items remain open. PR #80 remains draft until those items are resolved or explicitly accepted as documented blockers.

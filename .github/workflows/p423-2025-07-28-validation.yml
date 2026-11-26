@@ -17,7 +17,7 @@ permissions:
   contents: read
 
 jobs:
-  unit-tests:
+  unit-tests-and-reproduction:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -32,3 +32,19 @@ jobs:
             --snapshot reference/p423_2025-07-28/sharesansar_snapshot.csv \
             --results reference/p423_2025-07-28/results.csv \
             --out /tmp/sharesansar_comparison.json
+      - name: Download and verify immutable source archive
+        run: python reference/p423_2025-07-28/fetch_source.py /tmp/yonepse_floorsheet_2025-07-28.json
+      - name: Recompute all 86 symbol results
+        run: |
+          python reference/p423_2025-07-28/reconstruct.py \
+            --archive /tmp/yonepse_floorsheet_2025-07-28.json \
+            --lookup reference/p423_2025-07-28/source/stocks.json \
+            --canonical reference/p423_2025-07-28/canonical_snapshot.csv \
+            --external reference/p423_2025-07-28/external_counterpart.csv \
+            --out /tmp/p423-recomputed
+      - name: Compare recomputed output with submitted audit
+        run: |
+          python reference/p423_2025-07-28/compare_reproduction.py \
+            --submitted-csv reference/p423_2025-07-28/results.csv \
+            --submitted-json reference/p423_2025-07-28/results.json \
+            --recomputed-json /tmp/p423-recomputed/results.json

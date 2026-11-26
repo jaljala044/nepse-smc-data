@@ -46,7 +46,7 @@ class P436OfficialPriceVolumeTests(unittest.TestCase):
             rows=[{"businessDate":"2026-11-26","openPrice":1,"highPrice":1,"lowPrice":1,"closePrice":1,"totalTradedQuantity":1,"totalTradedValue":1}]
             return 200,{},json.dumps({"content":rows}).encode()
         with tempfile.TemporaryDirectory() as tmp:
-            result=capture(tmp,fake,lambda obj,path:("A","R"),"2026-11-26T00:00:00Z")
+            result=capture(tmp,fake,lambda obj,path:("A","R"),"2026-11-26T00:00:00Z",include_recent_controls=False)
         self.assertEqual(result["security_results"][0]["date_mismatches"],1)
         self.assertFalse(result["security_results"][0]["candidate_all_expected_fields_match"])
 

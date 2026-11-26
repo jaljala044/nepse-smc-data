@@ -1,0 +1,13 @@
+year,records,unique_dates,duplicate_rows,first_date,last_date,raw_sha256,source_url,classification
+2015,54,54,0,2015-01-15,2015-12-30,a7a88f019ddff9d689d537648c5158fcee51adb159abf91ac52b6c76f480f100,https://nepalstock.com.np/api/nots/holiday/list?year=2015,holiday_api_evidence_not_complete_session_calendar
+2016,33,33,0,2016-01-15,2016-12-30,40679b6516ad2ad97e9fb55efd4dfb01e34b060e6355bddf6d99e68edc45b1d0,https://nepalstock.com.np/api/nots/holiday/list?year=2016,holiday_api_evidence_not_complete_session_calendar
+2017,38,38,0,2017-01-29,2017-12-25,40e4d12e0e821e5c36be6f14224b7e870cd15eb153127071c8df10494fc4c504,https://nepalstock.com.np/api/nots/holiday/list?year=2017,holiday_api_evidence_not_complete_session_calendar
+2018,29,29,0,2018-01-11,2018-11-09,8ec39101709349dfad051e884d0c4edfc14a3310fca52ae21abdc41c2af87cbd,https://nepalstock.com.np/api/nots/holiday/list?year=2018,holiday_api_evidence_not_complete_session_calendar
+2019,22,22,0,2019-02-28,2019-10-30,9e5094599dc5703456ed5022141b9f3453820a6c5da9b1620db25b153fe7101c,https://nepalstock.com.np/api/nots/holiday/list?year=2019,holiday_api_evidence_not_complete_session_calendar
+2020,101,100,1,2020-02-21,2020-11-17,4a98b87e9e7703c5661fdeac44fef23e1b050a6fa23d843c6509f5140a1e7e89,https://nepalstock.com.np/api/nots/holiday/list?year=2020,holiday_api_evidence_not_complete_session_calendar
+2021,25,25,0,2021-01-14,2021-12-30,e68f6cc14d932a66e4f6bf53866a7d6d7e1744001a0a5e679ca3200870558a7a,https://nepalstock.com.np/api/nots/holiday/list?year=2021,holiday_api_evidence_not_complete_session_calendar
+2022,36,36,0,2022-01-15,2022-12-30,831ec883905e1c8583638bc52e6f2c0c2bb16c934b0c802fed1c0d7e3a703f01,https://nepalstock.com.np/api/nots/holiday/list?year=2022,holiday_api_evidence_not_complete_session_calendar
+2023,37,37,0,2023-01-11,2023-12-31,5c8add8566704d1695d421a4e9a7fc0e638afd50085d6941130fc184461a15dd,https://nepalstock.com.np/api/nots/holiday/list?year=2023,holiday_api_evidence_not_complete_session_calendar
+2024,37,37,0,2024-01-12,2024-12-30,11fedf2985caa3a27d82b7eb282981df3e28de9eae29080012f1b2c6cb545926,https://nepalstock.com.np/api/nots/holiday/list?year=2024,holiday_api_evidence_not_complete_session_calendar
+2025,46,46,0,2025-01-11,2025-12-30,9a830365d29f4789a8a929f27fcf64e52d1beec9910a118a598074401c04c685,https://nepalstock.com.np/api/nots/holiday/list?year=2025,holiday_api_evidence_not_complete_session_calendar
+2026,41,41,0,2026-01-11,2026-12-30,dd1777e3c61623048e00dc170d860659b14b8821ffabff8338002ccafdb2ea8f,https://nepalstock.com.np/api/nots/holiday/list?year=2026,holiday_api_evidence_not_complete_session_calendar

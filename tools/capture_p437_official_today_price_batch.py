@@ -12,15 +12,17 @@ JOBS=[
  ("NMLBBL","2024-05-16"),
  ("SMPDA","2024-08-18"),
  ("SMPDA","2024-08-14"),
+ ("NMLBBL","2026-11-26"),
 ]
 def run_batch(output_root,runner=subprocess.run,now=None):
  root=Path(output_root);root.mkdir(parents=True,exist_ok=True);records=[]
  for symbol,business_date in JOBS:
+  role="current_session_control" if business_date=="2026-11-26" else ("candidate" if business_date in ("2024-05-19","2024-08-18") else "prior_session")
   out=root/f"{symbol}_{business_date}";out.mkdir(parents=True,exist_ok=True)
   command=[sys.executable,"tools/capture_nepse_official_eod.py","--date",business_date,"--symbol",symbol,"--output-dir",str(out),"--allow-missing"]
   completed=runner(command,capture_output=True,text=True,env=os.environ.copy())
   manifest_path=out/"capture_manifest.json";error_path=out/"capture_error.json"
-  item={"symbol":symbol,"business_date":business_date,"command_exit_code":completed.returncode,"output_dir":str(out)}
+  item={"symbol":symbol,"business_date":business_date,"role":role,"command_exit_code":completed.returncode,"output_dir":str(out)}
   if manifest_path.exists():
    manifest=json.loads(manifest_path.read_text(encoding="utf-8"))
    item.update(status=manifest.get("status"),returned_business_dates=manifest.get("returned_business_dates"),target_row_count=manifest.get("target_row_count"),symbol_row_count=manifest.get("symbol_row_count"),total_pages=manifest.get("total_pages"),upstream_total_elements=manifest.get("upstream_total_elements"),pagination_row_count_matches=manifest.get("pagination_row_count_matches"),captured_pages=manifest.get("captured_pages"),target_row=manifest.get("target_row"))

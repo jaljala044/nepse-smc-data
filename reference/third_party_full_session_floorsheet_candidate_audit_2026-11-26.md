@@ -174,3 +174,47 @@ Evidence:
 - Run: https://github.com/ANKITSANJYAL/nepse-pipeline/actions/runs/44748903787
 - Collector implementation: https://github.com/ANKITSANJYAL/nepse-pipeline/blob/87e68b8fd43c929a715b1b747a0ad7a799abb92f/src/nepse_pipeline/jobs/floorsheet.py
 - Quality gate implementation: https://github.com/ANKITSANJYAL/nepse-pipeline/blob/87e68b8fd43c929a715b1b747a0ad7a799abb92f/src/nepse_pipeline/quality.py
+
+
+## Contract-level reconciliation completed — 2026-11-20 (2026-11-26)
+
+A GitHub Actions audit in this repository downloaded the exact Hugging Face Parquet partition and the SocrateAI CSV, then compared normalized trade multisets. This is now contract-level evidence, not merely matching totals.
+
+### Independent Parquet ↔ SocrateAI result
+
+- CI run: https://github.com/jaljala044/nepse-smc-data/actions/runs/45843030655 (job 139989397910; SUCCESS).
+- Independent Parquet SHA-256: `7f52d0004418a7aa82a5930e84438968022a14e3acf94ac9e3e51c431ccbc480` (matches Hugging Face LFS object OID).
+- SocrateAI CSV SHA-256: `abafc3b8eaa8d2b9b884e9f2df974deb267485d4476f2a4e953d6324787fc43d`.
+- Both sources: 39,966 rows, 39,966 valid normalized rows, 0 invalid rows, 352 distinct symbols, 10,602,468 shares, NPR 3,887,563,470.82 turnover.
+- Exact normalized trade multiset comparison on date, symbol, buyer, seller, quantity, rate and amount: **39,966 matched; 0 Parquet-only; 0 CSV-only; exact_multiset_match=true**.
+- This proves the SocrateAI CSV content is an exact normalized row-for-row multiset copy of the independent Parquet partition. Combined with the independent collector log (upstream totalElements=39,966; 80/80 pages; 39,966/39,966 held; 0 rejected; no empty pages; all quality checks PASS), the 2026-11-20 full-session file is upgraded to **VERIFIED_COMPLETE_BY_INDEPENDENT_UPSTREAM_CAPTURE**.
+
+### 500-row local extract discrepancy explained
+
+- The local extract contains 500 rows / 158 symbols, not a 500-row full-session capture.
+- Identity-only comparison (date, symbol, buyer, seller, quantity and rate, excluding amount): **500/500 local rows match records in the complete Parquet**; 39,466 full-session rows are additional; 0 local identity rows are unmatched.
+- Amount equality is weaker because local amounts are abbreviated (`K`, `Lac.`) and rounded. Of the 500 identity matches, 210 amounts are exact; 46 differ by <= NPR 1; 138 by <= NPR 10; 21 by <= NPR 100; 85 by > NPR 100. These are lossy display amounts, not evidence of different trades. The local file is a partial extract and must not be used to infer symbol absence or full-session completeness.
+- The previous exact-key comparison that counted only 210 matches was too strict for this abbreviated amount column; identity matching resolves the apparent 290-row discrepancy.
+
+### UNL result on 2026-11-20
+
+The complete, independently corroborated file contains **4 UNL contracts, 50 shares, NPR 2,408,700 turnover**. The four normalized records are:
+
+| Buyer member ID | Seller member ID | Quantity | Rate (NPR) | Amount (NPR) |
+|---:|---:|---:|---:|---:|
+| 48 | 6 | 10 | 48,390 | 483,900 |
+| 48 | 6 | 10 | 48,480 | 484,800 |
+| 28 | 35 | 20 | 48,000 | 960,000 |
+| 20 | 35 | 10 | 48,000 | 480,000 |
+
+**Decision for UNL, 2026-11-20: TRADED.** This resolves the date-specific status. It does not establish UNL's status on 2026-11-26 or any other date; those dates require their own complete session evidence. The 500-row local partial extract's absence of UNL is not contradictory evidence.
+
+### Remaining provenance caveat and scope
+
+The successful 2026-11-20 pipeline job logged `HF_BRONZE_REPO not set - raw responses not archived this run`. Therefore raw page-by-page replay evidence is unavailable, even though the independent upstream total, full page sweep, quality report and exact published-file comparison all agree. Retain this caveat in provenance.
+
+This resolves **one date**, not the full 281-equity historical completeness project. Apply `TRADED` for symbols with validated positive rows on this date. For symbols absent from the verified full-session file, `NO_TRADE` can be considered only after confirming the security was active/listed and the session was open for that date. Do not generalize this result to other dates, and do not enable global canonical promotion or model training.
+
+### Machine-readable evidence
+
+See `reference/floorsheet_source_verification_2026-11-20.json` for source hashes, counts, status and UNL contracts.

@@ -1,0 +1,334 @@
+{
+  "register_blob": "dc748a9c06e8e3c1f457d7d6ca2198ee351b80bd",
+  "results": [
+    {
+      "symbol": "UNHPL",
+      "source": "Aabishkar2/nepse-data",
+      "path": "data/company-wise/UNHPL.csv",
+      "ref": "main",
+      "blob": "e57a23b223d203c0ab3abd22af57c6877508ee6f",
+      "header": "published_date,open,high,low,close,per_change,traded_quantity,traded_amount,status",
+      "detail": [
+        {
+          "date": "2020-06-29",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "51.0",
+              "51.0",
+              "51.0",
+              "50.0",
+              "100.0"
+            ]
+          ]
+        },
+        {
+          "date": "2026-04-29",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "487.9",
+              "487.0",
+              "475.0",
+              "475.4",
+              "46481.0"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "symbol": "UNHPL",
+      "source": "SamirWagle/Nepse-All-Scraper",
+      "path": "data/company-wise/UNHPL/prices.csv",
+      "ref": "main",
+      "blob": "67c9eb13e556da6de56bd2286081b6a8b5c4a0b4",
+      "header": "date,open,high,low,ltp,percent_change,qty,turnover",
+      "detail": [
+        {
+          "date": "2020-06-29",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "51.0",
+              "51.0",
+              "51.0",
+              "50.0",
+              "100"
+            ]
+          ]
+        },
+        {
+          "date": "2026-04-29",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "487.9",
+              "487.0",
+              "475.0",
+              "475.4",
+              "46481"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "symbol": "UNHPL",
+      "source": "binayabaral/nepal-market-data",
+      "path": "data/nepse/UNHPL.csv",
+      "ref": "944bc95872e46b299625091f6c9f32f57010e71a",
+      "blob": "a591583825b294807c377670c9b7bd32ff844016",
+      "header": "published_date,open,high,low,close,per_change,traded_quantity,traded_amount,status",
+      "detail": [
+        {
+          "date": "2020-06-29",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "51.0",
+              "51.0",
+              "51.0",
+              "50.0",
+              "100.0"
+            ]
+          ]
+        },
+        {
+          "date": "2026-04-29",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "487.9",
+              "487.0",
+              "475.0",
+              "475.4",
+              "46481.0"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "symbol": "UNHPL",
+      "source": "srijankarki07/nepse-data",
+      "path": "data/series/UNHPL.csv",
+      "ref": "main",
+      "blob": "19fc28fe57e2690d7c191f5b6aa6ffb8d4014d97",
+      "header": "date,symbol,open,high,low,close,volume,turnover",
+      "detail": [
+        {
+          "date": "2020-06-29",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "51",
+              "51",
+              "51",
+              "50",
+              "100"
+            ]
+          ]
+        },
+        {
+          "date": "2026-04-29",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "487.9",
+              "487",
+              "475",
+              "475.4",
+              "46481"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "symbol": "BGWT",
+      "source": "Aabishkar2/nepse-data",
+      "path": "data/company-wise/BGWT.csv",
+      "ref": "main",
+      "blob": "a63e48138b7c18ec194c5aaeaca2076568b27cd5",
+      "header": "published_date,open,high,low,close,per_change,traded_quantity,traded_amount,status",
+      "detail": [
+        {
+          "date": "2026-04-29",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "740.0",
+              "731.0",
+              "718.0",
+              "730.0",
+              "1573.0"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "symbol": "BGWT",
+      "source": "SamirWagle/Nepse-All-Scraper",
+      "path": "data/company-wise/BGWT/prices.csv",
+      "ref": "main",
+      "blob": "34dc780c17aed75f76ee969e9116cdd3c802340a",
+      "header": "date,open,high,low,ltp,percent_change,qty,turnover",
+      "detail": [
+        {
+          "date": "2026-04-29",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "740.0",
+              "731.0",
+              "718.0",
+              "730.0",
+              "1573"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "symbol": "BGWT",
+      "source": "binayabaral/nepal-market-data",
+      "path": "data/nepse/BGWT.csv",
+      "ref": "944bc95872e46b299625091f6c9f32f57010e71a",
+      "blob": "18e04b03e9ba86a7e64d283344d08cf2b23a3ff0",
+      "header": "published_date,open,high,low,close,per_change,traded_quantity,traded_amount,status",
+      "detail": [
+        {
+          "date": "2026-04-29",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "740.0",
+              "731.0",
+              "718.0",
+              "730.0",
+              "1573.0"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "symbol": "BGWT",
+      "source": "srijankarki07/nepse-data",
+      "path": "data/series/BGWT.csv",
+      "ref": "main",
+      "blob": "0ccfdf9570356f6c2987196537b942ecd69fa23f",
+      "header": "date,symbol,open,high,low,close,volume,turnover",
+      "detail": [
+        {
+          "date": "2026-04-29",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "740",
+              "731",
+              "718",
+              "730",
+              "1573"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "symbol": "HRL",
+      "source": "Aabishkar2/nepse-data",
+      "path": "data/company-wise/HRL.csv",
+      "ref": "main",
+      "blob": "8b3cc4aa569e8f2a71a901468999880887a0391d",
+      "header": "published_date,open,high,low,close,per_change,traded_quantity,traded_amount,status",
+      "detail": [
+        {
+          "date": "2026-04-29",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "685.5",
+              "685.0",
+              "676.1",
+              "679.2",
+              "74867.0"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "symbol": "HRL",
+      "source": "SamirWagle/Nepse-All-Scraper",
+      "path": "data/company-wise/HRL/prices.csv",
+      "ref": "main",
+      "blob": "f98bb1215ff3b287cf9cacca2a14000adcafb6ff",
+      "header": "date,open,high,low,ltp,percent_change,qty,turnover",
+      "detail": [
+        {
+          "date": "2026-04-29",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "685.5",
+              "685.0",
+              "676.1",
+              "679.2",
+              "74867"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "symbol": "HRL",
+      "source": "binayabaral/nepal-market-data",
+      "path": "data/nepse/HRL.csv",
+      "ref": "944bc95872e46b299625091f6c9f32f57010e71a",
+      "blob": "7902a1146f85b590339dcd95d40a33f5cbbfde46",
+      "header": "published_date,open,high,low,close,per_change,traded_quantity,traded_amount,status",
+      "detail": [
+        {
+          "date": "2026-04-29",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "685.5",
+              "685.0",
+              "676.1",
+              "679.2",
+              "74867.0"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "symbol": "HRL",
+      "source": "srijankarki07/nepse-data",
+      "path": "data/series/HRL.csv",
+      "ref": "main",
+      "blob": "d103ab87539c9b85f229d327e785a037a1e2b9e7",
+      "header": "date,symbol,open,high,low,close,volume,turnover",
+      "detail": [
+        {
+          "date": "2026-04-29",
+          "status": "EXACT_SAME_INVALID",
+          "candidate": [
+            [
+              "685.5",
+              "685",
+              "676.1",
+              "679.2",
+              "74867"
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "verified_replacements": 0
+}

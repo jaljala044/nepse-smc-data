@@ -80,6 +80,15 @@ class OfficialEodCaptureTests(unittest.TestCase):
         self.assertEqual(result["status"], "OFFICIAL_CAPTURE_REVIEW_REQUIRED")
         self.assertIn("close_outside_range", result["quality_flags"])
 
+    def test_optional_total_trades_and_turnover_are_accepted_when_absent(self):
+        row = json.loads(payload())["content"][0]
+        del row["totalTrades"]
+        del row["totalTradedValue"]
+        result = self.validate(payload(row))
+        self.assertEqual(result["status"], "OFFICIAL_CAPTURE_ACCEPTED")
+        self.assertIsNone(result["parsed_ohlcv"]["turnover"])
+        self.assertIsNone(result["parsed_ohlcv"]["trades"])
+
     def test_missing_required_field_is_rejected(self):
         row = json.loads(payload())["content"][0]
         del row["totalTradedQuantity"]

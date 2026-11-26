@@ -1,0 +1,39 @@
+name: P4.31 equity lifecycle candidate register validation
+on:
+  pull_request:
+    paths:
+      - "reference/nepse_equity_lifecycle_coverage_input_2026-11-26.csv"
+      - "reference/nepse_security_lifecycle_events_2026-11-26.csv"
+      - "reference/nepse_official_security_list_2026-11-25.raw.json"
+      - "tools/audit_equity_lifecycle_candidate_register.py"
+      - "tools/tests/test_audit_equity_lifecycle_candidate_register.py"
+      - ".github/workflows/p431-equity-lifecycle-register.yml"
+  push:
+    branches: [p431-import-secondary-lifecycle-register]
+    paths:
+      - "reference/nepse_equity_lifecycle_coverage_input_2026-11-26.csv"
+      - "reference/nepse_security_lifecycle_events_2026-11-26.csv"
+      - "reference/nepse_official_security_list_2026-11-25.raw.json"
+      - "tools/audit_equity_lifecycle_candidate_register.py"
+      - "tools/tests/test_audit_equity_lifecycle_candidate_register.py"
+      - ".github/workflows/p431-equity-lifecycle-register.yml"
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate lifecycle candidate register
+        run: |
+          python tools/audit_equity_lifecycle_candidate_register.py \
+            --lifecycle reference/nepse_equity_lifecycle_coverage_input_2026-11-26.csv \
+            --events reference/nepse_security_lifecycle_events_2026-11-26.csv \
+            --official reference/nepse_official_security_list_2026-11-25.raw.json
+      - name: Run regression test
+        run: |
+          cd tools
+          python -m unittest discover -s tests -p 'test_audit_equity_lifecycle_candidate_register.py' -v

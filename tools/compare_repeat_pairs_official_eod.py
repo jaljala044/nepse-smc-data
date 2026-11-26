@@ -8,9 +8,8 @@ from collections import defaultdict
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
 
-from validate_nepse_eod_capture import EvidenceError, validate_capture
-
 FIELDS = ("open", "high", "low", "close", "volume", "turnover")
+OHLCV_FIELDS = ("open", "high", "low", "close", "volume")
 
 
 def read_csv(path):
@@ -59,7 +58,10 @@ def load_board(capture_dir, day):
     return manifest, rows
 
 
-def compare(repeat_flags, mapping_path, v2_dir, capture_dir, output_dir, expected_pairs=5):
+def compare(repeat_flags, mapping_path, v2_dir, capture_dir, output_dir, validator_dir,
+            expected_pairs=5):
+    sys.path.insert(0, str(Path(validator_dir)))
+    from validate_nepse_eod_capture import EvidenceError, validate_capture
     pairs = pairs_from_flags(repeat_flags)
     if len(pairs) != expected_pairs:
         raise ValueError(f"expected {expected_pairs} open repeat pairs, found {len(pairs)}")
@@ -103,7 +105,7 @@ def compare(repeat_flags, mapping_path, v2_dir, capture_dir, output_dir, expecte
             v2 = v2_rows.get(day)
             changed = []
             if v2 and official:
-                for field in FIELDS:
+                for field in OHLCV_FIELDS:
                     v2_value = v2.get(field.title(), "")
                     if dec(v2_value) != dec(official.get(field)):
                         changed.append(field)
@@ -150,7 +152,7 @@ def compare(repeat_flags, mapping_path, v2_dir, capture_dir, output_dir, expecte
         same_official = (
             prev_ok and curr_ok and all(
                 dec(prev.get(f"official_{field}")) == dec(curr.get(f"official_{field}"))
-                for field in FIELDS
+                for field in OHLCV_FIELDS
             )
         )
         summary_rows.append({
@@ -199,9 +201,10 @@ def main():
     parser.add_argument("--mapping", type=Path, required=True)
     parser.add_argument("--v2-dir", type=Path, required=True)
     parser.add_argument("--capture-dir", type=Path, required=True)
+    parser.add_argument("--validator-dir", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
     args = parser.parse_args()
-    compare(args.repeat_flags, args.mapping, args.v2_dir, args.capture_dir, args.output_dir)
+    compare(args.repeat_flags, args.mapping, args.v2_dir, args.capture_dir, args.output_dir, args.validator_dir)
 
 
 if __name__ == "__main__":

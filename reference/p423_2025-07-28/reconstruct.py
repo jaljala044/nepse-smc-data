@@ -30,13 +30,16 @@ def aggregate_transactions(transactions, lookup, target_symbols):
     grouped = defaultdict(list)
     audit = {"rows_seen": len(transactions), "malformed_rows": [], "invalid_rows": [],
              "bad_date_rows": [], "duplicate_contract_ids": [], "duplicate_rows": [],
-             "unknown_stock_ids": set(), "null_field_values": 0,
+             "unknown_stock_ids": set(), "non_target_symbols": set(), "null_field_values": 0,
              "quantity_sum": Decimal(0), "turnover_sum": Decimal(0)}
     seen_ids, seen_rows = set(), set()
     incomplete = set()
     for idx, row in enumerate(transactions):
         if not isinstance(row, list) or len(row) != 8:
             audit["malformed_rows"].append(idx)
+            if isinstance(row, list) and len(row) > 1:
+                bad_symbol = by_id.get(str(row[1]))
+                if bad_symbol in target_symbols: incomplete.add(bad_symbol)
             continue
         cid, sid, buyer, seller, qty, rate, amount, time = row
         symbol = by_id.get(str(sid))
@@ -68,6 +71,9 @@ def aggregate_transactions(transactions, lookup, target_symbols):
         if symbol is None:
             audit["unknown_stock_ids"].add(str(sid))
             continue
+        if symbol not in target_symbols:
+            audit["non_target_symbols"].add(symbol)
+            continue
         if symbol in target_symbols:
             grouped[symbol].append({"contractId": str(cid), "qty": q, "rate": rate_d,
                                     "amount": amount_d, "time": "" if time is None else str(time)})
@@ -96,7 +102,7 @@ def aggregate_transactions(transactions, lookup, target_symbols):
                           "volume": sum((t["qty"] for t in trades), Decimal(0)),
                           "turnover": sum((t["amount"] for t in trades), Decimal(0)),
                           "incomplete": False}
-    audit["unknown_stock_ids"] = sorted(audit["unknown_stock_ids"])
+    audit["unknown_stock_ids"] = sorted(audit["unknown_stock_ids"])\n    audit["non_target_symbols"] = sorted(audit["non_target_symbols"])
     return result, audit
 
 def jsonable(value):

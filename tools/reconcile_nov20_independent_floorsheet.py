@@ -178,22 +178,28 @@ def compare_core(left: Counter, right: Counter) -> dict:
         deltas.extend(abs(la[i] - ra[i]) for i in range(n))
         left_only += max(len(la) - len(ra), 0)
         right_only += max(len(ra) - len(la), 0)
-    bands = {"exact": 0, "le_1_npr": 0, "le_10_npr": 0, "le_100_npr": 0, "gt_100_npr": 0}
+    bands = {"exact": 0, "le_1_npr": 0, "le_10_npr": 0, "le_100_npr": 0,
+             "le_500_npr": 0, "le_50000_npr": 0, "gt_50000_npr": 0}
     for delta in deltas:
         if delta == 0:
             bands["exact"] += 1
-        elif delta <= Decimal("1"):
+        if delta <= Decimal("1"):
             bands["le_1_npr"] += 1
-        elif delta <= Decimal("10"):
+        if delta <= Decimal("10"):
             bands["le_10_npr"] += 1
-        elif delta <= Decimal("100"):
+        if delta <= Decimal("100"):
             bands["le_100_npr"] += 1
+        if delta <= Decimal("500"):
+            bands["le_500_npr"] += 1
+        if delta <= Decimal("50000"):
+            bands["le_50000_npr"] += 1
         else:
-            bands["gt_100_npr"] += 1
+            bands["gt_50000_npr"] += 1
     return {
         "matched_trade_identity_rows_excluding_amount": matched,
         "left_only_trade_identity_rows": left_only,
         "right_only_trade_identity_rows": right_only,
+        "max_amount_delta_npr": str(max(deltas, default=Decimal("0"))),
         "amount_delta_bands_npr": bands,
     }
 

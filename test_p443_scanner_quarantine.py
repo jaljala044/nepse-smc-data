@@ -97,5 +97,88 @@ class QuarantineTests(unittest.TestCase):
                     self.assertFalse(output.exists())
             self.assertEqual(source.read_bytes(), before)
 
+
+class FloorsheetTests(unittest.TestCase):
+    fields = ["contract_no", "trade_date", "symbol", "buyer", "seller", "quantity", "rate", "amount", "id"]
+
+    def trade(self, **changes):
+        return dict(dict(zip(self.fields, ["123", "2026-01-04", "ABC", "48", "6", "10", "12.50", "125.00", "456"])), **changes)
+
+    def check_rows(self, records, error=None, closed=None, fields=None):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "floorsheet.csv"
+            mod.write(path, fields or self.fields, records)
+            before = path.read_bytes()
+            if error:
+                with self.assertRaisesRegex(ValueError, error):
+                    mod.validate_floorsheet(path, closed or set())
+            else:
+                mod.validate_floorsheet(path, closed or set())
+            self.assertEqual(before, path.read_bytes())
+
+    def test_valid_trade(self):
+        self.check_rows([self.trade(), self.trade(id="457", contract_no="124")])
+
+    def test_duplicate_identity(self):
+        self.check_rows([self.trade(), self.trade()], "duplicate")
+
+    def test_missing_fields(self):
+        for field in ("contract_no", "symbol", "buyer", "seller", "id"):
+            with self.subTest(field=field):
+                self.check_rows([self.trade(**{field: ""})], "Missing")
+
+    def test_invalid_numeric(self):
+        for changes in ({"quantity":"0"}, {"quantity":"1.5"}, {"rate":"-1"}, {"amount":"NaN"}, {"rate":"Infinity"}):
+            with self.subTest(changes=changes):
+                self.check_rows([self.trade(**changes)], "Invalid trade")
+
+    def test_amount_mismatch(self):
+        self.check_rows([self.trade(amount="124")], "amount mismatch")
+
+    def test_closed_date(self):
+        self.check_rows([self.trade()], "closed session", {"2026-01-04"})
+
+    def test_invalid_date(self):
+        self.check_rows([self.trade(trade_date="2026-02-30")], "Rejected floorsheet row")
+
+    def test_empty(self):
+        self.check_rows([], "Empty floorsheet")
+
+    def test_missing_header(self):
+        self.check_rows([self.trade()], "Missing required", fields=self.fields[:-2])
+
+    def test_blocked_blob_and_unsupported(self):
+        import hashlib
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "floorsheet.csv.gz"
+            raw = b"fixture"
+            path.write_bytes(raw)
+            # Git blob object header uses a NUL byte.
+            fingerprint = hashlib.sha1(("blob " + str(len(raw))).encode() + bytes([0]) + raw).hexdigest()
+            with patch.object(mod, "BLOCKED_FLOORSHEET_BLOBS", {fingerprint}):
+                with self.assertRaisesRegex(ValueError, "Quarantined"):
+                    mod.validate_floorsheet(path, set())
+            with self.assertRaisesRegex(ValueError, "Unsupported"):
+                mod.validate_floorsheet(path, set())
+
+    def test_stage_rejects_invalid_floorsheet(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            original, supplement, output = [root / x for x in ("original", "supplement", "output")]
+            original.mkdir()
+            supplement.mkdir()
+            mod.write(original / "daily_prices.csv", FIELDS, [candle()])
+            mod.write(supplement / "benchmark_daily.csv", FIELDS, [])
+            for name in ("sectors", "sector_data", "corporate_actions"):
+                (original / (name + ".csv")).write_text("fixture")
+            source = original / "floorsheet.csv"
+            mod.write(source, self.fields, [self.trade(amount="1")])
+            before = source.read_bytes()
+            with patch.object(mod, "SUPPLEMENT", supplement), patch.object(mod, "verified_closed_dates", return_value=set()):
+                with self.assertRaisesRegex(ValueError, "amount mismatch"):
+                    mod.prepare(original, output)
+            self.assertFalse(output.exists())
+            self.assertEqual(source.read_bytes(), before)
+
 if __name__ == "__main__":
     unittest.main()

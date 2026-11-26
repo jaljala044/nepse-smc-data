@@ -1,0 +1,100 @@
+{
+  "task": "Historical exception resolution: canonical equity hold policy",
+  "evidence": {
+    "run": 45896380619,
+    "verified_commit": "d0d12c5a87a436a86afb5d24e657a40c7c7f5f5b",
+    "pinned_source": "56362fb4f65b91fdcca8f50b50e53ad80e703649"
+  },
+  "queues": [
+    {
+      "name": "invalid_ohlcv",
+      "findings": 1331,
+      "equity_register_matches": 1329,
+      "non_equity": 2,
+      "action": "HOLD_PENDING_PRICE_ADJUDICATION",
+      "replacement_allowed": false
+    },
+    {
+      "name": "recorded_closure",
+      "pairs": 9027,
+      "unique_source_rows": 6232,
+      "dates": 20,
+      "action": "HOLD_PENDING_INDEPENDENT_SESSION_ADJUDICATION",
+      "replacement_allowed": false
+    },
+    {
+      "name": "historical_api_holiday",
+      "pairs": 26544,
+      "unique_source_rows": 22244,
+      "dates": 77,
+      "action": "HOLD_CANDIDATE_PENDING_INDEPENDENT_SESSION_ADJUDICATION",
+      "replacement_allowed": false
+    }
+  ],
+  "priority_equities": [
+    [
+      "AHPC",
+      588
+    ],
+    [
+      "SKBBL",
+      379
+    ],
+    [
+      "API",
+      122
+    ],
+    [
+      "MERO",
+      102
+    ],
+    [
+      "SPDL",
+      53
+    ],
+    [
+      "CHL",
+      45
+    ],
+    [
+      "HIDCL",
+      30
+    ],
+    [
+      "RADHI",
+      2
+    ],
+    [
+      "RAWA",
+      2
+    ],
+    [
+      "UAIL",
+      2
+    ],
+    [
+      "UNHPL",
+      2
+    ],
+    [
+      "BGWT",
+      1
+    ],
+    [
+      "HRL",
+      1
+    ]
+  ],
+  "excluded_instruments": [
+    "KDBY",
+    "KEF"
+  ],
+  "rules": [
+    "Queue counts can overlap; do not sum as unique affected records.",
+    "Hold by source path/blob/row; do not infer neighbouring rows invalid.",
+    "No opening-price substitution from prior close or contract sort alone.",
+    "Require independent execution/session evidence and corporate-action price basis.",
+    "No raw mutation, canonical publication or recommendation enablement."
+  ],
+  "status": "REVIEW_POLICY_RECORDED_NOT_RUNTIME_APPLIED"
+}

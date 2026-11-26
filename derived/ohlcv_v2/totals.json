@@ -1,0 +1,13 @@
+{
+  "status": "OFFICIAL_EOD_V2_DERIVED_NOT_FULL_SESSION_CLEAN",
+  "symbols": 281,
+  "raw_source_rows": 246129,
+  "derived_rows": 246238,
+  "official_eod_rows_applied": 599,
+  "date_shift_rows": 490,
+  "inserted_rows": 109,
+  "raw_rows_removed_from_closed_dates": 490,
+  "field_corrections": 112,
+  "raw_source_files_modified": 0,
+  "unverified_rows_promoted": 0
+}

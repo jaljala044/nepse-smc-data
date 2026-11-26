@@ -1,0 +1,14 @@
+symbol,date,smc_open,smc_high,smc_low,smc_close,smc_volume,sharesansar_open,sharesansar_high,sharesansar_low,sharesansar_close,sharesansar_volume,exact_match,sharesansar_archive_url
+AHPC,2020-08-05,94.0,99.0,100.0,96.0,61784.0,94.0,99.0,100.0,96.0,61784.0,true,https://github.com/shawinCreates/Nepse-Market-Data/blob/main/Data/csv/daily_price/2020_08_05.csv
+SKBBL,2013-10-09,605.0,665.0,617.0,665.0,16506.0,605.0,665.0,617.0,665.0,16506.0,true,https://github.com/shawinCreates/Nepse-Market-Data/blob/main/Data/csv/daily_price/2013_10_09.csv
+API,2015-11-18,0.0,307.0,301.0,307.0,52.0,0.0,307.0,301.0,307.0,52.0,true,https://github.com/shawinCreates/Nepse-Market-Data/blob/main/Data/csv/daily_price/2015_11_18.csv
+MERO,2016-09-05,0.0,392.0,392.0,392.0,10.0,0.0,392.0,392.0,392.0,10.0,true,https://github.com/shawinCreates/Nepse-Market-Data/blob/main/Data/csv/daily_price/2016_09_05.csv
+SPDL,2017-05-17,246.0,265.0,250.92,265.0,40.0,246.0,265.0,250.92,265.0,40.0,true,https://github.com/shawinCreates/Nepse-Market-Data/blob/main/Data/csv/daily_price/2017_05_17.csv
+CHL,2017-08-03,0.0,323.0,294.0,323.0,775.0,0.0,323.0,294.0,323.0,775.0,true,https://github.com/shawinCreates/Nepse-Market-Data/blob/main/Data/csv/daily_price/2017_08_03.csv
+HIDCL,2016-07-12,0.0,359.0,328.0,359.0,29034.0,0.0,359.0,328.0,359.0,29034.0,true,https://github.com/shawinCreates/Nepse-Market-Data/blob/main/Data/csv/daily_price/2016_07_12.csv
+RADHI,2018-06-19,262.0,257.0,243.0,250.0,1830.0,262.0,257.0,243.0,250.0,1830.0,true,https://github.com/shawinCreates/Nepse-Market-Data/blob/main/Data/csv/daily_price/2018_06_19.csv
+RAWA,2026-04-27,648.7,645.0,625.0,630.0,3747.0,648.7,645.0,625.0,630.0,3747.0,true,https://github.com/shawinCreates/Nepse-Market-Data/blob/main/Data/csv/daily_price/2026_04_27.csv
+UAIL,2026-04-24,449.9,449.8,440.5,445.1,4553.0,449.9,449.8,440.5,445.1,4553.0,true,https://github.com/shawinCreates/Nepse-Market-Data/blob/main/Data/csv/daily_price/2026_04_24.csv
+UNHPL,2020-06-29,51.0,51.0,51.0,50.0,100.0,51.0,51.0,51.0,50.0,100.0,true,https://github.com/shawinCreates/Nepse-Market-Data/blob/main/Data/csv/daily_price/2020_06_29.csv
+BGWT,2026-04-29,740.0,731.0,718.0,730.0,1573.0,740.0,731.0,718.0,730.0,1573.0,true,https://github.com/shawinCreates/Nepse-Market-Data/blob/main/Data/csv/daily_price/2026_04_29.csv
+HRL,2026-04-29,685.5,685.0,676.1,679.2,74867.0,685.5,685.0,676.1,679.2,74867.0,true,https://github.com/shawinCreates/Nepse-Market-Data/blob/main/Data/csv/daily_price/2026_04_29.csv

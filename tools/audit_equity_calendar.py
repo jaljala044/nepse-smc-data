@@ -41,8 +41,24 @@ def main():
         for row in universe_rows
         if row.get("instrument_class_from_rendered_list", "").strip() == "Equity"
     })
-    if len(symbols) != 281:
-        raise ValueError(f"Expected 281 current equities, found {len(symbols)}")
+    current_symbols = set(symbols)
+    historical_rows = read_csv(reference / "equity_observed_date_coverage_2026-11-26.csv")
+    historical_symbols = {row["symbol"].strip() for row in historical_rows if row["symbol"].strip()}
+    if not current_symbols or not historical_symbols:
+        raise ValueError("Empty current or historical equity universe")
+    symbols = sorted(current_symbols | historical_symbols)
+    universe_manifest = {
+        "current_classified_count": len(current_symbols),
+        "historical_research_count": len(historical_symbols),
+        "audit_union_count": len(symbols),
+        "historical_only_not_currently_classified": sorted(historical_symbols - current_symbols),
+        "current_only": sorted(current_symbols - historical_symbols),
+        "current_source_sha256": hashlib.sha256(universe_path.read_bytes()).hexdigest(),
+        "historical_source_sha256": hashlib.sha256((reference / "equity_observed_date_coverage_2026-11-26.csv").read_bytes()).hexdigest(),
+        "note": "Historical-only membership does not establish active status or scanner eligibility."
+    }
+    (args.output / "universe_manifest.json").write_text(json.dumps(universe_manifest, indent=2), encoding="utf-8")
+    print(json.dumps(universe_manifest))
 
     calendar_rows = read_csv(reference / "nepse_canonical_session_calendar_2025-2026.csv")
     calendar = {row["date"]: row["status"] for row in calendar_rows}
@@ -52,7 +68,7 @@ def main():
     for repository_name, root in (("starter", args.starter), ("smc", args.smc)):
         for symbol in symbols:
             path = root / "03_stock_charts_ohlcv" / f"{symbol}_OHLCV.csv"
-            base = {"repository": repository_name, "symbol": symbol, "file_path": str(path.relative_to(root))}
+            base = {"repository": repository_name, "symbol": symbol, "file_path": str(path.relative_to(root)), "universe_status": "CURRENT_CLASSIFIED" if symbol in current_symbols else "HISTORICAL_ONLY_REVIEW"}
             if not path.is_file():
                 summary.append({**base, "status": "MISSING"})
                 continue

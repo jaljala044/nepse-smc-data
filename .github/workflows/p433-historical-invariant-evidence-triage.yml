@@ -1,0 +1,74 @@
+name: P4.33 historical invariant evidence triage
+on:
+  push:
+    branches:
+      - p433-historical-invariant-evidence-triage
+  pull_request:
+    paths:
+      - 'tools/triage_p433_historical_invariant_evidence.py'
+      - 'tools/tests/test_triage_p433_historical_invariant_evidence.py'
+      - '.github/workflows/p433-historical-invariant-evidence-triage.yml'
+      - 'derived/ohlcv_v3/quality_audit/remaining_invariant_flags.csv'
+permissions:
+  contents: write
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: \${{ github.head_ref || github.ref_name }}
+          persist-credentials: true
+      - uses: actions/checkout@v4
+        with:
+          repository: jaljala044/nepse-smc-data
+          ref: main
+          path: evidence/main
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run historical evidence triage tests
+        run: python -m unittest discover -s tools/tests -p 'test_triage_p433_historical_invariant_evidence.py' -v
+      - name: Build 1,368-row historical evidence disposition matrix
+        run: |
+          python tools/triage_p433_historical_invariant_evidence.py \
+            --flags derived/ohlcv_v3/quality_audit/remaining_invariant_flags.csv \
+            --floorsheet-manifest evidence/main/reference/p419_observed_date_floorsheet_archive_inventory_2026-11-26.csv \
+            --corporate-actions scanner_inputs/corporate_actions.csv \
+            --output reference/p433_1368_historical_invariant_evidence_triage_2026-11-26.csv \
+            --summary reference/p433_historical_invariant_evidence_summary_2026-11-26.json
+      - name: Verify no unsupported historical promotion
+        run: |
+          python - <<'PY'
+          import csv, json
+          from pathlib import Path
+          with Path("reference/p433_1368_historical_invariant_evidence_triage_2026-11-26.csv").open(newline="", encoding="utf-8") as fh:
+              rows = list(csv.DictReader(fh))
+          summary = json.loads(Path("reference/p433_historical_invariant_evidence_summary_2026-11-26.json").read_text())
+          assert len(rows) == 1368
+          assert all(r["disposition"] == "UNKNOWN_HISTORICAL_PRIMARY_SOURCE_NOT_AVAILABLE" for r in rows)
+          assert summary["promoted_or_repaired_rows"] == 0
+          assert summary["official_eod_outside_window"] == 1368
+          assert summary["floorsheet_date_missing"] == 1368
+          print(summary)
+          PY
+      - name: Commit evidence triage
+        if: github.event_name == 'push' && success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reference/p433_1368_historical_invariant_evidence_triage_2026-11-26.csv reference/p433_historical_invariant_evidence_summary_2026-11-26.json
+          if ! git diff --cached --quiet; then
+            git commit -m "data(p4.33): publish historical invariant evidence triage"
+            git push
+          fi
+      - name: Upload triage artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: p433-historical-invariant-evidence-triage
+          path: |
+            reference/p433_1368_historical_invariant_evidence_triage_2026-11-26.csv
+            reference/p433_historical_invariant_evidence_summary_2026-11-26.json
+          retention-days: 90

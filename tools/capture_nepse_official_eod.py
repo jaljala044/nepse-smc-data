@@ -76,7 +76,7 @@ def main():
                     "error_body_preview": raw.decode("utf-8", "replace")[:300],
                     "raw_payload_file": str(file_path),
                 }
-                (args.output_dir / "capture_error.json").write_text(json.dumps(error, indent=2) + "\\n", encoding="utf-8")
+                (args.output_dir / "capture_error.json").write_text(json.dumps(error, indent=2) + "\n", encoding="utf-8")
                 raise RuntimeError(f"NEPSE EOD request failed; see capture_error.json")
             try:
                 payload = json.loads(raw.decode("utf-8"))
@@ -92,7 +92,7 @@ def main():
                     "error": str(exc),
                     "raw_payload_file": str(file_path),
                 }
-                (args.output_dir / "capture_error.json").write_text(json.dumps(error, indent=2) + "\\n", encoding="utf-8")
+                (args.output_dir / "capture_error.json").write_text(json.dumps(error, indent=2) + "\n", encoding="utf-8")
                 raise RuntimeError("NEPSE EOD response was not valid JSON; see capture_error.json")
             if not isinstance(payload, dict) or not isinstance(payload.get("content"), list):
                 raise RuntimeError("NEPSE EOD response missing content array")

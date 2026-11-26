@@ -87,7 +87,9 @@ def inspect_rows(rows):
             "volume":str(volume) if volume is not None else None,
             "volume_field":volume_key,
             "ohlc":ohlc,
-            "has_all_ohlc":all(v is not None for v in ohlc.values()),\n            "has_hlc":all(ohlc[k] is not None for k in ("high","low","close")),\n            "has_open":ohlc["open"] is not None,
+            "has_all_ohlc":all(v is not None for v in ohlc.values()),
+            "has_hlc":all(ohlc[k] is not None for k in ("high","low","close")),
+            "has_open":ohlc["open"] is not None,
         })
     return output
 

@@ -4,18 +4,15 @@ import argparse
 import concurrent.futures
 import hashlib
 import json
-import re
 import time
 import urllib.request
 from pathlib import Path
 
 def git_blob_sha(data):
-    header = f"blob {len(data)}\\0".encode("ascii")
-    return hashlib.sha1(header + data).hexdigest()
+    return hashlib.sha1(f"blob {len(data)}\\0".encode("ascii") + data).hexdigest()
 
 def verify_file(record, fetch):
-    url = record["url"]
-    data = fetch(url)
+    data = fetch(record["url"])
     errors = []
     if len(data) != record["size_bytes"]:
         errors.append(f"size mismatch: expected {record['size_bytes']}, got {len(data)}")
@@ -40,8 +37,7 @@ def fetch_url(url):
     raise RuntimeError(f"download failed after 3 attempts: {url}: {last_error}")
 
 def verify(manifest, fetch=fetch_url):
-    errors = []
-    checked = 0
+    errors, checked = [], 0
     for annual in manifest["annual_captures"]:
         records = {f["name"]: f for f in annual["files"]}
         payloads = {}
@@ -71,11 +67,17 @@ def verify(manifest, fetch=fetch_url):
             report = json.loads(payloads["capture-report.json"].decode("utf-8"))
             if report.get("requested_year") != annual["year"]:
                 errors.append(f"{annual['year']}: capture report requested_year mismatch")
-            if report.get("record_count") != len(parsed):
-                errors.append(f"{annual['year']}: capture report record_count mismatch")
+            if report.get("http_status") != 200:
+                errors.append(f"{annual['year']}: capture report is not HTTP 200")
+            if report.get("parsed_record_count") != len(parsed):
+                errors.append(f"{annual['year']}: capture report parsed_record_count mismatch")
+            if report.get("response_bytes") != len(body):
+                errors.append(f"{annual['year']}: capture report response_bytes mismatch")
+            if report.get("response_sha256") != actual_sha:
+                errors.append(f"{annual['year']}: capture report response_sha256 mismatch")
             source_url = payloads["source-url.txt"].decode("utf-8").strip()
-            if f"year={annual['year']}" not in source_url:
-                errors.append(f"{annual['year']}: source URL year mismatch")
+            if source_url != report.get("source_url") or f"year={annual['year']}" not in source_url:
+                errors.append(f"{annual['year']}: source URL mismatch")
         except Exception as exc:
             errors.append(f"{annual['year']}: payload cross-check failed: {exc}")
     return {"checked_files": checked, "errors": errors}

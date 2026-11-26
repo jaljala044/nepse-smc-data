@@ -364,11 +364,25 @@ def main():
     content = Counter(r["content_status"] for r in summaries)
     complete = Counter(r["completeness_status"] for r in summaries)
     statuses = Counter(r["trade_status"] for r in equity_rows)
+    failed_dates = [
+        {key: row.get(key) for key in ("date", "rows", "trades", "shares", "turnover_npr",
+                                       "symbols", "duplicate_contracts", "amount_identity_failures",
+                                       "date_mismatches", "invalid_rows", "broker_ids_missing",
+                                       "validation_errors")}
+        for row in summaries if row["content_status"] != "PASS"
+    ]
     print(json.dumps({
         "manifest_dates": len(manifest), "equity_symbols": len(equity_symbols),
         "download_status": dict(counts), "content_status": dict(content),
         "completeness_status": dict(complete), "equity_date_status": dict(statuses),
         "sha256_calculated_for": sum(bool(r.get("actual_sha256")) for r in download_rows),
+        "failed_downloads": [r for r in download_rows if r["download_status"] != "PASS"],
+        "failed_content_dates": failed_dates,
+        "ohlcv_comparison_totals": {
+            "matches": sum(r["ohlcv_matches"] for r in summaries),
+            "conflicts": sum(r["ohlcv_conflicts"] for r in summaries),
+            "ohlcv_rows_absent_for_traded_symbols": sum(r["ohlcv_rows_absent"] for r in summaries),
+        },
         "interpretation": "File integrity and row validity do not prove full-session completeness. NO_TRADE is permitted only for 2026-11-20 with independent total reconciliation.",
     }, indent=2))
     if counts["FAIL"] or content["FAIL"]:

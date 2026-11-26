@@ -33,7 +33,7 @@ class P437CrossSectorDateAuditTests(unittest.TestCase):
         self.assertEqual(result["friday_saturday_records"],[{"date":"2026-11-27","weekday":"friday"}])
         self.assertEqual(result["missing_hlc_rows"],1)
         self.assertEqual(result["missing_volume_rows"],1)
-        self.assertEqual(result["out_of_window_dates"],["2026-11-30"])
+        self.assertEqual(result["out_of_window_dates"],["2026-11-27","2026-11-30"])
 
     def test_capture_checks_all_security_ids_and_keeps_tokens_out(self):
         token={"accessToken":"SECRET_ACCESS","refreshToken":"SECRET_REFRESH",

@@ -68,6 +68,21 @@ def audit(v2_dir, v3_dir, raw_dir, matrix_path, correction_path, output_dir,
         if row.get("field") != "Open" or row.get("disposition") != "PRIMARY_OFFICIAL_NEPSE_EOD_OPEN_CORRECTION":
             raise ValueError("unsupported correction in P4.30 ledger")
 
+    v2_provenance = read_csv(v2_dir / "provenance_ledger.csv")
+    v3_provenance = read_csv(v3_dir / "provenance_ledger.csv")
+    if len(v3_provenance) != len(v2_provenance) + expected_corrections:
+        raise ValueError("v3 provenance ledger did not preserve v2 rows and append all new evidence")
+    added_provenance = [r for r in v3_provenance if r.get("action") == "OFFICIAL_OPEN_FIELD_CORRECTION"]
+    if len(added_provenance) != expected_corrections:
+        raise ValueError("v3 provenance ledger missing official Open evidence rows")
+    for item in added_provenance:
+        key = (item.get("symbol"), item.get("official_business_date"))
+        if key not in official or item.get("official_payload_sha256") != official[key].get("official_payload_sha256"):
+            raise ValueError(f"new v3 provenance does not match official matrix: {key}")
+    v2_corrections = read_csv(v2_dir / "corrections.csv")
+    v3_corrections = read_csv(v3_dir / "corrections.csv")
+    if len(v3_corrections) != len(v2_corrections) + expected_corrections:
+        raise ValueError("v3 correction ledger did not preserve v2 corrections and append all new Open corrections")
     v2_by_symbol = {r["symbol"]: r for r in v2_manifest}
     v3_by_symbol = {r["symbol"]: r for r in v3_manifest}
     raw_verified = v2_verified = v3_verified = total_rows = 0

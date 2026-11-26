@@ -3,7 +3,7 @@
 **Status: reproducible audit baseline complete; adjudication and canonical-ingestion acceptance remain open.**
 
 **Pinned input:** `main` at `56362fb4f65b91fdcca8f50b50e53ad80e703649`.  
-**Latest validated workflow:** [Run 195](https://github.com/jaljala044/nepse-smc-data/actions/runs/45898354789), head `d6c43d84ea1d98f32e7ae8074e2ad15a2a119530`; all workflow stages passed, including the all-58,972-pair official-history check, equity-first prioritization, unique recovery-queue tests, and artifact preservation.  
+**Latest validated workflow:** [Run 205](https://github.com/jaljala044/nepse-smc-data/actions/runs/45899093388), head `7d24f589fef069cdc161ece039ac89cc77cd691b`; all workflow stages passed, including the strict pinned-byte scan, exception join, calendar triage, all-58,972-pair official-history check, recovery-queue regression, and artifact preservation. The separate priority-floorsheet recovery PR check [Run 4](https://github.com/jaljala044/nepse-smc-data/actions/runs/45899093277) also passed.  
 **Method:** deterministic, read-only scan of pinned file blobs. Findings are review flags, not automatic corrections.
 
 ## Coverage
@@ -41,6 +41,25 @@ An exception-register match is reconciliation, **not independent validation**. T
 ### UNL secondary-source recheck (not transaction verification)
 
 The branch preserves three UNL rows from `03_stock_charts_ohlcv/UNL_OHLCV.csv` in `P443_UNL_PRIORITY_PRICE_CORROBORATION_2026-11-27.csv` (source blob `107d1ef058992cfd1b8b4a88db9f6304edf22932`, rows 809, 810, 822). A secondary-source recheck found matching published OHLCV/volume values for 2026-08-24 and 2026-08-27 on ArthaKendra's UNL price-history page, and for 2026-09-28 on the NEPSEAlpha UNL history result. These are **secondary aggregator matches**; their upstream lineage/independence is unknown and they provide no exchange contract IDs. The separate `P443_UNL_SECONDARY_SOURCE_RECHECK_2026-11-27.csv` records the URLs and exact fields matched. All three remain `contract_verified=false` and `promotion_allowed=false`; no canonical value was changed.
+
+### Targeted priority floorsheet observations (third-party archive only)
+
+The dedicated recovery workflow [Run 4](https://github.com/jaljala044/nepse-smc-data/actions/runs/45899093277) passed on the current PR revision and reproduced the successful ten-partition retrieval from [Run 1](https://github.com/jaljala044/nepse-smc-data/actions/runs/45898947134). For BNL (2026-11-13, 2026-11-17), BNT (2026-06-29, 2026-07-01), ENL (2026-08-25, 2026-08-26), and UNL (2026-08-24, 2026-08-27, 2026-09-28, 2026-09-29), each pinned daily file passed byte-size/Git-blob verification and row/schema/arithmetic checks. Each selected symbol/date had one observed 10-share row at the expected rate and matching amount. The rows and source hashes are preserved in `P443_PRIORITY_FLOORSHEET_CONTRACT_OBSERVATIONS_2026-11-27.csv`.
+
+These are **third-party archive observations**, not independently authenticated exchange records. The archive's file-level completeness status is `UNKNOWN`, source independence is `UNKNOWN`, and the archive's contract-number field is not treated as a verified exchange contract ID. No absence inference is permitted; no OHLCV opening price is established by this check. All ten remain `promotion_allowed=false`; no canonical values were changed.
+
+### Priority-equity external archive comparisons
+
+Four symbol-specific comparisons now preserve the 2026-11-27 external archive matches for the existing invalid-OHLCV exception registers:
+
+| Symbol | Register rows | Aabishkar2 | SamirWagle | binayabaral | srijankarki07 | Verified replacements |
+|---|---:|---:|---:|---:|---:|---:|
+| API | 122 | 113 match / 9 missing | 122 match | 113 / 9 | 121 / 1 | 0 |
+| SKBBL | 379 | 379 match | 379 match | 379 match | 378 / 1 | 0 |
+| MERO | 102 | 102 match | 102 match | 102 match | 102 match | 0 |
+| SPDL | 53 | 46 / 7 | 53 match | 46 / 7 | 53 match | 0 |
+
+`match` here means the external daily archive repeats the same candidate tuple already flagged as invalid in the pinned exception register; it is **not** a valid replacement. The missing counts are unavailable rows in that source, not proof of no trade. All four repository records show `fork=false` in GitHub metadata, but that does not establish independent data lineage; copied upstream data, common source capture, LTP/close mapping, corporate actions and execution evidence remain unverified. Per-source blobs and row-level dates are preserved in `API_EXTERNAL_SOURCE_RECONCILIATION_2026-11-27.json`, `SKBBL_EXTERNAL_SOURCE_RECONCILIATION_2026-11-27.json`, `MERO_EXTERNAL_SOURCE_RECONCILIATION_2026-11-27.json`, and `SPDL_EXTERNAL_SOURCE_RECONCILIATION_2026-11-27.json`. No replacement was verified or promoted.
 
 ### Floorsheet row classification and contract-number reuse
 
@@ -134,7 +153,7 @@ Preserve all rows. The source capture report reports unique archive-local record
 
 ## Reproducibility and machine-readable outputs
 
-- Latest complete workflow and artifacts: [Run 195](https://github.com/jaljala044/nepse-smc-data/actions/runs/45898354789); all scan, quarantine, cross-repository contract, strict-byte, exception join, pair-calendar triage, disjoint queue, row-hold, authenticated-holiday, open-pair check, equity-first triage, all-58,972-pair official-history check, recovery-queue regression, and artifact-preservation stages passed.
+- Latest complete workflow and artifacts: [Run 205](https://github.com/jaljala044/nepse-smc-data/actions/runs/45899093388); all scan, quarantine, cross-repository contract, strict-byte, exception join, pair-calendar triage, disjoint queue, row-hold, authenticated-holiday, open-pair check, equity-first triage, all-58,972-pair official-history check, recovery-queue regression, and artifact-preservation stages passed. The targeted floorsheet workflow [Run 4](https://github.com/jaljala044/nepse-smc-data/actions/runs/45899093277) passed and preserves the 10-row observation CSV.
 - Standard row-level CSV findings: `NEPSE_GLOBAL_DUPLICATE_AUDIT_FINDINGS.csv`.
 - Per-file scan coverage: `NEPSE_GLOBAL_DUPLICATE_AUDIT_SCAN_SUMMARY.csv`.
 - Strict pinned-byte row-level findings and exception join: preserved in the run's `p443-strict-content-audit` artifact (`findings.jsonl`, `coverage.json`, `summary.json`, `exception_join.csv`, `exception_join_summary.json`, `open_pair_security_evidence.csv`, `open_pair_security_summary.json`, `unresolved_pair_security_evidence.csv`, `unresolved_pair_security_summary.json`, `equity_first_repeat_review.csv`, `equity_first_repeat_summary.json`, `equity_security_date_recovery_queue.csv`, `equity_security_date_source_lineage.csv`, `equity_security_date_recovery_summary.json`).

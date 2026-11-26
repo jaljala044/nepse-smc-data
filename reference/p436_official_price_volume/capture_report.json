@@ -1,0 +1,140 @@
+{
+  "task": "P4.36",
+  "source": "NEPSE official market history API",
+  "retrieved_at_utc": "2026-11-26T18:44:20.243102+00:00",
+  "upstream_client": {
+    "repo": "basic-bgnr/NepseUnofficialApi",
+    "commit": "180a550c60f1959983b854659e650a4c189a3c0f",
+    "wasm_git_blob_sha": "06162abc9206c6a855648ed5c0abb2fd515aa555"
+  },
+  "authentication_status": "authenticated",
+  "records": [
+    {
+      "name": "token_prove",
+      "url": "https://www.nepalstock.com/api/authenticate/prove",
+      "http_status": 200,
+      "content_type": "application/json",
+      "response_bytes": 723,
+      "response_sha256": "aada51b85d7a0c4252b7be333690bc77306d8582bc2dcb4d82ad07fa292d71e6",
+      "etag": null,
+      "last_modified": null,
+      "body_saved": false,
+      "token_fields_present": {
+        "accessToken": true,
+        "refreshToken": true,
+        "salt1": true,
+        "salt2": true,
+        "salt3": true,
+        "salt4": true,
+        "salt5": true,
+        "serverTime": true
+      }
+    },
+    {
+      "name": "security_list",
+      "url": "https://www.nepalstock.com/api/nots/security?nonDelisted=true",
+      "http_status": 200,
+      "content_type": "application/json",
+      "response_bytes": 87572,
+      "response_sha256": "5495d99a73aeb44e573936f59fc6a6d8dbf9ffc45c5a8ba62e672f0b0c6fa2f7",
+      "etag": null,
+      "last_modified": null,
+      "filename": "security_list.json"
+    }
+  ],
+  "security_results": [
+    {
+      "symbol": "NMLBBL",
+      "security_id": 396,
+      "start_date": "2024-05-16",
+      "end_date": "2024-05-19",
+      "candidate_date": "2024-05-19",
+      "prior_date": "2024-05-16",
+      "expected_ohlcv": {
+        "open": 599.6,
+        "high": 646.6,
+        "low": 599.6,
+        "close": 646.6,
+        "volume": 864
+      },
+      "status": "captured",
+      "pages": [
+        {
+          "page": 0,
+          "url": "https://www.nepalstock.com/api/nots/market/history/security/396?&size=500&startDate=2024-05-16&endDate=2024-05-19",
+          "http_status": 200,
+          "content_type": "application/json",
+          "response_bytes": 317,
+          "response_sha256": "974a54263974a1ffaca8b85a5368c4d6b02deec2180ab189dedf8cee254fb64b",
+          "etag": null,
+          "last_modified": null,
+          "filename": "NMLBBL_2024-05-16_2024-05-19_page0.json",
+          "row_count": 0,
+          "total_elements": 0,
+          "total_pages": 0
+        }
+      ],
+      "rows": 0,
+      "normalized_rows": [],
+      "returned_dates": [],
+      "date_mismatches": 0,
+      "duplicate_dates": [],
+      "candidate_rows": 0,
+      "prior_rows": 0,
+      "candidate_matches_expected": {},
+      "candidate_all_expected_fields_match": false,
+      "pagination_metadata": {
+        "totalElements": 0,
+        "totalPages": 0
+      },
+      "prior_zero_rows_observed": true
+    },
+    {
+      "symbol": "SMPDA",
+      "security_id": 2896,
+      "start_date": "2024-08-14",
+      "end_date": "2024-08-18",
+      "candidate_date": "2024-08-18",
+      "prior_date": "2024-08-14",
+      "expected_ohlcv": {
+        "open": 1078.1,
+        "high": 1162.7,
+        "low": 1078.1,
+        "close": 1162.7,
+        "volume": 5314
+      },
+      "status": "captured",
+      "pages": [
+        {
+          "page": 0,
+          "url": "https://www.nepalstock.com/api/nots/market/history/security/2896?&size=500&startDate=2024-08-14&endDate=2024-08-18",
+          "http_status": 200,
+          "content_type": "application/json",
+          "response_bytes": 317,
+          "response_sha256": "974a54263974a1ffaca8b85a5368c4d6b02deec2180ab189dedf8cee254fb64b",
+          "etag": null,
+          "last_modified": null,
+          "filename": "SMPDA_2024-08-14_2024-08-18_page0.json",
+          "row_count": 0,
+          "total_elements": 0,
+          "total_pages": 0
+        }
+      ],
+      "rows": 0,
+      "normalized_rows": [],
+      "returned_dates": [],
+      "date_mismatches": 0,
+      "duplicate_dates": [],
+      "candidate_rows": 0,
+      "prior_rows": 0,
+      "candidate_matches_expected": {},
+      "candidate_all_expected_fields_match": false,
+      "pagination_metadata": {
+        "totalElements": 0,
+        "totalPages": 0
+      },
+      "prior_zero_rows_observed": true
+    }
+  ],
+  "interpretation": "This endpoint is an official daily price-volume history cross-check, not a trade-level floorsheet. Candidate OHLCV matches corroborate daily bars only. A missing prior-date row is not NO_TRADE without documented complete date coverage and session-calendar confirmation. Token values are never persisted."
+}

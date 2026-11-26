@@ -48,6 +48,7 @@ on:
       - "tools/p443_equity_first_repeat_review.py"
       - "tools/p443_equity_security_date_queue.py"
       - "tools/p443_bulk_equity_floorsheet_recovery.py"
+      - "test_p443_bulk_equity_floorsheet_recovery.py"
       - "test_p443_equity_security_date_queue.py"
       - "test_p443_verify_unresolved_pairs.py"
       - "tools/p443_verify_unresolved_pairs.py"

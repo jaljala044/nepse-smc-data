@@ -247,19 +247,56 @@
     "disposition": "REPEATED_INVALID_REGISTER_TUPLES_ONLY_NO_CANONICAL_PROMOTION"
   },
   "priority_floorsheet_recovery": {
-    "validation_run": 45899093277,
-    "initial_retrieval_run": 45898947134,
+    "workflow_run": 45899542388,
+    "artifact_id": 15154728772,
     "source_repository": "socrateai-official/nepse-open-data",
     "source_commit": "70324524df83eaa7c2964441ad4026d6ab00cc7e",
-    "observations_csv": "reference/P443_PRIORITY_FLOORSHEET_CONTRACT_OBSERVATIONS_2026-11-27.csv",
     "partitions": 10,
     "matching_observations": 10,
-    "download_and_content_validation_pass": 10,
+    "validation_status": "ALL_DOWNLOADS_GIT_BLOB_SIZE_SCHEMA_ARITHMETIC_CHECKS_PASS",
     "completeness_status": "UNKNOWN",
     "source_independence": "UNKNOWN",
     "exchange_contract_ids_verified": false,
     "promoted": 0,
+    "promotion_allowed": false
+  },
+  "secondary_priority_contract_comparison": {
+    "workflow_run": 45899542326,
+    "artifact_id": 15155390598,
+    "source_repository": "urekmazino69/Nepse-floorsheet-and-indices",
+    "rows": 5,
+    "exact_matches": 5,
+    "dates": [
+      "2026-06-29",
+      "2026-07-01",
+      "2026-08-24",
+      "2026-08-25",
+      "2026-08-26"
+    ],
+    "fields": [
+      "contract_number",
+      "buyer_broker_id",
+      "seller_broker_id",
+      "quantity",
+      "rate",
+      "amount"
+    ],
+    "target_contract_occurrences": 1,
+    "full_file_duplicate_contract_occurrences": 0,
+    "full_file_invalid_rows": 0,
+    "source_upstream_independence": "UNKNOWN",
+    "authoritative_exchange_provenance": false,
+    "promoted": 0,
     "promotion_allowed": false,
-    "status": "THIRD_PARTY_ARCHIVE_CORROBORATION_ONLY"
+    "note": "Second public archive corroborates five target contracts, but completeness and independent upstream lineage are unproven."
+  },
+  "latest_ci": {
+    "last_completed_strict_run": 45899093388,
+    "current_head_strict_run": 45899542346,
+    "current_head_status": "IN_PROGRESS_AT_DOCUMENT_UPDATE",
+    "recovery_run": 45899542388,
+    "recovery_status": "SUCCESS",
+    "secondary_comparison_run": 45899542326,
+    "secondary_comparison_status": "SUCCESS"
   }
 }

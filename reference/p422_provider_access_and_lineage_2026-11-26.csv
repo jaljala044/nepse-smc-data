@@ -1,0 +1,8 @@
+provider,capability,exact_RHGCL_2026_11_19_row_retrieved,evidence_status,lineage_or_limitation,url
+NEPSE Alpha,Historical price export with OHLCV and turnover,false,INTERFACE_VERIFIED_ROW_NOT_RETRIEVED,Public interface; exact row not retrieved in this run,https://nepsealpha.com/nepse-data/
+Merolagani,Datewise share price and floorsheet interfaces,false,INTERFACE_VERIFIED_ROW_NOT_RETRIEVED,Exact RHGCL date row and full floorsheet completeness not captured,https://merolagani.com/StockQuote.aspx
+Hamroshare,NEPSE EOD price history with raw/adjusted chart modes,true,SECONDARY_ROW_MATCH,NEPSE is upstream; exact row visible,https://hamroshare.com.np/company/RHGCL/technical
+Punji,NEPSE public-endpoint market data and monthly aggregates,false,MONTHLY_AND_LATEST_ONLY_IN_CAPTURE,Terms prohibit systematic extraction/redistribution,https://punji.app/stocks/RHGCL
+Stock Nepals,Daily stock history table,true,SECONDARY_ROW_MATCH,Secondary display,https://www.stocknepals.com/stock-details/RHGCL
+NEPSE Demo Trading,Recent daily close and volume history,true,SECONDARY_ROW_MATCH,Secondary display,https://nepsedemotrading.com/stocks/RHGCL
+QuantNepal,Recent daily close and volume history,true,SECONDARY_ROW_MATCH,Secondary display,https://www.quantnepal.com/nepse/RHGCL

@@ -22,7 +22,7 @@ WINDOWS = [
     {"symbol":"SMPDA","known_security_id":2896,"start":"2024-08-01","end":"2024-08-31",
      "targets":[{"date":"2024-08-18","expected_volume":5314,"role":"candidate"},{"date":"2024-08-14","expected_volume":0,"role":"prior_session"}]},
     {"symbol":"NMLBBL","known_security_id":396,"start":"2025-11-26","end":"2026-11-26","targets":[],"control":True},
-    {"symbol":"SMPDA","known_security_id":2896,"start":"2026-11-01","end":"2026-11-26","targets":[],"control":True},
+    {"symbol":"SMPDA","known_security_id":2896,"start":"2025-11-26","end":"2026-11-26","targets":[],"control":True},
 ]
 HISTORY_PATH="/api/nots/market/history/security/{security_id}"
 

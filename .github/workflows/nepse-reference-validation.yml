@@ -8,6 +8,13 @@ on:
       - "nepse_session_date.py"
       - "test_nepse_session_date.py"
       - "test_user_finalized_ohlcv.py"
+      - "03_stock_charts_ohlcv/API_OHLCV.csv"
+      - "03_stock_charts_ohlcv/BGWT_OHLCV.csv"
+      - "03_stock_charts_ohlcv/HRL_OHLCV.csv"
+      - "03_stock_charts_ohlcv/MEHL_OHLCV.csv"
+      - "03_stock_charts_ohlcv/RAWA_OHLCV.csv"
+      - "03_stock_charts_ohlcv/RHGCL_OHLCV.csv"
+      - "03_stock_charts_ohlcv/ULHC_OHLCV.csv"
       - ".github/workflows/nepse-reference-validation.yml"
   pull_request:
     paths:
@@ -16,6 +23,13 @@ on:
       - "nepse_session_date.py"
       - "test_nepse_session_date.py"
       - "test_user_finalized_ohlcv.py"
+      - "03_stock_charts_ohlcv/API_OHLCV.csv"
+      - "03_stock_charts_ohlcv/BGWT_OHLCV.csv"
+      - "03_stock_charts_ohlcv/HRL_OHLCV.csv"
+      - "03_stock_charts_ohlcv/MEHL_OHLCV.csv"
+      - "03_stock_charts_ohlcv/RAWA_OHLCV.csv"
+      - "03_stock_charts_ohlcv/RHGCL_OHLCV.csv"
+      - "03_stock_charts_ohlcv/ULHC_OHLCV.csv"
       - ".github/workflows/nepse-reference-validation.yml"
   workflow_dispatch:
 

@@ -95,4 +95,24 @@ class P435AuthenticatedFloorsheetTests(unittest.TestCase):
         self.assertTrue(all("id" in body for _,body in post_calls))
         self.assertEqual(result["floor_results"][0]["pages"][0]["payload_day_used"],26)
 
+    def test_current_session_control_routes_are_probed(self):
+        day=int(datetime(2026,11,26,tzinfo=timezone.utc).timestamp()*1000)
+        token={"accessToken":"A","refreshToken":"R","salt1":10,"salt2":20,"salt3":30,"salt4":40,"salt5":50,"serverTime":day}
+        def fake(method,url,body=None,headers=None):
+            if url.endswith("/api/authenticate/prove"):return 200,{},json.dumps(token).encode()
+            if url.endswith("/api/nots/nepse-data/market-open"):return 200,{},b'{"id":5,"asOf":"2026-11-26T15:00:00"}'
+            if "/api/nots/security?" in url:return 200,{},b'[{"id":100,"symbol":"NMLBBL"},{"id":200,"symbol":"SMPDA"}]'
+            if method=="POST":
+                if "/api/nots/nepse-data/floorsheet" in url or "businessDate=2026-11-26" in url:
+                    return 200,{},b'{"floorsheets":{"content":[],"totalElements":0,"totalPages":0}}'
+                date=parse_qs(urlparse(url).query)["businessDate"][0]
+                qty={"2024-05-19":864,"2024-05-16":0,"2024-08-18":5314,"2024-08-14":0}[date]
+                content=[] if qty==0 else [{"contractId":date.replace("-",""),"businessDate":date,"contractQuantity":qty,"contractRate":100,"contractAmount":qty*100}]
+                return 200,{},json.dumps({"floorsheets":{"content":content,"totalElements":len(content),"totalPages":1 if content else 0}}).encode()
+            raise AssertionError(url)
+        with tempfile.TemporaryDirectory() as tmp:
+            result=capture(tmp,fake,lambda obj,path:("A","R"),"2026-11-26T00:00:00Z")
+        self.assertEqual(len(result["control_results"]),3)
+        self.assertTrue(all(x["status"]=="page0_captured" for x in result["control_results"]))
+
 if __name__=="__main__":unittest.main()

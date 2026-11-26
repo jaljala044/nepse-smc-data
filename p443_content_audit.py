@@ -86,7 +86,7 @@ def scan(raw, entry):
             flag("exact_record_repeat",loc,"",seen[sig])
         else:
             seen[sig]=loc
-        d = first(row,"date","tradedate","businessdate","holidaydate","sessiondate")
+        d = first(row,"date","tradedate","tradingdate","businessdate","calculationdate","holidaydate","sessiondate")
         if not d and entry["category"] == "floorsheet_or_reconciliation":
             d = floorsheet_date_from_filename(path)
         symbol = first(row,"symbol","stocksymbol","scrip","securitysymbol")
@@ -99,14 +99,14 @@ def scan(raw, entry):
         transaction = first(row,"transaction")
         if not record_id and transaction.isdigit():
             record_id = transaction
-        buyer = first(row,"buyer","buyerid","buybroker")
-        seller = first(row,"seller","sellerid","sellbroker")
-        quantity = first(row,"quantity","qty","tradequantity","tradedquantity","shares")
-        rate = first(row,"rate","price","traderate")
+        buyer = first(row,"buyer","buyerid","buybroker","buyermemberid")
+        seller = first(row,"seller","sellerid","sellbroker","sellermemberid")
+        quantity = first(row,"quantity","qty","tradequantity","tradedquantity","shares","contractquantity")
+        rate = first(row,"rate","price","traderate","contractrate")
         # Summary, inventory, and capture-metadata rows are not trade records.
         # Require explicit contract identity or a transaction-shaped composite.
-        is_trade_record = bool(contract_no or record_id or
-                               (symbol and buyer and seller and quantity and rate))
+        is_trade_record = bool((symbol and buyer and seller and quantity and rate) or
+                               (symbol and (contract_no or record_id) and buyer and seller and quantity))
         if not record_id and contract_no and symbol and buyer and seller:
             record_id = "|".join(("composite",contract_no,symbol,buyer,seller))
         fields=("open","high","low","close","volume")

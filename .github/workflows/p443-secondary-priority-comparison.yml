@@ -1,0 +1,25 @@
+name: P4.43 secondary priority floorsheet comparison
+on:
+  pull_request:
+    paths:
+      - 'tools/p443_secondary_priority_comparison.py'
+      - '.github/workflows/p443-secondary-priority-comparison.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python tools/p443_secondary_priority_comparison.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: p443-secondary-priority-comparison
+          path: secondary-evidence/
+          if-no-files-found: error

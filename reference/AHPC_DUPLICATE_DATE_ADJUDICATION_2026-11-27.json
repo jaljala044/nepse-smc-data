@@ -1,0 +1,82 @@
+{
+  "symbol": "AHPC",
+  "register_blob": "0d662db6310d65116dc0e84ad5ed424ff1f7d26b",
+  "register_rows": [
+    "AHPC,2010-07-27,479.0,470.0,461.0,465.0,876.0,OPEN_OUTSIDE_RANGE,false,8adf41de96954d38e42f6353cb24a105d3e51082",
+    "AHPC,2011-01-03,454.0,445.0,440.0,440.0,162.0,OPEN_OUTSIDE_RANGE,false,8adf41de96954d38e42f6353cb24a105d3e51082",
+    "AHPC,2014-12-28,353.0,374.0,355.0,374.0,5716.0,OPEN_OUTSIDE_RANGE,true,8adf41de96954d38e42f6353cb24a105d3e51082"
+  ],
+  "evidence": [
+    {
+      "repository_full_name": "Aabishkar2/nepse-data",
+      "path": "data/company-wise/AHPC.csv",
+      "ref": "main",
+      "blob_sha": "993fe0fa9b5d155fd80c3f093afd91274b308782",
+      "header": "published_date,open,high,low,close,per_change,traded_quantity,traded_amount,status",
+      "rows": [
+        "2010-07-27,462.0,479.0,458.0,479.0,3.68,672.0,0.0,0",
+        "2010-07-27,479.0,470.0,461.0,465.0,-2.92,876.0,0.0,0",
+        "2011-01-03,439.0,454.0,450.0,454.0,3.42,990.0,0.0,0",
+        "2011-01-03,454.0,445.0,440.0,440.0,-3.08,162.0,0.0,0",
+        "2014-12-28,353.0,374.0,355.0,374.0,5.95,5716.0,2087010.0,0",
+        "2014-12-28,353.0,374.0,355.0,374.0,0.0,5716.0,2087010.0,0"
+      ]
+    },
+    {
+      "repository_full_name": "SamirWagle/Nepse-All-Scraper",
+      "path": "data/company-wise/AHPC/prices.csv",
+      "ref": "main",
+      "blob_sha": "333cea9eeb9fba407b47aa9b04f43330b8ece7f1",
+      "header": "date,open,high,low,ltp,percent_change,qty,turnover",
+      "rows": [
+        "2014-12-28,353.0,374.0,355.0,374.0,0.0,5716,2087010.0",
+        "2011-01-03,454.0,445.0,440.0,440.0,0.0,162,0.0",
+        "2011-01-03,439.0,454.0,450.0,454.0,0.0,990,0.0",
+        "2010-07-27,479.0,470.0,461.0,465.0,0.0,876,0.0",
+        "2010-07-27,462.0,479.0,458.0,479.0,0.0,672,0.0"
+      ]
+    },
+    {
+      "repository_full_name": "srijankarki07/nepse-data",
+      "path": "data/series/AHPC.csv",
+      "ref": "main",
+      "blob_sha": "9d03bc7630fd2f631e2a2df32093b4502d5b6591",
+      "header": "date,symbol,open,high,low,close,volume,turnover",
+      "rows": [
+        "2014-12-28,AHPC,353,374,355,374,5716,2087010"
+      ]
+    },
+    {
+      "repository_full_name": "binayabaral/nepal-market-data",
+      "path": "data/nepse/AHPC.csv",
+      "ref": "944bc95872e46b299625091f6c9f32f57010e71a",
+      "blob_sha": "61c6d603cbe2ec971f69d6aebbf5e34161fe1ab8",
+      "header": "published_date,open,high,low,close,per_change,traded_quantity,traded_amount,status",
+      "rows": [
+        "2010-07-27,462.0,479.0,458.0,479.0,3.68,672.0,0.0,A",
+        "2011-01-03,439.0,454.0,450.0,454.0,3.42,990.0,0.0,A",
+        "2014-12-28,353.0,374.0,355.0,374.0,5.95,5716.0,2087010.0,A"
+      ]
+    }
+  ],
+  "dispositions": [
+    {
+      "date": "2010-07-27",
+      "status": "HOLD_CONFLICTING_DATE",
+      "reason": "Valid alternative is a conflicting duplicate with different OHLCV and volume; no independent execution/date evidence."
+    },
+    {
+      "date": "2011-01-03",
+      "status": "HOLD_BOTH_INVALID",
+      "reason": "Both competing tuples violate OHLC bounds."
+    },
+    {
+      "date": "2014-12-28",
+      "status": "HOLD_INVALID_OHLC",
+      "reason": "Duplicate records have identical OHLCV and differing percentage change; opening price below low."
+    }
+  ],
+  "verified_replacements": 0,
+  "raw_modified": false,
+  "limitations": "Source snapshots inspected; independence and date attribution not established. No official trade-level verification."
+}

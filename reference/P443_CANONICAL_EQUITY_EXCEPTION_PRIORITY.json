@@ -153,5 +153,113 @@
     "contract_verified": false,
     "promoted": 0,
     "note": "OHLCV/volume fields matched secondary pages; no exchange contract IDs or authoritative transaction evidence established."
+  },
+  "external_source_reconciliation": {
+    "evidence_run_by_symbol": {
+      "API": 45898862802,
+      "SKBBL": 45898598269,
+      "MERO": 45899001519,
+      "SPDL": 45899093388
+    },
+    "pinned_input": "56362fb4f65b91fdcca8f50b50e53ad80e703649",
+    "records": {
+      "API": 122,
+      "SKBBL": 379,
+      "MERO": 102,
+      "SPDL": 53
+    },
+    "source_matches": {
+      "API": {
+        "Aabishkar2": {
+          "matched": 113,
+          "missing": 9
+        },
+        "SamirWagle": {
+          "matched": 122,
+          "missing": 0
+        },
+        "binayabaral": {
+          "matched": 113,
+          "missing": 9
+        },
+        "srijankarki07": {
+          "matched": 121,
+          "missing": 1
+        }
+      },
+      "SKBBL": {
+        "Aabishkar2": {
+          "matched": 379,
+          "missing": 0
+        },
+        "SamirWagle": {
+          "matched": 379,
+          "missing": 0
+        },
+        "binayabaral": {
+          "matched": 379,
+          "missing": 0
+        },
+        "srijankarki07": {
+          "matched": 378,
+          "missing": 1
+        }
+      },
+      "MERO": {
+        "Aabishkar2": {
+          "matched": 102,
+          "missing": 0
+        },
+        "SamirWagle": {
+          "matched": 102,
+          "missing": 0
+        },
+        "binayabaral": {
+          "matched": 102,
+          "missing": 0
+        },
+        "srijankarki07": {
+          "matched": 102,
+          "missing": 0
+        }
+      },
+      "SPDL": {
+        "Aabishkar2": {
+          "matched": 46,
+          "missing": 7
+        },
+        "SamirWagle": {
+          "matched": 53,
+          "missing": 0
+        },
+        "binayabaral": {
+          "matched": 46,
+          "missing": 7
+        },
+        "srijankarki07": {
+          "matched": 53,
+          "missing": 0
+        }
+      }
+    },
+    "verified_replacements": 0,
+    "source_independence": "UNKNOWN",
+    "disposition": "REPEATED_INVALID_REGISTER_TUPLES_ONLY_NO_CANONICAL_PROMOTION"
+  },
+  "priority_floorsheet_recovery": {
+    "validation_run": 45899093277,
+    "initial_retrieval_run": 45898947134,
+    "source_repository": "socrateai-official/nepse-open-data",
+    "source_commit": "70324524df83eaa7c2964441ad4026d6ab00cc7e",
+    "observations_csv": "reference/P443_PRIORITY_FLOORSHEET_CONTRACT_OBSERVATIONS_2026-11-27.csv",
+    "partitions": 10,
+    "matching_observations": 10,
+    "download_and_content_validation_pass": 10,
+    "completeness_status": "UNKNOWN",
+    "source_independence": "UNKNOWN",
+    "exchange_contract_ids_verified": false,
+    "promoted": 0,
+    "promotion_allowed": false,
+    "status": "THIRD_PARTY_ARCHIVE_CORROBORATION_ONLY"
   }
 }

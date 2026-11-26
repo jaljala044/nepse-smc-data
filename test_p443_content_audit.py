@@ -24,6 +24,22 @@ class StrictAuditTests(unittest.TestCase):
         self.assertEqual(schemas["contract_no_reused_values"],1)
         self.assertEqual(schemas["contract_no_reused_rows"],1)
         self.assertEqual(schemas["contract_no_reused_across_symbols"],1)
+    def test_ohlcv_low_may_equal_high_above_open_close(self):
+        entry=dict(path="ABC_OHLCV.csv",git_blob_sha="fixture",format="csv",category="ohlcv_symbol_archive")
+        raw=b"Date,Open,High,Low,Close,Volume\\n2025-01-01,408,790,790,790,10\\n"
+        _,_,findings=scan(raw,entry)
+        self.assertEqual(findings,[])
+    def test_non_transaction_floorsheet_metadata_is_not_missing_trade_session(self):
+        entry=dict(path="audit.json",git_blob_sha="fixture",format="json",category="floorsheet_or_reconciliation")
+        raw=b'{"date":"2026-11-23","page_sha256":"abc","contracts":42,"turnover_npr":1000}'
+        _,schemas,findings=scan(raw,entry)
+        self.assertEqual(findings,[])
+        self.assertEqual(schemas["non_transaction_record"],1)
+    def test_trade_record_without_session_is_flagged(self):
+        entry=dict(path="trades.csv",git_blob_sha="fixture",format="csv",category="floorsheet_or_reconciliation")
+        raw=b"ContractNo,Symbol,Buyer,Seller,Quantity,Rate\\n123,ABC,1,2,5,10\\n"
+        _,_,findings=scan(raw,entry)
+        self.assertEqual([f["classification"] for f in findings],["contract_session_missing"])
     def test_empty_json_capture(self):
         self.assertEqual(list(records(b"  ", "json")), [])
     def test_duplicate_display_headers_are_disambiguated(self):

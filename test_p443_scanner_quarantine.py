@@ -169,7 +169,7 @@ class FloorsheetTests(unittest.TestCase):
         }
         self.assertEqual(mod.BLOCKED_FLOORSHEET_SHA256, expected)
         self.assertIn("0dd938bc5e6bfd50fa09bf85f0836d443ab15983", mod.BLOCKED_FLOORSHEET_BLOBS)
-        self.assertIn("49d6498b30681b7896b6c5c824b518e50f941d", mod.BLOCKED_FLOORSHEET_BLOBS)
+        self.assertIn("49d6498bfb30681b7896b6c5c824b518e50f941d", mod.BLOCKED_FLOORSHEET_BLOBS)
         for fingerprint in expected:
             with tempfile.TemporaryDirectory() as tmp:
                 path = Path(tmp) / "floorsheet.csv"

@@ -9,7 +9,7 @@ This register triages the 26 provisional common-equity symbols below 90% observe
 | Triage group | Count | Interpretation | Current disposition |
 |---|---:|---|---|
 | Symbol-specific reviewed | 4 | NLO, BNL, PFL, BENH | Evidence reports linked below; classifications updated |
-| Later-start candidates lifecycle-checked (9 aligned; 2 boundary exceptions) | 11 | Dated notices and archive first-volume rows checked for all 11; APHL and KHPL have one-session discrepancies | Verify first listing / first-trade date before treating earlier absent rows as gaps |
+| Later-start candidates lifecycle-checked (9 aligned; 2 boundary exceptions) | 11 | Dated notices and archive first-volume rows checked for all 11; APHL and KHPL scheduled-vs-actual first-trade dates reconciled | Verify first listing / first-trade date before treating earlier absent rows as gaps |
 | Mid-2026 start / low overlap unresolved | 11 | Files start before the sample window but have materially fewer matching observations | Requires trade-level / floorsheet / lifecycle review; do not assume data defect |
 
 ## Symbol-specific reviewed
@@ -66,7 +66,7 @@ PCIL through RSML have archive starts within 2026 and need listing/lifecycle ver
 
 ## Next validation sequence
 
-1. Complete floorsheet reconciliation for APHL 2026-06-09 and KHPL 2026-05-25; nine other later-start candidates have aligned published commencement and archive first-volume dates.
+1. APHL/KHPL scheduled-vs-actual debut differences reconciled from dated reports; retain source provenance caveat. Nine other later-start candidates have aligned published commencement and archive first-volume dates.
 2. Obtain symbol-specific executed-trade calendars or daily floorsheet summaries for the 11 mid-2026-start low-overlap symbols.
 3. Reconcile the BNL 23 November row and obtain independent confirmation of the 24 November candidate.
 4. Keep no-trade dates separate from missing-source records; never synthesize OHLCV from a carried-forward close.

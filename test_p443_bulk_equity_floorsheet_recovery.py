@@ -5,6 +5,7 @@ from decimal import Decimal
 from tools.p443_bulk_equity_floorsheet_recovery import (
     build_expected_tuples,
     classify_request,
+    compare_high_low_volume,
     select_dates,
 )
 
@@ -98,6 +99,24 @@ class BulkFloorsheetRecoveryTests(unittest.TestCase):
             classify_request(expected, [], False, None),
             "NO_PINNED_PARTITION",
         )
+
+    def test_field_level_comparison_identifies_each_mismatch(self):
+        expected = (
+            Decimal("10"), Decimal("12"), Decimal("9"),
+            Decimal("11"), Decimal("100")
+        )
+        observed = [
+            (Decimal("12"), Decimal("60"), "C1"),
+            (Decimal("8"), Decimal("40"), "C2"),
+        ]
+        result = compare_high_low_volume(expected, observed)
+        self.assertEqual(result["observed_high"], Decimal("12"))
+        self.assertEqual(result["observed_low"], Decimal("8"))
+        self.assertEqual(result["observed_volume"], Decimal("100"))
+        self.assertTrue(result["high_match"])
+        self.assertFalse(result["low_match"])
+        self.assertTrue(result["volume_match"])
+        self.assertIsNone(compare_high_low_volume(expected, []))
 
     def test_high_low_volume_match_does_not_claim_open_close_match(self):
         expected = {

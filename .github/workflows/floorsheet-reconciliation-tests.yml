@@ -1,6 +1,11 @@
 name: Floorsheet reconciliation tests
 
 on:
+  pull_request:
+    paths:
+      - 'tools/reconcile_floorsheet_ohlcv.py'
+      - 'tools/tests/test_reconcile_floorsheet_ohlcv.py'
+      - '.github/workflows/floorsheet-reconciliation-tests.yml'
   push:
     paths:
       - 'tools/reconcile_floorsheet_ohlcv.py'

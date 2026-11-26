@@ -1,7 +1,7 @@
 """Regression tests for the HF-only bulk floorsheet evidence queue."""
 import unittest
 
-from tools.p443_hf_bulk_equity_floorsheet_recovery import parse_hf_session, select_hf_dates
+from tools.p443_hf_bulk_equity_floorsheet_recovery import batch_tag, parse_hf_session, select_hf_dates
 
 
 class HFBulkRecoveryTests(unittest.TestCase):
@@ -51,6 +51,12 @@ class HFBulkRecoveryTests(unittest.TestCase):
     def test_empty_hf_session_is_not_treated_as_no_trade(self):
         with self.assertRaisesRegex(ValueError, "empty session"):
             parse_hf_session(iter([]), "2025-01-01")
+
+    def test_batch_tags_are_stable_for_offsets(self):
+        self.assertEqual(batch_tag(22, 0), "batch01")
+        self.assertEqual(batch_tag(22, 22), "batch02")
+        self.assertEqual(batch_tag(22, 44), "batch03")
+        self.assertEqual(batch_tag(22, 66), "batch04")
 
     def test_invalid_batch_bounds_are_rejected(self):
         with self.assertRaises(ValueError):

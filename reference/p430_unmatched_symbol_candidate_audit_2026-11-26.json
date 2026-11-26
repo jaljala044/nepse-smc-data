@@ -1,0 +1,31 @@
+{
+  "task": "P4.30",
+  "source_security_list_sha256": "5495d99a73aeb44e573936f59fc6a6d8dbf9ffc45c5a8ba62e672f0b0c6fa2f7",
+  "file_only_stems": 37,
+  "reversible_escape_candidates": 8,
+  "nonmatching_stems": 29,
+  "missing_official_ohlcv": 85,
+  "name_hint_counts": {
+    "PROMOTER_NAME_HINT": 46,
+    "DEBT_NAME_HINT": 8,
+    "FUND_NAME_HINT": 1
+  },
+  "no_name_hint_count": 30,
+  "status_by_hint": {
+    "PROMOTER_NAME_HINT": {
+      "A": 44,
+      "S": 2
+    },
+    "DEBT_NAME_HINT": {
+      "A": 8
+    },
+    "FUND_NAME_HINT": {
+      "A": 1
+    },
+    "NO_NAME_HINT": {
+      "S": 22,
+      "A": 8
+    }
+  },
+  "policy": "Candidate aliases and name hints are investigative leads only. No filename normalization, instrument-type assignment, or canonical promotion."
+}

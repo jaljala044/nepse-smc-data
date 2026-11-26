@@ -291,12 +291,46 @@
     "note": "Second public archive corroborates five target contracts, but completeness and independent upstream lineage are unproven."
   },
   "latest_ci": {
-    "last_completed_strict_run": 45899093388,
+    "last_completed_strict_run": 45899859071,
     "current_head_strict_run": 45899542346,
-    "current_head_status": "IN_PROGRESS_AT_DOCUMENT_UPDATE",
+    "current_head_status": "SUCCESS",
     "recovery_run": 45899542388,
     "recovery_status": "SUCCESS",
     "secondary_comparison_run": 45899542326,
-    "secondary_comparison_status": "SUCCESS"
+    "secondary_comparison_status": "SUCCESS",
+    "full_session_parity_run": 45899859073,
+    "full_session_parity_status": "SUCCESS"
+  },
+  "full_session_contract_parity": {
+    "workflow_run": 45899859073,
+    "artifact_id": 15155515864,
+    "primary_source_repository": "socrateai-official/nepse-open-data",
+    "primary_source_commit": "70324524df83eaa7c2964441ad4026d6ab00cc7e",
+    "secondary_source_repository": "urekmazino69/Nepse-floorsheet-and-indices",
+    "secondary_revision": "main_at_workflow_run",
+    "dates": 5,
+    "primary_rows": 262976,
+    "secondary_rows": 262976,
+    "matched_rows": 262976,
+    "primary_only": 0,
+    "secondary_only": 0,
+    "shared_fields": [
+      "date",
+      "contract_number",
+      "symbol",
+      "buyer_broker_id",
+      "seller_broker_id",
+      "quantity",
+      "rate",
+      "amount"
+    ],
+    "timestamp_parity": "NOT_CHECKED",
+    "completeness": "UNKNOWN",
+    "source_upstream_independence": "UNKNOWN",
+    "authoritative_exchange_provenance": false,
+    "promoted": 0,
+    "promotion_allowed": false,
+    "evidence_csv": "reference/P443_FULL_SESSION_CONTRACT_PARITY_2026-11-27.csv",
+    "note": "Full-session multiset parity across five dates; shared fields only. Does not establish source independence, completeness, timestamp parity or canonical eligibility."
   }
 }

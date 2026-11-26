@@ -1,7 +1,7 @@
 {
   "task": "P4.35",
   "source": "NEPSE official API domain",
-  "retrieved_at_utc": "2026-11-26T18:36:17.808158+00:00",
+  "retrieved_at_utc": "2026-11-26T18:37:50.960415+00:00",
   "upstream_client": {
     "repo": "basic-bgnr/NepseUnofficialApi",
     "commit": "180a550c60f1959983b854659e650a4c189a3c0f",
@@ -14,6 +14,50 @@
   "server_day_nepal": 27,
   "payload_id_sent": true,
   "payload_id_value_saved": false,
+  "control_results": [
+    {
+      "name": "marketwide_current",
+      "url": "https://www.nepalstock.com/api/nots/nepse-data/floorsheet?&size=500&sort=contractId,desc",
+      "payload_day_used": 27,
+      "http_status": 200,
+      "content_type": "application/json",
+      "response_bytes": 217094,
+      "response_sha256": "72b3f2c2cc4d8d2d536844525074c616494ac1dfcfe43ff9e4fef4bad27aff7a",
+      "etag": null,
+      "last_modified": null,
+      "status": "page0_captured",
+      "content_count": 500,
+      "total_elements": 49806,
+      "total_pages": 100,
+      "filename": "control_marketwide_current_page0.json"
+    },
+    {
+      "name": "NMLBBL_company_current",
+      "url": "https://www.nepalstock.com/api/nots/security/floorsheet/396?&businessDate=2026-11-26&size=500&sort=contractid,desc",
+      "payload_day_used": null,
+      "http_status": 403,
+      "content_type": "text/html",
+      "response_bytes": 146,
+      "response_sha256": "32f2fa940d4b4fe19aca1e53a24e5aac29c57b7c5ee78588325b87f1b649c864",
+      "etag": null,
+      "last_modified": null,
+      "status": "invalid_or_http_error",
+      "response_snippet": "<html>\r\n<head><title>403 Forbidden</title></head>\r\n<body>\r\n<center><h1>403 Forbidden</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n"
+    },
+    {
+      "name": "SMPDA_company_current",
+      "url": "https://www.nepalstock.com/api/nots/security/floorsheet/2896?&businessDate=2026-11-26&size=500&sort=contractid,desc",
+      "payload_day_used": null,
+      "http_status": 403,
+      "content_type": "text/html",
+      "response_bytes": 146,
+      "response_sha256": "32f2fa940d4b4fe19aca1e53a24e5aac29c57b7c5ee78588325b87f1b649c864",
+      "etag": null,
+      "last_modified": null,
+      "status": "invalid_or_http_error",
+      "response_snippet": "<html>\r\n<head><title>403 Forbidden</title></head>\r\n<body>\r\n<center><h1>403 Forbidden</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n"
+    }
+  ],
   "floor_results": [
     {
       "symbol": "NMLBBL",
@@ -167,7 +211,7 @@
       "http_status": 200,
       "content_type": "application/json",
       "response_bytes": 722,
-      "response_sha256": "082f0942c6fee86e534b5eee9523b0e19d8dd2d15dd97ddb6251b863bfdebbd2",
+      "response_sha256": "f99a0b84443339046b1adc5e9db8e533f9543ea7f6a2bee19b173f73272e10ad",
       "etag": null,
       "last_modified": null,
       "token_fields_present": {

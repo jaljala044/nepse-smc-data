@@ -1,0 +1,61 @@
+name: P4.23 capture official NEPSE EOD
+on:
+  workflow_dispatch:
+    inputs:
+      business_date:
+        description: "NEPSE business date (YYYY-MM-DD)"
+        required: true
+        type: string
+        default: "2026-11-19"
+      symbol:
+        description: "Symbol to locate in the official EOD board"
+        required: true
+        type: string
+        default: "RHGCL"
+permissions:
+  contents: read
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install official NEPSE API client
+        run: python -m pip install "httpx>=0.27" "nepse @ git+https://github.com/basic-bgnr/NepseUnofficialApi.git"
+      - name: Run evidence-gate regression tests
+        run: python -m unittest discover -s tools/tests -p 'test_validate_nepse_eod_capture.py' -v
+      - name: Capture exact official EOD response pages
+        run: |
+          python tools/capture_nepse_official_eod.py \
+            --date "${{ inputs.business_date }}" \
+            --symbol "${{ inputs.symbol }}" \
+            --output-dir evidence/nepse-official-eod
+      - name: Validate target symbol/date row
+        run: |
+          python - <<'PY'
+          import json, subprocess
+          from pathlib import Path
+          manifest = json.loads(Path("evidence/nepse-official-eod/capture_manifest.json").read_text())
+          if manifest["status"] != "TARGET_ROW_FOUND":
+              raise SystemExit("Target row was not uniquely captured")
+          subprocess.run([
+              "python", "tools/validate_nepse_eod_capture.py",
+              "--payload", manifest["target_page_file"],
+              "--symbol", manifest["symbol"],
+              "--date", manifest["business_date"],
+              "--source-url", manifest["target_page_url"],
+              "--retrieved-at", manifest["target_page_retrieved_at"],
+              "--output", "evidence/nepse-official-eod/validated_target_row.json",
+          ], check=True)
+          PY
+      - name: Upload immutable response and validation evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nepse-official-eod-${{ inputs.symbol }}-${{ inputs.business_date }}
+          path: evidence/nepse-official-eod/
+          if-no-files-found: warn
+          retention-days: 90

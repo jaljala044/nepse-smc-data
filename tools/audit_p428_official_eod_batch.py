@@ -58,8 +58,8 @@ def load_mapping(path):
 def load_board(capture_dir, business_date):
     manifest_path = capture_dir / business_date / "capture_manifest.json"
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    if manifest.get("status") != "COMPLETE_BOARD_CAPTURE":
-        raise ValueError(f"incomplete official board capture for {business_date}")
+    if manifest.get("status") != "COMPLETE_BOARD_CAPTURE" or manifest.get("business_date") != business_date:
+        raise ValueError(f"incomplete or wrong-date official board capture for {business_date}")
     pages = manifest.get("captured_pages", [])
     if len(pages) != int(manifest.get("total_pages", -1)):
         raise ValueError(f"page count mismatch for {business_date}")
@@ -81,7 +81,9 @@ def load_board(capture_dir, business_date):
                 continue
             symbol = str(row.get("symbol", "")).strip().upper()
             day = str(row.get("businessDate", ""))[:10]
-            if day != business_date or not symbol:
+            if day and day != business_date:
+                raise ValueError(f"wrong businessDate in official board page: expected {business_date}, got {day}")
+            if not symbol:
                 continue
             by_symbol.setdefault(symbol, []).append({
                 "page": page, "payload_path": payload_path, "raw": raw,

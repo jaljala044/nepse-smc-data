@@ -5,6 +5,11 @@ on:
     paths:
       - 'tools/p443_priority_floorsheet_recovery.py'
       - '.github/workflows/p443-priority-floorsheet-recovery.yml'
+  pull_request:
+    paths:
+      - 'tools/p443_priority_floorsheet_recovery.py'
+      - 'tools/validate_historical_floorsheets.py'
+      - '.github/workflows/p443-priority-floorsheet-recovery.yml'
 permissions:
   contents: read
 jobs:

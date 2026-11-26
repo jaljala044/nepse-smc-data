@@ -1,0 +1,44 @@
+name: P4.29 official security to OHLCV reconciliation
+on:
+  pull_request:
+    paths:
+      - "reference/nepse_official_security_list_2026-11-25.raw.json"
+      - "reference/p429_official_security_ohlcv_reconciliation_2026-11-26.csv"
+      - "reference/p429_official_security_ohlcv_reconciliation_2026-11-26.json"
+      - "03_stock_charts_ohlcv/**"
+      - "tools/build_nepse_security_ohlcv_reconciliation.py"
+      - "tools/tests/test_build_nepse_security_ohlcv_reconciliation.py"
+      - ".github/workflows/p429-security-ohlcv-reconciliation.yml"
+  push:
+    branches: [p429-official-security-ohlcv-universe-matrix]
+    paths:
+      - "reference/nepse_official_security_list_2026-11-25.raw.json"
+      - "reference/p429_official_security_ohlcv_reconciliation_2026-11-26.csv"
+      - "reference/p429_official_security_ohlcv_reconciliation_2026-11-26.json"
+      - "03_stock_charts_ohlcv/**"
+      - "tools/build_nepse_security_ohlcv_reconciliation.py"
+      - "tools/tests/test_build_nepse_security_ohlcv_reconciliation.py"
+      - ".github/workflows/p429-security-ohlcv-reconciliation.yml"
+permissions:
+  contents: read
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Reproduce committed reconciliation matrix
+        run: |
+          python tools/build_nepse_security_ohlcv_reconciliation.py \
+            --raw reference/nepse_official_security_list_2026-11-25.raw.json \
+            --ohlcv-dir 03_stock_charts_ohlcv \
+            --inventory-commit 1c025b5a89c22a74b827e3550cee76cf4d3f7898 \
+            --csv reference/p429_official_security_ohlcv_reconciliation_2026-11-26.csv \
+            --report reference/p429_official_security_ohlcv_reconciliation_2026-11-26.json \
+            --check
+      - name: Run reconciliation tests
+        run: |
+          cd tools
+          python -m unittest discover -s tests -p 'test_build_nepse_security_ohlcv_reconciliation.py' -v

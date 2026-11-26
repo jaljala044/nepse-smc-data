@@ -34,7 +34,8 @@ class FloorsheetReconciliationTests(unittest.TestCase):
         self.temp.cleanup()
 
     def run_reconcile(self, session="verified_open", complete="false", evidence="", uri="", digest=""):
-        manifest = {"floorsheet_complete": complete, "completeness_evidence": evidence, "source_uri": uri, "source_sha256": digest}
+        manifest = {"floorsheet_complete": complete, "completeness_evidence": evidence, "source_uri": uri, "source_sha256": digest,
+                   "expected_trades": "1", "expected_shares": "10", "expected_turnover_npr": "1000", "expected_symbols": "1"}
         return ENGINE.reconcile_date("2026-11-20", self.floor, self.ohlcv,
                                      {"2026-11-20": session}, {"2026-11-20": manifest})
 

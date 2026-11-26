@@ -1,0 +1,24 @@
+{
+  "status": "INTEGRITY_CHECKED_WITH_RETAINED_FLAGS",
+  "symbols": 281,
+  "derived_rows": 246238,
+  "raw_files_verified_byte_identical_to_manifest": 281,
+  "official_provenance_rows_verified": 599,
+  "official_correction_ledger_fields": {
+    "Close": 4,
+    "Volume": 1,
+    "Date": 490,
+    "Row": 109,
+    "Open": 109
+  },
+  "ohlcv_invariant_flag_rows": 1379,
+  "adjacent_identical_ohlcv_rows": 71806,
+  "calendar_alignment_flags": 185643,
+  "corporate_action_event_records": 3,
+  "symbols_with_known_action_records": 3,
+  "symbols_without_action_records_not_verified": 278,
+  "split_review_rows": 1,
+  "split_proposals_without_verified_effective_date": 1,
+  "raw_source_files_modified": 0,
+  "flags_auto_repaired_or_deleted": 0
+}

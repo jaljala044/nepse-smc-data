@@ -1,0 +1,58 @@
+name: Derived OHLCV v2 official EOD release
+on:
+  push:
+    branches:
+      - derived/ohlcv-v2-official-eod
+  pull_request:
+    paths:
+      - 'tools/build_derived_ohlcv_v2.py'
+      - 'tools/tests/test_build_derived_ohlcv_v2.py'
+      - '.github/workflows/derived-ohlcv-v2-official-eod.yml'
+      - 'derived/ohlcv_v1/**'
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          persist-credentials: true
+      - uses: actions/checkout@v4
+        with:
+          repository: jaljala044/nepse-smc-data
+          ref: main
+          path: evidence/main
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run v2 derivation regression tests
+        run: python -m unittest discover -s tools/tests -p 'test_build_derived_ohlcv_v2.py' -v
+      - name: Build official-EOD-backed v2 derived dataset
+        run: |
+          python tools/build_derived_ohlcv_v2.py \
+            --v1-dir derived/ohlcv_v1 \
+            --raw-dir evidence/main/03_stock_charts_ohlcv \
+            --official-matrix evidence/main/reference/p428_599_official_eod_reconciliation_2026-11-26.csv \
+            --calendar evidence/main/reference/nepse_canonical_session_calendar_2025-2026.csv \
+            --output-dir derived/ohlcv_v2 \
+            --overwrite
+      - name: Commit v2 derived release on task branch
+        if: github.event_name == 'push' && success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add derived/ohlcv_v2
+          if ! git diff --cached --quiet; then
+            git commit -m "data(p4.29): publish official EOD-backed OHLCV v2"
+            git push
+          fi
+      - name: Upload derived v2 release artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: nepse-derived-ohlcv-v2-official-eod
+          path: derived/ohlcv_v2/
+          retention-days: 90

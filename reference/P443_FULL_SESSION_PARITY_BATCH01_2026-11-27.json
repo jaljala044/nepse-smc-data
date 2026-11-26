@@ -1,0 +1,143 @@
+{
+  "task": "P4.43 full-session contract multiset parity — bulk batch 01",
+  "workflow": {
+    "run": 45902069128,
+    "run_number": 33,
+    "artifact_id": 15155284907,
+    "conclusion": "success"
+  },
+  "primary": {
+    "repository": "socrateai-official/nepse-open-data",
+    "commit": "70324524df83eaa7c2964441ad4026d6ab00cc7e",
+    "pinned_input_commit": "56362fb4f65b91fdcca8f50b50e53ad80e703649"
+  },
+  "secondary": {
+    "dataset": "urekmazino69/Nepse-floorsheet-and-indices",
+    "tree_retrieved_at": "2026-11-26T18:28:47.483997+00:00",
+    "tree_blob_sha": "f9dc3dd6ae73919bdd2217664bfbed7bcdfd38e5",
+    "tree_file_count": 998,
+    "daily_floor_files": 603
+  },
+  "sessions": {
+    "total": 22,
+    "exact_parity": 21,
+    "row_conflict": 1,
+    "unavailable_or_invalid": 0,
+    "selected_dates": [
+      "2025-11-27",
+      "2025-12-11",
+      "2025-12-18",
+      "2026-01-01",
+      "2026-01-08",
+      "2026-01-22",
+      "2026-02-05",
+      "2026-02-12",
+      "2026-02-26",
+      "2026-03-12",
+      "2026-03-19",
+      "2026-04-02",
+      "2026-04-10",
+      "2026-04-17",
+      "2026-04-24",
+      "2026-05-08",
+      "2026-05-15",
+      "2026-05-22",
+      "2026-06-05",
+      "2026-06-12",
+      "2026-06-19",
+      "2026-06-26"
+    ]
+  },
+  "contract_rows": {
+    "primary_total": 1752046,
+    "secondary_total": 1762127,
+    "exact_parity_rows_across_21_sessions": 1664647,
+    "matched_rows_including_conflict_session": 1752046,
+    "primary_only": 0,
+    "secondary_only": 10081
+  },
+  "conflict": {
+    "date": "2026-04-10",
+    "primary_rows": 87399,
+    "secondary_rows": 97480,
+    "matched_rows": 87399,
+    "primary_only": 0,
+    "secondary_only": 10081,
+    "status": "ROW_CONFLICT_REVIEW_REQUIRED",
+    "top_secondary_only_symbols": [
+      [
+        "SOHL",
+        2208
+      ],
+      [
+        "RSML",
+        503
+      ],
+      [
+        "NHPC",
+        364
+      ],
+      [
+        "HDHPC",
+        256
+      ],
+      [
+        "RIDI",
+        232
+      ],
+      [
+        "HRL",
+        211
+      ],
+      [
+        "SAIL",
+        168
+      ],
+      [
+        "SSHL",
+        167
+      ],
+      [
+        "SYPNL",
+        158
+      ],
+      [
+        "HBL",
+        139
+      ]
+    ],
+    "interpretation": "All primary rows matched; secondary archive has 10,081 additional valid unique-contract rows. This is an archive discrepancy, not proof which archive is complete or authoritative."
+  },
+  "comparison_normalization": {
+    "rule": "Remove exactly one leading apostrophe only when the remaining contract ID is numeric; preserve raw source bytes and count normalization.",
+    "secondary_contract_ids_normalized": 353596,
+    "primary_contract_ids_normalized": 0,
+    "dates": [
+      "2025-11-27",
+      "2025-12-11",
+      "2025-12-18",
+      "2026-01-01",
+      "2026-01-08"
+    ],
+    "note": "Comparison-only representation normalization; no source values edited."
+  },
+  "shared_fields": [
+    "date",
+    "contract_number",
+    "symbol",
+    "buyer_broker_id",
+    "seller_broker_id",
+    "quantity",
+    "rate",
+    "amount"
+  ],
+  "not_checked": [
+    "timestamp",
+    "authoritative exchange provenance",
+    "complete-session completeness",
+    "upstream source independence"
+  ],
+  "promotion_allowed": false,
+  "canonical_values_changed": 0,
+  "row_level_difference": "Preserved in workflow artifact p443-full-session-parity/differences_2026-04-10.csv"
+}

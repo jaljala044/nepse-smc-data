@@ -1,0 +1,64 @@
+name: P4.26 audit 109 invalid OHLCV candidates
+on:
+  push:
+    branches:
+      - p426-invalid-candidate-matrix
+  pull_request:
+    paths:
+      - 'tools/build_p426_invalid_candidate_matrix.py'
+      - 'tools/tests/test_build_p426_invalid_candidate_matrix.py'
+      - '.github/workflows/p426-invalid-candidate-matrix.yml'
+permissions:
+  contents: write
+  actions: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Download original P4.22 recovery artifact
+        uses: actions/download-artifact@v4
+        with:
+          artifact-ids: "15132011878"
+          repository: jaljala044/nepse-smc-data
+          run-id: "45846116991"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: evidence/p422-recovery
+      - name: Download contemporaneous ShareSansar daily snapshots
+        run: |
+          mkdir -p evidence/p426-snapshots
+          curl -fLsS "https://raw.githubusercontent.com/OmitNomis/ShareSansarScraper/83c5d4502cec1d77a5b7247510e7c22b10ccf3bf/docs/Data/2026_04_24.csv" -o evidence/p426-snapshots/2026_04_24.csv
+          curl -fLsS "https://raw.githubusercontent.com/OmitNomis/ShareSansarScraper/6d6d88bad68e0825bbed53dd56e4d41834ab3e97/docs/Data/2026_04_27.csv" -o evidence/p426-snapshots/2026_04_27.csv
+          curl -fLsS "https://raw.githubusercontent.com/OmitNomis/ShareSansarScraper/2dcb63476bb257191f4d0533421643716c61192c/docs/Data/2026_04_28.csv" -o evidence/p426-snapshots/2026_04_28.csv
+          curl -fLsS "https://raw.githubusercontent.com/OmitNomis/ShareSansarScraper/bde9e1e0876042c8bdb299dae796861a3a83e037/docs/Data/2026_04_29.csv" -o evidence/p426-snapshots/2026_04_29.csv
+      - name: Run P4.26 matrix tests
+        run: python -m unittest discover -s tools/tests -p 'test_build_p426_invalid_candidate_matrix.py' -v
+      - name: Build 109-row same-day snapshot matrix
+        run: |
+          python tools/build_p426_invalid_candidate_matrix.py \
+            --queue evidence/p422-recovery/recovery_queue.csv \
+            --snapshot-dir evidence/p426-snapshots \
+            --output reference/p426_109_invalid_candidate_matrix_2026-11-26.csv
+      - name: Commit deterministic matrix on task branch
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reference/p426_109_invalid_candidate_matrix_2026-11-26.csv
+          if ! git diff --cached --quiet; then
+            git commit -m "data(p4.26): publish 109 invalid candidate evidence matrix"
+            git push
+          fi
+      - name: Upload review artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: p426-109-invalid-candidate-matrix
+          path: reference/p426_109_invalid_candidate_matrix_2026-11-26.csv
+          retention-days: 90

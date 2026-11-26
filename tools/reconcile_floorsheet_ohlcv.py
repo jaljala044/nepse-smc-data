@@ -63,7 +63,7 @@ def sha256(path):
     return digest.hexdigest()
 
 
-def reconcile_date(date, floor_path, ohlcv_dir, calendar, manifest):
+def reconcile_date(date, floor_path, ohlcv_dir, calendar, manifest, symbol_universe=None):
     result = []
     session_status = calendar.get(date, "UNKNOWN")
     meta = manifest.get(date, {})
@@ -146,7 +146,7 @@ def reconcile_date(date, floor_path, ohlcv_dir, calendar, manifest):
 
     # Include every current archive symbol, even when that date has no OHLCV row.
     # Otherwise an absent bar could silently disappear instead of receiving UNKNOWN/NO_TRADE.
-    symbols = sorted(set(trades) | universe_symbols)
+    symbols = sorted(set(symbol_universe)) if symbol_universe is not None else sorted(set(trades) | universe_symbols)
     for symbol in symbols:
         t = trades[symbol]
         contracts = t["contracts"]
@@ -208,15 +208,37 @@ def main():
     parser.add_argument("--calendar", type=Path, required=True)
     parser.add_argument("--manifest", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--symbol-universe-csv", type=Path)
+    parser.add_argument("--expected-symbol-count", type=int)
     args = parser.parse_args()
 
     calendar = {r["date"]: r["status"] for r in read_csv(args.calendar)}
     manifest = {r["trading_date"]: r for r in read_csv(args.manifest)}
+    symbol_universe = None
+    if args.symbol_universe_csv:
+        universe_rows = read_csv(args.symbol_universe_csv)
+        symbol_universe = sorted({
+            r["symbol"].strip().upper()
+            for r in universe_rows
+            if r.get("symbol", "").strip()
+            and (
+                "instrument_class_from_rendered_list" not in r
+                or r.get("instrument_class_from_rendered_list", "").strip() == "Equity"
+            )
+        })
+        if not symbol_universe:
+            raise ValueError("Symbol universe CSV contains no selected symbols")
+        if args.expected_symbol_count is not None and len(symbol_universe) != args.expected_symbol_count:
+            raise ValueError(
+                f"Expected {args.expected_symbol_count} unique universe symbols; got {len(symbol_universe)}"
+            )
+    elif args.expected_symbol_count is not None:
+        raise ValueError("--expected-symbol-count requires --symbol-universe-csv")
     dates = sorted({p.stem.replace("floorsheet_", "") for p in args.floorsheet_dir.glob("floorsheet_*.csv")})
     output = []
     for date in dates:
         output.extend(reconcile_date(date, args.floorsheet_dir / f"floorsheet_{date}.csv",
-                                    args.ohlcv_dir, calendar, manifest))
+                                    args.ohlcv_dir, calendar, manifest, symbol_universe))
     args.output.parent.mkdir(parents=True, exist_ok=True)
     fields = list(output[0]) if output else ["date", "symbol", "trade_status", "resolution_reason"]
     with args.output.open("w", newline="", encoding="utf-8") as handle:

@@ -93,7 +93,7 @@ def official_line(row):
 
 
 def build(v1_dir, raw_dir, official_matrix, calendar_path, output_dir,
-          expected_official_rows=599, overwrite=False):
+          expected_official_rows=599, expected_symbols=281, expected_shift_rows=490, expected_insert_rows=109, overwrite=False):
     v1_dir = Path(v1_dir)
     raw_dir = Path(raw_dir)
     output_dir = Path(output_dir)
@@ -108,8 +108,8 @@ def build(v1_dir, raw_dir, official_matrix, calendar_path, output_dir,
     output_dir.mkdir(parents=True, exist_ok=True)
 
     v1_manifest = read_csv(v1_dir / "manifest.csv")
-    if len(v1_manifest) != 281 or len({r["symbol"] for r in v1_manifest}) != 281:
-        raise ValueError("v1 manifest must contain exactly 281 unique symbols")
+    if len(v1_manifest) != expected_symbols or len({r["symbol"] for r in v1_manifest}) != expected_symbols:
+        raise ValueError(f"v1 manifest must contain exactly {expected_symbols} unique symbols")
     calendar = {r["date"]: r["status"] for r in read_csv(calendar_path)}
     matrix = read_csv(official_matrix)
     if expected_official_rows is not None and len(matrix) != expected_official_rows:
@@ -136,7 +136,7 @@ def build(v1_dir, raw_dir, official_matrix, calendar_path, output_dir,
         by_symbol[row["symbol"]].append(row)
         counts[row["candidate_status"]] += 1
 
-    if counts["ALREADY_RECOVERED_DATE_SHIFT"] != 490 or counts["QUARANTINE_INVALID_EXTERNAL_OHLCV"] != 109:
+    if counts["ALREADY_RECOVERED_DATE_SHIFT"] != expected_shift_rows or counts["QUARANTINE_INVALID_EXTERNAL_OHLCV"] != expected_insert_rows:
         raise ValueError(f"unexpected candidate counts: {dict(counts)}")
 
     correction_rows = []
@@ -303,7 +303,7 @@ def build(v1_dir, raw_dir, official_matrix, calendar_path, output_dir,
             "field_correction_count": symbol_field_corrections,
         })
 
-    if len(provenance_rows) != 599 or total_removed != 490 or total_inserted != 599:
+    if len(provenance_rows) != expected_official_rows or total_removed != expected_shift_rows or total_inserted != expected_official_rows:
         raise ValueError(
             f"unexpected applied counts: official={len(provenance_rows)}, "
             f"removed={total_removed}, inserted={total_inserted}"
@@ -387,10 +387,13 @@ def main():
     parser.add_argument("--calendar", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--expected-official-rows", type=int, default=599)
+    parser.add_argument("--expected-symbols", type=int, default=281)
+    parser.add_argument("--expected-shift-rows", type=int, default=490)
+    parser.add_argument("--expected-insert-rows", type=int, default=109)
     parser.add_argument("--overwrite", action="store_true")
     args = parser.parse_args()
     build(args.v1_dir, args.raw_dir, args.official_matrix, args.calendar,
-          args.output_dir, args.expected_official_rows, args.overwrite)
+          args.output_dir, args.expected_official_rows, args.expected_symbols, args.expected_shift_rows, args.expected_insert_rows, args.overwrite)
 
 
 if __name__ == "__main__":

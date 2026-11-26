@@ -32,6 +32,12 @@ except ModuleNotFoundError:
 EXPECTED_P2_REQUESTS = 68773
 
 
+def batch_tag(max_dates, offset):
+    if max_dates < 1 or offset < 0:
+        raise ValueError("max_dates must be positive and offset non-negative")
+    return f"batch{offset // max_dates + 1:02d}"
+
+
 def select_hf_dates(bydate, primary_dates, hf_dates, max_dates, offset=0):
     if max_dates < 1 or offset < 0:
         raise ValueError("max_dates must be positive and offset non-negative")
@@ -180,7 +186,8 @@ def main():
             results[day] = result
 
     counts = Counter()
-    output_path = root / "hf_bulk_equity_floorsheet_disposition.csv"
+    tag = batch_tag(args.max_dates, args.offset)
+    output_path = root / f"hf_bulk_equity_floorsheet_disposition_{tag}.csv"
     with output_path.open("w", newline="") as handle:
         writer = csv.writer(handle)
         writer.writerow([
@@ -237,7 +244,8 @@ def main():
                 "false",
             ])
 
-    collision_path = root / "hf_bulk_equity_contract_collisions.csv"
+    tag = batch_tag(args.max_dates, args.offset)
+    collision_path = root / f"hf_bulk_equity_contract_collisions_{tag}.csv"
     with collision_path.open("w", newline="") as handle:
         writer = csv.writer(handle)
         writer.writerow([
@@ -252,6 +260,7 @@ def main():
     selected_requests = sum(len(bydate[day]) for day in selected)
     report = {
         "task": "P4.43 second-source HF bulk floorsheet recovery",
+        "batch_tag": tag,
         "requests": len(keys),
         "unique_dates": len(bydate),
         "primary_archive_covered_dates": len(primary_dates),
@@ -274,7 +283,7 @@ def main():
             "not evidence of no trade. No source or canonical data is changed."
         ),
     }
-    (root / "hf_bulk_equity_floorsheet_summary.json").write_text(
+    (root / f"hf_bulk_equity_floorsheet_summary_{tag}.json").write_text(
         json.dumps(report, indent=2)
     )
     print(json.dumps({

@@ -60,7 +60,7 @@ def scan_csv(path, category, findings, stats):
             else:
                 seen_keys[key] = line
             if payload in seen_rows:
-                emit(findings, {"finding_type":"exact_duplicate_ohlcv_tuple","category":category,"path":path.relative_to(ROOT),"line":line,"related_line":seen_rows[payload],"key":"|".join(key),"detail":"Exact OHLCV tuple repeated; this is not automatically a bad row"})
+                emit(findings, {"finding_type":"repeated_ohlcv_tuple","category":category,"path":path.relative_to(ROOT),"line":line,"related_line":seen_rows[payload],"key":"|".join(key),"detail":"Exact OHLCV tuple repeated; this is not automatically a bad row"})
             else:
                 seen_rows[payload] = line
             if prior and payload == prior[1] and date != prior[0]:
@@ -137,7 +137,7 @@ def main():
         summaries.append({"path":item["path"],"category":item["category"],"format":fmt,"status":status,"records":stats["records"],"unsupported_checks":stats["unsupported"],"error":error})
     totals["findings"] = len(findings)
     totals["ohlcv_key_duplicates"] = sum(x["finding_type"]=="duplicate_symbol_date_key" for x in findings)
-    totals["ohlcv_exact_tuples"] = sum(x["finding_type"]=="exact_duplicate_ohlcv_tuple" for x in findings)
+    totals["ohlcv_repeated_tuples"] = sum(x["finding_type"]=="repeated_ohlcv_tuple" for x in findings)
     totals["ohlcv_consecutive_tuples"] = sum(x["finding_type"]=="consecutive_identical_ohlcv_tuple" for x in findings)
     totals["floorsheet_contract_duplicates"] = sum(x["finding_type"]=="duplicate_floorsheet_contract_key" for x in findings)
     totals["floorsheet_exact_rows"] = sum(x["finding_type"]=="exact_duplicate_floorsheet_row" for x in findings)
@@ -174,7 +174,7 @@ def main():
         ]
         for key, label in [
             ("ohlcv_key_duplicates","OHLCV duplicate symbol/date keys"),
-            ("ohlcv_exact_tuples","OHLCV exact repeated tuples"),
+            ("ohlcv_repeated_tuples","OHLCV repeated tuples across rows (not assumed erroneous)"),
             ("ohlcv_consecutive_tuples","consecutive identical OHLCV tuples"),
             ("floorsheet_contract_duplicates","floorsheet duplicate contract keys"),
             ("floorsheet_exact_rows","floorsheet exact repeated rows"),

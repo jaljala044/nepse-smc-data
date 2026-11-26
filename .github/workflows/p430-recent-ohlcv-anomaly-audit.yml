@@ -8,6 +8,8 @@ on:
       - 'tools/build_p430_recent_anomaly_queue.py'
       - 'tools/audit_p430_recent_official_eod.py'
       - 'tools/tests/test_build_p430_recent_anomaly_queue.py'
+      - 'tools/build_p430_official_open_corrections.py'
+      - 'tools/tests/test_build_p430_official_open_corrections.py'
       - '.github/workflows/p430-recent-ohlcv-anomaly-audit.yml'
 permissions:
   contents: write
@@ -34,6 +36,8 @@ jobs:
         run: python -m pip install "httpx>=0.27" "nepse @ git+https://github.com/basic-bgnr/NepseUnofficialApi.git"
       - name: Test recent anomaly queue
         run: python -m unittest discover -s tools/tests -p 'test_build_p430_recent_anomaly_queue.py' -v
+      - name: Test official Open correction ledger
+        run: python -m unittest discover -s tools/tests -p 'test_build_p430_official_open_corrections.py' -v
       - name: Build 11-row recent anomaly queue
         run: python tools/build_p430_recent_anomaly_queue.py --v2-dir derived/ohlcv_v2 --flags derived/ohlcv_v2/quality_audit/ohlcv_invariant_flags.csv --mapping evidence/main/reference/nepse_security_id_snapshot_2026-11-25.csv --output evidence/p430_recent_anomaly_queue.csv
       - name: Capture complete official NEPSE EOD boards
@@ -44,6 +48,8 @@ jobs:
           done
       - name: Reconcile recent anomalies to official EOD
         run: PYTHONPATH=evidence/main/tools python tools/audit_p430_recent_official_eod.py --queue evidence/p430_recent_anomaly_queue.csv --mapping evidence/main/reference/nepse_security_id_snapshot_2026-11-25.csv --capture-dir evidence/nepse-official-p430 --output reference/p430_11_recent_anomaly_official_reconciliation_2026-11-26.csv --expected-count 11
+      - name: Build 11-row official Open correction ledger
+        run: python tools/build_p430_official_open_corrections.py --matrix reference/p430_11_recent_anomaly_official_reconciliation_2026-11-26.csv --output reference/p430_11_official_open_corrections_2026-11-26.csv --expected-count 11
       - name: Verify complete and accepted official coverage
         run: |
           python - <<'PY'
@@ -55,6 +61,9 @@ jobs:
           assert all(r["official_capture_status"] == "OFFICIAL_CAPTURE_ACCEPTED" for r in rows)
           assert all(r["official_security_id"] == r["mapping_security_id"] for r in rows)
           assert all(r["official_row_count"] == "1" for r in rows)
+          corrections = list(csv.DictReader(Path("reference/p430_11_official_open_corrections_2026-11-26.csv").open(newline="", encoding="utf-8")))
+          assert len(corrections) == 11
+          assert all(r["field"] == "Open" for r in corrections)
           print({"rows": len(rows), "tuple_matches": sum(r["official_ohlcv_match"] == "TRUE" for r in rows), "tuple_differences": sum(r["official_ohlcv_match"] == "FALSE" for r in rows)})
           PY
       - name: Commit reconciliation evidence
@@ -62,7 +71,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add reference/p430_11_recent_anomaly_official_reconciliation_2026-11-26.csv
+          git add reference/p430_11_recent_anomaly_official_reconciliation_2026-11-26.csv reference/p430_11_official_open_corrections_2026-11-26.csv
           if ! git diff --cached --quiet; then
             git commit -m "data(p4.30): reconcile recent OHLCV anomalies to official EOD"
             git push
@@ -74,4 +83,6 @@ jobs:
           path: |
             evidence/nepse-official-p430/
             evidence/p430_recent_anomaly_queue.csv
+            reference/p430_11_recent_anomaly_official_reconciliation_2026-11-26.csv
+            reference/p430_11_official_open_corrections_2026-11-26.csv
           retention-days: 90

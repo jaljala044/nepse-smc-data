@@ -66,14 +66,18 @@ def reconcile_date(date, floor_path, ohlcv_dir, calendar, manifest):
             trades[symbol]["turnover"] += qty * rate
 
     ohlcv_by_symbol = {}
+    universe_symbols = set()
     for path in sorted(ohlcv_dir.glob("*_OHLCV.csv")):
         symbol = path.name[:-10].upper()
+        universe_symbols.add(symbol)
         for row in read_csv(path):
             if (row.get("Date") or row.get("date") or "").strip() == date:
                 ohlcv_by_symbol[symbol] = dec(row.get("Volume") or row.get("volume"))
                 break
 
-    symbols = sorted(set(trades) | set(ohlcv_by_symbol))
+    # Include every current archive symbol, even when that date has no OHLCV row.
+    # Otherwise an absent bar could silently disappear instead of receiving UNKNOWN/NO_TRADE.
+    symbols = sorted(set(trades) | universe_symbols)
     for symbol in symbols:
         t = trades[symbol]
         contracts = t["contracts"]

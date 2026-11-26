@@ -64,48 +64,57 @@ def read_queue(root):
 def recover_hf_partition(day, metadata, symbols, raw_directory):
     path = f"floorsheet/{day}.csv.gz"
     meta = metadata[path]
-    status, headers, compressed = fetch(BASE + path)
-    if status != 200:
-        raise ValueError(f"HF HTTP status {status}")
-    expected_sha256 = (meta.get("lfs") or {}).get("oid")
-    actual_sha256 = hashlib.sha256(compressed).hexdigest()
-    if not expected_sha256 or actual_sha256 != expected_sha256:
-        raise ValueError("HF LFS SHA-256 mismatch")
-    if len(compressed) != meta["size"]:
-        raise ValueError("HF compressed size mismatch")
+    try:
+        status, headers, compressed = fetch(BASE + path)
+        if status != 200:
+            raise ValueError(f"HF HTTP status {status}")
+        expected_sha256 = (meta.get("lfs") or {}).get("oid")
+        actual_sha256 = hashlib.sha256(compressed).hexdigest()
+        if not expected_sha256 or actual_sha256 != expected_sha256:
+            raise ValueError("HF LFS SHA-256 mismatch")
+        if len(compressed) != meta["size"]:
+            raise ValueError("HF compressed size mismatch")
 
-    raw = gzip.decompress(compressed)
-    (raw_directory / f"floorsheet_{day}.csv").write_bytes(raw)
-    stats = Counter()
-    contracts = parse(
-        csv.DictReader(io.StringIO(raw.decode("utf-8-sig"))),
-        True,
-        day,
-        stats,
-    )
-    observed = defaultdict(list)
-    for row in contracts:
-        date, contract, symbol, buyer, seller, quantity, rate, amount = row
-        if symbol in symbols:
-            observed[symbol].append((rate, quantity, contract))
+        raw = gzip.decompress(compressed)
+        (raw_directory / f"floorsheet_{day}.csv").write_bytes(raw)
+        stats = Counter()
+        contracts = parse(
+            csv.DictReader(io.StringIO(raw.decode("utf-8-sig"))),
+            True,
+            day,
+            stats,
+        )
+        observed = defaultdict(list)
+        for row in contracts:
+            date, contract, symbol, buyer, seller, quantity, rate, amount = row
+            if symbol in symbols:
+                observed[symbol].append((rate, quantity, contract))
 
-    return day, {
-        "status": "PASS",
-        "observed": observed,
-        "summary": {
-            "date": day,
-            "rows": contracts.total(),
-            "symbols": len({row[2] for row in contracts}),
-            "unique_contracts": len(contracts),
-            "leading_apostrophe_contract_ids": stats["leading_apostrophe_contract_ids"],
-            "compressed_bytes": len(compressed),
-            "compressed_sha256": actual_sha256,
-            "compressed_git_blob": meta.get("oid"),
-            "expected_lfs_sha256": expected_sha256,
-            "expected_size_bytes": meta["size"],
-        },
-    }
-
+        return day, {
+            "status": "PASS",
+            "observed": observed,
+            "summary": {
+                "date": day,
+                "rows": contracts.total(),
+                "symbols": len({row[2] for row in contracts}),
+                "unique_contracts": len(contracts),
+                "leading_apostrophe_contract_ids": stats["leading_apostrophe_contract_ids"],
+                "amount_exact_rows": stats["amount_exact_match"],
+                "amount_floor_rows": stats["amount_floor_truncated"],
+                "compressed_bytes": len(compressed),
+                "compressed_sha256": actual_sha256,
+                "compressed_git_blob": meta.get("oid"),
+                "expected_lfs_sha256": expected_sha256,
+                "expected_size_bytes": meta["size"],
+            },
+        }
+    except Exception as error:
+        return day, {
+            "status": "FAIL",
+            "observed": {},
+            "error": str(error),
+            "summary": {"date": day, "content_status": "UNKNOWN", "error": str(error)},
+        }
 
 def main():
     parser = argparse.ArgumentParser()

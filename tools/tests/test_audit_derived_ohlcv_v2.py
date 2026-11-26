@@ -84,7 +84,7 @@ class DerivedOhlcvV2AuditTests(unittest.TestCase):
     def test_audit_rejects_official_provenance_mismatch(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
-            v2, raw, calendar, actions, out, _ = self.fixture(root, corrupt_official=True)
+            v2, raw, calendar, actions, split, out, _ = self.fixture(root, corrupt_official=True)
             with self.assertRaises(ValueError):
                 audit(v2, raw, calendar, actions, out,
                       expected_symbols=1, expected_official_rows=1,

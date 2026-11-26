@@ -38,7 +38,7 @@ def normalize_row(row):
  result={"date":str(date_value)[:10] if date_value is not None else None}
  for key,names in ALIASES.items():result[key]=first(row,names)
  return result
-def capture(output_dir,requester=request,parser=token_parser,retrieved_at=None):
+def capture(output_dir,requester=request,parser=token_parser,retrieved_at=None,include_recent_controls=True):
  out=Path(output_dir);out.mkdir(parents=True,exist_ok=True);stamp=retrieved_at or datetime.now(timezone.utc).isoformat();records=[]
  wasm=base64.b64decode(WASM_B64);wasm_sha=git_blob_sha(wasm)
  if wasm_sha!=WASM_GIT_BLOB_SHA:raise ValueError("pinned WASM Git blob SHA mismatch")
@@ -64,6 +64,32 @@ def capture(output_dir,requester=request,parser=token_parser,retrieved_at=None):
    (out/"security_list.json").write_bytes(sb);sec_rec["filename"]="security_list.json"
   records.append(sec_rec)
   idmap={str(x.get("symbol","")).upper():x.get("id") for x in (security_obj or []) if isinstance(x,dict) and x.get("symbol") and isinstance(x.get("id"),int)}
+  recent_controls=[]
+  if include_recent_controls:
+   ms_url=BASE+"/api/nots/nepse-data/market-open";ms_status,ms_headers,ms_raw=requester("GET",ms_url,None,auth);ms_obj=None
+   try:ms_obj=json.loads(ms_raw.decode("utf-8"))
+   except Exception:pass
+   ms_rec={"name":"market_status","url":ms_url,**metadata(ms_status,ms_headers,ms_raw)}
+   asof=str(ms_obj.get("asOf",""))[:10] if isinstance(ms_obj,dict) else ""
+   if ms_status==200 and asof:
+    (out/"market_status.json").write_bytes(ms_raw);ms_rec["filename"]="market_status.json"
+   records.append(ms_rec)
+   if ms_status==200 and asof:
+    from datetime import date,timedelta
+    recent_end=date.fromisoformat(asof);recent_start=(recent_end-timedelta(days=30)).isoformat()
+    for symbol in ("NMLBBL","SMPDA"):
+     sid=idmap.get(symbol)
+     if sid is None:continue
+     q=urllib.parse.urlencode({"size":500,"startDate":recent_start,"endDate":asof});recent_url=f"{BASE}/api/nots/market/history/security/{sid}?&{q}"
+     rc_status,rc_headers,rc_raw=requester("GET",recent_url,None,auth);rc_obj=None
+     try:rc_obj=json.loads(rc_raw.decode("utf-8"))
+     except Exception:pass
+     rc_content,rc_top=extract_content(rc_obj);rc={"symbol":symbol,"security_id":sid,"start_date":recent_start,"end_date":asof,"url":recent_url,**metadata(rc_status,rc_headers,rc_raw)}
+     if rc_status==200 and isinstance(rc_content,list):
+      rc["status"]="captured";rc["row_count"]=len(rc_content);rc["returned_dates"]=sorted(set(str(first(row,DATE_KEYS))[:10] for row in rc_content if isinstance(row,dict) and first(row,DATE_KEYS) is not None));rc["total_elements"]=rc_top.get("totalElements");rc["total_pages"]=rc_top.get("totalPages")
+      fn=f"{symbol}_recent_{recent_start}_{asof}.json";(out/fn).write_bytes(rc_raw);rc["filename"]=fn
+     else:rc["status"]="request_or_schema_failure"
+     recent_controls.append(rc)
   results=[]
   for window in WINDOWS:
    symbol=window["symbol"];sid=idmap.get(symbol)
@@ -98,7 +124,7 @@ def capture(output_dir,requester=request,parser=token_parser,retrieved_at=None):
      except Exception:matches[k]=False
    item.update(status="captured",pages=[page],rows=len(content),normalized_rows=normalized,returned_dates=sorted(set(x["date"] for x in normalized if x["date"])),date_mismatches=len(date_mismatches),duplicate_dates=duplicate_dates,candidate_rows=len(candidate),prior_rows=len(prior),candidate_matches_expected=matches,candidate_all_expected_fields_match=(len(matches)==len(window["expected"]) and all(matches.values())),pagination_metadata={"totalElements":top.get("totalElements"),"totalPages":top.get("totalPages")} if isinstance(top,dict) else {},prior_zero_rows_observed=(len(prior)==0))
    results.append(item)
-  result={"task":"P4.36","source":"NEPSE official market history API","retrieved_at_utc":stamp,"upstream_client":{"repo":"basic-bgnr/NepseUnofficialApi","commit":"180a550c60f1959983b854659e650a4c189a3c0f","wasm_git_blob_sha":wasm_sha},"authentication_status":"authenticated" if idmap else "security_list_unavailable","records":records,"security_results":results,"interpretation":"This endpoint is an official daily price-volume history cross-check, not a trade-level floorsheet. Candidate OHLCV matches corroborate daily bars only. A missing prior-date row is not NO_TRADE without documented complete date coverage and session-calendar confirmation. Token values are never persisted."}
+  result={"task":"P4.36","source":"NEPSE official market history API","retrieved_at_utc":stamp,"upstream_client":{"repo":"basic-bgnr/NepseUnofficialApi","commit":"180a550c60f1959983b854659e650a4c189a3c0f","wasm_git_blob_sha":wasm_sha},"authentication_status":"authenticated" if idmap else "security_list_unavailable","records":records,"recent_controls":recent_controls,"security_results":results,"interpretation":"This endpoint is an official daily price-volume history cross-check, not a trade-level floorsheet. Candidate OHLCV matches corroborate daily bars only. A missing prior-date row is not NO_TRADE without documented complete date coverage and session-calendar confirmation. Recent-window controls indicate whether the endpoint is live while older date windows are empty. Token values are never persisted."}
   (out/"capture_report.json").write_text(json.dumps(result,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
   return result
 if __name__=="__main__":

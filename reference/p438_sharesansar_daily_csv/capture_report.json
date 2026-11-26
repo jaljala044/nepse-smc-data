@@ -4,7 +4,7 @@
   "provider": "ShareSansar daily share-price page, archived by OmitNomis/ShareSansarScraper",
   "upstream_repo": "OmitNomis/ShareSansarScraper",
   "upstream_commit": "524442d518d2f2705ade0680c9d2e3f90738e3d6",
-  "retrieved_at_utc": "2026-11-26T18:56:48.697294+00:00",
+  "retrieved_at_utc": "2026-11-26T18:59:24.305961+00:00",
   "source_capture_policy_verified": true,
   "source_policy": "The pinned README states that a Scrapy job captures ShareSansar's daily share-price table and skips days when the market is closed. This is provider-level secondary evidence, not NEPSE primary evidence.",
   "files": [
@@ -325,6 +325,54 @@
         },
         "candidate_fields_match": true
       }
+    },
+    {
+      "name": "NMLBBL_history.json",
+      "path": "docs/api/history/NMLBBL.json",
+      "url": "https://raw.githubusercontent.com/OmitNomis/ShareSansarScraper/524442d518d2f2705ade0680c9d2e3f90738e3d6/docs/api/history/NMLBBL.json",
+      "http_status": 200,
+      "response_bytes": 57596,
+      "expected_bytes": 57596,
+      "git_blob_sha": "fa727fd59f34e06eae74039e55988969dea4ae1e",
+      "expected_git_blob_sha": "fa727fd59f34e06eae74039e55988969dea4ae1e",
+      "sha256": "3a08bcea6406907488491cfd36690c5f9fe8eb7b80064fc89f5fa4bb882af92f",
+      "size_matches": true,
+      "git_blob_matches": true,
+      "filename": "NMLBBL_history.json",
+      "status": "CAPTURED",
+      "history_audit": {
+        "symbol": "NMLBBL",
+        "row_count": 863,
+        "first_date": "2024-05-19",
+        "last_date": "2026-11-25",
+        "expected_first_date": "2024-05-19",
+        "first_date_matches_candidate": true,
+        "derived_from_daily_csv_archive": true
+      }
+    },
+    {
+      "name": "SMPDA_history.json",
+      "path": "docs/api/history/SMPDA.json",
+      "url": "https://raw.githubusercontent.com/OmitNomis/ShareSansarScraper/524442d518d2f2705ade0680c9d2e3f90738e3d6/docs/api/history/SMPDA.json",
+      "http_status": 200,
+      "response_bytes": 51467,
+      "expected_bytes": 51467,
+      "git_blob_sha": "7f54e6fa59d3f914a0d83472c0ff5ad04691be0b",
+      "expected_git_blob_sha": "7f54e6fa59d3f914a0d83472c0ff5ad04691be0b",
+      "sha256": "3b9271c84d59e3bf835ca8d5cc73a704fe4befe48ec0f29741eae38430027a4a",
+      "size_matches": true,
+      "git_blob_matches": true,
+      "filename": "SMPDA_history.json",
+      "status": "CAPTURED",
+      "history_audit": {
+        "symbol": "SMPDA",
+        "row_count": 772,
+        "first_date": "2024-08-18",
+        "last_date": "2026-11-25",
+        "expected_first_date": "2024-08-18",
+        "first_date_matches_candidate": true,
+        "derived_from_daily_csv_archive": true
+      }
     }
   ],
   "daily_results": [
@@ -567,12 +615,33 @@
       "candidate_fields_match": true
     }
   ],
+  "derived_history_index": [
+    {
+      "symbol": "NMLBBL",
+      "row_count": 863,
+      "first_date": "2024-05-19",
+      "last_date": "2026-11-25",
+      "expected_first_date": "2024-05-19",
+      "first_date_matches_candidate": true,
+      "derived_from_daily_csv_archive": true
+    },
+    {
+      "symbol": "SMPDA",
+      "row_count": 772,
+      "first_date": "2024-08-18",
+      "last_date": "2026-11-25",
+      "expected_first_date": "2024-08-18",
+      "first_date_matches_candidate": true,
+      "derived_from_daily_csv_archive": true
+    }
+  ],
   "summary": {
-    "all_five_files_integrity_verified": true,
+    "all_source_files_integrity_verified": true,
     "candidate_rows_match_historical_floorsheet": true,
     "both_prior_tables_contain_other_market_rows": true,
     "both_target_symbols_absent_on_prior_dates": true,
-    "candidate_transaction_counts_match_floorsheet_rows": true
+    "candidate_transaction_counts_match_floorsheet_rows": true,
+    "derived_history_first_dates_match_candidates": true
   },
   "disposition": "Secondary corroboration only. Missing target rows on prior dates are not promoted to primary NO_TRADE. No canonical OHLCV or lifecycle valid_from is changed."
 }

@@ -48,7 +48,9 @@ on:
       - "tools/p443_equity_first_repeat_review.py"
       - "tools/p443_equity_security_date_queue.py"
       - "tools/p443_bulk_equity_floorsheet_recovery.py"
+      - "tools/p443_hf_bulk_equity_floorsheet_recovery.py"
       - "test_p443_bulk_equity_floorsheet_recovery.py"
+      - "test_p443_hf_bulk_equity_floorsheet_recovery.py"
       - "test_p443_equity_security_date_queue.py"
       - "test_p443_verify_unresolved_pairs.py"
       - "tools/p443_verify_unresolved_pairs.py"
@@ -71,7 +73,7 @@ permissions:
 jobs:
   global-integrity-scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
         with:
@@ -138,6 +140,10 @@ jobs:
         run: python -m unittest test_p443_bulk_equity_floorsheet_recovery -v
       - name: Map and reconcile first bulk equity floorsheet batch
         run: python tools/p443_bulk_equity_floorsheet_recovery.py --directory audit-strict --max-dates 22
+      - name: HF-only bulk floorsheet recovery regression tests
+        run: python -m unittest test_p443_hf_bulk_equity_floorsheet_recovery -v
+      - name: Map and reconcile first HF-only equity floorsheet batch
+        run: python tools/p443_hf_bulk_equity_floorsheet_recovery.py --directory audit-strict --max-dates 22 --offset 0
       - name: Preserve strict audit outputs
         if: always()
         uses: actions/upload-artifact@v4

@@ -58,4 +58,21 @@ class P436OfficialEodHistoryTests(unittest.TestCase):
         self.assertFalse(candidate["evidence_gate_pass"])
         self.assertFalse(candidate["window_pagination_complete"])
 
+    def test_canonical_comparison_detects_date_shift_without_rewriting_data(self):
+        import csv
+        with tempfile.TemporaryDirectory() as tmp:
+            path=Path(tmp)/"NMLBBL_OHLCV.csv"
+            with path.open("w",newline="") as handle:
+                writer=csv.DictWriter(handle,fieldnames=["Date","Open","High","Low","Close","Volume"])
+                writer.writeheader()
+                writer.writerow({"Date":"2026-01-05","Open":"10","High":"11","Low":"9","Close":"10","Volume":"100"})
+                writer.writerow({"Date":"2026-01-06","Open":"10","High":"11","Low":"9","Close":"10","Volume":"100"})
+            official=[{"businessDate":"2026-01-05","highPrice":11,"lowPrice":9,"closePrice":10,"totalTradedQuantity":100}]
+            result=compare_canonical("NMLBBL",official,"2026-01-01","2026-01-31",tmp)
+            self.assertEqual(result["exact_date_overlap_count"],1)
+            self.assertEqual(result["exact_date_hlc_volume_mismatch_count"],0)
+            self.assertEqual(result["canonical_only_dates_count"],1)
+            self.assertEqual(result["canonical_only_exact_hlc_volume_tuple_match_count"],1)
+            self.assertEqual(result["canonical_only_tuple_match_calendar_day_offset_histogram"],{"1":1})
+
 if __name__=="__main__":unittest.main()

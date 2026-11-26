@@ -29,3 +29,24 @@ The older 500-row local floorsheet extract is not used as the session source. Pr
 ## Limitations
 
 This is one-date, 281-equity reconciliation only. It does not construct historical per-security open-session calendars, prove listing/first-trade dates, or establish no-trade days for other dates. It does not authorize scanner BUYs, broker-footprint scoring, training, or canonical-data promotion.
+
+## CI result — 2026-11-26
+
+Workflow run: https://github.com/jaljala044/nepse-smc-data/actions/runs/45847870831
+
+The pinned download passed its SHA-256 check. The 281-equity reconciliation job completed successfully and emitted exactly 281 symbol rows:
+
+| Disposition | Symbols | Count |
+|---|---|---:|
+| `TRADED` | 279 equities | 279 |
+| `NO_TRADE` | BNL, NLO | 2 |
+| `UNKNOWN` | None | 0 |
+
+The two `NO_TRADE` classifications are specific to 2026-11-20 only. They do not mean BNL or NLO were inactive on other dates. The result uses the complete-session gate described above; it is not inferred from a missing OHLCV bar alone.
+
+UNL is in the `TRADED` group for this date. The independent capture records 4 contracts, 50 shares and NPR 2,408,700 turnover for UNL on 2026-11-20. This is positive evidence for this date only; it does not resolve UNL's other historical sessions or its full-history data quality.
+
+The per-symbol CSV artifact is available for 30 days at:
+https://github.com/jaljala044/nepse-smc-data/actions/runs/45847870831/artifacts/15131068971
+
+**Disposition:** bounded one-day reconciliation completed. The 281-equity historical expected-session calendar remains incomplete. The third-party floorsheet is not promoted to canonical broker-flow/training data because the raw bronze page archive is unavailable.

@@ -28,7 +28,7 @@ python tools/validate_nepse_eod_capture.py \
   --output evidence/validated/RHGCL_2026-11-19.json
 ```
 
-The URL above is a placeholder path: operators must record the exact endpoint used for the actual capture. Do not invent an endpoint or claim that a capture exists because the validator passes synthetic tests.
+The enforced path is `/api/nots/nepse-data/today-price`, identified in the NEPSE capture client's EOD request implementation. The query's `businessDate` must exactly match the requested exchange date. Operators must still preserve the actual request URL and unmodified response bytes; passing synthetic tests does not establish that a real capture exists.
 
 ## Current RHGCL state
 

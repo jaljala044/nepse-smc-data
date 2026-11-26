@@ -1,0 +1,22 @@
+{
+  "status": "V3_CONTEXT_AUDIT_COMPLETE_WITH_UNKNOWN_CALENDAR_AND_CORPORATE_ACTIONS_RETAINED",
+  "symbols": 281,
+  "derived_rows": 246238,
+  "adjacent_identical_ohlcv_rows": 71806,
+  "adjacent_repeat_classifications": {
+    "UNCLASSIFIED_ADJACENT_REPEAT": 52891,
+    "CLOSED_SESSION_REPEAT_CANDIDATE": 18910,
+    "OPEN_SESSION_REPEAT_REVIEW": 5
+  },
+  "calendar_alignment_flags": 185643,
+  "calendar_flag_types": {
+    "OUTSIDE_CALENDAR_EVIDENCE_WINDOW": 166733,
+    "ROW_ON_VERIFIED_CLOSED_DATE": 18910
+  },
+  "corporate_action_event_records": 3,
+  "symbols_with_known_action_records": 3,
+  "symbols_without_action_records_not_verified": 278,
+  "split_review_rows": 1,
+  "split_proposals_without_verified_effective_date": 1,
+  "auto_repairs_or_deletions": 0
+}

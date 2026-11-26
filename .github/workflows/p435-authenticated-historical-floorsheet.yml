@@ -35,6 +35,7 @@ jobs:
           cd tools
           python -m unittest discover -s tests -p 'test_capture_p435_authenticated_historical_floorsheets.py' -v
       - name: Capture authenticated historical floorsheets
+        if: github.event_name == 'push'
         run: python tools/capture_p435_authenticated_historical_floorsheets.py
       - name: Commit redacted official response pages
         if: github.event_name == 'push'

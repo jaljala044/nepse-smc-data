@@ -49,7 +49,7 @@ class OfficialEodCaptureTests(unittest.TestCase):
 
     def test_duplicate_symbol_date_rows_are_rejected(self):
         row = json.loads(payload())["content"][0]
-        raw = json.dumps({"content": [row, row]}).encode()
+        raw = json.dumps({"content": [row, row], "totalElements": 2, "totalPages": 1}).encode()
         with self.assertRaisesRegex(M.EvidenceError, "found 2"):
             self.validate(raw)
 

@@ -1,0 +1,55 @@
+{
+  "task": "P4.23.2",
+  "date": "2025-07-28",
+  "retrieved_at": "2026-11-26",
+  "source_repository": "Shubhamnpk/yonepse",
+  "source_commit": "d26f543b0b88d38a47020235aef66ccecf3d11c1",
+  "source_path": "data/floor_sheet/daily/2025-07-28.json",
+  "source_blob_sha": "94187a43992467c1d3799e34dc352a98f4c6a4f8",
+  "downloaded_byte_length": 8563784,
+  "sha256": "4b37929a86d1f2a3f09526afc874186dd716e90eec2736904ef5ec37d4dd71e0",
+  "immutable_source_url": "https://raw.githubusercontent.com/Shubhamnpk/yonepse/d26f543b0b88d38a47020235aef66ccecf3d11c1/data/floor_sheet/daily/2025-07-28.json",
+  "lookup_blob_sha": "a33d1efb61a77cdfcc0b6a4f6fdbcc1a3c5d31ed",
+  "summary": {
+    "target_symbols": 86,
+    "with_trades": 86,
+    "absent": [],
+    "malformed_rows": 0,
+    "invalid_rows": 0,
+    "bad_contract_date": 0,
+    "duplicate_contract_ids": 0,
+    "duplicate_complete_rows": 0,
+    "null_field_values": 0,
+    "blank_time_rows": 170726,
+    "unknown_stock_ids": [
+      "0"
+    ],
+    "archive_rows": 170726,
+    "declared_rows": 170726,
+    "calculated_quantity": 44124924,
+    "declared_quantity": 44124924,
+    "calculated_turnover": 19360873034.29009,
+    "declared_turnover": 19360873034.29,
+    "high_matches_canonical": 85,
+    "high_matches_external": 85,
+    "low_matches_canonical": 53,
+    "low_matches_external": 53,
+    "volume_matches_canonical": 86,
+    "volume_matches_external": 86,
+    "turnover_matches_external": 86,
+    "open_close_unknown": 86
+  },
+  "source_copy_note": "The source artifact remains preserved at the immutable upstream Git blob. A duplicate upload into this repository was attempted but the GitHub transport failed; no altered or partial copy is represented as preserved.",
+  "canonical_source": {
+    "repository": "jaljala044/nepse-smc-data",
+    "commit": "77992c29c6f3936da92170e240638789b8c5cf00",
+    "path_pattern": "03_stock_charts_ohlcv/{symbol}_OHLCV.csv",
+    "rows": 86
+  },
+  "external_source": {
+    "repository": "srijankarki07/nepse-data",
+    "commit": "688d59c03915dcee73ecad4230d2083a41c61764",
+    "path": "data/daily/2025/2025-07-28.csv",
+    "rows": 86
+  }
+}

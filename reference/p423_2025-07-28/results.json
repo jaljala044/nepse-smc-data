@@ -1,0 +1,3829 @@
+{
+  "task": "P4.23.2",
+  "date": "2025-07-28",
+  "source": {
+    "repository": "Shubhamnpk/yonepse",
+    "commit": "d26f543b0b88d38a47020235aef66ccecf3d11c1",
+    "path": "data/floor_sheet/daily/2025-07-28.json",
+    "git_blob_sha": "94187a43992467c1d3799e34dc352a98f4c6a4f8",
+    "sha256": "4b37929a86d1f2a3f09526afc874186dd716e90eec2736904ef5ec37d4dd71e0",
+    "bytes": 8563784
+  },
+  "summary": {
+    "target_symbols": 86,
+    "with_trades": 86,
+    "absent": [],
+    "malformed_rows": 0,
+    "invalid_rows": 0,
+    "bad_contract_date": 0,
+    "duplicate_contract_ids": 0,
+    "duplicate_complete_rows": 0,
+    "null_field_values": 0,
+    "blank_time_rows": 170726,
+    "unknown_stock_ids": [
+      "0"
+    ],
+    "archive_rows": 170726,
+    "declared_rows": 170726,
+    "calculated_quantity": 44124924,
+    "declared_quantity": 44124924,
+    "calculated_turnover": 19360873034.29009,
+    "declared_turnover": 19360873034.29,
+    "high_matches_canonical": 85,
+    "high_matches_external": 85,
+    "low_matches_canonical": 53,
+    "low_matches_external": 53,
+    "volume_matches_canonical": 86,
+    "volume_matches_external": 86,
+    "turnover_matches_external": 86,
+    "open_close_unknown": 86,
+    "unique_mapped_symbols": 313,
+    "mapped_symbols_outside_target": 227
+  },
+  "symbols": [
+    {
+      "date": "2025-07-28",
+      "symbol": "ADBL",
+      "stock_id": 397,
+      "trade_count": 658,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 333.5,
+        "low": 320.5,
+        "close": "UNKNOWN",
+        "volume": 118015,
+        "turnover": 38745121.4
+      },
+      "canonical": {
+        "open": "330.00",
+        "high": "333.50",
+        "low": "324.00",
+        "close": "328.30",
+        "volume": "118015"
+      },
+      "external": {
+        "open": "330",
+        "high": "333.5",
+        "low": "324",
+        "close": "331.79",
+        "volume": "118015",
+        "turnover": "38745121.4"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "MISMATCH",
+        "low_vs_external": "MISMATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "AHL",
+      "stock_id": 9150,
+      "trade_count": 249,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 672.9,
+        "low": 645,
+        "close": "UNKNOWN",
+        "volume": 27914,
+        "turnover": 18229067.9
+      },
+      "canonical": {
+        "open": "648.40",
+        "high": "672.90",
+        "low": "645.00",
+        "close": "653.04",
+        "volume": "27914"
+      },
+      "external": {
+        "open": "648.4",
+        "high": "672.9",
+        "low": "645",
+        "close": "667.32",
+        "volume": "27914",
+        "turnover": "18229067.9"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "ANLB",
+      "stock_id": 9161,
+      "trade_count": 48,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 5699,
+        "low": 5500,
+        "close": "UNKNOWN",
+        "volume": 1763,
+        "turnover": 9885860.7
+      },
+      "canonical": {
+        "open": "5764.37",
+        "high": "5764.37",
+        "low": "5600.00",
+        "close": "5607.45",
+        "volume": "1763"
+      },
+      "external": {
+        "open": "5764.37",
+        "high": "5764.37",
+        "low": "5600",
+        "close": "5686.99",
+        "volume": "1763",
+        "turnover": "9885860.7"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "MISMATCH",
+        "high_vs_external": "MISMATCH",
+        "low_vs_canonical": "MISMATCH",
+        "low_vs_external": "MISMATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "AVYAN",
+      "stock_id": 8117,
+      "trade_count": 231,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 1216,
+        "low": 1124,
+        "close": "UNKNOWN",
+        "volume": 15682,
+        "turnover": 18113248.2
+      },
+      "canonical": {
+        "open": "1146.00",
+        "high": "1216.00",
+        "low": "1124.00",
+        "close": "1155.07",
+        "volume": "15682"
+      },
+      "external": {
+        "open": "1146",
+        "high": "1216",
+        "low": "1124",
+        "close": "1160.31",
+        "volume": "15682",
+        "turnover": "18113248.2"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "BEDC",
+      "stock_id": 9171,
+      "trade_count": 614,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 810,
+        "low": 765.2,
+        "close": "UNKNOWN",
+        "volume": 105914,
+        "turnover": 84125072.4
+      },
+      "canonical": {
+        "open": "772.00",
+        "high": "810.00",
+        "low": "765.20",
+        "close": "794.27",
+        "volume": "105914"
+      },
+      "external": {
+        "open": "772",
+        "high": "810",
+        "low": "765.2",
+        "close": "802.89",
+        "volume": "105914",
+        "turnover": "84125072.4"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "BHDC",
+      "stock_id": 8075,
+      "trade_count": 1442,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 668,
+        "low": 613.5,
+        "close": "UNKNOWN",
+        "volume": 255486,
+        "turnover": 159361223.9
+      },
+      "canonical": {
+        "open": "668.00",
+        "high": "668.00",
+        "low": "613.50",
+        "close": "623.75",
+        "volume": "255486"
+      },
+      "external": {
+        "open": "668",
+        "high": "668",
+        "low": "613.5",
+        "close": "613.5",
+        "volume": "255486",
+        "turnover": "159361223.9"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "BHL",
+      "stock_id": 8055,
+      "trade_count": 1177,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 222,
+        "low": 216.7,
+        "close": "UNKNOWN",
+        "volume": 277281,
+        "turnover": 60698296.2
+      },
+      "canonical": {
+        "open": "221.00",
+        "high": "222.00",
+        "low": "216.70",
+        "close": "218.90",
+        "volume": "277281"
+      },
+      "external": {
+        "open": "221",
+        "high": "222",
+        "low": "216.7",
+        "close": "219.66",
+        "volume": "277281",
+        "turnover": "60698296.2"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "BHPL",
+      "stock_id": 9135,
+      "trade_count": 178,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 848,
+        "low": 807.1,
+        "close": "UNKNOWN",
+        "volume": 12171,
+        "turnover": 9926927.4
+      },
+      "canonical": {
+        "open": "848.00",
+        "high": "848.00",
+        "low": "807.10",
+        "close": "815.62",
+        "volume": "12171"
+      },
+      "external": {
+        "open": "848",
+        "high": "848",
+        "low": "807.1",
+        "close": "811.05",
+        "volume": "12171",
+        "turnover": "9926927.4"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "BNHC",
+      "stock_id": 8032,
+      "trade_count": 544,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 564.9,
+        "low": 540.3,
+        "close": "UNKNOWN",
+        "volume": 89008,
+        "turnover": 49464241.1
+      },
+      "canonical": {
+        "open": "540.30",
+        "high": "564.90",
+        "low": "540.30",
+        "close": "555.72",
+        "volume": "89008"
+      },
+      "external": {
+        "open": "540.3",
+        "high": "564.9",
+        "low": "540.3",
+        "close": "563.06",
+        "volume": "89008",
+        "turnover": "49464241.1"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "BNL",
+      "stock_id": 195,
+      "trade_count": 3,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 17300,
+        "low": 17000,
+        "close": "UNKNOWN",
+        "volume": 30,
+        "turnover": 516000
+      },
+      "canonical": {
+        "open": "17300.00",
+        "high": "17300.00",
+        "low": "17000.00",
+        "close": "17200.00",
+        "volume": "30"
+      },
+      "external": {
+        "open": "17300",
+        "high": "17300",
+        "low": "17000",
+        "close": "17300",
+        "volume": "30",
+        "turnover": "516000"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "BNT",
+      "stock_id": 213,
+      "trade_count": 45,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 13050,
+        "low": 12615,
+        "close": "UNKNOWN",
+        "volume": 665,
+        "turnover": 8461753
+      },
+      "canonical": {
+        "open": "12940.00",
+        "high": "13050.00",
+        "low": "12615.00",
+        "close": "12724.44",
+        "volume": "665"
+      },
+      "external": {
+        "open": "12940",
+        "high": "13050",
+        "low": "12615",
+        "close": "12998.5",
+        "volume": "665",
+        "turnover": "8461753"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "CITY",
+      "stock_id": 9173,
+      "trade_count": 309,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 945,
+        "low": 920,
+        "close": "UNKNOWN",
+        "volume": 19566,
+        "turnover": 18239080.2
+      },
+      "canonical": {
+        "open": "936.00",
+        "high": "945.00",
+        "low": "921.60",
+        "close": "932.19",
+        "volume": "19566"
+      },
+      "external": {
+        "open": "936",
+        "high": "945",
+        "low": "921.6",
+        "close": "937.13",
+        "volume": "19566",
+        "turnover": "18239080.2"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "MISMATCH",
+        "low_vs_external": "MISMATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "CKHL",
+      "stock_id": 9232,
+      "trade_count": 135,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 702,
+        "low": 685.1,
+        "close": "UNKNOWN",
+        "volume": 11487,
+        "turnover": 7968375.4
+      },
+      "canonical": {
+        "open": "685.10",
+        "high": "702.00",
+        "low": "685.10",
+        "close": "693.68",
+        "volume": "11487"
+      },
+      "external": {
+        "open": "685.1",
+        "high": "702",
+        "low": "685.1",
+        "close": "694.86",
+        "volume": "11487",
+        "turnover": "7968375.4"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "CREST",
+      "stock_id": 9252,
+      "trade_count": 688,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 1418,
+        "low": 1390,
+        "close": "UNKNOWN",
+        "volume": 18705,
+        "turnover": 26205955.1
+      },
+      "canonical": {
+        "open": "1402.00",
+        "high": "1418.00",
+        "low": "1390.00",
+        "close": "1401.01",
+        "volume": "18705"
+      },
+      "external": {
+        "open": "1402",
+        "high": "1418",
+        "low": "1390",
+        "close": "1409.92",
+        "volume": "18705",
+        "turnover": "26205955.1"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "CYCL",
+      "stock_id": 8065,
+      "trade_count": 175,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 1900,
+        "low": 1803.3,
+        "close": "UNKNOWN",
+        "volume": 5441,
+        "turnover": 10128108.5
+      },
+      "canonical": {
+        "open": "1900.00",
+        "high": "1900.00",
+        "low": "1840.10",
+        "close": "1861.71",
+        "volume": "5441"
+      },
+      "external": {
+        "open": "1900",
+        "high": "1900",
+        "low": "1840.1",
+        "close": "1877",
+        "volume": "5441",
+        "turnover": "10128108.5"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "MISMATCH",
+        "low_vs_external": "MISMATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "CZBIL",
+      "stock_id": 348,
+      "trade_count": 552,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 234.9,
+        "low": 222,
+        "close": "UNKNOWN",
+        "volume": 214508,
+        "turnover": 49095536.6
+      },
+      "canonical": {
+        "open": "231.00",
+        "high": "234.90",
+        "low": "226.00",
+        "close": "228.87",
+        "volume": "214508"
+      },
+      "external": {
+        "open": "231",
+        "high": "234.9",
+        "low": "226",
+        "close": "231.96",
+        "volume": "214508",
+        "turnover": "49095536.6"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "MISMATCH",
+        "low_vs_external": "MISMATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "DLBS",
+      "stock_id": 8123,
+      "trade_count": 65,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 1611.1,
+        "low": 1519,
+        "close": "UNKNOWN",
+        "volume": 2087,
+        "turnover": 3294316.1
+      },
+      "canonical": {
+        "open": "1611.10",
+        "high": "1611.10",
+        "low": "1550.00",
+        "close": "1579.31",
+        "volume": "2087"
+      },
+      "external": {
+        "open": "1611.1",
+        "high": "1611.1",
+        "low": "1550",
+        "close": "1568.4",
+        "volume": "2087",
+        "turnover": "3294316.1"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "MISMATCH",
+        "low_vs_external": "MISMATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "DOLTI",
+      "stock_id": 9170,
+      "trade_count": 183,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 610,
+        "low": 595,
+        "close": "UNKNOWN",
+        "volume": 11498,
+        "turnover": 6901797.9
+      },
+      "canonical": {
+        "open": "602.00",
+        "high": "610.00",
+        "low": "595.00",
+        "close": "600.26",
+        "volume": "11498"
+      },
+      "external": {
+        "open": "602",
+        "high": "610",
+        "low": "595",
+        "close": "600.09",
+        "volume": "11498",
+        "turnover": "6901797.9"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "DORDI",
+      "stock_id": 8070,
+      "trade_count": 524,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 322,
+        "low": 310,
+        "close": "UNKNOWN",
+        "volume": 115607,
+        "turnover": 36669015.5
+      },
+      "canonical": {
+        "open": "319.00",
+        "high": "322.00",
+        "low": "314.00",
+        "close": "317.18",
+        "volume": "115607"
+      },
+      "external": {
+        "open": "319",
+        "high": "322",
+        "low": "314",
+        "close": "319.77",
+        "volume": "115607",
+        "turnover": "36669015.5"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "MISMATCH",
+        "low_vs_external": "MISMATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "EBL",
+      "stock_id": 137,
+      "trade_count": 811,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 750,
+        "low": 719,
+        "close": "UNKNOWN",
+        "volume": 205878,
+        "turnover": 151162154.9
+      },
+      "canonical": {
+        "open": "750.00",
+        "high": "750.00",
+        "low": "728.00",
+        "close": "734.23",
+        "volume": "205878"
+      },
+      "external": {
+        "open": "750",
+        "high": "750",
+        "low": "728",
+        "close": "736.35",
+        "volume": "205878",
+        "turnover": "151162154.9"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "MISMATCH",
+        "low_vs_external": "MISMATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "EHPL",
+      "stock_id": 8131,
+      "trade_count": 112,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 651,
+        "low": 627,
+        "close": "UNKNOWN",
+        "volume": 9340,
+        "turnover": 5933029.7
+      },
+      "canonical": {
+        "open": "651.00",
+        "high": "651.00",
+        "low": "627.00",
+        "close": "635.22",
+        "volume": "9340"
+      },
+      "external": {
+        "open": "651",
+        "high": "651",
+        "low": "627",
+        "close": "642.79",
+        "volume": "9340",
+        "turnover": "5933029.7"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "GBIME",
+      "stock_id": 341,
+      "trade_count": 1692,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 269.2,
+        "low": 254.8,
+        "close": "UNKNOWN",
+        "volume": 670655,
+        "turnover": 176715936.2
+      },
+      "canonical": {
+        "open": "263.14",
+        "high": "269.20",
+        "low": "258.10",
+        "close": "263.49",
+        "volume": "670655"
+      },
+      "external": {
+        "open": "263.14",
+        "high": "269.2",
+        "low": "258.1",
+        "close": "268.4",
+        "volume": "670655",
+        "turnover": "176715936.2"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "MISMATCH",
+        "low_vs_external": "MISMATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "GMLI",
+      "stock_id": 9246,
+      "trade_count": 173,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 2153.9,
+        "low": 2090,
+        "close": "UNKNOWN",
+        "volume": 4495,
+        "turnover": 9468915.3
+      },
+      "canonical": {
+        "open": "2100.50",
+        "high": "2153.90",
+        "low": "2090.00",
+        "close": "2106.54",
+        "volume": "4495"
+      },
+      "external": {
+        "open": "2100.5",
+        "high": "2153.9",
+        "low": "2090",
+        "close": "2106.36",
+        "volume": "4495",
+        "turnover": "9468915.3"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "GVL",
+      "stock_id": 8045,
+      "trade_count": 1608,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 632.6,
+        "low": 588,
+        "close": "UNKNOWN",
+        "volume": 406177,
+        "turnover": 243900897.2
+      },
+      "canonical": {
+        "open": "632.60",
+        "high": "632.60",
+        "low": "588.00",
+        "close": "600.47",
+        "volume": "406177"
+      },
+      "external": {
+        "open": "632.6",
+        "high": "632.6",
+        "low": "588",
+        "close": "594.71",
+        "volume": "406177",
+        "turnover": "243900897.2"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "HBL",
+      "stock_id": 134,
+      "trade_count": 661,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 249,
+        "low": 229.4,
+        "close": "UNKNOWN",
+        "volume": 305519,
+        "turnover": 71930466.3
+      },
+      "canonical": {
+        "open": "239.60",
+        "high": "249.00",
+        "low": "229.40",
+        "close": "235.43",
+        "volume": "305519"
+      },
+      "external": {
+        "open": "239.6",
+        "high": "249",
+        "low": "229.4",
+        "close": "237.74",
+        "volume": "305519",
+        "turnover": "71930466.3"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "HHL",
+      "stock_id": 8076,
+      "trade_count": 1572,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 453,
+        "low": 420,
+        "close": "UNKNOWN",
+        "volume": 275578,
+        "turnover": 118418935
+      },
+      "canonical": {
+        "open": "453.00",
+        "high": "453.00",
+        "low": "423.00",
+        "close": "429.71",
+        "volume": "275578"
+      },
+      "external": {
+        "open": "453",
+        "high": "453",
+        "low": "423",
+        "close": "434.15",
+        "volume": "275578",
+        "turnover": "118418935"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "MISMATCH",
+        "low_vs_external": "MISMATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "IHL",
+      "stock_id": 9176,
+      "trade_count": 165,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 610,
+        "low": 595,
+        "close": "UNKNOWN",
+        "volume": 13435,
+        "turnover": 8082798.9
+      },
+      "canonical": {
+        "open": "610.00",
+        "high": "610.00",
+        "low": "595.00",
+        "close": "601.62",
+        "volume": "13435"
+      },
+      "external": {
+        "open": "610",
+        "high": "610",
+        "low": "595",
+        "close": "603.33",
+        "volume": "13435",
+        "turnover": "8082798.9"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "JBLB",
+      "stock_id": 4951,
+      "trade_count": 454,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 1520,
+        "low": 1464.2,
+        "close": "UNKNOWN",
+        "volume": 21859,
+        "turnover": 32814977.7
+      },
+      "canonical": {
+        "open": "1510.20",
+        "high": "1520.00",
+        "low": "1480.00",
+        "close": "1501.28",
+        "volume": "21859"
+      },
+      "external": {
+        "open": "1510.2",
+        "high": "1520",
+        "low": "1480",
+        "close": "1508.57",
+        "volume": "21859",
+        "turnover": "32814977.7"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "MISMATCH",
+        "low_vs_external": "MISMATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "KBL",
+      "stock_id": 142,
+      "trade_count": 1347,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 226,
+        "low": 198,
+        "close": "UNKNOWN",
+        "volume": 687491,
+        "turnover": 151857942.3
+      },
+      "canonical": {
+        "open": "226.00",
+        "high": "226.00",
+        "low": "219.00",
+        "close": "220.91",
+        "volume": "687491"
+      },
+      "external": {
+        "open": "226",
+        "high": "226",
+        "low": "219",
+        "close": "223.42",
+        "volume": "687491",
+        "turnover": "151857942.3"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "MISMATCH",
+        "low_vs_external": "MISMATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "KBSH",
+      "stock_id": 9196,
+      "trade_count": 25,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 2104.9,
+        "low": 2025,
+        "close": "UNKNOWN",
+        "volume": 558,
+        "turnover": 1145943
+      },
+      "canonical": {
+        "open": "2034.00",
+        "high": "2104.90",
+        "low": "2025.00",
+        "close": "2053.66",
+        "volume": "558"
+      },
+      "external": {
+        "open": "2034",
+        "high": "2104.9",
+        "low": "2025",
+        "close": "2079",
+        "volume": "558",
+        "turnover": "1145943"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "KDL",
+      "stock_id": 9151,
+      "trade_count": 126,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 1168,
+        "low": 1120,
+        "close": "UNKNOWN",
+        "volume": 7628,
+        "turnover": 8758908.4
+      },
+      "canonical": {
+        "open": "1129.40",
+        "high": "1168.00",
+        "low": "1129.40",
+        "close": "1148.28",
+        "volume": "7628"
+      },
+      "external": {
+        "open": "1129.4",
+        "high": "1168",
+        "low": "1129.4",
+        "close": "1157.37",
+        "volume": "7628",
+        "turnover": "8758908.4"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "MISMATCH",
+        "low_vs_external": "MISMATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "LSL",
+      "stock_id": 141,
+      "trade_count": 688,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 245.8,
+        "low": 231.8,
+        "close": "UNKNOWN",
+        "volume": 336609,
+        "turnover": 80995493.2
+      },
+      "canonical": {
+        "open": "241.00",
+        "high": "245.80",
+        "low": "236.20",
+        "close": "240.62",
+        "volume": "336609"
+      },
+      "external": {
+        "open": "241",
+        "high": "245.8",
+        "low": "236.2",
+        "close": "244.99",
+        "volume": "336609",
+        "turnover": "80995493.2"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "MISMATCH",
+        "low_vs_external": "MISMATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "MAKAR",
+      "stock_id": 9166,
+      "trade_count": 101,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 671,
+        "low": 652,
+        "close": "UNKNOWN",
+        "volume": 4252,
+        "turnover": 2800128
+      },
+      "canonical": {
+        "open": "658.70",
+        "high": "671.00",
+        "low": "652.00",
+        "close": "658.54",
+        "volume": "4252"
+      },
+      "external": {
+        "open": "658.7",
+        "high": "671",
+        "low": "652",
+        "close": "667.73",
+        "volume": "4252",
+        "turnover": "2800128"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "MANDU",
+      "stock_id": 9212,
+      "trade_count": 150,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 951,
+        "low": 933,
+        "close": "UNKNOWN",
+        "volume": 7318,
+        "turnover": 6854851.8
+      },
+      "canonical": {
+        "open": "948.90",
+        "high": "951.00",
+        "low": "933.00",
+        "close": "936.71",
+        "volume": "7318"
+      },
+      "external": {
+        "open": "948.9",
+        "high": "951",
+        "low": "933",
+        "close": "936.69",
+        "volume": "7318",
+        "turnover": "6854851.8"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "MBL",
+      "stock_id": 140,
+      "trade_count": 491,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 264,
+        "low": 251,
+        "close": "UNKNOWN",
+        "volume": 171748,
+        "turnover": 44674273
+      },
+      "canonical": {
+        "open": "257.00",
+        "high": "264.00",
+        "low": "255.90",
+        "close": "260.11",
+        "volume": "171748"
+      },
+      "external": {
+        "open": "257",
+        "high": "264",
+        "low": "255.9",
+        "close": "262.72",
+        "volume": "171748",
+        "turnover": "44674273"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "MISMATCH",
+        "low_vs_external": "MISMATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "MCHL",
+      "stock_id": 9175,
+      "trade_count": 122,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 561,
+        "low": 539.1,
+        "close": "UNKNOWN",
+        "volume": 5354,
+        "turnover": 2933396.5
+      },
+      "canonical": {
+        "open": "557.90",
+        "high": "561.00",
+        "low": "539.10",
+        "close": "547.88",
+        "volume": "5354"
+      },
+      "external": {
+        "open": "557.9",
+        "high": "561",
+        "low": "539.1",
+        "close": "559.3",
+        "volume": "5354",
+        "turnover": "2933396.5"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "MHCL",
+      "stock_id": 9158,
+      "trade_count": 208,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 494.3,
+        "low": 472.1,
+        "close": "UNKNOWN",
+        "volume": 18165,
+        "turnover": 8669347.9
+      },
+      "canonical": {
+        "open": "494.30",
+        "high": "494.30",
+        "low": "472.10",
+        "close": "477.25",
+        "volume": "18165"
+      },
+      "external": {
+        "open": "494.3",
+        "high": "494.3",
+        "low": "472.1",
+        "close": "479.07",
+        "volume": "18165",
+        "turnover": "8669347.9"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "MHL",
+      "stock_id": 8102,
+      "trade_count": 169,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 662.5,
+        "low": 628,
+        "close": "UNKNOWN",
+        "volume": 14302,
+        "turnover": 9103022
+      },
+      "canonical": {
+        "open": "662.00",
+        "high": "662.50",
+        "low": "628.00",
+        "close": "636.48",
+        "volume": "14302"
+      },
+      "external": {
+        "open": "662",
+        "high": "662.5",
+        "low": "628",
+        "close": "634.64",
+        "volume": "14302",
+        "turnover": "9103022"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "MKCL",
+      "stock_id": 9230,
+      "trade_count": 246,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 1640,
+        "low": 1565.4,
+        "close": "UNKNOWN",
+        "volume": 15139,
+        "turnover": 24066306.2
+      },
+      "canonical": {
+        "open": "1581.00",
+        "high": "1640.00",
+        "low": "1565.40",
+        "close": "1589.69",
+        "volume": "15139"
+      },
+      "external": {
+        "open": "1581",
+        "high": "1640",
+        "low": "1565.4",
+        "close": "1627.77",
+        "volume": "15139",
+        "turnover": "24066306.2"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "MKHC",
+      "stock_id": 9149,
+      "trade_count": 472,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 487,
+        "low": 465,
+        "close": "UNKNOWN",
+        "volume": 65062,
+        "turnover": 30857334.3
+      },
+      "canonical": {
+        "open": "480.00",
+        "high": "487.00",
+        "low": "465.00",
+        "close": "474.27",
+        "volume": "65062"
+      },
+      "external": {
+        "open": "480",
+        "high": "487",
+        "low": "465",
+        "close": "483.93",
+        "volume": "65062",
+        "turnover": "30857334.3"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "MKHL",
+      "stock_id": 9167,
+      "trade_count": 159,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 897,
+        "low": 850.1,
+        "close": "UNKNOWN",
+        "volume": 53020,
+        "turnover": 45998604
+      },
+      "canonical": {
+        "open": "879.90",
+        "high": "897.00",
+        "low": "850.10",
+        "close": "867.57",
+        "volume": "53020"
+      },
+      "external": {
+        "open": "879.9",
+        "high": "897",
+        "low": "850.1",
+        "close": "868.64",
+        "volume": "53020",
+        "turnover": "45998604"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "MKJC",
+      "stock_id": 8005,
+      "trade_count": 1028,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 600,
+        "low": 542.5,
+        "close": "UNKNOWN",
+        "volume": 241865,
+        "turnover": 138271031.4
+      },
+      "canonical": {
+        "open": "556.00",
+        "high": "600.00",
+        "low": "542.50",
+        "close": "571.68",
+        "volume": "241865"
+      },
+      "external": {
+        "open": "556",
+        "high": "600",
+        "low": "542.5",
+        "close": "596.46",
+        "volume": "241865",
+        "turnover": "138271031.4"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "MLBS",
+      "stock_id": 8018,
+      "trade_count": 60,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 1774,
+        "low": 1726,
+        "close": "UNKNOWN",
+        "volume": 1754,
+        "turnover": 3062856.5
+      },
+      "canonical": {
+        "open": "1762.00",
+        "high": "1774.00",
+        "low": "1726.00",
+        "close": "1746.21",
+        "volume": "1754"
+      },
+      "external": {
+        "open": "1762",
+        "high": "1774",
+        "low": "1726",
+        "close": "1760.36",
+        "volume": "1754",
+        "turnover": "3062856.5"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "MMKJL",
+      "stock_id": 9217,
+      "trade_count": 124,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 629.5,
+        "low": 600,
+        "close": "UNKNOWN",
+        "volume": 9761,
+        "turnover": 5940218
+      },
+      "canonical": {
+        "open": "610.00",
+        "high": "629.50",
+        "low": "600.00",
+        "close": "608.56",
+        "volume": "9761"
+      },
+      "external": {
+        "open": "610",
+        "high": "629.5",
+        "low": "600",
+        "close": "614.4",
+        "volume": "9761",
+        "turnover": "5940218"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "MSHL",
+      "stock_id": 9215,
+      "trade_count": 59,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 920,
+        "low": 903,
+        "close": "UNKNOWN",
+        "volume": 2564,
+        "turnover": 2339853.7
+      },
+      "canonical": {
+        "open": "920.00",
+        "high": "920.00",
+        "low": "903.00",
+        "close": "912.58",
+        "volume": "2564"
+      },
+      "external": {
+        "open": "920",
+        "high": "920",
+        "low": "903",
+        "close": "916.1",
+        "volume": "2564",
+        "turnover": "2339853.7"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "NABIL",
+      "stock_id": 131,
+      "trade_count": 1362,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 547,
+        "low": 527,
+        "close": "UNKNOWN",
+        "volume": 183214,
+        "turnover": 98869241.3
+      },
+      "canonical": {
+        "open": "545.50",
+        "high": "547.00",
+        "low": "536.00",
+        "close": "539.63",
+        "volume": "183214"
+      },
+      "external": {
+        "open": "545.5",
+        "high": "547",
+        "low": "536",
+        "close": "540.43",
+        "volume": "183214",
+        "turnover": "98869241.3"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "MISMATCH",
+        "low_vs_external": "MISMATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "NBL",
+      "stock_id": 517,
+      "trade_count": 1045,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 305,
+        "low": 291,
+        "close": "UNKNOWN",
+        "volume": 328841,
+        "turnover": 97984195.8
+      },
+      "canonical": {
+        "open": "302.00",
+        "high": "305.00",
+        "low": "294.10",
+        "close": "297.96",
+        "volume": "328841"
+      },
+      "external": {
+        "open": "302",
+        "high": "305",
+        "low": "294.1",
+        "close": "298.59",
+        "volume": "328841",
+        "turnover": "97984195.8"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "MISMATCH",
+        "low_vs_external": "MISMATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "NESDO",
+      "stock_id": 8041,
+      "trade_count": 100,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 1800,
+        "low": 1716.1,
+        "close": "UNKNOWN",
+        "volume": 4084,
+        "turnover": 7183287
+      },
+      "canonical": {
+        "open": "1759.00",
+        "high": "1800.00",
+        "low": "1730.10",
+        "close": "1758.91",
+        "volume": "4084"
+      },
+      "external": {
+        "open": "1759",
+        "high": "1800",
+        "low": "1730.1",
+        "close": "1759.75",
+        "volume": "4084",
+        "turnover": "7183287"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "MISMATCH",
+        "low_vs_external": "MISMATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "NICA",
+      "stock_id": 139,
+      "trade_count": 1605,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 403,
+        "low": 385,
+        "close": "UNKNOWN",
+        "volume": 416122,
+        "turnover": 163714234
+      },
+      "canonical": {
+        "open": "400.00",
+        "high": "403.00",
+        "low": "388.70",
+        "close": "393.42",
+        "volume": "416122"
+      },
+      "external": {
+        "open": "400",
+        "high": "403",
+        "low": "388.7",
+        "close": "396.3",
+        "volume": "416122",
+        "turnover": "163714234"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "MISMATCH",
+        "low_vs_external": "MISMATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "NIMB",
+      "stock_id": 132,
+      "trade_count": 968,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 239.5,
+        "low": 226.4,
+        "close": "UNKNOWN",
+        "volume": 316952,
+        "turnover": 74062817.3
+      },
+      "canonical": {
+        "open": "239.50",
+        "high": "239.50",
+        "low": "230.00",
+        "close": "233.67",
+        "volume": "316952"
+      },
+      "external": {
+        "open": "239.5",
+        "high": "239.5",
+        "low": "230",
+        "close": "236.38",
+        "volume": "316952",
+        "turnover": "74062817.3"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "MISMATCH",
+        "low_vs_external": "MISMATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "NMB",
+      "stock_id": 238,
+      "trade_count": 492,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 275,
+        "low": 266,
+        "close": "UNKNOWN",
+        "volume": 149373,
+        "turnover": 40490408.2
+      },
+      "canonical": {
+        "open": "270.00",
+        "high": "275.00",
+        "low": "268.00",
+        "close": "271.06",
+        "volume": "149373"
+      },
+      "external": {
+        "open": "270",
+        "high": "275",
+        "low": "268",
+        "close": "270.66",
+        "volume": "149373",
+        "turnover": "40490408.2"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "MISMATCH",
+        "low_vs_external": "MISMATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "NMIC",
+      "stock_id": 9250,
+      "trade_count": 616,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 1707,
+        "low": 1670.1,
+        "close": "UNKNOWN",
+        "volume": 15451,
+        "turnover": 26020671.2
+      },
+      "canonical": {
+        "open": "1706.90",
+        "high": "1707.00",
+        "low": "1670.10",
+        "close": "1684.07",
+        "volume": "15451"
+      },
+      "external": {
+        "open": "1706.9",
+        "high": "1707",
+        "low": "1670.1",
+        "close": "1687.28",
+        "volume": "15451",
+        "turnover": "26020671.2"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "NWCL",
+      "stock_id": 9233,
+      "trade_count": 126,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 955,
+        "low": 938,
+        "close": "UNKNOWN",
+        "volume": 5033,
+        "turnover": 4755972.5
+      },
+      "canonical": {
+        "open": "955.00",
+        "high": "955.00",
+        "low": "938.00",
+        "close": "944.96",
+        "volume": "5033"
+      },
+      "external": {
+        "open": "955",
+        "high": "955",
+        "low": "938",
+        "close": "946.45",
+        "volume": "5033",
+        "turnover": "4755972.5"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "NYADI",
+      "stock_id": 8026,
+      "trade_count": 313,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 462,
+        "low": 449,
+        "close": "UNKNOWN",
+        "volume": 44696,
+        "turnover": 20308295.9
+      },
+      "canonical": {
+        "open": "457.10",
+        "high": "462.00",
+        "low": "449.00",
+        "close": "454.36",
+        "volume": "44696"
+      },
+      "external": {
+        "open": "457.1",
+        "high": "462",
+        "low": "449",
+        "close": "460.14",
+        "volume": "44696",
+        "turnover": "20308295.9"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "OMPL",
+      "stock_id": 9256,
+      "trade_count": 720,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 1549.9,
+        "low": 1500,
+        "close": "UNKNOWN",
+        "volume": 25051,
+        "turnover": 37868135.7
+      },
+      "canonical": {
+        "open": "1547.00",
+        "high": "1549.90",
+        "low": "1500.00",
+        "close": "1511.64",
+        "volume": "25051"
+      },
+      "external": {
+        "open": "1547",
+        "high": "1549.9",
+        "low": "1500",
+        "close": "1505.14",
+        "volume": "25051",
+        "turnover": "37868135.7"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "PCBL",
+      "stock_id": 357,
+      "trade_count": 487,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 279.5,
+        "low": 268,
+        "close": "UNKNOWN",
+        "volume": 154451,
+        "turnover": 42378225.2
+      },
+      "canonical": {
+        "open": "275.10",
+        "high": "279.50",
+        "low": "270.60",
+        "close": "274.37",
+        "volume": "154451"
+      },
+      "external": {
+        "open": "275.1",
+        "high": "279.5",
+        "low": "270.6",
+        "close": "277.72",
+        "volume": "154451",
+        "turnover": "42378225.2"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "MISMATCH",
+        "low_vs_external": "MISMATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "PPL",
+      "stock_id": 8122,
+      "trade_count": 203,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 422,
+        "low": 401.8,
+        "close": "UNKNOWN",
+        "volume": 16064,
+        "turnover": 6579307.9
+      },
+      "canonical": {
+        "open": "418.00",
+        "high": "422.00",
+        "low": "401.80",
+        "close": "409.57",
+        "volume": "16064"
+      },
+      "external": {
+        "open": "418",
+        "high": "422",
+        "low": "401.8",
+        "close": "411.79",
+        "volume": "16064",
+        "turnover": "6579307.9"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "PRVU",
+      "stock_id": 255,
+      "trade_count": 1299,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 235.4,
+        "low": 199,
+        "close": "UNKNOWN",
+        "volume": 521025,
+        "turnover": 120026410.2
+      },
+      "canonical": {
+        "open": "230.10",
+        "high": "235.40",
+        "low": "226.10",
+        "close": "230.37",
+        "volume": "521025"
+      },
+      "external": {
+        "open": "230.1",
+        "high": "235.4",
+        "low": "226.1",
+        "close": "234.27",
+        "volume": "521025",
+        "turnover": "120026410.2"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "MISMATCH",
+        "low_vs_external": "MISMATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "PURE",
+      "stock_id": 9258,
+      "trade_count": 429,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 919,
+        "low": 878,
+        "close": "UNKNOWN",
+        "volume": 16514,
+        "turnover": 14868300.7
+      },
+      "canonical": {
+        "open": "901.00",
+        "high": "919.00",
+        "low": "890.00",
+        "close": "900.34",
+        "volume": "16514"
+      },
+      "external": {
+        "open": "901",
+        "high": "919",
+        "low": "890",
+        "close": "905.2",
+        "volume": "16514",
+        "turnover": "14868300.7"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "MISMATCH",
+        "low_vs_external": "MISMATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "RFPL",
+      "stock_id": 8066,
+      "trade_count": 1190,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 723,
+        "low": 682,
+        "close": "UNKNOWN",
+        "volume": 147726,
+        "turnover": 102137099.3
+      },
+      "canonical": {
+        "open": "723.00",
+        "high": "723.00",
+        "low": "682.00",
+        "close": "691.39",
+        "volume": "147726"
+      },
+      "external": {
+        "open": "723",
+        "high": "723",
+        "low": "682",
+        "close": "691.89",
+        "volume": "147726",
+        "turnover": "102137099.3"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "SANIMA",
+      "stock_id": 171,
+      "trade_count": 823,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 383,
+        "low": 371.3,
+        "close": "UNKNOWN",
+        "volume": 247302,
+        "turnover": 93133053.5
+      },
+      "canonical": {
+        "open": "380.00",
+        "high": "383.00",
+        "low": "371.30",
+        "close": "376.59",
+        "volume": "247302"
+      },
+      "external": {
+        "open": "380",
+        "high": "383",
+        "low": "371.3",
+        "close": "379.61",
+        "volume": "247302",
+        "turnover": "93133053.5"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "SANVI",
+      "stock_id": 9263,
+      "trade_count": 265,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 699.1,
+        "low": 648,
+        "close": "UNKNOWN",
+        "volume": 2644,
+        "turnover": 1847131.8
+      },
+      "canonical": {
+        "open": "648.00",
+        "high": "699.10",
+        "low": "648.00",
+        "close": "698.62",
+        "volume": "2644"
+      },
+      "external": {
+        "open": "648",
+        "high": "699.1",
+        "low": "648",
+        "close": "699.1",
+        "volume": "2644",
+        "turnover": "1847131.8"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "SARBTM",
+      "stock_id": 9242,
+      "trade_count": 772,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 970.9,
+        "low": 913.1,
+        "close": "UNKNOWN",
+        "volume": 112291,
+        "turnover": 106280686.7
+      },
+      "canonical": {
+        "open": "941.00",
+        "high": "970.90",
+        "low": "922.00",
+        "close": "946.48",
+        "volume": "112291"
+      },
+      "external": {
+        "open": "941",
+        "high": "970.9",
+        "low": "922",
+        "close": "964.95",
+        "volume": "112291",
+        "turnover": "106280686.7"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "MISMATCH",
+        "low_vs_external": "MISMATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "SBI",
+      "stock_id": 135,
+      "trade_count": 270,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 435,
+        "low": 422,
+        "close": "UNKNOWN",
+        "volume": 131139,
+        "turnover": 55955147.4
+      },
+      "canonical": {
+        "open": "432.10",
+        "high": "435.00",
+        "low": "424.00",
+        "close": "426.68",
+        "volume": "131139"
+      },
+      "external": {
+        "open": "432.1",
+        "high": "435",
+        "low": "424",
+        "close": "433.28",
+        "volume": "131139",
+        "turnover": "55955147.4"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "MISMATCH",
+        "low_vs_external": "MISMATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "SBL",
+      "stock_id": 145,
+      "trade_count": 473,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 391,
+        "low": 380.1,
+        "close": "UNKNOWN",
+        "volume": 279454,
+        "turnover": 107642349.3
+      },
+      "canonical": {
+        "open": "380.10",
+        "high": "391.00",
+        "low": "380.10",
+        "close": "385.18",
+        "volume": "279454"
+      },
+      "external": {
+        "open": "380.1",
+        "high": "391",
+        "low": "380.1",
+        "close": "389.66",
+        "volume": "279454",
+        "turnover": "107642349.3"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "SCB",
+      "stock_id": 133,
+      "trade_count": 345,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 664,
+        "low": 644.2,
+        "close": "UNKNOWN",
+        "volume": 42716,
+        "turnover": 28136593.1
+      },
+      "canonical": {
+        "open": "660.10",
+        "high": "664.00",
+        "low": "657.00",
+        "close": "658.69",
+        "volume": "42716"
+      },
+      "external": {
+        "open": "660.1",
+        "high": "664",
+        "low": "657",
+        "close": "661.91",
+        "volume": "42716",
+        "turnover": "28136593.1"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "MISMATCH",
+        "low_vs_external": "MISMATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "SGHC",
+      "stock_id": 8100,
+      "trade_count": 407,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 476,
+        "low": 443,
+        "close": "UNKNOWN",
+        "volume": 46408,
+        "turnover": 21272610.8
+      },
+      "canonical": {
+        "open": "470.00",
+        "high": "476.00",
+        "low": "443.00",
+        "close": "458.38",
+        "volume": "46408"
+      },
+      "external": {
+        "open": "470",
+        "high": "476",
+        "low": "443",
+        "close": "468.06",
+        "volume": "46408",
+        "turnover": "21272610.8"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "SHLB",
+      "stock_id": 8132,
+      "trade_count": 51,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 2075,
+        "low": 2035,
+        "close": "UNKNOWN",
+        "volume": 1961,
+        "turnover": 4015869.1
+      },
+      "canonical": {
+        "open": "2041.40",
+        "high": "2075.00",
+        "low": "2035.00",
+        "close": "2047.89",
+        "volume": "1961"
+      },
+      "external": {
+        "open": "2041.4",
+        "high": "2075",
+        "low": "2035",
+        "close": "2067.5",
+        "volume": "1961",
+        "turnover": "4015869.1"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "SIKLES",
+      "stock_id": 8126,
+      "trade_count": 88,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 963,
+        "low": 925.4,
+        "close": "UNKNOWN",
+        "volume": 3706,
+        "turnover": 3487871
+      },
+      "canonical": {
+        "open": "925.40",
+        "high": "963.00",
+        "low": "925.40",
+        "close": "941.14",
+        "volume": "3706"
+      },
+      "external": {
+        "open": "925.4",
+        "high": "963",
+        "low": "925.4",
+        "close": "948.37",
+        "volume": "3706",
+        "turnover": "3487871"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "SMH",
+      "stock_id": 9148,
+      "trade_count": 72,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 918,
+        "low": 869,
+        "close": "UNKNOWN",
+        "volume": 3865,
+        "turnover": 3470926.7
+      },
+      "canonical": {
+        "open": "901.00",
+        "high": "918.00",
+        "low": "869.00",
+        "close": "898.06",
+        "volume": "3865"
+      },
+      "external": {
+        "open": "901",
+        "high": "918",
+        "low": "869",
+        "close": "913.83",
+        "volume": "3865",
+        "turnover": "3470926.7"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "SMHL",
+      "stock_id": 9146,
+      "trade_count": 714,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 1138,
+        "low": 1031,
+        "close": "UNKNOWN",
+        "volume": 102767,
+        "turnover": 113819513.3
+      },
+      "canonical": {
+        "open": "1031.00",
+        "high": "1138.00",
+        "low": "1031.00",
+        "close": "1107.54",
+        "volume": "102767"
+      },
+      "external": {
+        "open": "1031",
+        "high": "1138",
+        "low": "1031",
+        "close": "1131.03",
+        "volume": "102767",
+        "turnover": "113819513.3"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "SNLI",
+      "stock_id": 9201,
+      "trade_count": 1135,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 523,
+        "low": 499.9,
+        "close": "UNKNOWN",
+        "volume": 51250,
+        "turnover": 26305958.6
+      },
+      "canonical": {
+        "open": "520.00",
+        "high": "523.00",
+        "low": "510.00",
+        "close": "513.35",
+        "volume": "51250"
+      },
+      "external": {
+        "open": "520",
+        "high": "523",
+        "low": "510",
+        "close": "514.35",
+        "volume": "51250",
+        "turnover": "26305958.6"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "MISMATCH",
+        "low_vs_external": "MISMATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "SPC",
+      "stock_id": 8025,
+      "trade_count": 416,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 582,
+        "low": 545,
+        "close": "UNKNOWN",
+        "volume": 61954,
+        "turnover": 34599034.7
+      },
+      "canonical": {
+        "open": "547.00",
+        "high": "582.00",
+        "low": "545.00",
+        "close": "558.46",
+        "volume": "61954"
+      },
+      "external": {
+        "open": "547",
+        "high": "582",
+        "low": "545",
+        "close": "569.27",
+        "volume": "61954",
+        "turnover": "34599034.7"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "SPHL",
+      "stock_id": 8121,
+      "trade_count": 117,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 698,
+        "low": 665,
+        "close": "UNKNOWN",
+        "volume": 8823,
+        "turnover": 5941685.5
+      },
+      "canonical": {
+        "open": "675.00",
+        "high": "698.00",
+        "low": "665.00",
+        "close": "673.43",
+        "volume": "8823"
+      },
+      "external": {
+        "open": "675",
+        "high": "698",
+        "low": "665",
+        "close": "680.75",
+        "volume": "8823",
+        "turnover": "5941685.5"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "SPL",
+      "stock_id": 9147,
+      "trade_count": 159,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 965,
+        "low": 925,
+        "close": "UNKNOWN",
+        "volume": 11714,
+        "turnover": 11027199.3
+      },
+      "canonical": {
+        "open": "950.00",
+        "high": "965.00",
+        "low": "925.00",
+        "close": "941.36",
+        "volume": "11714"
+      },
+      "external": {
+        "open": "950",
+        "high": "965",
+        "low": "925",
+        "close": "948.51",
+        "volume": "11714",
+        "turnover": "11027199.3"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "SRLI",
+      "stock_id": 5982,
+      "trade_count": 1031,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 433,
+        "low": 412.1,
+        "close": "UNKNOWN",
+        "volume": 112041,
+        "turnover": 47533396.3
+      },
+      "canonical": {
+        "open": "425.00",
+        "high": "433.00",
+        "low": "419.00",
+        "close": "424.25",
+        "volume": "112041"
+      },
+      "external": {
+        "open": "425",
+        "high": "433",
+        "low": "419",
+        "close": "429.25",
+        "volume": "112041",
+        "turnover": "47533396.3"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "MISMATCH",
+        "low_vs_external": "MISMATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "TAMOR",
+      "stock_id": 9156,
+      "trade_count": 439,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 547,
+        "low": 532.2,
+        "close": "UNKNOWN",
+        "volume": 35924,
+        "turnover": 19424489.4
+      },
+      "canonical": {
+        "open": "540.00",
+        "high": "547.00",
+        "low": "535.00",
+        "close": "540.71",
+        "volume": "35924"
+      },
+      "external": {
+        "open": "540",
+        "high": "547",
+        "low": "535",
+        "close": "544.38",
+        "volume": "35924",
+        "turnover": "19424489.4"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "MISMATCH",
+        "low_vs_external": "MISMATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "TPC",
+      "stock_id": 8022,
+      "trade_count": 213,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 408,
+        "low": 392,
+        "close": "UNKNOWN",
+        "volume": 33305,
+        "turnover": 13363232.9
+      },
+      "canonical": {
+        "open": "399.00",
+        "high": "408.00",
+        "low": "395.00",
+        "close": "401.24",
+        "volume": "33305"
+      },
+      "external": {
+        "open": "399",
+        "high": "408",
+        "low": "395",
+        "close": "404.63",
+        "volume": "33305",
+        "turnover": "13363232.9"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "MISMATCH",
+        "low_vs_external": "MISMATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "TSHL",
+      "stock_id": 9194,
+      "trade_count": 158,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 895.8,
+        "low": 855,
+        "close": "UNKNOWN",
+        "volume": 9428,
+        "turnover": 8189440.7
+      },
+      "canonical": {
+        "open": "862.20",
+        "high": "895.80",
+        "low": "855.00",
+        "close": "868.62",
+        "volume": "9428"
+      },
+      "external": {
+        "open": "862.2",
+        "high": "895.8",
+        "low": "855",
+        "close": "870.37",
+        "volume": "9428",
+        "turnover": "8189440.7"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "TTL",
+      "stock_id": 9262,
+      "trade_count": 124,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 784.3,
+        "low": 715,
+        "close": "UNKNOWN",
+        "volume": 1223,
+        "turnover": 955108.9
+      },
+      "canonical": {
+        "open": "715.00",
+        "high": "784.30",
+        "low": "715.00",
+        "close": "780.94",
+        "volume": "1223"
+      },
+      "external": {
+        "open": "715",
+        "high": "784.3",
+        "low": "715",
+        "close": "784.3",
+        "volume": "1223",
+        "turnover": "955108.9"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "TVCL",
+      "stock_id": 9218,
+      "trade_count": 195,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 520,
+        "low": 500,
+        "close": "UNKNOWN",
+        "volume": 19264,
+        "turnover": 9736417.8
+      },
+      "canonical": {
+        "open": "520.00",
+        "high": "520.00",
+        "low": "500.00",
+        "close": "505.42",
+        "volume": "19264"
+      },
+      "external": {
+        "open": "520",
+        "high": "520",
+        "low": "500",
+        "close": "508.2",
+        "volume": "19264",
+        "turnover": "9736417.8"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "UHEWA",
+      "stock_id": 8099,
+      "trade_count": 283,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 630,
+        "low": 616,
+        "close": "UNKNOWN",
+        "volume": 26956,
+        "turnover": 16769208.4
+      },
+      "canonical": {
+        "open": "625.00",
+        "high": "630.00",
+        "low": "616.00",
+        "close": "622.09",
+        "volume": "26956"
+      },
+      "external": {
+        "open": "625",
+        "high": "630",
+        "low": "616",
+        "close": "619.37",
+        "volume": "26956",
+        "turnover": "16769208.4"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "ULBSL",
+      "stock_id": 8063,
+      "trade_count": 54,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 3590,
+        "low": 3441.8,
+        "close": "UNKNOWN",
+        "volume": 1481,
+        "turnover": 5270982.7
+      },
+      "canonical": {
+        "open": "3545.92",
+        "high": "3590.00",
+        "low": "3511.00",
+        "close": "3560.91",
+        "volume": "1481"
+      },
+      "external": {
+        "open": "3545.92",
+        "high": "3590",
+        "low": "3511",
+        "close": "3536.8",
+        "volume": "1481",
+        "turnover": "5270982.7"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "MISMATCH",
+        "low_vs_external": "MISMATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "UNLB",
+      "stock_id": 9140,
+      "trade_count": 129,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 2349,
+        "low": 2236,
+        "close": "UNKNOWN",
+        "volume": 4163,
+        "turnover": 9554688
+      },
+      "canonical": {
+        "open": "2334.00",
+        "high": "2349.00",
+        "low": "2279.40",
+        "close": "2295.40",
+        "volume": "4163"
+      },
+      "external": {
+        "open": "2334",
+        "high": "2349",
+        "low": "2279.4",
+        "close": "2281.84",
+        "volume": "4163",
+        "turnover": "9554688"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "MISMATCH",
+        "low_vs_external": "MISMATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "USHEC",
+      "stock_id": 8104,
+      "trade_count": 423,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 560,
+        "low": 529,
+        "close": "UNKNOWN",
+        "volume": 52099,
+        "turnover": 28281162.7
+      },
+      "canonical": {
+        "open": "557.00",
+        "high": "560.00",
+        "low": "529.00",
+        "close": "542.83",
+        "volume": "52099"
+      },
+      "external": {
+        "open": "557",
+        "high": "560",
+        "low": "529",
+        "close": "546.41",
+        "volume": "52099",
+        "turnover": "28281162.7"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    },
+    {
+      "date": "2025-07-28",
+      "symbol": "USHL",
+      "stock_id": 9192,
+      "trade_count": 96,
+      "reconstructed": {
+        "open": "UNKNOWN",
+        "high": 710,
+        "low": 675,
+        "close": "UNKNOWN",
+        "volume": 6337,
+        "turnover": 4337318
+      },
+      "canonical": {
+        "open": "688.60",
+        "high": "710.00",
+        "low": "675.00",
+        "close": "684.44",
+        "volume": "6337"
+      },
+      "external": {
+        "open": "688.6",
+        "high": "710",
+        "low": "675",
+        "close": "699.29",
+        "volume": "6337",
+        "turnover": "4337318"
+      },
+      "comparison": {
+        "open_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "open_vs_external": "UNKNOWN_TIME_MISSING",
+        "high_vs_canonical": "EXACT_MATCH",
+        "high_vs_external": "EXACT_MATCH",
+        "low_vs_canonical": "EXACT_MATCH",
+        "low_vs_external": "EXACT_MATCH",
+        "close_vs_canonical": "UNKNOWN_TIME_MISSING",
+        "close_vs_external": "UNKNOWN_TIME_MISSING",
+        "volume_vs_canonical": "EXACT_MATCH",
+        "volume_vs_external": "EXACT_MATCH",
+        "turnover_vs_canonical": "UNAVAILABLE",
+        "turnover_vs_external": "EXACT_MATCH"
+      },
+      "disposition": "CONFLICT_UNRESOLVED_PRIMARY_PENDING"
+    }
+  ]
+}

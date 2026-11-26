@@ -1,0 +1,536 @@
+{
+  "title": "NEPSE official holiday API capture mirror index",
+  "task": "P4.27",
+  "source_repository": "jaljala044/nepse-elite-ai-scanner-pro",
+  "immutable_source_commit": "39747bd2ade2bdb59ef7665f454bcbc04b3060df",
+  "source_prefix": "data/evidence/raw/nepse/holiday-api-authenticated/",
+  "capture_date_utc": "2026-11-25",
+  "annual_captures": [
+    {
+      "year": 2015,
+      "source_directory": "2015-11-25",
+      "files": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 84,
+          "git_blob_sha": "ee0162fb092a1811942b8d3a5c5ed7a3596d3e1c",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2015-11-25/SHA256SUMS"
+        },
+        {
+          "name": "capture-report.json",
+          "size_bytes": 691,
+          "git_blob_sha": "9c5b70ab4ee3a788a8c1047bdbfe8db97d9bd2fe",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2015-11-25/capture-report.json"
+        },
+        {
+          "name": "parsed-response.json",
+          "size_bytes": 8784,
+          "git_blob_sha": "990df1f1bd899893d36421d9be0b3bb04a9aca0f",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2015-11-25/parsed-response.json"
+        },
+        {
+          "name": "response-body.bin",
+          "size_bytes": 6838,
+          "git_blob_sha": "95b253cfa09b07cab97fb800cfe15ddc207f3b14",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2015-11-25/response-body.bin"
+        },
+        {
+          "name": "response-headers.json",
+          "size_bytes": 113,
+          "git_blob_sha": "38a832bb69779ef74b790675536d10a1ac242bb6",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2015-11-25/response-headers.json"
+        },
+        {
+          "name": "source-url.txt",
+          "size_bytes": 58,
+          "git_blob_sha": "eff4c8103393656d10b942289d58781b2233be7c",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2015-11-25/source-url.txt"
+        }
+      ]
+    },
+    {
+      "year": 2016,
+      "source_directory": "2016-11-25",
+      "files": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 84,
+          "git_blob_sha": "ef9ba7cc5eea81e0ef25c2aaf8c4b9ca0dfc2544",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2016-11-25/SHA256SUMS"
+        },
+        {
+          "name": "capture-report.json",
+          "size_bytes": 691,
+          "git_blob_sha": "c660c27b52e214bf37b04fbcee5eefc4378811a3",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2016-11-25/capture-report.json"
+        },
+        {
+          "name": "parsed-response.json",
+          "size_bytes": 5141,
+          "git_blob_sha": "404deb1af5304dda1dbddf5ca4c1d799a6a481b1",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2016-11-25/parsed-response.json"
+        },
+        {
+          "name": "response-body.bin",
+          "size_bytes": 3951,
+          "git_blob_sha": "621608dfdbcd7ffa7109ccc0a469d22dc7729ea5",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2016-11-25/response-body.bin"
+        },
+        {
+          "name": "response-headers.json",
+          "size_bytes": 113,
+          "git_blob_sha": "7c69f44accbb0c7a416213c740e06c73da18fc27",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2016-11-25/response-headers.json"
+        },
+        {
+          "name": "source-url.txt",
+          "size_bytes": 58,
+          "git_blob_sha": "f4b1f4677434315c6f1c909d2353a8d8e4f4fbe5",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2016-11-25/source-url.txt"
+        }
+      ]
+    },
+    {
+      "year": 2017,
+      "source_directory": "2017-11-25",
+      "files": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 84,
+          "git_blob_sha": "6c4e6e06164587a559d6b282ad35b1ab468bda66",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2017-11-25/SHA256SUMS"
+        },
+        {
+          "name": "capture-report.json",
+          "size_bytes": 691,
+          "git_blob_sha": "7452082efbae1285bde505e779a353b744d2ec2b",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2017-11-25/capture-report.json"
+        },
+        {
+          "name": "parsed-response.json",
+          "size_bytes": 5982,
+          "git_blob_sha": "d3fdbf1b91112264ba33aea6f040d46e3c6c96a5",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2017-11-25/parsed-response.json"
+        },
+        {
+          "name": "response-body.bin",
+          "size_bytes": 4612,
+          "git_blob_sha": "c839fdb44f7b188dab787cdd1b8bbfa132975e2f",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2017-11-25/response-body.bin"
+        },
+        {
+          "name": "response-headers.json",
+          "size_bytes": 113,
+          "git_blob_sha": "e15057e67da0c7e7e3e18b839d6f122e29ff2811",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2017-11-25/response-headers.json"
+        },
+        {
+          "name": "source-url.txt",
+          "size_bytes": 58,
+          "git_blob_sha": "a5ab2301ebad31a265894021ec19037f31f7b897",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2017-11-25/source-url.txt"
+        }
+      ]
+    },
+    {
+      "year": 2018,
+      "source_directory": "2018-11-25",
+      "files": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 84,
+          "git_blob_sha": "446e6ee08b9fb614ea33876444402ca8be60c7ad",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2018-11-25/SHA256SUMS"
+        },
+        {
+          "name": "capture-report.json",
+          "size_bytes": 691,
+          "git_blob_sha": "b4d0cfdb086edc8abd9b47c83dac55329ccd38c7",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2018-11-25/capture-report.json"
+        },
+        {
+          "name": "parsed-response.json",
+          "size_bytes": 4535,
+          "git_blob_sha": "23f906028f27ed871a8309f38f6d10d106b281f1",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2018-11-25/parsed-response.json"
+        },
+        {
+          "name": "response-body.bin",
+          "size_bytes": 3489,
+          "git_blob_sha": "7aac85c766aef157bc4776f5d19828ca5e48d48b",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2018-11-25/response-body.bin"
+        },
+        {
+          "name": "response-headers.json",
+          "size_bytes": 113,
+          "git_blob_sha": "8306576ad70dc531f7150141386638814fb9e603",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2018-11-25/response-headers.json"
+        },
+        {
+          "name": "source-url.txt",
+          "size_bytes": 58,
+          "git_blob_sha": "152d60b36fb79c841571cabde2283ece2cf2ca9c",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2018-11-25/source-url.txt"
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "source_directory": "2019-11-25",
+      "files": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 84,
+          "git_blob_sha": "a8c8b1063c210b43fcbb9f991a8006c395c4334f",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2019-11-25/SHA256SUMS"
+        },
+        {
+          "name": "capture-report.json",
+          "size_bytes": 691,
+          "git_blob_sha": "d7a171cbe93e896f2a90c75c0e63acd18d152ecd",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2019-11-25/capture-report.json"
+        },
+        {
+          "name": "parsed-response.json",
+          "size_bytes": 3455,
+          "git_blob_sha": "175a1533068773f468e36a8d6993f5c548688dae",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2019-11-25/parsed-response.json"
+        },
+        {
+          "name": "response-body.bin",
+          "size_bytes": 2661,
+          "git_blob_sha": "5631d93f04227150382846137d4a71c62a34d8b2",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2019-11-25/response-body.bin"
+        },
+        {
+          "name": "response-headers.json",
+          "size_bytes": 113,
+          "git_blob_sha": "4282eb8ab51427c0e343c87a22e9221245c8d5a5",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2019-11-25/response-headers.json"
+        },
+        {
+          "name": "source-url.txt",
+          "size_bytes": 58,
+          "git_blob_sha": "959908a8a2ee7dbb46bf0aab9fcaf39ea7bfe559",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2019-11-25/source-url.txt"
+        }
+      ]
+    },
+    {
+      "year": 2020,
+      "source_directory": "2020-11-25",
+      "files": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 84,
+          "git_blob_sha": "b66a7f1b019c747d7aecf9199aec7ed2c0e1938a",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2020-11-25/SHA256SUMS"
+        },
+        {
+          "name": "capture-report.json",
+          "size_bytes": 693,
+          "git_blob_sha": "5b7ead6d7d129f32c0330eda36398712ec05cd2f",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2020-11-25/capture-report.json"
+        },
+        {
+          "name": "parsed-response.json",
+          "size_bytes": 16541,
+          "git_blob_sha": "cb92713beacbc9a2e0fe38c9e301d132395a9e28",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2020-11-25/parsed-response.json"
+        },
+        {
+          "name": "response-body.bin",
+          "size_bytes": 12903,
+          "git_blob_sha": "3f9e8cdd744ce00702fa4441d9dcdab670334d8c",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2020-11-25/response-body.bin"
+        },
+        {
+          "name": "response-headers.json",
+          "size_bytes": 113,
+          "git_blob_sha": "67d2b0b0302a2a4675138eb3f0c5fed0be77961c",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2020-11-25/response-headers.json"
+        },
+        {
+          "name": "source-url.txt",
+          "size_bytes": 58,
+          "git_blob_sha": "95212c287a9162d6748bf1dffb926a244e703a2a",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2020-11-25/source-url.txt"
+        }
+      ]
+    },
+    {
+      "year": 2021,
+      "source_directory": "2021-11-25",
+      "files": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 84,
+          "git_blob_sha": "c907058452a7d378dd5f3549c495037fb798a0dc",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2021-11-25/SHA256SUMS"
+        },
+        {
+          "name": "capture-report.json",
+          "size_bytes": 691,
+          "git_blob_sha": "b43217574529f17ae1a139672d0abb00285341d5",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2021-11-25/capture-report.json"
+        },
+        {
+          "name": "parsed-response.json",
+          "size_bytes": 3873,
+          "git_blob_sha": "343bbfc9c655b7c928126224c4cb4a6d3d3f2d4c",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2021-11-25/parsed-response.json"
+        },
+        {
+          "name": "response-body.bin",
+          "size_bytes": 2971,
+          "git_blob_sha": "64d054cf831b01d4ba631116829cdd84ca8da60a",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2021-11-25/response-body.bin"
+        },
+        {
+          "name": "response-headers.json",
+          "size_bytes": 113,
+          "git_blob_sha": "60590a2c0952a9f3ae3c06c675781e466c91d9a9",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2021-11-25/response-headers.json"
+        },
+        {
+          "name": "source-url.txt",
+          "size_bytes": 58,
+          "git_blob_sha": "6cf36e12df0d910cc6598bb7900993bf2fa1d6e4",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2021-11-25/source-url.txt"
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "source_directory": "2022-11-25",
+      "files": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 84,
+          "git_blob_sha": "016bfbaae6deb286966dc48b870b4a0352883002",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2022-11-25/SHA256SUMS"
+        },
+        {
+          "name": "capture-report.json",
+          "size_bytes": 691,
+          "git_blob_sha": "a0a7f77239a38ea0decffd8c7f247dbcc92041af",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2022-11-25/capture-report.json"
+        },
+        {
+          "name": "parsed-response.json",
+          "size_bytes": 5616,
+          "git_blob_sha": "f472b18ae93d557df2be7900c79bb6288530adc0",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2022-11-25/parsed-response.json"
+        },
+        {
+          "name": "response-body.bin",
+          "size_bytes": 4318,
+          "git_blob_sha": "497298a9fce117ebd11bf487f7505f15a6ecc475",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2022-11-25/response-body.bin"
+        },
+        {
+          "name": "response-headers.json",
+          "size_bytes": 113,
+          "git_blob_sha": "9a90df38ce4e4499f14896ed9b94133894f2beec",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2022-11-25/response-headers.json"
+        },
+        {
+          "name": "source-url.txt",
+          "size_bytes": 58,
+          "git_blob_sha": "2a3b92362f807dfb7aa5b057bff61c4b57b72c00",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2022-11-25/source-url.txt"
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "source_directory": "2023-11-25",
+      "files": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 84,
+          "git_blob_sha": "cadd5faae4f2145a92a7a2388aa42f8982dcb6e1",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2023-11-25/SHA256SUMS"
+        },
+        {
+          "name": "capture-report.json",
+          "size_bytes": 691,
+          "git_blob_sha": "c569fbdb1d6b7c801c5c39a562064880f280c577",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2023-11-25/capture-report.json"
+        },
+        {
+          "name": "parsed-response.json",
+          "size_bytes": 5789,
+          "git_blob_sha": "4e1e73dbd94cedb20ff1e8c1c48d945825d5c378",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2023-11-25/parsed-response.json"
+        },
+        {
+          "name": "response-body.bin",
+          "size_bytes": 4455,
+          "git_blob_sha": "7406d32413bfa6f4438d36877e35f5191f55f52d",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2023-11-25/response-body.bin"
+        },
+        {
+          "name": "response-headers.json",
+          "size_bytes": 113,
+          "git_blob_sha": "fdbe410cb269a96238fcc959ce6640dddb798663",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2023-11-25/response-headers.json"
+        },
+        {
+          "name": "source-url.txt",
+          "size_bytes": 58,
+          "git_blob_sha": "0c20c57b5e13cfd3a2be93edfffaf9a01eeabd0f",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2023-11-25/source-url.txt"
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "source_directory": "2024-11-25",
+      "files": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 84,
+          "git_blob_sha": "25aa4f16470289a40172cdd8994ef269afbd3304",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2024-11-25/SHA256SUMS"
+        },
+        {
+          "name": "capture-report.json",
+          "size_bytes": 691,
+          "git_blob_sha": "cb45b5ef410a6fd539405a99ec407013135ef702",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2024-11-25/capture-report.json"
+        },
+        {
+          "name": "parsed-response.json",
+          "size_bytes": 5800,
+          "git_blob_sha": "11cc87afa48a317877c7178646e87c74615ce765",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2024-11-25/parsed-response.json"
+        },
+        {
+          "name": "response-body.bin",
+          "size_bytes": 4466,
+          "git_blob_sha": "a0d357077322df94ab040bb184ab8a7adfe49906",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2024-11-25/response-body.bin"
+        },
+        {
+          "name": "response-headers.json",
+          "size_bytes": 113,
+          "git_blob_sha": "b1f7f6f4fd2dd2494ad3ae7e93730fa008f9dece",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2024-11-25/response-headers.json"
+        },
+        {
+          "name": "source-url.txt",
+          "size_bytes": 58,
+          "git_blob_sha": "02941eb4ef0a3f528e0a17f3e137499c4d58aaf1",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2024-11-25/source-url.txt"
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "source_directory": "2025-11-25",
+      "files": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 84,
+          "git_blob_sha": "79574cfc7cf2d6131c1b43b2a3817c09b268eecf",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2025-11-25/SHA256SUMS"
+        },
+        {
+          "name": "capture-report.json",
+          "size_bytes": 691,
+          "git_blob_sha": "f9484e8f261c5a1312908a578ef598371577bbcc",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2025-11-25/capture-report.json"
+        },
+        {
+          "name": "parsed-response.json",
+          "size_bytes": 7201,
+          "git_blob_sha": "8bfecadb8b400c89324e52a342dbad539a78cd57",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2025-11-25/parsed-response.json"
+        },
+        {
+          "name": "response-body.bin",
+          "size_bytes": 5543,
+          "git_blob_sha": "ea0efe55f9b57b21e1e4170605f2a7b5b16bcb02",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2025-11-25/response-body.bin"
+        },
+        {
+          "name": "response-headers.json",
+          "size_bytes": 113,
+          "git_blob_sha": "bc2c9f96ca2466b10e0a8447b77dd17c9cb2a107",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2025-11-25/response-headers.json"
+        },
+        {
+          "name": "source-url.txt",
+          "size_bytes": 58,
+          "git_blob_sha": "3f0b9fb6ed3fd41fc8aff2f5baeeb29322ed7342",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2025-11-25/source-url.txt"
+        }
+      ]
+    },
+    {
+      "year": 2026,
+      "source_directory": "2026-11-25",
+      "files": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 84,
+          "git_blob_sha": "7b6011a95c8f7093abde5afc8b5276641c1a3333",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2026-11-25/SHA256SUMS"
+        },
+        {
+          "name": "capture-report.json",
+          "size_bytes": 691,
+          "git_blob_sha": "668897d9acaaacbf00b7a211598413f763635a97",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2026-11-25/capture-report.json"
+        },
+        {
+          "name": "parsed-response.json",
+          "size_bytes": 6410,
+          "git_blob_sha": "22746b9ee8a2c36e49372e71786c8fa8e7a99ed9",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2026-11-25/parsed-response.json"
+        },
+        {
+          "name": "response-body.bin",
+          "size_bytes": 4932,
+          "git_blob_sha": "03197e9b9416f1d1bfc8aab0667fccd76532c712",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2026-11-25/response-body.bin"
+        },
+        {
+          "name": "response-headers.json",
+          "size_bytes": 113,
+          "git_blob_sha": "57665f349933df6d7a345c0a991971c609ea1949",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2026-11-25/response-headers.json"
+        },
+        {
+          "name": "source-url.txt",
+          "size_bytes": 58,
+          "git_blob_sha": "44d21a11212c23088a9b1ca76e3b002a3e3899c4",
+          "url": "https://raw.githubusercontent.com/jaljala044/nepse-elite-ai-scanner-pro/39747bd2ade2bdb59ef7665f454bcbc04b3060df/data/evidence/raw/nepse/holiday-api-authenticated/2026-11-25/source-url.txt"
+        }
+      ]
+    }
+  ],
+  "audit_summary": {
+    "http_200_years": 12,
+    "total_records": 499,
+    "unique_dates": 498,
+    "duplicate_date": "2020-04-13",
+    "capture_integrity_failures": 0,
+    "caveats": [
+      "instrumentTypeId and activeStatus are null in captured records",
+      "annual completeness uncertain for 2018 and 2019",
+      "2020-04-13 has two distinct closure reasons",
+      "absence from holiday API is not proof of an open session",
+      "do not promote records into canonical session calendar until annual scope and exceptions are reviewed"
+    ]
+  },
+  "calendar_616_recovery": {
+    "exact_date_list_recovered": false,
+    "reported_count": 616,
+    "independently_reproduced": false,
+    "confirmed_sessions_promoted": 0,
+    "required_next_step": "recover original extraction script/configuration and pinned calendar from workflow artifacts, PR attachments, forks, backups or operator workspace"
+  },
+  "verification_note": "This manifest indexes immutable upstream Git blobs by commit and blob SHA. Raw payloads have not yet been copied into this repository."
+}

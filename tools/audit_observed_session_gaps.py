@@ -66,6 +66,7 @@ def audit_symbol(symbol, observed_dates, ohlcv_dir):
             "invalid_date_row_count": 0, "positive_volume_date_count": 0,
             "first_observed_date": "", "last_observed_date": "",
             "classification": "ARCHIVE_GAP_REVIEW_REQUIRED",
+            "missing_dates": sorted(observed),
         }
     with path.open(newline="", encoding="utf-8-sig") as handle:
         reader = csv.DictReader(handle)
@@ -95,6 +96,7 @@ def audit_symbol(symbol, observed_dates, ohlcv_dir):
         "first_observed_date": min(present) if present else "",
         "last_observed_date": max(present) if present else "",
         "classification": "ARCHIVE_GAP_REVIEW_REQUIRED" if missing or duplicate_count or counts["invalid"] else "OBSERVATIONS_COMPLETE_FOR_SAMPLE_ONLY",
+        "missing_dates": sorted(missing),
     }
 
 
@@ -105,21 +107,34 @@ def main():
     parser.add_argument("--ohlcv-dir", type=Path, required=True)
     parser.add_argument("--expected-symbol-count", type=int, default=281)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--detail-output", type=Path, required=True)
     args = parser.parse_args()
     symbols = load_universe(args.universe, args.expected_symbol_count)
     dates = load_observed_dates(args.calendar)
     rows = [audit_symbol(symbol, dates, args.ohlcv_dir) for symbol in symbols]
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    fields = list(rows[0])
+    fields = [key for key in rows[0] if key != "missing_dates"]
     with args.output.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.DictWriter(handle, fieldnames=fields)
         writer.writeheader()
-        writer.writerows(rows)
+        writer.writerows({key: row[key] for key in fields} for row in rows)
+    args.detail_output.parent.mkdir(parents=True, exist_ok=True)
+    with args.detail_output.open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.DictWriter(handle, fieldnames=["symbol", "observed_date", "gap_type"])
+        writer.writeheader()
+        for row in rows:
+            for missing_date in row["missing_dates"]:
+                writer.writerow({"symbol": row["symbol"], "observed_date": missing_date,
+                                 "gap_type": "OHLCV_ROW_ABSENT_NOT_NO_TRADE"})
     print(f"symbols={len(rows)} observed_market_dates={len(dates)}")
     print("missing_files=" + str(sum(r["file_status"] == "MISSING_FILE" for r in rows)))
     print("symbols_with_archive_gaps=" + str(sum(r["classification"] == "ARCHIVE_GAP_REVIEW_REQUIRED" for r in rows)))
     print("missing_date_cells=" + str(sum(int(r["missing_archive_date_count"]) for r in rows)))
     print("duplicate_date_rows=" + str(sum(int(r["duplicate_date_count"]) for r in rows)))
+    print("top_20_archive_gap_symbols=" + ",".join(
+        f'{r["symbol"]}:{r["missing_archive_date_count"]}'
+        for r in sorted(rows, key=lambda x: (-int(x["missing_archive_date_count"]), x["symbol"]))[:20]
+    ))
     print("IMPORTANT: missing OHLCV rows are archive gaps, not NO_TRADE evidence.")
 
 

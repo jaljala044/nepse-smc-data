@@ -34,6 +34,7 @@ class ObservedSessionGapTests(unittest.TestCase):
         self.write_csv(path, [{"Date": "2026-11-19", "Volume": "100"}], ["Date", "Volume"])
         result = audit_symbol("ABC", ["2026-11-19", "2026-11-20"], self.ohlcv)
         self.assertEqual(result["missing_archive_date_count"], 1)
+        self.assertEqual(result["missing_dates"], ["2026-11-20"])
         self.assertEqual(result["classification"], "ARCHIVE_GAP_REVIEW_REQUIRED")
         self.assertNotIn("NO_TRADE", result["classification"])
 

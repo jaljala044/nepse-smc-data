@@ -1,0 +1,46 @@
+name: P4.24 build 86-row conflict evidence matrix
+on:
+  push:
+    branches:
+      - p424-conflict-matrix-builder
+  pull_request:
+    paths:
+      - 'tools/build_p424_conflict_matrix.py'
+      - 'tools/tests/test_build_p424_conflict_matrix.py'
+      - 'reference/p423_2025-07-28_external_conflict_counterpart_2026-11-26.csv'
+      - '03_stock_charts_ohlcv/*.csv'
+      - '.github/workflows/p424-conflict-matrix.yml'
+permissions:
+  contents: write
+jobs:
+  matrix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run matrix unit tests
+        run: python -m unittest discover -s tools/tests -p 'test_build_p424_conflict_matrix.py' -v
+      - name: Build all 86 row comparisons
+        run: python tools/build_p424_conflict_matrix.py
+      - name: Commit deterministic matrix on task branch
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reference/p424_2025-07-28_conflict_matrix_2026-11-26.csv
+          if ! git diff --cached --quiet; then
+            git commit -m "data(p4.24): publish 86-row conflict evidence matrix"
+            git push
+          fi
+      - name: Upload matrix for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: p424-2025-07-28-conflict-matrix
+          path: reference/p424_2025-07-28_conflict_matrix_2026-11-26.csv
+          retention-days: 90

@@ -49,7 +49,7 @@ class P435AuthenticatedFloorsheetTests(unittest.TestCase):
             return 200,{"Content-Type":"application/json"},json.dumps(response).encode()
         def fake_parser(obj,path):return ("ACCESS_SECRET","REFRESH_SECRET")
         with tempfile.TemporaryDirectory() as tmp:
-            result=capture(tmp,fake,fake_parser,"2026-11-26T00:00:00Z")
+            result=capture(tmp,fake,fake_parser,"2026-11-26T00:00:00Z",include_controls=False)
             saved="".join(p.read_text(errors="ignore") for p in Path(tmp).glob("*.json"))
             self.assertNotIn("ACCESS_SECRET",saved)
             self.assertNotIn("REFRESH_SECRET",saved)
@@ -68,7 +68,7 @@ class P435AuthenticatedFloorsheetTests(unittest.TestCase):
             content=[{"contractId":"1","businessDate":date,"contractQuantity":864,"contractRate":100,"contractAmount":86400}] if date=="2024-05-19" else []
             return 200,{},json.dumps({"floorsheets":{"content":content,"totalPages":1}}).encode()
         with tempfile.TemporaryDirectory() as tmp:
-            result=capture(tmp,fake,lambda obj,path:("A","R"),"2026-11-26T00:00:00Z")
+            result=capture(tmp,fake,lambda obj,path:("A","R"),"2026-11-26T00:00:00Z",include_controls=False)
             self.assertFalse(result["floor_results"][0]["evidence_gate_pass"])
 
     def test_403_retries_utc_day_and_uses_source_clients_page_zero_shape(self):

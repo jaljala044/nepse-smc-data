@@ -37,7 +37,10 @@ def weekday_class(iso_date):
 
 def validate_sample(sectors_csv):
     import csv
-    with Path(sectors_csv).open(newline="",encoding="utf-8-sig") as handle:
+    sector_path=Path(sectors_csv)
+    if not sector_path.exists():
+        sector_path=Path("..")/sector_path
+    with sector_path.open(newline="",encoding="utf-8-sig") as handle:
         mapping={row["symbol"]:row["sector"] for row in csv.DictReader(handle)}
     counts=Counter(sector for sector,_,_ in SAMPLE)
     errors=[]

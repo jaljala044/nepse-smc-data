@@ -44,7 +44,7 @@ Each transaction row is interpreted using the declared columns: `contractId, sto
 - Malformed rows: 0; invalid numeric rows: 0; duplicate contract IDs: 0; duplicate complete rows: 0.
 - Contract-date prefix failures: 0; null field values: 0.
 - Blank timestamps: 170,726.
-- One stock ID in the whole archive is not present in the pinned lookup; it is outside the 86-symbol target set.
+- The archive contains 313 distinct mapped symbols: 86 target symbols and 227 other mapped symbols outside this batch. One additional stock ID (`0`) is absent from the pinned lookup.
 
 ## Disposition
 

@@ -52,7 +52,7 @@ Basic OHLC check: all Open/High/Low/Close/Volume fields must parse as finite num
 2. Each of the nine established-symbol files has 218 rows dated on pre-transition weekly closed days (Friday/Saturday); **all 218 exactly repeat the preceding row's OHLCV**.
 3. Each of those nine files has 25 rows dated on post-transition weekly closed days (Saturday/Sunday); 24 exactly repeat the preceding row.
 4. YMHL has three post-transition closed-day rows, two exact carry-forwards.
-5. One notable exception is ADBL on 2026-07-25 (Saturday): its OHLCV differs from the preceding row, which is dated 2026-07-23. This requires source-level verification; do not classify it as a valid session or delete it based on weekday alone.
+5. One notable exception is ADBL on 2026-07-25 (Saturday): its OHLCV differs from the preceding row, which is dated 2026-07-23. Provider evidence resolves the likely issue: Sun Securities' ADBL price-history page lists **2026-07-24** with O 317, H 321.4, L 316, C 320, Volume 113,909—the exact OHLCV tuple stored in the repository under **2026-07-25**. This is strong evidence of a one-day date-label error in the archive row, not evidence of Saturday trading. Keep the raw row unchanged and correct only in a separately audited derived view after confirming the provider record. Source: https://sunsecurities.com/company/ADBL/price-history
 6. These patterns strongly indicate that the archive contains calendar-day forward-filled rows on weekly closed days. They must not be counted as confirmed trading sessions unless corroborated by accepted provider evidence.
 7. The weekday regime is only the base calendar. Public holidays, special closures, and one-off exchange notices still need a date-by-date exception calendar before expected-session gaps or coverage ratios can be calculated.
 8. This pilot does not yet validate all OHLCV rows against ShareHub, Chukul, ShareSansar, or NepseAlpha.
@@ -60,7 +60,7 @@ Basic OHLC check: all Open/High/Low/Close/Volume fields must parse as finite num
 ## Recommended next actions
 
 - Build the holiday/special-closure exception list from NEPSE notices and accepted provider evidence.
-- Verify the non-carry-forward closed-day exceptions, starting with ADBL 2026-07-25, against provider chart/floorsheet evidence.
+- Record ADBL 2026-07-25 as a likely one-day date-label error: the same OHLCV appears on Sun Securities for 2026-07-24. Preserve the raw row and apply any date correction only in a derived, provenance-tracked view.
 - Keep raw source rows immutable; create a separately labelled eligible-session view rather than deleting or silently rewriting data.
 - Extend this audit to all 281 provisional equity symbols and both repositories.
 - Calculate first/last eligible session, expected-session gaps, per-symbol coverage ratio, and source provenance only after the calendar is approved.

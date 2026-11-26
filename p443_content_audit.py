@@ -31,6 +31,8 @@ def records(raw, fmt):
                 raise ValueError(f"row width mismatch at line {reader.line_num}")
             yield str(reader.line_num), dict(zip(keys, row))
     elif fmt == "json":
+        if not raw.strip():
+            return
         def walk(obj, pointer):
             if isinstance(obj, list):
                 for i, item in enumerate(obj):
@@ -131,6 +133,8 @@ def main():
                 if sha!=entry["git_blob_sha"] or len(raw)!=int(entry["bytes"]):
                     raise ValueError("pinned bytes mismatch")
                 if entry["format"] not in ("csv","csv.gz","json"):
+                elif entry["format"]=="json" and not raw.strip():
+                    result.update(status="empty_capture",records=0)
                     result["status"]="inventory_only"
                 else:
                     count,schemas,findings=scan(raw,entry)

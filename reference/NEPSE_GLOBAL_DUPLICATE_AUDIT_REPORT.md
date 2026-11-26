@@ -3,7 +3,7 @@
 **Status: reproducible audit baseline complete; adjudication and canonical-ingestion acceptance remain open.**
 
 **Pinned input:** `main` at `56362fb4f65b91fdcca8f50b50e53ad80e703649`.  
-**Latest validated workflow:** [Run 90](https://github.com/jaljala044/nepse-smc-data/actions/runs/45893985453), head `1099f8f16878bf25222d54f7d7fbd5e6bf3e3ac5`.  
+**Latest validated workflow:** [Run 104](https://github.com/jaljala044/nepse-smc-data/actions/runs/45894421068), head `c4f2207db7b6baf8d90d27325ea7da9c2b7e5219`.  
 **Method:** deterministic, read-only scan of pinned file blobs. Findings are review flags, not automatic corrections.
 
 ## Coverage
@@ -88,7 +88,7 @@ Preserve all rows. The source capture report reports unique archive-local record
 
 ## Reproducibility and machine-readable outputs
 
-- Workflow and artifacts: [Run 90](https://github.com/jaljala044/nepse-smc-data/actions/runs/45893985453).
+- Workflow and artifacts: [Run 104](https://github.com/jaljala044/nepse-smc-data/actions/runs/45894421068).
 - Standard row-level CSV findings: `NEPSE_GLOBAL_DUPLICATE_AUDIT_FINDINGS.csv`.
 - Per-file scan coverage: `NEPSE_GLOBAL_DUPLICATE_AUDIT_SCAN_SUMMARY.csv`.
 - Strict pinned-byte row-level findings and exception join: preserved in the run's `p443-strict-content-audit` artifact (`findings.jsonl`, `coverage.json`, `summary.json`, `exception_join.csv`, `exception_join_summary.json`).
@@ -96,9 +96,8 @@ Preserve all rows. The source capture report reports unique archive-local record
 ## Acceptance still open
 
 1. Classify the 94,543 repeated adjacent tuples using exact overlap with verified open/closed-session evidence and prior P4.37/P4.42 row-level matrices.
-2. Reconcile the 604 missing-session trade-shaped rows against source filenames, embedded dates, and authoritative session evidence.
-3. Review the two unmatched invalid-OHLCV rows (KDBY and KEF) against existing provenance and exception records.
-4. Complete date-shift/misdated candidate reconciliation across the full 928-file scope, not only the P4.37/P4.42 samples.
-5. Decide whether ingestion quarantine enforcement belongs in a separate implementation issue; do not silently add runtime mutation to this read-only audit PR.
+2. Review the two unmatched invalid-OHLCV rows (KDBY and KEF) against existing provenance and exception records.
+3. Complete date-shift/misdated candidate reconciliation across the full 928-file scope, not only the P4.37/P4.42 samples.
+4. Decide whether ingestion quarantine enforcement belongs in a separate implementation issue; do not silently add runtime mutation to this read-only audit PR.
 
 **P4.43 is not complete.** The audit pipeline and pinned scan now pass; evidence adjudication and final acceptance items remain open. PR #80 remains draft until those items are resolved or explicitly accepted as documented blockers.

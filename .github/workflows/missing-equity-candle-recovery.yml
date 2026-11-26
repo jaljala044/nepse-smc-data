@@ -1,0 +1,31 @@
+name: Missing equity candle recovery
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/missing-equity-candle-recovery.yml'
+      - 'tools/reconcile_missing_equity_candles.py'
+permissions:
+  contents: read
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: srijankarki07/nepse-data
+          ref: 688d59c03915dcee73ecad4230d2083a41c61764
+          path: external-source
+          persist-credentials: false
+          sparse-checkout: data/series
+      - run: python3 tools/reconcile_equity_external_archive.py --root . --external external-source --output reconciliation-output
+      - run: python3 tools/build_market_equity_provisional.py --root . --external external-source --evidence reconciliation-output --output market-derived
+      - run: python3 tools/reconcile_missing_equity_candles.py --root . --external external-source --evidence reconciliation-output --derived market-derived --output recovery-output
+      - uses: actions/upload-artifact@v4
+        with:
+          name: missing-equity-recovery-queue
+          path: recovery-output/

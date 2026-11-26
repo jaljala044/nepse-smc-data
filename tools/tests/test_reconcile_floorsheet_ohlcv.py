@@ -76,6 +76,15 @@ class FloorsheetReconciliationTests(unittest.TestCase):
                                   uri="https://source.example/floorsheet/2026-11-20", digest=digest)
         self.assertEqual(next(r for r in rows if r["symbol"] == "ABC")["trade_status"], "TRADED")
 
+    def test_zero_contract_security_without_ohlcv_bar_can_be_no_trade_only_with_full_evidence(self):
+        (self.ohlcv / "XYZ_OHLCV.csv").write_text("Date,Open,High,Low,Close,Volume\\n", encoding="utf-8")
+        digest = hashlib.sha256(self.floor.read_bytes()).hexdigest()
+        rows = self.run_reconcile(complete="true", evidence="complete-day extract; pagination exhausted; totals reconciled",
+                                  uri="https://source.example/floorsheet/2026-11-20", digest=digest)
+        xyz = next(r for r in rows if r["symbol"] == "XYZ")
+        self.assertEqual(xyz["trade_status"], "NO_TRADE")
+        self.assertEqual(xyz["ohlcv_volume"], "")
+
     def test_closed_session_never_becomes_no_trade(self):
         digest = hashlib.sha256(self.floor.read_bytes()).hexdigest()
         with (self.ohlcv / "XYZ_OHLCV.csv").open("w", newline="") as handle:

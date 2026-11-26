@@ -12,12 +12,12 @@ Inspected the first and last records in the pinned `nepse-history-starter/03_sto
 | SIPD | 2026-04-10 | 140 | 2026-11-20 | Matches published trading commencement (10 Apr). |
 | SKHEL | 2026-03-29 | 80 | 2026-11-20 | Matches reported first special pre-open trade (29 Mar). |
 | RLEL | 2026-03-29 | 190 | 2026-11-20 | Matches reported first special pre-open trade (29 Mar). |
-| SKHL | 2026-03-25 | 90 | 2026-11-20 | Archive first row is one day after the published 24 Mar listing/commencement reference; confirm exact first execution. |
-| BJHL | 2026-03-22 | 80 | 2026-11-20 | Archive boundary requires reconciliation against the published March 19 listing/commencement reference; do not assume intervening trade days. |
-| SOHL | 2026-03-15 | 860 | 2026-11-20 | Archive begins after the 12 Mar listing/commencement reference; confirm exact first executed date. |
-| HFIN | 2026-03-12 | 150 | 2026-11-20 | Archive begins after the 11 Mar listing reference; confirm 12 Mar commencement and first execution. |
-| SABBL | 2026-02-16 | 180 | 2026-11-20 | Archive starts after the 13 Feb listing reference; first execution date requires confirmation. |
-| RSML | 2026-02-16 | 130 | 2026-11-20 | Archive starts after the 13 Feb listing reference; first execution date requires confirmation. |
+| SKHL | 2026-03-25 | 90 | 2026-11-20 | Matches reported first-trading/debut date (25 Mar); secondary-source evidence, not raw floorsheet proof. |
+| BJHL | 2026-03-22 | 80 | 2026-11-20 | Matches reported first-trading/debut date (22 Mar); secondary-source evidence, not raw floorsheet proof. |
+| SOHL | 2026-03-15 | 860 | 2026-11-20 | Matches reported first-trading/debut date (15 Mar); secondary-source evidence, not raw floorsheet proof. |
+| HFIN | 2026-03-12 | 150 | 2026-11-20 | Matches reported first-trading/debut date (12 Mar); secondary-source evidence, not raw floorsheet proof. |
+| SABBL | 2026-02-16 | 180 | 2026-11-20 | Matches reported first-trading/debut date (16 Feb); secondary-source evidence, not raw floorsheet proof. |
+| RSML | 2026-02-16 | 130 | 2026-11-20 | Matches reported first-trading/debut date (16 Feb); secondary-source evidence, not raw floorsheet proof. |
 | UNL | 2024-03-05 | 20 | 2026-11-20 | Long-established issuer but archive begins only in Mar 2024; dedicated historical coverage/source audit required. |
 
 ## External lifecycle evidence located

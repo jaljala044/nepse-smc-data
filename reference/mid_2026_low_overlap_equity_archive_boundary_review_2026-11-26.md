@@ -34,13 +34,18 @@ Inspected the first and last records in the pinned `nepse-history-starter/03_sto
 
 1. PCIL and SIPD archive first rows align with published commencement.
 2. SKHEL/RLEL have direct secondary reports of first pre-open trades on 29 March, matching the archive first rows.
-3. SKHL, BJHL, SOHL, HFIN, SABBL and RSML have first archive rows after published listing or scheduled commencement references. A listing date is not necessarily a first execution date; retain these as boundary-review exceptions pending dated trade evidence.
+3. SKHL, BJHL, SOHL, HFIN, SABBL and RSML have first archive rows aligned with reported first-trading/debut dates in the 2026-11-26 [first-trade boundary reconciliation](first_trade_boundary_reconciliation_2026-11-26.md). The dated reports support actual debut alignment; they are secondary-source lifecycle evidence, not exchange-authenticated raw floorsheets.
 4. UNL is not a new listing. Its March 2024 archive start is a source-history boundary issue and must not be interpreted as the company's listing date or lifecycle start.
 5. No dates/rows were inserted, deleted, or normalized. No zero-volume candles were created. No canonical/training promotion.
 
 ## Next actions
 
-- Preserve dated secondary evidence for the six reconciled debut dates; obtain exchange/floorsheet raw records if the stronger evidence tier is required.
-- Confirm no-trade vs archive omission on intervening sessions; do not infer from weekend/weekday alone.
+- Preserve dated secondary evidence for all ten 2026-start equity boundary reviews; obtain exchange/floorsheet raw records if the stronger evidence tier is required.
+- Confirm no-trade vs archive omission on intervening sessions using symbol-specific trade calendars or daily floorsheet summaries; do not infer from weekday/weekend or a single sampled security.
 - Audit UNL across alternate providers and repository history to identify whether pre-March-2024 OHLCV is available, its provenance, and any missing period.
 - Continue full row-level OHLCV validation across both source archives and all 281 target equities.
+
+
+## Reconciliation addendum — 2026-11-26
+
+The six boundary cases listed in Finding 3 were subsequently reconciled in `first_trade_boundary_reconciliation_2026-11-26.md`: SKHL (25 Mar), BJHL (22 Mar), SOHL (15 Mar), HFIN (12 Mar), SABBL (16 Feb) and RSML (16 Feb). Their archive first positive-volume dates match the reported first-trading/debut dates. The earlier “pending dated trade evidence” wording is superseded for the first-row boundary only. It remains necessary to verify subsequent expected-trade sessions independently. No OHLCV records were changed and no canonical/training promotion was made.

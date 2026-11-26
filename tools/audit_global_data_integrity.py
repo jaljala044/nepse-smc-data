@@ -39,7 +39,7 @@ def read_rows(path):
 
 
 def floorsheet_date_from_filename(path):
-    match = re.search(r"floorsheet_(20\\d{2})[-_](\\d{2})[-_](\\d{2})", path.name, re.I)
+    match = re.search(r"floorsheet_(20\d{2})[-_](\d{2})[-_](\d{2})", path.name, re.I)
     return "-".join(match.groups()) if match else ""
 
 def scan_csv(path, category, findings, stats):
@@ -85,16 +85,15 @@ def scan_csv(path, category, findings, stats):
         buyer_col = choose(headers, ["Buyer", "Buyer_ID", "BuyerBroker"])
         seller_col = choose(headers, ["Seller", "Seller_ID", "SellerBroker"])
         date_col = choose(headers, ["Trading_Date", "TradingDate", "Date", "business_date"])
-        date_col = choose(headers, ["Trading_Date", "TradingDate", "Date", "business_date"])
         seen, exact = {}, {}
         for line, row in enumerate(rows, 2):
-            date = (row.get(date_col) or "").strip() if date_col else floorsheet_date_from_filename(path)
+            date = ((row.get(date_col) or "").strip() if date_col else "") or floorsheet_date_from_filename(path)
             fingerprint = tuple((row.get(h) or "").strip() for h in headers)
             if fingerprint in exact:
                 emit(findings, {"finding_type":"exact_duplicate_floorsheet_row","category":category,"path":path.relative_to(ROOT),"line":line,"related_line":exact[fingerprint],"key":date,"detail":"Exact row repeated within this file"})
             else:
                 exact[fingerprint] = line
-            if txn:
+            if txn or (contract_no and symbol_col and buyer_col and seller_col):
                 tid = (row.get(txn) or "").strip() if txn else ""
                 if not tid and contract_no and symbol_col and buyer_col and seller_col:
                     tid = "|".join((row.get(contract_no,"").strip(),row.get(symbol_col,"").strip(),row.get(buyer_col,"").strip(),row.get(seller_col,"").strip()))
@@ -105,7 +104,7 @@ def scan_csv(path, category, findings, stats):
                     emit(findings, {"finding_type":"duplicate_floorsheet_record_id","category":category,"path":path.relative_to(ROOT),"line":line,"related_line":seen[key],"key":"|".join(key),"detail":"Record ID repeats within this source file/session; review before classifying as duplicate"})
                 else:
                     seen[key] = line
-        if not txn:
+        if not txn and not (contract_no and symbol_col and buyer_col and seller_col):
             stats["unsupported"] += 1
     elif category == "session_calendar":
         date_col = choose(headers, ["date", "session_date", "Trading_Date"])

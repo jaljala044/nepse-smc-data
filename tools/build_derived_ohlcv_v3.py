@@ -135,11 +135,18 @@ def build(v2_dir, raw_dir, matrix_path, correction_path, output_dir,
             raise ValueError(f"unexpected v2 OHLCV header for {symbol}")
         header = lines[0]
         out_lines = [header]
-        seen_dates = set()
         changed_for_symbol = correction_by_symbol.get(symbol, [])
-        by_date = {row["Date"]: i for i, row in enumerate(lines[1:], start=1) if row.strip()}
-        if len(by_date) != sum(1 for line in lines[1:] if line.strip()):
-            raise ValueError(f"duplicate date in v2 file for {symbol}")
+        by_date = {}
+        for index, line in enumerate(lines[1:], start=1):
+            if not line.strip():
+                continue
+            parsed = next(csv.reader([line]))
+            if len(parsed) != 6:
+                raise ValueError(f"unexpected OHLCV field count for {symbol}: {line!r}")
+            day = parsed[0]
+            if day in by_date:
+                raise ValueError(f"duplicate date in v2 file for {symbol}: {day}")
+            by_date[day] = index
 
         changes_by_line = {}
         for corr, official_row in changed_for_symbol:

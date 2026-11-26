@@ -75,11 +75,11 @@ class P437CrossSectorDateAuditTests(unittest.TestCase):
             official=[{"businessDate":"2026-01-09","totalTrades":5,"totalTradedQuantity":100,
                        "totalTradedValue":1000,"highPrice":11,"lowPrice":9,"closePrice":10}]
             rows=build_quarantine_rows("TEST","Finance",official,"2026-01-01","2026-01-31",tmp)
-            self.assertEqual(len(rows),1)
-            self.assertEqual(rows[0]["disposition"],"CANONICAL_CLOSED_DATE_CARRY_FORWARD")
-            self.assertEqual(rows[0]["canonical_session_status"],"verified_closed")
-            self.assertEqual(rows[0]["canonical_session_scope"],"market_weekly_schedule")
-            self.assertEqual(rows[0]["canonical_session_reason"],"regular_weekly_closure")
+            closed=next(row for row in rows if row["disposition"]=="CANONICAL_CLOSED_DATE_CARRY_FORWARD")
+            self.assertEqual(closed["canonical_session_status"],"verified_closed")
+            self.assertEqual(closed["canonical_session_scope"],"market_weekly_schedule")
+            self.assertEqual(closed["canonical_session_reason"],"regular_weekly_closure")
+            self.assertTrue(any(row["disposition"]=="OFFICIAL_ONLY_MATCHES_CANONICAL_CLOSED_DATE" for row in rows))
 
     def test_capture_checks_all_security_ids_and_keeps_tokens_out(self):
         token={"accessToken":"SECRET_ACCESS","refreshToken":"SECRET_REFRESH",

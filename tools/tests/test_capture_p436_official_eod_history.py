@@ -2,7 +2,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
-from capture_p436_official_eod_history import capture, find_rows, find_total
+from capture_p436_official_eod_history import capture, find_rows, find_total, compare_canonical
 
 class P436OfficialEodHistoryTests(unittest.TestCase):
     def test_row_collection_and_pagination_metadata(self):

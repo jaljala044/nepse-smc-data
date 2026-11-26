@@ -19,7 +19,7 @@ class OfficialListingPdfCaptureTests(unittest.TestCase):
             bounds = report["first_trade_disposition"]
             self.assertEqual(bounds["NMLBBL"], {"candidate_date": "2024-05-19", "prior_session_to_check": "2024-05-16", "status": "UNKNOWN"})
             self.assertEqual(bounds["SMPDA"], {"candidate_date": "2024-08-18", "prior_session_to_check": "2024-08-14", "status": "UNKNOWN"})
-            self.assertIn("not a certificate of the first executed trade", report["interpretation"])
+            self.assertIn("They do not prove first executed trade dates", report["interpretation"])
 
     def test_pdf_is_preserved_and_hashed(self):
         body=b"%PDF-1.7\nmock official notice"

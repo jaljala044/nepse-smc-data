@@ -56,4 +56,19 @@ class P436OfficialPriceVolumeTests(unittest.TestCase):
         self.assertEqual(row["volume"],864)
         self.assertEqual(row["turnover"],557461.6)
 
+    def test_recent_window_control_confirms_endpoint_reachability(self):
+        token={"accessToken":"A","refreshToken":"R","salt1":1,"salt2":2,"salt3":3,"salt4":4,"salt5":5,"serverTime":1795651200000}
+        def fake(method,url,body=None,headers=None):
+            if url.endswith("/api/authenticate/prove"):return 200,{},json.dumps(token).encode()
+            if "/api/nots/security?" in url:return 200,{},b'[{"id":396,"symbol":"NMLBBL"},{"id":2896,"symbol":"SMPDA"}]'
+            if url.endswith("/api/nots/nepse-data/market-open"):return 200,{},b'{"id":80,"asOf":"2026-11-26T15:00:00"}'
+            if "/api/nots/market/history/security/" in url:
+                rows=[{"businessDate":"2026-11-26","openPrice":1,"highPrice":1,"lowPrice":1,"closePrice":1,"totalTradedQuantity":1,"totalTradedValue":1}]
+                return 200,{},json.dumps({"content":rows,"totalElements":1,"totalPages":1}).encode()
+            return 200,{},b'{"content":[],"totalElements":0,"totalPages":0}'
+        with tempfile.TemporaryDirectory() as tmp:
+            result=capture(tmp,fake,lambda obj,path:("A","R"),"2026-11-26T00:00:00Z")
+        self.assertEqual(len(result["recent_controls"]),2)
+        self.assertTrue(all(x["status"]=="captured" and x["row_count"]==1 for x in result["recent_controls"]))
+
 if __name__=="__main__":unittest.main()

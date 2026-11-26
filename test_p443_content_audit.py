@@ -23,6 +23,11 @@ class StrictAuditTests(unittest.TestCase):
     def test_floorsheet_session_date_from_filename(self):
         self.assertEqual(floorsheet_date_from_filename("reference/floorsheet/floorsheet_2024-08-18.csv.gz"), "2024-08-18")
         self.assertEqual(floorsheet_date_from_filename("reference/audit_2024-08-18.json"), "")
+    def test_floorsheet_contract_uses_filename_session_date(self):
+        entry=dict(path="floorsheet/floorsheet_2024-08-18.csv",git_blob_sha="fixture",format="csv",category="floorsheet_or_reconciliation")
+        raw=b"ContractNo,Quantity\\n123,5\\n123,6\\n"
+        _,_,findings=scan(raw,entry)
+        self.assertEqual([f["classification"] for f in findings],["conflicting_business_key"])
     def test_provider_error_body_is_not_parsed_as_json(self):
         self.assertTrue(non_json_capture(b"<html><body>WARNING: UNAUTHORIZED ACCESS</body></html>"))
         self.assertTrue(non_json_capture(b"Searched Date is not valid."))

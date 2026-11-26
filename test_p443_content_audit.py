@@ -1,5 +1,5 @@
 import unittest
-from p443_content_audit import scan, records
+from p443_content_audit import scan, records, non_json_capture
 
 class StrictAuditTests(unittest.TestCase):
     def test_ohlcv(self):
@@ -16,6 +16,10 @@ class StrictAuditTests(unittest.TestCase):
         self.assertEqual([f["classification"] for f in findings],["conflicting_business_key"])
     def test_empty_json_capture(self):
         self.assertEqual(list(records(b"  \\n", "json")), [])
+    def test_provider_error_body_is_not_parsed_as_json(self):
+        self.assertTrue(non_json_capture(b"<html><body>WARNING: UNAUTHORIZED ACCESS</body></html>"))
+        self.assertTrue(non_json_capture(b"Searched Date is not valid."))
+        self.assertFalse(non_json_capture(b'{"ok": true}'))
     def test_bad_row_width(self):
         with self.assertRaises(ValueError):
             list(records(b"a,b\n1,2,3\n","csv"))

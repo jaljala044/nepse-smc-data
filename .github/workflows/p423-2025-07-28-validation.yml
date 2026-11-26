@@ -1,0 +1,28 @@
+name: P4.23.2 floorsheet audit tests
+
+on:
+  push:
+    branches:
+      - audit/p423-2025-07-28-floorsheet
+    paths:
+      - "reference/p423_2025-07-28/**"
+      - ".github/workflows/p423-2025-07-28-validation.yml"
+  pull_request:
+    paths:
+      - "reference/p423_2025-07-28/**"
+      - ".github/workflows/p423-2025-07-28-validation.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run reconstruction unit tests
+        run: python -m unittest discover -s reference/p423_2025-07-28/tests -v

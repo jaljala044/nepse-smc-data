@@ -62,6 +62,18 @@ jobs:
             --symbol-universe-csv reference/p410_stage1_coverage_matrix_2026-11-26.csv \
             --expected-symbol-count 281 \
             --output audit-output/2026-11-20_equity_trade_status.csv
+      - name: Print symbol-level reconciliation disposition
+        run: |
+          python3 - <<'PY'
+          import csv
+          import json
+          from collections import defaultdict
+          grouped = defaultdict(list)
+          with open("audit-output/2026-11-20_equity_trade_status.csv", newline="", encoding="utf-8") as handle:
+              for row in csv.DictReader(handle):
+                  grouped[row["trade_status"]].append(row["symbol"])
+          print(json.dumps({key: sorted(value) for key, value in sorted(grouped.items())}, indent=2))
+          PY
       - uses: actions/upload-artifact@v4
         if: always()
         with:

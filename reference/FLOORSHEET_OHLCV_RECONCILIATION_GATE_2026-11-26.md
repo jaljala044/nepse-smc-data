@@ -38,7 +38,7 @@ An empty template or absent manifest entry never authorizes `NO_TRADE`.
 
 A positive contract is positive evidence even if the file's day-wide completeness is not proven. A missing symbol is not negative evidence unless every `NO_TRADE` gate passes.
 
-The engine emits every symbol with an OHLCV archive file, including symbols with no bar on that date, so missing bars cannot silently disappear. It reports contract count, total shares, turnover calculated as quantity × rate, VWAP, OHLCV volume and volume-match status. It does not overwrite source OHLCV.
+The engine emits every symbol with an OHLCV archive file, including symbols with no bar on that date, so missing bars cannot silently disappear. Duplicate contract IDs, non-integral share quantities, non-positive quantities/rates, wrong-date rows and malformed rows invalidate the file for negative conclusions. It reports contract count, total shares, turnover calculated as quantity × rate, VWAP, OHLCV volume and volume-match status. It does not overwrite source OHLCV.
 
 ## Important limitation
 

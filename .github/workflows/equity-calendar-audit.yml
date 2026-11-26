@@ -1,0 +1,28 @@
+name: Equity calendar audit
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/equity-calendar-audit.yml'
+      - 'tools/audit_equity_calendar.py'
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: jaljala044/nepse-history-starter
+          path: starter
+          persist-credentials: false
+      - name: Audit both archives
+        run: |
+          python3 tools/audit_equity_calendar.py --smc . --starter starter --output audit-output
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: equity-calendar-audit
+          path: audit-output/

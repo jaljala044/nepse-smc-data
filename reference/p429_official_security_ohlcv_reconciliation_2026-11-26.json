@@ -1,0 +1,34 @@
+{
+  "audit": "P4.29 current official security-list vs OHLCV filename inventory",
+  "source_security_list_commit": "1c025b5a89c22a74b827e3550cee76cf4d3f7898",
+  "security_list_raw_sha256": "5495d99a73aeb44e573936f59fc6a6d8dbf9ffc45c5a8ba62e672f0b0c6fa2f7",
+  "ohlcv_inventory_commit": "1c025b5a89c22a74b827e3550cee76cf4d3f7898",
+  "ohlcv_directory": "03_stock_charts_ohlcv/",
+  "official_security_rows": 573,
+  "unique_official_symbols": 573,
+  "ohlcv_files": 525,
+  "unique_ohlcv_file_stems": 525,
+  "disposition_counts": {
+    "OFFICIAL_MATCH_WITH_OHLCV": 488,
+    "OFFICIAL_NO_OHLCV_FILE": 85,
+    "OHLCV_FILE_NO_OFFICIAL_MATCH": 37
+  },
+  "official_matches_with_ohlcv": 488,
+  "official_symbols_without_ohlcv_file": 85,
+  "ohlcv_file_stems_without_official_symbol": 37,
+  "official_missing_ohlcv_by_status": {
+    "A": 61,
+    "S": 24
+  },
+  "official_matched_ohlcv_by_status": {
+    "A": 485,
+    "S": 3
+  },
+  "limitations": [
+    "Filename matching is exact only; escaped or transformed filenames are not normalized.",
+    "The 37 OHLCV-only file stems are not mapped to official securities; aliases, delisted securities, funds and debentures remain unresolved.",
+    "Instrument type and effective lifecycle dates are UNKNOWN because the official security-list endpoint did not return them.",
+    "Raw activeStatus A/S codes are preserved without undocumented interpretation.",
+    "This is a coverage inventory, not a canonical instrument-master promotion."
+  ]
+}

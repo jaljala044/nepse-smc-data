@@ -1,0 +1,48 @@
+{
+  "status": "ALL_HISTORICAL_FLAGS_RETAINED_UNKNOWN_NO_UNSUPPORTED_REPAIR",
+  "as_of_date": "2026-11-26",
+  "official_history_days": 365,
+  "official_history_window_start": "2025-11-26",
+  "floorsheet_archive_files": 226,
+  "floorsheet_archive_first_date": "2025-11-25",
+  "floorsheet_archive_last_date": "2026-11-20",
+  "floorsheet_archive_source_commit": "70324524df83eaa7c2964441ad4026d6ab00cc7e",
+  "historical_flag_rows": 1368,
+  "official_eod_outside_window": 1368,
+  "floorsheet_date_missing": 1368,
+  "corporate_action_record_present": 0,
+  "no_action_record_not_proof": 1368,
+  "secondary_history_exact_date_validated": 0,
+  "promoted_or_repaired_rows": 0,
+  "flags_by_type": {
+    "OPEN_OUTSIDE_RANGE": 1314,
+    "CLOSE_OUTSIDE_RANGE": 28,
+    "HIGH_BELOW_LOW": 22,
+    "NONPOSITIVE_PRICE": 4
+  },
+  "flags_by_year": {
+    "2009": 8,
+    "2010": 73,
+    "2011": 89,
+    "2012": 77,
+    "2013": 104,
+    "2014": 137,
+    "2015": 173,
+    "2016": 240,
+    "2017": 332,
+    "2018": 72,
+    "2019": 18,
+    "2020": 45
+  },
+  "top_symbols": {
+    "AHPC": 607,
+    "SKBBL": 381,
+    "API": 122,
+    "MERO": 104,
+    "SPDL": 72,
+    "CHL": 48,
+    "HIDCL": 32,
+    "RADHI": 1,
+    "UNHPL": 1
+  }
+}

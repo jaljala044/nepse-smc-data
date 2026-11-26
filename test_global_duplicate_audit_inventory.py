@@ -1,5 +1,6 @@
 import csv
 import hashlib
+import subprocess
 from collections import Counter
 from pathlib import Path
 import unittest
@@ -48,12 +49,12 @@ class GlobalDuplicateAuditInventoryTests(unittest.TestCase):
                     "inventory_only_format_not_row_scanned",
                 })
 
-    def test_all_inventory_entries_match_pinned_checkout_bytes(self):
+    def test_all_inventory_entries_match_pinned_commit_bytes(self):
         for row in self.rows:
             with self.subTest(path=row["path"]):
-                path = ROOT / row["path"]
-                self.assertTrue(path.is_file(), f"missing inventory path: {row['path']}")
-                data = path.read_bytes()
+                data = subprocess.check_output(
+                    ["git", "show", f"{PINNED_COMMIT}:{row['path']}"]
+                )
                 self.assertEqual(len(data), int(row["bytes"]))
                 self.assertEqual(git_blob_sha(data), row["git_blob_sha"])
 

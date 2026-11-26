@@ -7,7 +7,7 @@ Audited the 281 provisional common-equity OHLCV file pairs in:
 - `jaljala044/nepse-smc-data`
 - `jaljala044/nepse-history-starter`
 
-Repository tree blob SHA comparison found 258 byte-identical file pairs and 23 divergent pairs. Every one of the 258 identical pairs was fetched from the starter repository and checked row by row. Because each corresponding SMC file has the same Git blob SHA, the same row-level results apply to both copies. The 23 divergent pairs were separately fetched and audited in both repositories.
+Repository tree blob SHA comparison found 258 byte-identical file pairs and 23 pairs with different file blobs. Every one of the 258 identical pairs was fetched from the starter repository and checked row by row. Because each corresponding SMC file has the same Git blob SHA, the same row-level results apply to both copies. Both files for all 23 non-identical pairs were also fetched and compared row by row using numeric OHLCV values (so formatting differences such as 179.7 vs 179.70 are treated as equal).
 
 Checks performed:
 - duplicate date values
@@ -65,12 +65,15 @@ The 23 divergent pairs account for 33,439 SMC rows and 20,767 starter rows:
 2. **The 23 divergent pairs remain unresolved at the value/provenance level.** SMC contains 1,329 OHLC invariant failures in those pairs; starter has no such failures but has substantially more repeated adjacent OHLCV values. Neither should be silently promoted as canonical.
 3. Adjacent repeated OHLCV values are a suspicious pattern consistent with calendar-day forward-fill, especially given the known weekly closure regime changes. They are not automatically proven to be synthetic or invalid without date-level comparison against the exchange calendar and source evidence. Do not count these rows as independent executed trades without corroboration.
 4. Some symbols have shorter histories because their archives begin later. Short row counts alone are not proof of missing data. Lifecycle/listing and suspension evidence remains necessary.
+5. The ShareSansar-derived archive exactly corroborates 13 sampled OHLC invariant-flagged rows across 13 symbols. These are source-reported anomalies, not automatically SMC repository corruption. See [13-row source corroboration](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/shareSansar_source_corroboration_ohlc_flags_2026-11-26.csv).
+6. The RHGCL 2026-11-19 mismatch is the only numeric mismatch across the 13,518 common dates. See [RHGCL reconciliation](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/RHGCL_2026-11-19_source_reconciliation_2026-11-26.md).
 5. The OHLC invariant check does not test adjusted-vs-unadjusted basis, provider accuracy, trade-volume reconciliation, corporate-action treatment, or ticker identity.
 
 ## Deliverables
 
 - [258-pair detailed structural audit CSV](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/equity_identical_pair_row_quality_audit_2026-11-26.csv)
-- [23-pair divergence audit CSV](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/equity_repository_divergence_audit_2026-11-26.csv)
+- [23-pair numeric overlap and divergence audit CSV](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/equity_repository_divergence_audit_2026-11-26.csv)
+- [RHGCL source-supported discrepancy evidence](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/RHGCL_2026-11-19_source_reconciliation_2026-11-26.csv)
 - [281-equity observed-date coverage CSV](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/equity_observed_date_coverage_2026-11-26.csv)
 - [Canonical session calendar](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/nepse_canonical_session_calendar_2025-2026.csv)
 
@@ -78,7 +81,7 @@ The 23 divergent pairs account for 33,439 SMC rows and 20,767 starter rows:
 
 **Completed for row-level structural checks across all 281 provisional common-equity pairs.** All 258 identical pairs have now been audited, and both sides of all 23 divergent pairs have been audited.
 
-**Not completed:** external source reconciliation of the 23 divergent symbol histories, lifecycle/session completeness validation, and date-by-date adjudication of repeated OHLCV rows. No raw OHLCV file was changed.
+**Not completed:** full lifecycle/session completeness validation and date-by-date adjudication of repeated OHLCV rows. Numeric overlap comparison is complete for all 23 non-identical pairs; one RHGCL row has a source-supported candidate resolution, while the other 22 pairs match numerically on every common date. No raw OHLCV file was changed.
 
 ## Recommended next phase
 

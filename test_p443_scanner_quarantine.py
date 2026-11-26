@@ -161,6 +161,24 @@ class FloorsheetTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "Unsupported"):
                 mod.validate_floorsheet(path, set())
 
+    def test_decompressed_quarantine_payloads_are_blocked(self):
+        from types import SimpleNamespace
+        expected = {
+            "441f2b64106b48086a0326604ab92c40f2e02fa163bca97cfe17385c9f88ebc8",
+            "beee6326be30d364eb6b0c55a2c36d9aa847daeb0af1bf5ddb2e4d3b82850433",
+        }
+        self.assertEqual(mod.BLOCKED_FLOORSHEET_SHA256, expected)
+        self.assertIn("0dd938bc5e6bfd50fa09bf85f0836d443ab15983", mod.BLOCKED_FLOORSHEET_BLOBS)
+        self.assertIn("49d6498b30681b7896b6c5c824b518e50f941d", mod.BLOCKED_FLOORSHEET_BLOBS)
+        for fingerprint in expected:
+            with tempfile.TemporaryDirectory() as tmp:
+                path = Path(tmp) / "floorsheet.csv"
+                path.write_bytes(b"decompressed archive payload")
+                fake = SimpleNamespace(hexdigest=lambda: fingerprint)
+                with patch.object(mod.hashlib, "sha256", return_value=fake):
+                    with self.assertRaisesRegex(ValueError, "Quarantined"):
+                        mod.validate_floorsheet(path, set())
+
     def test_stage_rejects_invalid_floorsheet(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

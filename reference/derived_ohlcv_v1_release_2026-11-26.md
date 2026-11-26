@@ -44,3 +44,8 @@ A date-level quality-flag pilot is included under [quality_flags](https://github
 ## Limitations and next work
 
 This is a conservative derived release, not final trading-session-clean data. Repeated OHLCV rows are retained pending date-level classification against the pre/post 2026-04-06 weekly calendar regimes. The session calendar has limited observed-open scope, and per-symbol expected-session completeness still requires lifecycle/suspension evidence. The source-reported OHLC invariant flags remain uncorrected except for the single source-supported RHGCL mismatch.
+
+
+## Superseded by derived v2
+
+The v1 branch is preserved as an immutable prior release. The official-EOD-backed v2 release is now available on [derived/ohlcv-v2-official-eod](https://github.com/jaljala044/nepse-smc-data/tree/derived/ohlcv-v2-official-eod/derived/ohlcv_v2), commit `4255cc293a347857ac77c04a947beb784203062f`. V2 applies 599 official NEPSE EOD rows across 254 symbols: 490 confirmed date shifts, 109 official row insertions, 109 Open corrections and 3 Close corrections. All raw source hashes were revalidated and no raw source files were changed. See [v2 release report](derived_ohlcv_v2_release_2026-11-26.md).

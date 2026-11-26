@@ -1,7 +1,7 @@
 {
   "task": "P4.35",
   "source": "NEPSE official API domain",
-  "retrieved_at_utc": "2026-11-26T18:35:12.865569+00:00",
+  "retrieved_at_utc": "2026-11-26T18:36:17.808158+00:00",
   "upstream_client": {
     "repo": "basic-bgnr/NepseUnofficialApi",
     "commit": "180a550c60f1959983b854659e650a4c189a3c0f",
@@ -24,14 +24,16 @@
       "pages": [
         {
           "page": 0,
-          "url": "https://www.nepalstock.com/api/nots/security/floorsheet/396?&businessDate=2024-05-19&size=500&sort=contractid%2Cdesc&page=0",
+          "url": "https://www.nepalstock.com/api/nots/security/floorsheet/396?&businessDate=2024-05-19&size=500&sort=contractid,desc",
+          "payload_day_used": null,
           "http_status": 403,
           "content_type": "text/html",
           "response_bytes": 146,
           "response_sha256": "32f2fa940d4b4fe19aca1e53a24e5aac29c57b7c5ee78588325b87f1b649c864",
           "etag": null,
           "last_modified": null,
-          "status": "invalid_or_http_error"
+          "status": "invalid_or_http_error",
+          "response_snippet": "<html>\r\n<head><title>403 Forbidden</title></head>\r\n<body>\r\n<center><h1>403 Forbidden</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n"
         }
       ],
       "total_elements": null,
@@ -58,14 +60,16 @@
       "pages": [
         {
           "page": 0,
-          "url": "https://www.nepalstock.com/api/nots/security/floorsheet/396?&businessDate=2024-05-16&size=500&sort=contractid%2Cdesc&page=0",
+          "url": "https://www.nepalstock.com/api/nots/security/floorsheet/396?&businessDate=2024-05-16&size=500&sort=contractid,desc",
+          "payload_day_used": null,
           "http_status": 403,
           "content_type": "text/html",
           "response_bytes": 146,
           "response_sha256": "32f2fa940d4b4fe19aca1e53a24e5aac29c57b7c5ee78588325b87f1b649c864",
           "etag": null,
           "last_modified": null,
-          "status": "invalid_or_http_error"
+          "status": "invalid_or_http_error",
+          "response_snippet": "<html>\r\n<head><title>403 Forbidden</title></head>\r\n<body>\r\n<center><h1>403 Forbidden</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n"
         }
       ],
       "total_elements": null,
@@ -92,14 +96,16 @@
       "pages": [
         {
           "page": 0,
-          "url": "https://www.nepalstock.com/api/nots/security/floorsheet/2896?&businessDate=2024-08-18&size=500&sort=contractid%2Cdesc&page=0",
+          "url": "https://www.nepalstock.com/api/nots/security/floorsheet/2896?&businessDate=2024-08-18&size=500&sort=contractid,desc",
+          "payload_day_used": null,
           "http_status": 403,
           "content_type": "text/html",
           "response_bytes": 146,
           "response_sha256": "32f2fa940d4b4fe19aca1e53a24e5aac29c57b7c5ee78588325b87f1b649c864",
           "etag": null,
           "last_modified": null,
-          "status": "invalid_or_http_error"
+          "status": "invalid_or_http_error",
+          "response_snippet": "<html>\r\n<head><title>403 Forbidden</title></head>\r\n<body>\r\n<center><h1>403 Forbidden</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n"
         }
       ],
       "total_elements": null,
@@ -126,14 +132,16 @@
       "pages": [
         {
           "page": 0,
-          "url": "https://www.nepalstock.com/api/nots/security/floorsheet/2896?&businessDate=2024-08-14&size=500&sort=contractid%2Cdesc&page=0",
+          "url": "https://www.nepalstock.com/api/nots/security/floorsheet/2896?&businessDate=2024-08-14&size=500&sort=contractid,desc",
+          "payload_day_used": null,
           "http_status": 403,
           "content_type": "text/html",
           "response_bytes": 146,
           "response_sha256": "32f2fa940d4b4fe19aca1e53a24e5aac29c57b7c5ee78588325b87f1b649c864",
           "etag": null,
           "last_modified": null,
-          "status": "invalid_or_http_error"
+          "status": "invalid_or_http_error",
+          "response_snippet": "<html>\r\n<head><title>403 Forbidden</title></head>\r\n<body>\r\n<center><h1>403 Forbidden</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n"
         }
       ],
       "total_elements": null,
@@ -158,8 +166,8 @@
       "url": "https://www.nepalstock.com/api/authenticate/prove",
       "http_status": 200,
       "content_type": "application/json",
-      "response_bytes": 723,
-      "response_sha256": "ddbb936e62585caef90d8b7c13a23182610cb36dcebe775bb8844d01fc85aabb",
+      "response_bytes": 722,
+      "response_sha256": "082f0942c6fee86e534b5eee9523b0e19d8dd2d15dd97ddb6251b863bfdebbd2",
       "etag": null,
       "last_modified": null,
       "token_fields_present": {

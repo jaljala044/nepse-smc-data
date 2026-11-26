@@ -103,13 +103,7 @@ The source-path audit is documented in [P4.25 report](p425_2025-07-28_contempora
 
 ## P4.26 — completed: 109 invalid external candidate audit
 
-The row-level comparison is documented in [P4.26 audit report](p426_109_invalid_candidate_audit_2026-11-26.md) and [109-row snapshot matrix](p426_109_invalid_candidate_snapshot_matrix_2026-11-26.csv).
-
-- 109 rows across four verified-open sessions: 15 (2026-04-24), 18 (2026-04-27), 21 (2026-04-28), 55 (2026-04-29).
-- Invalidity: 88 OPEN_ABOVE_HIGH and 21 OPEN_BELOW_LOW.
-- All 109 rows match the same-day ShareSansar daily-page snapshot exactly, including the invalid OHLC tuple.
-- This establishes the invalid values were already present in the contemporaneous ShareSansar page capture, not just the later historical AJAX backfill.
-- It does not establish the correct exchange OHLC. ShareSansar is a secondary source; all 109 remain quarantined as UNKNOWN. No raw data changed and no candidates were promoted.
+The [P4.26 report](p426_109_invalid_candidate_audit_2026-11-26.md) and [109-row snapshot matrix](p426_109_invalid_candidate_snapshot_matrix_2026-11-26.csv) established that 88 OPEN_ABOVE_HIGH and 21 OPEN_BELOW_LOW external values were already present in contemporaneous ShareSansar page captures. P4.28 subsequently superseded the secondary-only status: official NEPSE EOD records were found for all 109 exact symbol/date rows. Official Open is valid for all 109; High, Low, Close, Volume and Turnover match. The primary values are applied in derived v2. Raw source values remain untouched.
 
 ## P4.27 — completed: 490 one-day date-shift audit
 
@@ -127,15 +121,28 @@ See [P4.28 report](p428_599_official_eod_batch_validation_2026-11-26.md), [599-r
 - Three date-shift rows require official Close correction (KBL, SAIL, ULBSL).
 - No raw source archive was modified.
 
-## Next priority target — P4.29: apply official EOD corrections to derived history
+## P4.29 — completed: official EOD-backed derived OHLCV v2
 
-1. Apply all 599 official rows to the provisional derived dataset using exact symbol/date keys.
-2. Replace 109 invalid external Open values and the three Close values with official NEPSE values.
-3. Promote all 490 date shifts to the official business dates while preserving the original raw dates and raw file hashes.
-4. Attach official payload SHA-256, endpoint URL, retrieval timestamp and security ID to every promoted row.
-5. Add regression tests proving raw files are byte-identical, official overrides are idempotent, duplicates are rejected, and UNKNOWN rows without official evidence remain quarantined.
-6. Rebuild scanner inputs and rerun OHLCV, session-calendar, corporate-action and historical identity validations before enabling scoring/training.
+The v2 release is published on [derived/ohlcv-v2-official-eod](https://github.com/jaljala044/nepse-smc-data/tree/derived/ohlcv-v2-official-eod/derived/ohlcv_v2), commit `4255cc293a347857ac77c04a947beb784203062f`. See [v2 release report](derived_ohlcv_v2_release_2026-11-26.md).
+
+- 281 symbols; 246,129 v1 source rows → 246,238 v2 derived rows.
+- 599 official NEPSE EOD rows applied across 254 symbols.
+- 490 date shifts moved to official business dates in derived files only.
+- 109 official rows inserted where the v1 raw-derived files had no row.
+- 112 official field corrections: 109 Open and 3 Close.
+- 713 correction ledger entries, including the two prior RHGCL field corrections.
+- Every one of the 281 raw source Git blob hashes was revalidated; raw source files modified: 0.
+- Regression tests and v2 build passed in CI run [45867152948](https://github.com/jaljala044/nepse-smc-data/actions/runs/45867152948); artifact [15139594805](https://github.com/jaljala044/nepse-smc-data/actions/runs/45867152948/artifacts/15139594805).
+
+## Next priority target — P4.30: full v2 historical integrity and scanner-input gate
+
+1. Run all 281 v2 files through OHLCV invariants, duplicate-date, ordering, numeric, volume and row-count validation.
+2. Reconcile the 1,329 retained source OHLC invariant flags individually; preserve UNKNOWN where official or complete floorsheet evidence is unavailable.
+3. Re-audit repeated-candle rows against the pre/post 2026-04-06 session calendar and instrument lifecycle evidence; do not delete repeats automatically.
+4. Validate corporate actions and raw/adjusted price basis before computing returns, RS and moving averages.
+5. Prove v2 is deterministic and idempotent, raw sources remain byte-identical, and only official-evidence rows are promoted.
+6. Wire v2 into scanner inputs behind a versioned data-quality gate; unresolved rows must remain UNKNOWN and excluded from scoring/training.
 
 ## Acceptance
 
-P4.22 closeout is accepted when this report and the three referenced artifacts are retained, raw archives remain unchanged, all 87 conflicts are safely dispositioned, all 109 invalid rows remain quarantined, all 490 shifts are auditable, and the RHGCL derived value is clearly marked secondary-source corroborated rather than official.
+The P4.22–P4.29 reconciliation sequence is closed when the 86 historical 2025-07-28 conflicts remain safely UNKNOWN, RHGCL is official-EOD confirmed, all 599 in-window candidates are represented by exact official EOD evidence in derived v2, all 281 raw sources remain byte-identical, and the v2 integrity gate passes before scanner scoring or training.

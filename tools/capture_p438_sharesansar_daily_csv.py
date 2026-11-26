@@ -62,7 +62,7 @@ def audit_csv(raw,record):
  parity={}
  if expected and normalized:
   for key in ("open","high","low","close","volume","turnover"):
-   parity[key]=normalized[key]==expected[key]
+   parity[key]=dec(normalized[key])==dec(expected[key])
   parity["transactions"]=normalized["transactions"]==expected["transactions"]
   parity["floorsheet_row_count"]=normalized["transactions"]==expected["floorsheet_rows"]
  return {

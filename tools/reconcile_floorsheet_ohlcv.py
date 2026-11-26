@@ -101,7 +101,7 @@ def reconcile_date(date, floor_path, ohlcv_dir, calendar, manifest):
             status = "TRADED"
         elif (contracts == 0 and file_valid and complete and hash_matches
               and session_status == "verified_open"
-              and (ohlcv_by_symbol.get(symbol) is None or ohlcv_by_symbol.get(symbol) == 0)):
+              and (symbol not in ohlcv_by_symbol or ohlcv_by_symbol[symbol] == 0)):
             status = "NO_TRADE"
         else:
             status = "UNKNOWN"

@@ -39,5 +39,17 @@
     "turnover_matches_external": 86,
     "open_close_unknown": 86
   },
-  "source_copy_note": "The source artifact remains preserved at the immutable upstream Git blob. A duplicate upload into this repository was attempted but the GitHub transport failed; no altered or partial copy is represented as preserved."
+  "source_copy_note": "The source artifact remains preserved at the immutable upstream Git blob. A duplicate upload into this repository was attempted but the GitHub transport failed; no altered or partial copy is represented as preserved.",
+  "canonical_source": {
+    "repository": "jaljala044/nepse-smc-data",
+    "commit": "77992c29c6f3936da92170e240638789b8c5cf00",
+    "path_pattern": "03_stock_charts_ohlcv/{symbol}_OHLCV.csv",
+    "rows": 86
+  },
+  "external_source": {
+    "repository": "srijankarki07/nepse-data",
+    "commit": "688d59c03915dcee73ecad4230d2083a41c61764",
+    "path": "data/daily/2025/2025-07-28.csv",
+    "rows": 86
+  }
 }

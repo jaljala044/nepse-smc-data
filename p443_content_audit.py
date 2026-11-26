@@ -137,11 +137,12 @@ def main():
                 if sha!=entry["git_blob_sha"] or len(raw)!=int(entry["bytes"]):
                     raise ValueError("pinned bytes mismatch")
                 if entry["format"] not in ("csv","csv.gz","json"):
+                    result["status"]="inventory_only"
                 elif entry["format"]=="json" and not raw.strip():
                     result.update(status="empty_capture",records=0)
                 elif entry["format"]=="json" and non_json_capture(raw):
                     result.update(status="non_json_response",records=0,error=raw[:160].decode("utf-8","replace"))
-                    result["status"]="inventory_only"
+                else:
                 else:
                     count,schemas,findings=scan(raw,entry)
                     result.update(status="parsed",records=count,schemas=schemas)

@@ -18,7 +18,7 @@ try:
         compare_high_low_volume,
         read_inventory,
     )
-    from tools.p443_full_session_parity import parse
+    from tools.p443_full_session_parity import signature
 except ModuleNotFoundError:
     from capture_p433_first_trade_floorsheets import BASE, fetch, tree_metadata
     from p443_bulk_equity_floorsheet_recovery import (
@@ -27,7 +27,7 @@ except ModuleNotFoundError:
         compare_high_low_volume,
         read_inventory,
     )
-    from p443_full_session_parity import parse
+    from p443_full_session_parity import signature
 
 EXPECTED_P2_REQUESTS = 68773
 

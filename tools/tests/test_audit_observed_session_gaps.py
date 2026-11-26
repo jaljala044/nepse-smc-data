@@ -1,9 +1,16 @@
 import csv
 import tempfile
 import unittest
+import importlib.util
 from pathlib import Path
 
-from audit_observed_session_gaps import audit_symbol, load_observed_dates, load_universe
+SCRIPT = Path(__file__).resolve().parents[1] / "audit_observed_session_gaps.py"
+SPEC = importlib.util.spec_from_file_location("audit_observed_session_gaps", SCRIPT)
+ENGINE = importlib.util.module_from_spec(SPEC)
+SPEC.loader.exec_module(ENGINE)
+audit_symbol = ENGINE.audit_symbol
+load_observed_dates = ENGINE.load_observed_dates
+load_universe = ENGINE.load_universe
 
 
 class ObservedSessionGapTests(unittest.TestCase):

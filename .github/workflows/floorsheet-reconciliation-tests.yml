@@ -8,7 +8,6 @@ on:
       - 'tools/reconcile_nov20_independent_floorsheet.py'
       - '02_floorsheet_daily/floorsheet_2026-11-20.csv'
       - '.github/workflows/floorsheet-reconciliation-tests.yml'
-      - '.github/workflows/nov20-independent-floorsheet-reconciliation.yml'
   push:
     paths:
       - 'tools/reconcile_floorsheet_ohlcv.py'
@@ -16,7 +15,6 @@ on:
       - 'tools/reconcile_nov20_independent_floorsheet.py'
       - '02_floorsheet_daily/floorsheet_2026-11-20.csv'
       - '.github/workflows/floorsheet-reconciliation-tests.yml'
-      - '.github/workflows/nov20-independent-floorsheet-reconciliation.yml'
   workflow_dispatch:
 
 permissions:
@@ -33,9 +31,13 @@ jobs:
       - name: Run evidence-gate regression tests
         run: python -m unittest discover -s tools/tests -p 'test_reconcile_floorsheet_ohlcv.py' -v
 
-  nov20-independent-audit:
+  recent-session-parity-audit:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        date: ['2026-11-19', '2026-11-20', '2026-11-24']
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -43,28 +45,37 @@ jobs:
           python-version: '3.11'
       - name: Install Parquet reader
         run: python -m pip install --disable-pip-version-check pyarrow==21.0.0
-      - name: Download independently captured NEPSE partition
+      - name: Download independent pipeline partition
+        env:
+          AUDIT_DATE: \${{ matrix.date }}
         run: |
-          mkdir -p audit-input audit-output
+          mkdir -p "audit-input/\${AUDIT_DATE}" "audit-output/\${AUDIT_DATE}"
           curl --fail --location --retry 3 --retry-delay 2 \
-            'https://huggingface.co/datasets/AnkitSanjyal/nepse-market-data/resolve/main/floorsheet/business_date=2026-11-20/part-0.parquet' \
-            --output audit-input/nepse-pipeline-2026-11-20.parquet
+            "https://huggingface.co/datasets/AnkitSanjyal/nepse-market-data/resolve/main/floorsheet/business_date=\${AUDIT_DATE}/part-0.parquet" \
+            --output "audit-input/\${AUDIT_DATE}/pipeline.parquet"
       - name: Download SocrateAI full-session candidate
+        env:
+          AUDIT_DATE: \${{ matrix.date }}
         run: |
           curl --fail --location --retry 3 --retry-delay 2 \
-            'https://raw.githubusercontent.com/socrateai-official/nepse-open-data/main/floorsheet/floorsheet_2026-11-20.csv' \
-            --output audit-input/socrateai-2026-11-20.csv
-      - name: Compare contract-level records and aggregates
+            "https://raw.githubusercontent.com/socrateai-official/nepse-open-data/main/floorsheet/floorsheet_\${AUDIT_DATE}.csv" \
+            --output "audit-input/\${AUDIT_DATE}/socrateai.csv"
+      - name: Compare normalized trade multisets
+        env:
+          AUDIT_DATE: \${{ matrix.date }}
         run: |
-          python tools/reconcile_nov20_independent_floorsheet.py \
-            --parquet audit-input/nepse-pipeline-2026-11-20.parquet \
-            --candidate audit-input/socrateai-2026-11-20.csv \
-            --local 02_floorsheet_daily/floorsheet_2026-11-20.csv \
-            --out audit-output/nov20_cross_source_reconciliation.json
+          args=(--date "\${AUDIT_DATE}" \
+            --parquet "audit-input/\${AUDIT_DATE}/pipeline.parquet" \
+            --candidate "audit-input/\${AUDIT_DATE}/socrateai.csv" \
+            --out "audit-output/\${AUDIT_DATE}/cross_source_reconciliation.json")
+          if [[ "\${AUDIT_DATE}" == "2026-11-20" ]]; then
+            args+=(--local "02_floorsheet_daily/floorsheet_2026-11-20.csv")
+          fi
+          python tools/reconcile_nov20_independent_floorsheet.py "\${args[@]}"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: nov20-floorsheet-cross-source-audit
-          path: audit-output/
+          name: floorsheet-\${{ matrix.date }}-cross-source-audit
+          path: audit-output/\${{ matrix.date }}/
           if-no-files-found: warn
           retention-days: 30

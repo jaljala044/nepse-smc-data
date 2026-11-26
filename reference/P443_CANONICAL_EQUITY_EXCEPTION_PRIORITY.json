@@ -291,15 +291,18 @@
     "note": "Second public archive corroborates five target contracts, but completeness and independent upstream lineage are unproven."
   },
   "latest_ci": {
-    "last_completed_strict_run": 45899859071,
+    "last_completed_strict_run": 45901012377,
     "current_head_strict_run": 45899542346,
     "current_head_status": "SUCCESS",
     "recovery_run": 45899542388,
     "recovery_status": "SUCCESS",
-    "secondary_comparison_run": 45899542326,
+    "secondary_comparison_run": 45901012393,
     "secondary_comparison_status": "SUCCESS",
-    "full_session_parity_run": 45899859073,
-    "full_session_parity_status": "SUCCESS"
+    "full_session_parity_run": 45901012351,
+    "full_session_parity_status": "SUCCESS",
+    "last_completed_strict_head": "a1ceae92bf7ea104e15b652d4e55f7029b5a0923",
+    "strict_run_status": "SUCCESS",
+    "priority_recovery_run": 45901012346
   },
   "full_session_contract_parity": {
     "workflow_run": 45899859073,
@@ -332,5 +335,35 @@
     "promotion_allowed": false,
     "evidence_csv": "reference/P443_FULL_SESSION_CONTRACT_PARITY_2026-11-27.csv",
     "note": "Full-session multiset parity across five dates; shared fields only. Does not establish source independence, completeness, timestamp parity or canonical eligibility."
+  },
+  "bulk_equity_floorsheet_batch_01": {
+    "workflow_run": 45901012377,
+    "artifact_id": 15155667000,
+    "pinned_input": "56362fb4f65b91fdcca8f50b50e53ad80e703649",
+    "archive_repository": "socrateai-official/nepse-open-data",
+    "archive_commit": "70324524df83eaa7c2964441ad4026d6ab00cc7e",
+    "requests": 68773,
+    "unique_dates": 316,
+    "available_archive_dates": 22,
+    "available_requests": 5235,
+    "recovered_sessions": 22,
+    "session_rows": 1752046,
+    "invalid_session_rows": 0,
+    "matched_hlv": 3177,
+    "hlv_conflicts": 2058,
+    "no_pinned_partition": 63538,
+    "high_match": 5074,
+    "high_mismatch": 161,
+    "low_match": 3365,
+    "low_mismatch": 1870,
+    "volume_match": 5018,
+    "volume_mismatch": 217,
+    "promoted": 0,
+    "promotion_allowed": false,
+    "source_completeness": "UNKNOWN",
+    "source_independence": "UNKNOWN",
+    "open_close_validation": "NOT_PERFORMED",
+    "evidence_file": "reference/P443_BULK_EQUITY_FLOORSHEET_BATCH01_2026-11-27.json",
+    "note": "No pinned partition is an evidence-availability gap, not no-trade. H/L/volume match is partial corroboration; conflicts require source adjudication."
   }
 }

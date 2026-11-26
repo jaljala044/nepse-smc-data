@@ -1,0 +1,121 @@
+{
+  "schema_version": "1.0",
+  "business_date": "2026-11-20",
+  "source_status": "VERIFIED_COMPLETE_BY_INDEPENDENT_UPSTREAM_CAPTURE",
+  "capture": {
+    "repository": "ANKITSANJYAL/nepse-pipeline",
+    "workflow_run_id": 44748903787,
+    "workflow_run_url": "https://github.com/ANKITSANJYAL/nepse-pipeline/actions/runs/44748903787",
+    "job_id": 136331336130,
+    "job_conclusion": "success",
+    "upstream_total_elements": 39966,
+    "pages_read": 80,
+    "total_pages": 80,
+    "rows_parsed": 39966,
+    "rows_held": 39966,
+    "rejected_rows": 0,
+    "empty_pages": 0,
+    "quality_checks": {
+      "duplicate_contract_ids": 0,
+      "required_nulls": 0,
+      "amount_identity_failures": 0,
+      "nonpositive_rate_or_quantity": 0,
+      "trade_date_mismatches": 0,
+      "distinct_symbols": 352
+    },
+    "raw_bronze_archived": false,
+    "raw_bronze_note": "HF_BRONZE_REPO not set - raw responses not archived this run"
+  },
+  "independent_parquet": {
+    "dataset": "AnkitSanjyal/nepse-market-data",
+    "path": "floorsheet/business_date=2026-11-20/part-0.parquet",
+    "size_bytes": 840136,
+    "sha256": "7f52d0004418a7aa82a5930e84438968022a14e3acf94ac9e3e51c431ccbc480"
+  },
+  "socrateai_csv": {
+    "repository": "socrateai-official/nepse-open-data",
+    "path": "floorsheet/floorsheet_2026-11-20.csv",
+    "sha256": "abafc3b8eaa8d2b9b884e9f2df974deb267485d4476f2a4e953d6324787fc43d"
+  },
+  "contract_level_reconciliation": {
+    "workflow_run_id": 45843030655,
+    "workflow_run_url": "https://github.com/jaljala044/nepse-smc-data/actions/runs/45843030655",
+    "job_id": 139989397910,
+    "conclusion": "success",
+    "parquet_rows": 39966,
+    "csv_rows": 39966,
+    "valid_rows_each": 39966,
+    "invalid_rows_each": 0,
+    "distinct_symbols_each": 352,
+    "shares_each": 10602468,
+    "turnover_npr_each": "3887563470.82",
+    "normalized_trade_multiset_matches": 39966,
+    "parquet_only": 0,
+    "csv_only": 0,
+    "exact_multiset_match": true,
+    "key_fields": [
+      "business_date",
+      "symbol",
+      "buyer_member_id",
+      "seller_member_id",
+      "quantity",
+      "rate",
+      "amount"
+    ]
+  },
+  "local_500_row_extract": {
+    "rows": 500,
+    "distinct_symbols": 158,
+    "identity_matches_in_full_session": 500,
+    "unmatched_identity_rows": 0,
+    "additional_full_session_rows": 39466,
+    "exact_amount_matches": 210,
+    "amount_delta_le_1_npr": 46,
+    "amount_delta_le_10_npr": 138,
+    "amount_delta_le_100_npr": 21,
+    "amount_delta_gt_100_npr": 85,
+    "interpretation": "Partial extract; abbreviated K/Lac amount values are lossy. Not valid for session completeness or absence inference."
+  },
+  "unl": {
+    "status": "TRADED",
+    "contracts": 4,
+    "shares": 50,
+    "turnover_npr": "2408700.00",
+    "contracts_detail": [
+      {
+        "buyer_member_id": "48",
+        "seller_member_id": "6",
+        "quantity": 10,
+        "rate": "48390.0000",
+        "amount": "483900.00"
+      },
+      {
+        "buyer_member_id": "48",
+        "seller_member_id": "6",
+        "quantity": 10,
+        "rate": "48480.0000",
+        "amount": "484800.00"
+      },
+      {
+        "buyer_member_id": "28",
+        "seller_member_id": "35",
+        "quantity": 20,
+        "rate": "48000.0000",
+        "amount": "960000.00"
+      },
+      {
+        "buyer_member_id": "20",
+        "seller_member_id": "35",
+        "quantity": 10,
+        "rate": "48000.0000",
+        "amount": "480000.00"
+      }
+    ]
+  },
+  "scope_limitations": [
+    "This verifies only 2026-11-20, not all trading dates or the full 281-equity historical archive.",
+    "Private raw page payloads were not archived for the independent capture run.",
+    "No claim is made about UNL on any date other than 2026-11-20.",
+    "Canonical promotion, model training and broker manipulation conclusions remain outside this date-specific evidence."
+  ]
+}

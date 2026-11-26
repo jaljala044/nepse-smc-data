@@ -133,6 +133,9 @@ def main():
                     raw = stream.read()
                 if not raw.strip():
                     status = "empty_capture"
+                elif raw.lstrip().startswith("<html") or raw.strip().startswith("Searched Date is not valid."):
+                    status = "non_json_response"
+                    totals["non_json_responses"] += 1
                     totals["empty_captures"] += 1
                 else:
                     json.loads(raw)

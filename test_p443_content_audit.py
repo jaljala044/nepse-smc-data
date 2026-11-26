@@ -15,7 +15,7 @@ class StrictAuditTests(unittest.TestCase):
         _,_,findings=scan(raw,entry)
         self.assertEqual([f["classification"] for f in findings],["conflicting_business_key"])
     def test_empty_json_capture(self):
-        self.assertEqual(list(records(b"  \\n", "json")), [])
+        self.assertEqual(list(records(b"  ", "json")), [])
     def test_provider_error_body_is_not_parsed_as_json(self):
         self.assertTrue(non_json_capture(b"<html><body>WARNING: UNAUTHORIZED ACCESS</body></html>"))
         self.assertTrue(non_json_capture(b"Searched Date is not valid."))

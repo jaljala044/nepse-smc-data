@@ -86,3 +86,11 @@ The 23 divergent pairs account for 33,439 SMC rows and 20,767 starter rows:
 2. Investigate the 1,329 invalid SMC OHLC rows without overwriting raw source rows.
 3. Classify adjacent repeated OHLCV rows against the two weekly trading-calendar regimes and derive a separate non-forward-filled view with provenance.
 4. Validate symbol listing/suspension dates before publishing expected-session completeness scores.
+
+## Source corroboration of OHLC invariant flags
+
+A separate sample check compared the first flagged date for 13 symbols against the ShareSansar-derived daily archive `shawinCreates/Nepse-Market-Data`. All 13 sampled rows matched exactly for Open, High, Low, Close and Volume. This indicates that at least these invariant violations are already present in the source-reported ShareSansar values and were not introduced by the SMC repository. The sample is not exhaustive and does not certify all 1,329 flagged rows.
+
+Do not auto-correct these values. Retain the raw source values and classify them as provider-reported OHLC invariant violations until a stronger row-level source resolves them. In particular, a zero Open must not be replaced with previous close or a guessed price.
+
+Evidence: [13-row comparison CSV](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/shareSansar_source_corroboration_ohlc_flags_2026-11-26.csv) · [Evidence report](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/shareSansar_source_corroboration_ohlc_flags_2026-11-26.md). The mirror's README documents that its daily-price files are scraped from ShareSansar: [source README](https://github.com/shawinCreates/Nepse-Market-Data/blob/main/README.md).

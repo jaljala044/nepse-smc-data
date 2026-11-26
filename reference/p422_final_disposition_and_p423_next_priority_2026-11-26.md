@@ -14,7 +14,7 @@ This is not a claim that every historical conflict now has an exchange-authentic
 | Work item | Audited result | Final disposition |
 |---|---:|---|
 | Correct unsupported conflict counts | 87 same-date conflicts; separate internal pair audit has 1 numeric mismatch | Corrected; do not repeat the unsupported 1,000 figure |
-| RHGCL 2026-11-19 | SMC raw 252.10 / 259.50 / 252.10 / 256.00 / 4,216; ShareSansar-derived, history-starter and multiple secondary displays agree on 252.10 / 259.50 / 252.10 / 258.00 / 9,054 | Preferred derived value finalized at Close 258.00, Volume 9,054, evidence tier SECONDARY_SOURCE_CORROBORATED; preserve SMC raw row |
+| RHGCL 2026-11-19 | SMC raw 252.10 / 259.50 / 252.10 / 256.00 / 4,216; ShareSansar-derived, history-starter and multiple secondary displays agree on 252.10 / 259.50 / 252.10 / 258.00 / 9,054 | Official NEPSE EOD confirms derived Close 258.00, Volume 9,054; payload SHA-256 303d92756ffbcaa2e6ab5020c29e1eab1b63ed99797bf024914dbb863cbae183; preserve SMC raw row |
 | Remaining 86 conflicts | All dated 2025-07-28 | QUARANTINE_UNKNOWN; no value selected |
 | Invalid external candidates | 109 total: 88 have open > high; 21 have open < low | QUARANTINE_INVALID; no correction inferred |
 | Date-shift candidates | 490 total: 238 from 2026-03-02 to 2026-03-01; 252 from 2026-07-25 to 2026-07-24 | Calendar-consistent and value-matched to existing derived rows; raw dates unchanged; no inserts |
@@ -32,11 +32,11 @@ This is not a claim that every historical conflict now has an exchange-authentic
 
 The 258.00 / 9,054 row is corroborated by the ShareSansar-derived archive, Hamroshare, Stock Nepals, NEPSE Demo Trading and QuantNepal. These are secondary displays and may share upstream data; they are not counted as five independent exchange feeds.
 
-The official NEPSE website was checked, but its public page was returned as a JavaScript shell without readable historical rows in this retrieval. NEPSE's official EOD endpoint is documented by the independently maintained capture pipeline as authoritative and limited to a rolling 365-day history window. The 19 November 2026 date is inside that window, but an authenticated NEPSE payload was not captured in this run.
+The official NEPSE EOD API was subsequently queried directly for 2026-11-19. It returned one RHGCL row in a 347-row board and the row passed the strict validator with zero quality flags. The exact response was preserved in artifact 15137973461 (run 45862108316); payload SHA-256 is `303d92756ffbcaa2e6ab5020c29e1eab1b63ed99797bf024914dbb863cbae183`. See [official evidence JSON](official_eod_captures/RHGCL_2026-11-19_nepse_eod.json) and [capture artifact](https://github.com/jaljala044/nepse-smc-data/actions/runs/45862108316/artifacts/15137973461).
 
 The repository's 19 November floorsheet CSV contains only 500 contracts (one page), not a complete session capture. It contains two RHGCL prints totalling 480 shares at 258.00, which corroborates the price but cannot prove the full 9,054-share daily volume.
 
-**Decision:** use 258.00 / 9,054 in a versioned derived view with `SECONDARY_SOURCE_CORROBORATED_PRIMARY_CONFIRMATION_PENDING`. Keep the original SMC raw row unchanged. Do not label this record official-NEPSE-verified, and do not use the row as a primary-source training label.
+**Decision:** official NEPSE confirms 258.00 / 9,054. The versioned derived RHGCL row is now labelled `OFFICIAL_CAPTURE_ACCEPTED` with payload provenance. Keep the original SMC raw row unchanged. This row may be used as a primary-source-verified historical label subject to the project's normal corporate-action and session checks.
 
 ## 86 historical conflicts — why UNKNOWN is the correct result
 
@@ -67,17 +67,19 @@ The following immutable GitHub Actions artifacts contain the row-level evidence 
 | Missing equity recovery | 45846116991 | 15132011878 | 490 recovered date shifts and 109 invalid quarantine rows |
 | Provisional market equity build | 45845805778 | 15131697026 | Per-row decision ledger and provisional derived OHLCV files |
 
-The artifacts are review-only. They do not constitute a primary-source confirmation or authorize mutation of raw source archives.
+The reconciliation/recovery artifacts are review-only. The separate RHGCL official EOD artifact is primary-source evidence for that exact daily OHLCV row. No raw source archive was mutated.
 
-## P4.23 — next priority target
+## P4.23 — RHGCL official EOD target
 
-**Build the official NEPSE EOD evidence adapter and primary-source reconciliation gate.**
+**Completed:** official NEPSE EOD capture, exact payload preservation, strict validation, row reconciliation and derived provenance upgrade. See [P4.23 evidence report](p423_official_nepse_eod_evidence_gate_2026-11-26.md).
 
-1. Capture the 2026-11-19 RHGCL official EOD row while it remains inside NEPSE's rolling 365-day window; persist the raw response, retrieval timestamp, source URL, payload hash, upstream total count and parsed row.
-2. Reconcile official EOD OHLCV against the two RHGCL source rows and the incomplete floorsheet capture. Promote only after identity, session, corporate-action basis and volume checks pass.
-3. Add row-level evidence export for all conflict/quarantine classes, with deterministic reason codes and immutable source hashes.
-4. For 2025-07-28, do not promise an official re-fetch: retain the 86 UNKNOWN rows unless a permitted historical primary record is supplied or found.
-5. Add tests proving no secondary-only row is silently labelled official and no UNKNOWN row becomes NO_TRADE.
+## Next priority target — P4.24: 86 historical conflicts
+
+1. Produce a symbol-by-symbol evidence matrix for all 86 conflicts dated 2025-07-28, including both source tuples, instrument identity, corporate-action basis, and immutable source hashes.
+2. Search permitted primary historical records or original archived NEPSE files where available; do not assume the rolling API can return dates outside its window.
+3. Resolve each row as PRIMARY_CONFIRMED, SECONDARY_ONLY, CONFLICT_UNRESOLVED, INVALID_EXTERNAL, or UNKNOWN_SOURCE_CONFLICT.
+4. Keep unresolved rows quarantined from canonical scoring/training. Do not change raw files and do not convert UNKNOWN to NO_TRADE.
+5. Add regression tests that verify the status mapping and evidence provenance.
 
 ## Acceptance
 

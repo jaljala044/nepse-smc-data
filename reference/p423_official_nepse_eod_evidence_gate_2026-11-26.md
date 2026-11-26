@@ -1,47 +1,65 @@
-# P4.23 — Official NEPSE EOD evidence gate (first implementation slice)
+# P4.23 — Official NEPSE EOD evidence gate and RHGCL confirmation
 
 Date: 2026-11-26
 
-## Objective
+## Status
 
-Accept an official NEPSE end-of-day row only when the original response bytes, exact symbol/date identity, official endpoint URL, timezone-aware retrieval time and OHLCV fields are all available. Keep the source payload immutable and never modify the raw OHLCV archive as a side effect.
+**RHGCL 2026-11-19 primary-source confirmation completed.** The official NEPSE EOD API returned exactly one RHGCL row in a 347-row, one-page response. The unmodified response body was preserved as a GitHub Actions artifact and passed the strict evidence validator with zero quality flags.
 
-## Implemented
+## Official NEPSE record
 
-- `tools/validate_nepse_eod_capture.py` reads a preserved JSON payload offline.
-- Requires an HTTPS NEPSE official host, timezone-aware retrieval timestamp, expected symbol and exchange-local business date.
-- Requires exactly one matching row and all key EOD fields.
-- Validates positive OHLC, non-negative volume/turnover/trade count, and OHLC range integrity.
-- Emits `OFFICIAL_CAPTURE_ACCEPTED` only when the row has no quality flags. A close/open outside the daily range becomes `OFFICIAL_CAPTURE_REVIEW_REQUIRED`, not a silent pass.
-- Records the original payload SHA-256, source URL, retrieval time, row, parsed values and `raw_archive_mutated=false`.
-- Adds regression tests and a focused GitHub Actions workflow.
+| Field | Official value |
+|---|---:|
+| Symbol | RHGCL |
+| Security ID | 8108 |
+| Business date | 2026-11-19 |
+| Open | 252.10 |
+| High | 259.50 |
+| Low | 252.10 |
+| Close | **258.00** |
+| Traded quantity | **9,054** |
+| Turnover | NPR 2,332,952.50 |
+| Trades | 47 |
+| Last updated | 2026-11-19T14:59:54.225031 |
 
-## Local usage
+## Capture provenance
 
-```bash
-python tools/validate_nepse_eod_capture.py \
-  --payload evidence/nepse_eod_2026-11-19.json \
-  --symbol RHGCL \
-  --date 2026-11-19 \
-  --source-url 'https://www.nepalstock.com/api/nots/nepse-data/today-price?size=500&page=0&businessDate=2026-11-19' \\
-  --retrieved-at '2026-11-26T10:00:00+05:45' \
-  --output evidence/validated/RHGCL_2026-11-19.json
-```
+- Endpoint: `https://www.nepalstock.com/api/nots/nepse-data/today-price?size=500&page=0&businessDate=2026-11-19`
+- Retrieval: 2026-11-26T22:33:29.871784+05:45
+- HTTP: 200; content type application/json
+- Board: 347 total elements; 1 page; RHGCL found exactly once
+- Response bytes: 175,513
+- Raw payload SHA-256: `303d92756ffbcaa2e6ab5020c29e1eab1b63ed99797bf024914dbb863cbae183`
+- Artifact: [immutable raw response + manifest + validated row](https://github.com/jaljala044/nepse-smc-data/actions/runs/45862108316/artifacts/15137973461)
+- Artifact ID: 15137973461; ZIP SHA-256: `72266336645ba3191c441cfa66cd493462b44f7a92fcc68db4b968e0d693a6ee`
+- Run: [45862108316](https://github.com/jaljala044/nepse-smc-data/actions/runs/45862108316)
+- Committed row and evidence manifest: [RHGCL official EOD JSON](official_eod_captures/RHGCL_2026-11-19_nepse_eod.json)
 
-The enforced path is `/api/nots/nepse-data/today-price`, identified in the NEPSE capture client's EOD request implementation. The query's `businessDate` must exactly match the requested exchange date. Operators must still preserve the actual request URL and unmodified response bytes; passing synthetic tests does not establish that a real capture exists.
+Validator result: `OFFICIAL_CAPTURE_ACCEPTED`; no quality flags; `raw_archive_mutated=false`.
 
-## Current RHGCL state
+## Reconciliation and promotion
 
-No authenticated official NEPSE EOD payload for 2026-11-19 has been captured in this task. The public NEPSE page was not machine-readable in the browser retrieval. The validator is therefore ready for a real capture but has not promoted the secondary-source-corroborated 258.00 / 9,054 value to official status.
+The official row exactly matches the alternative history row and differs from the SMC raw row only in close and volume:
 
-## Remaining P4.23 work
+| Field | SMC raw | Official NEPSE |
+|---|---:|---:|
+| Open | 252.10 | 252.10 |
+| High | 259.50 | 259.50 |
+| Low | 252.10 | 252.10 |
+| Close | 256.00 | **258.00** |
+| Volume | 4,216 | **9,054** |
 
-1. Capture the actual NEPSE EOD response for RHGCL 2026-11-19 while it remains within the official rolling history window.
-2. Preserve the unmodified response and run the validator against it.
-3. Compare official OHLCV, ShareSansar-derived history, history-starter and SMC raw values; require the official payload hash and row to be present in the evidence ledger.
-4. If the official record confirms 258.00 / 9,054, update only the versioned derived record and retain the SMC raw source unchanged. If it differs, retain UNKNOWN pending reconciliation.
-5. Extend the adapter to a batch of all eligible disputed symbols/dates and publish a deterministic row-level evidence CSV.
+Decision: the derived RHGCL OHLCV v1 row is confirmed at `2026-11-19,252.1,259.5,252.1,258.0,9054.0`. Its correction ledger now cites NEPSE Official EOD and the payload SHA-256. The derived file bytes remain unchanged because they already contained the correct value. The SMC raw file is preserved unchanged.
 
-## Safety
+The Merolagani floorsheet archive remains incomplete as a secondary tick-level record, but its limitations no longer block the OHLCV close/volume decision because the official EOD board provides the authoritative daily values.
 
-This implementation does not make network requests, scrape the official site, or overwrite historical data. It validates evidence already captured by an authorized operator. It cannot recover 2025-07-28 from NEPSE's documented rolling 365-day history endpoint; the 86 old conflicts remain quarantined UNKNOWN unless permitted primary evidence is found.
+## Implemented capture and validation
+
+- `tools/capture_nepse_official_eod.py`: requests all official EOD pages, stores exact response bytes before parsing, records response URL, timestamp, byte count and SHA-256.
+- `tools/validate_nepse_eod_capture.py`: validates exact symbol/date, official HTTPS host, timezone-aware retrieval timestamp, required OHLCV fields, range integrity and provenance.
+- `.github/workflows/p423-capture-official-nepse-eod.yml`: manual capture workflow; task-branch push run also executed the RHGCL historical capture.
+- `tools/tests/test_validate_nepse_eod_capture.py`: regression tests passed; capture script compiled successfully.
+
+## Remaining boundary
+
+This closes the RHGCL 2026-11-19 P4.23 target. It does **not** resolve the 86 external archive conflicts dated 2025-07-28; those dates are outside the official endpoint's rolling 365-day history window and remain quarantined UNKNOWN absent another permitted primary record. No other symbol/date is promoted by analogy.

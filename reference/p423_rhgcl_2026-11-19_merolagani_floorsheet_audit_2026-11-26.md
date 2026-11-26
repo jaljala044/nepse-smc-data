@@ -1,7 +1,7 @@
 # P4.23 — RHGCL 2026-11-19 Merolagani floorsheet cross-check
 
 **Audit date:** 2026-11-26  
-**Disposition:** `CONFLICT_UNRESOLVED` / `UNKNOWN` for canonical promotion  
+**Disposition:** Secondary floorsheet incomplete; canonical OHLCV conflict resolved by official NEPSE EOD capture on 2026-11-26  
 **Evidence tier:** Secondary floorsheet archive; useful corroboration, not primary NEPSE evidence
 
 ## Source and provenance
@@ -55,14 +55,18 @@ The file preserves the Merolagani floorsheet display sequence, where smaller `sn
 
 The reconstructed RHGCL OHLCV matches the alternative record: 252.10 / 259.50 / 252.10 / 258.00 / 9,054. It corroborates the 258.00 close and 9,054 volume reported by other secondary records. The local 500-row sample contains two RHGCL contracts (480 shares) matching the same two early contract quantities and prices; this is corroboration, not a complete session capture.
 
-## Canonical conflict remains unresolved
+## Canonical conflict — resolved by official NEPSE EOD
 
 - SMC canonical: 252.10 / 259.50 / 252.10 / 256.00 / 4,216.
 - Alternative record: 252.10 / 259.50 / 252.10 / 258.00 / 9,054.
 - The 47-row Merolagani-derived reconstruction supports the alternative tuple but inherits the source's pagination/completeness limitations.
 - No direct NEPSE official EOD record or complete independently verified primary floorsheet has been preserved in this audit.
 
-**Decision:** retain both source tuples unchanged; keep RHGCL `UNKNOWN` / `CONFLICT_UNRESOLVED`. Do not promote 258.00 or alter production OHLCV on this evidence alone.
+The Merolagani-derived floorsheet remains an incomplete secondary archive and cannot independently prove full-session completeness. However, the conflict is now resolved by the direct official NEPSE EOD capture for the exact business date.
+
+Official NEPSE row: Open 252.10 / High 259.50 / Low 252.10 / Close 258.00 / Volume 9,054; 47 trades; turnover NPR 2,332,952.50. The capture passed the official evidence validator with zero quality flags. See [official EOD evidence record](official_eod_captures/RHGCL_2026-11-19_nepse_eod.json) and [immutable capture artifact](https://github.com/jaljala044/nepse-smc-data/actions/runs/45862108316/artifacts/15137973461).
+
+**Decision:** promote Close 258.00 and Volume 9,054 in the versioned derived OHLCV only. Preserve the SMC raw tuple unchanged. The floorsheet completeness warning remains attached to this secondary audit; it does not override the authoritative official EOD board.
 
 ## Artifact
 

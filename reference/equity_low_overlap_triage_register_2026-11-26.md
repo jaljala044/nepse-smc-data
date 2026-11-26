@@ -8,8 +8,8 @@ This register triages the 26 provisional common-equity symbols below 90% observe
 
 | Triage group | Count | Interpretation | Current disposition |
 |---|---:|---|---|
-| Symbol-specific reviewed | 3 | NLO, BNL, PFL | Evidence reports linked below; classifications updated |
-| Later-start candidates | 12 | First archive dates are between 2026-05-26 and 2026-10-15, inside the sample window | Verify first listing / first-trade date before treating earlier absent rows as gaps |
+| Symbol-specific reviewed | 4 | NLO, BNL, PFL, BENH | Evidence reports linked below; classifications updated |
+| Later-start candidates pending verification | 11 | First archive dates are between 2026-05-26 and 2026-08-13, inside the sample window | Verify first listing / first-trade date before treating earlier absent rows as gaps |
 | Mid-2026 start / low overlap unresolved | 11 | Files start before the sample window but have materially fewer matching observations | Requires trade-level / floorsheet / lifecycle review; do not assume data defect |
 
 ## Symbol-specific reviewed
@@ -20,16 +20,18 @@ This register triages the 26 provisional common-equity symbols below 90% observe
 | BNL | 50.67% | Active, very illiquid. Project archive ends 2026-11-19 but two providers report an executed 2026-11-23 trade (10 shares at NPR 14,600) missing from archive. 2026-11-24 trade is single-source provisional. |
 | PFL | 78.67% | Merger suspension/relisting interval 2026-07-10 to 2026-09-15 supported by secondary notices; preserve no-splice restriction and continue corporate-action treatment review. |
 
+BENH has a verified late listing: NEPSE listing 2026-10-13, trading commencement scheduled 2026-10-14, first confirmed executed OHLCV row 2026-10-15. Its low overlap is explained by the short available history; the 14 October execution status remains to be checked. See [BENH listing and first-trade validation](BENH_listing_and_first_trade_validation_2026-11-26.md).
+
 Evidence:
 - [NLO sparse-trading review](NLO_sparse_trading_vs_archive_staleness_review_2026-11-26.md)
 - [BNL sparse-history reconciliation](BNL_sparse_history_and_missing_trade_reconciliation_2026-11-26.md)
 - [Low-coverage lifecycle review](equity_low_coverage_lifecycle_review_2026-11-26.md)
 
-## Later-start candidates — lifecycle dates not yet independently verified
+## Later-start candidates — lifecycle dates not yet independently verified (11 symbols)
 
 | Symbol | Overlap | First archive date | Last archive date | Rows in 225-date window |
 |---|---:|---|---|---:|
-| BENH | 7.11% | 2026-10-15 | 2026-11-20 | 16 |
+
 | SAPIL | 24.89% | 2026-08-13 | 2026-11-20 | 108 |
 | MEPDL | 25.33% | 2026-08-12 | 2026-11-20 | 57 |
 | ECL | 32.89% | 2026-07-17 | 2026-11-20 | 75 |

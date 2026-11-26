@@ -24,7 +24,7 @@
    - Close: 256.0 -> 258.0
    - Volume: 4,216 -> 9,054
    - Open, High unchanged; Low unchanged.
-4. ShareSansar-derived daily archive evidence matches the history-starter row exactly. Raw SMC remains unchanged.
+4. The derived RHGCL correction is now confirmed by the direct official NEPSE EOD board for 2026-11-19 (Security ID 8108; 47 trades; NPR 2,332,952.50 turnover). Raw response SHA-256: `303d92756ffbcaa2e6ab5020c29e1eab1b63ed99797bf024914dbb863cbae183`; immutable artifact ID 15137973461. The SMC raw file remains unchanged. See [official evidence record](official_eod_captures/RHGCL_2026-11-19_nepse_eod.json) and [P4.23 capture report](p423_official_nepse_eod_evidence_gate_2026-11-26.md).
 5. All other OHLCV rows, including the 1,329 OHLC invariant flags and adjacent repeated rows, are retained. No unverified correction, deletion, or forward-fill removal is performed.
 
 ## Verification performed
@@ -32,8 +32,9 @@
 - Derived manifest contains exactly 281 symbols.
 - 281 symbol CSV files are included in the derived branch.
 - Total rows represented by the 281 manifest entries: 246,129.
-- RHGCL derived row verified as `2026-11-19,252.1,259.5,252.1,258.0,9054.0`.
+- RHGCL derived row verified as `2026-11-19,252.1,259.5,252.1,258.0,9054.0`, now confirmed by official NEPSE EOD.
 - RHGCL raw row verified unchanged as `2026-11-19,252.1,259.5,252.1,256.0,4216.0`.
+- Official response validator status: `OFFICIAL_CAPTURE_ACCEPTED`, zero quality flags.
 - API derived file blob SHA matches the source raw file SHA; sample verification of byte reuse succeeded.
 
 ## Repeated-row quality flag pilot

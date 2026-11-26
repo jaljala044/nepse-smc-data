@@ -117,6 +117,9 @@ class FloorsheetReconciliationTests(unittest.TestCase):
         self.assertEqual(xyz["trade_status"], "UNKNOWN")
 
     def test_no_trade_rejected_when_market_totals_do_not_match(self):
+        with (self.ohlcv / "XYZ_OHLCV.csv").open("w", newline="") as handle:
+            writer = csv.DictWriter(handle, fieldnames=["Date", "Open", "High", "Low", "Close", "Volume"])
+            writer.writeheader()
         digest = hashlib.sha256(self.floor.read_bytes()).hexdigest()
         manifest = {"floorsheet_complete": "true", "completeness_evidence": "full-day totals verified",
                     "source_uri": "https://source.example/floorsheet/2026-11-20", "source_sha256": digest,
@@ -136,6 +139,17 @@ class FloorsheetReconciliationTests(unittest.TestCase):
         abc = next(r for r in self.run_reconcile() if r["symbol"] == "ABC")
         self.assertEqual(abc["trade_status"], "TRADED")
         self.assertEqual(abc["ohlcv_reconciliation"], "CONFLICT")
+
+    def test_no_trade_rejected_when_ohlcv_volume_is_malformed(self):
+        with (self.ohlcv / "XYZ_OHLCV.csv").open("w", newline="") as handle:
+            writer = csv.DictWriter(handle, fieldnames=["Date", "Open", "High", "Low", "Close", "Volume"])
+            writer.writeheader()
+            writer.writerow({"Date": "2026-11-20", "Open": "1", "High": "1", "Low": "1", "Close": "1", "Volume": "not-a-number"})
+        digest = hashlib.sha256(self.floor.read_bytes()).hexdigest()
+        rows = self.run_reconcile(complete="true", evidence="full-day totals verified",
+                                  uri="https://source.example/floorsheet/2026-11-20", digest=digest)
+        xyz = next(r for r in rows if r["symbol"] == "XYZ")
+        self.assertEqual(xyz["trade_status"], "UNKNOWN")
 
 
 if __name__ == "__main__":

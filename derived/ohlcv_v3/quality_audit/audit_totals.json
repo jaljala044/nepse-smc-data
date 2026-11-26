@@ -1,0 +1,18 @@
+{
+  "status": "V3_OFFICIAL_OPEN_CORRECTIONS_VERIFIED_WITH_HISTORICAL_FLAGS_RETAINED",
+  "symbols": 281,
+  "derived_rows": 246238,
+  "raw_files_verified": 281,
+  "v2_files_verified": 281,
+  "v3_files_verified": 281,
+  "official_open_corrections_verified": 11,
+  "remaining_ohlcv_invariant_flags": 1368,
+  "remaining_flags_by_type": {
+    "OPEN_OUTSIDE_RANGE": 1314,
+    "CLOSE_OUTSIDE_RANGE": 28,
+    "HIGH_BELOW_LOW": 22,
+    "NONPOSITIVE_PRICE": 4
+  },
+  "recent_2026_flags_remaining": 0,
+  "unapproved_v2_to_v3_changes": 0
+}

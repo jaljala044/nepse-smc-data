@@ -50,7 +50,19 @@ def reconcile_date(date, floor_path, ohlcv_dir, calendar, manifest):
     file_valid = floor_path.is_file()
     seen_contracts = set()
     if file_valid:
-        rows = read_csv(floor_path)
+        with floor_path.open(newline="", encoding="utf-8-sig") as handle:
+            reader = csv.DictReader(handle)
+            headers = {str(name).strip().lower() for name in (reader.fieldnames or [])}
+            required_aliases = (
+                bool(headers & {"trading_date", "trade_date", "date"}),
+                "symbol" in headers,
+                bool(headers & {"quantity"}),
+                bool(headers & {"rate"}),
+                bool(headers & {"transaction", "contract_no"}),
+            )
+            if not all(required_aliases):
+                file_valid = False
+            rows = list(reader) if file_valid else []
         for row in rows:
             d = (row.get("Trading_Date") or row.get("trade_date") or row.get("Date") or "").strip()
             symbol = (row.get("Symbol") or row.get("symbol") or "").strip().upper()
@@ -88,8 +100,11 @@ def reconcile_date(date, floor_path, ohlcv_dir, calendar, manifest):
         universe_symbols.add(symbol)
         for row in read_csv(path):
             if (row.get("Date") or row.get("date") or "").strip() == date:
-                ohlcv_by_symbol[symbol] = dec(row.get("Volume") or row.get("volume"))
-                break
+                if symbol in ohlcv_by_symbol:
+                    # Duplicate date bars are ambiguous and must never support NO_TRADE.
+                    ohlcv_by_symbol[symbol] = None
+                else:
+                    ohlcv_by_symbol[symbol] = dec(row.get("Volume") or row.get("volume"))
 
     # Include every current archive symbol, even when that date has no OHLCV row.
     # Otherwise an absent bar could silently disappear instead of receiving UNKNOWN/NO_TRADE.

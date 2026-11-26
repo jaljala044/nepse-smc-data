@@ -33,8 +33,8 @@ class DerivedOhlcvV2AuditTests(unittest.TestCase):
         derived_close = "102" if corrupt_official else "103"
         derived_bytes = (
             "Date,Open,High,Low,Close,Volume\n"
-            f"2026-03-01,100,105,98,103,1000\n"
-            f"2026-03-02,100,105,98,{derived_close},1000\n"
+            f"2026-03-01,100,105,98,{derived_close},1000\n"
+            "2026-03-02,100,105,98,103,1000\n"
         ).encode()
         (raw / "TEST_OHLCV.csv").write_bytes(raw_bytes)
         (v2 / "TEST_OHLCV.csv").write_bytes(derived_bytes)
@@ -75,10 +75,12 @@ class DerivedOhlcvV2AuditTests(unittest.TestCase):
             self.assertEqual(totals["calendar_alignment_flags"], 1)
             self.assertEqual(totals["corporate_action_event_records"], 1)
             self.assertEqual(totals["split_proposals_without_verified_effective_date"], 1)
-            split_flags = list(csv.DictReader((out / "split_review_flags.csv").open()))
+            with (out / "split_review_flags.csv").open(newline="", encoding="utf-8") as fh:
+                split_flags = list(csv.DictReader(fh))
             self.assertEqual(split_flags[0]["disposition"], "NO_SPLIT_FACTOR_APPLIED_EFFECTIVE_DATE_UNKNOWN")
             self.assertEqual((raw / "TEST_OHLCV.csv").read_bytes(), raw_before)
-            repeat_rows = list(csv.DictReader((out / "adjacent_repeat_flags.csv").open()))
+            with (out / "adjacent_repeat_flags.csv").open(newline="", encoding="utf-8") as fh:
+                repeat_rows = list(csv.DictReader(fh))
             self.assertEqual(repeat_rows[0]["classification"], "CLOSED_SESSION_REPEAT_CANDIDATE")
 
     def test_audit_rejects_official_provenance_mismatch(self):

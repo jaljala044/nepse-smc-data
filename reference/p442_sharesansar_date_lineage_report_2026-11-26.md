@@ -6,7 +6,7 @@
 
 ## Result
 
-<badge>Cause supported</badge>
+**Cause supported**
 
 All 162 canonical-only rows (81 NMLBBL, 81 SMPDA) are present in the pinned upstream ShareSansar daily CSV for the same date label, and all 162 source OHLCV tuples match the raw archive exactly. Every source HLCV+volume tuple matches exactly one official NEPSE EOD row on a different date.
 

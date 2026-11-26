@@ -76,11 +76,16 @@ def scan_csv(path, category, findings, stats):
         if not txn and choose(headers, ["Transaction"]) and all(choose(headers, [name]) for name in ["Symbol", "Buyer", "Seller", "Quantity", "Rate"]):
             txn = choose(headers, ["Transaction"])
         date_col = choose(headers, ["Trading_Date", "TradingDate", "Date", "business_date"])
-        if txn:
-            seen, exact = {}, {}
-            for line, row in enumerate(rows, 2):
+        seen, exact = {}, {}
+        for line, row in enumerate(rows, 2):
+            date = (row.get(date_col) or "").strip() if date_col else ""
+            fingerprint = tuple((row.get(h) or "").strip() for h in headers)
+            if fingerprint in exact:
+                emit(findings, {"finding_type":"exact_duplicate_floorsheet_row","category":category,"path":path.relative_to(ROOT),"line":line,"related_line":exact[fingerprint],"key":date,"detail":"Exact row repeated within this file"})
+            else:
+                exact[fingerprint] = line
+            if txn:
                 tid = (row.get(txn) or "").strip()
-                date = (row.get(date_col) or "").strip() if date_col else ""
                 if not tid:
                     continue
                 key = (date, tid)
@@ -88,12 +93,7 @@ def scan_csv(path, category, findings, stats):
                     emit(findings, {"finding_type":"duplicate_floorsheet_contract_key","category":category,"path":path.relative_to(ROOT),"line":line,"related_line":seen[key],"key":"|".join(key),"detail":"Contract identity repeats within this source file/session; inspect source pagination and provenance"})
                 else:
                     seen[key] = line
-                fingerprint = tuple((row.get(h) or "").strip() for h in headers)
-                if fingerprint in exact:
-                    emit(findings, {"finding_type":"exact_duplicate_floorsheet_row","category":category,"path":path.relative_to(ROOT),"line":line,"related_line":exact[fingerprint],"key":"|".join(key),"detail":"Exact row repeated within this file"})
-                else:
-                    exact[fingerprint] = line
-        else:
+        if not txn:
             stats["unsupported"] += 1
     elif category == "session_calendar":
         date_col = choose(headers, ["date", "session_date", "Trading_Date"])
@@ -122,6 +122,7 @@ def main():
         stats = Counter()
         status, error = "inventory_only", ""
         fmt = item["format"].lower()
+        totals["files"] += 1
         try:
             if fmt in {"csv", "csv.gz", "gz"} and (fmt != "gz" or path.name.endswith(".csv.gz")):
                 scan_csv(path, item["category"], findings, stats)
@@ -139,7 +140,6 @@ def main():
                     status = "parsed_json_document"
             else:
                 stats["unsupported"] += 1
-            totals["files"] += 1
             totals["records"] += stats["records"]
             totals["unsupported"] += stats["unsupported"]
             totals[status] += 1

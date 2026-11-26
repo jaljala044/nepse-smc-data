@@ -1,0 +1,3 @@
+symbol,date,field,raw_value,derived_value,source,source_url,reason,status
+RHGCL,2026-11-19,Close,256.0,258.0,ShareSansar-derived daily archive,https://github.com/shawinCreates/Nepse-Market-Data/blob/main/Data/csv/daily_price/2026_11_19.csv,"Exact match to history-starter and ShareSansar for Close and Volume",applied_in_derived_v1
+RHGCL,2026-11-19,Volume,4216.0,9054.0,ShareSansar-derived daily archive,https://github.com/shawinCreates/Nepse-Market-Data/blob/main/Data/csv/daily_price/2026_11_19.csv,"Exact match to history-starter and ShareSansar for Close and Volume",applied_in_derived_v1

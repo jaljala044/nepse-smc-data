@@ -139,9 +139,9 @@ This corroborates the one-year official EOD parity findings. The root cause is t
 
 ## Committed evidence and reproducibility
 
-- Capture script: `tools/capture_p437_cross_sector_date_audit.py`
-- Tests: `tools/tests/test_capture_p437_cross_sector_date_audit.py`
-- Workflow: `.github/workflows/p437-cross-sector-date-audit.yml`
+- Capture script: `tools/capture_p437_closed_date_contamination_audit.py`
+- Tests: `tools/tests/test_capture_p437_closed_date_contamination_audit.py`
+- Workflow: `.github/workflows/p437-closed-date-contamination-audit.yml`
 - Official security master: `reference/p437_cross_sector_date_contamination_audit/security_list.json`
 - 24 raw official EOD response pages: `reference/p437_cross_sector_date_contamination_audit/*_page_0.json`
 - Capture report: `reference/p437_cross_sector_date_contamination_audit/capture_report.json`

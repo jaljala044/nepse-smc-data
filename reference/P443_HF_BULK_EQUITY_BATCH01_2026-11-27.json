@@ -1,0 +1,104 @@
+{
+  "task": "P4.43 HF-only equity floorsheet recovery batch 01",
+  "workflow": {
+    "run": 45903027490,
+    "run_number": 266,
+    "artifact_id": 15157080178,
+    "conclusion": "success"
+  },
+  "source": {
+    "dataset": "urekmazino69/Nepse-floorsheet-and-indices",
+    "tree_snapshot": "reference/p433_floorsheets/huggingface_repo_tree.json",
+    "tree_blob_sha": "f9dc3dd6ae73919bdd2217664bfbed7bcdfd38e5",
+    "tree_retrieved_at": "2026-11-26T18:28:47.483997+00:00",
+    "daily_files": 603,
+    "upstream_independence": "UNKNOWN",
+    "archive_completeness": "UNKNOWN"
+  },
+  "queue_coverage": {
+    "p2_requests": 68773,
+    "unique_dates": 316,
+    "primary_archive_covered_dates": 22,
+    "hf_available_dates": 96,
+    "hf_only_available_dates": 74,
+    "hf_only_available_requests": 15439,
+    "first_batch_dates": 22,
+    "first_batch_requests": 4907,
+    "remaining_hf_available_requests": 10532,
+    "no_hf_pinned_partition_requests": 48099,
+    "already_primary_checked_requests": 5235
+  },
+  "selected_dates": [
+    "2025-11-20",
+    "2025-11-13",
+    "2025-11-06",
+    "2025-08-28",
+    "2025-09-04",
+    "2025-09-25",
+    "2025-10-09",
+    "2025-10-16",
+    "2025-07-24",
+    "2025-07-31",
+    "2025-08-21",
+    "2025-10-30",
+    "2025-07-17",
+    "2025-08-07",
+    "2025-08-14",
+    "2025-06-05",
+    "2025-06-12",
+    "2025-06-26",
+    "2025-07-10",
+    "2025-05-15",
+    "2025-05-22",
+    "2025-07-03"
+  ],
+  "session_validation": {
+    "sessions": 22,
+    "total_rows": 1796949,
+    "valid_transaction_shape_and_amount_rows": true,
+    "sha256_and_compressed_size_checks_pass": true,
+    "sessions_without_contract_id_collisions": 17,
+    "sessions_with_contract_id_collisions": 5,
+    "collision_dates": [
+      "2025-06-05",
+      "2025-06-12",
+      "2025-06-26",
+      "2025-05-15",
+      "2025-05-22"
+    ],
+    "duplicate_contract_ids": 42006,
+    "duplicate_contract_occurrences": 377975,
+    "collision_signature_rows": 416311,
+    "repeated_identical_signature_groups": 3080,
+    "repeated_identical_signature_excess_rows": 3670,
+    "cross_symbol_duplicate_id_occurrences": 346706,
+    "same_symbol_duplicate_id_occurrences": 31269
+  },
+  "request_dispositions": {
+    "high_low_volume_match_open_close_unverified": 2406,
+    "high_low_volume_conflict": 1398,
+    "contract_id_collision_review": 1103,
+    "hf_available_not_fetched": 10532,
+    "no_hf_pinned_partition": 48099,
+    "primary_archive_already_checked": 5235
+  },
+  "collision_interpretation": {
+    "disposition": "CONTRACT_ID_COLLISION_REVIEW",
+    "note": "Contract IDs repeat across symbols and within symbols. This may reflect identifier scoping or precision/truncation; no cause is established. Rows are retained and excluded from H/L/volume aggregation until contract identity is adjudicated.",
+    "no_deduplication": true,
+    "no_promotion": true
+  },
+  "limitations": [
+    "Third-party archive; upstream lineage independence and completeness are UNKNOWN.",
+    "High/low/volume only are compared; open and close are not verified.",
+    "Missing or unselected partitions are UNKNOWN, not evidence of no trade.",
+    "Contract collisions are review findings, not proof of duplicate trades or invalid source rows."
+  ],
+  "promotion_allowed": false,
+  "canonical_values_changed": 0,
+  "evidence_artifacts": {
+    "disposition_csv": "hf_bulk_equity_floorsheet_disposition.csv",
+    "summary_json": "hf_bulk_equity_floorsheet_summary.json",
+    "contract_collision_csv": "hf_bulk_equity_contract_collisions.csv"
+  }
+}

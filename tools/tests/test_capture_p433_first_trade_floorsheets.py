@@ -15,6 +15,8 @@ class P433CaptureTests(unittest.TestCase):
             rec=report["records"][0]
             self.assertEqual(rec["capture_status"],"captured")
             self.assertEqual(rec["validation"]["target_symbol_contracts"],1)
+            self.assertEqual(rec["validation"]["target_symbol_duplicate_contract_numbers"],0)
+            self.assertEqual(rec["validation"]["target_symbol_duplicate_record_ids"],0)
             self.assertEqual(rec["compressed_sha256"],hashlib.sha256(self.compressed).hexdigest())
             self.assertEqual((Path(tmp)/"floorsheet_2024-05-19.csv").read_bytes(),self.raw)
     def test_duplicate_contract_number_within_symbol_fails(self):

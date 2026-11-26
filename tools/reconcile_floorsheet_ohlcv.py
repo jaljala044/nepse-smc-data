@@ -2,7 +2,9 @@
 
 TRADED requires at least one valid contract in the date-matched file.
 NO_TRADE requires a verified-open session AND a complete, hash-matched
-floorsheet manifest. Every other absence is UNKNOWN.
+floorsheet manifest. The canonical calendar's verified_open_observed status is
+accepted because a positive exchange-history observation proves market activity
+on that date; candidate weekdays are not accepted. Every other absence is UNKNOWN.
 """
 import argparse
 import csv
@@ -151,7 +153,7 @@ def reconcile_date(date, floor_path, ohlcv_dir, calendar, manifest):
         if contracts > 0 and t["bad_rows"] == 0 and file_valid:
             status = "TRADED"
         elif (contracts == 0 and file_valid and complete and hash_matches
-              and session_status == "verified_open"
+              and session_status in {"verified_open", "verified_open_observed"}
               and (symbol not in ohlcv_by_symbol or ohlcv_by_symbol[symbol] == 0)):
             status = "NO_TRADE"
         else:

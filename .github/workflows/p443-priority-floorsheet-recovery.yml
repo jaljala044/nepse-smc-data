@@ -1,0 +1,28 @@
+name: P4.43 priority equity floorsheet recovery
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'tools/p443_priority_floorsheet_recovery.py'
+      - '.github/workflows/p443-priority-floorsheet-recovery.yml'
+permissions:
+  contents: read
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Recover and validate ten priority partitions
+        run: python tools/p443_priority_floorsheet_recovery.py --output priority-evidence
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: p443-priority-floorsheet-evidence
+          path: |
+            priority-evidence/priority_contract_observations.csv
+            priority-evidence/priority_floorsheet_summary.json
+          if-no-files-found: error

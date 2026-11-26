@@ -134,15 +134,19 @@ The v2 release is published on [derived/ohlcv-v2-official-eod](https://github.co
 - Every one of the 281 raw source Git blob hashes was revalidated; raw source files modified: 0.
 - Regression tests and v2 build passed in CI run [45867152948](https://github.com/jaljala044/nepse-smc-data/actions/runs/45867152948); artifact [15139594805](https://github.com/jaljala044/nepse-smc-data/actions/runs/45867152948/artifacts/15139594805).
 
-## Next priority target — P4.30: full v2 historical integrity and scanner-input gate
+## P4.30 — completed: full v2 integrity audit and guarded scanner gate
 
-1. Run all 281 v2 files through OHLCV invariants, duplicate-date, ordering, numeric, volume and row-count validation.
-2. Reconcile the 1,329 retained source OHLC invariant flags individually; preserve UNKNOWN where official or complete floorsheet evidence is unavailable.
-3. Re-audit repeated-candle rows against the pre/post 2026-04-06 session calendar and instrument lifecycle evidence; do not delete repeats automatically.
-4. Validate corporate actions and raw/adjusted price basis before computing returns, RS and moving averages.
-5. Prove v2 is deterministic and idempotent, raw sources remain byte-identical, and only official-evidence rows are promoted.
-6. Wire v2 into scanner inputs behind a versioned data-quality gate; unresolved rows must remain UNKNOWN and excluded from scoring/training.
+The [P4.30 audit report](derived_ohlcv_v2_integrity_audit_2026-11-26.md) records the full 281-symbol check. CI run [45868691178](https://github.com/jaljala044/nepse-smc-data/actions/runs/45868691178) passed with artifact [15141173903](https://github.com/jaljala044/nepse-smc-data/actions/runs/45868691178/artifacts/15141173903).
 
-## Acceptance
+- 281/281 raw Git blob hashes and 599/599 official provenance rows verified.
+- Zero duplicate-date or ordering flags.
+- 1,329 unique invalid OHLCV rows across 13 symbols; 1,379 reason flags. No automatic repair.
+- 71,806 adjacent repeated rows across 256 symbols: 18,910 closed-session candidates, 52,891 outside calendar evidence, and 5 open-session repeats.
+- Corporate-action evidence remains partial: 3 events across 3 symbols; 278 symbols have no action record; one NLIC split proposal lacks a verified effective date.
+- T+2/swing may use individually valid, sufficiently liquid bars only. Positional/investment adjusted-return metrics remain unsafe until corporate-action history is validated.
 
-The P4.22–P4.29 reconciliation sequence is closed when the 86 historical 2025-07-28 conflicts remain safely UNKNOWN, RHGCL is official-EOD confirmed, all 599 in-window candidates are represented by exact official EOD evidence in derived v2, all 281 raw sources remain byte-identical, and the v2 integrity gate passes before scanner scoring or training.
+## Next priority — P4.31: verify five open-session repeated rows
+
+Capture complete official NEPSE floorsheets for both dates in each of the five repeated pairs: BNL (2026-11-13/17), BNT (2026-06-29/07-01), ENL (2026-08-25/26), and UNL (2026-08-24/27 and 2026-09-28/29). Reconcile contract count, quantity and rates to the EOD rows. Missing, incomplete or mismatching evidence must remain UNKNOWN; UNL must not be upgraded without exact symbol/date validation.
+
+The first company-floorsheet API attempt returned HTTP 403 for all ten symbol/date requests. Raw 403 response bodies and hashes are retained in artifact [15141637485](https://github.com/jaljala044/nepse-smc-data/actions/runs/45869582371/artifacts/15141637485). An official EOD-board fallback capture is running; it can confirm daily OHLCV but does not replace a complete floorsheet.

@@ -73,13 +73,24 @@ The reconciliation/recovery artifacts are review-only. The separate RHGCL offici
 
 **Completed:** official NEPSE EOD capture, exact payload preservation, strict validation, row reconciliation and derived provenance upgrade. See [P4.23 evidence report](p423_official_nepse_eod_evidence_gate_2026-11-26.md).
 
-## Next priority target — P4.24: 86 historical conflicts
+## P4.24 — completed: 86-row historical close-conflict matrix
 
-1. Produce a symbol-by-symbol evidence matrix for all 86 conflicts dated 2025-07-28, including both source tuples, instrument identity, corporate-action basis, and immutable source hashes.
-2. Search permitted primary historical records or original archived NEPSE files where available; do not assume the rolling API can return dates outside its window.
-3. Resolve each row as PRIMARY_CONFIRMED, SECONDARY_ONLY, CONFLICT_UNRESOLVED, INVALID_EXTERNAL, or UNKNOWN_SOURCE_CONFLICT.
-4. Keep unresolved rows quarantined from canonical scoring/training. Do not change raw files and do not convert UNKNOWN to NO_TRADE.
-5. Add regression tests that verify the status mapping and evidence provenance.
+The deterministic row-level matrix is merged and available at [P4.24 matrix](p424_2025-07-28_conflict_matrix_2026-11-26.csv), with its [analysis report](p424_2025-07-28_conflict_matrix_report_2026-11-26.md).
+
+- All 86 SMC raw counterpart rows were found.
+- All 86 differences are isolated to Close; Open, High, Low and Volume match exactly.
+- External close minus SMC close ranges -24.11 to +274.06; 73 positive, 13 negative; median +3.505.
+- The external archive identifies ShareSansar as its source. The scanner-input README also identifies the baseline history as ShareSansar-sourced, so the archives may share upstream lineage and are not counted as independent evidence.
+- All 86 remain `UNKNOWN_SOURCE_CONFLICT`; no raw values changed and no external close was promoted.
+- Builder tests and PR CI passed; matrix artifact: [15139400460](https://github.com/jaljala044/nepse-smc-data/actions/runs/45862707787/artifacts/15139400460).
+
+## Next priority target — P4.25: trace the 86 close-field lineage
+
+1. Identify the exact source endpoint/page, HTML/API field, parser and extraction version used to create the SMC raw close values.
+2. Inspect the pinned ShareSansar scraper implementation and commit history to identify the exact table column and transformation used for the external close.
+3. Compare the two extraction paths against archived contemporaneous page captures or permitted primary records, if available.
+4. Group close deltas by security type, absolute/percentage magnitude and possible corporate-action or instrument-identity effects.
+5. Keep all rows UNKNOWN until individual primary evidence supports a decision; do not overwrite raw history or convert UNKNOWN to NO_TRADE.
 
 ## Acceptance
 

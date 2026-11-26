@@ -9,7 +9,7 @@ This register triages the 26 provisional common-equity symbols below 90% observe
 | Triage group | Count | Interpretation | Current disposition |
 |---|---:|---|---|
 | Symbol-specific reviewed | 4 | NLO, BNL, PFL, BENH | Evidence reports linked below; classifications updated |
-| Later-start candidates pending verification | 11 | First archive dates are between 2026-05-26 and 2026-08-13, inside the sample window | Verify first listing / first-trade date before treating earlier absent rows as gaps |
+| Later-start candidates lifecycle-checked (9 aligned; 2 boundary exceptions) | 11 | Dated notices and archive first-volume rows checked for all 11; APHL and KHPL have one-session discrepancies | Verify first listing / first-trade date before treating earlier absent rows as gaps |
 | Mid-2026 start / low overlap unresolved | 11 | Files start before the sample window but have materially fewer matching observations | Requires trade-level / floorsheet / lifecycle review; do not assume data defect |
 
 ## Symbol-specific reviewed
@@ -27,7 +27,7 @@ Evidence:
 - [BNL sparse-history reconciliation](BNL_sparse_history_and_missing_trade_reconciliation_2026-11-26.md)
 - [Low-coverage lifecycle review](equity_low_coverage_lifecycle_review_2026-11-26.md)
 
-## Later-start candidates — lifecycle dates not yet independently verified (11 symbols)
+## Later-start candidates — lifecycle checked (11 symbols)
 
 | Symbol | Overlap | First archive date | Last archive date | Rows in 225-date window |
 |---|---:|---|---|---:|
@@ -44,7 +44,7 @@ Evidence:
 | SOPL | 45.78% | 2026-06-08 | 2026-11-20 | 110 |
 | KHPL | 48.89% | 2026-05-26 | 2026-11-20 | 123 |
 
-These are *later-start candidates*, not confirmed late listings. Verify each symbol's listing date, first trade date, and any suspension / relisting before excluding pre-start dates from the denominator.
+Nine symbols have matching dated commencement/debut evidence and first positive-volume archive rows. APHL (notice 2026-06-09; archive first row 2026-06-10) and KHPL (scheduled commencement 2026-05-25; archive/debut first trade 2026-05-26) retain one-session discrepancies pending floorsheet confirmation. See [later-start lifecycle validation](later_start_equity_lifecycle_validation_2026-11-26.md). Dates before supported commencement should not be counted as missing OHLCV; do not infer an execution on a scheduled date.
 
 ## Mid-2026 start / low overlap unresolved
 
@@ -66,7 +66,7 @@ PCIL through RSML have archive starts within 2026 and need listing/lifecycle ver
 
 ## Next validation sequence
 
-1. Verify listing / first-trade / suspension dates for the 12 later-start candidates.
+1. Complete floorsheet reconciliation for APHL 2026-06-09 and KHPL 2026-05-25; nine other later-start candidates have aligned published commencement and archive first-volume dates.
 2. Obtain symbol-specific executed-trade calendars or daily floorsheet summaries for the 11 mid-2026-start low-overlap symbols.
 3. Reconcile the BNL 23 November row and obtain independent confirmation of the 24 November candidate.
 4. Keep no-trade dates separate from missing-source records; never synthesize OHLCV from a carried-forward close.

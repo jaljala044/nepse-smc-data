@@ -8,19 +8,30 @@ from collections import Counter
 from decimal import Decimal
 from pathlib import Path
 
-from capture_p433_first_trade_floorsheets import fetch, BASE, pick
-from validate_historical_floorsheets import download_one
+try:
+    from tools.capture_p433_first_trade_floorsheets import fetch, BASE, pick
+    from tools.validate_historical_floorsheets import download_one
+except ModuleNotFoundError:
+    from capture_p433_first_trade_floorsheets import fetch, BASE, pick
+    from validate_historical_floorsheets import download_one
 
 BATCH_SUMMARY = Path("reference/P443_BULK_EQUITY_FLOORSHEET_BATCH01_2026-11-27.json")
 PRIMARY_INVENTORY = Path("reference/p419_observed_date_floorsheet_archive_inventory_2026-11-26.csv")
 HF_TREE = Path("reference/p433_floorsheets/huggingface_repo_tree.json")
 
 
-def signature(row, secondary, day):
+def signature(row, secondary, day, stats=None):
     get = lambda key: pick(row, key) if secondary else row[
         key if key != "contract_no" else "transaction"
     ]
-    contract = get("contract_no").strip()
+    raw_contract = get("contract_no").strip()
+    contract = raw_contract
+    # Some CSV exports prefix numeric IDs with an Excel text marker. Preserve
+    # that fact in per-source counters, but compare the underlying digits.
+    if raw_contract.startswith("'") and raw_contract[1:].isdigit():
+        contract = raw_contract[1:]
+        if stats is not None:
+            stats["leading_apostrophe_contract_ids"] += 1
     date = get("date")[:10]
     symbol = get("symbol").strip().upper()
     buyer, seller = (row[key].strip() for key in ("buyer", "seller"))
@@ -40,15 +51,15 @@ def signature(row, secondary, day):
         or amount <= 0
         or abs(quantity * rate - amount) > Decimal("0.01")
     ):
-        raise ValueError("invalid contract " + contract)
+        raise ValueError("invalid contract " + raw_contract)
     return (date, contract, symbol, buyer, seller, quantity, rate, amount)
 
 
-def parse(reader, secondary, day):
+def parse(reader, secondary, day, stats=None):
     counts = Counter()
     contract_ids = Counter()
     for row in reader:
-        key = signature(row, secondary, day)
+        key = signature(row, secondary, day, stats)
         counts[key] += 1
         contract_ids[key[1]] += 1
     if not counts or any(count != 1 for count in contract_ids.values()):
@@ -117,12 +128,15 @@ def main():
             ):
                 raise ValueError("secondary hash or size mismatch")
 
+            primary_stats = Counter()
+            secondary_stats = Counter()
             with open(primary["path"], newline="", encoding="utf-8-sig") as handle:
-                primary_contracts = parse(csv.DictReader(handle), False, day)
+                primary_contracts = parse(csv.DictReader(handle), False, day, primary_stats)
             secondary_contracts = parse(
                 csv.DictReader(io.StringIO(gzip.decompress(compressed).decode("utf-8-sig"))),
                 True,
                 day,
+                secondary_stats,
             )
 
             primary_only = primary_contracts - secondary_contracts
@@ -137,6 +151,8 @@ def main():
                 secondary_git_blob=secondary_meta.get("oid"),
                 secondary_sha256=secondary_sha256,
                 secondary_bytes=len(compressed),
+                primary_leading_apostrophe_contract_ids=primary_stats["leading_apostrophe_contract_ids"],
+                secondary_leading_apostrophe_contract_ids=secondary_stats["leading_apostrophe_contract_ids"],
                 status="EXACT_PARITY" if primary_contracts == secondary_contracts else "ROW_CONFLICT",
             )
 

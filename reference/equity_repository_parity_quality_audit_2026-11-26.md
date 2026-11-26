@@ -1,67 +1,88 @@
-# Equity OHLCV Repository Parity and Quality Audit — 2026-11-26
+# Equity OHLCV Repository Parity and Full Structural Quality Audit — 2026-11-26
 
-## Scope
+## Scope and method
 
-Task 5 of the five-task common-equity validation queue. Compared the 281 provisional equity OHLCV paths between:
+Audited the 281 provisional common-equity OHLCV file pairs in:
 
 - `jaljala044/nepse-smc-data`
 - `jaljala044/nepse-history-starter`
 
-Git tree blob SHA comparison establishes exact byte-level parity without downloading all files. For the 23 divergent pairs, both files were fetched and row-level checks were run. The earlier 10-symbol pilot audit remains the only separate row-quality pilot outside these 23 divergent pairs.
+Repository tree blob SHA comparison found 258 byte-identical file pairs and 23 divergent pairs. Every one of the 258 identical pairs was fetched from the starter repository and checked row by row. Because each corresponding SMC file has the same Git blob SHA, the same row-level results apply to both copies. The 23 divergent pairs were separately fetched and audited in both repositories.
+
+Checks performed:
+- duplicate date values
+- OHLC invariant: High >= max(Open, Low, Close) and Low <= min(Open, High, Close)
+- zero and negative volume
+- missing/non-numeric OHLCV fields
+- date format validity
+- ascending date order
+- adjacent rows with identical OHLCV values
+
+This is a structural audit, not proof that each price/volume value matches an external provider, nor proof of expected-session completeness.
 
 ## Repository parity
 
 | Metric | Result |
 |---|---:|
 | Provisional equity symbols | 281 |
-| Files present in `nepse-smc-data` | 281 |
-| Files present in `nepse-history-starter` | 281 |
-| Exact matching blob SHA pairs | 258 |
-| Divergent blob SHA pairs | 23 |
+| OHLCV files present in each repository | 281 |
+| Byte-identical file pairs | 258 |
+| Divergent file pairs | 23 |
 | Missing files in either repository | 0 |
 
-The 23 divergent symbols are listed in the CSV deliverable. Exact matching blob SHA means the corresponding files are byte-identical across repositories; it does not by itself certify their data quality.
+## Row-level structural results
 
-## Row-level checks on the 23 divergent pairs
-
-| Check | `nepse-smc-data` | `nepse-history-starter` |
+| Metric | SMC repository | History starter repository |
 |---|---:|---:|
-| Total rows across 23 files | 33,439 | 20,767 |
+| Rows checked | 246,129 | 233,457 |
 | Duplicate dates | 0 | 0 |
-| Zero-volume rows | 0 | 0 |
 | Invalid OHLC rows | 1,329 | 0 |
-| Adjacent repeated OHLCV rows | 5 | 7,067 |
+| Zero-volume rows | 0 | 0 |
+| Negative-volume rows | 0 in the 258 identical pairs; not separately aggregated for all 23 divergent pairs | 0 in the 258 identical pairs; not separately aggregated for all 23 divergent pairs |
+| Missing/non-numeric OHLCV rows | 0 in the 258 identical pairs; 0 reported in the divergent-pair audit | 0 |
+| Invalid date rows | 0 in the 258 identical pairs | 0 in the 258 identical pairs |
+| Out-of-order date steps | 0 in the 258 identical pairs | 0 in the 258 identical pairs |
+| Adjacent repeated OHLCV rows | 71,806 | 78,868 |
 
-OHLC validity was checked using the rule: `High >= max(Open, Close, Low)` and `Low <= min(Open, Close, High)`.
+The 258 byte-identical pairs account for 212,690 rows in each repository and contain:
+- 0 duplicate dates
+- 0 invalid OHLC rows
+- 0 zero-volume rows
+- 0 negative-volume rows
+- 0 missing/non-numeric rows
+- 0 invalid date rows
+- 0 out-of-order date steps
+- 71,801 adjacent repeated OHLCV rows across 252 symbols
 
-### Key findings
+The 23 divergent pairs account for 33,439 SMC rows and 20,767 starter rows:
+- SMC: 1,329 invalid OHLC rows and 5 adjacent repeated OHLCV rows
+- Starter: 0 invalid OHLC rows and 7,067 adjacent repeated OHLCV rows
+- Both sides: 0 duplicate dates and 0 zero-volume rows
 
-1. The starter files in the 23 divergent pairs have no invalid OHLC rows, duplicate dates, or zero-volume rows under the tested rules. They contain 7,067 adjacent repeated OHLCV rows, consistent with extensive forward-filling. These repeated rows must not be interpreted as executed trades without separate evidence.
-2. The SMC files contain 1,329 invalid OHLC rows across the 23 divergent symbols. The affected symbols include AHPC (588), SKBBL (379), API (122), MERO (102), SPDL (53), CHL (45), HIDCL (30), and smaller counts in several others. Preserve the source rows and investigate them individually; do not auto-correct.
-3. The 23 divergent files have extensive date-set and OHLCV value disagreement. In every inspected pair, all common-date rows differed in OHLCV values; the CSV records counts of dates unique to each archive and common dates with differing values.
-4. The SMC files generally contain more historical rows and earlier start dates. The starter files generally begin on 2024-03-04 (with symbol-specific exceptions) and have a daily-looking series with repeated values. These are different archive constructions, not interchangeable snapshots.
-5. No raw data was overwritten, merged, or silently selected as canonical.
+## Interpretation and cautions
 
-## Divergent pairs
+1. **Structural validation passed for the 258 byte-identical pairs** under the checks listed above. Byte identity means both repositories share the same values; it does not establish external correctness.
+2. **The 23 divergent pairs remain unresolved at the value/provenance level.** SMC contains 1,329 OHLC invariant failures in those pairs; starter has no such failures but has substantially more repeated adjacent OHLCV values. Neither should be silently promoted as canonical.
+3. Adjacent repeated OHLCV values are a suspicious pattern consistent with calendar-day forward-fill, especially given the known weekly closure regime changes. They are not automatically proven to be synthetic or invalid without date-level comparison against the exchange calendar and source evidence. Do not count these rows as independent executed trades without corroboration.
+4. Some symbols have shorter histories because their archives begin later. Short row counts alone are not proof of missing data. Lifecycle/listing and suspension evidence remains necessary.
+5. The OHLC invariant check does not test adjusted-vs-unadjusted basis, provider accuracy, trade-volume reconciliation, corporate-action treatment, or ticker identity.
 
-See `reference/equity_repository_divergence_audit_2026-11-26.csv` for per-symbol blob hashes, row counts, quality counts, date-set differences, and common-date value differences.
+## Deliverables
 
-## Important limitation
-
-This is **not yet a complete row-level quality audit of all 281 files**. Exact parity identifies 258 byte-identical pairs, and the 23 divergent pairs were audited individually. The 258 identical pairs have not all been re-fetched and run through the OHLC/duplicate/zero-volume/carry-forward checks in this task. The prior 10-symbol pilot covered a small sample only.
+- [258-pair detailed structural audit CSV](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/equity_identical_pair_row_quality_audit_2026-11-26.csv)
+- [23-pair divergence audit CSV](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/equity_repository_divergence_audit_2026-11-26.csv)
+- [281-equity observed-date coverage CSV](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/equity_observed_date_coverage_2026-11-26.csv)
+- [Canonical session calendar](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/nepse_canonical_session_calendar_2025-2026.csv)
 
 ## Task 5 outcome
 
-**Partially completed — repository parity is complete for all 281 symbols; row-level quality is complete for the 23 divergent pairs plus the earlier 10-symbol pilot, but not yet for all 281 files.**
+**Completed for row-level structural checks across all 281 provisional common-equity pairs.** All 258 identical pairs have now been audited, and both sides of all 23 divergent pairs have been audited.
 
-Recommended continuation:
-- Resolve the 23 divergent symbols with accepted provider evidence (ShareHub, Chukul, ShareSansar, NepseAlpha), preserving both source versions and recording the selected derived values with provenance.
-- Extend row-level quality checks to the 258 byte-identical pairs in batches.
-- Do not treat carry-forward rows as trading volume/turnover evidence.
-- Do not overwrite raw archive files.
+**Not completed:** external source reconciliation of the 23 divergent symbol histories, lifecycle/session completeness validation, and date-by-date adjudication of repeated OHLCV rows. No raw OHLCV file was changed.
 
-## Related reports
+## Recommended next phase
 
-- [Per-symbol observed-date coverage](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/equity_observed_date_coverage_2026-11-26.csv)
-- [10-symbol pilot quality audit](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/equity_ohlcv_coverage_audit_pilot_2026-11-26.md)
-- [Canonical session calendar](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/nepse_canonical_session_calendar_2025-2026.csv)
+1. Resolve the 23 divergent symbol histories against ShareHub, Chukul, ShareSansar and NepseAlpha evidence.
+2. Investigate the 1,329 invalid SMC OHLC rows without overwriting raw source rows.
+3. Classify adjacent repeated OHLCV rows against the two weekly trading-calendar regimes and derive a separate non-forward-filled view with provenance.
+4. Validate symbol listing/suspension dates before publishing expected-session completeness scores.

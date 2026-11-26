@@ -1,0 +1,2 @@
+symbol,date,smc_open,smc_high,smc_low,smc_close,smc_volume,starter_open,starter_high,starter_low,starter_close,starter_volume,sharesansar_open,sharesansar_high,sharesansar_low,sharesansar_close,sharesansar_volume,sharesansar_archive_url
+RHGCL,2026-11-19,252.10,259.50,252.10,256.00,4216,252.10,259.50,252.10,258.00,9054,252.10,259.50,252.10,258.00,9054,https://github.com/shawinCreates/Nepse-Market-Data/blob/main/Data/csv/daily_price/2026_11_19.csv

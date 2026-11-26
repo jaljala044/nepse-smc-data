@@ -516,21 +516,20 @@
     "total_records": 499,
     "unique_dates": 498,
     "duplicate_date": "2020-04-13",
-    "capture_integrity_failures": 0,
-    "caveats": [
-      "instrumentTypeId and activeStatus are null in captured records",
-      "annual completeness uncertain for 2018 and 2019",
-      "2020-04-13 has two distinct closure reasons",
-      "absence from holiday API is not proof of an open session",
-      "do not promote records into canonical session calendar until annual scope and exceptions are reviewed"
-    ]
+    "capture_integrity_failures": 0
   },
   "calendar_616_recovery": {
-    "exact_date_list_recovered": false,
     "reported_count": 616,
+    "exact_date_list_recovered": false,
     "independently_reproduced": false,
-    "confirmed_sessions_promoted": 0,
-    "required_next_step": "recover original extraction script/configuration and pinned calendar from workflow artifacts, PR attachments, forks, backups or operator workspace"
+    "confirmed_sessions_promoted": 0
   },
-  "verification_note": "This manifest indexes immutable upstream Git blobs by commit and blob SHA. Raw payloads have not yet been copied into this repository."
+  "verification_note": "This manifest indexes immutable upstream Git blobs by commit and blob SHA. Raw payloads have not yet been copied into this repository.",
+  "limitations": [
+    "instrumentTypeId and activeStatus are null in captured records",
+    "annual completeness uncertain for 2018 and 2019",
+    "2020-04-13 has two distinct closure reasons",
+    "absence from holiday API is not evidence of an open session",
+    "raw payloads remain in immutable companion-repository blobs; this repository contains an index only"
+  ]
 }

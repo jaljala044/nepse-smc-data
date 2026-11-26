@@ -3,7 +3,7 @@
 **Status: reproducible audit baseline complete; adjudication and canonical-ingestion acceptance remain open.**
 
 **Pinned input:** `main` at `56362fb4f65b91fdcca8f50b50e53ad80e703649`.  
-**Latest validated workflow:** [Run 156](https://github.com/jaljala044/nepse-smc-data/actions/runs/45896661332), head `281ce71756cd86f1609be7f817bce9999537d1c5`; all workflow stages passed, including the 73-pair official security-history check.  
+**Latest validated workflow:** [Run 166](https://github.com/jaljala044/nepse-smc-data/actions/runs/45897149333), head `2a840c24b1dbb7bffe9586441d87b91be2610a7d`; all workflow stages passed, including equity-first triage regression tests and the 73-pair official security-history check.  
 **Method:** deterministic, read-only scan of pinned file blobs. Findings are review flags, not automatic corrections.
 
 ## Coverage
@@ -82,6 +82,18 @@ Full row-level pair dispositions and the two disjoint review queues are retained
 
 Run 156 additionally checked all **73** `BOTH_OPEN_TUPLE_UNVERIFIED` pairs against the pinned official per-security EOD history captures. Result: **73 / 73 had no matching security/date evidence** for either side of the pair (`NO_SECURITY_DATE_EVIDENCE` for current and previous rows). This is an evidence-availability result, not evidence that no trade occurred. All 73 remain unverified, `promotion_allowed=false`, and no rows were corrected. The source EOD fields, where available, would only establish HLCV and execution counts—not opening price—so even a match would not have independently validated the complete OHLCV tuple.
 
+### Equity-first prioritization of unresolved pairs
+
+Run 166 also joined the 58,972 unresolved/evidence-review pairs to the pinned 2026-11-26 active-instrument crosscheck. This is a current-status prioritization aid only; it does not establish the instrument's point-in-time classification on the historical pair dates or prove execution.
+
+| Pair class | Current equity first-pass | Current mutual fund | Unclassified / not in captured active lists | Total |
+|---|---:|---:|---:|---:|
+| BOTH_OPEN_TUPLE_UNVERIFIED | 5 | 5 | 63 | 73 |
+| INSUFFICIENT_SESSION_EVIDENCE | 44,283 | 6,351 | 8,265 | 58,899 |
+| **Total** | **44,288** | **6,356** | **8,328** | **58,972** |
+
+The five open-session equity-priority pairs concern BNL (1), BNT (1), ENL (1), and UNL (2). Five open-session mutual-fund pairs concern C30MF, LVF2, SAGF, and SFEF. The remaining 63 open-session pairs are unclassified by the captured current master. All remain unverified and `promotion_allowed=false`; current active status is not historical identity or execution evidence. The full row-level file `equity_first_repeat_review.csv` and summary `equity_first_repeat_summary.json` are preserved in the strict audit artifact.
+
 Two additional read-only row-hold exports narrow the pair queues to unique source rows:
 - Recorded verified-closure evidence: 9,027 pairs resolve to **6,232 unique source rows**, across 20 dates and 379 symbols. The hold is `EXCLUDE_RECORDED_CLOSURE_PENDING_INDEPENDENT_ADJUDICATION`; no replacement is allowed.
 - Authenticated API holiday-list corroboration: all 26,544 historical-listed-holiday pairs were corroborated by the pinned API holiday evidence, producing **22,244 unique candidate rows** across 77 dates. This is corroboration of the listing only, not independent proof of universal closure or individual-security execution.
@@ -108,10 +120,10 @@ Preserve all rows. The source capture report reports unique archive-local record
 
 ## Reproducibility and machine-readable outputs
 
-- Latest complete workflow and artifacts: [Run 156](https://github.com/jaljala044/nepse-smc-data/actions/runs/45896661332); all scan, quarantine, cross-repository contract, strict-byte, exception join, pair-calendar triage, disjoint queue, row-hold, authenticated-holiday, open-pair security-history, regression and artifact-preservation stages passed.
+- Latest complete workflow and artifacts: [Run 166](https://github.com/jaljala044/nepse-smc-data/actions/runs/45897149333); all scan, quarantine, cross-repository contract, strict-byte, exception join, pair-calendar triage, disjoint queue, row-hold, authenticated-holiday, open-pair security-history, equity-first triage regression, and artifact-preservation stages passed.
 - Standard row-level CSV findings: `NEPSE_GLOBAL_DUPLICATE_AUDIT_FINDINGS.csv`.
 - Per-file scan coverage: `NEPSE_GLOBAL_DUPLICATE_AUDIT_SCAN_SUMMARY.csv`.
-- Strict pinned-byte row-level findings and exception join: preserved in the run's `p443-strict-content-audit` artifact (`findings.jsonl`, `coverage.json`, `summary.json`, `exception_join.csv`, `exception_join_summary.json`).
+- Strict pinned-byte row-level findings and exception join: preserved in the run's `p443-strict-content-audit` artifact (`findings.jsonl`, `coverage.json`, `summary.json`, `exception_join.csv`, `exception_join_summary.json`, `open_pair_security_evidence.csv`, `open_pair_security_summary.json`, `equity_first_repeat_review.csv`, `equity_first_repeat_summary.json`).
 
 ## Acceptance still open
 

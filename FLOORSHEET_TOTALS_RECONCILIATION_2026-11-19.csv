@@ -1,3 +1,3 @@
 trade_date,symbol,open,high,low,close,total_quantity,total_turnover_npr,calculated_vwap_npr,source,verification_status,notes
-2026-11-19,API,331.00,334.20,330.00,331.80,105340,34929701,331.59,user_supplied_floorsheet_totals,user_supplied_final,"User-finalized OHLCV and aggregate floorsheet totals; calculated VWAP is turnover divided by quantity and does not replace chart close."
-2026-11-19,HRL,483.00,488.00,483.90,483.90,49184,23836472,484.64,user_supplied_floorsheet_totals,user_supplied_final,"User-finalized OHLCV and aggregate floorsheet totals; calculated VWAP is turnover divided by quantity and does not replace chart close."
+2026-11-19,API,331.00,334.20,330.00,331.80,105340,34929701.30,331.59,user_supplied_floorsheet_totals,user_supplied_final,"User-finalized OHLCV and aggregate floorsheet totals; calculated VWAP is turnover divided by quantity and does not replace chart close."
+2026-11-19,HRL,483.00,488.00,480.00,483.90,49184,23836472.40,484.64,user_supplied_floorsheet_totals,user_supplied_final,"User-finalized OHLCV and aggregate floorsheet totals; calculated VWAP is turnover divided by quantity and does not replace chart close."

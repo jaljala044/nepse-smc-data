@@ -1,0 +1,9 @@
+symbol,observed_session_count,present_date_count,valid_unique_ohlcv_count,missing_date_count,invalid_or_duplicate_date_count,status
+API,225,225,224,0,1,observational_not_listing_adjusted
+BGWT,225,225,224,0,1,observational_not_listing_adjusted
+HRL,225,225,224,0,1,observational_not_listing_adjusted
+MEHL,225,225,225,0,0,observational_not_listing_adjusted
+RAWA,225,225,223,0,2,observational_not_listing_adjusted
+RHGCL,225,225,225,0,0,observational_not_listing_adjusted
+ULHC,225,225,225,0,0,observational_not_listing_adjusted
+NICEF,225,,,,,file_unavailable

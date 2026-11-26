@@ -1,0 +1,519 @@
+{
+  "task": "P4.33",
+  "source_class": "third_party_huggingface_archive_claiming_nepse_floorsheet_data",
+  "dataset": "urekmazino69/Nepse-floorsheet-and-indices",
+  "retrieved_at_utc": "2026-11-26T18:28:47.568405+00:00",
+  "records": [
+    {
+      "symbol": "NMLBBL",
+      "date": "2024-05-19",
+      "role": "candidate_first_positive_volume_date",
+      "source_url": "https://huggingface.co/datasets/urekmazino69/Nepse-floorsheet-and-indices/resolve/main/floorsheet/2024-05-19.csv.gz",
+      "source_path": "floorsheet/2024-05-19.csv.gz",
+      "retrieved_at_utc": "2026-11-26T18:28:47.568405+00:00",
+      "source_git_oid": "dbd9ce881b109018d683cd6b6fe1e693a1505470",
+      "expected_compressed_bytes": 1167345,
+      "expected_lfs_sha256": "ff4b995c4b6fd6c9a0716b7ea86e7f1a8b4645819fcf28f1bd506bd1212c3f46",
+      "http_status": 200,
+      "content_type": "application/gzip",
+      "compressed_bytes": 1167345,
+      "compressed_sha256": "ff4b995c4b6fd6c9a0716b7ea86e7f1a8b4645819fcf28f1bd506bd1212c3f46",
+      "uncompressed_bytes": 6644290,
+      "uncompressed_sha256": "52ef4f130460e5da572f86657895514ecc6540127cd6f7a0ad02785b9dd9ed18",
+      "compressed_filename": "floorsheet_2024-05-19.csv.gz",
+      "decompressed_csv_bytes": 6644290,
+      "validation": {
+        "status": "validated",
+        "row_count": 74991,
+        "headers": [
+          "contract_no",
+          "calculation_date",
+          "time",
+          "stock_symbol",
+          "sector",
+          "buyer",
+          "seller",
+          "quantity",
+          "rate",
+          "amount",
+          "id"
+        ],
+        "unique_contract_numbers": 74991,
+        "duplicate_contract_numbers_within_symbol": 0,
+        "duplicate_contract_number_groups_within_symbol": 0,
+        "duplicate_contract_number_examples": [],
+        "cross_symbol_contract_number_collisions": 0,
+        "cross_symbol_contract_number_examples": [],
+        "blank_contract_numbers": 0,
+        "unique_record_ids": 74991,
+        "duplicate_record_ids": 0,
+        "duplicate_full_rows": 0,
+        "date_mismatches": 0,
+        "arithmetic_errors": 0,
+        "invalid_numeric_rows": 0,
+        "target_symbol_contracts": 15,
+        "target_symbol_unique_contract_numbers": 15,
+        "target_symbol_duplicate_contract_numbers": 0,
+        "target_symbol_unique_record_ids": 15,
+        "target_symbol_duplicate_record_ids": 0,
+        "target_symbol_quantity": "864",
+        "target_symbol_turnover": "557461.60",
+        "target_contract_samples": [
+          {
+            "contract_no": "2024051903000469",
+            "id": "20240519073398",
+            "quantity": "10",
+            "rate": "599.60",
+            "amount": "5996.00"
+          },
+          {
+            "contract_no": "2024051903000582",
+            "id": "20240519073111",
+            "quantity": "10",
+            "rate": "611.50",
+            "amount": "6115.00"
+          },
+          {
+            "contract_no": "2024051903000657",
+            "id": "20240519072874",
+            "quantity": "12",
+            "rate": "623.70",
+            "amount": "7484.40"
+          },
+          {
+            "contract_no": "2024051903000753",
+            "id": "20240519072613",
+            "quantity": "10",
+            "rate": "636.10",
+            "amount": "6361.00"
+          },
+          {
+            "contract_no": "2024051903000855",
+            "id": "20240519072317",
+            "quantity": "10",
+            "rate": "646.60",
+            "amount": "6466.00"
+          }
+        ],
+        "errors": []
+      },
+      "capture_status": "captured"
+    },
+    {
+      "symbol": "NMLBBL",
+      "date": "2024-05-16",
+      "role": "immediately_preceding_candidate_session",
+      "source_url": "https://huggingface.co/datasets/urekmazino69/Nepse-floorsheet-and-indices/resolve/main/floorsheet/2024-05-16.csv.gz",
+      "source_path": "floorsheet/2024-05-16.csv.gz",
+      "retrieved_at_utc": "2026-11-26T18:28:47.568405+00:00",
+      "source_git_oid": "cb8feb27d4f90e43fc7446054fb8e660b7536c60",
+      "expected_compressed_bytes": 903408,
+      "expected_lfs_sha256": "6e22f059df3ca7018e59f4aca64c0bfb164c1d3ab3a7375331b460b235d9af4b",
+      "http_status": 200,
+      "content_type": "application/gzip",
+      "compressed_bytes": 903408,
+      "compressed_sha256": "6e22f059df3ca7018e59f4aca64c0bfb164c1d3ab3a7375331b460b235d9af4b",
+      "uncompressed_bytes": 5041265,
+      "uncompressed_sha256": "730207ac35e498c9b65ef357c6ee834a646f0c0f8eed33431af4ee780a7a0505",
+      "compressed_filename": "floorsheet_2024-05-16.csv.gz",
+      "decompressed_csv_bytes": 5041265,
+      "validation": {
+        "status": "validated",
+        "row_count": 57218,
+        "headers": [
+          "contract_no",
+          "calculation_date",
+          "time",
+          "stock_symbol",
+          "sector",
+          "buyer",
+          "seller",
+          "quantity",
+          "rate",
+          "amount",
+          "id"
+        ],
+        "unique_contract_numbers": 57218,
+        "duplicate_contract_numbers_within_symbol": 0,
+        "duplicate_contract_number_groups_within_symbol": 0,
+        "duplicate_contract_number_examples": [],
+        "cross_symbol_contract_number_collisions": 0,
+        "cross_symbol_contract_number_examples": [],
+        "blank_contract_numbers": 0,
+        "unique_record_ids": 57218,
+        "duplicate_record_ids": 0,
+        "duplicate_full_rows": 0,
+        "date_mismatches": 0,
+        "arithmetic_errors": 0,
+        "invalid_numeric_rows": 0,
+        "target_symbol_contracts": 0,
+        "target_symbol_unique_contract_numbers": 0,
+        "target_symbol_duplicate_contract_numbers": 0,
+        "target_symbol_unique_record_ids": 0,
+        "target_symbol_duplicate_record_ids": 0,
+        "target_symbol_quantity": "0",
+        "target_symbol_turnover": "0",
+        "target_contract_samples": [],
+        "errors": []
+      },
+      "capture_status": "captured"
+    },
+    {
+      "symbol": "SMPDA",
+      "date": "2024-08-18",
+      "role": "candidate_first_positive_volume_date",
+      "source_url": "https://huggingface.co/datasets/urekmazino69/Nepse-floorsheet-and-indices/resolve/main/floorsheet/2024-08-18.csv.gz",
+      "source_path": "floorsheet/2024-08-18.csv.gz",
+      "retrieved_at_utc": "2026-11-26T18:28:47.568405+00:00",
+      "source_git_oid": "a7c682db36ca7fe52b1a98b11caf932623e6b755",
+      "expected_compressed_bytes": 4145349,
+      "expected_lfs_sha256": "7bf52ca5f7b029f9188b34dc5276e805eede2ce2b65c50edf8e45e251d264ffb",
+      "http_status": 200,
+      "content_type": "application/gzip",
+      "compressed_bytes": 4145349,
+      "compressed_sha256": "7bf52ca5f7b029f9188b34dc5276e805eede2ce2b65c50edf8e45e251d264ffb",
+      "uncompressed_bytes": 26561644,
+      "uncompressed_sha256": "beee6326be30d364eb6b0c55a2c36d9aa847daeb0af1bf5ddb2e4d3b82850433",
+      "compressed_filename": "floorsheet_2024-08-18.csv.gz",
+      "decompressed_csv_bytes": 26561644,
+      "validation": {
+        "status": "validation_failed",
+        "row_count": 300918,
+        "headers": [
+          "contract_no",
+          "calculation_date",
+          "time",
+          "stock_symbol",
+          "sector",
+          "buyer",
+          "seller",
+          "quantity",
+          "rate",
+          "amount",
+          "id"
+        ],
+        "unique_contract_numbers": 30093,
+        "duplicate_contract_numbers_within_symbol": 142724,
+        "duplicate_contract_number_groups_within_symbol": 58864,
+        "duplicate_contract_number_examples": [
+          {
+            "symbol": "NABIL",
+            "contract_no": "2024081801000000",
+            "occurrences": 2,
+            "record_ids": [
+              "20240818017868",
+              "20240818017867"
+            ]
+          },
+          {
+            "symbol": "NIMB",
+            "contract_no": "2024081801000000",
+            "occurrences": 7,
+            "record_ids": [
+              "20240818017847",
+              "20240818017846",
+              "20240818017845",
+              "20240818017844",
+              "20240818017843"
+            ]
+          },
+          {
+            "symbol": "NIMB",
+            "contract_no": "2024081801000010",
+            "occurrences": 10,
+            "record_ids": [
+              "20240818017840",
+              "20240818017839",
+              "20240818017838",
+              "20240818017837",
+              "20240818017836"
+            ]
+          },
+          {
+            "symbol": "NIMB",
+            "contract_no": "2024081801000020",
+            "occurrences": 10,
+            "record_ids": [
+              "20240818017830",
+              "20240818017829",
+              "20240818017828",
+              "20240818017827",
+              "20240818017826"
+            ]
+          },
+          {
+            "symbol": "NIMB",
+            "contract_no": "2024081801000030",
+            "occurrences": 4,
+            "record_ids": [
+              "20240818017820",
+              "20240818017819",
+              "20240818017818",
+              "20240818017817"
+            ]
+          }
+        ],
+        "cross_symbol_contract_number_collisions": 27893,
+        "cross_symbol_contract_number_examples": [
+          {
+            "contract_no": "2024081801000000",
+            "symbols": [
+              "NABIL",
+              "NIMB"
+            ]
+          },
+          {
+            "contract_no": "2024081801000030",
+            "symbols": [
+              "HBL",
+              "NICA",
+              "NIMB"
+            ]
+          },
+          {
+            "contract_no": "2024081801000040",
+            "symbols": [
+              "LSL",
+              "MBL",
+              "NICA"
+            ]
+          },
+          {
+            "contract_no": "2024081801000050",
+            "symbols": [
+              "KBL",
+              "LSL"
+            ]
+          },
+          {
+            "contract_no": "2024081801000100",
+            "symbols": [
+              "KBL",
+              "NMB",
+              "SANIMA"
+            ]
+          }
+        ],
+        "blank_contract_numbers": 0,
+        "unique_record_ids": 300918,
+        "duplicate_record_ids": 0,
+        "duplicate_full_rows": 0,
+        "date_mismatches": 0,
+        "arithmetic_errors": 0,
+        "invalid_numeric_rows": 0,
+        "target_symbol_contracts": 192,
+        "target_symbol_unique_contract_numbers": 177,
+        "target_symbol_duplicate_contract_numbers": 15,
+        "target_symbol_unique_record_ids": 192,
+        "target_symbol_duplicate_record_ids": 0,
+        "target_symbol_quantity": "5314",
+        "target_symbol_turnover": "6175193.80",
+        "target_contract_samples": [
+          {
+            "contract_no": "2024081803000190",
+            "id": "20240818016952",
+            "quantity": "9",
+            "rate": "1057.40",
+            "amount": "9516.60"
+          },
+          {
+            "contract_no": "2024081803000200",
+            "id": "20240818016914",
+            "quantity": "10",
+            "rate": "1078.10",
+            "amount": "10781.00"
+          },
+          {
+            "contract_no": "2024081803000280",
+            "id": "20240818016532",
+            "quantity": "10",
+            "rate": "1099.60",
+            "amount": "10996.00"
+          },
+          {
+            "contract_no": "2024081803000380",
+            "id": "20240818016054",
+            "quantity": "10",
+            "rate": "1121.50",
+            "amount": "11215.00"
+          },
+          {
+            "contract_no": "2024081803000450",
+            "id": "20240818015603",
+            "quantity": "10",
+            "rate": "1143.90",
+            "amount": "11439.00"
+          }
+        ],
+        "errors": [
+          "duplicate contract numbers within same symbol: 142724"
+        ]
+      },
+      "capture_status": "captured"
+    },
+    {
+      "symbol": "SMPDA",
+      "date": "2024-08-14",
+      "role": "immediately_preceding_candidate_session",
+      "source_url": "https://huggingface.co/datasets/urekmazino69/Nepse-floorsheet-and-indices/resolve/main/floorsheet/2024-08-14.csv.gz",
+      "source_path": "floorsheet/2024-08-14.csv.gz",
+      "retrieved_at_utc": "2026-11-26T18:28:47.568405+00:00",
+      "source_git_oid": "fa5e317c34c2f9a277004fed5284c08181eea4c5",
+      "expected_compressed_bytes": 3333535,
+      "expected_lfs_sha256": "205d9aaa6184efdf222102c856737a114fb060a4a9f19d7fb2c38d7ff8340142",
+      "http_status": 200,
+      "content_type": "application/gzip",
+      "compressed_bytes": 3333535,
+      "compressed_sha256": "205d9aaa6184efdf222102c856737a114fb060a4a9f19d7fb2c38d7ff8340142",
+      "uncompressed_bytes": 21559848,
+      "uncompressed_sha256": "441f2b64106b48086a0326604ab92c40f2e02fa163bca97cfe17385c9f88ebc8",
+      "compressed_filename": "floorsheet_2024-08-14.csv.gz",
+      "decompressed_csv_bytes": 21559848,
+      "validation": {
+        "status": "validation_failed",
+        "row_count": 244019,
+        "headers": [
+          "contract_no",
+          "calculation_date",
+          "time",
+          "stock_symbol",
+          "sector",
+          "buyer",
+          "seller",
+          "quantity",
+          "rate",
+          "amount",
+          "id"
+        ],
+        "unique_contract_numbers": 24404,
+        "duplicate_contract_numbers_within_symbol": 119389,
+        "duplicate_contract_number_groups_within_symbol": 47427,
+        "duplicate_contract_number_examples": [
+          {
+            "symbol": "PRVU",
+            "contract_no": "2024081401000000",
+            "occurrences": 3,
+            "record_ids": [
+              "20240814243868",
+              "20240814243867",
+              "20240814243866"
+            ]
+          },
+          {
+            "symbol": "GBIME",
+            "contract_no": "2024081401000010",
+            "occurrences": 3,
+            "record_ids": [
+              "20240814243862",
+              "20240814243861",
+              "20240814243860"
+            ]
+          },
+          {
+            "symbol": "NBL",
+            "contract_no": "2024081401000010",
+            "occurrences": 3,
+            "record_ids": [
+              "20240814243785",
+              "20240814243784",
+              "20240814243783"
+            ]
+          },
+          {
+            "symbol": "JBLB",
+            "contract_no": "2024081401000010",
+            "occurrences": 2,
+            "record_ids": [
+              "20240814243677",
+              "20240814243676"
+            ]
+          },
+          {
+            "symbol": "MKJC",
+            "contract_no": "2024081401000020",
+            "occurrences": 7,
+            "record_ids": [
+              "20240814243639",
+              "20240814243638",
+              "20240814243637",
+              "20240814243636",
+              "20240814243635"
+            ]
+          }
+        ],
+        "cross_symbol_contract_number_collisions": 22329,
+        "cross_symbol_contract_number_examples": [
+          {
+            "contract_no": "2024081401000000",
+            "symbols": [
+              "EBL",
+              "GBIME",
+              "KBL",
+              "MBL",
+              "NABIL",
+              "NIMB",
+              "PRVU"
+            ]
+          },
+          {
+            "contract_no": "2024081401000010",
+            "symbols": [
+              "ADBL",
+              "GBIME",
+              "JBLB",
+              "MKJC",
+              "NBL"
+            ]
+          },
+          {
+            "contract_no": "2024081401000020",
+            "symbols": [
+              "BHL",
+              "GVL",
+              "MKJC",
+              "TPC"
+            ]
+          },
+          {
+            "contract_no": "2024081401000030",
+            "symbols": [
+              "DORDI",
+              "HHL",
+              "HIDCLP",
+              "USHEC"
+            ]
+          },
+          {
+            "contract_no": "2024081401000040",
+            "symbols": [
+              "HIDCLP",
+              "PPL",
+              "SHLB",
+              "SPL"
+            ]
+          }
+        ],
+        "blank_contract_numbers": 0,
+        "unique_record_ids": 244019,
+        "duplicate_record_ids": 0,
+        "duplicate_full_rows": 0,
+        "date_mismatches": 0,
+        "arithmetic_errors": 0,
+        "invalid_numeric_rows": 0,
+        "target_symbol_contracts": 0,
+        "target_symbol_unique_contract_numbers": 0,
+        "target_symbol_duplicate_contract_numbers": 0,
+        "target_symbol_unique_record_ids": 0,
+        "target_symbol_duplicate_record_ids": 0,
+        "target_symbol_quantity": "0",
+        "target_symbol_turnover": "0",
+        "target_contract_samples": [],
+        "errors": [
+          "duplicate contract numbers within same symbol: 119389"
+        ]
+      },
+      "capture_status": "captured"
+    }
+  ],
+  "interpretation": "The dataset card and repository are third-party evidence. Captured files and validated contracts do not independently prove exchange origin or full-session completeness. Zero target rows never establishes NO_TRADE. First-trade boundaries remain UNKNOWN pending complete primary or independently validated session evidence."
+}

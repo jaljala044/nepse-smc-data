@@ -99,11 +99,16 @@ def scan(raw, entry):
         transaction = first(row,"transaction")
         if not record_id and transaction.isdigit():
             record_id = transaction
-        if not record_id and contract_no and symbol:
-            buyer = first(row,"buyer","buyerid","buybroker")
-            seller = first(row,"seller","sellerid","sellbroker")
-            if buyer and seller:
-                record_id = "|".join(("composite",contract_no,symbol,buyer,seller))
+        buyer = first(row,"buyer","buyerid","buybroker")
+        seller = first(row,"seller","sellerid","sellbroker")
+        quantity = first(row,"quantity","qty","tradequantity","tradedquantity","shares")
+        rate = first(row,"rate","price","traderate")
+        # Summary, inventory, and capture-metadata rows are not trade records.
+        # Require explicit contract identity or a transaction-shaped composite.
+        is_trade_record = bool(contract_no or record_id or
+                               (symbol and buyer and seller and quantity and rate))
+        if not record_id and contract_no and symbol and buyer and seller:
+            record_id = "|".join(("composite",contract_no,symbol,buyer,seller))
         fields=("open","high","low","close","volume")
         key = None
         if entry["category"] == "ohlcv_symbol_archive" and all(k in row for k in fields) and d:
@@ -116,7 +121,7 @@ def scan(raw, entry):
                 dt=date.fromisoformat(d)
                 values=tuple(Decimal(row[k]) for k in fields)
                 o,h,l,c,v=values
-                if not all(x.is_finite() for x in values) or min(o,h,l,c)<=0 or v<0 or h<max(o,l,c) or l>min(o,h,c):
+                if not all(x.is_finite() for x in values) or min(o,h,l,c)<=0 or v<0 or h<max(o,l,c) or l>min(o,c):
                     flag("invalid_ohlcv",loc,str(key),evidence=str(values))
                 if symbol:
                     prev=previous.get((scope,symbol))
@@ -126,13 +131,16 @@ def scan(raw, entry):
             except (ValueError,InvalidOperation):
                 flag("invalid_ohlcv_or_date",loc,str(key))
         elif entry["category"] == "floorsheet_or_reconciliation":
-            schemas["contract"] += 1
-            if not d:
-                flag("contract_session_missing",loc,record_id or contract_no)
-            elif record_id:
-                key=("contract",scope,d,record_id)
+            if not is_trade_record:
+                schemas["non_transaction_record"] += 1
             else:
-                flag("contract_record_identity_missing",loc,contract_no)
+                schemas["contract"] += 1
+                if not d:
+                    flag("contract_session_missing",loc,record_id or contract_no)
+                elif record_id:
+                    key=("contract",scope,d,record_id)
+                else:
+                    flag("contract_record_identity_missing",loc,contract_no)
         elif d and entry["category"]=="session_calendar":
             schemas["calendar_candidate"] += 1
             key=("calendar",scope,d)

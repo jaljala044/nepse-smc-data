@@ -71,7 +71,13 @@ def main():
     a=p.parse_args();rows,report=build(a.raw,a.ohlcv_dir,a.inventory_commit)
     csv_text=write_csv(rows);json_text=json.dumps(report,indent=2)+"\n"
     if a.check:
-        if Path(a.csv).read_text(encoding="utf-8")!=csv_text: raise SystemExit("reconciliation CSV is stale")
+        if Path(a.csv).read_text(encoding="utf-8")!=csv_text:
+            actual=Path(a.csv).read_text(encoding="utf-8").splitlines()
+            expected=csv_text.splitlines()
+            for i,(left,right) in enumerate(zip(actual,expected),1):
+                if left!=right:
+                    raise SystemExit("reconciliation CSV stale at line %s: committed=%r generated=%r" % (i,left[:220],right[:220]))
+            raise SystemExit("reconciliation CSV line-count differs: committed=%s generated=%s" % (len(actual),len(expected)))
         if Path(a.report).read_text(encoding="utf-8")!=json_text: raise SystemExit("reconciliation report is stale")
         print("PASS: 573 official records, 525 files, 488 exact matches, 85 missing, 37 unmatched file stems")
     else:

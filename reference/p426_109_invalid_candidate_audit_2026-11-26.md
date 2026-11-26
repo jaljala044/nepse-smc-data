@@ -29,3 +29,8 @@ Status: contemporaneous secondary snapshot comparison complete; no row promoted 
 ## Next priority — P4.27
 
 Trace the 88 OPEN_ABOVE_HIGH and 21 OPEN_BELOW_LOW cases to original NEPSE trade/floorsheet records. Group by symbol and exact date; where complete official evidence cannot be obtained, preserve UNKNOWN. Also review the 490 date-shift recoveries against the exact exchange calendar and capture timestamps before any canonical promotion.
+
+
+## Superseding primary-source result — P4.28
+
+The secondary-only disposition above was valid at the time of P4.26. P4.28 subsequently captured official NEPSE EOD rows for all 109 symbol/date candidates. All 109 official rows were accepted with zero quality flags and matching security IDs. The official Open differs from the invalid external Open in all 109 rows; High, Low, Close, Volume and Turnover match. The primary values are in [the P4.28 correction ledger](p428_112_official_eod_corrections_2026-11-26.csv). These rows are now eligible for derived correction in P4.29; raw source files remain unchanged.

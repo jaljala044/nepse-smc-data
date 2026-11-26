@@ -143,7 +143,6 @@ def main():
                 elif entry["format"]=="json" and non_json_capture(raw):
                     result.update(status="non_json_response",records=0,error=raw[:160].decode("utf-8","replace"))
                 else:
-                else:
                     count,schemas,findings=scan(raw,entry)
                     result.update(status="parsed",records=count,schemas=schemas)
                     for finding in findings:

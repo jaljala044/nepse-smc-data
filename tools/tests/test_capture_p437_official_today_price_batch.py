@@ -15,7 +15,7 @@ class P437BatchTests(unittest.TestCase):
             return SimpleNamespace(returncode=0,stdout="",stderr="")
         with tempfile.TemporaryDirectory() as tmp:
             result=run_batch(tmp,fake,"2026-11-26T00:00:00Z")
-        self.assertEqual(len(result["records"]),4)
+        self.assertEqual(len(result["records"]),5)
         self.assertTrue(all(x["status"]=="TARGET_ROW_FOUND" for x in result["records"]))
         self.assertTrue(all(x["returned_business_dates"]==[x["business_date"]] for x in result["records"]))
 

@@ -113,7 +113,7 @@ def inspect_ohlcv(symbol, rows, calendar):
 
 
 def audit(v2_dir, raw_dir, calendar_path, corporate_actions_path, output_dir,
-          expected_symbols=281, expected_official_rows=599, expected_correction_counts=None):
+          expected_symbols=281, expected_official_rows=599, expected_correction_counts=None, split_review_path=None):
     v2_dir, raw_dir, output_dir = Path(v2_dir), Path(raw_dir), Path(output_dir)
     manifest = read_csv(v2_dir / "manifest.csv")
     if len(manifest) != expected_symbols or len({r["symbol"] for r in manifest}) != expected_symbols:
@@ -185,18 +185,26 @@ def audit(v2_dir, raw_dir, calendar_path, corporate_actions_path, output_dir,
         events = actions_by_symbol.get(symbol, [])
         if events:
             symbols_with_actions += 1
-        for event in events:
-            event_day = event.get("event_date", "")
-            bars_after = [r["Date"] for r in rows if r["Date"] >= event_day]
+            for event in events:
+                event_day = event.get("event_date", "")
+                bars_after = [r["Date"] for r in rows if r["Date"] >= event_day]
+                corporate_coverage.append({
+                    "symbol": symbol, "event_type": event.get("event_type", ""),
+                    "announced_date": event.get("announced_date", ""),
+                    "event_date": event_day, "quantity_ratio": event.get("quantity_ratio", ""),
+                    "price_factor": event.get("price_factor", ""),
+                    "first_bar_on_or_after_event": min(bars_after) if bars_after else "",
+                    "event_bar_found": "TRUE" if bars_after else "FALSE",
+                    "adjustment_status": "RAW_PRICE_BASIS_REVIEW_REQUIRED",
+                    "notes": event.get("notes", ""),
+                })
+        else:
             corporate_coverage.append({
-                "symbol": symbol, "event_type": event.get("event_type", ""),
-                "announced_date": event.get("announced_date", ""),
-                "event_date": event_day, "quantity_ratio": event.get("quantity_ratio", ""),
-                "price_factor": event.get("price_factor", ""),
-                "first_bar_on_or_after_event": min(bars_after) if bars_after else "",
-                "event_bar_found": "TRUE" if bars_after else "FALSE",
-                "adjustment_status": "RAW_PRICE_BASIS_REVIEW_REQUIRED",
-                "notes": event.get("notes", ""),
+                "symbol": symbol, "event_type": "", "announced_date": "",
+                "event_date": "", "quantity_ratio": "", "price_factor": "",
+                "first_bar_on_or_after_event": "", "event_bar_found": "",
+                "adjustment_status": "NO_ACTION_RECORD_NOT_VERIFIED",
+                "notes": "No row in the current corporate_actions.csv; absence is not evidence of no corporate action",
             })
 
     if raw_files_verified != expected_symbols or official_rows_verified != expected_official_rows:
@@ -214,6 +222,23 @@ def audit(v2_dir, raw_dir, calendar_path, corporate_actions_path, output_dir,
                "price_factor", "first_bar_on_or_after_event", "event_bar_found",
                "adjustment_status", "notes"])
 
+    split_review = read_csv(split_review_path) if split_review_path and Path(split_review_path).is_file() else []
+    split_flags = []
+    for row in split_review:
+        effective = row.get("verified_effective_date", "").strip()
+        split_flags.append({
+            "symbol": row.get("symbol", ""),
+            "proposal_date": row.get("proposal_date", ""),
+            "old_par_npr": row.get("old_par_npr", ""),
+            "proposed_par_npr": row.get("proposed_par_npr", ""),
+            "verified_effective_date": effective,
+            "assessment": row.get("assessment", ""),
+            "disposition": "NO_SPLIT_FACTOR_APPLIED_EFFECTIVE_DATE_UNKNOWN" if not effective else "EFFECTIVE_DATE_REQUIRES_PRIMARY_VALIDATION",
+        })
+    write_csv(output_dir / "split_review_flags.csv", split_flags,
+              ["symbol", "proposal_date", "old_par_npr", "proposed_par_npr",
+               "verified_effective_date", "assessment", "disposition"])
+
     symbols_with_no_action_records = expected_symbols - symbols_with_actions
     totals = {
         "status": "INTEGRITY_CHECKED_WITH_RETAINED_FLAGS",
@@ -228,6 +253,10 @@ def audit(v2_dir, raw_dir, calendar_path, corporate_actions_path, output_dir,
         "corporate_action_event_records": len(corporate_actions),
         "symbols_with_known_action_records": symbols_with_actions,
         "symbols_without_action_records_not_verified": symbols_with_no_action_records,
+        "split_review_rows": len(split_review),
+        "split_proposals_without_verified_effective_date": sum(
+            1 for r in split_review if not r.get("verified_effective_date", "").strip()
+        ),
         "raw_source_files_modified": 0,
         "flags_auto_repaired_or_deleted": 0,
     }
@@ -242,9 +271,11 @@ def main():
     parser.add_argument("--raw-dir", type=Path, required=True)
     parser.add_argument("--calendar", type=Path, required=True)
     parser.add_argument("--corporate-actions", type=Path, required=True)
+    parser.add_argument("--split-review", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
     args = parser.parse_args()
-    audit(args.v2_dir, args.raw_dir, args.calendar, args.corporate_actions, args.output_dir)
+    audit(args.v2_dir, args.raw_dir, args.calendar, args.corporate_actions, args.output_dir,
+          split_review_path=args.split_review)
 
 
 if __name__ == "__main__":

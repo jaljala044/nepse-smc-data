@@ -33,11 +33,18 @@ def validate_rows(raw,symbol,date):
  rows=[{(k or "").strip().lower():(v or "").strip() for k,v in row.items()} for row in reader]
  errors=[];missing=[k for k in ALIASES if not any(a in headers for a in ALIASES[k])]
  if missing:errors.append("missing required columns: "+",".join(missing))
- ids=[];target=[];date_mismatch=0;arithmetic=0;invalid=0
+ ids=[];record_ids=[];target=[];date_mismatch=0;arithmetic=0;invalid=0;blank_ids=0
+ signatures=set();duplicate_rows=0;id_rows={}
  for i,row in enumerate(rows,2):
   cid=pick(row,"contract_no")
-  if not cid:errors.append(f"row {i}: missing contract id")
+  if not cid:blank_ids+=1
   ids.append(cid)
+  rid=row.get("id","").strip()
+  if rid:record_ids.append(rid)
+  if cid:id_rows.setdefault(cid,[]).append(row)
+  sig=tuple(row.get(k,"") for k in sorted(row))
+  if sig in signatures:duplicate_rows+=1
+  signatures.add(sig)
   d=pick(row,"date")[:10]
   if d and d!=date:date_mismatch+=1
   if pick(row,"symbol").upper()==symbol:target.append(row)
@@ -47,13 +54,15 @@ def validate_rows(raw,symbol,date):
    if q<=0 or rate<=0 or amt<=0:invalid+=1
    elif abs(q*rate-amt)>Decimal("0.01") and amt!=(q*rate).to_integral_value(rounding=ROUND_FLOOR):arithmetic+=1
   except (InvalidOperation,ValueError):invalid+=1
- dup=len(ids)-len(set(ids))
+ dup=len(ids)-len(set(ids));dup_groups=[(k,v) for k,v in id_rows.items() if len(v)>1]
+ duplicate_examples=[{"contract_no":k,"occurrences":len(v),"symbols":sorted(set(x.get("stock_symbol","") for x in v))[:5],"record_ids":[x.get("id","") for x in v[:5]]} for k,v in dup_groups[:5]]
  if dup:errors.append(f"duplicate contract ids: {dup}")
  if date_mismatch:errors.append(f"business-date mismatches: {date_mismatch}")
  if arithmetic:errors.append(f"quantity*rate amount mismatches: {arithmetic}")
  if invalid:errors.append(f"invalid numeric rows: {invalid}")
  qty=sum((Decimal(pick(r,"quantity").replace(",","")) for r in target if pick(r,"quantity")),Decimal(0))
- return {"status":"validated" if not errors else "validation_failed","row_count":len(rows),"headers":reader.fieldnames or [],"duplicate_contract_ids":dup,"date_mismatches":date_mismatch,"arithmetic_errors":arithmetic,"invalid_numeric_rows":invalid,"target_symbol_contracts":len(target),"target_symbol_quantity":str(qty),"errors":errors}
+ amt=sum((Decimal(pick(r,"amount").replace(",","")) for r in target if pick(r,"amount")),Decimal(0))
+ return {"status":"validated" if not errors else "validation_failed","row_count":len(rows),"headers":reader.fieldnames or [],"unique_contract_ids":len(set(ids)),"duplicate_contract_ids":dup,"duplicate_contract_id_groups":len(dup_groups),"duplicate_contract_id_examples":duplicate_examples,"blank_contract_ids":blank_ids,"unique_record_ids":len(set(record_ids)),"duplicate_full_rows":duplicate_rows,"date_mismatches":date_mismatch,"arithmetic_errors":arithmetic,"invalid_numeric_rows":invalid,"target_symbol_contracts":len(target),"target_symbol_quantity":str(qty),"target_symbol_turnover":str(amt),"target_contract_samples":[{"contract_no":r.get("contract_no",""),"id":r.get("id",""),"quantity":r.get("quantity",""),"rate":r.get("rate",""),"amount":r.get("amount","")} for r in target[:5]],"errors":errors}
 def tree_metadata():
  if not TREE_PATH.exists():return {}
  data=json.loads(TREE_PATH.read_text(encoding="utf-8"))

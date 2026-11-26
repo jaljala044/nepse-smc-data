@@ -14,6 +14,8 @@ class StrictAuditTests(unittest.TestCase):
         raw=b"Date,ContractNo,Quantity\n2025-01-01,1,5\n2025-01-02,1,5\n2025-01-02,1,6\n"
         _,_,findings=scan(raw,entry)
         self.assertEqual([f["classification"] for f in findings],["conflicting_business_key"])
+    def test_empty_json_capture(self):
+        self.assertEqual(list(records(b"  \\n", "json")), [])
     def test_bad_row_width(self):
         with self.assertRaises(ValueError):
             list(records(b"a,b\n1,2,3\n","csv"))

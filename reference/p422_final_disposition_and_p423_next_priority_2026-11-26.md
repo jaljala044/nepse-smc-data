@@ -48,14 +48,18 @@ All 86 are therefore explicitly quarantined from canonical scoring and training 
 
 The full 109-row recovery queue was inspected. Every row fails the OHLC envelope because either the open is above the high (88 rows) or the open is below the low (21 rows). No row has a non-positive price, non-positive volume, high-below-low condition, or close outside the high/low range. The values remain in the quarantine artifact; no OHLC field is rewritten.
 
-## 490 date shifts — audit result
+## 490 date shifts — audited, secondary corroboration complete
 
-All 490 entries are one-calendar-day offsets and split into two uniform batches:
+P4.27 independently audited all 490 candidate rows:
 
-- 238 records: raw date 2026-03-02 → derived target 2026-03-01. Sunday 1 March was a valid session under NEPSE's Sunday–Thursday trading week.
-- 252 records: raw date 2026-07-25 → derived target 2026-07-24. Friday 24 July was a valid session under the Monday–Friday schedule introduced in April 2026.
+- 238 records: raw SMC date 2026-03-02 → provisional derived target 2026-03-01.
+- 252 records: raw SMC date 2026-07-25 → provisional derived target 2026-07-24.
+- All 490 OHLCV tuples match the SMC raw row on the following date.
+- All 490 also match the ShareSansar daily-page capture made on the following date (2026-03-02 and 2026-07-25).
+- The canonical calendar marks the candidate dates as `verified_open_observed` (official positive trade observation for security ID 8108 only) and the following raw dates as `verified_closed` (official holiday / weekly closure).
+- The same-day ShareSansar capture for 2026-03-01 contains only 13 symbols and none of the 238 candidate symbols; no 2026-07-24 capture was found. The next-day snapshots are secondary corroboration, not primary per-security trade proof.
 
-The recovery artifact classifies all 490 as `ALREADY_RECOVERED_DATE_SHIFT`; each external value matches the existing derived row at the target date. No rows were inserted. Raw source dates remain unchanged, and the shifted date is retained only in the derived decision ledger with its provenance.
+All 490 remain `SECONDARY_CORROBORATED_ONE_DAY_DATE_SHIFT_PRIMARY_PENDING`. The one-day derived mapping is supported for provisional use, but is not scanner-approved or primary-confirmed. Raw source dates and values remain unchanged. No rows were inserted.
 
 ## Reproducible artifacts
 
@@ -104,13 +108,22 @@ The row-level comparison is documented in [P4.26 audit report](p426_109_invalid_
 - This establishes the invalid values were already present in the contemporaneous ShareSansar page capture, not just the later historical AJAX backfill.
 - It does not establish the correct exchange OHLC. ShareSansar is a secondary source; all 109 remain quarantined as UNKNOWN. No raw data changed and no candidates were promoted.
 
-## Next priority target — P4.27: primary evidence and 490 date-shift audit
+## P4.27 — completed: 490 one-day date-shift audit
 
-1. Obtain official NEPSE EOD records or complete, date-matched floorsheets for the 109 invalid candles; validate symbol identity, session, all trades and OHLC reconstruction.
-2. Preserve UNKNOWN for rows lacking primary evidence; never repair OHLC by guessing.
-3. Independently re-audit the 490 date-shift recoveries against the canonical exchange calendar, source timestamps and exact raw/external file hashes.
-4. Check each shifted target is a real open session and that the candidate's full OHLCV tuple is preserved exactly; identify any collisions, duplicates or cross-symbol identity risks.
-5. Keep raw source dates unchanged and exclude unresolved rows from scanner scoring/training.
+See [P4.27 report](p427_490_date_shift_audit_report_2026-11-26.md) and [490-row audit matrix](p427_490_date_shift_audit_2026-11-26.csv). CI passed in run [45865050524](https://github.com/jaljala044/nepse-smc-data/actions/runs/45865050524), artifact [15140301490](https://github.com/jaljala044/nepse-smc-data/actions/runs/45865050524/artifacts/15140301490). PR #40 is merged.
+
+- 490/490 match the raw SMC row on the following date.
+- 490/490 match the following-date ShareSansar page capture.
+- 490/490 show the calendar pair `verified_open_observed → verified_closed`.
+- No unresolved row-level mismatches; no raw file modified.
+
+## Next priority target — P4.28: official per-security EOD validation
+
+1. Resolve and validate the symbol-to-security-ID mapping for all unique symbols in the 490 shifted rows and the 109 invalid candidates.
+2. Capture official NEPSE EOD payloads for the exact candidate dates (2026-03-01, 2026-07-24, 2026-04-24, 2026-04-27, 2026-04-28, 2026-04-29), within the official rolling history window.
+3. Use the P4.23 strict capture validator; preserve original response bytes, endpoint, retrieval timestamp, security ID, date, row uniqueness and SHA-256.
+4. Compare official rows against external candidate values and raw SMC values. For 109 invalid rows, do not repair any OHLC field without primary proof.
+5. Where official rows cannot be retrieved or mappings are ambiguous, retain UNKNOWN / secondary-only status. Never promote by inference.
 
 ## Acceptance
 

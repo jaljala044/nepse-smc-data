@@ -1,0 +1,48 @@
+name: P4.38 ShareSansar full-market daily CSV cross-check
+on:
+  push:
+    branches:
+      - p438-sharesansar-full-market-daily-crosscheck
+    paths:
+      - "tools/capture_p438_sharesansar_daily_csv.py"
+      - "tools/tests/test_capture_p438_sharesansar_daily_csv.py"
+      - ".github/workflows/p438-sharesansar-daily-crosscheck.yml"
+  pull_request:
+    paths:
+      - "tools/capture_p438_sharesansar_daily_csv.py"
+      - "tools/tests/test_capture_p438_sharesansar_daily_csv.py"
+      - ".github/workflows/p438-sharesansar-daily-crosscheck.yml"
+permissions:
+  contents: write
+concurrency:
+  group: p438-sharesansar-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run P4.38 regression tests
+        run: |
+          cd tools
+          python -m unittest discover -s tests -p 'test_capture_p438_sharesansar_daily_csv.py' -v
+      - name: Capture pinned ShareSansar daily market tables
+        if: github.event_name == 'push'
+        run: python tools/capture_p438_sharesansar_daily_csv.py
+      - name: Commit immutable daily CSV evidence and report
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reference/p438_sharesansar_daily_csv
+          if ! git diff --cached --quiet; then
+            git commit -m "evidence(p4.38): preserve ShareSansar daily market CSVs"
+            git pull --rebase origin "$GITHUB_REF_NAME"
+            git push
+          fi

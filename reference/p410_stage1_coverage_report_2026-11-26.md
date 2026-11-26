@@ -4,7 +4,7 @@
 
 **NOT READY FOR STAGE 1 PROMOTION.** This is an evidence inventory, not a BUY scan or canonical-data admission.
 
-The supplied universe target is **281 equities**, but the current candidate register contains **278 rows classified as Equity** plus 47 Mutual Fund rows (325 rows total). The three-security difference is unresolved. No symbols are fabricated to fill the gap. The attached matrix covers all 278 identifiable current Equity candidates; the 281-target reconciliation remains OPEN.
+The supplied universe target is **281 equities**. The prior 278-row candidate register omitted NESDO, ULBSL and YMHL. These now have corroborated secondary-provider equity classification and listing/first-trade dates, and their IDs match the dated 2026-11-25 security snapshot. The working candidate matrix contains 281 unique equity symbols. This is not an exchange-authoritative membership/lifecycle registry; historical stable-ID continuity remains unverified.
 
 ## Reproducible source inputs
 
@@ -42,7 +42,7 @@ The supplied universe target is **281 equities**, but the current candidate regi
 
 ## Per-security matrix
 
-See `reference/p410_stage1_coverage_matrix_2026-11-26.csv` (278 symbol-level records). Each row includes current identity match, listing/lifecycle, session/floorsheet, OHLCV provenance/anomaly, corporate action, price basis, liquidity, blockers and next acquisition task.
+See `reference/p410_stage1_coverage_matrix_2026-11-26.csv` (281 symbol-level records). Each row includes current identity match, listing/lifecycle, session/floorsheet, OHLCV provenance/anomaly, corporate action, price basis, liquidity, blockers and next acquisition task.
 
 ## Required next actions (ordered)
 
@@ -57,3 +57,18 @@ See `reference/p410_stage1_coverage_matrix_2026-11-26.csv` (278 symbol-level rec
 ## Data quality
 
 **LOW CONFIDENCE for Stage 1 eligibility.** Source artifacts are useful discovery/reconciliation inputs, but do not yet provide a complete, point-in-time, per-security evidence chain. This report deliberately does not convert missing evidence into neutral scores or eligibility.
+
+
+## Universe discrepancy resolution — 2026-11-26
+
+The 278-to-281 candidate gap is resolved with three documented additions:
+
+| Symbol | Security ID | Listing date | First trading date | Evidence tier |
+|---|---:|---|---|---|
+| NESDO | 8041 | 2022-03-27 | 2022-03-28 | Secondary: ShareSansar, ShareHub, Laganilab |
+| ULBSL | 8063 | 2022-05-26 | 2022-05-27 | Secondary: Merolagani, ShareHub, Laganilab |
+| YMHL | 9342 | 2026-06-19 | 2026-06-22 | Secondary: ShareSansar, NepseBajar, NepseLabs |
+
+Source URLs and claim-level support are recorded in `nepse-elite-ai-scanner-pro/data/reference/nepse_equity_candidate_additions_2026-11-26.json`. The IDs match the dated 2026-11-25 security snapshot and 2026-11-19 OHLCV capture. This supports a 281-symbol working equity universe, not exchange-authoritative lifecycle continuity.
+
+**Disposition:** universe-count discrepancy resolved. Stage 1 remains blocked pending session/floorsheet completeness, row-level OHLCV provenance, corporate-action/price-basis clearance and liquidity evidence.

@@ -151,7 +151,10 @@ jobs:
         if: always()
         with:
           name: p420-226-historical-floorsheet-validation
-          path: audit-output/p420/
+          path: |
+            audit-output/p420/download_integrity.csv
+            audit-output/p420/daily_validation_summary.csv
+            audit-output/p420/equity_date_dispositions.csv
           if-no-files-found: warn
           retention-days: 90
 

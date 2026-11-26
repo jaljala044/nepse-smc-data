@@ -114,3 +114,18 @@ Evidence links:
 - Pipeline quality gate: https://github.com/ANKITSANJYAL/nepse-pipeline/blob/main/src/nepse_pipeline/quality.py
 - Capture workflow: https://github.com/ANKITSANJYAL/nepse-pipeline/blob/main/.github/workflows/capture.yml
 - Published dataset and declared coverage: https://huggingface.co/datasets/AnkitSanjyal/nepse-market-data
+
+
+## Date-specific independent archive located — retrieval pending (2026-11-26)
+
+A live Hugging Face repository tree query for `AnkitSanjyal/nepse-market-data` returned a concrete file under `floorsheet/business_date=2026-11-20/part-0.parquet`:
+
+- Dataset repository: https://huggingface.co/datasets/AnkitSanjyal/nepse-market-data
+- Partition path: `floorsheet/business_date=2026-11-20/part-0.parquet`
+- Reported file size: 840,136 bytes
+- Hugging Face tree entry OID: `0f58264637283ce959ed54837fd92518a5534cfa`
+- LFS object SHA-256: `7f52d0004418a7aa82a5930e84438968022a14e3acf94ac9e3e51c431ccbc480`
+
+This resolves the earlier uncertainty about whether a 2026-11-20 floorsheet partition is present in that repository: the file is present in its public tree. It does NOT yet establish its row count, schema, upstream totalElements, contract-ID uniqueness, row-level overlap, or source independence from the SocrateAI CSV. The published dataset viewer exposes a separate default tabular configuration (1-minute bars), not this floorsheet parquet partition, so the viewer's generic row API cannot be used as a substitute for reading the contract file.
+
+Direct binary retrieval/decoding was not completed in this environment. A browser retrieval attempt could not start because the external browser service wallet is out of funds; no retry was made. Next is to retrieve this exact parquet object through an available binary-capable route, inspect its schema and rows, then compare contract IDs/normalized fields against the 39,966-row SocrateAI CSV and 500-row local extract. Until then the file is classified `INDEPENDENT_ARCHIVE_PARTITION_LOCATED_NOT_RECONCILED`.

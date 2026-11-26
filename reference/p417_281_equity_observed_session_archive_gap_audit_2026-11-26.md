@@ -20,6 +20,8 @@ One row per equity:
 - file presence;
 - count of observed dates;
 - OHLCV dates present within that observed-date sample;
+- exact absent OHLCV dates in a separate detail CSV, explicitly typed `OHLCV_ROW_ABSENT_NOT_NO_TRADE`;
+- top 20 symbols ranked by archive-gap count in CI logs;
 - missing archive-date count;
 - duplicate date rows and invalid date rows;
 - positive-volume date count;
@@ -36,7 +38,7 @@ One row per equity:
 
 ## CI
 
-The dedicated job emits a CSV artifact for the full 281-equity universe. Tests verify:
+The dedicated job emits both a symbol summary CSV and an exact symbol/date gap-detail CSV for the full 281-equity universe. CI logs also rank the 20 symbols with the most archive gaps. Tests verify:
 1. missing rows remain archive gaps, never `NO_TRADE`;
 2. duplicate dates are counted;
 3. missing files are explicit gaps;

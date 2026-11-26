@@ -207,7 +207,7 @@ def capture(output_dir, fetcher=fetch, retrieved_at=None):
         },
         "disposition": "Secondary corroboration only. Missing target rows on prior dates are not promoted to primary NO_TRADE. No canonical OHLCV or lifecycle valid_from is changed.",
     }
-    (output / "capture_report.json").write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\\n", encoding="utf-8")
+    (output / "capture_report.json").write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return result
 
 if __name__ == "__main__":

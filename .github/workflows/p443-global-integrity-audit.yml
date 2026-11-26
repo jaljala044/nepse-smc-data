@@ -8,6 +8,8 @@ on:
       - "reference/NEPSE_GLOBAL_DUPLICATE_AUDIT_FINDINGS.csv"
       - "reference/NEPSE_GLOBAL_DUPLICATE_AUDIT_SCAN_SUMMARY.csv"
       - "tools/audit_global_data_integrity.py"
+      - "p443_content_audit.py"
+      - "test_p443_content_audit.py"
       - "test_global_duplicate_audit_inventory.py"
       - "test_global_duplicate_audit_scan.py"
       - ".github/workflows/p443-global-integrity-audit.yml"
@@ -18,6 +20,8 @@ on:
       - "reference/NEPSE_GLOBAL_DUPLICATE_AUDIT_FINDINGS.csv"
       - "reference/NEPSE_GLOBAL_DUPLICATE_AUDIT_SCAN_SUMMARY.csv"
       - "tools/audit_global_data_integrity.py"
+      - "p443_content_audit.py"
+      - "test_p443_content_audit.py"
       - "test_global_duplicate_audit_inventory.py"
       - "test_global_duplicate_audit_scan.py"
       - ".github/workflows/p443-global-integrity-audit.yml"
@@ -32,6 +36,8 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -41,6 +47,17 @@ jobs:
         run: python tools/audit_global_data_integrity.py --write
       - name: Validate scan outputs
         run: python -m unittest test_global_duplicate_audit_scan -v
+      - name: Strict content audit regression tests
+        run: python -m unittest test_p443_content_audit -v
+      - name: Run strict pinned-byte cross-check
+        run: python p443_content_audit.py --output audit-strict
+      - name: Preserve strict audit outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p443-strict-content-audit
+          path: audit-strict/
+          if-no-files-found: warn
       - name: Preserve machine-readable audit outputs
         uses: actions/upload-artifact@v4
         with:

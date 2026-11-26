@@ -40,7 +40,7 @@ Inspected the first and last records in the pinned `nepse-history-starter/03_sto
 
 ## Next actions
 
-- Obtain date-specific floorsheet or independent EOD evidence for SKHL, BJHL, SOHL, HFIN, SABBL and RSML around the archive boundaries.
+- Preserve dated secondary evidence for the six reconciled debut dates; obtain exchange/floorsheet raw records if the stronger evidence tier is required.
 - Confirm no-trade vs archive omission on intervening sessions; do not infer from weekend/weekday alone.
 - Audit UNL across alternate providers and repository history to identify whether pre-March-2024 OHLCV is available, its provenance, and any missing period.
 - Continue full row-level OHLCV validation across both source archives and all 281 target equities.

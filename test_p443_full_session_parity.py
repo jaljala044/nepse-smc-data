@@ -71,7 +71,7 @@ class FullSessionParityTests(unittest.TestCase):
             "symbol": "ACLBSL", "buyer": "58", "seller": "17",
             "quantity": "10", "rate": "100.05", "amount": "1000.2",
         }
-        with self.assertRaisesRegex(ValueError, "invalid contract"):
+        with self.assertRaisesRegex(ValueError, "amount_arithmetic_mismatch"):
             signature(row, False, "2025-11-27")
 
     def test_invalid_contract_prefix_is_not_silently_removed(self):
@@ -80,7 +80,7 @@ class FullSessionParityTests(unittest.TestCase):
             "symbol": "ACLBSL", "buyer": "58", "seller": "17",
             "quantity": "10", "rate": "100", "amount": "1000",
         }
-        with self.assertRaisesRegex(ValueError, "invalid contract"):
+        with self.assertRaisesRegex(ValueError, "contract_id_non_numeric"):
             signature(row, False, "2025-11-27")
 
     def test_row_conflict_is_review_not_collection_failure(self):

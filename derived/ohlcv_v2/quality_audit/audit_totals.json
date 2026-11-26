@@ -12,13 +12,40 @@
     "Open": 109
   },
   "ohlcv_invariant_flag_rows": 1379,
+  "ohlcv_invariant_unique_rows": 1329,
+  "ohlcv_invariant_multi_reason_rows": 50,
+  "ohlcv_invariant_by_reason": {
+    "OPEN_OUTSIDE_RANGE": 1325,
+    "CLOSE_OUTSIDE_RANGE": 28,
+    "HIGH_BELOW_LOW": 22,
+    "NONPOSITIVE_PRICE": 4
+  },
+  "symbols_with_invariant_flags": 13,
+  "duplicate_date_flags": 0,
+  "date_order_flags": 0,
   "adjacent_identical_ohlcv_rows": 71806,
+  "adjacent_repeats_by_classification": {
+    "UNCLASSIFIED_ADJACENT_REPEAT": 52891,
+    "CLOSED_SESSION_REPEAT_CANDIDATE": 18910,
+    "OPEN_SESSION_REPEAT_REVIEW": 5
+  },
+  "symbols_with_adjacent_repeats": 256,
   "calendar_alignment_flags": 185643,
+  "calendar_alignment_by_flag": {
+    "OUTSIDE_CALENDAR_EVIDENCE_WINDOW": 166733,
+    "ROW_ON_VERIFIED_CLOSED_DATE": 18910
+  },
   "corporate_action_event_records": 3,
   "symbols_with_known_action_records": 3,
   "symbols_without_action_records_not_verified": 278,
   "split_review_rows": 1,
   "split_proposals_without_verified_effective_date": 1,
   "raw_source_files_modified": 0,
-  "flags_auto_repaired_or_deleted": 0
+  "flags_auto_repaired_or_deleted": 0,
+  "scanner_gate": {
+    "t2_swing": "CONDITIONAL_VALIDATED_BARS_ONLY_LOW_LIQUIDITY_AND_REPEAT_FLAGS_REQUIRE_REVIEW",
+    "positional_investment": "NOT_READY_FOR_ADJUSTED_RETURN_METRICS_CORPORATE_ACTION_COVERAGE_PARTIAL",
+    "invalid_ohlcv_rows": "EXCLUDE_FROM_INDICATORS_UNTIL_PRIMARY_EVIDENCE",
+    "unknown_repeat_rows": "KEEP_UNKNOWN_UNTIL_PER_SECURITY_FLOORSHEET"
+  }
 }

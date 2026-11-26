@@ -1,7 +1,7 @@
 {
   "task": "P4.36",
   "source": "NEPSE official API domain",
-  "retrieved_at_utc": "2026-11-26T19:23:46.563805+00:00",
+  "retrieved_at_utc": "2026-11-26T19:26:38.066352+00:00",
   "upstream_authentication_client": {
     "repo": "basic-bgnr/NepseUnofficialApi",
     "commit": "180a550c60f1959983b854659e650a4c189a3c0f",
@@ -15,7 +15,7 @@
       "http_status": 200,
       "content_type": "application/json",
       "response_bytes": 722,
-      "response_sha256": "043c3ff0c67e760c0f9ebb9cf02131e8b5c3d9d716fd8b5a9ecaf71d093ad414",
+      "response_sha256": "d1084e4dab07f9fe5c5c43ccefcd11f218dcb64c69df1cab5d94893d30c494fb",
       "etag": null,
       "last_modified": null,
       "token_fields_present": {
@@ -79,6 +79,8 @@
       "date_fields_observed": [],
       "volume_fields_observed": [],
       "all_ohlc_present_rows": 0,
+      "all_hlc_present_rows": 0,
+      "open_present_rows": 0,
       "rows_summary": []
     },
     {
@@ -117,40 +119,257 @@
       "date_fields_observed": [],
       "volume_fields_observed": [],
       "all_ohlc_present_rows": 0,
+      "all_hlc_present_rows": 0,
+      "open_present_rows": 0,
       "rows_summary": []
     },
     {
       "symbol": "NMLBBL",
       "security_id": 396,
       "known_security_id": 396,
-      "start_date": "2026-11-01",
+      "start_date": "2025-11-26",
       "end_date": "2026-11-26",
       "control_window": true,
       "status": "captured",
       "pages": [
         {
           "page": 0,
-          "url": "https://www.nepalstock.com/api/nots/market/history/security/396?size=500&startDate=2026-11-01&endDate=2026-11-26&page=0",
+          "url": "https://www.nepalstock.com/api/nots/market/history/security/396?size=500&startDate=2025-11-26&endDate=2026-11-26&page=0",
           "http_status": 200,
           "content_type": "application/json",
-          "response_bytes": 2514,
-          "response_sha256": "f96a79f32f8d41204ec0ca64381fd482e919fe805d2f1a4ee8eaf13366a6fe4e",
+          "response_bytes": 38952,
+          "response_sha256": "cf86b6ae9328aacbff2c44d11a32aebb83129365d8597a49d0347cf09f2f5fa0",
           "etag": null,
           "last_modified": null,
           "status": "captured",
           "rows_path": "$.content",
-          "row_count": 13,
-          "total_elements": 13,
+          "row_count": 228,
+          "total_elements": 228,
           "total_pages": 1,
           "total_metadata_path": "$",
-          "filename": "NMLBBL_2026-11-01_2026-11-26_page_0.json"
+          "filename": "NMLBBL_2025-11-26_2026-11-26_page_0.json"
         }
       ],
-      "rows": 13,
-      "total_elements": 13,
+      "rows": 228,
+      "total_elements": 228,
       "total_pages": 1,
       "pagination_complete": true,
       "observed_dates": [
+        "2025-11-26",
+        "2025-11-27",
+        "2025-11-30",
+        "2025-12-01",
+        "2025-12-02",
+        "2025-12-03",
+        "2025-12-07",
+        "2025-12-08",
+        "2025-12-09",
+        "2025-12-10",
+        "2025-12-11",
+        "2025-12-14",
+        "2025-12-15",
+        "2025-12-16",
+        "2025-12-17",
+        "2025-12-18",
+        "2025-12-21",
+        "2025-12-22",
+        "2025-12-23",
+        "2025-12-24",
+        "2025-12-28",
+        "2025-12-29",
+        "2025-12-31",
+        "2026-01-01",
+        "2026-01-04",
+        "2026-01-05",
+        "2026-01-06",
+        "2026-01-07",
+        "2026-01-08",
+        "2026-01-12",
+        "2026-01-13",
+        "2026-01-14",
+        "2026-01-18",
+        "2026-01-20",
+        "2026-01-21",
+        "2026-01-22",
+        "2026-01-25",
+        "2026-01-26",
+        "2026-01-27",
+        "2026-01-28",
+        "2026-01-29",
+        "2026-02-01",
+        "2026-02-02",
+        "2026-02-03",
+        "2026-02-04",
+        "2026-02-05",
+        "2026-02-08",
+        "2026-02-09",
+        "2026-02-10",
+        "2026-02-11",
+        "2026-02-12",
+        "2026-02-16",
+        "2026-02-17",
+        "2026-02-22",
+        "2026-02-23",
+        "2026-02-24",
+        "2026-02-25",
+        "2026-02-26",
+        "2026-03-01",
+        "2026-03-03",
+        "2026-03-09",
+        "2026-03-10",
+        "2026-03-11",
+        "2026-03-12",
+        "2026-03-15",
+        "2026-03-16",
+        "2026-03-17",
+        "2026-03-19",
+        "2026-03-22",
+        "2026-03-23",
+        "2026-03-24",
+        "2026-03-25",
+        "2026-03-26",
+        "2026-03-29",
+        "2026-03-30",
+        "2026-03-31",
+        "2026-04-01",
+        "2026-04-02",
+        "2026-04-05",
+        "2026-04-06",
+        "2026-04-07",
+        "2026-04-08",
+        "2026-04-09",
+        "2026-04-10",
+        "2026-04-13",
+        "2026-04-15",
+        "2026-04-16",
+        "2026-04-17",
+        "2026-04-20",
+        "2026-04-21",
+        "2026-04-22",
+        "2026-04-23",
+        "2026-04-24",
+        "2026-04-27",
+        "2026-04-28",
+        "2026-04-29",
+        "2026-04-30",
+        "2026-05-04",
+        "2026-05-05",
+        "2026-05-06",
+        "2026-05-07",
+        "2026-05-08",
+        "2026-05-11",
+        "2026-05-12",
+        "2026-05-13",
+        "2026-05-14",
+        "2026-05-15",
+        "2026-05-18",
+        "2026-05-19",
+        "2026-05-20",
+        "2026-05-21",
+        "2026-05-22",
+        "2026-05-25",
+        "2026-05-26",
+        "2026-05-27",
+        "2026-06-01",
+        "2026-06-02",
+        "2026-06-03",
+        "2026-06-04",
+        "2026-06-05",
+        "2026-06-08",
+        "2026-06-09",
+        "2026-06-10",
+        "2026-06-11",
+        "2026-06-12",
+        "2026-06-15",
+        "2026-06-16",
+        "2026-06-17",
+        "2026-06-18",
+        "2026-06-19",
+        "2026-06-22",
+        "2026-06-23",
+        "2026-06-24",
+        "2026-06-25",
+        "2026-06-26",
+        "2026-06-29",
+        "2026-06-30",
+        "2026-07-01",
+        "2026-07-02",
+        "2026-07-03",
+        "2026-07-06",
+        "2026-07-07",
+        "2026-07-08",
+        "2026-07-09",
+        "2026-07-10",
+        "2026-07-13",
+        "2026-07-14",
+        "2026-07-15",
+        "2026-07-16",
+        "2026-07-17",
+        "2026-07-20",
+        "2026-07-21",
+        "2026-07-22",
+        "2026-07-23",
+        "2026-07-24",
+        "2026-07-27",
+        "2026-07-28",
+        "2026-07-29",
+        "2026-07-30",
+        "2026-07-31",
+        "2026-08-03",
+        "2026-08-04",
+        "2026-08-05",
+        "2026-08-06",
+        "2026-08-07",
+        "2026-08-10",
+        "2026-08-11",
+        "2026-08-12",
+        "2026-08-13",
+        "2026-08-14",
+        "2026-08-17",
+        "2026-08-18",
+        "2026-08-19",
+        "2026-08-20",
+        "2026-08-21",
+        "2026-08-24",
+        "2026-08-25",
+        "2026-08-26",
+        "2026-08-27",
+        "2026-08-31",
+        "2026-09-01",
+        "2026-09-02",
+        "2026-09-03",
+        "2026-09-07",
+        "2026-09-09",
+        "2026-09-10",
+        "2026-09-11",
+        "2026-09-14",
+        "2026-09-15",
+        "2026-09-16",
+        "2026-09-17",
+        "2026-09-18",
+        "2026-09-22",
+        "2026-09-23",
+        "2026-09-24",
+        "2026-09-28",
+        "2026-09-29",
+        "2026-09-30",
+        "2026-10-01",
+        "2026-10-02",
+        "2026-10-05",
+        "2026-10-06",
+        "2026-10-07",
+        "2026-10-08",
+        "2026-10-09",
+        "2026-10-12",
+        "2026-10-13",
+        "2026-10-14",
+        "2026-10-15",
+        "2026-10-16",
+        "2026-10-26",
+        "2026-10-27",
+        "2026-10-28",
+        "2026-10-29",
+        "2026-10-30",
         "2026-11-02",
         "2026-11-03",
         "2026-11-04",
@@ -173,6 +392,8 @@
         "totalTradedQuantity"
       ],
       "all_ohlc_present_rows": 0,
+      "all_hlc_present_rows": 228,
+      "open_present_rows": 0,
       "rows_summary": [
         {
           "date": "2026-11-25",
@@ -187,7 +408,9 @@
             "low": "460.1",
             "close": "460.2"
           },
-          "has_all_ohlc": false
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
         },
         {
           "date": "2026-11-24",
@@ -202,7 +425,9 @@
             "low": "460.0",
             "close": "465.0"
           },
-          "has_all_ohlc": false
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
         },
         {
           "date": "2026-11-23",
@@ -217,7 +442,9 @@
             "low": "460.1",
             "close": "468.0"
           },
-          "has_all_ohlc": false
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
         },
         {
           "date": "2026-11-20",
@@ -232,7 +459,9 @@
             "low": "462.0",
             "close": "470.0"
           },
-          "has_all_ohlc": false
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
         },
         {
           "date": "2026-11-19",
@@ -247,7 +476,9 @@
             "low": "462.2",
             "close": "475.0"
           },
-          "has_all_ohlc": false
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
         },
         {
           "date": "2026-11-18",
@@ -262,7 +493,9 @@
             "low": "462.6",
             "close": "470.0"
           },
-          "has_all_ohlc": false
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
         },
         {
           "date": "2026-11-17",
@@ -277,7 +510,9 @@
             "low": "461.1",
             "close": "474.5"
           },
-          "has_all_ohlc": false
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
         },
         {
           "date": "2026-11-13",
@@ -292,7 +527,9 @@
             "low": "480.0",
             "close": "484.0"
           },
-          "has_all_ohlc": false
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
         },
         {
           "date": "2026-11-06",
@@ -307,7 +544,9 @@
             "low": "483.3",
             "close": "485.0"
           },
-          "has_all_ohlc": false
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
         },
         {
           "date": "2026-11-05",
@@ -322,7 +561,9 @@
             "low": "480.1",
             "close": "493.0"
           },
-          "has_all_ohlc": false
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
         },
         {
           "date": "2026-11-04",
@@ -337,7 +578,9 @@
             "low": "489.0",
             "close": "493.9"
           },
-          "has_all_ohlc": false
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
         },
         {
           "date": "2026-11-03",
@@ -352,7 +595,9 @@
             "low": "486.0",
             "close": "493.0"
           },
-          "has_all_ohlc": false
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
         },
         {
           "date": "2026-11-02",
@@ -367,7 +612,3664 @@
             "low": "486.2",
             "close": "495.0"
           },
-          "has_all_ohlc": false
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-10-30",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "12694",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "504.0",
+            "low": "490.0",
+            "close": "496.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-10-29",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "5969",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "499.0",
+            "low": "492.6",
+            "close": "496.5"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-10-28",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "3940",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "504.0",
+            "low": "486.3",
+            "close": "504.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-10-27",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "1114",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "499.0",
+            "low": "494.0",
+            "close": "499.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-10-26",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "8494",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "502.0",
+            "low": "497.0",
+            "close": "500.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-10-16",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "1470",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "499.0",
+            "low": "491.2",
+            "close": "497.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-10-15",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "7286",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "499.0",
+            "low": "490.0",
+            "close": "495.7"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-10-14",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "7261",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "496.5",
+            "low": "481.1",
+            "close": "496.5"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-10-13",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "2720",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "495.0",
+            "low": "487.1",
+            "close": "492.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-10-12",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "2091",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "496.0",
+            "low": "482.0",
+            "close": "496.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-10-09",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "1961",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "497.0",
+            "low": "480.2",
+            "close": "496.8"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-10-08",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "2500",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "499.0",
+            "low": "490.0",
+            "close": "490.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-10-07",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "2839",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "505.0",
+            "low": "488.0",
+            "close": "492.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-10-06",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "2354",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "500.0",
+            "low": "488.0",
+            "close": "500.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-10-05",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "3416",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "505.0",
+            "low": "492.0",
+            "close": "492.1"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-10-02",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "613",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "505.0",
+            "low": "496.0",
+            "close": "497.2"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-10-01",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "24280",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "510.0",
+            "low": "488.0",
+            "close": "507.7"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-09-30",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "2632",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "495.0",
+            "low": "481.6",
+            "close": "495.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-09-29",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "8985",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "499.9",
+            "low": "490.0",
+            "close": "492.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-09-28",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "2192",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "501.2",
+            "low": "497.0",
+            "close": "498.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-09-24",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "3618",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "509.0",
+            "low": "477.9",
+            "close": "509.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-09-23",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "14611",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "513.0",
+            "low": "503.0",
+            "close": "503.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-09-22",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "11339",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "518.7",
+            "low": "503.1",
+            "close": "516.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-09-18",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "7629",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "506.0",
+            "low": "495.0",
+            "close": "506.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-09-17",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "6707",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "513.9",
+            "low": "494.0",
+            "close": "499.7"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-09-16",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "6169",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "513.0",
+            "low": "490.0",
+            "close": "504.9"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-09-15",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "11316",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "527.0",
+            "low": "500.5",
+            "close": "512.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-09-14",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "3379",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "505.0",
+            "low": "490.8",
+            "close": "502.4"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-09-11",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "14672",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "511.9",
+            "low": "469.0",
+            "close": "497.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-09-10",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "2513",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "481.1",
+            "low": "473.5",
+            "close": "478.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-09-09",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "5347",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "497.9",
+            "low": "475.0",
+            "close": "485.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-09-07",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "2896",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "498.0",
+            "low": "485.0",
+            "close": "488.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-09-03",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "817",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "485.0",
+            "low": "475.0",
+            "close": "484.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-09-02",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "2607",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "481.7",
+            "low": "468.4",
+            "close": "481.5"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-09-01",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "8965",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "485.0",
+            "low": "475.0",
+            "close": "479.9"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-08-31",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "3251",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "485.0",
+            "low": "470.6",
+            "close": "477.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-08-27",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "6588",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "497.0",
+            "low": "475.4",
+            "close": "490.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-08-26",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "1895",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "493.0",
+            "low": "482.2",
+            "close": "490.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-08-25",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "6089",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "499.0",
+            "low": "488.0",
+            "close": "491.9"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-08-24",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "10681",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "494.5",
+            "low": "488.0",
+            "close": "492.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-08-21",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "4327",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "500.0",
+            "low": "491.0",
+            "close": "494.5"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-08-20",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "3977",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "502.0",
+            "low": "495.1",
+            "close": "500.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-08-19",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "4874",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "505.0",
+            "low": "500.0",
+            "close": "505.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-08-18",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "7092",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "504.0",
+            "low": "496.1",
+            "close": "500.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-08-17",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "7815",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "520.0",
+            "low": "501.1",
+            "close": "502.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-08-14",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "4769",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "514.0",
+            "low": "509.0",
+            "close": "512.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-08-13",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "2106",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "520.0",
+            "low": "510.7",
+            "close": "520.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-08-12",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "2671",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "520.0",
+            "low": "513.6",
+            "close": "514.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-08-11",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "5696",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "526.0",
+            "low": "515.2",
+            "close": "519.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-08-10",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "5609",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "540.8",
+            "low": "511.0",
+            "close": "519.9"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-08-07",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "6361",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "525.6",
+            "low": "510.0",
+            "close": "515.1"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-08-06",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "13451",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "528.0",
+            "low": "511.0",
+            "close": "516.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-08-05",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "5250",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "515.0",
+            "low": "510.0",
+            "close": "512.3"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-08-04",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "15443",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "520.0",
+            "low": "494.7",
+            "close": "515.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-08-03",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "4606",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "531.0",
+            "low": "516.0",
+            "close": "523.9"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-07-31",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "6495",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "530.0",
+            "low": "516.0",
+            "close": "522.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-07-30",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "8584",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "530.0",
+            "low": "515.0",
+            "close": "520.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-07-29",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "6400",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "534.0",
+            "low": "525.0",
+            "close": "530.1"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-07-28",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "2189",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "542.0",
+            "low": "532.0",
+            "close": "532.2"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-07-27",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "8804",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "545.0",
+            "low": "533.0",
+            "close": "543.8"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-07-24",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "3140",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "550.9",
+            "low": "536.2",
+            "close": "545.9"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-07-23",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "4896",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "545.0",
+            "low": "530.0",
+            "close": "545.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-07-22",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "5611",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "550.0",
+            "low": "535.0",
+            "close": "545.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-07-21",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "5746",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "562.5",
+            "low": "544.1",
+            "close": "552.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-07-20",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "4360",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "557.0",
+            "low": "540.0",
+            "close": "553.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-07-17",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "8160",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "545.0",
+            "low": "525.0",
+            "close": "544.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-07-16",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "9491",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "534.9",
+            "low": "504.4",
+            "close": "534.9"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-07-15",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "935",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "535.0",
+            "low": "526.1",
+            "close": "527.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-07-14",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "9110",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "528.0",
+            "low": "496.1",
+            "close": "526.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-07-13",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "5471",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "535.0",
+            "low": "522.1",
+            "close": "528.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-07-10",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "6390",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "544.0",
+            "low": "525.0",
+            "close": "531.2"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-07-09",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "7387",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "549.0",
+            "low": "525.0",
+            "close": "525.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-07-08",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "8458",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "545.1",
+            "low": "531.1",
+            "close": "541.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-07-07",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "5680",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "554.9",
+            "low": "540.1",
+            "close": "553.9"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-07-06",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "4025",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "559.0",
+            "low": "538.0",
+            "close": "543.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-07-03",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "7023",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "553.0",
+            "low": "540.0",
+            "close": "552.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-07-02",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "6560",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "552.0",
+            "low": "541.0",
+            "close": "552.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-07-01",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "4556",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "553.9",
+            "low": "541.0",
+            "close": "548.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-06-30",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "7457",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "558.0",
+            "low": "541.1",
+            "close": "546.6"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-06-29",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "6402",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "559.4",
+            "low": "550.2",
+            "close": "550.4"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-06-26",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "2854",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "574.0",
+            "low": "559.0",
+            "close": "560.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-06-25",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "5184",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "567.0",
+            "low": "559.0",
+            "close": "565.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-06-24",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "3778",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "566.0",
+            "low": "560.1",
+            "close": "565.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-06-23",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "1836",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "575.0",
+            "low": "569.0",
+            "close": "570.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-06-22",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "1445",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "577.0",
+            "low": "573.1",
+            "close": "576.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-06-19",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "6002",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "605.0",
+            "low": "566.0",
+            "close": "576.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-06-18",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "4371",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "580.0",
+            "low": "573.0",
+            "close": "576.8"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-06-17",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "2806",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "584.0",
+            "low": "577.1",
+            "close": "578.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-06-16",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "2238",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "585.0",
+            "low": "572.0",
+            "close": "580.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-06-15",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "4056",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "591.0",
+            "low": "574.0",
+            "close": "581.8"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-06-12",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "4009",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "585.0",
+            "low": "577.0",
+            "close": "580.5"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-06-11",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "4686",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "590.0",
+            "low": "581.0",
+            "close": "586.8"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-06-10",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "3876",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "591.9",
+            "low": "580.0",
+            "close": "589.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-06-09",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "5884",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "589.0",
+            "low": "576.1",
+            "close": "585.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-06-08",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "2032",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "594.0",
+            "low": "586.0",
+            "close": "590.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-06-05",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "4295",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "596.9",
+            "low": "583.1",
+            "close": "595.9"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-06-04",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "6055",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "605.0",
+            "low": "581.5",
+            "close": "592.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-06-03",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "9033",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "605.0",
+            "low": "565.0",
+            "close": "599.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-06-02",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "13801",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "596.0",
+            "low": "580.0",
+            "close": "594.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-06-01",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "4054",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "595.0",
+            "low": "580.0",
+            "close": "585.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-05-27",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "7313",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "595.0",
+            "low": "581.0",
+            "close": "590.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-05-26",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "5150",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "600.0",
+            "low": "585.0",
+            "close": "588.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-05-25",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "5948",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "594.0",
+            "low": "571.0",
+            "close": "594.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-05-22",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "2725",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "588.2",
+            "low": "573.0",
+            "close": "588.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-05-21",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "4339",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "588.8",
+            "low": "580.0",
+            "close": "584.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-05-20",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "7531",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "590.0",
+            "low": "570.1",
+            "close": "589.9"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-05-19",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "5156",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "594.0",
+            "low": "575.1",
+            "close": "578.9"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-05-18",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "8303",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "585.0",
+            "low": "580.3",
+            "close": "581.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-05-15",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "7014",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "590.0",
+            "low": "580.0",
+            "close": "588.8"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-05-14",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "9239",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "598.5",
+            "low": "582.1",
+            "close": "588.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-05-13",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "26951",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "606.09",
+            "low": "582.0",
+            "close": "591.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-05-12",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "8824",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "623.0",
+            "low": "606.0",
+            "close": "606.1"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-05-11",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "6686",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "623.0",
+            "low": "607.0",
+            "close": "623.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-05-08",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "1473",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "614.7",
+            "low": "604.0",
+            "close": "612.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-05-07",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "3430",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "609.0",
+            "low": "602.3",
+            "close": "609.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-05-06",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "2194",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "609.2",
+            "low": "601.5",
+            "close": "602.4"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-05-05",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "5369",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "610.0",
+            "low": "601.3",
+            "close": "607.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-05-04",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "4394",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "614.9",
+            "low": "602.1",
+            "close": "605.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-04-30",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "9293",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "610.8",
+            "low": "603.0",
+            "close": "610.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-04-29",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "6918",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "613.9",
+            "low": "607.5",
+            "close": "607.5"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-04-28",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "6791",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "620.0",
+            "low": "600.0",
+            "close": "612.4"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-04-27",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "6988",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "620.0",
+            "low": "600.0",
+            "close": "618.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-04-24",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "4507",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "640.0",
+            "low": "610.1",
+            "close": "613.9"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-04-23",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "8760",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "622.9",
+            "low": "609.0",
+            "close": "614.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-04-22",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "5742",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "622.0",
+            "low": "611.0",
+            "close": "616.5"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-04-21",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "6177",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "630.0",
+            "low": "619.0",
+            "close": "622.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-04-20",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "9340",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "630.0",
+            "low": "615.0",
+            "close": "625.9"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-04-17",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "7966",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "634.0",
+            "low": "616.5",
+            "close": "625.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-04-16",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "10258",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "634.0",
+            "low": "622.0",
+            "close": "629.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-04-15",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "9639",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "642.0",
+            "low": "626.0",
+            "close": "641.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-04-13",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "4571",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "638.7",
+            "low": "624.3",
+            "close": "635.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-04-10",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "7325",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "639.0",
+            "low": "625.0",
+            "close": "632.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-04-09",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "13271",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "659.0",
+            "low": "617.2",
+            "close": "633.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-04-08",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "7677",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "626.0",
+            "low": "614.6",
+            "close": "623.7"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-04-07",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "25722",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "624.0",
+            "low": "612.0",
+            "close": "617.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-04-06",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "16593",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "625.0",
+            "low": "605.09",
+            "close": "618.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-04-05",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "17818",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "618.8",
+            "low": "605.0",
+            "close": "605.2"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-04-02",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "15552",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "630.0",
+            "low": "611.3",
+            "close": "622.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-04-01",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "15976",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "640.9",
+            "low": "618.3",
+            "close": "621.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-03-31",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "15205",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "646.0",
+            "low": "620.0",
+            "close": "634.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-03-30",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "16161",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "650.0",
+            "low": "631.1",
+            "close": "637.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-03-29",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "23027",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "670.0",
+            "low": "635.3",
+            "close": "649.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-03-26",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "11143",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "670.0",
+            "low": "658.0",
+            "close": "669.9"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-03-25",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "18911",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "680.0",
+            "low": "660.0",
+            "close": "665.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-03-24",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "14382",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "685.0",
+            "low": "670.0",
+            "close": "685.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-03-23",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "41202",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "693.8",
+            "low": "668.0",
+            "close": "679.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-03-22",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "140163",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "694.9",
+            "low": "658.0",
+            "close": "688.9"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-03-19",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "23157",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "654.9",
+            "low": "645.0",
+            "close": "653.8"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-03-17",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "5590",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "654.0",
+            "low": "641.0",
+            "close": "643.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-03-16",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "16611",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "657.0",
+            "low": "642.5",
+            "close": "646.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-03-15",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "7154",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "651.0",
+            "low": "645.2",
+            "close": "650.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-03-12",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "14661",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "655.0",
+            "low": "643.0",
+            "close": "654.9"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-03-11",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "26630",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "682.3",
+            "low": "648.4",
+            "close": "654.6"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-03-10",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "68382",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "669.0",
+            "low": "640.0",
+            "close": "669.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-03-09",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "390",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "651.7",
+            "low": "638.2",
+            "close": "651.7"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-03-03",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "12295",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "625.7",
+            "low": "618.0",
+            "close": "625.7"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-03-01",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "8420",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "620.0",
+            "low": "603.0",
+            "close": "620.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-02-26",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "4787",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "616.0",
+            "low": "611.0",
+            "close": "615.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-02-25",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "15727",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "620.0",
+            "low": "602.0",
+            "close": "611.9"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-02-24",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "8823",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "615.6",
+            "low": "609.0",
+            "close": "614.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-02-23",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "5665",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "614.5",
+            "low": "605.0",
+            "close": "610.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-02-22",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "20757",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "611.9",
+            "low": "600.0",
+            "close": "609.9"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-02-17",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "6024",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "617.0",
+            "low": "611.0",
+            "close": "615.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-02-16",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "7018",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "625.0",
+            "low": "615.0",
+            "close": "618.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-02-12",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "11686",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "627.9",
+            "low": "616.0",
+            "close": "622.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-02-11",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "8041",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "625.0",
+            "low": "619.0",
+            "close": "619.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-02-10",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "13488",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "626.9",
+            "low": "615.0",
+            "close": "615.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-02-09",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "12614",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "632.0",
+            "low": "624.0",
+            "close": "624.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-02-08",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "20181",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "643.0",
+            "low": "627.5",
+            "close": "631.7"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-02-05",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "17083",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "635.0",
+            "low": "628.2",
+            "close": "630.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-02-04",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "3864",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "640.0",
+            "low": "629.1",
+            "close": "632.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-02-03",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "5502",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "644.9",
+            "low": "631.0",
+            "close": "634.5"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-02-02",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "6340",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "640.0",
+            "low": "626.2",
+            "close": "640.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-02-01",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "13647",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "646.1",
+            "low": "636.0",
+            "close": "637.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-01-29",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "18386",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "665.0",
+            "low": "645.0",
+            "close": "657.5"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-01-28",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "5322",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "669.9",
+            "low": "646.0",
+            "close": "654.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-01-27",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "12929",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "674.0",
+            "low": "653.0",
+            "close": "658.9"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-01-26",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "18273",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "677.0",
+            "low": "665.0",
+            "close": "665.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-01-25",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "20071",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "683.0",
+            "low": "660.0",
+            "close": "675.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-01-22",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "65392",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "669.9",
+            "low": "636.0",
+            "close": "669.9"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-01-21",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "10963",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "653.0",
+            "low": "632.1",
+            "close": "648.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-01-20",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "14557",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "651.5",
+            "low": "628.0",
+            "close": "644.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-01-18",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "4811",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "640.0",
+            "low": "622.2",
+            "close": "640.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-01-14",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "8667",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "632.0",
+            "low": "620.0",
+            "close": "629.5"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-01-13",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "7645",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "645.0",
+            "low": "622.1",
+            "close": "626.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-01-12",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "9231",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "640.0",
+            "low": "630.0",
+            "close": "634.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-01-08",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "4372",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "652.6",
+            "low": "628.1",
+            "close": "634.2"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-01-07",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "5578",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "659.0",
+            "low": "630.5",
+            "close": "640.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-01-06",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "6888",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "645.0",
+            "low": "635.1",
+            "close": "639.9"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-01-05",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "3417",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "647.1",
+            "low": "633.0",
+            "close": "633.1"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-01-04",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "1359",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "649.0",
+            "low": "628.1",
+            "close": "636.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2026-01-01",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "5171",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "649.0",
+            "low": "632.1",
+            "close": "639.8"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2025-12-31",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "7062",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "650.0",
+            "low": "634.5",
+            "close": "643.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2025-12-29",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "5431",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "655.4",
+            "low": "633.1",
+            "close": "637.9"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2025-12-28",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "7885",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "642.9",
+            "low": "633.0",
+            "close": "642.9"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2025-12-24",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "6710",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "643.4",
+            "low": "630.8",
+            "close": "631.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2025-12-23",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "5279",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "650.0",
+            "low": "632.0",
+            "close": "640.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2025-12-22",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "6401",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "642.0",
+            "low": "629.0",
+            "close": "642.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2025-12-21",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "6365",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "665.0",
+            "low": "633.0",
+            "close": "645.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2025-12-18",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "4299",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "660.0",
+            "low": "646.0",
+            "close": "655.6"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2025-12-17",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "1083",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "664.5",
+            "low": "652.0",
+            "close": "658.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2025-12-16",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "8767",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "654.9",
+            "low": "645.0",
+            "close": "654.8"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2025-12-15",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "2477",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "654.9",
+            "low": "645.0",
+            "close": "650.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2025-12-14",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "5979",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "655.0",
+            "low": "645.0",
+            "close": "646.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2025-12-11",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "5110",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "668.4",
+            "low": "652.0",
+            "close": "652.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2025-12-10",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "1805",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "663.9",
+            "low": "650.0",
+            "close": "663.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2025-12-09",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "4012",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "663.8",
+            "low": "656.3",
+            "close": "660.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2025-12-08",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "5611",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "665.2",
+            "low": "652.0",
+            "close": "660.1"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2025-12-07",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "14872",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "683.3",
+            "low": "653.1",
+            "close": "665.8"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2025-12-03",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "40093",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "697.6",
+            "low": "677.0",
+            "close": "680.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2025-12-02",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "26458",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "684.0",
+            "low": "656.9",
+            "close": "684.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2025-12-01",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "32453",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "673.2",
+            "low": "652.5",
+            "close": "669.9"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2025-11-30",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "11327",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "675.0",
+            "low": "651.0",
+            "close": "651.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2025-11-27",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "27865",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "677.0",
+            "low": "654.1",
+            "close": "670.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
+        },
+        {
+          "date": "2025-11-26",
+          "date_field": "businessDate",
+          "symbol": null,
+          "symbol_field": null,
+          "volume": "25536",
+          "volume_field": "totalTradedQuantity",
+          "ohlc": {
+            "open": null,
+            "high": "668.0",
+            "low": "661.0",
+            "close": "666.0"
+          },
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
         }
       ]
     },
@@ -425,6 +4327,8 @@
         "totalTradedQuantity"
       ],
       "all_ohlc_present_rows": 0,
+      "all_hlc_present_rows": 13,
+      "open_present_rows": 0,
       "rows_summary": [
         {
           "date": "2026-11-25",
@@ -439,7 +4343,9 @@
             "low": "700.0",
             "close": "707.9"
           },
-          "has_all_ohlc": false
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
         },
         {
           "date": "2026-11-24",
@@ -454,7 +4360,9 @@
             "low": "700.3",
             "close": "707.0"
           },
-          "has_all_ohlc": false
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
         },
         {
           "date": "2026-11-23",
@@ -469,7 +4377,9 @@
             "low": "700.1",
             "close": "710.0"
           },
-          "has_all_ohlc": false
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
         },
         {
           "date": "2026-11-20",
@@ -484,7 +4394,9 @@
             "low": "706.3",
             "close": "708.0"
           },
-          "has_all_ohlc": false
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
         },
         {
           "date": "2026-11-19",
@@ -499,7 +4411,9 @@
             "low": "701.0",
             "close": "709.0"
           },
-          "has_all_ohlc": false
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
         },
         {
           "date": "2026-11-18",
@@ -514,7 +4428,9 @@
             "low": "703.2",
             "close": "705.2"
           },
-          "has_all_ohlc": false
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
         },
         {
           "date": "2026-11-17",
@@ -529,7 +4445,9 @@
             "low": "700.2",
             "close": "710.3"
           },
-          "has_all_ohlc": false
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
         },
         {
           "date": "2026-11-13",
@@ -544,7 +4462,9 @@
             "low": "705.1",
             "close": "715.0"
           },
-          "has_all_ohlc": false
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
         },
         {
           "date": "2026-11-06",
@@ -559,7 +4479,9 @@
             "low": "710.0",
             "close": "722.5"
           },
-          "has_all_ohlc": false
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
         },
         {
           "date": "2026-11-05",
@@ -574,7 +4496,9 @@
             "low": "701.0",
             "close": "719.9"
           },
-          "has_all_ohlc": false
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
         },
         {
           "date": "2026-11-04",
@@ -589,7 +4513,9 @@
             "low": "715.1",
             "close": "721.0"
           },
-          "has_all_ohlc": false
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
         },
         {
           "date": "2026-11-03",
@@ -604,7 +4530,9 @@
             "low": "719.3",
             "close": "719.3"
           },
-          "has_all_ohlc": false
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
         },
         {
           "date": "2026-11-02",
@@ -619,7 +4547,9 @@
             "low": "716.1",
             "close": "725.0"
           },
-          "has_all_ohlc": false
+          "has_all_ohlc": false,
+          "has_hlc": true,
+          "has_open": false
         }
       ]
     }

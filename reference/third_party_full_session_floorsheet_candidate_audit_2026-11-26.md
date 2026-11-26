@@ -129,3 +129,48 @@ A live Hugging Face repository tree query for `AnkitSanjyal/nepse-market-data` r
 This resolves the earlier uncertainty about whether a 2026-11-20 floorsheet partition is present in that repository: the file is present in its public tree. It does NOT yet establish its row count, schema, upstream totalElements, contract-ID uniqueness, row-level overlap, or source independence from the SocrateAI CSV. The published dataset viewer exposes a separate default tabular configuration (1-minute bars), not this floorsheet parquet partition, so the viewer's generic row API cannot be used as a substitute for reading the contract file.
 
 Direct binary retrieval/decoding was not completed in this environment. A browser retrieval attempt could not start because the external browser service wallet is out of funds; no retry was made. Next is to retrieve this exact parquet object through an available binary-capable route, inspect its schema and rows, then compare contract IDs/normalized fields against the 39,966-row SocrateAI CSV and 500-row local extract. Until then the file is classified `INDEPENDENT_ARCHIVE_PARTITION_LOCATED_NOT_RECONCILED`.
+
+
+## Strong independent upstream-count reconciliation — 2026-11-20 (2026-11-26 follow-up)
+
+Retrieved the actual GitHub Actions job log for the independent `ANKITSANJYAL/nepse-pipeline` capture run on 2026-11-20, rather than relying only on the dataset card or README.
+
+### Run evidence
+
+- Workflow run: https://github.com/ANKITSANJYAL/nepse-pipeline/actions/runs/44748903787
+- Job: `capture`, job ID `136331336130`; completed SUCCESS, 2026-11-20 13:57:36–14:03:04 UTC.
+- Capture commit: `87e68b8fd43c929a715b1b747a0ad7a799abb92f`.
+- Exact collector log: `floorsheet_sweep date=2026-11-20 upstream=39966 held=0 pages=80/80 mode=full`.
+- Exact completion log: `floorsheet_done date=2026-11-20 pages=80 parsed=39966 held=39966/39966 rejected=0 empty_pages=none`.
+- Collector log: `floorsheet_complete after 1 full sweep(s)`.
+- Finalization log: `floorsheet_finalized date=2026-11-20 rows=39966 parquet=.../floorsheet/business_date=2026-11-20/part-0.parquet`.
+
+### Independent quality gate output (all PASS)
+
+- 39,966 contracts; held count equals upstream `totalElements` exactly.
+- 0 duplicate contract IDs.
+- 0 nulls in required symbol/rate/quantity fields.
+- 0 quantity × rate/amount identity failures.
+- 0 non-positive price or quantity rows.
+- 0 trade-time/business-date mismatches.
+- 352 distinct symbols.
+- EOD companion checks: 352 securities, 0 duplicate symbols, 0 high<low bars, 4 flagged rows within the bounded threshold, and 352 vs trailing median 348 (1% drift).
+
+The SocrateAI CSV candidate previously parsed in this audit also has 39,966 rows, 352 symbols, zero duplicate transaction IDs, all dates 2026-11-20, zero nonpositive quantity/rate rows and zero amount identity failures. Its independently computed totals are 10,602,468 shares and NPR 3,887,563,470.82 turnover. The exact row count and symbol breadth now match the separate pipeline's upstream-total reconciliation. However, **contract-ID/row-level comparison between the two published files has not been completed**, so equality of contents is not asserted.
+
+### Provenance limitation discovered in the same run
+
+The job's `Archive raw responses (private)` step ran, but the log explicitly states `HF_BRONZE_REPO not set - raw responses not archived this run`. The public parquet was published successfully, and the run log preserves the upstream count and quality-gate output, but the original page payloads were not retained in the configured private bronze repository for this run. This weakens replayable source provenance.
+
+### Revised status and safe use
+
+- Upgrade the 2026-11-20 file from `THIRD_PARTY_FULL_SESSION_CANDIDATE` to `UPSTREAM_COUNT_RECONCILED_THIRD_PARTY_CAPTURE` for date-level completeness: independent live-capture log shows 80/80 pages, held=upstream_total=39,966, no rejected/empty pages and all floorsheet quality checks passing; SocrateAI file has the same 39,966 rows and 352 symbols.
+- This is strong independent completeness corroboration, **not** raw-page replay proof and **not** contract-level identity proof.
+- Do not yet call the two files identical, use this to certify every individual symbol's absence, or promote broker attribution/manipulation analysis. For NO_TRADE on a symbol, first complete contract-level cross-source comparison or recover the upstream private bronze page archive, plus verified open-session evidence.
+- Positive contract evidence in the SocrateAI file remains usable as third-party observed-trade evidence with its source label and confidence limitation; absence remains UNKNOWN.
+- The 500-row local extract mismatch remains unresolved. It appears to be a distinct/partial extract, not the 39,966-row full-session candidate; do not merge it.
+
+Evidence:
+- Run: https://github.com/ANKITSANJYAL/nepse-pipeline/actions/runs/44748903787
+- Collector implementation: https://github.com/ANKITSANJYAL/nepse-pipeline/blob/87e68b8fd43c929a715b1b747a0ad7a799abb92f/src/nepse_pipeline/jobs/floorsheet.py
+- Quality gate implementation: https://github.com/ANKITSANJYAL/nepse-pipeline/blob/87e68b8fd43c929a715b1b747a0ad7a799abb92f/src/nepse_pipeline/quality.py

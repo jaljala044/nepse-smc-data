@@ -61,7 +61,7 @@ def non_json_capture(raw):
     return text.startswith(b"<html") or text.startswith(b"<!DOCTYPE html") or raw.strip().startswith(b"Searched Date is not valid.")
 
 def floorsheet_date_from_filename(path):
-    match = re.search(r"floorsheet_(20\\d{2})[-_](\\d{2})[-_](\\d{2})", Path(path).name, re.I)
+    match = re.search(r"floorsheet_(20\d{2})[-_](\d{2})[-_](\d{2})", Path(path).name, re.I)
     return "-".join(match.groups()) if match else ""
 
 def scan(raw, entry):

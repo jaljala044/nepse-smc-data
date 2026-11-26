@@ -3,7 +3,7 @@
 **Status: reproducible audit baseline complete; adjudication and canonical-ingestion acceptance remain open.**
 
 **Pinned input:** `main` at `56362fb4f65b91fdcca8f50b50e53ad80e703649`.  
-**Latest validated workflow:** [Run 104](https://github.com/jaljala044/nepse-smc-data/actions/runs/45894421068), head `c4f2207db7b6baf8d90d27325ea7da9c2b7e5219`.  
+**Latest validated workflow:** [Run 120](https://github.com/jaljala044/nepse-smc-data/actions/runs/45895028736), head `9c83653e2d183b6be955d1c2ffbbd5e9e6e53ab9`.  
 **Method:** deterministic, read-only scan of pinned file blobs. Findings are review flags, not automatic corrections.
 
 ## Coverage
@@ -67,9 +67,20 @@ The latest strict workflow cross-checked all 94,543 repeated adjacent tuples aga
 | CLOSED_SESSION_CANDIDATE | 6,232 | Current row date matches pinned closed-session evidence; candidate only |
 | OPEN_SESSION_TUPLE_UNVERIFIED | 103 | Current row date has open-session evidence, but the repeated tuple itself is not independently validated |
 
-The triage checks the current row's date, not the prior row's date. It does not establish that a tuple is valid, invalid, carried forward, or date-shifted. No tuple is independently verified and no automatic correction is permitted. Full row-level dispositions are retained in the workflow artifact `repeat_calendar_triage.csv`.
+The pair-level classifier now verifies both pinned source rows and exact OHLCV tuple equality, checks calendar evidence for both the current and previous dates, and exports disjoint review queues:
 
-P4.37 independently identified 1,455 canonical-only rows across 24 sampled symbols that match official HLCV tuples on 81 verified closed dates. P4.42 traced the NMLBBL/SMPDA date-label pattern to ShareSansar scrape-date filenames. These source-backed findings are useful but do not independently classify every adjacent tuple across the full historical universe.
+| Pair disposition | Count | Review queue |
+|---|---:|---|
+| PAIR_CONTAINS_HISTORICAL_LISTED_HOLIDAY | 26,544 | Review pair for quarantine |
+| PAIR_CONTAINS_RECORDED_CLOSURE | 9,027 | Review pair for quarantine |
+| BOTH_OPEN_TUPLE_UNVERIFIED | 73 | Require independent security/date evidence |
+| INSUFFICIENT_SESSION_EVIDENCE | 58,899 | Require independent security/date evidence |
+
+The two review queues contain **35,571** pair candidates for quarantine review and **58,972** pairs requiring independent security/date evidence. Every row has `promotion_allowed=false`; the workflow reports zero corrected rows and zero promoted rows. A historical listed-holiday entry is a candidate, not proof of universal closure. An open market session does not establish a security-specific execution. Pair classification is not an instruction to delete either source row.
+
+Full row-level pair dispositions and the two disjoint review queues are retained in the workflow artifact: `repeat_calendar_triage.csv`, `repeat_quarantine_candidates.csv`, and `repeat_evidence_review.csv`.
+
+P4.37 independently identified 1,455 canonical-only rows across 24 sampled symbols that match official HLCV tuples on 81 verified closed dates. P4.42 traced the NMLBBL/SMPDA date-label pattern to ShareSansar scrape-date filenames. These source-backed findings are useful context, but they do not establish a cause for every repeated pair across the full historical universe.
 
 Historical session evidence remains incomplete outside the captured one-year official EOD window. Do not infer an open session from weekdays or absence from a closure list. Do not label repeated tuples as NO_TRADE or as erroneous solely because values repeat.
 
@@ -83,12 +94,13 @@ Preserve all rows. The source capture report reports unique archive-local record
 
 - No raw, canonical, or user-finalized OHLCV values were modified.
 - No date shifts, deletions, deduplication, or canonical promotion occurred.
-- No quarantine rule was integrated into production ingestion in this audit-only task.
-- AI recommendations and scanner/training eligibility were not changed.
+- Added a fail-closed validator to `scanner_inputs/prepare_scanner_inputs.py`: it validates the original daily-price rows and supplemental rows for OHLCV invariants, duplicate symbol/date keys, and pinned verified-closed dates before publishing to a new output directory. It does not edit the input folder, silently filter rows, or repair values; rejected input aborts publication.
+- This is a scanner-preparation guard, not a full canonical-ingestion quarantine implementation. The two historical SMPDA floorsheet archives remain blocked by documented disposition and are not imported.
+- No AI recommendations or training labels were enabled or promoted.
 
 ## Reproducibility and machine-readable outputs
 
-- Workflow and artifacts: [Run 104](https://github.com/jaljala044/nepse-smc-data/actions/runs/45894421068).
+- Workflow and artifacts: [Run 120](https://github.com/jaljala044/nepse-smc-data/actions/runs/45895028736).
 - Standard row-level CSV findings: `NEPSE_GLOBAL_DUPLICATE_AUDIT_FINDINGS.csv`.
 - Per-file scan coverage: `NEPSE_GLOBAL_DUPLICATE_AUDIT_SCAN_SUMMARY.csv`.
 - Strict pinned-byte row-level findings and exception join: preserved in the run's `p443-strict-content-audit` artifact (`findings.jsonl`, `coverage.json`, `summary.json`, `exception_join.csv`, `exception_join_summary.json`).

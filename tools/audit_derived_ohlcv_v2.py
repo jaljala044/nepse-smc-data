@@ -113,7 +113,7 @@ def inspect_ohlcv(symbol, rows, calendar):
 
 
 def audit(v2_dir, raw_dir, calendar_path, corporate_actions_path, output_dir,
-          expected_symbols=281, expected_official_rows=599):
+          expected_symbols=281, expected_official_rows=599, expected_correction_counts=None):
     v2_dir, raw_dir, output_dir = Path(v2_dir), Path(raw_dir), Path(output_dir)
     manifest = read_csv(v2_dir / "manifest.csv")
     if len(manifest) != expected_symbols or len({r["symbol"] for r in manifest}) != expected_symbols:
@@ -124,7 +124,7 @@ def audit(v2_dir, raw_dir, calendar_path, corporate_actions_path, output_dir,
         raise ValueError(f"expected {expected_official_rows} official provenance rows")
     corrections = read_csv(v2_dir / "corrections.csv")
     correction_counts = Counter(r["field"] for r in corrections)
-    expected_corrections = {"Date": 490, "Row": 109, "Open": 109, "Close": 4, "Volume": 1}
+    expected_corrections = expected_correction_counts if expected_correction_counts is not None else {"Date": 490, "Row": 109, "Open": 109, "Close": 4, "Volume": 1}
     if dict(correction_counts) != expected_corrections:
         raise ValueError(f"correction ledger field counts differ: {dict(correction_counts)}")
 

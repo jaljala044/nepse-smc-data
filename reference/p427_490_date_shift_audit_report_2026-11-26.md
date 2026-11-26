@@ -66,4 +66,4 @@ The evidence supports the one-day date-label correction in the provisional deriv
 
 ## Next priority — P4.28: official per-security EOD validation
 
-Capture exact official NEPSE EOD rows for the 490 candidate tuples (281 unique securities across two dates), using validated symbol-to-security-ID mappings and the official history endpoint while the dates remain inside the rolling history window. Validate endpoint provenance, security identity, exact date, one-row uniqueness, OHLCV validity and payload hash. If official evidence cannot be obtained for a symbol/date, retain the secondary-only disposition and UNKNOWN policy.
+Capture exact official NEPSE EOD rows for the 490 candidate tuples (254 unique symbols across two dates), using validated symbol-to-security-ID mappings and the official history endpoint while the dates remain inside the rolling history window. Validate endpoint provenance, security identity, exact date, one-row uniqueness, OHLCV validity and payload hash. If official evidence cannot be obtained for a symbol/date, retain the secondary-only disposition and UNKNOWN policy.

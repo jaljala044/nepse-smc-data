@@ -1,15 +1,45 @@
 # P4.43 execution acceptance and quarantine disposition
 
-Run [55](https://github.com/jaljala044/nepse-smc-data/actions/runs/45891996012) passed on head b47d34864dffc8c2f88ab8b019e579c8d57a0712; input 56362fb4f65b91fdcca8f50b50e53ad80e703649.
-Strict audit: 928 inventoried, 784 parsed, 138 inventory-only, 6 non-JSON responses, 1,668,641 parsed records, zero file failures. Findings: 94,543 unresolved adjacent tuples, 1,331 invalid OHLCV, 30 missing contract sessions, 490,440 conflicting keys, 10 repeated records. Categories overlap. Standard and strict artifacts: 15151049769 and 15152680020. These totals are from logs, not a new independent source audit.
+**Status:** reproducible audit baseline and targeted corroboration workflows are passing; full historical adjudication and production acceptance remain **BLOCKED**.
 
-## Quarantine disposition (policy record, not runtime enforcement)
+**Pinned audit input:** `main` at `56362fb4f65b91fdcca8f50b50e53ad80e703649`.
+
+## Current validated evidence
+
+- Strict audit Run 205 (45899093388) passed all stages. The next current-head strict run 213 (45899542346) was still in progress at the time of this update; do not count it as passed until GitHub reports success.
+- Priority floorsheet recovery Run 11 (45899542388) passed all 10 selected partitions.
+- Secondary priority comparison Run 2 (45899542326) passed all five selected contract comparisons.
+- The strict inventory covers 928 files: 784 structured files parsed, 138 inventory-only/unsupported, six non-JSON responses, 1,668,641 parseable records, zero file failures.
+- Strict findings: 94,543 adjacent repeated OHLCV tuple pairs; 1,331 invalid-OHLCV flags (1,329 exact historical exception-register matches plus two non-equity instruments, KDBY and KEF); ten exact repeated JSON summary objects. After transaction-shape gating, zero trade-shaped missing-session flags and zero missing-trade-identity flags remain. Finding classes overlap and are not additive.
+- The 58,972 evidence-review pairs were compared against pinned official per-security EOD history: 58,535 have no security/date capture on either side; 437 have only a previous-date HLCV/positive-execution match; zero have both dates matched. No rows were promoted.
+- The 35,571 pair quarantine-review queue and 58,972 independent-evidence queue remain unresolved. Unique row holds from recorded closures and authenticated holiday listings total 28,476, but remain candidate holds pending security-specific adjudication.
+
+## Targeted priority floorsheet evidence
+
+Ten daily partitions for BNL, BNT, ENL and UNL passed download, Git blob/size, schema, date, arithmetic and target-row checks. Each selected symbol/date has one observed 10-share transaction at the expected rate. The exact rows and source hashes are preserved in `P443_PRIORITY_FLOORSHEET_CONTRACT_OBSERVATIONS_2026-11-27.csv`.
+
+A second public archive comparison produced five exact matches for BNT (2026-06-29, 2026-07-01), UNL (2026-08-24) and ENL (2026-08-25, 2026-08-26), matching contract number, buyer/seller broker IDs, quantity, rate and amount. Evidence is in `P443_SECONDARY_PRIORITY_CONTRACT_EVIDENCE_2026-11-27.csv`.
+
+Both archives remain third-party datasets. File completeness, independent upstream lineage and authoritative exchange provenance are unproven. All 15 observations remain `promotion_allowed=false`; none validates a complete OHLCV candle or authorizes canonical promotion.
+
+## Quarantine disposition (policy record, not full canonical-ingestion enforcement)
+
 | Path | Git blob SHA | Rows | Repeated contract occurrences | Disposition |
 |---|---|---:|---:|---|
-| reference/p433_floorsheets/floorsheet_2024-08-14.csv.gz | 0dd938bc5e6bfd50fa09bf85f0836d443ab15983 | 244019 | 219615 | BLOCK_CANONICAL |
-| reference/p433_floorsheets/floorsheet_2024-08-18.csv.gz | 49d6498bfb30681b7896b6c5c824b518e50f941d | 300918 | 270825 | BLOCK_CANONICAL |
+| `reference/p433_floorsheets/floorsheet_2024-08-14.csv.gz` | `0dd938bc5e6bfd50fa09bf85f0836d443ab15983` | 244,019 | 219,615 | `BLOCK_CANONICAL` |
+| `reference/p433_floorsheets/floorsheet_2024-08-18.csv.gz` | `49d6498b30681b7896b6c5c824b518e50f941d` | 300,918 | 270,825 | `BLOCK_CANONICAL` |
 
-Pinned reference/p433_floorsheets/capture_report.json reports all 544937 source record IDs unique and zero exact repeated rows. Contract collisions suggest precision loss but exact cause and original IDs are unverified. Preserve all rows; do not invent identifiers or use archive-local IDs as exchange contract IDs. Both p435 marketwide control responses share blob 732e3365b4304f7696a9d30dcd2e94451535caf8 and contain 2026-11-26 trades, not requested 2024 dates; reject as historical evidence.
+The pinned P4.33 capture report records 544,937 unique archive-local source record IDs and zero exact repeated rows. Repeated contract-number values are collisions, not confirmed duplicate exchange contract IDs. Preserve all rows; do not invent identifiers or substitute archive-local IDs for exchange contract IDs. The two P4.35 marketwide control responses share blob `732e3365b4304f7696a9d30dcd2e94451535caf8` and contain 2026-11-26 trades, not the requested 2024 dates; they are not historical evidence.
 
-## Open acceptance items
-Reconcile 1331 invalid rows with existing exception ledger; classify 94543 adjacent tuples using verified session evidence; investigate 30 missing session findings and six non-JSON responses; confirm ten repeated summary records from current artifact; integrate quarantine rules into canonical ingestion and test. No independent data validation, corrections, raw mutation, or production promotion. PR #80 remains draft pending these checks. AI recommendations disabled. P4.40 postponed.
+The scanner-preparation validator is fail-closed for the protected paths/fingerprints and validates supported daily/floorsheet inputs before publishing to a new output directory. It does not mutate source data, filter or repair rows, and is **not** a complete canonical-ingestion gate. Nested/cross-file canonical ingestion still needs explicit protection and tests.
+
+## Outstanding acceptance items
+
+1. Complete independent historical session, security-identity, execution and OHLCV adjudication for the repeat queues and invalid-price exceptions.
+2. Complete date-shift/misdated-candidate reconciliation across the full 928-file scope; historical session evidence does not cover the entire 2011–2026 period.
+3. Establish source provenance, file/session completeness and independent upstream lineage for the third-party floorsheet archives; absence from an archive is not proof of no trade.
+4. Implement and test canonical-ingestion quarantine enforcement across nested and cross-file ingestion paths, or explicitly split that implementation into a separate tracked issue.
+5. Validate complete-period point-in-time replay, monthly consumers, SMC/ICT and authentic IDPAT V3 requirements before enabling production scoring or recommendations.
+6. Confirm current-head strict CI after the report/decision/JSON refresh; Run 213 was still in progress at this update.
+
+No raw or canonical rows were changed, shifted, deleted, deduplicated, corrected or promoted. Production recommendations and training labels remain disabled. PR #80 remains draft and unmerged.

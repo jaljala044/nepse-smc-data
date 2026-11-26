@@ -94,12 +94,23 @@ The source-path audit is documented in [P4.25 report](p425_2025-07-28_contempora
 - The SMC raw close is therefore selected for the derived dataset as `SECONDARY_CONTEMPORANEOUS_SNAPSHOT_CORROBORATED`; this is not official NEPSE verification.
 - Raw data remains unchanged.
 
-## Next priority target — P4.26: audit 109 invalid external candidates
+## P4.26 — completed: 109 invalid external candidate audit
 
-1. Build a row-level matrix for all 109 candidates, preserving raw and external tuples and immutable source hashes.
-2. Identify the exact source endpoint, parser, capture time and corporate-action basis for each candidate.
-3. Search for contemporaneous source evidence where available; do not assume historical API coverage.
-4. Keep OHLC-invalid rows quarantined until individually validated. Do not repair by inference or convert UNKNOWN to NO_TRADE.
+The row-level comparison is documented in [P4.26 audit report](p426_109_invalid_candidate_audit_2026-11-26.md) and [109-row snapshot matrix](p426_109_invalid_candidate_snapshot_matrix_2026-11-26.csv).
+
+- 109 rows across four verified-open sessions: 15 (2026-04-24), 18 (2026-04-27), 21 (2026-04-28), 55 (2026-04-29).
+- Invalidity: 88 OPEN_ABOVE_HIGH and 21 OPEN_BELOW_LOW.
+- All 109 rows match the same-day ShareSansar daily-page snapshot exactly, including the invalid OHLC tuple.
+- This establishes the invalid values were already present in the contemporaneous ShareSansar page capture, not just the later historical AJAX backfill.
+- It does not establish the correct exchange OHLC. ShareSansar is a secondary source; all 109 remain quarantined as UNKNOWN. No raw data changed and no candidates were promoted.
+
+## Next priority target — P4.27: primary evidence and 490 date-shift audit
+
+1. Obtain official NEPSE EOD records or complete, date-matched floorsheets for the 109 invalid candles; validate symbol identity, session, all trades and OHLC reconstruction.
+2. Preserve UNKNOWN for rows lacking primary evidence; never repair OHLC by guessing.
+3. Independently re-audit the 490 date-shift recoveries against the canonical exchange calendar, source timestamps and exact raw/external file hashes.
+4. Check each shifted target is a real open session and that the candidate's full OHLCV tuple is preserved exactly; identify any collisions, duplicates or cross-symbol identity risks.
+5. Keep raw source dates unchanged and exclude unresolved rows from scanner scoring/training.
 
 ## Acceptance
 

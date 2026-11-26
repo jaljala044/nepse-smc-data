@@ -43,9 +43,9 @@ jobs:
       - name: Build 109-row same-day snapshot matrix
         run: |
           python tools/build_p426_invalid_candidate_matrix.py \
-            --queue evidence/p422-recovery/recovery_queue.csv \
+            --queue evidence/p422-recovery/missing-equity-recovery-queue/recovery_queue.csv \
             --snapshot-dir evidence/p426-snapshots \
-            --output reference/p426_109_invalid_candidate_matrix_2026-11-26.csv
+            --output reference/p426_109_invalid_candidate_snapshot_matrix_2026-11-26.csv
       - name: Commit deterministic matrix on task branch
         if: github.event_name == 'push'
         run: |

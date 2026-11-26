@@ -56,20 +56,27 @@ class DerivedOhlcvV2AuditTests(unittest.TestCase):
         write_csv(actions, ["symbol","event_type","announced_date","event_date","quantity_ratio","price_factor","notes"], [
             {"symbol":"TEST","event_type":"BONUS","announced_date":"2026-02-01","event_date":"2026-03-01","quantity_ratio":"0.1","price_factor":"0.909","notes":"fixture"}
         ])
-        return v2, raw, calendar, actions, out, raw_bytes
+        split = root / "split_review.csv"
+        write_csv(split, ["symbol","proposal_date","old_par_npr","proposed_par_npr","proposed_new_shares_per_old_share","verified_effective_date","assessment","proposal_source","annual_report_source"], [
+            {"symbol":"TEST","proposal_date":"2021-01-19","old_par_npr":"100","proposed_par_npr":"50","proposed_new_shares_per_old_share":"2","verified_effective_date":"","assessment":"proposal only; no effective date verified","proposal_source":"source","annual_report_source":"annual"}
+        ])
+        return v2, raw, calendar, actions, split, out, raw_bytes
 
     def test_audit_reports_repeats_and_closed_date_without_mutating_raw(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
-            v2, raw, calendar, actions, out, raw_before = self.fixture(root)
+            v2, raw, calendar, actions, split, out, raw_before = self.fixture(root)
             totals = audit(v2, raw, calendar, actions, out,
                            expected_symbols=1, expected_official_rows=1,
-                           expected_correction_counts={"Date": 1})
+                           expected_correction_counts={"Date": 1}, split_review_path=split)
             self.assertEqual(totals["raw_files_verified_byte_identical_to_manifest"], 1)
             self.assertEqual(totals["official_provenance_rows_verified"], 1)
             self.assertEqual(totals["adjacent_identical_ohlcv_rows"], 1)
             self.assertEqual(totals["calendar_alignment_flags"], 1)
             self.assertEqual(totals["corporate_action_event_records"], 1)
+            self.assertEqual(totals["split_proposals_without_verified_effective_date"], 1)
+            split_flags = list(csv.DictReader((out / "split_review_flags.csv").open()))
+            self.assertEqual(split_flags[0]["disposition"], "NO_SPLIT_FACTOR_APPLIED_EFFECTIVE_DATE_UNKNOWN")
             self.assertEqual((raw / "TEST_OHLCV.csv").read_bytes(), raw_before)
             repeat_rows = list(csv.DictReader((out / "adjacent_repeat_flags.csv").open()))
             self.assertEqual(repeat_rows[0]["classification"], "CLOSED_SESSION_REPEAT_CANDIDATE")
@@ -81,7 +88,7 @@ class DerivedOhlcvV2AuditTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 audit(v2, raw, calendar, actions, out,
                       expected_symbols=1, expected_official_rows=1,
-                      expected_correction_counts={"Date": 1})
+                      expected_correction_counts={"Date": 1}, split_review_path=split)
 
 
 if __name__ == "__main__":

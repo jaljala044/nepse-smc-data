@@ -54,6 +54,26 @@ class FullSessionParityTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "duplicate contract"):
             parse(iter(rows), False, "2025-11-27")
 
+    def test_exact_whole_rupee_floor_amount_is_accepted_and_counted(self):
+        row = {
+            "transaction": "2025112701000001", "date": "2025-11-27",
+            "symbol": "ACLBSL", "buyer": "58", "seller": "17",
+            "quantity": "10", "rate": "100.05", "amount": "1000",
+        }
+        stats = Counter()
+        signature(row, False, "2025-11-27", stats)
+        self.assertEqual(stats["amount_floor_truncated"], 1)
+        self.assertEqual(stats["amount_exact_match"], 0)
+
+    def test_non_floor_amount_mismatch_is_rejected(self):
+        row = {
+            "transaction": "2025112701000001", "date": "2025-11-27",
+            "symbol": "ACLBSL", "buyer": "58", "seller": "17",
+            "quantity": "10", "rate": "100.05", "amount": "1000.2",
+        }
+        with self.assertRaisesRegex(ValueError, "invalid contract"):
+            signature(row, False, "2025-11-27")
+
     def test_invalid_contract_prefix_is_not_silently_removed(self):
         row = {
             "transaction": "''2025112701000001", "date": "2025-11-27",

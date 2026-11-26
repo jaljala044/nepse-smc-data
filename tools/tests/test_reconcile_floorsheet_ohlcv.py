@@ -213,5 +213,29 @@ class FloorsheetReconciliationTests(unittest.TestCase):
         self.assertEqual(abc["amount_identity_failures"], 1)
 
 
+    def test_canonical_verified_open_observed_status_allows_no_trade_with_full_evidence(self):
+        with (self.ohlcv / "XYZ_OHLCV.csv").open("w", newline="") as handle:
+            writer = csv.DictWriter(handle, fieldnames=["Date", "Open", "High", "Low", "Close", "Volume"])
+            writer.writeheader()
+            writer.writerow({"Date": "2026-11-20", "Open": "1", "High": "1", "Low": "1", "Close": "1", "Volume": "0"})
+        digest = hashlib.sha256(self.floor.read_bytes()).hexdigest()
+        rows = self.run_reconcile(session="verified_open_observed", complete="true",
+                                  evidence="complete full-session extract; all pages and totals reconciled",
+                                  uri="https://source.example/floorsheet/2026-11-20", digest=digest)
+        xyz = next(r for r in rows if r["symbol"] == "XYZ")
+        self.assertEqual(xyz["trade_status"], "NO_TRADE")
+
+    def test_candidate_open_weekday_cannot_support_no_trade(self):
+        with (self.ohlcv / "XYZ_OHLCV.csv").open("w", newline="") as handle:
+            writer = csv.DictWriter(handle, fieldnames=["Date", "Open", "High", "Low", "Close", "Volume"])
+            writer.writeheader()
+        digest = hashlib.sha256(self.floor.read_bytes()).hexdigest()
+        rows = self.run_reconcile(session="candidate_open_weekday", complete="true",
+                                  evidence="complete full-session extract",
+                                  uri="https://source.example/floorsheet/2026-11-20", digest=digest)
+        xyz = next(r for r in rows if r["symbol"] == "XYZ")
+        self.assertEqual(xyz["trade_status"], "UNKNOWN")
+
+
 if __name__ == "__main__":
     unittest.main()

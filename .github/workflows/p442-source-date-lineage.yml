@@ -1,0 +1,25 @@
+name: P4.42 source date lineage validation
+
+on:
+  push:
+    branches:
+      - p442-source-date-lineage
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "reference/p442_sharesansar_date_lineage_matrix_2026-11-26.csv"
+      - "reference/p442_sharesansar_date_lineage_report_2026-11-26.md"
+      - "tools/tests/test_p442_date_lineage_matrix.py"
+      - ".github/workflows/p442-source-date-lineage.yml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run P4.42 deterministic lineage tests
+        run: python -m unittest discover -s tools/tests -p "test_p442_date_lineage_matrix.py" -v

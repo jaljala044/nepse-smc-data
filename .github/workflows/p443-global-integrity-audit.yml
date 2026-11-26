@@ -1,17 +1,25 @@
-name: P4.43 global duplicate audit inventory
+name: P4.43 global duplicate and data-integrity audit
 
 on:
   push:
     paths:
       - "reference/NEPSE_GLOBAL_DUPLICATE_AUDIT_INVENTORY.csv"
       - "reference/NEPSE_GLOBAL_DUPLICATE_AUDIT_REPORT.md"
+      - "reference/NEPSE_GLOBAL_DUPLICATE_AUDIT_FINDINGS.csv"
+      - "reference/NEPSE_GLOBAL_DUPLICATE_AUDIT_SCAN_SUMMARY.csv"
+      - "tools/audit_global_data_integrity.py"
       - "test_global_duplicate_audit_inventory.py"
+      - "test_global_duplicate_audit_scan.py"
       - ".github/workflows/p443-global-integrity-audit.yml"
   pull_request:
     paths:
       - "reference/NEPSE_GLOBAL_DUPLICATE_AUDIT_INVENTORY.csv"
       - "reference/NEPSE_GLOBAL_DUPLICATE_AUDIT_REPORT.md"
+      - "reference/NEPSE_GLOBAL_DUPLICATE_AUDIT_FINDINGS.csv"
+      - "reference/NEPSE_GLOBAL_DUPLICATE_AUDIT_SCAN_SUMMARY.csv"
+      - "tools/audit_global_data_integrity.py"
       - "test_global_duplicate_audit_inventory.py"
+      - "test_global_duplicate_audit_scan.py"
       - ".github/workflows/p443-global-integrity-audit.yml"
   workflow_dispatch:
 
@@ -19,9 +27,9 @@ permissions:
   contents: read
 
 jobs:
-  inventory-integrity:
+  global-integrity-scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -29,3 +37,17 @@ jobs:
           python-version: "3.12"
       - name: Verify pinned global data-file inventory
         run: python -m unittest test_global_duplicate_audit_inventory -v
+      - name: Run read-only duplicate and integrity scan
+        run: python tools/audit_global_data_integrity.py --write
+      - name: Validate scan outputs
+        run: python -m unittest test_global_duplicate_audit_scan -v
+      - name: Preserve machine-readable audit outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: p443-global-integrity-audit
+          path: |
+            reference/NEPSE_GLOBAL_DUPLICATE_AUDIT_REPORT.md
+            reference/NEPSE_GLOBAL_DUPLICATE_AUDIT_FINDINGS.csv
+            reference/NEPSE_GLOBAL_DUPLICATE_AUDIT_SCAN_SUMMARY.csv
+          if-no-files-found: error
+          retention-days: 30

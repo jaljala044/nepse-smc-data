@@ -49,7 +49,7 @@ def scan_csv(path, category, findings, stats):
         if not date_col or not all(cols.values()):
             stats["unsupported"] += 1
             return
-        seen_keys, seen_rows, prior = {}, {}, None
+        seen_keys, seen_rows, seen_exact_rows, prior = {}, {}, {}, None
         for line, row in enumerate(rows, 2):
             date = row.get(date_col, "").strip()
             symbol = path.stem.replace("_OHLCV", "").upper()
@@ -59,15 +59,22 @@ def scan_csv(path, category, findings, stats):
                 emit(findings, {"finding_type":"duplicate_symbol_date_key","category":category,"path":path.relative_to(ROOT),"line":line,"related_line":seen_keys[key],"key": "|".join(key),"detail":"Multiple rows share one symbol/date key; preserve all rows pending provenance review"})
             else:
                 seen_keys[key] = line
+            exact_key = (date, payload)
+            if exact_key in seen_exact_rows:
+                emit(findings, {"finding_type":"exact_duplicate_ohlcv_row","category":category,"path":path.relative_to(ROOT),"line":line,"related_line":seen_exact_rows[exact_key],"key":"|".join(key),"detail":"Same date and complete OHLCV tuple repeated within this symbol file"})
+            else:
+                seen_exact_rows[exact_key] = line
             if payload in seen_rows:
-                emit(findings, {"finding_type":"repeated_ohlcv_tuple","category":category,"path":path.relative_to(ROOT),"line":line,"related_line":seen_rows[payload],"key":"|".join(key),"detail":"Exact OHLCV tuple repeated; this is not automatically a bad row"})
+                emit(findings, {"finding_type":"repeated_ohlcv_tuple","category":category,"path":path.relative_to(ROOT),"line":line,"related_line":seen_rows[payload],"key":"|".join(key),"detail":"OHLCV tuple repeats across rows; not assumed erroneous"})
             else:
                 seen_rows[payload] = line
             if prior and payload == prior[1] and date != prior[0]:
                 emit(findings, {"finding_type":"consecutive_identical_ohlcv_tuple","category":category,"path":path.relative_to(ROOT),"line":line,"related_line":prior[2],"key":f"{symbol}|{prior[0]}|{date}","detail":"Same OHLCV tuple on consecutive file rows; repeated values alone do not establish duplication"})
             prior = (date, payload, line)
     elif category == "floorsheet_or_reconciliation":
-        txn = choose(headers, ["Transaction", "Contract_No", "ContractNo", "Contract Number", "contract_id", "contractId"])
+        txn = choose(headers, ["Contract_No", "ContractNo", "Contract Number", "contract_id", "contractId", "Transaction ID", "TransactionId"])
+        if not txn and choose(headers, ["Transaction"]) and all(choose(headers, [name]) for name in ["Symbol", "Buyer", "Seller", "Quantity", "Rate"]):
+            txn = choose(headers, ["Transaction"])
         date_col = choose(headers, ["Trading_Date", "TradingDate", "Date", "business_date"])
         if txn:
             seen, exact = {}, {}
@@ -122,9 +129,14 @@ def main():
             elif fmt == "json":
                 opener = gzip.open if path.suffix == ".gz" else open
                 with opener(path, "rt", encoding="utf-8") as stream:
-                    json.load(stream)
-                stats["records"] = 1
-                status = "parsed_json_document"
+                    raw = stream.read()
+                if not raw.strip():
+                    status = "empty_capture"
+                    totals["empty_captures"] += 1
+                else:
+                    json.loads(raw)
+                    stats["records"] = 1
+                    status = "parsed_json_document"
             else:
                 stats["unsupported"] += 1
             totals["files"] += 1
@@ -137,6 +149,7 @@ def main():
         summaries.append({"path":item["path"],"category":item["category"],"format":fmt,"status":status,"records":stats["records"],"unsupported_checks":stats["unsupported"],"error":error})
     totals["findings"] = len(findings)
     totals["ohlcv_key_duplicates"] = sum(x["finding_type"]=="duplicate_symbol_date_key" for x in findings)
+    totals["ohlcv_exact_rows"] = sum(x["finding_type"]=="exact_duplicate_ohlcv_row" for x in findings)
     totals["ohlcv_repeated_tuples"] = sum(x["finding_type"]=="repeated_ohlcv_tuple" for x in findings)
     totals["ohlcv_consecutive_tuples"] = sum(x["finding_type"]=="consecutive_identical_ohlcv_tuple" for x in findings)
     totals["floorsheet_contract_duplicates"] = sum(x["finding_type"]=="duplicate_floorsheet_contract_key" for x in findings)
@@ -165,6 +178,7 @@ def main():
             f"- Parseable CSV data rows plus parsed JSON documents: {totals['records']}",
             f"- Parsed CSV files: {totals['parsed_csv']}",
             f"- Parsed JSON documents: {totals['parsed_json_document']}",
+            f"- Empty/whitespace-only captures: {totals['empty_captures']}",
             f"- Unsupported file/check combinations: {totals['unsupported']}",
             f"- Parse errors: {totals['parse_errors']}",
             f"- Findings: {totals['findings']}",
@@ -174,6 +188,7 @@ def main():
         ]
         for key, label in [
             ("ohlcv_key_duplicates","OHLCV duplicate symbol/date keys"),
+            ("ohlcv_exact_rows","OHLCV exact duplicate rows (same symbol/date/tuple)"),
             ("ohlcv_repeated_tuples","OHLCV repeated tuples across rows (not assumed erroneous)"),
             ("ohlcv_consecutive_tuples","consecutive identical OHLCV tuples"),
             ("floorsheet_contract_duplicates","floorsheet duplicate contract keys"),

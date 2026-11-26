@@ -270,7 +270,7 @@ def build(v1_dir, raw_dir, official_matrix, calendar_path, output_dir,
         output_dates = [day for day, _ in output_lines]
         if len(output_dates) != len(set(output_dates)):
             raise ValueError(f"duplicate output dates for {symbol}")
-        output_bytes = (header + "\n" + "\n".join(line for _, line in output_lines) + "\n").encode("utf-8")
+        output_bytes = v1_bytes if not actions else (header + "\n" + "\n".join(line for _, line in output_lines) + "\n").encode("utf-8")
         out_path = output_dir / f"{symbol}_OHLCV.csv"
         out_path.write_bytes(output_bytes)
 

@@ -37,7 +37,7 @@ def build(raw_path,matrix_path):
     status_by_hint={}
     for r in b:
         for h in r["name_hints"].split(";"):
-            hint_counts[h]=hint_counts.get(h,0)+1
+            if h!="NO_NAME_HINT":hint_counts[h]=hint_counts.get(h,0)+1
             status_by_hint.setdefault(h,{})
             status_by_hint[h][r["active_status_raw"]]=status_by_hint[h].get(r["active_status_raw"],0)+1
     report={"task":"P4.30","source_security_list_sha256":"5495d99a73aeb44e573936f59fc6a6d8dbf9ffc45c5a8ba62e672f0b0c6fa2f7",

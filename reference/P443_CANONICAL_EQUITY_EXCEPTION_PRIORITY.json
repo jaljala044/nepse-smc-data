@@ -1,8 +1,8 @@
 {
   "task": "Historical exception resolution: canonical equity hold policy",
   "evidence": {
-    "run": 45897149333,
-    "verified_commit": "2a840c24b1dbb7bffe9586441d87b91be2610a7d",
+    "run": 45898089926,
+    "verified_commit": "bee8e164e8e9866baddbde557890b90fb953e7b0",
     "pinned_source": "56362fb4f65b91fdcca8f50b50e53ad80e703649"
   },
   "queues": [
@@ -121,5 +121,24 @@
     },
     "promoted": 0,
     "note": "Current instrument status is a prioritization aid only; it does not establish historical identity or execution. All pairs remain held from promotion."
+  },
+  "unresolved_pair_official_history": {
+    "pairs": 58972,
+    "no_security_date_capture_both_dates": 58535,
+    "previous_date_hlcv_execution_match_current_unverified": 437,
+    "both_dates_matched": 0,
+    "mismatches": 0,
+    "conflicts": 0,
+    "promoted": 0,
+    "note": "Previous-date match is partial evidence only; no current-date captures. Missing capture is not proof of no trade."
+  },
+  "equity_security_date_recovery_queue": {
+    "pairs": 44288,
+    "unique_security_dates": 68783,
+    "unique_symbols": 253,
+    "p1_open_pair_dates": 10,
+    "p2_session_and_execution_dates": 68773,
+    "promoted": 0,
+    "status": "EVIDENCE_ACQUISITION_QUEUE_ONLY"
   }
 }

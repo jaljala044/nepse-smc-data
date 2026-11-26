@@ -1,0 +1,11 @@
+{
+  "status": "OFFICIAL_EOD_V3_11_OPEN_CORRECTIONS_APPLIED",
+  "symbols": 281,
+  "derived_rows": 246238,
+  "raw_source_files_verified": 281,
+  "v2_source_files_verified": 281,
+  "official_open_corrections_applied": 11,
+  "raw_source_files_modified": 0,
+  "v2_source_files_modified": 0,
+  "unverified_rows_promoted": 0
+}

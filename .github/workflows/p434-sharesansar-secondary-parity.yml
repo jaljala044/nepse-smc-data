@@ -1,0 +1,70 @@
+name: P4.34 ShareSansar secondary parity audit
+on:
+  push:
+    branches:
+      - p434-sharesansar-secondary-parity-audit
+  pull_request:
+    paths:
+      - 'tools/audit_p434_sharesansar_secondary_parity.py'
+      - 'tools/tests/test_audit_p434_sharesansar_secondary_parity.py'
+      - '.github/workflows/p434-sharesansar-secondary-parity.yml'
+      - 'derived/ohlcv_v3/quality_audit/remaining_invariant_flags.csv'
+permissions:
+  contents: write
+jobs:
+  secondary-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: \${{ github.head_ref || github.ref_name }}
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run secondary parity tests
+        run: python -m unittest discover -s tools/tests -p 'test_audit_p434_sharesansar_secondary_parity.py' -v
+      - name: Compare historical flagged rows to pinned ShareSansar archive
+        run: |
+          python tools/audit_p434_sharesansar_secondary_parity.py \
+            --flags derived/ohlcv_v3/quality_audit/remaining_invariant_flags.csv \
+            --v3-dir derived/ohlcv_v3 \
+            --output reference/p434_1368_sharesansar_secondary_parity_2026-11-26.csv \
+            --summary reference/p434_sharesansar_secondary_parity_summary_2026-11-26.json
+      - name: Verify no secondary-only promotion
+        run: |
+          python - <<'PY'
+          import csv, json
+          from pathlib import Path
+          with Path("reference/p434_1368_sharesansar_secondary_parity_2026-11-26.csv").open(newline="", encoding="utf-8") as fh:
+              rows = list(csv.DictReader(fh))
+          summary = json.loads(Path("reference/p434_sharesansar_secondary_parity_summary_2026-11-26.json").read_text())
+          assert len(rows) == 1368
+          assert summary["secondary_rows_matched"] == 1283
+          assert summary["no_secondary_row"] == 85
+          assert summary["exact_matches_not_independent"] == 1283
+          assert summary["secondary_value_differences"] == 0
+          assert summary["secondary_rows_with_valid_ohlc"] == 0
+          assert summary["promoted_or_repaired_rows"] == 0
+          assert all(r["disposition"] == "UNKNOWN_NO_INDEPENDENT_PRIMARY_SOURCE" for r in rows)
+          print(summary)
+          PY
+      - name: Commit secondary comparison metadata only
+        if: github.event_name == 'push' && success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reference/p434_1368_sharesansar_secondary_parity_2026-11-26.csv reference/p434_sharesansar_secondary_parity_summary_2026-11-26.json
+          if ! git diff --cached --quiet; then
+            git commit -m "data(p4.34): record secondary historical OHLCV parity"
+            git push
+          fi
+      - name: Upload comparison metadata
+        uses: actions/upload-artifact@v4
+        with:
+          name: p434-sharesansar-secondary-parity-metadata
+          path: |
+            reference/p434_1368_sharesansar_secondary_parity_2026-11-26.csv
+            reference/p434_sharesansar_secondary_parity_summary_2026-11-26.json
+          retention-days: 90

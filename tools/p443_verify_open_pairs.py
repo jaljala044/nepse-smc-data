@@ -3,7 +3,10 @@ import argparse,csv,json,subprocess
 from collections import Counter,defaultdict
 from decimal import Decimal
 from pathlib import Path
-from p443_classify_repeated_candles import source_rows,PIN
+try:
+    from tools.p443_classify_repeated_candles import source_rows, PIN
+except ModuleNotFoundError:
+    from p443_classify_repeated_candles import source_rows, PIN
 
 def load_evidence():
     evidence=defaultdict(list)

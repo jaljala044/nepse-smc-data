@@ -12,6 +12,8 @@ on:
       - "tools/p443_classify_repeated_candles.py"
       - "tools/p443_export_repeat_review_queues.py"
       - "tools/p443_recorded_closure_row_hold.py"
+      - "tools/p443_reconcile_historical_holidays.py"
+      - "reference/P443_AUTHENTICATED_HOLIDAY_EVIDENCE_2015_2026.csv"
       - "test_p443_recorded_closure_row_hold.py"
       - "p443_content_audit.py"
       - "test_p443_content_audit.py"
@@ -31,6 +33,8 @@ on:
       - "tools/p443_classify_repeated_candles.py"
       - "tools/p443_export_repeat_review_queues.py"
       - "tools/p443_recorded_closure_row_hold.py"
+      - "tools/p443_reconcile_historical_holidays.py"
+      - "reference/P443_AUTHENTICATED_HOLIDAY_EVIDENCE_2015_2026.csv"
       - "test_p443_recorded_closure_row_hold.py"
       - "p443_content_audit.py"
       - "test_p443_content_audit.py"
@@ -83,6 +87,8 @@ jobs:
         run: python -m unittest test_p443_recorded_closure_row_hold -v
       - name: Export unique recorded closure row holds
         run: python tools/p443_recorded_closure_row_hold.py --directory audit-strict
+      - name: Reconcile authenticated historical holiday evidence
+        run: python tools/p443_reconcile_historical_holidays.py --directory audit-strict
       - name: Preserve strict audit outputs
         if: always()
         uses: actions/upload-artifact@v4

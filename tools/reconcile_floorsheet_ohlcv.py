@@ -8,6 +8,7 @@ import argparse
 import csv
 import hashlib
 import json
+import re
 from collections import defaultdict
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
@@ -23,6 +24,33 @@ def dec(value):
         return Decimal(str(value).strip().replace(",", ""))
     except (InvalidOperation, TypeError, ValueError):
         return None
+
+
+def field(row, *names):
+    lowered = {str(k).strip().lower(): v for k, v in row.items() if k is not None}
+    for name in names:
+        value = lowered.get(name.lower())
+        if value is not None and str(value).strip() != "":
+            return str(value).strip()
+    return ""
+
+
+def parse_amount(value):
+    """Parse numeric NPR amounts and common display suffixes without hiding rounding."""
+    raw = str(value or "").strip().replace(",", "")
+    match = re.fullmatch(r"([+-]?\d+(?:\.\d+)?)\s*(K|L|LAC|LAKH|CR|CRORE|M|B)?", raw, re.I)
+    if not match:
+        return None, None
+    number = Decimal(match.group(1))
+    suffix = (match.group(2) or "").upper()
+    scales = {"": Decimal(1), "K": Decimal(1000), "L": Decimal(100000),
+              "LAC": Decimal(100000), "LAKH": Decimal(100000),
+              "CR": Decimal(10000000), "CRORE": Decimal(10000000),
+              "M": Decimal(1000000), "B": Decimal(1000000000)}
+    scale = scales[suffix]
+    precision = len(match.group(1).partition(".")[2])
+    tolerance = Decimal("1.0") if not suffix else Decimal("0.5") * scale * (Decimal(10) ** -precision)
+    return number * scale, tolerance
 
 
 def sha256(path):
@@ -46,7 +74,7 @@ def reconcile_date(date, floor_path, ohlcv_dir, calendar, manifest):
         and hash_matches
     )
 
-    trades = defaultdict(lambda: {"contracts": 0, "quantity": 0, "turnover": Decimal("0"), "bad_rows": 0})
+    trades = defaultdict(lambda: {"contracts": 0, "quantity": 0, "turnover": Decimal("0"), "bad_rows": 0, "bad_amount_rows": 0})
     file_valid = floor_path.is_file()
     seen_contracts = set()
     if file_valid:
@@ -56,25 +84,33 @@ def reconcile_date(date, floor_path, ohlcv_dir, calendar, manifest):
             required_aliases = (
                 bool(headers & {"trading_date", "trade_date", "date"}),
                 "symbol" in headers,
-                bool(headers & {"quantity"}),
-                bool(headers & {"rate"}),
-                bool(headers & {"transaction", "contract_no"}),
+                "quantity" in headers,
+                "rate" in headers,
+                bool(headers & {"transaction", "transaction_id", "contract_no", "contract_number"}),
             )
             if not all(required_aliases):
                 file_valid = False
             rows = list(reader) if file_valid else []
         for row in rows:
-            d = (row.get("Trading_Date") or row.get("trade_date") or row.get("Date") or "").strip()
-            symbol = (row.get("Symbol") or row.get("symbol") or "").strip().upper()
-            qty = dec(row.get("Quantity") or row.get("quantity"))
-            rate = dec(row.get("Rate") or row.get("rate"))
-            contract = (row.get("Transaction") or row.get("Contract_No") or row.get("contract_no") or "").strip()
+            d = field(row, "trading_date", "trade_date", "date")
+            symbol = field(row, "symbol").upper()
+            qty = dec(field(row, "quantity"))
+            rate = dec(field(row, "rate"))
+            contract = field(row, "transaction", "transaction_id", "contract_no", "contract_number")
+            amount_raw = field(row, "amount")
+            amount, amount_tolerance = parse_amount(amount_raw) if amount_raw else (None, None)
+            amount_bad = bool(amount_raw) and (
+                amount is None or (qty is not None and rate is not None
+                                   and abs(qty * rate - amount) > amount_tolerance)
+            )
             if (d != date or not symbol or qty is None or rate is None or qty <= 0
                     or qty != qty.to_integral_value() or rate <= 0 or not contract
-                    or contract in seen_contracts):
+                    or contract in seen_contracts or amount_bad):
                 file_valid = False
                 if symbol:
                     trades[symbol]["bad_rows"] += 1
+                    if amount_bad:
+                        trades[symbol]["bad_amount_rows"] += 1
                 continue
             seen_contracts.add(contract)
             trades[symbol]["contracts"] += 1
@@ -143,6 +179,7 @@ def reconcile_date(date, floor_path, ohlcv_dir, calendar, manifest):
             "observed_market_symbols": observed_symbol_count,
             "floorsheet_file_valid": file_valid,
             "contracts": contracts,
+            "amount_identity_failures": t["bad_amount_rows"],
             "floorsheet_quantity": int(qty),
             "floorsheet_turnover_npr": str(turnover.quantize(Decimal("0.01"))),
             "floorsheet_vwap_npr": str((turnover / qty).quantize(Decimal("0.01"))) if qty else "",

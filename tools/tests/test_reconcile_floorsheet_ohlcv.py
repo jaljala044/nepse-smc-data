@@ -174,6 +174,44 @@ class FloorsheetReconciliationTests(unittest.TestCase):
                                      {"2026-11-20": "verified_open"}, {"2026-11-20": manifest})
         self.assertTrue(all(r["trade_status"] == "UNKNOWN" for r in rows))
 
+    def test_lowercase_third_party_schema_reconciles(self):
+        path = self.floors / "third_party.csv"
+        with path.open("w", newline="") as handle:
+            writer = csv.DictWriter(handle, fieldnames=["transaction", "symbol", "buyer", "seller", "quantity", "rate", "amount", "date"])
+            writer.writeheader()
+            writer.writerow({"transaction": "2026112000001", "symbol": "ABC", "buyer": "1", "seller": "2",
+                             "quantity": "10", "rate": "100", "amount": "1000", "date": "2026-11-20"})
+        rows = ENGINE.reconcile_date("2026-11-20", path, self.ohlcv,
+                                     {"2026-11-20": "verified_open"}, {})
+        abc = next(r for r in rows if r["symbol"] == "ABC")
+        self.assertEqual(abc["trade_status"], "TRADED")
+        self.assertEqual(abc["floorsheet_quantity"], 10)
+
+    def test_abbreviated_amount_rounding_is_supported(self):
+        path = self.floors / "display_amount.csv"
+        with path.open("w", newline="") as handle:
+            writer = csv.DictWriter(handle, fieldnames=["transaction", "symbol", "buyer", "seller", "quantity", "rate", "amount", "date"])
+            writer.writeheader()
+            writer.writerow({"transaction": "C-2", "symbol": "ABC", "buyer": "1", "seller": "2",
+                             "quantity": "10", "rate": "219.9", "amount": "2.20 K", "date": "2026-11-20"})
+        rows = ENGINE.reconcile_date("2026-11-20", path, self.ohlcv,
+                                     {"2026-11-20": "verified_open"}, {})
+        abc = next(r for r in rows if r["symbol"] == "ABC")
+        self.assertEqual(abc["trade_status"], "TRADED")
+
+    def test_amount_identity_failure_invalidates_file(self):
+        path = self.floors / "bad_amount.csv"
+        with path.open("w", newline="") as handle:
+            writer = csv.DictWriter(handle, fieldnames=["transaction", "symbol", "buyer", "seller", "quantity", "rate", "amount", "date"])
+            writer.writeheader()
+            writer.writerow({"transaction": "C-3", "symbol": "ABC", "buyer": "1", "seller": "2",
+                             "quantity": "10", "rate": "100", "amount": "900", "date": "2026-11-20"})
+        rows = ENGINE.reconcile_date("2026-11-20", path, self.ohlcv,
+                                     {"2026-11-20": "verified_open"}, {})
+        abc = next(r for r in rows if r["symbol"] == "ABC")
+        self.assertEqual(abc["trade_status"], "UNKNOWN")
+        self.assertEqual(abc["amount_identity_failures"], 1)
+
 
 if __name__ == "__main__":
     unittest.main()

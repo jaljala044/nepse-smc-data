@@ -19,7 +19,11 @@ FILES=[
  {"name":"2024_08_14.csv","path":"docs/Data/2024_08_14.csv","size_bytes":49567,"git_blob_sha":"d80ed95cd98e6abc3ddc6c2c85485f060d3442fc","kind":"daily","date":"2024-08-14","expected_rows":332,"target_symbol":"SMPDA","target_role":"prior"},
  {"name":"2024_08_18.csv","path":"docs/Data/2024_08_18.csv","size_bytes":49725,"git_blob_sha":"3838b8175e0fda6015a753d1145838150c2fbdf8","kind":"daily","date":"2024-08-18","expected_rows":330,"target_symbol":"SMPDA","target_role":"candidate"},
 ]
-HISTORY_FILES=[\n {"name":"NMLBBL_history.json","path":"docs/api/history/NMLBBL.json","size_bytes":57596,"git_blob_sha":"fa727fd59f34e06eae74039e55988969dea4ae1e","symbol":"NMLBBL","expected_first_date":"2024-05-19"},\n {"name":"SMPDA_history.json","path":"docs/api/history/SMPDA.json","size_bytes":51467,"git_blob_sha":"7f54e6fa59d3f914a0d83472c0ff5ad04691be0b","symbol":"SMPDA","expected_first_date":"2024-08-18"},\n]\nEXPECTED={
+HISTORY_FILES=[
+ {"name":"NMLBBL_history.json","path":"docs/api/history/NMLBBL.json","size_bytes":57596,"git_blob_sha":"fa727fd59f34e06eae74039e55988969dea4ae1e","symbol":"NMLBBL","expected_first_date":"2024-05-19"},
+ {"name":"SMPDA_history.json","path":"docs/api/history/SMPDA.json","size_bytes":51467,"git_blob_sha":"7f54e6fa59d3f914a0d83472c0ff5ad04691be0b","symbol":"SMPDA","expected_first_date":"2024-08-18"},
+]
+EXPECTED={
  ("NMLBBL","2024-05-19"):{"open":"599.60","high":"646.60","low":"599.60","close":"646.60","volume":"864","turnover":"557461.60","transactions":15,"floorsheet_rows":15},
  ("SMPDA","2024-08-18"):{"open":"1078.10","high":"1162.70","low":"1078.10","close":"1162.70","volume":"5314","turnover":"6175193.80","transactions":192,"floorsheet_rows":192},
 }
@@ -76,7 +80,21 @@ def audit_csv(raw,record):
   "expected_candidate_parity":parity,
   "candidate_fields_match":bool(parity) and all(parity.values()),
  }
-def audit_history_json(raw,record):\n obj=json.loads(raw.decode("utf-8"));cols=obj.get("cols",[]);rows=obj.get("rows",[]);di=cols.index("d") if "d" in cols else None\n dates=[str(row[di])[:10] for row in rows if di is not None and len(row)>di]\n return {"symbol":record["symbol"],"row_count":len(rows),"first_date":min(dates) if dates else None,"last_date":max(dates) if dates else None,"expected_first_date":record["expected_first_date"],"first_date_matches_candidate":bool(dates) and min(dates)==record["expected_first_date"],"derived_from_daily_csv_archive":True}\ndef capture(output_dir,fetcher=fetch,retrieved_at=None):
+def audit_history_json(raw,record):
+ obj=json.loads(raw.decode("utf-8"))
+ cols=obj.get("cols",[])
+ rows=obj.get("rows",[])
+ di=cols.index("d") if "d" in cols else None
+ dates=[str(row[di])[:10] for row in rows if di is not None and len(row)>di]
+ return {
+  "symbol":record["symbol"],
+  "row_count":len(rows),
+  "first_date":min(dates) if dates else None,
+  "last_date":max(dates) if dates else None,
+  "expected_first_date":record["expected_first_date"],
+  "first_date_matches_candidate":bool(dates) and min(dates)==record["expected_first_date"],
+  "derived_from_daily_csv_archive":True,
+}
  out=Path(output_dir);out.mkdir(parents=True,exist_ok=True);stamp=retrieved_at or datetime.now(timezone.utc).isoformat()
  files=[];daily_results=[];history_results=[];readme_text=""
  for record in FILES:
@@ -95,6 +113,25 @@ def audit_history_json(raw,record):\n obj=json.loads(raw.decode("utf-8"));cols=o
      rec["source_policy_markers"]={"scrapes_sharesansar_today_price":"ShareSansar today's-share-price page" in readme_text,"skips_market_closed_days":"market was closed" in readme_text,"archive_since_march_2024":"March 2024" in readme_text}
     else:
      audit=audit_csv(raw,record);rec["audit"]=audit;daily_results.append(audit)
+   files.append(rec)
+  except Exception as exc:
+   files.append({"name":record["name"],"path":record["path"],"url":url,"status":"FETCH_FAILED","error":f"{type(exc).__name__}: {exc}"})
+ for record in HISTORY_FILES:
+  url=BASE+record["path"]
+  try:
+   status,raw=fetcher(url)
+   rec={"name":record["name"],"path":record["path"],"url":url,"http_status":status,"response_bytes":len(raw),"expected_bytes":record["size_bytes"],"git_blob_sha":git_blob_sha(raw),"expected_git_blob_sha":record["git_blob_sha"],"sha256":hashlib.sha256(raw).hexdigest()}
+   rec["size_matches"]=len(raw)==record["size_bytes"]
+   rec["git_blob_matches"]=rec["git_blob_sha"]==record["git_blob_sha"]
+   filename=record["name"]
+   (out/filename).write_bytes(raw)
+   rec["filename"]=filename
+   if status==200 and rec["size_matches"] and rec["git_blob_matches"]:
+    rec["status"]="CAPTURED"
+    rec["history_audit"]=audit_history_json(raw,record)
+    history_results.append(rec["history_audit"])
+   else:
+    rec["status"]="SOURCE_INTEGRITY_FAILURE"
    files.append(rec)
   except Exception as exc:
    files.append({"name":record["name"],"path":record["path"],"url":url,"status":"FETCH_FAILED","error":f"{type(exc).__name__}: {exc}"})

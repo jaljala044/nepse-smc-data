@@ -19,7 +19,7 @@ EXPECTED_COUNTS = {
 
 
 def git_blob_sha(data):
-    header = f"blob {len(data)}\\0".encode("ascii")
+    header = f"blob {len(data)}\0".encode("ascii")
     return hashlib.sha1(header + data).hexdigest()
 
 

@@ -1,68 +1,186 @@
-"""Compare complete contract multisets across five hash-pinned published archives."""
-import csv,gzip,hashlib,io,json
+"""Compare complete contract multisets across the bounded P4.43 floorsheet batch."""
+import csv
+import gzip
+import hashlib
+import io
+import json
 from collections import Counter
 from decimal import Decimal
 from pathlib import Path
-from capture_p433_first_trade_floorsheets import fetch,BASE,tree_metadata,pick
+
+from capture_p433_first_trade_floorsheets import fetch, BASE, pick
 from validate_historical_floorsheets import download_one
-from p443_secondary_priority_comparison import DATES
 
-def signature(r,secondary,day):
-    get=lambda k:pick(r,k) if secondary else r[k if k!="contract_no" else "transaction"]
-    cid=get("contract_no").strip()
-    date=get("date")[:10]
-    symbol=get("symbol").strip().upper()
-    buyer,seller=(r[k].strip() for k in ("buyer","seller"))
-    q,rate,amt=(Decimal(get(k).replace(",","")) for k in ("quantity","rate","amount"))
-    if not cid.isdigit() or date!=day or not symbol or not buyer.isdigit() or not seller.isdigit() or not all(x.is_finite() for x in (q,rate,amt)) or q<=0 or q!=q.to_integral_value() or rate<=0 or amt<=0 or abs(q*rate-amt)>Decimal("0.01"):
-        raise ValueError("invalid contract "+cid)
-    return (date,cid,symbol,buyer,seller,q,rate,amt)
+BATCH_SUMMARY = Path("reference/P443_BULK_EQUITY_FLOORSHEET_BATCH01_2026-11-27.json")
+PRIMARY_INVENTORY = Path("reference/p419_observed_date_floorsheet_archive_inventory_2026-11-26.csv")
+HF_TREE = Path("reference/p433_floorsheets/huggingface_repo_tree.json")
 
-def parse(reader,secondary,day):
-    counts=Counter()
-    ids=Counter()
-    for r in reader:
-        key=signature(r,secondary,day)
-        counts[key]+=1
-        ids[key[1]]+=1
-    if not counts or any(n!=1 for n in ids.values()):raise ValueError("empty file or duplicate contract")
+
+def signature(row, secondary, day):
+    get = lambda key: pick(row, key) if secondary else row[
+        key if key != "contract_no" else "transaction"
+    ]
+    contract = get("contract_no").strip()
+    date = get("date")[:10]
+    symbol = get("symbol").strip().upper()
+    buyer, seller = (row[key].strip() for key in ("buyer", "seller"))
+    quantity, rate, amount = (
+        Decimal(get(key).replace(",", "")) for key in ("quantity", "rate", "amount")
+    )
+    if (
+        not contract.isdigit()
+        or date != day
+        or not symbol
+        or not buyer.isdigit()
+        or not seller.isdigit()
+        or not all(value.is_finite() for value in (quantity, rate, amount))
+        or quantity <= 0
+        or quantity != quantity.to_integral_value()
+        or rate <= 0
+        or amount <= 0
+        or abs(quantity * rate - amount) > Decimal("0.01")
+    ):
+        raise ValueError("invalid contract " + contract)
+    return (date, contract, symbol, buyer, seller, quantity, rate, amount)
+
+
+def parse(reader, secondary, day):
+    counts = Counter()
+    contract_ids = Counter()
+    for row in reader:
+        key = signature(row, secondary, day)
+        counts[key] += 1
+        contract_ids[key[1]] += 1
+    if not counts or any(count != 1 for count in contract_ids.values()):
+        raise ValueError("empty file or duplicate contract")
     return counts
 
+
+def load_targets():
+    batch = json.loads(BATCH_SUMMARY.read_text(encoding="utf-8"))
+    dates = batch.get("selected_dates", [])
+    if len(dates) != 22 or len(set(dates)) != 22:
+        raise ValueError("bulk batch must contain 22 unique selected dates")
+    return set(dates), batch
+
+
 def main():
-    out=Path("full-session-parity")
-    out.mkdir(exist_ok=True)
-    raw=out/"raw"
+    output = Path("full-session-parity")
+    output.mkdir(exist_ok=True)
+    raw = output / "raw"
     raw.mkdir(exist_ok=True)
-    with open("reference/p419_observed_date_floorsheet_archive_inventory_2026-11-26.csv",newline="") as f:
-        items=[r for r in csv.DictReader(f) if r["date"] in DATES and r["inventory_status"]=="FILE_PRESENT_IN_PINNED_GIT_TREE"]
-    if len(items)!=5 or {r["date"] for r in items}!=DATES:raise ValueError("inventory scope mismatch")
-    meta=tree_metadata()
-    results=[]
-    for item in items:
-        day=item["date"]
-        result={"date":day,"promotion_allowed":False}
+
+    target_dates, batch = load_targets()
+    with PRIMARY_INVENTORY.open(newline="") as handle:
+        inventory_rows = [
+            row for row in csv.DictReader(handle)
+            if row["date"] in target_dates
+            and row["inventory_status"] == "FILE_PRESENT_IN_PINNED_GIT_TREE"
+        ]
+    if len(inventory_rows) != len(target_dates):
+        raise ValueError("primary archive inventory does not cover the selected batch dates")
+
+    tree = json.loads(HF_TREE.read_text(encoding="utf-8"))
+    metadata = {entry["path"]: entry for entry in tree.get("files", [])}
+    missing_secondary = [
+        f"floorsheet/{day}.csv.gz"
+        for day in sorted(target_dates)
+        if f"floorsheet/{day}.csv.gz" not in metadata
+    ]
+    if missing_secondary:
+        raise ValueError("secondary archive missing selected dates: " + ",".join(missing_secondary))
+
+    results = []
+    for item in sorted(inventory_rows, key=lambda row: row["date"]):
+        day = item["date"]
+        result = {
+            "date": day,
+            "promotion_allowed": False,
+            "primary_git_blob": item["git_blob_sha"],
+            "secondary_source_path": f"floorsheet/{day}.csv.gz",
+        }
         try:
-            d=download_one(item,raw)
-            if d["download_status"]!="PASS":raise ValueError("primary download failed")
-            path=f"floorsheet/{day}.csv.gz"
-            status,_,data=fetch(BASE+path)
-            digest=hashlib.sha256(data).hexdigest()
-            m=meta[path]
-            if status!=200 or digest!=m["lfs"]["oid"] or len(data)!=m["size"]:raise ValueError("secondary hash or size mismatch")
-            with open(d["path"],newline="",encoding="utf-8-sig") as f:
-                a=parse(csv.DictReader(f),False,day)
-            b=parse(csv.DictReader(io.StringIO(gzip.decompress(data).decode("utf-8-sig"))),True,day)
-            left,right=a-b,b-a
-            result.update(primary_rows=a.total(),secondary_rows=b.total(),matched_rows=(a&b).total(),primary_only=left.total(),secondary_only=right.total(),primary_blob=item["git_blob_sha"],primary_sha256=d["actual_sha256"],secondary_sha256=digest,status="EXACT_PARITY" if a==b else "ROW_CONFLICT")
-            with (out/f"differences_{day}.csv").open("w",newline="") as f:
-                w=csv.writer(f)
-                w.writerow(["source","date","contract","symbol","buyer","seller","quantity","rate","amount","count"])
-                for side,c in (("primary",left),("secondary",right)):
-                    for key,n in sorted(c.items()):w.writerow([side,*key,n])
-        except Exception as e:result.update(status="UNAVAILABLE_OR_INVALID",error=str(e))
+            primary = download_one(item, raw)
+            if primary["download_status"] != "PASS":
+                raise ValueError("primary download failed")
+
+            secondary_path = f"floorsheet/{day}.csv.gz"
+            secondary_meta = metadata[secondary_path]
+            status, _, compressed = fetch(BASE + secondary_path)
+            secondary_sha256 = hashlib.sha256(compressed).hexdigest()
+            expected_lfs = (secondary_meta.get("lfs") or {}).get("oid")
+            if (
+                status != 200
+                or not expected_lfs
+                or secondary_sha256 != expected_lfs
+                or len(compressed) != secondary_meta["size"]
+            ):
+                raise ValueError("secondary hash or size mismatch")
+
+            with open(primary["path"], newline="", encoding="utf-8-sig") as handle:
+                primary_contracts = parse(csv.DictReader(handle), False, day)
+            secondary_contracts = parse(
+                csv.DictReader(io.StringIO(gzip.decompress(compressed).decode("utf-8-sig"))),
+                True,
+                day,
+            )
+
+            primary_only = primary_contracts - secondary_contracts
+            secondary_only = secondary_contracts - primary_contracts
+            result.update(
+                primary_rows=primary_contracts.total(),
+                secondary_rows=secondary_contracts.total(),
+                matched_rows=(primary_contracts & secondary_contracts).total(),
+                primary_only=primary_only.total(),
+                secondary_only=secondary_only.total(),
+                primary_sha256=primary["actual_sha256"],
+                secondary_git_blob=secondary_meta.get("oid"),
+                secondary_sha256=secondary_sha256,
+                secondary_bytes=len(compressed),
+                status="EXACT_PARITY" if primary_contracts == secondary_contracts else "ROW_CONFLICT",
+            )
+
+            with (output / f"differences_{day}.csv").open("w", newline="") as handle:
+                writer = csv.writer(handle)
+                writer.writerow([
+                    "source", "date", "contract", "symbol", "buyer", "seller",
+                    "quantity", "rate", "amount", "count",
+                ])
+                for side, differences in (("primary", primary_only), ("secondary", secondary_only)):
+                    for key, count in sorted(differences.items()):
+                        writer.writerow([side, *key, count])
+
+        except Exception as error:
+            result.update(status="UNAVAILABLE_OR_INVALID", error=str(error))
         results.append(result)
-    report={"results":results,"counts":dict(Counter(r["status"] for r in results)),"matched_rows":sum(r.get("matched_rows",0) for r in results),"limitations":"Parity covers shared fields only; no timestamp parity, independent upstream provenance, official completeness or canonical promotion."}
-    (out/"full_session_parity.json").write_text(json.dumps(report,indent=2))
-    print(json.dumps(report))
-    if any(r["status"]!="EXACT_PARITY" for r in results):raise SystemExit(1)
-if __name__=="__main__":main()
+
+    report = {
+        "task": "P4.43 full-session contract parity for bulk batch 01",
+        "selected_dates": sorted(target_dates),
+        "primary_input_commit": "56362fb4f65b91fdcca8f50b50e53ad80e703649",
+        "primary_archive_commit": "70324524df83eaa7c2964441ad4026d6ab00cc7e",
+        "secondary_tree_retrieved_at": tree.get("retrieved_at_utc"),
+        "secondary_tree_file_count": tree.get("file_count"),
+        "results": results,
+        "counts": dict(Counter(row["status"] for row in results)),
+        "matched_rows": sum(row.get("matched_rows", 0) for row in results),
+        "limitations": (
+            "Parity covers date, contract number, symbol, buyer/seller broker IDs, quantity, "
+            "rate and amount only. No timestamp parity, independent upstream provenance, "
+            "official completeness or canonical promotion is established."
+        ),
+        "promotion_allowed": False,
+    }
+    (output / "full_session_parity.json").write_text(json.dumps(report, indent=2))
+    print(json.dumps({
+        "dates": len(target_dates),
+        "counts": report["counts"],
+        "matched_rows": report["matched_rows"],
+        "promotion_allowed": False,
+    }))
+    if len(results) != len(target_dates) or any(row["status"] != "EXACT_PARITY" for row in results):
+        raise SystemExit(1)
+
+
+if __name__ == "__main__":
+    main()

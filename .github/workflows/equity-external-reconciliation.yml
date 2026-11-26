@@ -1,0 +1,31 @@
+name: Equity external reconciliation
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/equity-external-reconciliation.yml'
+      - 'tools/reconcile_equity_external_archive.py'
+permissions:
+  contents: read
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: srijankarki07/nepse-data
+          ref: 688d59c03915dcee73ecad4230d2083a41c61764
+          path: external-source
+          persist-credentials: false
+          sparse-checkout: data/series
+      - name: Compare historical equities
+        run: python3 tools/reconcile_equity_external_archive.py --root . --external external-source --output reconciliation-output
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: equity-external-reconciliation
+          path: reconciliation-output/

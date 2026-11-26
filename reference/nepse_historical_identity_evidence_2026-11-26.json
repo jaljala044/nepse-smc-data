@@ -1,0 +1,319 @@
+{
+  "date": "2026-11-26",
+  "base_review_blob": "8bd7ebe58b52c7e45cf312895d78d9d59452be91",
+  "provider": "ShareSansar",
+  "scope": "historical identity and lifecycle evidence; not stable-ID or effective-date resolution",
+  "records": [
+    {
+      "symbol": "BPW",
+      "instrument_class": "equity",
+      "event": "merger completed",
+      "reported_on": "2024-05-17",
+      "source": "https://www.sharesansar.com/newsdetail/after-successful-merger-shares-of-samudayik-laghubitta-and-nerude-mirmire-laghubitta-listed-in-nepse-2024-05-17",
+      "successor_name": "Samudayik Laghubitta",
+      "stable_id": null,
+      "effective_date_verified": false,
+      "raw_history_preserved": true
+    },
+    {
+      "symbol": "JALPA",
+      "instrument_class": "equity",
+      "event": "merger completed",
+      "reported_on": "2024-07-11",
+      "source": "https://www.sharesansar.com/newsdetail/joint-trading-of-kisan-laghubitta-and-jalpa-samudayik-laghubitta-shares-transactions-suspended-2024-07-11",
+      "successor_name": "Matribhumi Laghubitta",
+      "stable_id": null,
+      "effective_date_verified": false,
+      "raw_history_preserved": true
+    },
+    {
+      "symbol": "KLBSL",
+      "instrument_class": "equity",
+      "event": "merger completed",
+      "reported_on": "2024-07-11",
+      "source": "https://www.sharesansar.com/newsdetail/joint-trading-of-kisan-laghubitta-and-jalpa-samudayik-laghubitta-shares-transactions-suspended-2024-07-11",
+      "successor_name": "Matribhumi Laghubitta",
+      "stable_id": null,
+      "effective_date_verified": false,
+      "raw_history_preserved": true
+    },
+    {
+      "symbol": "MKLB",
+      "instrument_class": "equity",
+      "event": "acquisition completed",
+      "reported_on": "2024-08-02",
+      "source": "https://www.sharesansar.com/newsdetail/after-successful-acquisition-share-of-samata-gharelu-laghubitta-listed-in-nepse-2024-08-02",
+      "successor_name": "Samata Gharelu Laghubitta",
+      "stable_id": null,
+      "effective_date_verified": false,
+      "raw_history_preserved": true
+    },
+    {
+      "symbol": "MMFDB",
+      "instrument_class": "equity",
+      "event": "merger completed",
+      "reported_on": "2024-05-17",
+      "source": "https://www.sharesansar.com/newsdetail/after-successful-merger-shares-of-samudayik-laghubitta-and-nerude-mirmire-laghubitta-listed-in-nepse-2024-05-17",
+      "successor_name": "Nerude Mirmire Laghubitta",
+      "stable_id": null,
+      "effective_date_verified": false,
+      "raw_history_preserved": true
+    },
+    {
+      "symbol": "NLBBL",
+      "instrument_class": "equity",
+      "event": "merger completed",
+      "reported_on": "2024-05-17",
+      "source": "https://www.sharesansar.com/newsdetail/after-successful-merger-shares-of-samudayik-laghubitta-and-nerude-mirmire-laghubitta-listed-in-nepse-2024-05-17",
+      "successor_name": "Nerude Mirmire Laghubitta",
+      "stable_id": null,
+      "effective_date_verified": false,
+      "raw_history_preserved": true
+    },
+    {
+      "symbol": "SABSL",
+      "instrument_class": "equity",
+      "event": "merger completed",
+      "reported_on": "2024-08-15",
+      "source": "https://www.sharesansar.com/index.php/newsdetail/after-successful-merger-between-sabsl-and-sdlbsl-shares-of-sampada-laghubitta-listed-in-nepse-2024-08-15",
+      "successor_name": "Sampada Laghubitta",
+      "stable_id": null,
+      "effective_date_verified": false,
+      "raw_history_preserved": true
+    },
+    {
+      "symbol": "SDLBSL",
+      "instrument_class": "equity",
+      "event": "merger completed",
+      "reported_on": "2024-08-15",
+      "source": "https://www.sharesansar.com/index.php/newsdetail/after-successful-merger-between-sabsl-and-sdlbsl-shares-of-sampada-laghubitta-listed-in-nepse-2024-08-15",
+      "successor_name": "Sampada Laghubitta",
+      "stable_id": null,
+      "effective_date_verified": false,
+      "raw_history_preserved": true
+    },
+    {
+      "symbol": "SAMAJ",
+      "instrument_class": "equity",
+      "event": "merger-related trading suspension",
+      "reported_on": "2025-10-17",
+      "source": "https://www.sharesansar.com/newsdetail/nepse-suspends-trading-of-gblbs-and-samaj-shares-ahead-of-merger-implementation-2025-10-17",
+      "successor_name": "Grameen Bikas Laghubitta",
+      "stable_id": null,
+      "effective_date_verified": false,
+      "raw_history_preserved": true
+    },
+    {
+      "symbol": "SFCL",
+      "instrument_class": "equity",
+      "event": "merger-related trading suspension",
+      "reported_on": "2026-07-09",
+      "source": "https://www.sharesansar.com/newsdetail/nepse-suspends-trading-of-pokhara-finance-and-samriddhi-finance-shares-ahead-of-merger-2026-07-09",
+      "successor_name": "Pokhara Finance",
+      "stable_id": null,
+      "effective_date_verified": false,
+      "raw_history_preserved": true
+    },
+    {
+      "symbol": "CMF1",
+      "instrument_class": "mutual_fund",
+      "event": "reported matured",
+      "reported_on": "2026-05-20",
+      "source": "https://www.sharesansar.com/newsdetail/how-matured-mutual-funds-performed-in-nepal-a-dividend-trend-study-2026-05-20",
+      "successor_name": null,
+      "stable_id": null,
+      "effective_date_verified": false,
+      "raw_history_preserved": true
+    },
+    {
+      "symbol": "LEMF",
+      "instrument_class": "mutual_fund",
+      "event": "reported matured",
+      "reported_on": "2026-05-20",
+      "source": "https://www.sharesansar.com/newsdetail/how-matured-mutual-funds-performed-in-nepal-a-dividend-trend-study-2026-05-20",
+      "successor_name": null,
+      "stable_id": null,
+      "effective_date_verified": false,
+      "raw_history_preserved": true
+    },
+    {
+      "symbol": "NICGF",
+      "instrument_class": "mutual_fund",
+      "event": "reported matured",
+      "reported_on": "2026-05-20",
+      "source": "https://www.sharesansar.com/newsdetail/how-matured-mutual-funds-performed-in-nepal-a-dividend-trend-study-2026-05-20",
+      "successor_name": null,
+      "stable_id": null,
+      "effective_date_verified": false,
+      "raw_history_preserved": true
+    },
+    {
+      "symbol": "SAEF",
+      "instrument_class": "mutual_fund",
+      "event": "reported matured",
+      "reported_on": "2026-05-20",
+      "source": "https://www.sharesansar.com/newsdetail/how-matured-mutual-funds-performed-in-nepal-a-dividend-trend-study-2026-05-20",
+      "successor_name": null,
+      "stable_id": null,
+      "effective_date_verified": false,
+      "raw_history_preserved": true
+    },
+    {
+      "symbol": "CMF2",
+      "instrument_class": "mutual_fund",
+      "event": "liquidation completed",
+      "reported_on": "2026-11-17",
+      "source": "https://www.sharesansar.com/index.php/newsdetail/citizens-mutual-fund-2-completes-seven-year-tenure-delivers-1040-average-annual-return-2026-11-17",
+      "successor_name": null,
+      "stable_id": null,
+      "effective_date_verified": false,
+      "raw_history_preserved": true
+    },
+    {
+      "symbol": "NMB50",
+      "instrument_class": "mutual_fund",
+      "event": "delisting reported",
+      "reported_on": "2026-08-26",
+      "source": "https://www.sharesansar.com/index.php/newsdetail/nmb-50-delisted-from-nepse-fund-to-be-matured-from-bhadra-12-2026-08-26",
+      "successor_name": null,
+      "stable_id": null,
+      "effective_date_verified": false,
+      "raw_history_preserved": true
+    },
+    {
+      "symbol": "HBLD83",
+      "instrument_class": "debenture",
+      "event": "delisting reported",
+      "reported_on": "2026-08-19",
+      "source": "https://www.sharesansar.com/newsdetail/10-himalayan-bank-limited-debenture-2083-delisted-from-nepse-2026-08-19",
+      "successor_name": null,
+      "stable_id": null,
+      "effective_date_verified": false,
+      "raw_history_preserved": true
+    },
+    {
+      "symbol": "NICAD8182",
+      "instrument_class": "debenture",
+      "event": "delisting reported",
+      "reported_on": "2025-01-13",
+      "source": "https://www.sharesansar.com/newsdetail/9-nic-asia-debenture-208182-delisted-from-nepse-2025-01-13",
+      "successor_name": null,
+      "stable_id": null,
+      "effective_date_verified": false,
+      "raw_history_preserved": true
+    },
+    {
+      "symbol": "NICAD8283",
+      "instrument_class": "debenture",
+      "event": "delisting reported",
+      "reported_on": "2025-09-18",
+      "source": "https://www.sharesansar.com/newsdetail/11-nic-asia-debenture-08283-delisted-from-nepse-2025-09-18",
+      "successor_name": null,
+      "stable_id": null,
+      "effective_date_verified": false,
+      "raw_history_preserved": true
+    },
+    {
+      "symbol": "NICD83~2F84",
+      "instrument_class": "debenture",
+      "event": "delisting reported",
+      "reported_on": "2026-08-26",
+      "source": "https://www.sharesansar.com/newsdetail/1025-nic-asia-debenture-208384-delisted-from-nepse-2026-08-26",
+      "successor_name": null,
+      "stable_id": null,
+      "effective_date_verified": false,
+      "raw_history_preserved": true
+    },
+    {
+      "symbol": "SBLD2082",
+      "instrument_class": "debenture",
+      "event": "delisting reported",
+      "reported_on": "2026-01-09",
+      "source": "https://www.sharesansar.com/index.php/newsdetail/1050-sbl-debenture-2082-delisted-from-nepse-2026-01-09",
+      "successor_name": null,
+      "stable_id": null,
+      "effective_date_verified": false,
+      "raw_history_preserved": true
+    },
+    {
+      "symbol": "SRD80",
+      "instrument_class": "debenture",
+      "event": "delisting reported",
+      "reported_on": "2024-05-14",
+      "source": "https://www.sharesansar.com/newsdetail/10-sunrise-debenture-2080-delisted-from-nepse-2024-05-14",
+      "successor_name": null,
+      "stable_id": null,
+      "effective_date_verified": false,
+      "raw_history_preserved": true
+    },
+    {
+      "symbol": "NIBD2082",
+      "instrument_class": "debenture",
+      "event": "redemption notice",
+      "reported_on": "2026-06-09",
+      "source": "https://www.sharesansar.com/eventdetail/debenture-redemption-information-nibd2082-2026-06-09",
+      "successor_name": null,
+      "stable_id": null,
+      "effective_date_verified": false,
+      "raw_history_preserved": true
+    },
+    {
+      "symbol": "GBD80~2F81",
+      "instrument_class": "debenture",
+      "event": "instrument identity confirmed",
+      "reported_on": null,
+      "source": "https://www.sharesansar.com/company/gbd80/81",
+      "successor_name": null,
+      "stable_id": null,
+      "effective_date_verified": false,
+      "raw_history_preserved": true
+    },
+    {
+      "symbol": "SBLD83",
+      "instrument_class": "debenture",
+      "event": "instrument identity confirmed",
+      "reported_on": null,
+      "source": "https://www.sharesansar.com/company/SBLD83",
+      "successor_name": null,
+      "stable_id": null,
+      "effective_date_verified": false,
+      "raw_history_preserved": true
+    },
+    {
+      "symbol": "KLBSLP",
+      "instrument_class": "promoter_share",
+      "event": "ticker identity confirmed",
+      "reported_on": "2021-01-03",
+      "source": "https://www.sharesansar.com/newsdetail/attention-nrn-laghubitta-changes-its-name-whats-the-new-ticker-symbol-2021-01-03",
+      "successor_name": null,
+      "stable_id": null,
+      "effective_date_verified": false,
+      "raw_history_preserved": true
+    },
+    {
+      "symbol": "SFCLP",
+      "instrument_class": "promoter_share",
+      "event": "instrument identity confirmed",
+      "reported_on": null,
+      "source": "https://www.sharesansar.com/company/sfclp",
+      "successor_name": null,
+      "stable_id": null,
+      "effective_date_verified": false,
+      "raw_history_preserved": true
+    }
+  ],
+  "remaining_without_provider_evidence": [
+    "MMFDBP",
+    "NICAD~2085~2F86"
+  ],
+  "summary": {
+    "baseline": 29,
+    "with_provider_evidence": 27,
+    "remaining_without_provider_evidence": 2
+  },
+  "limitations": [
+    "Reported dates are publication dates, not verified trading cessation boundaries.",
+    "No successor prices spliced or historical filenames overwritten.",
+    "Stable historical security IDs and effective trading intervals still outstanding."
+  ]
+}

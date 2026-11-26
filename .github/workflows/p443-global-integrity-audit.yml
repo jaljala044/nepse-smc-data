@@ -1,0 +1,30 @@
+name: P4.43 global duplicate audit inventory
+
+on:
+  push:
+    paths:
+      - "reference/NEPSE_GLOBAL_DUPLICATE_AUDIT_INVENTORY.csv"
+      - "reference/NEPSE_GLOBAL_DUPLICATE_AUDIT_REPORT.md"
+      - "test_global_duplicate_audit_inventory.py"
+      - ".github/workflows/p443-global-integrity-audit.yml"
+  pull_request:
+    paths:
+      - "reference/NEPSE_GLOBAL_DUPLICATE_AUDIT_INVENTORY.csv"
+      - "reference/NEPSE_GLOBAL_DUPLICATE_AUDIT_REPORT.md"
+      - "test_global_duplicate_audit_inventory.py"
+      - ".github/workflows/p443-global-integrity-audit.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inventory-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify pinned global data-file inventory
+        run: python -m unittest test_global_duplicate_audit_inventory -v

@@ -1,7 +1,7 @@
 {
   "task": "P4.36",
   "source": "NEPSE official API domain",
-  "retrieved_at_utc": "2026-11-26T19:30:44.747368+00:00",
+  "retrieved_at_utc": "2026-11-26T19:31:25.822628+00:00",
   "upstream_authentication_client": {
     "repo": "basic-bgnr/NepseUnofficialApi",
     "commit": "180a550c60f1959983b854659e650a4c189a3c0f",
@@ -14,8 +14,8 @@
       "url": "https://www.nepalstock.com/api/authenticate/prove",
       "http_status": 200,
       "content_type": "application/json",
-      "response_bytes": 722,
-      "response_sha256": "1ed29827fb2e3c91a934c44e20f9ad719c368e3bc590fc7c285e08a0e42d76e6",
+      "response_bytes": 723,
+      "response_sha256": "b8a68822d89e8d287bb33868bb773b385f6b2c913e1b10391fd5ebdf6fc39401",
       "etag": null,
       "last_modified": null,
       "token_fields_present": {
@@ -98,7 +98,7 @@
           "http_status": 200,
           "content_type": "application/json",
           "response_bytes": 317,
-          "response_sha256": "974a54263974a1ffaca8b85a5368c4d6b02deec2180ab189dedf8cee254fb64b",
+          "response_sha256": "85a3954f1d02636a39b43dcff4c0d5fa505ae0982548d65b071fecb3b9b307da",
           "etag": null,
           "last_modified": null,
           "status": "captured",
@@ -138,7 +138,7 @@
           "http_status": 200,
           "content_type": "application/json",
           "response_bytes": 38952,
-          "response_sha256": "cf86b6ae9328aacbff2c44d11a32aebb83129365d8597a49d0347cf09f2f5fa0",
+          "response_sha256": "1be08384ad11e57680f30c1cbf7c75d74ac2f2ac749581fc9c656ea983f14b1d",
           "etag": null,
           "last_modified": null,
           "status": "captured",
@@ -4271,7 +4271,150 @@
           "has_hlc": true,
           "has_open": false
         }
-      ]
+      ],
+      "canonical_comparison": {
+        "status": "compared",
+        "canonical_path": "03_stock_charts_ohlcv/NMLBBL_OHLCV.csv",
+        "canonical_rows_in_window": 304,
+        "canonical_unique_dates": 304,
+        "canonical_duplicate_dates": [],
+        "official_rows": 228,
+        "official_unique_dates": 228,
+        "exact_date_overlap_count": 223,
+        "exact_date_hlc_volume_mismatch_count": 0,
+        "exact_date_mismatches": [],
+        "official_only_dates": [
+          "2026-03-01",
+          "2026-07-24",
+          "2026-11-23",
+          "2026-11-24",
+          "2026-11-25"
+        ],
+        "official_only_tuple_matches_on_other_dates": [
+          {
+            "official_date": "2026-03-01",
+            "matched_canonical_date": "2026-03-02",
+            "calendar_day_offset": 1
+          },
+          {
+            "official_date": "2026-07-24",
+            "matched_canonical_date": "2026-07-25",
+            "calendar_day_offset": 1
+          }
+        ],
+        "canonical_only_dates_count": 81,
+        "canonical_only_exact_hlc_volume_tuple_match_count": 81,
+        "canonical_only_tuple_match_calendar_day_offset_histogram": {
+          "1": 37,
+          "2": 31,
+          "3": 9,
+          "4": 3,
+          "5": 1
+        },
+        "canonical_only_tuple_match_examples": [
+          {
+            "canonical_date": "2025-11-28",
+            "matched_official_date": "2025-11-27",
+            "calendar_day_offset": 1
+          },
+          {
+            "canonical_date": "2025-11-29",
+            "matched_official_date": "2025-11-27",
+            "calendar_day_offset": 2
+          },
+          {
+            "canonical_date": "2025-12-04",
+            "matched_official_date": "2025-12-03",
+            "calendar_day_offset": 1
+          },
+          {
+            "canonical_date": "2025-12-05",
+            "matched_official_date": "2025-12-03",
+            "calendar_day_offset": 2
+          },
+          {
+            "canonical_date": "2025-12-06",
+            "matched_official_date": "2025-12-03",
+            "calendar_day_offset": 3
+          },
+          {
+            "canonical_date": "2025-12-12",
+            "matched_official_date": "2025-12-11",
+            "calendar_day_offset": 1
+          },
+          {
+            "canonical_date": "2025-12-13",
+            "matched_official_date": "2025-12-11",
+            "calendar_day_offset": 2
+          },
+          {
+            "canonical_date": "2025-12-19",
+            "matched_official_date": "2025-12-18",
+            "calendar_day_offset": 1
+          },
+          {
+            "canonical_date": "2025-12-20",
+            "matched_official_date": "2025-12-18",
+            "calendar_day_offset": 2
+          },
+          {
+            "canonical_date": "2025-12-25",
+            "matched_official_date": "2025-12-24",
+            "calendar_day_offset": 1
+          },
+          {
+            "canonical_date": "2025-12-26",
+            "matched_official_date": "2025-12-24",
+            "calendar_day_offset": 2
+          },
+          {
+            "canonical_date": "2025-12-27",
+            "matched_official_date": "2025-12-24",
+            "calendar_day_offset": 3
+          },
+          {
+            "canonical_date": "2025-12-30",
+            "matched_official_date": "2025-12-29",
+            "calendar_day_offset": 1
+          },
+          {
+            "canonical_date": "2026-01-02",
+            "matched_official_date": "2026-01-01",
+            "calendar_day_offset": 1
+          },
+          {
+            "canonical_date": "2026-01-03",
+            "matched_official_date": "2026-01-01",
+            "calendar_day_offset": 2
+          },
+          {
+            "canonical_date": "2026-01-09",
+            "matched_official_date": "2026-01-08",
+            "calendar_day_offset": 1
+          },
+          {
+            "canonical_date": "2026-01-10",
+            "matched_official_date": "2026-01-08",
+            "calendar_day_offset": 2
+          },
+          {
+            "canonical_date": "2026-01-11",
+            "matched_official_date": "2026-01-08",
+            "calendar_day_offset": 3
+          },
+          {
+            "canonical_date": "2026-01-15",
+            "matched_official_date": "2026-01-14",
+            "calendar_day_offset": 1
+          },
+          {
+            "canonical_date": "2026-01-16",
+            "matched_official_date": "2026-01-14",
+            "calendar_day_offset": 2
+          }
+        ],
+        "comparison_scope": "High, Low, Close and Volume only; official endpoint does not return Open in observed rows."
+      }
     },
     {
       "symbol": "SMPDA",
@@ -4288,7 +4431,7 @@
           "http_status": 200,
           "content_type": "application/json",
           "response_bytes": 38758,
-          "response_sha256": "8227c3435d8eeca6643c0187e59bf6698e266eed5e1d3bbf990d6598324d105d",
+          "response_sha256": "157b525bba22f31ca67e16a022b3ce11a17b0bdb851510628e4cec15f19b752d",
           "etag": null,
           "last_modified": null,
           "status": "captured",
@@ -8421,7 +8564,150 @@
           "has_hlc": true,
           "has_open": false
         }
-      ]
+      ],
+      "canonical_comparison": {
+        "status": "compared",
+        "canonical_path": "03_stock_charts_ohlcv/SMPDA_OHLCV.csv",
+        "canonical_rows_in_window": 304,
+        "canonical_unique_dates": 304,
+        "canonical_duplicate_dates": [],
+        "official_rows": 228,
+        "official_unique_dates": 228,
+        "exact_date_overlap_count": 223,
+        "exact_date_hlc_volume_mismatch_count": 0,
+        "exact_date_mismatches": [],
+        "official_only_dates": [
+          "2026-03-01",
+          "2026-07-24",
+          "2026-11-23",
+          "2026-11-24",
+          "2026-11-25"
+        ],
+        "official_only_tuple_matches_on_other_dates": [
+          {
+            "official_date": "2026-03-01",
+            "matched_canonical_date": "2026-03-02",
+            "calendar_day_offset": 1
+          },
+          {
+            "official_date": "2026-07-24",
+            "matched_canonical_date": "2026-07-25",
+            "calendar_day_offset": 1
+          }
+        ],
+        "canonical_only_dates_count": 81,
+        "canonical_only_exact_hlc_volume_tuple_match_count": 81,
+        "canonical_only_tuple_match_calendar_day_offset_histogram": {
+          "1": 37,
+          "2": 31,
+          "3": 9,
+          "4": 3,
+          "5": 1
+        },
+        "canonical_only_tuple_match_examples": [
+          {
+            "canonical_date": "2025-11-28",
+            "matched_official_date": "2025-11-27",
+            "calendar_day_offset": 1
+          },
+          {
+            "canonical_date": "2025-11-29",
+            "matched_official_date": "2025-11-27",
+            "calendar_day_offset": 2
+          },
+          {
+            "canonical_date": "2025-12-04",
+            "matched_official_date": "2025-12-03",
+            "calendar_day_offset": 1
+          },
+          {
+            "canonical_date": "2025-12-05",
+            "matched_official_date": "2025-12-03",
+            "calendar_day_offset": 2
+          },
+          {
+            "canonical_date": "2025-12-06",
+            "matched_official_date": "2025-12-03",
+            "calendar_day_offset": 3
+          },
+          {
+            "canonical_date": "2025-12-12",
+            "matched_official_date": "2025-12-11",
+            "calendar_day_offset": 1
+          },
+          {
+            "canonical_date": "2025-12-13",
+            "matched_official_date": "2025-12-11",
+            "calendar_day_offset": 2
+          },
+          {
+            "canonical_date": "2025-12-19",
+            "matched_official_date": "2025-12-18",
+            "calendar_day_offset": 1
+          },
+          {
+            "canonical_date": "2025-12-20",
+            "matched_official_date": "2025-12-18",
+            "calendar_day_offset": 2
+          },
+          {
+            "canonical_date": "2025-12-25",
+            "matched_official_date": "2025-12-24",
+            "calendar_day_offset": 1
+          },
+          {
+            "canonical_date": "2025-12-26",
+            "matched_official_date": "2025-12-24",
+            "calendar_day_offset": 2
+          },
+          {
+            "canonical_date": "2025-12-27",
+            "matched_official_date": "2025-12-24",
+            "calendar_day_offset": 3
+          },
+          {
+            "canonical_date": "2025-12-30",
+            "matched_official_date": "2025-12-29",
+            "calendar_day_offset": 1
+          },
+          {
+            "canonical_date": "2026-01-02",
+            "matched_official_date": "2026-01-01",
+            "calendar_day_offset": 1
+          },
+          {
+            "canonical_date": "2026-01-03",
+            "matched_official_date": "2026-01-01",
+            "calendar_day_offset": 2
+          },
+          {
+            "canonical_date": "2026-01-09",
+            "matched_official_date": "2026-01-08",
+            "calendar_day_offset": 1
+          },
+          {
+            "canonical_date": "2026-01-10",
+            "matched_official_date": "2026-01-08",
+            "calendar_day_offset": 2
+          },
+          {
+            "canonical_date": "2026-01-11",
+            "matched_official_date": "2026-01-08",
+            "calendar_day_offset": 3
+          },
+          {
+            "canonical_date": "2026-01-15",
+            "matched_official_date": "2026-01-14",
+            "calendar_day_offset": 1
+          },
+          {
+            "canonical_date": "2026-01-16",
+            "matched_official_date": "2026-01-14",
+            "calendar_day_offset": 2
+          }
+        ],
+        "comparison_scope": "High, Low, Close and Volume only; official endpoint does not return Open in observed rows."
+      }
     }
   ],
   "target_results": [

@@ -90,10 +90,10 @@ def load_board(capture_dir, business_date):
     return manifest, by_symbol
 
 
-def build(queue_path, mapping_path, capture_dir, output_path):
+def build(queue_path, mapping_path, capture_dir, output_path, expected_count=599):
     candidates = read_csv(queue_path)
-    if len(candidates) != 599:
-        raise ValueError(f"expected 599 P4.22 candidates, found {len(candidates)}")
+    if expected_count is not None and len(candidates) != expected_count:
+        raise ValueError(f"expected {expected_count} P4.22 candidates, found {len(candidates)}")
     mapping = load_mapping(mapping_path)
     symbols = {r["symbol"].strip().upper() for r in candidates}
     missing_mapping = sorted(symbols - set(mapping))

@@ -1,0 +1,49 @@
+name: Nov 20 independent floorsheet row reconciliation
+
+on:
+  pull_request:
+    paths:
+      - 'tools/reconcile_nov20_independent_floorsheet.py'
+      - '.github/workflows/nov20-independent-floorsheet-reconciliation.yml'
+      - '02_floorsheet_daily/floorsheet_2026-11-20.csv'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Parquet reader
+        run: python -m pip install --disable-pip-version-check pyarrow==21.0.0
+      - name: Download independently captured NEPSE partition
+        run: |
+          mkdir -p audit-input audit-output
+          curl --fail --location --retry 3 --retry-delay 2 \
+            'https://huggingface.co/datasets/AnkitSanjyal/nepse-market-data/resolve/main/floorsheet/business_date=2026-11-20/part-0.parquet' \
+            --output audit-input/nepse-pipeline-2026-11-20.parquet
+      - name: Download SocrateAI full-session candidate
+        run: |
+          curl --fail --location --retry 3 --retry-delay 2 \
+            'https://raw.githubusercontent.com/socrateai-official/nepse-open-data/main/floorsheet/floorsheet_2026-11-20.csv' \
+            --output audit-input/socrateai-2026-11-20.csv
+      - name: Compare contract-level records and aggregates
+        run: |
+          python tools/reconcile_nov20_independent_floorsheet.py \
+            --parquet audit-input/nepse-pipeline-2026-11-20.parquet \
+            --candidate audit-input/socrateai-2026-11-20.csv \
+            --local 02_floorsheet_daily/floorsheet_2026-11-20.csv \
+            --out audit-output/nov20_cross_source_reconciliation.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nov20-floorsheet-cross-source-audit
+          path: audit-output/
+          if-no-files-found: warn
+          retention-days: 30

@@ -11,6 +11,10 @@ on:
       - 'tools/tests/test_reconcile_floorsheet_ohlcv.py'
       - 'tools/audit_observed_session_gaps.py'
       - 'tools/tests/test_audit_observed_session_gaps.py'
+      - 'tools/validate_historical_floorsheets.py'
+      - 'tools/tests/test_validate_historical_floorsheets.py'
+      - 'reference/p419_observed_date_floorsheet_archive_inventory_2026-11-26.csv'
+      - 'reference/floorsheet_source_verification_2026-11-20.json'
       - 'reference/p417_281_equity_observed_session_archive_gap_audit_2026-11-26.md'
       - 'tools/reconcile_nov20_independent_floorsheet.py'
       - '02_floorsheet_daily/floorsheet_2026-11-20.csv'
@@ -114,6 +118,40 @@ jobs:
           path: audit-output/
           if-no-files-found: error
           retention-days: 30
+
+
+  p420-validate-226-historical-floorsheets:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/checkout@v4
+        with:
+          repository: jaljala044/nepse-history-starter
+          ref: aa3aa2493981c4ac00c3d0f61ae2d8009dcdda68
+          path: starter
+          persist-credentials: false
+      - name: Run historical floorsheet validator unit tests
+        run: python -m unittest discover -s tools/tests -p 'test_validate_historical_floorsheets.py' -v
+      - name: Download, hash and validate all 226 pinned floorsheets
+        run: |
+          mkdir -p audit-output/p420
+          python3 tools/validate_historical_floorsheets.py \
+            --manifest reference/p419_observed_date_floorsheet_archive_inventory_2026-11-26.csv \
+            --universe reference/p410_stage1_coverage_matrix_2026-11-26.csv \
+            --ohlcv-dir starter/03_stock_charts_ohlcv \
+            --output-dir audit-output/p420 \
+            --download-workers 8
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: p420-226-historical-floorsheet-validation
+          path: audit-output/p420/
+          if-no-files-found: warn
+          retention-days: 90
 
   recent-session-parity-audit:
     runs-on: ubuntu-latest

@@ -106,6 +106,8 @@ def capture(output_dir,requester=request,parser=token_parser,retrieved_at=None,i
   if include_controls:
    current_date=str(market.get("asOf",""))[:10]
    controls=[("marketwide_current",f"{BASE}/api/nots/nepse-data/floorsheet?&size=500&sort=contractId,desc",None)]
+   for test_date in ("2024-05-19","2024-05-16","2024-08-18","2024-08-14"):
+    controls.append((f"marketwide_{test_date}",f"{BASE}/api/nots/nepse-data/floorsheet?&businessDate={test_date}&size=500&sort=contractId,desc",None))
    for symbol in ("NMLBBL","SMPDA"):
     sid=idmap.get(symbol)
     if sid is not None and len(current_date)==10:
@@ -120,7 +122,7 @@ def capture(output_dir,requester=request,parser=token_parser,retrieved_at=None,i
     fs=obj.get("floorsheets") if isinstance(obj,dict) else None
     if status==200 and isinstance(fs,dict):
      content=fs.get("content",[])
-     rec.update(status="page0_captured",content_count=len(content) if isinstance(content,list) else None,total_elements=fs.get("totalElements"),total_pages=fs.get("totalPages"))
+     rec.update(status="page0_captured",content_count=len(content) if isinstance(content,list) else None,total_elements=fs.get("totalElements"),total_pages=fs.get("totalPages"),content_business_dates=sorted(set(str(x.get("businessDate",""))[:10] for x in content if isinstance(x,dict))),target_symbols_present=sorted(set(str(x.get("stockSymbol","")).upper() for x in content if isinstance(x,dict) and str(x.get("stockSymbol","")).upper() in ("NMLBBL","SMPDA"))))
      filename=f"control_{name}_page0.json";(out/filename).write_bytes(raw);rec["filename"]=filename
     else:
      rec["status"]="invalid_or_http_error"

@@ -1,0 +1,56 @@
+name: P4.31 official EOD fallback for repeat pairs
+on:
+  push:
+    branches:
+      - derived/ohlcv-v2-official-eod
+  pull_request:
+    paths:
+      - 'tools/compare_repeat_pairs_official_eod.py'
+      - '.github/workflows/p431-repeat-pair-eod-fallback.yml'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+      - uses: actions/checkout@v4
+        with:
+          repository: jaljala044/nepse-smc-data
+          ref: main
+          path: evidence/main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install official NEPSE API client
+        run: python -m pip install "httpx>=0.27" "nepse @ git+https://github.com/basic-bgnr/NepseUnofficialApi.git"
+      - name: Capture complete official EOD boards for all repeat-pair dates
+        run: |
+          set -euo pipefail
+          for d in 2026-11-13 2026-11-17 2026-06-29 2026-07-01 2026-08-25 2026-08-26 2026-08-24 2026-08-27 2026-09-28 2026-09-29; do
+            python evidence/main/tools/capture_nepse_official_eod_board.py \
+              --date "$d" \
+              --output-dir "evidence/nepse-repeat-eod/$d"
+          done
+      - name: Compare official EOD rows to the five repeated v2 pairs
+        run: |
+          python tools/compare_repeat_pairs_official_eod.py \
+            --repeat-flags derived/ohlcv_v2/quality_audit/adjacent_repeat_flags.csv \
+            --mapping evidence/main/reference/nepse_security_id_snapshot_2026-11-25.csv \
+            --v2-dir derived/ohlcv_v2 \
+            --capture-dir evidence/nepse-repeat-eod \
+            --validator-dir evidence/main/tools \
+            --output-dir evidence/repeat-pair-eod-comparison
+      - name: Upload official EOD payloads and repeat-pair comparison
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p431-repeat-pair-official-eod-fallback
+          path: |
+            evidence/nepse-repeat-eod/
+            evidence/repeat-pair-eod-comparison/
+          if-no-files-found: warn
+          retention-days: 90

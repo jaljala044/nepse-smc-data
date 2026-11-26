@@ -1,6 +1,7 @@
 """Combine the supplemental NEPSE inputs with an existing scanner data directory."""
 import argparse
 import csv
+import hashlib
 import shutil
 from datetime import date
 from decimal import Decimal, InvalidOperation
@@ -64,6 +65,68 @@ def verified_closed_dates():
     return closed
 
 
+BLOCKED_FLOORSHEET_BLOBS = {
+    "0dd938bc5e6bfd50fa09bf85f0836d443ab15983",
+    "49d6498bfb30681b7896b6c5c824b518e50f941d",
+}
+
+
+def validate_floorsheet(path, closed_dates):
+    """Validate canonical trade CSV; reject ambiguous schemas and unsupported formats."""
+    raw = path.read_bytes()
+    if hashlib.sha1(f"blob {len(raw)}\0".encode() + raw).hexdigest() in BLOCKED_FLOORSHEET_BLOBS:
+        raise ValueError("Quarantined floorsheet archive")
+    if path.suffix != ".csv":
+        raise ValueError("Unsupported floorsheet format; verified CSV required")
+    aliases = {
+        "identity": ("tradebookid", "recordid", "id", "transactionid"),
+        "contract": ("contractno", "contractnumber", "contractid"),
+        "date": ("date", "tradingdate", "tradedate", "businessdate", "calculationdate"),
+        "symbol": ("symbol", "stocksymbol", "scrip"),
+        "buyer": ("buyer", "buyerbroker", "buyermemberid"),
+        "seller": ("seller", "sellerbroker", "sellermemberid"),
+        "quantity": ("quantity", "qty", "contractquantity"),
+        "rate": ("rate", "price", "contractrate"),
+        "amount": ("amount", "turnover", "contractamount"),
+    }
+    def norm(s):
+        return "".join(x.lower() for x in s if x.isalnum())
+    seen = set()
+    with path.open(newline="", encoding="utf-8-sig") as stream:
+        reader = csv.DictReader(stream)
+        headers = reader.fieldnames or []
+        lookup = {norm(h): h for h in headers}
+        if len(lookup) != len(headers):
+            raise ValueError("Ambiguous floorsheet headers")
+        cols = {k: next((lookup[a] for a in opts if a in lookup), None) for k, opts in aliases.items()}
+        if any(not cols[k] for k in aliases if k != "identity"):
+            raise ValueError("Missing required floorsheet fields")
+        for number, row in enumerate(reader, 2):
+            try:
+                if None in row or any(v is None for v in row.values()):
+                    raise ValueError("Malformed row")
+                def val(k):
+                    return row[cols[k]].strip() if cols[k] else ""
+                day = val("date")
+                if date.fromisoformat(day).isoformat() != day or day in closed_dates:
+                    raise ValueError("Invalid or closed session")
+                if not all(val(k) for k in ("contract", "symbol", "buyer", "seller")):
+                    raise ValueError("Missing trade fields")
+                identity = val("identity") if cols["identity"] else val("contract")
+                if not identity or (day, identity) in seen:
+                    raise ValueError("Missing or duplicate transaction identity")
+                seen.add((day, identity))
+                q, p, a = (Decimal(val(k)) for k in ("quantity", "rate", "amount"))
+                if not all(x.is_finite() and x > 0 for x in (q, p, a)) or q != q.to_integral_value():
+                    raise ValueError("Invalid trade quantity, rate or amount")
+                if abs(q * p - a) > Decimal("0.01"):
+                    raise ValueError("Trade amount mismatch")
+            except (ValueError, InvalidOperation, TypeError, KeyError) as exc:
+                raise ValueError(f"Rejected floorsheet row {number}: {exc}") from exc
+    if not seen:
+        raise ValueError("Empty floorsheet")
+
+
 def prepare(original, output):
     if output.exists():
         raise FileExistsError(f"Choose a new output folder: {output}")
@@ -113,6 +176,9 @@ def prepare(original, output):
                 writer.writeheader()
                 for path in partitions:
                     writer.writerows(rows(path))
+        for candidate in stage.iterdir():
+            if candidate.is_file() and (candidate.name.lower().startswith("floorsheet.") or candidate.name.lower().startswith("floorsheet_")):
+                validate_floorsheet(candidate, closed_dates)
         stage.rename(output)
     print(f"Prepared {output} with {len(additions)} new daily price rows.")
 

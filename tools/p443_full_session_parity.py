@@ -67,6 +67,11 @@ def parse(reader, secondary, day, stats=None):
     return counts
 
 
+def has_collection_failures(results):
+    """A row conflict is an audit finding; only unavailable/invalid capture fails collection."""
+    return any(row.get("status") == "UNAVAILABLE_OR_INVALID" for row in results)
+
+
 def load_targets():
     batch = json.loads(BATCH_SUMMARY.read_text(encoding="utf-8"))
     dates = batch.get("selected_dates", [])
@@ -170,6 +175,7 @@ def main():
             result.update(status="UNAVAILABLE_OR_INVALID", error=str(error))
         results.append(result)
 
+    review_rows = [row for row in results if row["status"] == "ROW_CONFLICT"]
     report = {
         "task": "P4.43 full-session contract parity for bulk batch 01",
         "selected_dates": sorted(target_dates),
@@ -179,11 +185,23 @@ def main():
         "secondary_tree_file_count": tree.get("file_count"),
         "results": results,
         "counts": dict(Counter(row["status"] for row in results)),
-        "matched_rows": sum(row.get("matched_rows", 0) for row in results),
+        "exact_parity_rows": sum(
+            row.get("matched_rows", 0) for row in results if row["status"] == "EXACT_PARITY"
+        ),
+        "matched_rows_including_conflict_sessions": sum(
+            row.get("matched_rows", 0) for row in results
+        ),
+        "primary_only_rows": sum(row.get("primary_only", 0) for row in results),
+        "secondary_only_rows": sum(row.get("secondary_only", 0) for row in results),
+        "review_required_dates": [row["date"] for row in review_rows],
+        "review_required_secondary_only_rows": sum(
+            row.get("secondary_only", 0) for row in review_rows
+        ),
         "limitations": (
             "Parity covers date, contract number, symbol, buyer/seller broker IDs, quantity, "
-            "rate and amount only. No timestamp parity, independent upstream provenance, "
-            "official completeness or canonical promotion is established."
+            "rate and amount only. A ROW_CONFLICT is a review finding, not a collection failure. "
+            "No timestamp parity, independent upstream provenance, official completeness or "
+            "canonical promotion is established."
         ),
         "promotion_allowed": False,
     }
@@ -191,10 +209,12 @@ def main():
     print(json.dumps({
         "dates": len(target_dates),
         "counts": report["counts"],
-        "matched_rows": report["matched_rows"],
+        "exact_parity_rows": report["exact_parity_rows"],
+        "review_required_dates": report["review_required_dates"],
+        "secondary_only_rows": report["secondary_only_rows"],
         "promotion_allowed": False,
     }))
-    if len(results) != len(target_dates) or any(row["status"] != "EXACT_PARITY" for row in results):
+    if len(results) != len(target_dates) or has_collection_failures(results):
         raise SystemExit(1)
 
 

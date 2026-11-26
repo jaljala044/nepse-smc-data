@@ -70,6 +70,8 @@ def scan(raw, entry):
     findings, schemas = [], Counter()
     count = 0
     conflict_sample_count = 0
+    contract_no_counts = Counter()
+    contract_no_symbols = {}
     def flag(kind, loc, key, other="", evidence=""):
         findings.append(dict(path=path, blob_sha=entry["git_blob_sha"], row=loc,
                              key=key, classification=kind, previous_row=other,
@@ -88,7 +90,20 @@ def scan(raw, entry):
         if not d and entry["category"] == "floorsheet_or_reconciliation":
             d = floorsheet_date_from_filename(path)
         symbol = first(row,"symbol","stocksymbol","scrip","securitysymbol")
-        contract = first(row,"contractno","contractnumber","contractid","transactionid")
+        contract_no = first(row,"contractno","contractnumber")
+        if contract_no:
+            contract_no_counts[contract_no] += 1
+            if symbol:
+                contract_no_symbols.setdefault(contract_no,set()).add(symbol)
+        record_id = first(row,"id","rowid","contractid","transactionid")
+        transaction = first(row,"transaction")
+        if not record_id and transaction.isdigit():
+            record_id = transaction
+        if not record_id and contract_no and symbol:
+            buyer = first(row,"buyer","buyerid","buybroker")
+            seller = first(row,"seller","sellerid","sellbroker")
+            if buyer and seller:
+                record_id = "|".join(("composite",contract_no,symbol,buyer,seller))
         fields=("open","high","low","close","volume")
         key = None
         if entry["category"] == "ohlcv_symbol_archive" and all(k in row for k in fields) and d:
@@ -110,12 +125,14 @@ def scan(raw, entry):
                     previous[(scope,symbol)]=(dt,values,loc)
             except (ValueError,InvalidOperation):
                 flag("invalid_ohlcv_or_date",loc,str(key))
-        elif contract and entry["category"] == "floorsheet_or_reconciliation":
+        elif entry["category"] == "floorsheet_or_reconciliation":
             schemas["contract"] += 1
-            if d:
-                key=("contract",scope,d,contract)
+            if not d:
+                flag("contract_session_missing",loc,record_id or contract_no)
+            elif record_id:
+                key=("contract",scope,d,record_id)
             else:
-                flag("contract_session_missing",loc,contract)
+                flag("contract_record_identity_missing",loc,contract_no)
         elif d and entry["category"]=="session_calendar":
             schemas["calendar_candidate"] += 1
             key=("calendar",scope,d)
@@ -133,6 +150,11 @@ def scan(raw, entry):
                      loc,str(key),prior,evidence)
             else:
                 business[key]=(loc,signature)
+    if contract_no_counts:
+        schemas["contract_no_unique_values"] = len(contract_no_counts)
+        schemas["contract_no_reused_values"] = sum(1 for n in contract_no_counts.values() if n > 1)
+        schemas["contract_no_reused_rows"] = sum(n - 1 for n in contract_no_counts.values() if n > 1)
+        schemas["contract_no_reused_across_symbols"] = sum(1 for k,v in contract_no_symbols.items() if len(v) > 1)
     return count, dict(schemas), findings
 
 def main():

@@ -26,7 +26,7 @@ class StrictAuditTests(unittest.TestCase):
         self.assertEqual(schemas["contract_no_reused_across_symbols"],1)
     def test_ohlcv_flat_candle_at_valid_bounds(self):
         entry=dict(path="ABC_OHLCV.csv",git_blob_sha="fixture",format="csv",category="ohlcv_symbol_archive")
-        raw=b"Date,Open,High,Low,Close,Volume\\n2025-01-01,790,790,790,790,10\\n"
+        raw=b"Date,Open,High,Low,Close,Volume\n2025-01-01,790,790,790,790,10\n"
         _,_,findings=scan(raw,entry)
         self.assertEqual(findings,[])
     def test_non_transaction_floorsheet_metadata_is_not_missing_trade_session(self):
@@ -37,7 +37,7 @@ class StrictAuditTests(unittest.TestCase):
         self.assertEqual(schemas["non_transaction_record"],1)
     def test_trade_record_without_session_is_flagged(self):
         entry=dict(path="trades.csv",git_blob_sha="fixture",format="csv",category="floorsheet_or_reconciliation")
-        raw=b"ContractNo,Symbol,Buyer,Seller,Quantity,Rate\\n123,ABC,1,2,5,10\\n"
+        raw=b"ContractNo,Symbol,Buyer,Seller,Quantity,Rate\n123,ABC,1,2,5,10\n"
         _,_,findings=scan(raw,entry)
         self.assertEqual([f["classification"] for f in findings],["contract_session_missing"])
     def test_empty_json_capture(self):

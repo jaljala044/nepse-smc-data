@@ -1,0 +1,65 @@
+name: P4.27 audit 490 one-day date shifts
+on:
+  push:
+    branches:
+      - p427-audit-490-date-shifts
+  pull_request:
+    paths:
+      - 'tools/audit_p427_date_shifts.py'
+      - 'tools/tests/test_audit_p427_date_shifts.py'
+      - '.github/workflows/p427-audit-date-shifts.yml'
+permissions:
+  contents: write
+  actions: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Download original P4.22 candidate artifact
+        uses: actions/download-artifact@v4
+        with:
+          artifact-ids: "15132011878"
+          repository: jaljala044/nepse-smc-data
+          run-id: "45846116991"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: evidence/p422-recovery
+      - name: Download pinned ShareSansar daily snapshots
+        run: |
+          mkdir -p evidence/p427-snapshots
+          curl -fLsS "https://raw.githubusercontent.com/OmitNomis/ShareSansarScraper/6f92cd975657f2b760c3dc9edf0317804962c1bf/docs/Data/2026_03_01.csv" -o evidence/p427-snapshots/2026_03_01.csv
+          curl -fLsS "https://raw.githubusercontent.com/OmitNomis/ShareSansarScraper/e93c9fdd4841003770d76357a1c570562fd82e55/docs/Data/2026_03_02.csv" -o evidence/p427-snapshots/2026_03_02.csv
+          curl -fLsS "https://raw.githubusercontent.com/OmitNomis/ShareSansarScraper/6d13e28cc7157834114cca241c8d1d1055fe87b7/docs/Data/2026_07_25.csv" -o evidence/p427-snapshots/2026_07_25.csv
+      - name: Run P4.27 regression tests
+        run: python -m unittest discover -s tools/tests -p 'test_audit_p427_date_shifts.py' -v
+      - name: Audit all 490 candidate rows
+        run: |
+          python tools/audit_p427_date_shifts.py \
+            --queue evidence/p422-recovery/missing-equity-recovery-queue/all_candidates.csv \
+            --raw-dir 03_stock_charts_ohlcv \
+            --calendar reference/nepse_canonical_session_calendar_2025-2026.csv \
+            --snapshot-dir evidence/p427-snapshots \
+            --output reference/p427_490_date_shift_audit_2026-11-26.csv
+      - name: Commit deterministic matrix on task branch
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reference/p427_490_date_shift_audit_2026-11-26.csv
+          if ! git diff --cached --quiet; then
+            git commit -m "data(p4.27): publish 490 date-shift audit matrix"
+            git push
+          fi
+      - name: Upload audit matrix
+        uses: actions/upload-artifact@v4
+        with:
+          name: p427-490-date-shift-audit
+          path: reference/p427_490_date_shift_audit_2026-11-26.csv
+          retention-days: 90

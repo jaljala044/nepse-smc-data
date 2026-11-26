@@ -21,7 +21,7 @@ The deterministic matrix compared all 86 counterpart rows against the SMC raw sy
 | Secondary-only rows promoted | 0 |
 | Canonical disposition | 86 × `UNKNOWN_SOURCE_CONFLICT` |
 
-The disagreement is isolated to the Close field. All 86 pairs have identical Open, High, Low and Volume. The external close minus SMC close ranges from -24.11 to +274.06; 73 external closes are higher and 13 are lower (median delta +3.505). This is a measured pattern, not proof of which close convention is correct.
+The disagreement is isolated to the Close field. All 86 pairs have identical Open, High, Low and Volume. The external close minus SMC close ranges from -24.11 to +274.06; 73 external closes are higher and 13 are lower (median delta +3.505). This is a measured pattern, not proof of which close convention is correct. It may reflect a different ShareSansar page, parser, close field, or historical revision; those are hypotheses for P4.25, not findings.
 
 ## Source provenance
 
@@ -32,7 +32,9 @@ The disagreement is isolated to the Close field. All 86 pairs have identical Ope
 - External archive README explicitly identifies ShareSansar as its source, not NEPSE directly. ShareSansar republishes exchange EOD figures; this is secondary-source evidence.
 - Every SMC raw counterpart file has its own SHA-256 in the matrix.
 
-NEPSE's official EOD API is documented and measured to clamp historical queries to a rolling 365-day window. On 2026-11-26, 2025-07-28 is outside that window. No official NEPSE payload for this date was recovered. Do not claim the secondary archive's values are exchange-authenticated.
+The scanner input documentation also identifies the baseline price history as ShareSansar-sourced. The SMC raw files' exact capture endpoint/field lineage for these 86 rows is not pinned in this audit, so the two archives may share an upstream source or page family; they must not be counted as independent confirmations until that lineage is proven.
+
+NEPSE's official EOD API is documented and measured to clamp historical queries to a rolling 365-day window. On 2026-11-26, 2025-07-28 is outside that window. No official NEPSE payload for this date was recovered. Do not claim either archive's close is exchange-authenticated.
 
 ## Disposition
 
@@ -46,6 +48,6 @@ All 86 rows remain `UNKNOWN_SOURCE_CONFLICT` and excluded from canonical scoring
 - Generated matrix: [p424_2025-07-28_conflict_matrix_2026-11-26.csv](p424_2025-07-28_conflict_matrix_2026-11-26.csv)
 - Matrix artifact: [GitHub Actions artifact 15139400460](https://github.com/jaljala044/nepse-smc-data/actions/runs/45862707787/artifacts/15139400460)
 
-## Next investigation
+## P4.25 — next investigation
 
-Inspect the 86 close differences by source-page evidence, source scraper commit history and any permitted contemporaneous exchange records. Group outliers by absolute/percentage difference and symbol category. No promotion occurs until an individual row has primary evidence, instrument identity and corporate-action basis validated.
+Trace the close-field lineage on both sides: identify the exact SMC raw archive extraction/page/field and compare it with the pinned ShareSansar scraper's selected table column and parser. Review source commit history, archived page evidence and any permitted contemporaneous exchange records. Group outliers by absolute/percentage difference and security type. Do not assume the two ShareSansar-linked archives are independent. No promotion occurs until an individual row has primary evidence, instrument identity and corporate-action basis validated.

@@ -3,7 +3,7 @@
 **Status: reproducible audit baseline complete; adjudication and canonical-ingestion acceptance remain open.**
 
 **Pinned input:** `main` at `56362fb4f65b91fdcca8f50b50e53ad80e703649`.  
-**Latest validated workflow:** [Run 151](https://github.com/jaljala044/nepse-smc-data/actions/runs/45896380619), head `d0d12c5a87a436a86afb5d24e657a40c7c7f5f5b`; all workflow stages passed.  
+**Latest validated workflow:** [Run 156](https://github.com/jaljala044/nepse-smc-data/actions/runs/45896661332), head `281ce71756cd86f1609be7f817bce9999537d1c5`; all workflow stages passed, including the 73-pair official security-history check.  
 **Method:** deterministic, read-only scan of pinned file blobs. Findings are review flags, not automatic corrections.
 
 ## Coverage
@@ -65,7 +65,7 @@ The latest strict workflow cross-checked all 94,543 repeated adjacent tuples aga
 | CLOSED_SESSION_CANDIDATE | 6,232 | Current row date matches pinned closed-session evidence; candidate only |
 | OPEN_SESSION_TUPLE_UNVERIFIED | 103 | Current row date has open-session evidence, but the repeated tuple itself is not independently validated |
 
-The pair-level classifier now verifies both pinned source rows and exact OHLCV tuple equality, checks calendar evidence for both the current and previous dates, and exports disjoint review queues:
+The pair-level classifier verifies both pinned source rows and exact OHLCV tuple equality, checks calendar evidence for both the current and previous dates, and exports disjoint review queues:
 
 | Pair disposition | Count | Review queue |
 |---|---:|---|
@@ -77,6 +77,10 @@ The pair-level classifier now verifies both pinned source rows and exact OHLCV t
 The two review queues contain **35,571** pair candidates for quarantine review and **58,972** pairs requiring independent security/date evidence. Every row has `promotion_allowed=false`; the workflow reports zero corrected rows and zero promoted rows. A historical listed-holiday entry is a candidate, not proof of universal closure. An open market session does not establish a security-specific execution. Pair classification is not an instruction to delete either source row.
 
 Full row-level pair dispositions and the two disjoint review queues are retained in the workflow artifact: `repeat_calendar_triage.csv`, `repeat_quarantine_candidates.csv`, and `repeat_evidence_review.csv`.
+
+### Official security-history check of open-session pairs
+
+Run 156 additionally checked all **73** `BOTH_OPEN_TUPLE_UNVERIFIED` pairs against the pinned official per-security EOD history captures. Result: **73 / 73 had no matching security/date evidence** for either side of the pair (`NO_SECURITY_DATE_EVIDENCE` for current and previous rows). This is an evidence-availability result, not evidence that no trade occurred. All 73 remain unverified, `promotion_allowed=false`, and no rows were corrected. The source EOD fields, where available, would only establish HLCV and execution counts—not opening price—so even a match would not have independently validated the complete OHLCV tuple.
 
 Two additional read-only row-hold exports narrow the pair queues to unique source rows:
 - Recorded verified-closure evidence: 9,027 pairs resolve to **6,232 unique source rows**, across 20 dates and 379 symbols. The hold is `EXCLUDE_RECORDED_CLOSURE_PENDING_INDEPENDENT_ADJUDICATION`; no replacement is allowed.
@@ -104,7 +108,7 @@ Preserve all rows. The source capture report reports unique archive-local record
 
 ## Reproducibility and machine-readable outputs
 
-- Latest complete workflow and artifacts: [Run 151](https://github.com/jaljala044/nepse-smc-data/actions/runs/45896380619); all scan, quarantine, cross-repository contract, strict-byte, reconciliation, queue-export, regression and artifact-preservation stages passed.
+- Latest complete workflow and artifacts: [Run 156](https://github.com/jaljala044/nepse-smc-data/actions/runs/45896661332); all scan, quarantine, cross-repository contract, strict-byte, exception join, pair-calendar triage, disjoint queue, row-hold, authenticated-holiday, open-pair security-history, regression and artifact-preservation stages passed.
 - Standard row-level CSV findings: `NEPSE_GLOBAL_DUPLICATE_AUDIT_FINDINGS.csv`.
 - Per-file scan coverage: `NEPSE_GLOBAL_DUPLICATE_AUDIT_SCAN_SUMMARY.csv`.
 - Strict pinned-byte row-level findings and exception join: preserved in the run's `p443-strict-content-audit` artifact (`findings.jsonl`, `coverage.json`, `summary.json`, `exception_join.csv`, `exception_join_summary.json`).
@@ -113,7 +117,7 @@ Preserve all rows. The source capture report reports unique archive-local record
 
 1. Classify the 94,543 repeated adjacent tuples using exact overlap with verified open/closed-session evidence and prior P4.37/P4.42 row-level matrices.
 2. Complete date-shift/misdated candidate reconciliation across the full 928-file scope, not only the P4.37/P4.42 samples; historical session evidence is incomplete for much of the 2011–2026 OHLCV span.
-3. Obtain independent security/date and execution evidence to adjudicate the 35,571 quarantine-review pairs and 58,972 evidence-review pairs; current calendar/API corroboration is not proof of security-specific execution.
+3. Obtain independent security/date and execution evidence to adjudicate the 35,571 quarantine-review pairs and 58,972 evidence-review pairs. The 73 pairs checked against official security history had no matching security/date capture; this does not prove no trade. Current calendar/API corroboration is not proof of security-specific execution.
 4. Decide whether full canonical-ingestion quarantine enforcement belongs in a separate implementation issue; the scanner-preparation guard is not a canonical ingestion gate.
 
 **P4.43 is not complete.** The audit pipeline and pinned scan now pass; evidence adjudication and final acceptance items remain open. PR #80 remains draft until those items are resolved or explicitly accepted as documented blockers.

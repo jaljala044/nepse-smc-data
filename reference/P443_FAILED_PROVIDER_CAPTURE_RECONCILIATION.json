@@ -1,0 +1,107 @@
+{
+  "task": "P4.43.6.6",
+  "pinned_commit": "56362fb4f65b91fdcca8f50b50e53ad80e703649",
+  "source_run": 45892854164,
+  "artifact": 15151713962,
+  "reviewed": 6,
+  "failed_captures": [
+    {
+      "path": "reference/p434_official_api_probe/market_status.json",
+      "blob_sha": "baeebba5e5c4831b647c4e8683158c47e65374b7",
+      "response": "WARNING: UNAUTHORIZED ACCESS",
+      "disposition": "EXCLUDE_ERROR_BODY_KEEP_RAW",
+      "alternative": {
+        "path": "reference/p435_official_historical_floorsheets/market_status.json",
+        "blob_sha": "5410b31e0a875a360239c51ba6a9ccf2670dff95",
+        "status": "valid later authenticated snapshot; not historical replacement"
+      }
+    },
+    {
+      "path": "reference/p434_official_api_probe/security_list.json",
+      "blob_sha": "baeebba5e5c4831b647c4e8683158c47e65374b7",
+      "response": "WARNING: UNAUTHORIZED ACCESS",
+      "disposition": "EXCLUDE_ERROR_BODY_KEEP_RAW",
+      "alternative": {
+        "path": "reference/p435_official_historical_floorsheets/security_list.json",
+        "blob_sha": "0891e10b56de572816680c8065718ecd4420bd03",
+        "status": "valid later authenticated snapshot; not historical replacement"
+      }
+    },
+    {
+      "path": "reference/p437_official_today_price/NMLBBL_2024-05-16/nepse_eod_2024-05-16_page_0.json",
+      "blob_sha": "d324c03fce63f26b4c6721a707840389b95a66af",
+      "response": "Searched Date is not valid.",
+      "disposition": "EXCLUDE_ERROR_BODY_KEEP_RAW",
+      "alternative": {
+        "source_report": "reference/p433_floorsheets/capture_report.json",
+        "source_report_blob": "29b42c70320fc5fdff92000ee9be5a9d6c4b074d",
+        "symbol": "NMLBBL",
+        "date": "2024-05-16",
+        "trades": 0,
+        "quantity": "0",
+        "amount": "0",
+        "status": "validated",
+        "limitation": "Third-party reported floorsheet validation only; not official OHLCV or proof of no trades when count is zero."
+      }
+    },
+    {
+      "path": "reference/p437_official_today_price/NMLBBL_2024-05-19/nepse_eod_2024-05-19_page_0.json",
+      "blob_sha": "d324c03fce63f26b4c6721a707840389b95a66af",
+      "response": "Searched Date is not valid.",
+      "disposition": "EXCLUDE_ERROR_BODY_KEEP_RAW",
+      "alternative": {
+        "source_report": "reference/p433_floorsheets/capture_report.json",
+        "source_report_blob": "29b42c70320fc5fdff92000ee9be5a9d6c4b074d",
+        "symbol": "NMLBBL",
+        "date": "2024-05-19",
+        "trades": 15,
+        "quantity": "864",
+        "amount": "557461.60",
+        "status": "validated",
+        "limitation": "Third-party reported floorsheet validation only; not official OHLCV or proof of no trades when count is zero."
+      }
+    },
+    {
+      "path": "reference/p437_official_today_price/SMPDA_2024-08-14/nepse_eod_2024-08-14_page_0.json",
+      "blob_sha": "d324c03fce63f26b4c6721a707840389b95a66af",
+      "response": "Searched Date is not valid.",
+      "disposition": "EXCLUDE_ERROR_BODY_KEEP_RAW",
+      "alternative": {
+        "source_report": "reference/p433_floorsheets/capture_report.json",
+        "source_report_blob": "29b42c70320fc5fdff92000ee9be5a9d6c4b074d",
+        "symbol": "SMPDA",
+        "date": "2024-08-14",
+        "trades": 0,
+        "quantity": "0",
+        "amount": "0",
+        "status": "validation_failed",
+        "limitation": "Third-party reported floorsheet validation only; not official OHLCV or proof of no trades when count is zero."
+      }
+    },
+    {
+      "path": "reference/p437_official_today_price/SMPDA_2024-08-18/nepse_eod_2024-08-18_page_0.json",
+      "blob_sha": "d324c03fce63f26b4c6721a707840389b95a66af",
+      "response": "Searched Date is not valid.",
+      "disposition": "EXCLUDE_ERROR_BODY_KEEP_RAW",
+      "alternative": {
+        "source_report": "reference/p433_floorsheets/capture_report.json",
+        "source_report_blob": "29b42c70320fc5fdff92000ee9be5a9d6c4b074d",
+        "symbol": "SMPDA",
+        "date": "2024-08-18",
+        "trades": 192,
+        "quantity": "5314",
+        "amount": "6175193.80",
+        "status": "validation_failed",
+        "limitation": "Third-party reported floorsheet validation only; not official OHLCV or proof of no trades when count is zero."
+      }
+    }
+  ],
+  "official_history_control": {
+    "path": "reference/p435_official_historical_floorsheets/capture_report.json",
+    "blob_sha": "8cba482befa38fd38ddfd357287f878a67d5a3cf",
+    "finding": "All four historical marketwide requests returned 2026-11-26 trades; cannot use requested dates as evidence."
+  },
+  "raw_mutations": 0,
+  "new_verified_historical_candles": 0,
+  "limitations": "Review of existing pinned captures only; no fresh external source recovery attempted. Four historical official EOD requests remain unrecovered. Two later valid endpoint snapshots do not prove original snapshot equivalence."
+}

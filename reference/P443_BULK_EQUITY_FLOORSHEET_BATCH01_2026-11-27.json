@@ -1,0 +1,96 @@
+{
+  "task": "P4.43 bounded equity-priority floorsheet recovery batch 01",
+  "pinned_ohlcv_input": "56362fb4f65b91fdcca8f50b50e53ad80e703649",
+  "primary_archive": {
+    "repository": "socrateai-official/nepse-open-data",
+    "commit": "70324524df83eaa7c2964441ad4026d6ab00cc7e"
+  },
+  "workflow": {
+    "run": 45901012377,
+    "run_number": 252,
+    "artifact_id": 15155667000,
+    "conclusion": "success"
+  },
+  "request_scope": {
+    "p2_equity_security_dates": 68773,
+    "unique_dates": 316,
+    "archive_dates_available": 22,
+    "requests_on_available_dates": 5235,
+    "dates_recovered": 22,
+    "requests_reconciled": 5235,
+    "requests_without_pinned_partition": 63538
+  },
+  "selected_dates": [
+    "2026-06-26",
+    "2026-06-19",
+    "2026-06-12",
+    "2026-04-10",
+    "2026-04-17",
+    "2026-05-08",
+    "2026-05-15",
+    "2026-06-05",
+    "2026-04-02",
+    "2026-05-22",
+    "2026-03-12",
+    "2026-03-19",
+    "2026-02-26",
+    "2026-01-01",
+    "2026-01-22",
+    "2026-02-05",
+    "2026-02-12",
+    "2025-12-18",
+    "2026-01-08",
+    "2025-11-27",
+    "2025-12-11",
+    "2026-04-24"
+  ],
+  "partition_validation": {
+    "sessions": 22,
+    "all_git_blob_and_size_checks_pass": true,
+    "all_content_validation_pass": true,
+    "invalid_rows": 0,
+    "total_trade_rows": 1752046,
+    "total_shares": 383352458,
+    "total_turnover_npr": "155104812159.45",
+    "completeness": "UNKNOWN"
+  },
+  "hlv_comparison": {
+    "match_all_three": 3177,
+    "conflict_any_field": 2058,
+    "high_match": 5074,
+    "high_mismatch": 161,
+    "low_match": 3365,
+    "low_mismatch": 1870,
+    "volume_match": 5018,
+    "volume_mismatch": 217,
+    "conflict_patterns": {
+      "high_match_low_mismatch_volume_match": 1706,
+      "high_match_low_match_volume_mismatch": 120,
+      "high_mismatch_low_mismatch_volume_match": 80,
+      "high_match_low_mismatch_volume_mismatch": 71,
+      "high_mismatch_low_match_volume_match": 55,
+      "high_mismatch_low_mismatch_volume_mismatch": 13,
+      "high_mismatch_low_match_volume_mismatch": 13
+    }
+  },
+  "disposition": {
+    "all_rows_promotion_allowed": false,
+    "canonical_values_changed": 0,
+    "status_for_match": "HIGH_LOW_VOLUME_MATCH_OPEN_CLOSE_UNVERIFIED",
+    "status_for_conflict": "HIGH_LOW_VOLUME_CONFLICT",
+    "no_partition_status": "NO_PINNED_PARTITION",
+    "note": "The 63,538 NO_PINNED_PARTITION rows mean no matching dated file exists in this pinned archive inventory; this is not evidence of no trade. The 3,177 matches corroborate high/low/volume only. The 2,058 conflicts require source/session/adjustment adjudication; they are not automatically source errors."
+  },
+  "field_semantics": {
+    "observed_high": "Maximum transaction rate in the recovered floorsheet for the symbol/session",
+    "observed_low": "Minimum transaction rate in the recovered floorsheet for the symbol/session",
+    "observed_volume": "Sum of transaction quantities in the recovered floorsheet for the symbol/session",
+    "open_close": "Not compared or independently validated",
+    "source_lineage_independence": "UNKNOWN"
+  },
+  "evidence_artifacts": {
+    "disposition_csv": "bulk_equity_floorsheet_disposition.csv",
+    "summary_json": "bulk_equity_floorsheet_summary.json",
+    "workflow_artifact": "p443-strict-content-audit"
+  }
+}

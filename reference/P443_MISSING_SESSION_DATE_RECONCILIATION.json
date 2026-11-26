@@ -1,0 +1,123 @@
+{
+  "task": "P4.43.6.3",
+  "pinned_commit": "56362fb4f65b91fdcca8f50b50e53ad80e703649",
+  "source_run": 45892854164,
+  "artifact": 15151713962,
+  "reviewed_flags": 2687,
+  "source_files": 16,
+  "findings": [
+    {
+      "path": "reference/p433_floorsheets/huggingface_repo_tree.json",
+      "count": 2003,
+      "blob_sha": "f9dc3dd6ae73919bdd2217664bfbed7bcdfd38e5",
+      "reason": "archive metadata",
+      "disposition": "KEEP_SOURCE_CONTEXT_NO_TRADE_DATE_SYNTHESIS"
+    },
+    {
+      "path": "reference/p435_official_historical_floorsheets/security_list.json",
+      "count": 573,
+      "blob_sha": "0891e10b56de572816680c8065718ecd4420bd03",
+      "reason": "security master",
+      "disposition": "KEEP_SOURCE_CONTEXT_NO_TRADE_DATE_SYNTHESIS"
+    },
+    {
+      "path": "reference/p433_floorsheets/capture_report.json",
+      "count": 35,
+      "blob_sha": "29b42c70320fc5fdff92000ee9be5a9d6c4b074d",
+      "reason": "5 metadata and 30 nested samples/examples; parent records dates 2024-05-19, 2024-08-18, 2024-08-14",
+      "disposition": "KEEP_SOURCE_CONTEXT_NO_TRADE_DATE_SYNTHESIS"
+    },
+    {
+      "path": "reference/p435_official_historical_floorsheets/capture_report.json",
+      "count": 17,
+      "blob_sha": "8cba482befa38fd38ddfd357287f878a67d5a3cf",
+      "reason": "capture metadata; requested dates are not execution evidence",
+      "disposition": "KEEP_SOURCE_CONTEXT_NO_TRADE_DATE_SYNTHESIS"
+    },
+    {
+      "path": "NEPSE_KHELADI_20D_FLOORSHEET_INTEL.csv",
+      "count": 12,
+      "blob_sha": "668e8fada9fefc285e9b073750ea1a429d580277",
+      "reason": "multi-session aggregate",
+      "disposition": "KEEP_SOURCE_CONTEXT_NO_TRADE_DATE_SYNTHESIS"
+    },
+    {
+      "path": "reference/floorsheet_source_verification_2026-11-20.json",
+      "count": 11,
+      "blob_sha": "f1c275c589376e5e4ab2eb66c550249d19d9fba1",
+      "reason": "7 metadata and 4 UNL samples inherit root business_date 2026-11-20",
+      "disposition": "KEEP_SOURCE_CONTEXT_NO_TRADE_DATE_SYNTHESIS"
+    },
+    {
+      "path": "reference/recent_floorsheet_cross_source_parity_2026-11-19_24.json",
+      "count": 7,
+      "blob_sha": "ea250984926b1474994ca80078ab311dd6490c51",
+      "reason": "date-keyed aggregate metadata",
+      "disposition": "KEEP_SOURCE_CONTEXT_NO_TRADE_DATE_SYNTHESIS"
+    },
+    {
+      "path": "reference/p435_official_historical_floorsheets/control_marketwide_2024-05-16_page0.json",
+      "count": 5,
+      "blob_sha": "732e3365b4304f7696a9d30dcd2e94451535caf8",
+      "reason": "response/pagination metadata; actual trade date must come from payload, not filename",
+      "disposition": "KEEP_SOURCE_CONTEXT_NO_TRADE_DATE_SYNTHESIS"
+    },
+    {
+      "path": "reference/p435_official_historical_floorsheets/control_marketwide_2024-05-19_page0.json",
+      "count": 5,
+      "blob_sha": "732e3365b4304f7696a9d30dcd2e94451535caf8",
+      "reason": "response/pagination metadata; actual trade date must come from payload, not filename",
+      "disposition": "KEEP_SOURCE_CONTEXT_NO_TRADE_DATE_SYNTHESIS"
+    },
+    {
+      "path": "reference/p435_official_historical_floorsheets/control_marketwide_2024-08-14_page0.json",
+      "count": 5,
+      "blob_sha": "732e3365b4304f7696a9d30dcd2e94451535caf8",
+      "reason": "response/pagination metadata; actual trade date must come from payload, not filename",
+      "disposition": "KEEP_SOURCE_CONTEXT_NO_TRADE_DATE_SYNTHESIS"
+    },
+    {
+      "path": "reference/p435_official_historical_floorsheets/control_marketwide_2024-08-18_page0.json",
+      "count": 5,
+      "blob_sha": "732e3365b4304f7696a9d30dcd2e94451535caf8",
+      "reason": "response/pagination metadata; actual trade date must come from payload, not filename",
+      "disposition": "KEEP_SOURCE_CONTEXT_NO_TRADE_DATE_SYNTHESIS"
+    },
+    {
+      "path": "reference/p435_official_historical_floorsheets/control_marketwide_current_page0.json",
+      "count": 5,
+      "blob_sha": "6d8b1c94c6ba124e747a86dea43f5279c6e57ba6",
+      "reason": "response/pagination metadata; actual trade date must come from payload, not filename",
+      "disposition": "KEEP_SOURCE_CONTEXT_NO_TRADE_DATE_SYNTHESIS"
+    },
+    {
+      "path": "01_market_indices/floorsheet_audit_2026-11-23.json",
+      "count": 1,
+      "blob_sha": "6cf83b6c5fe61e0b6ef0be379671982ec8f65e3d",
+      "reason": "page hash map",
+      "disposition": "KEEP_SOURCE_CONTEXT_NO_TRADE_DATE_SYNTHESIS"
+    },
+    {
+      "path": "01_market_indices/floorsheet_audit_2026-11-24.json",
+      "count": 1,
+      "blob_sha": "03b089e79b3f653e96d246f73c7879ca4be8651c",
+      "reason": "page hash map",
+      "disposition": "KEEP_SOURCE_CONTEXT_NO_TRADE_DATE_SYNTHESIS"
+    },
+    {
+      "path": "reference/floorsheet_reconciliation_manifest_2026-11-20.csv",
+      "count": 1,
+      "blob_sha": "95f8b4abab4e0d4cabd3b0ecad32fbf754dd165c",
+      "reason": "aggregate manifest with trading_date",
+      "disposition": "KEEP_SOURCE_CONTEXT_NO_TRADE_DATE_SYNTHESIS"
+    },
+    {
+      "path": "reference/p435_official_historical_floorsheets/market_status.json",
+      "count": 1,
+      "blob_sha": "5410b31e0a875a360239c51ba6a9ccf2670dff95",
+      "reason": "market status metadata",
+      "disposition": "KEEP_SOURCE_CONTEXT_NO_TRADE_DATE_SYNTHESIS"
+    }
+  ],
+  "limitations": "Grouped artifact-pointer and source-schema review, not independent verification of all trades. Parent dates establish report context only; do not promote samples to canonical trades. Historical control API requests returned current-session data; do not use requested filename dates. No raw changes or new trade records."
+}

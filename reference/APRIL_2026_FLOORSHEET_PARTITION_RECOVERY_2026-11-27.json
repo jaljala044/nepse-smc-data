@@ -1,0 +1,65 @@
+{
+  "status": "PARTITIONS_RECOVERED_ROW_PROCESSING_BLOCKED",
+  "source": "NEPSE_ByDate_2026.zip",
+  "totals_source": "NEPSE_Floorsheet_Reconciliation.zip / NEPSE_Daily_Turnover_Reconciliation.csv",
+  "sessions": [
+    {
+      "date": "2026-04-24",
+      "partition": "trade_date=2026-04-24/data_0.parquet",
+      "sha256": "db674bc7285e40612e74aff22a15230d4cd3ff3280e2a87130c223db8206f0ac",
+      "reported_contracts": 75229,
+      "reported_quantity": 12174516,
+      "reported_turnover_npr": "5270399727.64",
+      "reported_symbols": 351,
+      "reported_quarantined": 0,
+      "reported_duplicate_ids": 0,
+      "reported_amount_errors": 0,
+      "independent_benchmark_available_in_report": false
+    },
+    {
+      "date": "2026-04-27",
+      "partition": "trade_date=2026-04-27/data_0.parquet",
+      "sha256": "c88c19f6777effb969b4797c4eea8522a9fd8cc2ca4f53ac4dae9ae8094ffb37",
+      "reported_contracts": 81006,
+      "reported_quantity": 10928617,
+      "reported_turnover_npr": "4748809127.76",
+      "reported_symbols": 351,
+      "reported_quarantined": 0,
+      "reported_duplicate_ids": 0,
+      "reported_amount_errors": 0,
+      "independent_benchmark_available_in_report": false
+    },
+    {
+      "date": "2026-04-28",
+      "partition": "trade_date=2026-04-28/data_0.parquet",
+      "sha256": "120b142a5bf3dd50f28358b2e019e0a453e11e6c9efc3af9619b8bd58ed5bdec",
+      "reported_contracts": 151354,
+      "reported_quantity": 14018920,
+      "reported_turnover_npr": "6531723226.36",
+      "reported_symbols": 349,
+      "reported_quarantined": 0,
+      "reported_duplicate_ids": 0,
+      "reported_amount_errors": 0,
+      "independent_benchmark_available_in_report": false
+    },
+    {
+      "date": "2026-04-29",
+      "partition": "trade_date=2026-04-29/data_0.parquet",
+      "sha256": "df976f6d6a330ac15317964b1c0d1c8147022432d8c496381de9d967e261bbf3",
+      "reported_contracts": 104004,
+      "reported_quantity": 12133360,
+      "reported_turnover_npr": "4986294173.38",
+      "reported_symbols": 351,
+      "reported_quarantined": 1,
+      "reported_duplicate_ids": 0,
+      "reported_amount_errors": 0,
+      "independent_benchmark_available_in_report": false
+    }
+  ],
+  "limitations": [
+    "Parquet reader absent; installation unavailable; rows not decoded or recomputed.",
+    "April 29 rejected contract symbol unknown.",
+    "No correction or promotion; historical raw data unchanged."
+  ],
+  "verified_replacements": 0
+}

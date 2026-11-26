@@ -1,0 +1,127 @@
+{
+  "status": "ARCHIVE_RECONCILIATION_COMPLETE_RECOVERY_UNRESOLVED",
+  "equities": 13,
+  "equity_exceptions": 1329,
+  "investigated": 1329,
+  "verified_replacements": 0,
+  "hold": 1329,
+  "excluded_mutual_fund_flags": 2,
+  "raw_modified": false,
+  "canonical_promotion_allowed": false,
+  "reports": [
+    {
+      "group": "AHPC",
+      "expected": 588,
+      "file": "AHPC_NEPAL_MARKET_DATA_RECONCILIATION_2026-11-27.json",
+      "blob": "c78c3fa7f4446fe7ee2698f3899e0e09a9ebab75",
+      "unique_dates": 588,
+      "counts": {
+        "EXACT_SAME_INVALID": 586,
+        "VALID_OTHER_CONFLICT": 1,
+        "DIFFERENT_INVALID": 1
+      },
+      "verified_replacements": 0
+    },
+    {
+      "group": "SKBBL",
+      "expected": 379,
+      "file": "SKBBL_EXTERNAL_SOURCE_RECONCILIATION_2026-11-27.json",
+      "blob": "535b8ff0055a07ae99ac5fac2db596a9008ff436",
+      "unique_dates": 379,
+      "counts": {
+        "EXACT_SAME_INVALID": 1515,
+        "MISSING": 1
+      },
+      "verified_replacements": 0
+    },
+    {
+      "group": "API",
+      "expected": 122,
+      "file": "API_EXTERNAL_SOURCE_RECONCILIATION_2026-11-27.json",
+      "blob": "f04354563f6748b49a86a4899c9a04febfc64fd4",
+      "unique_dates": 122,
+      "counts": {
+        "MISSING": 19,
+        "EXACT_SAME_INVALID": 469
+      },
+      "verified_replacements": 0
+    },
+    {
+      "group": "MERO",
+      "expected": 102,
+      "file": "MERO_EXTERNAL_SOURCE_RECONCILIATION_2026-11-27.json",
+      "blob": "8f2428925d7b2070d9f642a53a873048736a77c3",
+      "unique_dates": 102,
+      "counts": {
+        "EXACT_SAME_INVALID": 408
+      },
+      "verified_replacements": 0
+    },
+    {
+      "group": "SPDL",
+      "expected": 53,
+      "file": "SPDL_EXTERNAL_SOURCE_RECONCILIATION_2026-11-27.json",
+      "blob": "56806e847de5a91bf2067583d5ec64ddc0fd395f",
+      "unique_dates": 53,
+      "counts": {
+        "MISSING": 14,
+        "EXACT_SAME_INVALID": 198
+      },
+      "verified_replacements": 0
+    },
+    {
+      "group": "CHL",
+      "expected": 45,
+      "file": "CHL_EXTERNAL_SOURCE_RECONCILIATION_2026-11-27.json",
+      "blob": "ef034613cdff902871b9a912161a2adae59017cc",
+      "unique_dates": 45,
+      "counts": {
+        "MISSING": 24,
+        "EXACT_SAME_INVALID": 156
+      },
+      "verified_replacements": 0
+    },
+    {
+      "group": "HIDCL",
+      "expected": 30,
+      "file": "HIDCL_EXTERNAL_SOURCE_RECONCILIATION_2026-11-27.json",
+      "blob": "de9335d376997a3247855848461e9b6aeb4e5bd4",
+      "unique_dates": 30,
+      "counts": {
+        "MISSING": 12,
+        "EXACT_SAME_INVALID": 108
+      },
+      "verified_replacements": 0
+    },
+    {
+      "group": "BATCH_A",
+      "expected": 6,
+      "file": "REMAINING_EQUITY_BATCH_A_2026-11-27.json",
+      "blob": "adda9f22307861753e013b6fd114505c5cbc8022",
+      "unique_dates": 6,
+      "counts": {
+        "EXACT_SAME_INVALID": 24
+      },
+      "verified_replacements": 0
+    },
+    {
+      "group": "BATCH_B",
+      "expected": 4,
+      "file": "REMAINING_EQUITY_BATCH_B_2026-11-27.json",
+      "blob": "3fea6e01f1f67c15cb8e5a5549d435fd209876ed",
+      "unique_dates": 4,
+      "counts": {
+        "EXACT_SAME_INVALID": 16
+      },
+      "verified_replacements": 0
+    }
+  ],
+  "limitations": [
+    "AHPC summary uses Nepal Market Data comparison as coverage evidence; other AHPC reports retained separately.",
+    "External archives may share upstream data; LTP mapping not independently authenticated.",
+    "No official transaction-level or corporate-action recovery certification.",
+    "This report records disposition, not runtime quarantine enforcement or production acceptance.",
+    "Earlier AHPC closure commit conflicted; this consolidated disposition includes AHPC."
+  ],
+  "next": "Target recent exceptions with available date-level floorsheet evidence; verify complete session and chronological trades before considering replacements."
+}

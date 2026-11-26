@@ -1,0 +1,46 @@
+{
+  "task": "P4.43.6.5",
+  "pinned_commit": "56362fb4f65b91fdcca8f50b50e53ad80e703649",
+  "workflow_run": 45892854164,
+  "artifact": 15151713962,
+  "method": "Read every repeated_adjacent_tuple_unresolved entry in findings.jsonl, parse its symbol/date key, join by date against explicit verified_closed rows in pinned canonical calendar and verified positive-open dates. No weekday inference. Closed/open sets disjoint.",
+  "sources": [
+    {
+      "path": "reference/nepse_canonical_session_calendar_2025-2026.csv",
+      "blob_sha": "f8ed6cbb93a31f62811d39849d050333efff8d04",
+      "selected_dates": 150,
+      "filter": "status=verified_closed"
+    },
+    {
+      "path": "reference/nepse_positive_open_sessions_2025-11-26_2026-11-25.csv",
+      "blob_sha": "470d73d3409cded70cb603f4d9aeca28237c7e5b",
+      "selected_dates": 228,
+      "filter": "positive open evidence"
+    }
+  ],
+  "total_flags": 94543,
+  "distinct_flag_dates": 519,
+  "date_min": "2011-06-20",
+  "date_max": "2026-11-20",
+  "classification": [
+    {
+      "status": "closed_session",
+      "count": 24485,
+      "distinct_symbols": 398,
+      "disposition": "EXCLUDE_FROM_VALIDATED_CANDLES; preserve raw; no replacement inferred"
+    },
+    {
+      "status": "open_session_unverified_symbol",
+      "count": 102,
+      "distinct_symbols": 65,
+      "disposition": "REVIEW_SYMBOL_EXECUTIONS"
+    },
+    {
+      "status": "calendar_unresolved",
+      "count": 69956,
+      "distinct_symbols": 437,
+      "disposition": "REVIEW_HISTORICAL_CALENDAR"
+    }
+  ],
+  "limitations": "Date-level classification only using pinned project evidence; no new independent provider verification, no row-level execution adjudication, no scanner integration or raw changes. Counts include all audited instrument classes, not only equities. Closed-session exclusions are recommended, not applied by this report."
+}

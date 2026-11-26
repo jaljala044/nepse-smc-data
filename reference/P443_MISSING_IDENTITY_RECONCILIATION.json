@@ -1,0 +1,251 @@
+{
+  "task": "P4.43.6.2",
+  "pin": "56362fb4f65b91fdcca8f50b50e53ad80e703649",
+  "source_run": 45892854164,
+  "artifact": 15151713962,
+  "reviewed_flags": 364,
+  "findings": [
+    {
+      "path": "reference/p419_observed_date_floorsheet_archive_inventory_2026-11-26.csv",
+      "blob_sha": "5598b98e4b14beeae9af6294cccf886fa75ac57b",
+      "flag_count": 226,
+      "record_kind": "archive_inventory",
+      "schema": [
+        "date",
+        "calendar_scope",
+        "source_repository",
+        "source_commit",
+        "path",
+        "git_blob_sha",
+        "size_bytes",
+        "inventory_status"
+      ],
+      "disposition": "NOT_APPLICABLE_NON_TRANSACTION_RECORD"
+    },
+    {
+      "path": "reference/P4_10_floorsheet_open_review_2026-04-29.csv",
+      "blob_sha": "68f351df096e0e70983af11b20b493aa0927df1a",
+      "flag_count": 88,
+      "record_kind": "symbol_session_review",
+      "schema": [
+        "symbol",
+        "date",
+        "published_open",
+        "contract_sorted_open",
+        "high",
+        "low",
+        "contract_sorted_close",
+        "volume",
+        "turnover",
+        "contracts",
+        "published_contracts",
+        "first_contract",
+        "last_contract",
+        "status"
+      ],
+      "disposition": "NOT_APPLICABLE_NON_TRANSACTION_RECORD"
+    },
+    {
+      "path": "scanner_inputs/audit/floorsheet_reconciliation.csv",
+      "blob_sha": "ff2d1c9898f34531e1c0ef4885393a76bd317ef0",
+      "flag_count": 21,
+      "record_kind": "session_aggregate",
+      "schema": [
+        "date",
+        "accepted_source",
+        "source_git_blob",
+        "trades",
+        "shares",
+        "turnover_npr",
+        "symbols",
+        "expected_trades",
+        "expected_shares",
+        "expected_turnover_npr",
+        "expected_symbols",
+        "status",
+        "viking_rows",
+        "viking_missing_trades",
+        "viking_missing_shares",
+        "viking_missing_value_npr"
+      ],
+      "disposition": "NOT_APPLICABLE_NON_TRANSACTION_RECORD"
+    },
+    {
+      "path": "NEPSE_ULTIMATE_SMC_FLOORSHEET_REPORT.csv",
+      "blob_sha": "7c91b0c95cea021d81f133dc15ffc1ef67c225ab",
+      "flag_count": 11,
+      "record_kind": "research_summary",
+      "schema": [
+        "Symbol",
+        "Date",
+        "Status",
+        "Volume Footprint",
+        "Weekly",
+        "SMC Struct",
+        "Vol-Backed OB",
+        "Vol-Backed FVG",
+        "Entry / SL",
+        "TP1 / BSL",
+        "R:R",
+        "ipda_60d_high_bsl",
+        "ipda_60d_low_ssl",
+        "ipda_60d_equilibrium",
+        "ipda_discount_pct",
+        "ote_618_level",
+        "ote_786_level",
+        "Traded Qty",
+        "Top 3 Buyers",
+        "Top 3 Sellers",
+        "Buy vs Sell %",
+        "Operator Verdict"
+      ],
+      "disposition": "NOT_APPLICABLE_NON_TRANSACTION_RECORD"
+    },
+    {
+      "path": "FLOORSHEET_TOTALS_RECONCILIATION_2025-07-28.csv",
+      "blob_sha": "5c4a8f05efeadfe303539d4a3fcce305771fce42",
+      "flag_count": 5,
+      "record_kind": "symbol_session_aggregate",
+      "schema": [
+        "trade_date",
+        "symbol",
+        "open",
+        "high",
+        "low",
+        "close",
+        "total_quantity",
+        "total_turnover_npr",
+        "calculated_vwap_npr",
+        "trade_count",
+        "page_count",
+        "source",
+        "verification_status",
+        "notes"
+      ],
+      "disposition": "NOT_APPLICABLE_NON_TRANSACTION_RECORD"
+    },
+    {
+      "path": "reference/p433_floorsheets/capture_report.json",
+      "blob_sha": "29b42c70320fc5fdff92000ee9be5a9d6c4b074d",
+      "flag_count": 4,
+      "record_kind": "capture_metadata",
+      "schema": [
+        "task",
+        "source_class",
+        "dataset",
+        "retrieved_at_utc",
+        "records",
+        "interpretation"
+      ],
+      "disposition": "NOT_APPLICABLE_NON_TRANSACTION_RECORD"
+    },
+    {
+      "path": "reference/p435_official_historical_floorsheets/capture_report.json",
+      "blob_sha": "8cba482befa38fd38ddfd357287f878a67d5a3cf",
+      "flag_count": 4,
+      "record_kind": "capture_metadata",
+      "schema": [
+        "task",
+        "source",
+        "retrieved_at_utc",
+        "upstream_client",
+        "authentication_status",
+        "server_day_nepal",
+        "payload_id_sent",
+        "payload_id_value_saved",
+        "control_results",
+        "floor_results",
+        "records",
+        "interpretation"
+      ],
+      "disposition": "NOT_APPLICABLE_NON_TRANSACTION_RECORD"
+    },
+    {
+      "path": "FLOORSHEET_TOTALS_RECONCILIATION_2026-11-19.csv",
+      "blob_sha": "bf5a3591c322a47bd3327a7896a2376632befbcd",
+      "flag_count": 2,
+      "record_kind": "symbol_session_aggregate",
+      "schema": [
+        "trade_date",
+        "symbol",
+        "open",
+        "high",
+        "low",
+        "close",
+        "total_quantity",
+        "total_turnover_npr",
+        "calculated_vwap_npr",
+        "source",
+        "verification_status",
+        "notes"
+      ],
+      "disposition": "NOT_APPLICABLE_NON_TRANSACTION_RECORD"
+    },
+    {
+      "path": "01_market_indices/floorsheet_audit_2026-11-23.json",
+      "blob_sha": "6cf83b6c5fe61e0b6ef0be379671982ec8f65e3d",
+      "flag_count": 1,
+      "record_kind": "session_audit",
+      "schema": [
+        "date",
+        "source",
+        "pages",
+        "contracts",
+        "share_quantity",
+        "turnover_npr",
+        "securities",
+        "stock_totals_checked",
+        "independent_contract_sample",
+        "sample_source",
+        "eod_source",
+        "page_sha256",
+        "archive_path",
+        "csv_sha256"
+      ],
+      "disposition": "NOT_APPLICABLE_NON_TRANSACTION_RECORD"
+    },
+    {
+      "path": "01_market_indices/floorsheet_audit_2026-11-24.json",
+      "blob_sha": "03b089e79b3f653e96d246f73c7879ca4be8651c",
+      "flag_count": 1,
+      "record_kind": "session_audit",
+      "schema": [
+        "date",
+        "source",
+        "pages",
+        "contracts",
+        "share_quantity",
+        "turnover_npr",
+        "securities",
+        "stock_totals_checked",
+        "independent_contract_sample",
+        "sample_source",
+        "eod_source",
+        "page_sha256",
+        "archive_path",
+        "archive_blob_sha"
+      ],
+      "disposition": "NOT_APPLICABLE_NON_TRANSACTION_RECORD"
+    },
+    {
+      "path": "reference/floorsheet_source_verification_2026-11-20.json",
+      "blob_sha": "f1c275c589376e5e4ab2eb66c550249d19d9fba1",
+      "flag_count": 1,
+      "record_kind": "verification_metadata",
+      "schema": [
+        "schema_version",
+        "business_date",
+        "source_status",
+        "capture",
+        "independent_parquet",
+        "socrateai_csv",
+        "contract_level_reconciliation",
+        "local_500_row_extract",
+        "unl",
+        "scope_limitations"
+      ],
+      "disposition": "NOT_APPLICABLE_NON_TRANSACTION_RECORD"
+    }
+  ],
+  "limitations": "File-level schema adjudication of flagged records only; not proof of complete underlying trade data. Preserve all raw and summary records. Other data-quality findings remain open."
+}

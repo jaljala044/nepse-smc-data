@@ -1,0 +1,31 @@
+name: P4.43 full-session contract parity
+on:
+  pull_request:
+    paths:
+      - 'tools/p443_full_session_parity.py'
+      - 'test_p443_full_session_parity.py'
+      - 'reference/P443_BULK_EQUITY_FLOORSHEET_BATCH01_2026-11-27.json'
+      - '.github/workflows/p443-full-session-parity.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Full-session parity regression tests
+        run: python -m unittest test_p443_full_session_parity -v
+      - run: python tools/p443_full_session_parity.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: p443-full-session-parity
+          path: |
+            full-session-parity/*.json
+            full-session-parity/*.csv
+          if-no-files-found: error

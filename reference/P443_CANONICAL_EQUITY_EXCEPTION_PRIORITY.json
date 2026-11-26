@@ -1,0 +1,369 @@
+{
+  "task": "Historical exception resolution: canonical equity hold policy",
+  "evidence": {
+    "run": 45898354789,
+    "verified_commit": "d6c43d84ea1d98f32e7ae8074e2ad15a2a119530",
+    "pinned_source": "56362fb4f65b91fdcca8f50b50e53ad80e703649"
+  },
+  "queues": [
+    {
+      "name": "invalid_ohlcv",
+      "findings": 1331,
+      "equity_register_matches": 1329,
+      "non_equity": 2,
+      "action": "HOLD_PENDING_PRICE_ADJUDICATION",
+      "replacement_allowed": false
+    },
+    {
+      "name": "recorded_closure",
+      "pairs": 9027,
+      "unique_source_rows": 6232,
+      "dates": 20,
+      "action": "HOLD_PENDING_INDEPENDENT_SESSION_ADJUDICATION",
+      "replacement_allowed": false
+    },
+    {
+      "name": "historical_api_holiday",
+      "pairs": 26544,
+      "unique_source_rows": 22244,
+      "dates": 77,
+      "action": "HOLD_CANDIDATE_PENDING_INDEPENDENT_SESSION_ADJUDICATION",
+      "replacement_allowed": false
+    }
+  ],
+  "priority_equities": [
+    [
+      "AHPC",
+      588
+    ],
+    [
+      "SKBBL",
+      379
+    ],
+    [
+      "API",
+      122
+    ],
+    [
+      "MERO",
+      102
+    ],
+    [
+      "SPDL",
+      53
+    ],
+    [
+      "CHL",
+      45
+    ],
+    [
+      "HIDCL",
+      30
+    ],
+    [
+      "RADHI",
+      2
+    ],
+    [
+      "RAWA",
+      2
+    ],
+    [
+      "UAIL",
+      2
+    ],
+    [
+      "UNHPL",
+      2
+    ],
+    [
+      "BGWT",
+      1
+    ],
+    [
+      "HRL",
+      1
+    ]
+  ],
+  "excluded_instruments": [
+    "KDBY",
+    "KEF"
+  ],
+  "rules": [
+    "Queue counts can overlap; do not sum as unique affected records.",
+    "Hold by source path/blob/row; do not infer neighbouring rows invalid.",
+    "No opening-price substitution from prior close or contract sort alone.",
+    "Require independent execution/session evidence and corporate-action price basis.",
+    "No raw mutation, canonical publication or recommendation enablement."
+  ],
+  "status": "REVIEW_POLICY_RECORDED_NOT_RUNTIME_APPLIED",
+  "open_session_pair_review": {
+    "pairs": 73,
+    "current_and_previous_without_security_date_capture": 73,
+    "promoted": 0,
+    "action": "REQUIRE_INDEPENDENT_SECURITY_DATE_EVIDENCE",
+    "note": "Missing capture is not proof of no trade; no row correction or promotion."
+  },
+  "repeat_pair_priority": {
+    "source": "reference/nepse_ohlcv_active_instrument_crosscheck_2026-11-26.csv",
+    "status": "CURRENT_CLASSIFICATION_ONLY_NOT_POINT_IN_TIME",
+    "insufficient_session_pairs": {
+      "current_equity_first_pass": 44283,
+      "current_mutual_fund": 6351,
+      "unclassified": 8265,
+      "total": 58899
+    },
+    "both_open_pairs": {
+      "current_equity_first_pass": 5,
+      "current_mutual_fund": 5,
+      "unclassified": 63,
+      "total": 73
+    },
+    "promoted": 0,
+    "note": "Current instrument status is a prioritization aid only; it does not establish historical identity or execution. All pairs remain held from promotion."
+  },
+  "unresolved_pair_official_history": {
+    "pairs": 58972,
+    "no_security_date_capture_both_dates": 58535,
+    "previous_date_hlcv_execution_match_current_unverified": 437,
+    "both_dates_matched": 0,
+    "mismatches": 0,
+    "conflicts": 0,
+    "promoted": 0,
+    "note": "Previous-date match is partial evidence only; no current-date captures. Missing capture is not proof of no trade."
+  },
+  "equity_security_date_recovery_queue": {
+    "pairs": 44288,
+    "unique_security_dates": 68783,
+    "unique_symbols": 253,
+    "p1_open_pair_dates": 10,
+    "p2_session_and_execution_dates": 68773,
+    "promoted": 0,
+    "status": "EVIDENCE_ACQUISITION_QUEUE_ONLY"
+  },
+  "unl_secondary_source_recheck": {
+    "rows": 3,
+    "dates": [
+      "2026-08-24",
+      "2026-08-27",
+      "2026-09-28"
+    ],
+    "source_type": "secondary_aggregators",
+    "source_lineage_independence": "UNKNOWN",
+    "contract_verified": false,
+    "promoted": 0,
+    "note": "OHLCV/volume fields matched secondary pages; no exchange contract IDs or authoritative transaction evidence established."
+  },
+  "external_source_reconciliation": {
+    "evidence_run_by_symbol": {
+      "API": 45898862802,
+      "SKBBL": 45898598269,
+      "MERO": 45899001519,
+      "SPDL": 45899093388
+    },
+    "pinned_input": "56362fb4f65b91fdcca8f50b50e53ad80e703649",
+    "records": {
+      "API": 122,
+      "SKBBL": 379,
+      "MERO": 102,
+      "SPDL": 53
+    },
+    "source_matches": {
+      "API": {
+        "Aabishkar2": {
+          "matched": 113,
+          "missing": 9
+        },
+        "SamirWagle": {
+          "matched": 122,
+          "missing": 0
+        },
+        "binayabaral": {
+          "matched": 113,
+          "missing": 9
+        },
+        "srijankarki07": {
+          "matched": 121,
+          "missing": 1
+        }
+      },
+      "SKBBL": {
+        "Aabishkar2": {
+          "matched": 379,
+          "missing": 0
+        },
+        "SamirWagle": {
+          "matched": 379,
+          "missing": 0
+        },
+        "binayabaral": {
+          "matched": 379,
+          "missing": 0
+        },
+        "srijankarki07": {
+          "matched": 378,
+          "missing": 1
+        }
+      },
+      "MERO": {
+        "Aabishkar2": {
+          "matched": 102,
+          "missing": 0
+        },
+        "SamirWagle": {
+          "matched": 102,
+          "missing": 0
+        },
+        "binayabaral": {
+          "matched": 102,
+          "missing": 0
+        },
+        "srijankarki07": {
+          "matched": 102,
+          "missing": 0
+        }
+      },
+      "SPDL": {
+        "Aabishkar2": {
+          "matched": 46,
+          "missing": 7
+        },
+        "SamirWagle": {
+          "matched": 53,
+          "missing": 0
+        },
+        "binayabaral": {
+          "matched": 46,
+          "missing": 7
+        },
+        "srijankarki07": {
+          "matched": 53,
+          "missing": 0
+        }
+      }
+    },
+    "verified_replacements": 0,
+    "source_independence": "UNKNOWN",
+    "disposition": "REPEATED_INVALID_REGISTER_TUPLES_ONLY_NO_CANONICAL_PROMOTION"
+  },
+  "priority_floorsheet_recovery": {
+    "workflow_run": 45899542388,
+    "artifact_id": 15154728772,
+    "source_repository": "socrateai-official/nepse-open-data",
+    "source_commit": "70324524df83eaa7c2964441ad4026d6ab00cc7e",
+    "partitions": 10,
+    "matching_observations": 10,
+    "validation_status": "ALL_DOWNLOADS_GIT_BLOB_SIZE_SCHEMA_ARITHMETIC_CHECKS_PASS",
+    "completeness_status": "UNKNOWN",
+    "source_independence": "UNKNOWN",
+    "exchange_contract_ids_verified": false,
+    "promoted": 0,
+    "promotion_allowed": false
+  },
+  "secondary_priority_contract_comparison": {
+    "workflow_run": 45899542326,
+    "artifact_id": 15155390598,
+    "source_repository": "urekmazino69/Nepse-floorsheet-and-indices",
+    "rows": 5,
+    "exact_matches": 5,
+    "dates": [
+      "2026-06-29",
+      "2026-07-01",
+      "2026-08-24",
+      "2026-08-25",
+      "2026-08-26"
+    ],
+    "fields": [
+      "contract_number",
+      "buyer_broker_id",
+      "seller_broker_id",
+      "quantity",
+      "rate",
+      "amount"
+    ],
+    "target_contract_occurrences": 1,
+    "full_file_duplicate_contract_occurrences": 0,
+    "full_file_invalid_rows": 0,
+    "source_upstream_independence": "UNKNOWN",
+    "authoritative_exchange_provenance": false,
+    "promoted": 0,
+    "promotion_allowed": false,
+    "note": "Second public archive corroborates five target contracts, but completeness and independent upstream lineage are unproven."
+  },
+  "latest_ci": {
+    "last_completed_strict_run": 45901012377,
+    "current_head_strict_run": 45899542346,
+    "current_head_status": "SUCCESS",
+    "recovery_run": 45899542388,
+    "recovery_status": "SUCCESS",
+    "secondary_comparison_run": 45901012393,
+    "secondary_comparison_status": "SUCCESS",
+    "full_session_parity_run": 45901012351,
+    "full_session_parity_status": "SUCCESS",
+    "last_completed_strict_head": "a1ceae92bf7ea104e15b652d4e55f7029b5a0923",
+    "strict_run_status": "SUCCESS",
+    "priority_recovery_run": 45901012346
+  },
+  "full_session_contract_parity": {
+    "workflow_run": 45899859073,
+    "artifact_id": 15155515864,
+    "primary_source_repository": "socrateai-official/nepse-open-data",
+    "primary_source_commit": "70324524df83eaa7c2964441ad4026d6ab00cc7e",
+    "secondary_source_repository": "urekmazino69/Nepse-floorsheet-and-indices",
+    "secondary_revision": "main_at_workflow_run",
+    "dates": 5,
+    "primary_rows": 262976,
+    "secondary_rows": 262976,
+    "matched_rows": 262976,
+    "primary_only": 0,
+    "secondary_only": 0,
+    "shared_fields": [
+      "date",
+      "contract_number",
+      "symbol",
+      "buyer_broker_id",
+      "seller_broker_id",
+      "quantity",
+      "rate",
+      "amount"
+    ],
+    "timestamp_parity": "NOT_CHECKED",
+    "completeness": "UNKNOWN",
+    "source_upstream_independence": "UNKNOWN",
+    "authoritative_exchange_provenance": false,
+    "promoted": 0,
+    "promotion_allowed": false,
+    "evidence_csv": "reference/P443_FULL_SESSION_CONTRACT_PARITY_2026-11-27.csv",
+    "note": "Full-session multiset parity across five dates; shared fields only. Does not establish source independence, completeness, timestamp parity or canonical eligibility."
+  },
+  "bulk_equity_floorsheet_batch_01": {
+    "workflow_run": 45901012377,
+    "artifact_id": 15155667000,
+    "pinned_input": "56362fb4f65b91fdcca8f50b50e53ad80e703649",
+    "archive_repository": "socrateai-official/nepse-open-data",
+    "archive_commit": "70324524df83eaa7c2964441ad4026d6ab00cc7e",
+    "requests": 68773,
+    "unique_dates": 316,
+    "available_archive_dates": 22,
+    "available_requests": 5235,
+    "recovered_sessions": 22,
+    "session_rows": 1752046,
+    "invalid_session_rows": 0,
+    "matched_hlv": 3177,
+    "hlv_conflicts": 2058,
+    "no_pinned_partition": 63538,
+    "high_match": 5074,
+    "high_mismatch": 161,
+    "low_match": 3365,
+    "low_mismatch": 1870,
+    "volume_match": 5018,
+    "volume_mismatch": 217,
+    "promoted": 0,
+    "promotion_allowed": false,
+    "source_completeness": "UNKNOWN",
+    "source_independence": "UNKNOWN",
+    "open_close_validation": "NOT_PERFORMED",
+    "evidence_file": "reference/P443_BULK_EQUITY_FLOORSHEET_BATCH01_2026-11-27.json",
+    "note": "No pinned partition is an evidence-availability gap, not no-trade. H/L/volume match is partial corroboration; conflicts require source adjudication."
+  }
+}

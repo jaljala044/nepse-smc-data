@@ -1,0 +1,181 @@
+{
+  "task": "P4.43.6.1",
+  "pinned_commit": "56362fb4f65b91fdcca8f50b50e53ad80e703649",
+  "workflow_run": 45892854164,
+  "artifact": 15151713962,
+  "findings": [
+    {
+      "path": "reference/p437_cross_sector_date_audit/capture_report.json",
+      "blob_sha": "0964a267c8e8fe7611e66cf5c80888c27c3d59b4",
+      "row": "/sector_rollup/Commercial Banks",
+      "previous_row": "/sector_rollup/Microfinance",
+      "classification": "DISTINCT_NAMED_SECTOR_EQUAL_METRICS",
+      "disposition": "FALSE_POSITIVE_KEEP",
+      "metrics": {
+        "sample_size": 2,
+        "captured": 2,
+        "official_rows": 456,
+        "canonical_only_dates": 162,
+        "canonical_only_tuple_matches": 162,
+        "exact_date_mismatches": 0,
+        "evidence_gates_passed": 2
+      }
+    },
+    {
+      "path": "reference/p437_cross_sector_date_audit/capture_report.json",
+      "blob_sha": "0964a267c8e8fe7611e66cf5c80888c27c3d59b4",
+      "row": "/sector_rollup/Life Insurance",
+      "previous_row": "/sector_rollup/Microfinance",
+      "classification": "DISTINCT_NAMED_SECTOR_EQUAL_METRICS",
+      "disposition": "FALSE_POSITIVE_KEEP",
+      "metrics": {
+        "sample_size": 2,
+        "captured": 2,
+        "official_rows": 456,
+        "canonical_only_dates": 162,
+        "canonical_only_tuple_matches": 162,
+        "exact_date_mismatches": 0,
+        "evidence_gates_passed": 2
+      }
+    },
+    {
+      "path": "reference/p437_cross_sector_date_audit/capture_report.json",
+      "blob_sha": "0964a267c8e8fe7611e66cf5c80888c27c3d59b4",
+      "row": "/sector_rollup/Hotels And Tourism",
+      "previous_row": "/sector_rollup/Microfinance",
+      "classification": "DISTINCT_NAMED_SECTOR_EQUAL_METRICS",
+      "disposition": "FALSE_POSITIVE_KEEP",
+      "metrics": {
+        "sample_size": 2,
+        "captured": 2,
+        "official_rows": 456,
+        "canonical_only_dates": 162,
+        "canonical_only_tuple_matches": 162,
+        "exact_date_mismatches": 0,
+        "evidence_gates_passed": 2
+      }
+    },
+    {
+      "path": "reference/p437_cross_sector_date_audit/capture_report.json",
+      "blob_sha": "0964a267c8e8fe7611e66cf5c80888c27c3d59b4",
+      "row": "/sector_rollup/Tradings",
+      "previous_row": "/sector_rollup/Microfinance",
+      "classification": "DISTINCT_NAMED_SECTOR_EQUAL_METRICS",
+      "disposition": "FALSE_POSITIVE_KEEP",
+      "metrics": {
+        "sample_size": 2,
+        "captured": 2,
+        "official_rows": 456,
+        "canonical_only_dates": 162,
+        "canonical_only_tuple_matches": 162,
+        "exact_date_mismatches": 0,
+        "evidence_gates_passed": 2
+      }
+    },
+    {
+      "path": "reference/p437_cross_sector_date_audit/capture_report.json",
+      "blob_sha": "0964a267c8e8fe7611e66cf5c80888c27c3d59b4",
+      "row": "/sector_rollup/Non Life Insurance",
+      "previous_row": "/sector_rollup/Development Banks",
+      "classification": "DISTINCT_NAMED_SECTOR_EQUAL_METRICS",
+      "disposition": "FALSE_POSITIVE_KEEP",
+      "metrics": {
+        "sample_size": 2,
+        "captured": 2,
+        "official_rows": 456,
+        "canonical_only_dates": 160,
+        "canonical_only_tuple_matches": 160,
+        "exact_date_mismatches": 0,
+        "evidence_gates_passed": 2
+      }
+    },
+    {
+      "path": "reference/p443_positive_open_sessions_evidence/capture_report.json",
+      "blob_sha": "b493c0370944e25aa617f02ff2af7998fd83cc68",
+      "row": "/sector_rollup/Commercial Banks",
+      "previous_row": "/sector_rollup/Microfinance",
+      "classification": "DISTINCT_NAMED_SECTOR_EQUAL_METRICS",
+      "disposition": "FALSE_POSITIVE_KEEP",
+      "metrics": {
+        "sample_size": 2,
+        "captured": 2,
+        "official_rows": 456,
+        "canonical_only_dates": 162,
+        "canonical_only_tuple_matches": 162,
+        "exact_date_mismatches": 0,
+        "evidence_gates_passed": 2
+      }
+    },
+    {
+      "path": "reference/p443_positive_open_sessions_evidence/capture_report.json",
+      "blob_sha": "b493c0370944e25aa617f02ff2af7998fd83cc68",
+      "row": "/sector_rollup/Life Insurance",
+      "previous_row": "/sector_rollup/Microfinance",
+      "classification": "DISTINCT_NAMED_SECTOR_EQUAL_METRICS",
+      "disposition": "FALSE_POSITIVE_KEEP",
+      "metrics": {
+        "sample_size": 2,
+        "captured": 2,
+        "official_rows": 456,
+        "canonical_only_dates": 162,
+        "canonical_only_tuple_matches": 162,
+        "exact_date_mismatches": 0,
+        "evidence_gates_passed": 2
+      }
+    },
+    {
+      "path": "reference/p443_positive_open_sessions_evidence/capture_report.json",
+      "blob_sha": "b493c0370944e25aa617f02ff2af7998fd83cc68",
+      "row": "/sector_rollup/Hotels And Tourism",
+      "previous_row": "/sector_rollup/Microfinance",
+      "classification": "DISTINCT_NAMED_SECTOR_EQUAL_METRICS",
+      "disposition": "FALSE_POSITIVE_KEEP",
+      "metrics": {
+        "sample_size": 2,
+        "captured": 2,
+        "official_rows": 456,
+        "canonical_only_dates": 162,
+        "canonical_only_tuple_matches": 162,
+        "exact_date_mismatches": 0,
+        "evidence_gates_passed": 2
+      }
+    },
+    {
+      "path": "reference/p443_positive_open_sessions_evidence/capture_report.json",
+      "blob_sha": "b493c0370944e25aa617f02ff2af7998fd83cc68",
+      "row": "/sector_rollup/Tradings",
+      "previous_row": "/sector_rollup/Microfinance",
+      "classification": "DISTINCT_NAMED_SECTOR_EQUAL_METRICS",
+      "disposition": "FALSE_POSITIVE_KEEP",
+      "metrics": {
+        "sample_size": 2,
+        "captured": 2,
+        "official_rows": 456,
+        "canonical_only_dates": 162,
+        "canonical_only_tuple_matches": 162,
+        "exact_date_mismatches": 0,
+        "evidence_gates_passed": 2
+      }
+    },
+    {
+      "path": "reference/p443_positive_open_sessions_evidence/capture_report.json",
+      "blob_sha": "b493c0370944e25aa617f02ff2af7998fd83cc68",
+      "row": "/sector_rollup/Non Life Insurance",
+      "previous_row": "/sector_rollup/Development Banks",
+      "classification": "DISTINCT_NAMED_SECTOR_EQUAL_METRICS",
+      "disposition": "FALSE_POSITIVE_KEEP",
+      "metrics": {
+        "sample_size": 2,
+        "captured": 2,
+        "official_rows": 456,
+        "canonical_only_dates": 160,
+        "canonical_only_tuple_matches": 160,
+        "exact_date_mismatches": 0,
+        "evidence_gates_passed": 2
+      }
+    }
+  ],
+  "reviewed": 10,
+  "confirmed_duplicate_market_records": 0,
+  "raw_mutations": 0
+}

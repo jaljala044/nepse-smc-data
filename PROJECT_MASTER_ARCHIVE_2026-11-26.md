@@ -75,3 +75,10 @@ Direct readback of both repositories confirmed corrected BGWT and HRL values. Th
 - RHGCL 2026-11-19: companion scanner official capture-report.json confirms ID 8108, H 259.5, L 252.1, C 258, volume 9054, 47 trades, turnover 2332952.5. Open not returned; keep quarantine; no market rows changed.
 - P5: exact-symbol inventory reconciliation established; per-security date coverage denominator still blocked by historical instrument lifecycles and verified session calendar.
 - P6: no production signal or training enablement. End-to-end scanner readiness not demonstrated in this checkpoint.
+
+## Next-five execution checkpoint — 2026-11-26
+- Task 1: 8/37 unmatched historical filenames decode to exact official debt-security symbols; 29 remain unresolved. 488 exact plus 8 encoding candidates = 496/525. No rename applied. Review: reference/nepse_unmatched_symbol_review_2026-11-26.csv.
+- Task 2: 281 rendered equity rows collapse to 278 unique symbols (USLB and SYPNL duplicates); 47 unique mutual funds; all 325 distinct candidates match active official security IDs. 324 have OHLCV files; NICEF absent. Three additional equity identities not established. No historical lifecycle inferred. Dataset: reference/nepse_target_universe_candidates_2026-11-26.csv.
+- Task 3: recovered 225 distinct primary positive-trade dates from RHGCL official captured history (2025-11-25 to 2026-11-19), no overlap with 2026 closure calendar. Single-security observations not a complete canonical exchange calendar. Dataset: reference/nepse_primary_observed_open_sessions_2025-2026.csv.
+- Task 4: sample seven symbols all have 225 observed dates; 5 date-level structural/uniqueness exceptions across API, BGWT, HRL and RAWA. NICEF absent. Full universe and listing-adjusted coverage still pending. Sample: reference/nepse_observed_session_coverage_sample_2026-11-26.csv.
+- Task 5: scanner route still uses date-only as_of filtering, not available_at timestamp eligibility. Keep training and production signals disabled until integrated no-lookahead and canonical eligibility enforcement are tested. No existing market-price rows changed.

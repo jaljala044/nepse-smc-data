@@ -60,7 +60,10 @@ def main():
     outputs={x.aliases:write_table(FIELDS_A,a),x.missing:write_table(FIELDS_B,b),x.report:json.dumps(r,indent=2)+"\n"}
     for path,content in outputs.items():
         if x.check:
-            if Path(path).read_text(encoding="utf-8")!=content:raise SystemExit(path+" is stale")
+            existing=Path(path).read_text(encoding="utf-8")
+            if path.endswith(".json"):
+                if json.loads(existing)!=json.loads(content):raise SystemExit(path+" is stale")
+            elif existing!=content:raise SystemExit(path+" is stale")
         else:Path(path).write_text(content,encoding="utf-8")
     if x.check:print("PASS: 37 unmatched file stems, 8 reversible candidates, 29 unresolved; 85 missing securities with name hints only")
 if __name__=="__main__":main()

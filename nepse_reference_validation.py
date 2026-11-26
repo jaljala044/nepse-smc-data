@@ -115,7 +115,7 @@ def validate_instrument_rows(
         normalized_symbols.add(symbol)
         if not security_id:
             errors.append(f"line {line}: {symbol} missing stable security_id")
-        elif not security_id.isdigit() or int(security_id) <= 0:
+        elif not re.fullmatch(r"[0-9]+", security_id) or not any(ch != "0" for ch in security_id):
             errors.append(f"line {line}: {symbol} security_id must be a positive integer")
         try:
             interval = _effective_interval(row, line)

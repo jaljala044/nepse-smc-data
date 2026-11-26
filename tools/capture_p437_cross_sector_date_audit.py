@@ -32,8 +32,17 @@ SAMPLE=[
 ]
 
 def weekday_class(iso_date):
-    day=date.fromisoformat(iso_date).weekday()
-    return "friday" if day==4 else "saturday" if day==5 else "trading_weekday"
+    day=date.fromisoformat(iso_date)
+    weekday=day.weekday()
+    if day <= date(2026,4,5):
+        # Historical NEPSE week: Sunday-Thursday, with Friday/Saturday closed.
+        if weekday==4:return "friday"
+        if weekday==5:return "saturday"
+    else:
+        # Current NEPSE week, effective 2026-04-06: Monday-Friday.
+        if weekday==5:return "saturday"
+        if weekday==6:return "sunday"
+    return "trading_weekday"
 
 def validate_sample(sectors_csv):
     import csv
@@ -54,7 +63,7 @@ def validate_sample(sectors_csv):
     return {"sector_counts":dict(sorted(counts.items())),"errors":errors}
 
 def summarize_rows(rows):
-    dates=[];missing_date=0;wrong_date=[];missing_hlc=0;missing_volume=0;weekend=[]
+    dates=[];missing_date=0;wrong_date=[];missing_hlc=0;missing_volume=0;weekly_closures=[]
     for row in rows:
         if not isinstance(row,dict):
             missing_date+=1;continue
@@ -70,14 +79,14 @@ def summarize_rows(rows):
             missing_volume+=1
         kind=weekday_class(day)
         if kind!="trading_weekday":
-            weekend.append({"date":day,"weekday":kind})
+            weekly_closures.append({"date":day,"weekday":kind})
     counts=Counter(dates)
     return {
         "row_count":len(rows),"unique_date_count":len(counts),
         "duplicate_dates":sorted(d for d,n in counts.items() if n>1),
         "missing_date_rows":missing_date,"out_of_window_dates":sorted(set(wrong_date)),
         "missing_hlc_rows":missing_hlc,"missing_volume_rows":missing_volume,
-        "friday_saturday_records":weekend,"observed_dates":sorted(counts),
+        "weekly_closure_records":weekly_closures,"observed_dates":sorted(counts),
     }
 
 def capture(output_dir,requester=request,parser=token_parser,retrieved_at=None):
@@ -167,7 +176,7 @@ def capture(output_dir,requester=request,parser=token_parser,retrieved_at=None):
             aggregate["canonical_only_tuple_matches"]+=canonical.get("canonical_only_exact_hlc_volume_tuple_match_count",0)
             aggregate["exact_date_overlaps"]+=canonical.get("exact_date_overlap_count",0)
             aggregate["exact_date_mismatches"]+=canonical.get("exact_date_hlc_volume_mismatch_count",0)
-            aggregate["weekend_rows"]+=len(row_summary["friday_saturday_records"])
+            aggregate["weekly_closure_rows"]+=len(row_summary["weekly_closure_records"])
         sector_rollup={}
         for sector,items in sector_summary.items():
             valid=[x for x in items if x.get("status")=="captured"]
@@ -192,6 +201,7 @@ def capture(output_dir,requester=request,parser=token_parser,retrieved_at=None):
           "sector_counts":sample_check["sector_counts"]},
         "records":records,"aggregate":dict(aggregate),"sector_rollup":sector_rollup,
         "results":symbol_results,
+        "weekday_regime":{"through_2026-04-05":"Sunday-Thursday regular sessions; Friday/Saturday weekly closures","from_2026-04-06":"Monday-Friday regular sessions; Saturday/Sunday weekly closures","limitation":"Weekday compatibility does not establish an actual open session; holidays and exceptional closures require the evidence-backed calendar."},
         "interpretation":"Exploratory stratified sample only; not a full-universe finding. Official EOD HLCV comparisons do not prove contract-level execution or broker flow. Canonical rows are not modified. Suspected date-shift patterns remain quarantined pending provenance investigation."
     }
     (out/"capture_report.json").write_text(json.dumps(report,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")

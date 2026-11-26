@@ -81,16 +81,25 @@ The deterministic row-level matrix is merged and available at [P4.24 matrix](p42
 - All 86 differences are isolated to Close; Open, High, Low and Volume match exactly.
 - External close minus SMC close ranges -24.11 to +274.06; 73 positive, 13 negative; median +3.505.
 - The external archive identifies ShareSansar as its source. The scanner-input README also identifies the baseline history as ShareSansar-sourced, so the archives may share upstream lineage and are not counted as independent evidence.
-- All 86 remain `UNKNOWN_SOURCE_CONFLICT`; no raw values changed and no external close was promoted.
+- All 86 are now classified `SECONDARY_CONTEMPORANEOUS_SNAPSHOT_CORROBORATED_PRIMARY_PENDING`: the SMC raw closes match the same-day ShareSansar daily-page capture in 86/86, while the later AJAX backfill differs in 86/86. No raw values changed and no backfill close was promoted. This is secondary evidence, not official NEPSE verification.
 - Builder tests and PR CI passed; matrix artifact: [15139400460](https://github.com/jaljala044/nepse-smc-data/actions/runs/45862707787/artifacts/15139400460).
 
-## Next priority target — P4.25: trace the 86 close-field lineage
+## P4.25 — completed: trace 86 close-field lineage
 
-1. Identify the exact source endpoint/page, HTML/API field, parser and extraction version used to create the SMC raw close values.
-2. Inspect the pinned ShareSansar scraper implementation and commit history to identify the exact table column and transformation used for the external close.
-3. Compare the two extraction paths against archived contemporaneous page captures or permitted primary records, if available.
-4. Group close deltas by security type, absolute/percentage magnitude and possible corporate-action or instrument-identity effects.
-5. Keep all rows UNKNOWN until individual primary evidence supports a decision; do not overwrite raw history or convert UNKNOWN to NO_TRADE.
+The source-path audit is documented in [P4.25 report](p425_2025-07-28_contemporaneous_sharesansar_snapshot_report_2026-11-26.md), with [86-row three-way evidence](p425_2025-07-28_contemporaneous_sharesansar_snapshot_comparison_2026-11-26.csv).
+
+- SMC raw and contemporaneous ShareSansar daily-page snapshot Close match in 86/86.
+- Later historical AJAX backfill Close matches neither the contemporaneous snapshot nor SMC raw in 86/86.
+- Open, High, Low and Volume match across all three records in 86/86.
+- The SMC raw close is therefore selected for the derived dataset as `SECONDARY_CONTEMPORANEOUS_SNAPSHOT_CORROBORATED`; this is not official NEPSE verification.
+- Raw data remains unchanged.
+
+## Next priority target — P4.26: audit 109 invalid external candidates
+
+1. Build a row-level matrix for all 109 candidates, preserving raw and external tuples and immutable source hashes.
+2. Identify the exact source endpoint, parser, capture time and corporate-action basis for each candidate.
+3. Search for contemporaneous source evidence where available; do not assume historical API coverage.
+4. Keep OHLC-invalid rows quarantined until individually validated. Do not repair by inference or convert UNKNOWN to NO_TRADE.
 
 ## Acceptance
 

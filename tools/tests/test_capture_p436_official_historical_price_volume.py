@@ -19,7 +19,7 @@ class P436OfficialPriceVolumeTests(unittest.TestCase):
                 return 200,{},json.dumps({"content":rows,"totalElements":1,"totalPages":1}).encode()
             raise AssertionError(url)
         with tempfile.TemporaryDirectory() as tmp:
-            result=capture(tmp,fake,lambda obj,path:("ACCESS_SECRET","REFRESH_SECRET"),"2026-11-26T00:00:00Z")
+            result=capture(tmp,fake,lambda obj,path:("ACCESS_SECRET","REFRESH_SECRET"),"2026-11-26T00:00:00Z",include_recent_controls=False)
             saved="".join(p.read_text(errors="ignore") for p in Path(tmp).glob("*.json"))
         self.assertNotIn("ACCESS_SECRET",saved)
         self.assertNotIn("REFRESH_SECRET",saved)
@@ -34,7 +34,7 @@ class P436OfficialPriceVolumeTests(unittest.TestCase):
             if "/api/nots/security?" in url:return 200,{},b'[{"id":396,"symbol":"NMLBBL"},{"id":2896,"symbol":"SMPDA"}]'
             return 403,{"Content-Type":"text/html"},b"forbidden"
         with tempfile.TemporaryDirectory() as tmp:
-            result=capture(tmp,fake,lambda obj,path:("A","R"),"2026-11-26T00:00:00Z")
+            result=capture(tmp,fake,lambda obj,path:("A","R"),"2026-11-26T00:00:00Z",include_recent_controls=False)
         self.assertTrue(all(x["status"]=="request_or_schema_failure" for x in result["security_results"]))
         self.assertTrue(all("prior_rows" not in x for x in result["security_results"]))
 

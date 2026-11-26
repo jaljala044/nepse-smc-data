@@ -105,7 +105,7 @@ def download_one(item, out_dir, timeout=90):
     }
 
 
-def validate_file(item, downloaded, equity_symbols, ohlcv):
+def validate_file(item, downloaded, equity_symbols, ohlcv, independent_verification):
     date = item["date"]
     path = Path(downloaded["path"])
     errors = Counter()
@@ -200,15 +200,33 @@ def validate_file(item, downloaded, equity_symbols, ohlcv):
     # Only 2026-11-20 has an independent, contract-level, full-session
     # market-total comparison currently admitted by this audit.
     expected = None
+    independent_source_sha_match = False
     if date == "2026-11-20":
+        capture = independent_verification.get("capture", {})
+        parity = independent_verification.get("contract_level_reconciliation", {})
+        source_hash = independent_verification.get("socrateai_csv", {}).get("sha256", "")
         expected = {
-            "trades": 39966, "shares": 10602468,
-            "turnover": Decimal("3887563470.82"), "symbols": 352,
+            "trades": capture.get("upstream_total_elements"),
+            "shares": parity.get("shares_each"),
+            "turnover": decimal(parity.get("turnover_npr_each")),
+            "symbols": parity.get("distinct_symbols_each"),
         }
-    totals_match = bool(expected and trades == expected["trades"]
-                        and shares == expected["shares"]
-                        and turnover == expected["turnover"]
-                        and len(symbols) == expected["symbols"])
+        independent_source_sha_match = (
+            downloaded.get("actual_sha256") == source_hash
+            and independent_verification.get("source_status") == "VERIFIED_COMPLETE_BY_INDEPENDENT_UPSTREAM_CAPTURE"
+            and capture.get("job_conclusion") == "success"
+            and parity.get("conclusion") == "success"
+            and parity.get("exact_multiset_match") is True
+            and parity.get("parquet_only") == 0
+            and parity.get("csv_only") == 0
+        )
+    totals_match = bool(
+        expected and independent_source_sha_match
+        and expected["trades"] is not None and trades == int(expected["trades"])
+        and expected["shares"] is not None and shares == int(expected["shares"])
+        and expected["turnover"] is not None and turnover == expected["turnover"]
+        and expected["symbols"] is not None and len(symbols) == int(expected["symbols"])
+    )
     completeness = "PASS_INDEPENDENT_TOTALS" if content_status == "PASS" and totals_match else "UNKNOWN"
     equity_rows = []
     ohlcv_matches = ohlcv_conflicts = ohlcv_absent = 0
@@ -251,6 +269,8 @@ def validate_file(item, downloaded, equity_symbols, ohlcv):
         "size_match": downloaded.get("size_match", False),
         "content_status": content_status,
         "completeness_status": completeness,
+        "independent_source_sha256_match": independent_source_sha_match,
+        "independent_market_totals_match": totals_match,
         "rows": rows_read, "trades": trades, "shares": shares,
         "turnover_npr": str(turnover.quantize(Decimal("0.01"))),
         "symbols": len(symbols),
@@ -283,10 +303,12 @@ def main():
     parser.add_argument("--universe", type=Path, required=True)
     parser.add_argument("--ohlcv-dir", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument("--independent-verification-json", type=Path, required=True)
     parser.add_argument("--download-workers", type=int, default=8)
     args = parser.parse_args()
 
     manifest = read_csv(args.manifest)
+    independent_verification = json.loads(args.independent_verification_json.read_text(encoding="utf-8"))
     if len(manifest) != 226 or len({r["date"] for r in manifest}) != 226:
         raise SystemExit(f"expected 226 unique manifest dates, got {len(manifest)}")
     equity_symbols = sorted({
@@ -331,7 +353,7 @@ def main():
     summaries, equity_rows = [], []
     for item in manifest:
         date = item["date"]
-        summary, per_equity = validate_file(item, downloads[date], equity_symbols, ohlcv)
+        summary, per_equity = validate_file(item, downloads[date], equity_symbols, ohlcv, independent_verification)
         summaries.append(summary)
         equity_rows.extend(per_equity)
 

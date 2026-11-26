@@ -2,14 +2,14 @@
   "task": "P4.33",
   "source_class": "third_party_huggingface_archive_claiming_nepse_floorsheet_data",
   "dataset": "urekmazino69/Nepse-floorsheet-and-indices",
-  "retrieved_at_utc": "2026-11-26T18:22:10.576721+00:00",
+  "retrieved_at_utc": "2026-11-26T18:23:07.922231+00:00",
   "records": [
     {
       "symbol": "NMLBBL",
       "date": "2024-05-19",
       "role": "candidate_first_positive_volume_date",
       "source_url": "https://huggingface.co/datasets/urekmazino69/Nepse-floorsheet-and-indices/resolve/main/floorsheet/2024-05-19.csv",
-      "retrieved_at_utc": "2026-11-26T18:22:10.576721+00:00",
+      "retrieved_at_utc": "2026-11-26T18:23:07.922231+00:00",
       "capture_status": "unavailable",
       "error": "HTTPError: HTTP Error 404: Not Found"
     },
@@ -18,7 +18,7 @@
       "date": "2024-05-16",
       "role": "immediately_preceding_candidate_session",
       "source_url": "https://huggingface.co/datasets/urekmazino69/Nepse-floorsheet-and-indices/resolve/main/floorsheet/2024-05-16.csv",
-      "retrieved_at_utc": "2026-11-26T18:22:10.576721+00:00",
+      "retrieved_at_utc": "2026-11-26T18:23:07.922231+00:00",
       "capture_status": "unavailable",
       "error": "HTTPError: HTTP Error 404: Not Found"
     },
@@ -27,7 +27,7 @@
       "date": "2024-08-18",
       "role": "candidate_first_positive_volume_date",
       "source_url": "https://huggingface.co/datasets/urekmazino69/Nepse-floorsheet-and-indices/resolve/main/floorsheet/2024-08-18.csv",
-      "retrieved_at_utc": "2026-11-26T18:22:10.576721+00:00",
+      "retrieved_at_utc": "2026-11-26T18:23:07.922231+00:00",
       "capture_status": "unavailable",
       "error": "HTTPError: HTTP Error 404: Not Found"
     },
@@ -36,7 +36,7 @@
       "date": "2024-08-14",
       "role": "immediately_preceding_candidate_session",
       "source_url": "https://huggingface.co/datasets/urekmazino69/Nepse-floorsheet-and-indices/resolve/main/floorsheet/2024-08-14.csv",
-      "retrieved_at_utc": "2026-11-26T18:22:10.576721+00:00",
+      "retrieved_at_utc": "2026-11-26T18:23:07.922231+00:00",
       "capture_status": "unavailable",
       "error": "HTTPError: HTTP Error 404: Not Found"
     }

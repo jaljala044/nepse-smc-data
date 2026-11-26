@@ -3,7 +3,7 @@ import argparse
 import csv
 import hashlib
 import shutil
-from datetime import date
+from datetime import date, timedelta
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from tempfile import TemporaryDirectory
@@ -127,6 +127,29 @@ def validate_floorsheet(path, closed_dates):
         raise ValueError("Empty floorsheet")
 
 
+def aggregate_daily(values, period, closed_dates):
+    """Aggregate observed sessions only; period label is last observed date."""
+    if period not in ("weekly", "monthly"):
+        raise ValueError("Unsupported aggregation period")
+    validate_daily(values, closed_dates)
+    buckets = {}
+    for row in sorted(values, key=lambda r: (r["symbol"].strip().upper(), r["date"].strip())):
+        symbol = row["symbol"].strip().upper()
+        day = date.fromisoformat(row["date"].strip())
+        # Sunday-start trading week; independent of the historical weekday schedule.
+        start = day - timedelta(days=(day.weekday() + 1) % 7) if period == "weekly" else day.replace(day=1)
+        key = (symbol, start)
+        o, h, l, c, v = (Decimal(row[k]) for k in ("open", "high", "low", "close", "volume"))
+        if key not in buckets:
+            buckets[key] = dict(symbol=symbol, date=day.isoformat(), open=o, high=h, low=l, close=c, volume=v)
+        else:
+            b = buckets[key]
+            b.update(date=day.isoformat(), high=max(b["high"], h), low=min(b["low"], l), close=c, volume=b["volume"] + v)
+    result = list(buckets.values())
+    validate_daily(result, closed_dates)
+    return result
+
+
 def prepare(original, output):
     if output.exists():
         raise FileExistsError(f"Choose a new output folder: {output}")
@@ -155,12 +178,13 @@ def prepare(original, output):
             extra = dict.fromkeys(field for row in additions for field in row if field not in fields)
             combined = sorted(original_rows + additions, key=lambda row: (row["symbol"], row["date"]))
             write(daily, [*fields, *extra], combined)
-            # The scanner rebuilds both periods from daily prices after adding a historical session.
-            price_history_changed = any(row["symbol"] != "NEPSE" for row in additions)
-            if price_history_changed:
-                for name in ("weekly_prices", "monthly_prices"):
-                    for suffix in TABLE_EXTENSIONS:
-                        (stage / f"{name}{suffix}").unlink(missing_ok=True)
+        # Always reconstruct both periods, including when no new daily rows arrive.
+        for period in ("weekly", "monthly"):
+            for suffix in TABLE_EXTENSIONS:
+                (stage / f"{period}_prices{suffix}").unlink(missing_ok=True)
+            write(stage / f"{period}_prices.csv",
+                  ["symbol", "date", "open", "high", "low", "close", "volume"],
+                  aggregate_daily(original_rows + additions, period, closed_dates))
         for name in ("sectors", "sector_data", "corporate_actions"):
             destination = stage / f"{name}.csv"
             if not has_table(stage, name):

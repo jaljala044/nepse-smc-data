@@ -4,6 +4,10 @@ on:
   pull_request:
     paths:
       - 'tools/reconcile_floorsheet_ohlcv.py'
+      - 'reference/floorsheet_reconciliation_manifest_2026-11-20.csv'
+      - 'reference/nepse_canonical_session_calendar_2025-2026.csv'
+      - 'reference/p410_stage1_coverage_matrix_2026-11-26.csv'
+      - 'reference/p416_2026-11-20_281_equity_reconciliation_contract_2026-11-26.md'
       - 'tools/tests/test_reconcile_floorsheet_ohlcv.py'
       - 'tools/reconcile_nov20_independent_floorsheet.py'
       - '02_floorsheet_daily/floorsheet_2026-11-20.csv'
@@ -30,6 +34,54 @@ jobs:
           python-version: '3.11'
       - name: Run evidence-gate regression tests
         run: python -m unittest discover -s tools/tests -p 'test_reconcile_floorsheet_ohlcv.py' -v
+
+
+  equity-universe-session-reconciliation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: jaljala044/nepse-history-starter
+          path: starter
+          persist-credentials: false
+      - name: Download pinned 2026-11-20 full-session candidate
+        run: |
+          mkdir -p audit-input audit-output
+          curl --fail --location --retry 3 --retry-delay 2 \
+            "https://raw.githubusercontent.com/socrateai-official/nepse-open-data/main/floorsheet/floorsheet_2026-11-20.csv" \
+            --output audit-input/floorsheet_2026-11-20.csv
+          echo "abafc3b8eaa8d2b9b884e9f2df974deb267485d4476f2a4e953d6324787fc43d  audit-input/floorsheet_2026-11-20.csv" | sha256sum --check
+      - name: Reconcile the 281-equity universe
+        run: |
+          python3 tools/reconcile_floorsheet_ohlcv.py \
+            --floorsheet-dir audit-input \
+            --ohlcv-dir starter/03_stock_charts_ohlcv \
+            --calendar reference/nepse_canonical_session_calendar_2025-2026.csv \
+            --manifest reference/floorsheet_reconciliation_manifest_2026-11-20.csv \
+            --symbol-universe-csv reference/p410_stage1_coverage_matrix_2026-11-26.csv \
+            --expected-symbol-count 281 \
+            --output audit-output/2026-11-20_equity_trade_status.csv
+      - name: Print symbol-level reconciliation disposition
+        run: |
+          python3 - <<'PY'
+          import csv
+          import json
+          from collections import defaultdict
+          grouped = defaultdict(list)
+          with open("audit-output/2026-11-20_equity_trade_status.csv", newline="", encoding="utf-8") as handle:
+              for row in csv.DictReader(handle):
+                  grouped[row["trade_status"]].append(row["symbol"])
+          print(json.dumps({key: sorted(value) for key, value in sorted(grouped.items())}, indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: 2026-11-20-281-equity-session-reconciliation
+          path: audit-output/
+          if-no-files-found: error
+          retention-days: 30
 
   recent-session-parity-audit:
     runs-on: ubuntu-latest

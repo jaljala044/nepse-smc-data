@@ -237,5 +237,14 @@ class FloorsheetReconciliationTests(unittest.TestCase):
         self.assertEqual(xyz["trade_status"], "UNKNOWN")
 
 
+    def test_explicit_symbol_universe_limits_rows_and_includes_unseen_equity(self):
+        rows = ENGINE.reconcile_date("2026-11-20", self.floor, self.ohlcv,
+                                     {"2026-11-20": "verified_open"},
+                                     {"2026-11-20": {}},
+                                     symbol_universe=["ABC", "XYZ"])
+        self.assertEqual({row["symbol"] for row in rows}, {"ABC", "XYZ"})
+        self.assertEqual(len(rows), 2)
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -16,6 +16,9 @@ on:
       - "tools/p443_verify_open_pairs.py"
       - "tools/p443_equity_first_repeat_review.py"
       - "tools/p443_equity_security_date_queue.py"
+      - "test_p443_equity_security_date_queue.py"
+      - "test_p443_verify_unresolved_pairs.py"
+      - "tools/p443_verify_unresolved_pairs.py"
       - "test_p443_equity_first_repeat_review.py"
       - "reference/P443_AUTHENTICATED_HOLIDAY_EVIDENCE_2015_2026.csv"
       - "test_p443_recorded_closure_row_hold.py"
@@ -42,8 +45,12 @@ on:
       - "tools/p443_verify_open_pairs.py"
       - "tools/p443_equity_first_repeat_review.py"
       - "tools/p443_equity_security_date_queue.py"
+      - "test_p443_equity_security_date_queue.py"
+      - "test_p443_verify_unresolved_pairs.py"
+      - "tools/p443_verify_unresolved_pairs.py"
       - "reference/P443_AUTHENTICATED_HOLIDAY_EVIDENCE_2015_2026.csv"
       - "test_p443_recorded_closure_row_hold.py"
+      - "test_p443_equity_first_repeat_review.py"
       - "p443_content_audit.py"
       - "test_p443_content_audit.py"
       - "test_p443_scanner_quarantine.py"
@@ -115,6 +122,12 @@ jobs:
         run: python -m unittest test_p443_equity_first_repeat_review -v
       - name: Export equity-first unresolved repeat review
         run: python tools/p443_equity_first_repeat_review.py --directory audit-strict
+      - name: Verify unresolved-pair official-history regression tests
+        run: python -m unittest test_p443_verify_unresolved_pairs -v
+      - name: Cross-check all unresolved pairs against official security history
+        run: python tools/p443_verify_unresolved_pairs.py --directory audit-strict
+      - name: Verify unique equity security-date queue regression tests
+        run: python -m unittest test_p443_equity_security_date_queue -v
       - name: Export unique equity security-date recovery requests
         run: python tools/p443_equity_security_date_queue.py --directory audit-strict
       - name: Preserve strict audit outputs

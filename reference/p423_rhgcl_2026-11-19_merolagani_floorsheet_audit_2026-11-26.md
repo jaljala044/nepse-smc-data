@@ -42,10 +42,16 @@ The repository's own cross-source parity manifest for the same date reports 40,8
 | RHGCL contracts | 47 |
 | Shares | 9,054 |
 | Turnover | NPR 2332952.50 |
-| Open (lowest sequence number) | 258.00 |
+| Open (highest sequence number; inferred earliest print) | 252.10 |
 | High | 259.50 |
 | Low | 252.10 |
-| Close (highest sequence number) | 252.10 |
+| Close (lowest sequence number; inferred latest print) | 258.00 |
+
+
+
+### Sequence-order interpretation
+
+The file preserves the Merolagani floorsheet display sequence, where smaller `sn` values appear first. For the daily OHLC reconstruction, that display order is reverse chronological: the highest `sn` is treated as the earliest print (open), and the lowest `sn` as the latest print (close). This direction is consistent with the independently displayed daily close of NPR 258.00 and the full 47-print price range. The CSV has no per-trade timestamps, so sequence direction remains an inferred ordering convention corroborated by the daily close, not a primary timestamp proof.
 
 The reconstructed RHGCL OHLCV matches the alternative record: 252.10 / 259.50 / 252.10 / 258.00 / 9,054. It corroborates the 258.00 close and 9,054 volume reported by other secondary records. The local 500-row sample contains two RHGCL contracts (480 shares) matching the same two early contract quantities and prices; this is corroboration, not a complete session capture.
 

@@ -13,6 +13,8 @@ on:
       - "tools/p443_export_repeat_review_queues.py"
       - "p443_content_audit.py"
       - "test_p443_content_audit.py"
+      - "test_p443_scanner_quarantine.py"
+      - "scanner_inputs/prepare_scanner_inputs.py"
       - "test_global_duplicate_audit_inventory.py"
       - "test_global_duplicate_audit_scan.py"
       - ".github/workflows/p443-global-integrity-audit.yml"
@@ -28,6 +30,8 @@ on:
       - "tools/p443_export_repeat_review_queues.py"
       - "p443_content_audit.py"
       - "test_p443_content_audit.py"
+      - "test_p443_scanner_quarantine.py"
+      - "scanner_inputs/prepare_scanner_inputs.py"
       - "test_global_duplicate_audit_inventory.py"
       - "test_global_duplicate_audit_scan.py"
       - ".github/workflows/p443-global-integrity-audit.yml"
@@ -56,6 +60,8 @@ jobs:
       - name: Strict content audit regression tests
         if: ${{ !cancelled() }}
         run: python -m unittest test_p443_content_audit -v
+      - name: Scanner quarantine regression tests
+        run: python -m unittest test_p443_scanner_quarantine -v
       - name: Run strict pinned-byte cross-check
         if: ${{ !cancelled() }}
         run: python p443_content_audit.py --output audit-strict

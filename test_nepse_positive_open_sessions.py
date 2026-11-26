@@ -10,7 +10,7 @@ from nepse_reference_validation import validate_calendar_rows
 ROOT = Path(__file__).resolve().parent
 CALENDAR = ROOT / "reference" / "nepse_positive_open_sessions_2025-11-26_2026-11-25.csv"
 CLOSURES = ROOT / "reference" / "nepse_session_calendar_2026.csv"
-CAPTURE_REPORT = ROOT / "reference" / "p437_cross_sector_date_audit" / "capture_report.json"
+CAPTURE_REPORT = ROOT / "reference" / "p443_positive_open_sessions_evidence" / "capture_report.json"
 
 
 class PositiveOpenSessionEvidenceTests(unittest.TestCase):
@@ -84,7 +84,7 @@ class PositiveOpenSessionEvidenceTests(unittest.TestCase):
         self.assertEqual(row["total_trades"], "103")
         aclbsl = self.captures["ACLBSL"]
         acl_payload = json.loads(
-            (ROOT / "reference" / "p437_cross_sector_date_audit" / "ACLBSL_page_0.json").read_text(encoding="utf-8")
+            (ROOT / "reference" / "p443_positive_open_sessions_evidence" / "ACLBSL_page_0.json").read_text(encoding="utf-8")
         )
         acl_row = next(x for x in acl_payload["content"] if str(x["businessDate"])[:10] == "2026-03-09")
         self.assertEqual(int(acl_row["totalTrades"]), 0)

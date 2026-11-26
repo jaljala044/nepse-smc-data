@@ -15,6 +15,7 @@ on:
       - 'tools/tests/test_validate_historical_floorsheets.py'
       - 'reference/p419_observed_date_floorsheet_archive_inventory_2026-11-26.csv'
       - 'reference/p420_226_historical_floorsheet_validation_contract_2026-11-26.md'
+      - 'reference/p420_226_historical_floorsheet_validation_results_2026-11-26.md'
       - 'reference/floorsheet_source_verification_2026-11-20.json'
       - 'reference/p417_281_equity_observed_session_archive_gap_audit_2026-11-26.md'
       - 'tools/reconcile_nov20_independent_floorsheet.py'

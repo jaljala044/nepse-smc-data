@@ -46,6 +46,14 @@ class FloorsheetReconciliationTests(unittest.TestCase):
         self.assertEqual(abc["floorsheet_quantity"], 10)
         self.assertTrue(abc["volume_match"])
 
+    def test_duplicate_contract_identifier_invalidates_file(self):
+        with self.floor.open("a", newline="") as handle:
+            writer = csv.DictWriter(handle, fieldnames=["Trading_Date", "Transaction", "Symbol", "Quantity", "Rate"])
+            writer.writerow({"Trading_Date": "2026-11-20", "Transaction": "C-1", "Symbol": "ABC", "Quantity": "10", "Rate": "100"})
+        abc = next(r for r in self.run_reconcile() if r["symbol"] == "ABC")
+        self.assertEqual(abc["trade_status"], "UNKNOWN")
+        self.assertFalse(abc["floorsheet_file_valid"])
+
     def test_absence_from_incomplete_file_is_unknown(self):
         rows = self.run_reconcile()
         xyz = next(r for r in rows if r["symbol"] == "XYZ") if any(r["symbol"] == "XYZ" for r in rows) else None

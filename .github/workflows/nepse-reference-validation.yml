@@ -7,6 +7,7 @@ on:
       - "test_nepse_reference_validation.py"
       - "nepse_session_date.py"
       - "test_nepse_session_date.py"
+      - "test_user_finalized_ohlcv.py"
       - ".github/workflows/nepse-reference-validation.yml"
   pull_request:
     paths:
@@ -14,6 +15,7 @@ on:
       - "test_nepse_reference_validation.py"
       - "nepse_session_date.py"
       - "test_nepse_session_date.py"
+      - "test_user_finalized_ohlcv.py"
       - ".github/workflows/nepse-reference-validation.yml"
   workflow_dispatch:
 
@@ -31,4 +33,4 @@ jobs:
         with:
           python-version: "3.11"
       - name: Run NEPSE reference-data tests
-        run: python -m unittest test_nepse_reference_validation test_nepse_session_date -v
+        run: python -m unittest test_nepse_reference_validation test_nepse_session_date test_user_finalized_ohlcv -v

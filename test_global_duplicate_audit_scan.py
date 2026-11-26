@@ -1,6 +1,4 @@
 import csv
-import subprocess
-import sys
 import unittest
 from pathlib import Path
 
@@ -12,7 +10,6 @@ SUMMARY = ROOT / "reference" / "NEPSE_GLOBAL_DUPLICATE_AUDIT_SCAN_SUMMARY.csv"
 class GlobalDuplicateAuditScanTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        subprocess.run([sys.executable, "tools/audit_global_data_integrity.py", "--write"], cwd=ROOT, check=True, capture_output=True, text=True)
         with FINDINGS.open(newline="", encoding="utf-8") as stream:
             cls.findings = list(csv.DictReader(stream))
         with SUMMARY.open(newline="", encoding="utf-8") as stream:

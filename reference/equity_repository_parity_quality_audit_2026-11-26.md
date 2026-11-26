@@ -62,12 +62,12 @@ The 23 divergent pairs account for 33,439 SMC rows and 20,767 starter rows:
 ## Interpretation and cautions
 
 1. **Structural validation passed for the 258 byte-identical pairs** under the checks listed above. Byte identity means both repositories share the same values; it does not establish external correctness.
-2. **The 23 divergent pairs remain unresolved at the value/provenance level.** SMC contains 1,329 OHLC invariant failures in those pairs; starter has no such failures but has substantially more repeated adjacent OHLCV values. Neither should be silently promoted as canonical.
+2. **The 23 different-blob pairs are not 23 broad price conflicts.** Numeric comparison found 13,517 matching OHLCV rows out of 13,518 common dates. The 23 pairs contain 19,797 dates only in SMC and 7,090 dates only in starter. The extra starter dates are largely calendar-day carry-forward rows; the SMC files preserve longer historical date coverage. Treat the repositories as different coverage constructions, not as competing full-history price series.
 3. Adjacent repeated OHLCV values are a suspicious pattern consistent with calendar-day forward-fill, especially given the known weekly closure regime changes. They are not automatically proven to be synthetic or invalid without date-level comparison against the exchange calendar and source evidence. Do not count these rows as independent executed trades without corroboration.
 4. Some symbols have shorter histories because their archives begin later. Short row counts alone are not proof of missing data. Lifecycle/listing and suspension evidence remains necessary.
 5. The ShareSansar-derived archive exactly corroborates 13 sampled OHLC invariant-flagged rows across 13 symbols. These are source-reported anomalies, not automatically SMC repository corruption. See [13-row source corroboration](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/shareSansar_source_corroboration_ohlc_flags_2026-11-26.csv).
-6. The RHGCL 2026-11-19 mismatch is the only numeric mismatch across the 13,518 common dates. See [RHGCL reconciliation](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/RHGCL_2026-11-19_source_reconciliation_2026-11-26.md).
-5. The OHLC invariant check does not test adjusted-vs-unadjusted basis, provider accuracy, trade-volume reconciliation, corporate-action treatment, or ticker identity.
+6. The only numeric mismatch is RHGCL on 2026-11-19. The ShareSansar-derived row matches the starter values (Close 258.00, Volume 9,054) rather than SMC (Close 256.00, Volume 4,216). See [RHGCL reconciliation](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/RHGCL_2026-11-19_source_reconciliation_2026-11-26.md).
+7. The OHLC invariant check does not test adjusted-vs-unadjusted basis, provider accuracy, trade-volume reconciliation, corporate-action treatment, or ticker identity.
 
 ## Deliverables
 
@@ -85,7 +85,7 @@ The 23 divergent pairs account for 33,439 SMC rows and 20,767 starter rows:
 
 ## Recommended next phase
 
-1. Resolve the 23 divergent symbol histories against ShareHub, Chukul, ShareSansar and NepseAlpha evidence.
+1. Resolve the single RHGCL 2026-11-19 row using the source-supported starter value in a derived view. Retain both raw files; the other 22 different-blob pairs match numerically on all common dates.
 2. Investigate the 1,329 invalid SMC OHLC rows without overwriting raw source rows.
 3. Classify adjacent repeated OHLCV rows against the two weekly trading-calendar regimes and derive a separate non-forward-filled view with provenance.
 4. Validate symbol listing/suspension dates before publishing expected-session completeness scores.

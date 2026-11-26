@@ -45,7 +45,6 @@ def validate_rows(raw,symbol,date):
   try:
    q=Decimal(pick(row,"quantity").replace(",",""));rate=Decimal(pick(row,"rate").replace(",",""));amt=Decimal(pick(row,"amount").replace(",",""))
    if q<=0 or rate<=0 or amt<=0:invalid+=1
-   elif abs(q*rate-amt)>Decimal("0.01") and amt!=q.to_integral_value(rounding=ROUND_FLOOR)*rate if False else False: pass
    elif abs(q*rate-amt)>Decimal("0.01") and amt!=(q*rate).to_integral_value(rounding=ROUND_FLOOR):arithmetic+=1
   except (InvalidOperation,ValueError):invalid+=1
  dup=len(ids)-len(set(ids))

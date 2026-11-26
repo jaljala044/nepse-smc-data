@@ -7,6 +7,8 @@ on:
     paths:
       - 'tools/build_derived_ohlcv_v2.py'
       - 'tools/tests/test_build_derived_ohlcv_v2.py'
+      - 'tools/audit_derived_ohlcv_v2.py'
+      - 'tools/tests/test_audit_derived_ohlcv_v2.py'
       - '.github/workflows/derived-ohlcv-v2-official-eod.yml'
       - 'derived/ohlcv_v1/**'
 permissions:
@@ -31,6 +33,8 @@ jobs:
           python-version: "3.11"
       - name: Run v2 derivation regression tests
         run: python -m unittest discover -s tools/tests -p 'test_build_derived_ohlcv_v2.py' -v
+      - name: Run v2 integrity-audit regression tests
+        run: python -m unittest discover -s tools/tests -p 'test_audit_derived_ohlcv_v2.py' -v
       - name: Build official-EOD-backed v2 derived dataset
         run: |
           python tools/build_derived_ohlcv_v2.py \
@@ -40,6 +44,15 @@ jobs:
             --calendar evidence/main/reference/nepse_canonical_session_calendar_2025-2026.csv \
             --output-dir derived/ohlcv_v2 \
             --overwrite
+      - name: Audit v2 OHLCV, calendar and corporate-action integrity
+        run: |
+          python tools/audit_derived_ohlcv_v2.py \
+            --v2-dir derived/ohlcv_v2 \
+            --raw-dir evidence/main/03_stock_charts_ohlcv \
+            --calendar evidence/main/reference/nepse_canonical_session_calendar_2025-2026.csv \
+            --corporate-actions evidence/main/scanner_inputs/corporate_actions.csv \
+            --split-review evidence/main/scanner_inputs/audit/stock_split_review.csv \
+            --output-dir derived/ohlcv_v2/quality_audit
       - name: Commit v2 derived release on task branch
         if: github.event_name == 'push' && success()
         run: |

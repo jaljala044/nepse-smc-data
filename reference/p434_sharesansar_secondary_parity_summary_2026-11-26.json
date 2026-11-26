@@ -1,0 +1,43 @@
+{
+  "status": "SECONDARY_PARITY_AUDIT_COMPLETE_NO_PROMOTIONS",
+  "source_repository": "srijankarki07/nepse-data",
+  "source_commit": "688d59c03915dcee73ecad4230d2083a41c61764",
+  "source_provenance": "ShareSansar-derived; not an independent NEPSE feed",
+  "symbols": 9,
+  "flag_rows": 1368,
+  "secondary_rows_matched": 1283,
+  "exact_matches_not_independent": 1283,
+  "secondary_value_differences": 0,
+  "no_secondary_row": 85,
+  "secondary_rows_with_valid_ohlc": 0,
+  "secondary_rows_with_invalid_ohlc": 1283,
+  "promoted_or_repaired_rows": 0,
+  "by_symbol": {
+    "AHPC": 607,
+    "API": 122,
+    "CHL": 48,
+    "HIDCL": 32,
+    "MERO": 104,
+    "RADHI": 1,
+    "SKBBL": 381,
+    "SPDL": 72,
+    "UNHPL": 1
+  },
+  "by_flag": {
+    "OPEN_OUTSIDE_RANGE": 1314,
+    "CLOSE_OUTSIDE_RANGE": 28,
+    "HIGH_BELOW_LOW": 22,
+    "NONPOSITIVE_PRICE": 4
+  },
+  "file_blob_shas": {
+    "AHPC": "9d03bc7630fd2f631e2a2df32093b4502d5b6591",
+    "API": "7d8d252ae3016bcb8cd5d3751076045bff42db08",
+    "CHL": "30d6756c83c5bf8dfbf553b9feb9a246b32e61bb",
+    "HIDCL": "c519422607e431db404ca8b9e2d5b876b0eb0cc0",
+    "MERO": "a6ce6696fead7b463f332ede6aac95da9b068fdc",
+    "RADHI": "8660064b7a8520efe8f7cfd2fbec9455014608cc",
+    "SKBBL": "c2cd3f77ba5614823246a40748f24b6f5430b9e8",
+    "SPDL": "69d181fd958cd11866aa019a27cafb25b957bb0a",
+    "UNHPL": "19fc28fe57e2690d7c191f5b6aa6ffb8d4014d97"
+  }
+}

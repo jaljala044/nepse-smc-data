@@ -4,7 +4,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 from capture_p437_cross_sector_date_audit import (
-    SAMPLE, validate_sample, weekday_class, summarize_rows, capture
+    SAMPLE, validate_sample, weekday_class, summarize_rows, build_quarantine_rows, capture
 )
 
 class P437CrossSectorDateAuditTests(unittest.TestCase):
@@ -30,9 +30,9 @@ class P437CrossSectorDateAuditTests(unittest.TestCase):
 
     def test_row_summary_flags_duplicate_dates_weekends_and_missing_fields(self):
         rows=[
-            {"businessDate":"2026-11-26","highPrice":10,"lowPrice":8,"closePrice":9,"totalTradedQuantity":100},
+            {"businessDate":"2026-11-26","totalTrades":2,"totalTradedQuantity":100,"totalTradedValue":900,"highPrice":10,"lowPrice":8,"closePrice":9},
             {"businessDate":"2026-11-27","highPrice":10,"lowPrice":8,"closePrice":9,"totalTradedQuantity":100},
-            {"businessDate":"2026-11-28","highPrice":10,"lowPrice":8,"closePrice":9,"totalTradedQuantity":100},
+            {"businessDate":"2026-11-28","totalTrades":0,"totalTradedQuantity":0,"totalTradedValue":0,"highPrice":9,"lowPrice":9,"closePrice":9},
             {"businessDate":"2026-11-26","highPrice":10,"lowPrice":8,"closePrice":9,"totalTradedQuantity":100},
             {"businessDate":"2026-11-30","highPrice":None,"lowPrice":8,"closePrice":9},
         ]
@@ -41,7 +41,28 @@ class P437CrossSectorDateAuditTests(unittest.TestCase):
         self.assertEqual(result["weekly_closure_records"],[{"date":"2026-11-28","weekday":"saturday"}])
         self.assertEqual(result["missing_hlc_rows"],1)
         self.assertEqual(result["missing_volume_rows"],1)
+        self.assertEqual(result["zero_trade_rows"],1)
+        self.assertEqual(result["positive_trade_rows"],1)
         self.assertEqual(result["out_of_window_dates"],["2026-11-27","2026-11-28","2026-11-30"])
+
+    def test_quarantine_matrix_records_shifted_duplicates_and_exact_mismatches(self):
+        import csv
+        with tempfile.TemporaryDirectory() as tmp:
+            path=Path(tmp)/"TEST_OHLCV.csv"
+            with path.open("w",newline="") as handle:
+                writer=csv.DictWriter(handle,fieldnames=["Date","Open","High","Low","Close","Volume"])
+                writer.writeheader()
+                writer.writerow({"Date":"2026-01-05","Open":"10","High":"11","Low":"9","Close":"9.5","Volume":"100"})
+                writer.writerow({"Date":"2026-01-06","Open":"10","High":"11","Low":"9","Close":"10","Volume":"100"})
+            official=[{"businessDate":"2026-01-05","totalTrades":5,"totalTradedQuantity":100,
+                       "totalTradedValue":1000,"highPrice":11,"lowPrice":9,"closePrice":10}]
+            rows=build_quarantine_rows("TEST","Finance",official,"2026-01-01","2026-01-31",tmp)
+            dispositions={row["disposition"] for row in rows}
+            self.assertIn("EXACT_DATE_HLCV_MISMATCH",dispositions)
+            self.assertIn("CANONICAL_ONLY_TUPLE_MATCHES_OTHER_OFFICIAL_DATE",dispositions)
+            shifted=next(row for row in rows if row["disposition"]=="CANONICAL_ONLY_TUPLE_MATCHES_OTHER_OFFICIAL_DATE")
+            self.assertEqual(shifted["calendar_day_offset"],1)
+            self.assertEqual(shifted["official_date"],"2026-01-05")
 
     def test_capture_checks_all_security_ids_and_keeps_tokens_out(self):
         token={"accessToken":"SECRET_ACCESS","refreshToken":"SECRET_REFRESH",
@@ -61,6 +82,9 @@ class P437CrossSectorDateAuditTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp, patch(
             "capture_p437_cross_sector_date_audit.compare_canonical",
             return_value={"status":"test_stub"}
+        ), patch(
+            "capture_p437_cross_sector_date_audit.build_quarantine_rows",
+            return_value=[]
         ):
             result=capture(tmp,fake,lambda obj,path:("AUTH","REFRESH"),"2026-11-26T00:00:00Z")
             self.assertEqual(len(calls),24)

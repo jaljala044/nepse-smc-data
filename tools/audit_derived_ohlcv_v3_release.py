@@ -123,7 +123,7 @@ def audit(v2_dir, v3_dir, raw_dir, matrix_path, correction_path, output_dir,
                 corr = next(r for r in corrections if (r["symbol"], r["business_date"]) == key)
                 if dec(old["Open"]) != dec(item["candidate_open"]) or dec(new["Open"]) != dec(item["official_open"]):
                     raise ValueError(f"official Open correction mismatch for {key}")
-                if dec(corr.get("raw_value")) != dec(item["candidate_open"]) or dec(corr.get("derived_value")) != dec(item["official_open"]):
+                if dec(corr.get("candidate_value")) != dec(item["candidate_open"]) or dec(corr.get("official_value")) != dec(item["official_open"]):
                     raise ValueError(f"correction ledger value mismatch for {key}")
                 if any(dec(old[k]) != dec(new[k]) for k in ("High", "Low", "Close", "Volume")):
                     raise ValueError(f"non-Open field changed for {key}")

@@ -75,3 +75,42 @@ PR #12 added a schema adapter for the inspected third-party column names (`trans
 - Result: success; 16 tests ran and passed (`Ran 16 tests`, `OK`).
 
 The adapter enables parsing the candidate format; it does not upgrade the candidate's completeness classification. `NO_TRADE` remains blocked without independently verifiable per-date upstream totals and pagination evidence.
+
+
+## Additional provenance investigation — independent capture pipeline lead (2026-11-26)
+
+Investigated the public NEPSE ingestion pipeline at https://github.com/ANKITSANJYAL/nepse-pipeline and its published dataset at https://huggingface.co/datasets/AnkitSanjyal/nepse-market-data.
+
+### What the pipeline source establishes
+
+The public floorsheet collector describes and implements a materially stronger capture design than the SocrateAI CSV archive:
+
+- Fetches page 0 and reads upstream totalElements / page metadata.
+- Performs full pagination at session close rather than relying on a sample.
+- Persists raw page payloads to a bronze layer before parsing.
+- Upserts by contract ID and checks held rows against the upstream total.
+- Re-sweeps incomplete sessions.
+- Quality checks include non-zero rows, uniqueness of contract IDs, required fields, quantity × rate = amount, positive quantity/rate, trade-time/date match and symbol breadth.
+- The published workflow runs after close and publishes the warehouse to Hugging Face.
+
+This is a documented and code-inspected completeness method. It is NOT evidence that the SocrateAI 39,966-row file was produced by this pipeline. The SocrateAI repository tree contains only the daily CSV archive, README, LICENSE and an empty meta/.gitkeep; no capture workflow, raw response archive or per-date completeness manifest was found.
+
+### Dataset coverage and the 2026-11-20 lead
+
+The Hugging Face dataset card describes floorsheet coverage from 2026-08-19, with a stated gap from 2026-08-26 through 2026-11-18. Thus 2026-11-20 is outside the documented gap and is a high-priority candidate date for independent comparison.
+
+However, the public page inspected in this pass did not expose a date-specific 2026-11-20 floorsheet row count, contract IDs, upstream totalElements, or downloadable raw bronze response evidence. The dataset page's overall row count and general coverage statement are not sufficient to certify that date. Direct retrieval of the dataset's file/API listing was unavailable in this execution environment, so no contract-level comparison with the 39,966-row SocrateAI CSV or the existing 500-row extract is claimed.
+
+### Revised conclusion
+
+- The independent pipeline gives us a concrete, reproducible capture methodology and a second archive worth pursuing.
+- The exact 2026-11-20 completeness reconciliation remains NOT YET PERFORMED.
+- The 500-row extract mismatch remains unresolved.
+- Do not relabel the SocrateAI candidate as verified complete, infer NO_TRADE from absences, or promote it to canonical broker-flow/training data.
+- Immediate next action: retrieve the Hugging Face floorsheet partition for 2026-11-20 and compare contract IDs and normalized rows against both local files; require the date's upstream totalElements and page-level bronze evidence before certifying completeness.
+
+Evidence links:
+- Pipeline floorsheet capture implementation: https://github.com/ANKITSANJYAL/nepse-pipeline/blob/main/src/nepse_pipeline/jobs/floorsheet.py
+- Pipeline quality gate: https://github.com/ANKITSANJYAL/nepse-pipeline/blob/main/src/nepse_pipeline/quality.py
+- Capture workflow: https://github.com/ANKITSANJYAL/nepse-pipeline/blob/main/.github/workflows/capture.yml
+- Published dataset and declared coverage: https://huggingface.co/datasets/AnkitSanjyal/nepse-market-data

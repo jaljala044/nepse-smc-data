@@ -36,6 +36,10 @@
 - RHGCL raw row verified unchanged as `2026-11-19,252.1,259.5,252.1,256.0,4216.0`.
 - API derived file blob SHA matches the source raw file SHA; sample verification of byte reuse succeeded.
 
+## Repeated-row quality flag pilot
+
+A date-level quality-flag pilot is included under [quality_flags](https://github.com/jaljala044/nepse-smc-data/tree/derived/ohlcv-v1/derived/ohlcv_v1/quality_flags). It currently covers 14/281 symbols and flags 3,288 adjacent identical-OHLCV rows: 688 weekly-closed-day candidates, 187 weekly-open-weekday repeats, and 2,413 outside the current calendar evidence window. These are flags only; no records are removed. See the [pilot README](https://github.com/jaljala044/nepse-smc-data/blob/derived/ohlcv-v1/derived/ohlcv_v1/quality_flags/README.md).
+
 ## Limitations and next work
 
 This is a conservative derived release, not final trading-session-clean data. Repeated OHLCV rows are retained pending date-level classification against the pre/post 2026-04-06 weekly calendar regimes. The session calendar has limited observed-open scope, and per-symbol expected-session completeness still requires lifecycle/suspension evidence. The source-reported OHLC invariant flags remain uncorrected except for the single source-supported RHGCL mismatch.

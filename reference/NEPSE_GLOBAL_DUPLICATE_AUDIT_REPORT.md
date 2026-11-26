@@ -3,7 +3,7 @@
 **Status: reproducible audit baseline complete; adjudication and canonical-ingestion acceptance remain open.**
 
 **Pinned input:** `main` at `56362fb4f65b91fdcca8f50b50e53ad80e703649`.  
-**Latest completed strict workflow:** [Run 263](https://github.com/jaljala044/nepse-smc-data/actions/runs/45902069156) passed all 32 steps on head `f15a37841608bf777177c6bdda266fd509252391`, including the bounded bulk floorsheet batch. Priority recovery [Run 48](https://github.com/jaljala044/nepse-smc-data/actions/runs/45902069182) and secondary comparison [Run 39](https://github.com/jaljala044/nepse-smc-data/actions/runs/45902069187) passed on the same head. Expanded 22-session full-session parity [Run 33](https://github.com/jaljala044/nepse-smc-data/actions/runs/45902069128) also passed with one preserved row-conflict finding.  
+**Latest completed strict workflow:** [Run 266](https://github.com/jaljala044/nepse-smc-data/actions/runs/45903027490) passed all 32 steps on head `f8af44d4233d31a6f8eb92a1f99acb4fbe994a60`, including the primary and HF-only bulk recovery batches. The 22-session full-session parity [Run 33](https://github.com/jaljala044/nepse-smc-data/actions/runs/45902069128) passed with one preserved row-conflict finding; priority recovery [Run 48](https://github.com/jaljala044/nepse-smc-data/actions/runs/45902069182) and secondary comparison [Run 39](https://github.com/jaljala044/nepse-smc-data/actions/runs/45902069187) also passed.  
 **Method:** deterministic, read-only scan of pinned file blobs. Findings are review flags, not automatic corrections.
 
 ## Coverage
@@ -148,6 +148,21 @@ All 22 downloaded files passed exact Git-blob SHA, byte-size, schema, date, tran
 
 Across the 5,235 available requests, high matched 5,074 (161 mismatches), low matched 3,365 (1,870 mismatches), and volume matched 5,018 (217 mismatches). Of the 2,058 conflicts, 1,706 are low-only mismatches, 120 volume-only mismatches, 80 high+low mismatches with volume matching, 71 low+volume mismatches, 55 high-only mismatches, 13 high+low+volume mismatches, and 13 high+volume mismatches with low matching. The row-level artifact now exports source OHLCV, observed floorsheet H/L/volume, and per-field match flags. These comparisons are review evidence only: open and close are not checked, and no conflict is presumed to be an erroneous source value. All rows remain `promotion_allowed=false`; zero canonical values changed. Compact summary: `P443_BULK_EQUITY_FLOORSHEET_BATCH01_2026-11-27.json`.
 
+### HF-only second-source floorsheet recovery — first bounded batch
+
+Run 266 used the captured Hugging Face tree (603 daily partitions) to identify **96 of the 316** requested dates with a pinned file. Twenty-two overlap the primary archive; **74 additional HF-only dates** cover 15,439 requests. The first 22-date HF-only batch processed 4,907 requests. All 22 compressed files passed LFS SHA-256 and size checks; their 1,796,949 rows passed transaction shape, date, broker-ID, positive-value and amount-arithmetic checks.
+
+| HF-only first-batch disposition | Requests | Meaning |
+|---|---:|---|
+| HIGH_LOW_VOLUME_MATCH_OPEN_CLOSE_UNVERIFIED | 2,406 | H/L/volume match; open/close remain unverified |
+| HIGH_LOW_VOLUME_CONFLICT | 1,398 | At least one of H/L/volume differs |
+| CONTRACT_ID_COLLISION_REVIEW | 1,103 | Five sessions have repeated contract IDs; H/L/volume aggregation withheld |
+| HF_AVAILABLE_NOT_FETCHED | 10,532 | 52 other HF-available dates remain in the next batch |
+| NO_HF_PINNED_PARTITION | 48,099 | No matching file in the captured HF tree; unknown, not no-trade |
+| PRIMARY_ARCHIVE_ALREADY_CHECKED | 5,235 | Already processed against the primary archive |
+
+The five collision sessions are 2025-05-15, 2025-05-22, 2025-06-05, 2025-06-12 and 2025-06-26. They contain **42,006 repeated contract IDs** and **377,975 occurrences beyond the first** (416,311 distinct collision-signature rows in the artifact). Collisions occur across symbols and within symbols; the cause may be identifier scoping or precision/truncation, but is not established. The workflow preserves all collision signatures and does not deduplicate or use these sessions for H/L/volume comparison. For the other 17 sessions, 2,406 requests matched H/L/volume and 1,398 conflicted. The archive's completeness, upstream independence and exchange authority remain UNKNOWN. All rows remain `promotion_allowed=false`; no source or canonical values changed. Summary: `P443_HF_BULK_EQUITY_BATCH01_2026-11-27.json`; row-level disposition and collision evidence are in strict artifact 15157080178.
+
 Run 190 completed the read-only cross-check of **all 58,972** evidence-review pairs against the pinned official per-security EOD captures:
 
 | Calendar pair class | No security/date capture for either date | Previous-date HLCV/execution match; current date unverified | Total |
@@ -184,7 +199,7 @@ Preserve all rows. The source capture report reports unique archive-local record
 
 ## Reproducibility and machine-readable outputs
 
-- Latest completed strict workflow: [Run 263](https://github.com/jaljala044/nepse-smc-data/actions/runs/45902069156), 32/32 steps passed including bulk-recovery tests and first-batch export. Its strict artifact contains the 68,773-row disposition file and 22-session validation summary. Priority recovery [Run 48](https://github.com/jaljala044/nepse-smc-data/actions/runs/45902069182), secondary comparison [Run 39](https://github.com/jaljala044/nepse-smc-data/actions/runs/45902069187), and expanded full-session parity [Run 33](https://github.com/jaljala044/nepse-smc-data/actions/runs/45902069128) also passed. The 22-session artifact recorded 21 exact matches and one 2026-04-10 conflict with 10,081 secondary-only contracts; no rows were promoted.
+- Latest completed strict workflow: [Run 266](https://github.com/jaljala044/nepse-smc-data/actions/runs/45903027490), 32/32 steps passed, including bulk-recovery regression tests and both first-batch exports. Its strict artifact 15157080178 contains the 68,773-row primary and HF-only disposition files, session summaries and contract-collision detail. Priority recovery [Run 48](https://github.com/jaljala044/nepse-smc-data/actions/runs/45902069182), secondary comparison [Run 39](https://github.com/jaljala044/nepse-smc-data/actions/runs/45902069187), and expanded full-session parity [Run 33](https://github.com/jaljala044/nepse-smc-data/actions/runs/45902069128) also passed.
 - Standard row-level CSV findings: `NEPSE_GLOBAL_DUPLICATE_AUDIT_FINDINGS.csv`.
 - Per-file scan coverage: `NEPSE_GLOBAL_DUPLICATE_AUDIT_SCAN_SUMMARY.csv`.
 - Strict pinned-byte row-level findings and exception join: preserved in the run's `p443-strict-content-audit` artifact (`findings.jsonl`, `coverage.json`, `summary.json`, `exception_join.csv`, `exception_join_summary.json`, `open_pair_security_evidence.csv`, `open_pair_security_summary.json`, `unresolved_pair_security_evidence.csv`, `unresolved_pair_security_summary.json`, `equity_first_repeat_review.csv`, `equity_first_repeat_summary.json`, `equity_security_date_recovery_queue.csv`, `equity_security_date_source_lineage.csv`, `equity_security_date_recovery_summary.json`).

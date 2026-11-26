@@ -74,6 +74,7 @@ The 23 divergent pairs account for 33,439 SMC rows and 20,767 starter rows:
 - [258-pair detailed structural audit CSV](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/equity_identical_pair_row_quality_audit_2026-11-26.csv)
 - [23-pair numeric overlap and divergence audit CSV](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/equity_repository_divergence_audit_2026-11-26.csv)
 - [RHGCL source-supported discrepancy evidence](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/RHGCL_2026-11-19_source_reconciliation_2026-11-26.csv)
+- [Derived correction candidate register](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/ohlcv_derived_correction_candidates_2026-11-26.csv)
 - [281-equity observed-date coverage CSV](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/equity_observed_date_coverage_2026-11-26.csv)
 - [Canonical session calendar](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/nepse_canonical_session_calendar_2025-2026.csv)
 

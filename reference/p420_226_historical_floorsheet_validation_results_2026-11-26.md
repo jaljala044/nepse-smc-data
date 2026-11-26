@@ -64,6 +64,8 @@ Across the 226 × 281 symbol/date grid (63,506 rows):
 - Volume conflicts: **1,000**
 - Positive floorsheet trades with no matching OHLCV date row: **656**
 
+The 1,000 volume conflicts are spread thinly across the universe (top symbol GCIL has 5; most next-ranked symbols have 4). The 656 absent rows are also dispersed (top symbol GBBL has 5). No single-symbol concentration is established by this summary. The date-level CSV artifact is required to inspect each discrepancy.
+
 A conflict is an unresolved discrepancy, not an automatic correction. Possible causes such as price-basis, corporate actions, source revision or incomplete OHLCV archives require per-symbol/date investigation. Missing OHLCV rows remain archive gaps.
 
 ## 6. Per-equity/date dispositions
@@ -77,10 +79,13 @@ A conflict is an unresolved discrepancy, not an automatic correction. Possible c
 
 The only `NO_TRADE` rows are BNL and NLO on 2026-11-20, after that date's full-session evidence and totals passed. No absent contract on any other date is treated as no trade.
 
+### UNL-specific reconciliation
+Across the 226 observed dates, UNL has 185 dates with positive contracts: 748 contracts, 7,974 shares and NPR 376,209,330.70 turnover. The other 41 dates remain `UNKNOWN`, not `NO_TRADE`; no UNL no-trade date is asserted. On 2026-11-20 specifically, UNL had 4 contracts, 50 shares and NPR 2,408,700 turnover. This confirms that UNL does trade infrequently on some observed dates, but the archive cannot yet prove that its other 41 dates were no-trade sessions.
+
 ## Artifacts and CI
 
-- P4.20 workflow: https://github.com/jaljala044/nepse-smc-data/actions/runs/45852822223
-- Validation CSV artifact (download integrity, daily summary and equity/date dispositions): https://github.com/jaljala044/nepse-smc-data/actions/runs/45852822223/artifacts/15133623983
+- P4.20 workflow: https://github.com/jaljala044/nepse-smc-data/actions/runs/45853177867
+- Validation CSV artifact (download integrity, daily summary and equity/date dispositions): https://github.com/jaljala044/nepse-smc-data/actions/runs/45853177867/artifacts/15134114504
 - The complete workflow run passed. The `PARTIAL_FAIL` is an explicit data-quality result, not a software-test failure.
 
 ## Decision

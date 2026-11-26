@@ -5,6 +5,7 @@ import gzip
 import hashlib
 import io
 import json
+import re
 import subprocess
 from collections import Counter
 from datetime import date
@@ -23,9 +24,12 @@ def records(raw, fmt):
     if fmt in ("csv", "csv.gz"):
         reader = csv.reader(io.StringIO(raw.decode("utf-8-sig")), strict=True)
         header = next(reader)
-        keys = [norm(x) for x in header]
-        if not all(keys) or len(set(keys)) != len(keys):
-            raise ValueError("empty or duplicate normalized headers")
+        base = [norm(x) or f"column_{i+1}" for i,x in enumerate(header)]
+        counts = Counter()
+        keys = []
+        for key in base:
+            counts[key] += 1
+            keys.append(key if counts[key] == 1 else f"{key}__duplicate_{counts[key]}")
         for row in reader:
             if len(row) != len(keys):
                 raise ValueError(f"row width mismatch at line {reader.line_num}")
@@ -56,6 +60,10 @@ def non_json_capture(raw):
     text = raw.lstrip()
     return text.startswith(b"<html") or text.startswith(b"<!DOCTYPE html") or raw.strip().startswith(b"Searched Date is not valid.")
 
+def floorsheet_date_from_filename(path):
+    match = re.search(r"floorsheet_(20\\d{2})[-_](\\d{2})[-_](\\d{2})", Path(path).name, re.I)
+    return "-".join(match.groups()) if match else ""
+
 def scan(raw, entry):
     path = entry["path"]
     seen, business, previous = {}, {}, {}
@@ -76,11 +84,13 @@ def scan(raw, entry):
         else:
             seen[sig]=loc
         d = first(row,"date","tradedate","businessdate","holidaydate","sessiondate")
+        if not d and entry["category"] == "floorsheet_or_reconciliation":
+            d = floorsheet_date_from_filename(path)
         symbol = first(row,"symbol","stocksymbol","scrip","securitysymbol")
         contract = first(row,"contractno","contractnumber","contractid","transactionid")
         fields=("open","high","low","close","volume")
         key = None
-        if all(k in row for k in fields) and d:
+        if entry["category"] == "ohlcv_symbol_archive" and all(k in row for k in fields) and d:
             schemas["ohlcv"] += 1
             if not symbol and entry["category"]=="ohlcv_symbol_archive":
                 symbol=Path(path).name.split("_OHLCV")[0]

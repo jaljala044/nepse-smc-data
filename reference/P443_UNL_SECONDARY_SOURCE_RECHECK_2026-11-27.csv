@@ -1,0 +1,4 @@
+symbol,date,open,high,low,close,volume,secondary_source,secondary_source_url,matched_fields,source_lineage_independence,contract_id_verified,promotion_allowed,disposition,retrieved_date
+UNL,2026-08-24,47200,47200,47200,47200,10,ArthaKendra,https://www.arthakendra.com/stock-market/company/UNL/price-history,OHLCV+volume,UNKNOWN,false,false,SECONDARY_MATCH_ONLY,2026-11-27
+UNL,2026-08-27,47200,47200,47200,47200,10,ArthaKendra,https://www.arthakendra.com/stock-market/company/UNL/price-history,OHLCV+volume,UNKNOWN,false,false,SECONDARY_MATCH_ONLY,2026-11-27
+UNL,2026-09-28,48000,48000,48000,48000,10,NepseAlpha,https://www.nepsealpha.com/search?q=unl,OHLCV+volume+turnover,UNKNOWN,false,false,SECONDARY_MATCH_ONLY,2026-11-27

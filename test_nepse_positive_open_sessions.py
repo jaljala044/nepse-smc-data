@@ -1,6 +1,7 @@
 import csv
 import hashlib
 import json
+from decimal import Decimal
 from pathlib import Path
 import unittest
 
@@ -63,14 +64,14 @@ class PositiveOpenSessionEvidenceTests(unittest.TestCase):
                 )
                 self.assertGreater(int(source_row["totalTrades"]), 0)
                 self.assertGreater(int(source_row["totalTradedQuantity"]), 0)
-                self.assertEqual(str(source_row["totalTrades"]), row["total_trades"])
+                self.assertEqual(Decimal(str(source_row["totalTrades"])), Decimal(row["total_trades"]))
                 self.assertEqual(
-                    str(source_row["totalTradedQuantity"]),
-                    row["total_traded_quantity"],
+                    Decimal(str(source_row["totalTradedQuantity"])),
+                    Decimal(row["total_traded_quantity"]),
                 )
                 self.assertEqual(
-                    str(source_row["totalTradedValue"]),
-                    row["total_traded_value"],
+                    Decimal(str(source_row["totalTradedValue"])),
+                    Decimal(row["total_traded_value"]),
                 )
 
     def test_source_witness_distribution_and_zero_trade_fallback(self):

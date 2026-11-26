@@ -41,12 +41,30 @@ class HFBulkRecoveryTests(unittest.TestCase):
                 "quantity": "20", "rate": "50", "amount": "1000",
             },
         ]
-        contracts, collisions, collision_rows = parse_hf_session(
+        contracts, collisions, collision_rows, invalid_rows = parse_hf_session(
             iter(rows), "2025-01-01"
         )
         self.assertEqual(contracts.total(), 2)
         self.assertEqual(collisions, {"20250101000001": 2})
         self.assertEqual(len(collision_rows), 2)
+        self.assertEqual(invalid_rows, [])
+
+    def test_invalid_rows_are_preserved_with_field_reason(self):
+        rows = [
+            {
+                "contract_no": "20250101000001", "date": "2025-01-01",
+                "symbol": "AAA", "buyer": "not-a-broker", "seller": "17",
+                "quantity": "10", "rate": "100", "amount": "1000",
+            },
+        ]
+        contracts, collisions, collision_rows, invalid_rows = parse_hf_session(
+            iter(rows), "2025-01-01"
+        )
+        self.assertEqual(contracts.total(), 0)
+        self.assertEqual(collisions, {})
+        self.assertEqual(collision_rows, [])
+        self.assertEqual(len(invalid_rows), 1)
+        self.assertEqual(invalid_rows[0]["error"], "broker_id_non_numeric")
 
     def test_empty_hf_session_is_not_treated_as_no_trade(self):
         with self.assertRaisesRegex(ValueError, "empty session"):

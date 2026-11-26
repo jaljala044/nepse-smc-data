@@ -59,7 +59,7 @@ def build(raw_path, ohlcv_dir, inventory_commit):
 def write_csv(rows):
     import io
     s=io.StringIO(newline="")
-    w=csv.DictWriter(s,fieldnames=FIELDS,lineterminator="\n")
+    w=csv.DictWriter(s,fieldnames=FIELDS,lineterminator="\n",quoting=csv.QUOTE_ALL)
     w.writeheader();w.writerows(rows)
     return s.getvalue()
 

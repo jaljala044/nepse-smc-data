@@ -162,7 +162,9 @@ def main():
         writer = csv.writer(handle)
         writer.writerow([
             "symbol", "date", "status", "source_blob", "contracts",
+            "source_open", "source_high", "source_low", "source_close", "source_volume",
             "observed_high", "observed_low", "observed_volume",
+            "high_match", "low_match", "volume_match",
             "source_tuple_count", "promotion_allowed",
         ])
         for symbol, day in sorted(keys):
@@ -170,12 +172,25 @@ def main():
             result = results.get(day)
             if result is not None and result["status"] == "PASS":
                 observed = result["observed"].get(symbol, [])
+            source_tuple_set = expected[(symbol, day)]
             status = classify_request(
-                expected[(symbol, day)],
+                source_tuple_set,
                 observed,
                 day in inventory,
                 result["status"] if result is not None else None,
             )
+            source_values = next(iter(source_tuple_set)) if len(source_tuple_set) == 1 else ()
+            observed_high = max((row[0] for row in observed), default=None)
+            observed_low = min((row[0] for row in observed), default=None)
+            observed_volume = (
+                sum((row[1] for row in observed), Decimal("0")) if observed else None
+            )
+            if source_values and observed:
+                high_match = observed_high == source_values[1]
+                low_match = observed_low == source_values[2]
+                volume_match = observed_volume == source_values[4]
+            else:
+                high_match = low_match = volume_match = None
             counts[status] += 1
             writer.writerow([
                 symbol,
@@ -183,10 +198,14 @@ def main():
                 status,
                 inventory.get(day, {}).get("git_blob_sha", ""),
                 len(observed),
-                max((row[0] for row in observed), default=""),
-                min((row[0] for row in observed), default=""),
-                sum((row[1] for row in observed), Decimal("0")) if observed else "",
-                len(expected[(symbol, day)]),
+                *source_values if source_values else ["", "", "", "", ""],
+                observed_high if observed_high is not None else "",
+                observed_low if observed_low is not None else "",
+                observed_volume if observed_volume is not None else "",
+                str(high_match).lower() if high_match is not None else "",
+                str(low_match).lower() if low_match is not None else "",
+                str(volume_match).lower() if volume_match is not None else "",
+                len(source_tuple_set),
                 "false",
             ])
 

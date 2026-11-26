@@ -102,7 +102,8 @@ def aggregate_transactions(transactions, lookup, target_symbols):
                           "volume": sum((t["qty"] for t in trades), Decimal(0)),
                           "turnover": sum((t["amount"] for t in trades), Decimal(0)),
                           "incomplete": False}
-    audit["unknown_stock_ids"] = sorted(audit["unknown_stock_ids"])\n    audit["non_target_symbols"] = sorted(audit["non_target_symbols"])
+    audit["unknown_stock_ids"] = sorted(audit["unknown_stock_ids"])
+    audit["non_target_symbols"] = sorted(audit["non_target_symbols"])
     return result, audit
 
 def jsonable(value):

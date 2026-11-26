@@ -91,7 +91,7 @@ def scan(raw, entry):
             d = floorsheet_date_from_filename(path)
         symbol = first(row,"symbol","stocksymbol","scrip","securitysymbol")
         contract_no = first(row,"contractno","contractnumber")
-        if contract_no:
+        if contract_no and entry["category"] == "floorsheet_or_reconciliation":
             contract_no_counts[contract_no] += 1
             if symbol:
                 contract_no_symbols.setdefault(contract_no,set()).add(symbol)

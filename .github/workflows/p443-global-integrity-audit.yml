@@ -133,7 +133,7 @@ jobs:
       - name: Export unique equity security-date recovery requests
         run: python tools/p443_equity_security_date_queue.py --directory audit-strict
       - name: Map and reconcile first bulk equity floorsheet batch
-        run: python tools/p443_bulk_equity_floorsheet_recovery.py --directory audit-strict --max-dates 20
+        run: python tools/p443_bulk_equity_floorsheet_recovery.py --directory audit-strict --max-dates 22
       - name: Preserve strict audit outputs
         if: always()
         uses: actions/upload-artifact@v4

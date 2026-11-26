@@ -25,7 +25,7 @@ Scope: common equities only. NICEF/mutual funds are excluded. Raw OHLCV is prese
 
 ## Remaining work after this queue
 
-1. Resolve the single RHGCL 2026-11-19 mismatch using the ShareSansar corroboration already recorded; keep both raw versions. The other 22 non-identical pairs match numerically on all common dates. [RHGCL reconciliation](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/RHGCL_2026-11-19_source_reconciliation_2026-11-26.md).
+1. Apply the source-supported RHGCL 2026-11-19 value only in a separately versioned derived dataset; keep both raw versions. [RHGCL reconciliation](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/RHGCL_2026-11-19_source_reconciliation_2026-11-26.md) · [Candidate register](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/ohlcv_derived_correction_candidates_2026-11-26.csv).
 2. Continue source-level adjudication of the 1,329 SMC OHLC invariant flags; 13 sampled rows are already corroborated by ShareSansar. Preserve raw values and produce only a provenance-tracked derived view if stronger evidence supports a correction.
 3. Classify repeated OHLCV rows against the correct weekly closure regime.
 4. Validate listing/suspension/lifecycle dates before claiming expected-session completeness.

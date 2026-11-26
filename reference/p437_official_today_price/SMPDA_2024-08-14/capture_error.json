@@ -1,0 +1,14 @@
+{
+  "status": "HTTP_OR_CONTENT_TYPE_ERROR",
+  "source": "NEPSE official EOD API",
+  "symbol": "SMPDA",
+  "business_date": "2024-08-14",
+  "url": "https://www.nepalstock.com/api/nots/nepse-data/today-price?size=500&page=0&businessDate=2024-08-14",
+  "retrieved_at": "2026-11-27T00:35:31.053453+05:45",
+  "http_status": 500,
+  "content_type": "application/json",
+  "bytes": 27,
+  "sha256": "cca881461d563205a8c609c97ca56ed629037478322de2eefdd297a31825710e",
+  "error_body_preview": "Searched Date is not valid.",
+  "raw_payload_file": "reference/p437_official_today_price/SMPDA_2024-08-14/nepse_eod_2024-08-14_page_0.json"
+}

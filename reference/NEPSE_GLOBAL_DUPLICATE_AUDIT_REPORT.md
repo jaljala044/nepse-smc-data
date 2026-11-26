@@ -24,8 +24,8 @@ The six non-JSON responses are two unauthorized HTML responses from the P4.34 pr
 |---|---:|---|
 | Repeated adjacent OHLCV tuples | 94,543 | UNRESOLVED; not presumed duplicate trades |
 | Invalid OHLCV invariants | 1,331 | 1,329 exact matches to historical exception registers; 2 unmatched review rows |
-| Trade-shaped floorsheet records with missing session date | 604 | UNRESOLVED; require source/session evidence |
-| Missing trade identity after transaction-row gating | 0 | Prior 364 flags were metadata/summary rows, not trade records |
+| Trade-shaped floorsheet records with missing session date | 0 | No remaining flags after transaction-shape gating |
+| Missing trade identity after transaction-row gating | 0 | Prior metadata/summary false positives excluded |
 | Exact repeated JSON records | 10 | Summary-object repeats in two P4.37 capture reports; not duplicate trade rows |
 
 Finding classes overlap and must not be summed as unique affected rows.
@@ -42,7 +42,7 @@ An exception-register match is reconciliation, **not independent validation**. T
 
 ### Floorsheet row classification and contract-number reuse
 
-The strict parser now requires transaction-shaped fields before classifying a record as a trade. This removed 364 false identity flags from archive inventories, symbol/session aggregates, capture metadata, and research summaries. The earlier 2,687 missing-session flags reduced to **604** trade-shaped records still lacking a session date. Those 604 are not yet adjudicated.
+The strict parser now requires transaction-shaped fields before classifying a record as a trade, including a symbol plus buyer/seller and quantity/rate evidence or equivalent contract-shaped fields. It excludes generic security-master IDs and market-status IDs. The earlier 2,687 broad missing-session flags were parser false positives; after transaction-shape gating, **zero** trade-shaped records remain flagged for missing session dates. The 364 prior missing-identity flags were likewise non-transaction metadata/summary rows.
 
 The two quarantined P4.33 historical floorsheet files contain **544,937** trade rows in total. Within each file/session, the strict scan reports:
 
@@ -57,11 +57,21 @@ These are **contract-number field collisions**, not confirmed duplicate exchange
 
 The ten exact-repeat flags occur in the `sector_rollup` objects of two preserved P4.37 capture reports (five repeated rollup objects in each report). These are summary-statistic repeats, not repeated floorsheet trades. The reports intentionally preserve separate evidence copies; no deletion is warranted.
 
-## Existing date-lineage evidence and remaining scope
+## Repeated-tuple calendar triage and date-lineage evidence
 
-P4.37 independently identified 1,455 canonical-only rows across 24 sampled symbols that match official HLCV tuples on 81 verified closed dates. P4.42 traced the NMLBBL/SMPDA date-label pattern to ShareSansar scrape-date filenames. These are important, source-backed findings, but they do not classify all 94,543 adjacent tuples across the full historical universe.
+The latest strict workflow cross-checked all 94,543 repeated adjacent tuples against the pinned calendar evidence and produced a row-level triage artifact:
 
-Historical session evidence is incomplete outside the captured one-year official EOD window. Do not infer an open session from weekdays or absence from a closure list. Do not label repeated tuples as NO_TRADE or as erroneous solely because values repeat.
+| Triage disposition | Count | Meaning |
+|---|---:|---|
+| SESSION_UNKNOWN | 88,208 | No matching verified session status in the pinned calendar evidence |
+| CLOSED_SESSION_CANDIDATE | 6,232 | Current row date matches pinned closed-session evidence; candidate only |
+| OPEN_SESSION_TUPLE_UNVERIFIED | 103 | Current row date has open-session evidence, but the repeated tuple itself is not independently validated |
+
+The triage checks the current row's date, not the prior row's date. It does not establish that a tuple is valid, invalid, carried forward, or date-shifted. No tuple is independently verified and no automatic correction is permitted. Full row-level dispositions are retained in the workflow artifact `repeat_calendar_triage.csv`.
+
+P4.37 independently identified 1,455 canonical-only rows across 24 sampled symbols that match official HLCV tuples on 81 verified closed dates. P4.42 traced the NMLBBL/SMPDA date-label pattern to ShareSansar scrape-date filenames. These source-backed findings are useful but do not independently classify every adjacent tuple across the full historical universe.
+
+Historical session evidence remains incomplete outside the captured one-year official EOD window. Do not infer an open session from weekdays or absence from a closure list. Do not label repeated tuples as NO_TRADE or as erroneous solely because values repeat.
 
 ## Quarantine and safeguards
 

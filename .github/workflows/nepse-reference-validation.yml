@@ -7,6 +7,12 @@ on:
       - "test_nepse_reference_validation.py"
       - "nepse_session_date.py"
       - "test_nepse_session_date.py"
+      - "test_nepse_positive_open_sessions.py"
+      - "reference/nepse_positive_open_sessions_2025-11-26_2026-11-25.csv"
+      - "reference/nepse_session_calendar_2026.csv"
+      - "reference/p437_cross_sector_date_audit/ACLBSL_page_0.json"
+      - "reference/p437_cross_sector_date_audit/AHPC_page_0.json"
+      - "reference/p437_cross_sector_date_audit/capture_report.json"
       - ".github/workflows/nepse-reference-validation.yml"
   pull_request:
     paths:
@@ -31,4 +37,4 @@ jobs:
         with:
           python-version: "3.11"
       - name: Run NEPSE reference-data tests
-        run: python -m unittest test_nepse_reference_validation test_nepse_session_date -v
+        run: python -m unittest test_nepse_reference_validation test_nepse_session_date test_nepse_positive_open_sessions -v

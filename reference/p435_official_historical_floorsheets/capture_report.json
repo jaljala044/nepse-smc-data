@@ -1,0 +1,337 @@
+{
+  "task": "P4.35",
+  "source": "NEPSE official API domain",
+  "retrieved_at_utc": "2026-11-26T18:40:49.386522+00:00",
+  "upstream_client": {
+    "repo": "basic-bgnr/NepseUnofficialApi",
+    "commit": "180a550c60f1959983b854659e650a4c189a3c0f",
+    "token_parser_path": "nepse/TokenUtils.py",
+    "wasm_path": "nepse/data/css.wasm",
+    "wasm_git_blob_sha": "06162abc9206c6a855648ed5c0abb2fd515aa555",
+    "dummy_data_path": "nepse/data/DUMMY_DATA.json"
+  },
+  "authentication_status": "authenticated_market_and_security_list",
+  "server_day_nepal": 27,
+  "payload_id_sent": true,
+  "payload_id_value_saved": false,
+  "control_results": [
+    {
+      "name": "marketwide_current",
+      "url": "https://www.nepalstock.com/api/nots/nepse-data/floorsheet?&size=500&sort=contractId,desc",
+      "payload_day_used": 27,
+      "http_status": 200,
+      "content_type": "application/json",
+      "response_bytes": 217094,
+      "response_sha256": "72b3f2c2cc4d8d2d536844525074c616494ac1dfcfe43ff9e4fef4bad27aff7a",
+      "etag": null,
+      "last_modified": null,
+      "status": "page0_captured",
+      "content_count": 500,
+      "total_elements": 49806,
+      "total_pages": 100,
+      "content_business_dates": [
+        "2026-11-26"
+      ],
+      "target_symbols_present": [],
+      "filename": "control_marketwide_current_page0.json"
+    },
+    {
+      "name": "marketwide_2024-05-19",
+      "url": "https://www.nepalstock.com/api/nots/nepse-data/floorsheet?&businessDate=2024-05-19&size=500&sort=contractId,desc",
+      "payload_day_used": 27,
+      "http_status": 200,
+      "content_type": "application/json",
+      "response_bytes": 217094,
+      "response_sha256": "06bc35d7d5dc6ba63bf1253857b7f0bfe6bf8ab9095b1422aa6d6fb0fba6699b",
+      "etag": null,
+      "last_modified": null,
+      "status": "page0_captured",
+      "content_count": 500,
+      "total_elements": 49806,
+      "total_pages": 100,
+      "content_business_dates": [
+        "2026-11-26"
+      ],
+      "target_symbols_present": [],
+      "filename": "control_marketwide_2024-05-19_page0.json"
+    },
+    {
+      "name": "marketwide_2024-05-16",
+      "url": "https://www.nepalstock.com/api/nots/nepse-data/floorsheet?&businessDate=2024-05-16&size=500&sort=contractId,desc",
+      "payload_day_used": 27,
+      "http_status": 200,
+      "content_type": "application/json",
+      "response_bytes": 217094,
+      "response_sha256": "06bc35d7d5dc6ba63bf1253857b7f0bfe6bf8ab9095b1422aa6d6fb0fba6699b",
+      "etag": null,
+      "last_modified": null,
+      "status": "page0_captured",
+      "content_count": 500,
+      "total_elements": 49806,
+      "total_pages": 100,
+      "content_business_dates": [
+        "2026-11-26"
+      ],
+      "target_symbols_present": [],
+      "filename": "control_marketwide_2024-05-16_page0.json"
+    },
+    {
+      "name": "marketwide_2024-08-18",
+      "url": "https://www.nepalstock.com/api/nots/nepse-data/floorsheet?&businessDate=2024-08-18&size=500&sort=contractId,desc",
+      "payload_day_used": 27,
+      "http_status": 200,
+      "content_type": "application/json",
+      "response_bytes": 217094,
+      "response_sha256": "06bc35d7d5dc6ba63bf1253857b7f0bfe6bf8ab9095b1422aa6d6fb0fba6699b",
+      "etag": null,
+      "last_modified": null,
+      "status": "page0_captured",
+      "content_count": 500,
+      "total_elements": 49806,
+      "total_pages": 100,
+      "content_business_dates": [
+        "2026-11-26"
+      ],
+      "target_symbols_present": [],
+      "filename": "control_marketwide_2024-08-18_page0.json"
+    },
+    {
+      "name": "marketwide_2024-08-14",
+      "url": "https://www.nepalstock.com/api/nots/nepse-data/floorsheet?&businessDate=2024-08-14&size=500&sort=contractId,desc",
+      "payload_day_used": 27,
+      "http_status": 200,
+      "content_type": "application/json",
+      "response_bytes": 217094,
+      "response_sha256": "06bc35d7d5dc6ba63bf1253857b7f0bfe6bf8ab9095b1422aa6d6fb0fba6699b",
+      "etag": null,
+      "last_modified": null,
+      "status": "page0_captured",
+      "content_count": 500,
+      "total_elements": 49806,
+      "total_pages": 100,
+      "content_business_dates": [
+        "2026-11-26"
+      ],
+      "target_symbols_present": [],
+      "filename": "control_marketwide_2024-08-14_page0.json"
+    },
+    {
+      "name": "NMLBBL_company_current",
+      "url": "https://www.nepalstock.com/api/nots/security/floorsheet/396?&businessDate=2026-11-26&size=500&sort=contractid,desc",
+      "payload_day_used": null,
+      "http_status": 403,
+      "content_type": "text/html",
+      "response_bytes": 146,
+      "response_sha256": "32f2fa940d4b4fe19aca1e53a24e5aac29c57b7c5ee78588325b87f1b649c864",
+      "etag": null,
+      "last_modified": null,
+      "status": "invalid_or_http_error",
+      "response_snippet": "<html>\r\n<head><title>403 Forbidden</title></head>\r\n<body>\r\n<center><h1>403 Forbidden</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n"
+    },
+    {
+      "name": "SMPDA_company_current",
+      "url": "https://www.nepalstock.com/api/nots/security/floorsheet/2896?&businessDate=2026-11-26&size=500&sort=contractid,desc",
+      "payload_day_used": null,
+      "http_status": 403,
+      "content_type": "text/html",
+      "response_bytes": 146,
+      "response_sha256": "32f2fa940d4b4fe19aca1e53a24e5aac29c57b7c5ee78588325b87f1b649c864",
+      "etag": null,
+      "last_modified": null,
+      "status": "invalid_or_http_error",
+      "response_snippet": "<html>\r\n<head><title>403 Forbidden</title></head>\r\n<body>\r\n<center><h1>403 Forbidden</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n"
+    }
+  ],
+  "floor_results": [
+    {
+      "symbol": "NMLBBL",
+      "business_date": "2024-05-19",
+      "security_id": 396,
+      "expected_ohlcv_volume": 864,
+      "status": "request_or_schema_failure",
+      "pages": [
+        {
+          "page": 0,
+          "url": "https://www.nepalstock.com/api/nots/security/floorsheet/396?&businessDate=2024-05-19&size=500&sort=contractid,desc",
+          "payload_day_used": null,
+          "http_status": 403,
+          "content_type": "text/html",
+          "response_bytes": 146,
+          "response_sha256": "32f2fa940d4b4fe19aca1e53a24e5aac29c57b7c5ee78588325b87f1b649c864",
+          "etag": null,
+          "last_modified": null,
+          "status": "invalid_or_http_error",
+          "response_snippet": "<html>\r\n<head><title>403 Forbidden</title></head>\r\n<body>\r\n<center><h1>403 Forbidden</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n"
+        }
+      ],
+      "total_elements": null,
+      "total_pages": null,
+      "rows": 0,
+      "unique_contract_ids": 0,
+      "duplicate_contract_ids": 0,
+      "target_shares": "0",
+      "target_turnover": "0",
+      "amount_arithmetic_errors": 0,
+      "business_date_mismatches": 0,
+      "missing_business_dates": 0,
+      "pagination_complete": false,
+      "content_valid": true,
+      "evidence_gate_pass": false,
+      "volume_matches_ohlcv": false
+    },
+    {
+      "symbol": "NMLBBL",
+      "business_date": "2024-05-16",
+      "security_id": 396,
+      "expected_ohlcv_volume": 0,
+      "status": "request_or_schema_failure",
+      "pages": [
+        {
+          "page": 0,
+          "url": "https://www.nepalstock.com/api/nots/security/floorsheet/396?&businessDate=2024-05-16&size=500&sort=contractid,desc",
+          "payload_day_used": null,
+          "http_status": 403,
+          "content_type": "text/html",
+          "response_bytes": 146,
+          "response_sha256": "32f2fa940d4b4fe19aca1e53a24e5aac29c57b7c5ee78588325b87f1b649c864",
+          "etag": null,
+          "last_modified": null,
+          "status": "invalid_or_http_error",
+          "response_snippet": "<html>\r\n<head><title>403 Forbidden</title></head>\r\n<body>\r\n<center><h1>403 Forbidden</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n"
+        }
+      ],
+      "total_elements": null,
+      "total_pages": null,
+      "rows": 0,
+      "unique_contract_ids": 0,
+      "duplicate_contract_ids": 0,
+      "target_shares": "0",
+      "target_turnover": "0",
+      "amount_arithmetic_errors": 0,
+      "business_date_mismatches": 0,
+      "missing_business_dates": 0,
+      "pagination_complete": false,
+      "content_valid": true,
+      "evidence_gate_pass": false,
+      "volume_matches_ohlcv": true
+    },
+    {
+      "symbol": "SMPDA",
+      "business_date": "2024-08-18",
+      "security_id": 2896,
+      "expected_ohlcv_volume": 5314,
+      "status": "request_or_schema_failure",
+      "pages": [
+        {
+          "page": 0,
+          "url": "https://www.nepalstock.com/api/nots/security/floorsheet/2896?&businessDate=2024-08-18&size=500&sort=contractid,desc",
+          "payload_day_used": null,
+          "http_status": 403,
+          "content_type": "text/html",
+          "response_bytes": 146,
+          "response_sha256": "32f2fa940d4b4fe19aca1e53a24e5aac29c57b7c5ee78588325b87f1b649c864",
+          "etag": null,
+          "last_modified": null,
+          "status": "invalid_or_http_error",
+          "response_snippet": "<html>\r\n<head><title>403 Forbidden</title></head>\r\n<body>\r\n<center><h1>403 Forbidden</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n"
+        }
+      ],
+      "total_elements": null,
+      "total_pages": null,
+      "rows": 0,
+      "unique_contract_ids": 0,
+      "duplicate_contract_ids": 0,
+      "target_shares": "0",
+      "target_turnover": "0",
+      "amount_arithmetic_errors": 0,
+      "business_date_mismatches": 0,
+      "missing_business_dates": 0,
+      "pagination_complete": false,
+      "content_valid": true,
+      "evidence_gate_pass": false,
+      "volume_matches_ohlcv": false
+    },
+    {
+      "symbol": "SMPDA",
+      "business_date": "2024-08-14",
+      "security_id": 2896,
+      "expected_ohlcv_volume": 0,
+      "status": "request_or_schema_failure",
+      "pages": [
+        {
+          "page": 0,
+          "url": "https://www.nepalstock.com/api/nots/security/floorsheet/2896?&businessDate=2024-08-14&size=500&sort=contractid,desc",
+          "payload_day_used": null,
+          "http_status": 403,
+          "content_type": "text/html",
+          "response_bytes": 146,
+          "response_sha256": "32f2fa940d4b4fe19aca1e53a24e5aac29c57b7c5ee78588325b87f1b649c864",
+          "etag": null,
+          "last_modified": null,
+          "status": "invalid_or_http_error",
+          "response_snippet": "<html>\r\n<head><title>403 Forbidden</title></head>\r\n<body>\r\n<center><h1>403 Forbidden</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n"
+        }
+      ],
+      "total_elements": null,
+      "total_pages": null,
+      "rows": 0,
+      "unique_contract_ids": 0,
+      "duplicate_contract_ids": 0,
+      "target_shares": "0",
+      "target_turnover": "0",
+      "amount_arithmetic_errors": 0,
+      "business_date_mismatches": 0,
+      "missing_business_dates": 0,
+      "pagination_complete": false,
+      "content_valid": true,
+      "evidence_gate_pass": false,
+      "volume_matches_ohlcv": true
+    }
+  ],
+  "records": [
+    {
+      "name": "token_prove",
+      "url": "https://www.nepalstock.com/api/authenticate/prove",
+      "http_status": 200,
+      "content_type": "application/json",
+      "response_bytes": 723,
+      "response_sha256": "fbc6c7ab920bcc20a6a8da20ecfbb4d14184ac8d00a669f09062e03543bacca9",
+      "etag": null,
+      "last_modified": null,
+      "token_fields_present": {
+        "accessToken": true,
+        "refreshToken": true,
+        "salt1": true,
+        "salt2": true,
+        "salt3": true,
+        "salt4": true,
+        "salt5": true,
+        "serverTime": true
+      },
+      "body_saved": false
+    },
+    {
+      "name": "market_status",
+      "url": "https://www.nepalstock.com/api/nots/nepse-data/market-open",
+      "http_status": 200,
+      "content_type": "application/json",
+      "response_bytes": 55,
+      "response_sha256": "d940267715203d1864cd3eb14b1b430026d1de2151d3402c492da19e2e9cc73d",
+      "etag": null,
+      "last_modified": null,
+      "filename": "market_status.json"
+    },
+    {
+      "name": "security_list",
+      "url": "https://www.nepalstock.com/api/nots/security?nonDelisted=true",
+      "http_status": 200,
+      "content_type": "application/json",
+      "response_bytes": 87572,
+      "response_sha256": "5495d99a73aeb44e573936f59fc6a6d8dbf9ffc45c5a8ba62e672f0b0c6fa2f7",
+      "etag": null,
+      "last_modified": null,
+      "filename": "security_list.json"
+    }
+  ],
+  "interpretation": "Tokens and salts were held in memory only and not persisted. A page set is complete only when all pages were retrieved and summed row count equals upstream totalElements. Historical businessDate must be echoed by returned rows; missing or mismatched dates, absent totals, or contract identity failures keep the result UNKNOWN."
+}

@@ -9,7 +9,7 @@ Status: contemporaneous secondary snapshot comparison complete; no row promoted 
 - Recovery queue: 109 candidates across four verified-open sessions.
 - By date: 2026-04-24: 15; 2026-04-27: 18; 2026-04-28: 21; 2026-04-29: 55.
 - Invalidity: 88 OPEN_ABOVE_HIGH and 21 OPEN_BELOW_LOW, matching the existing queue audit; no high<low or close-outside-range cases in this 109-row subset.
-- All 109 rows were found in the same-day ShareSansar daily-page snapshot.
+- All 109 rows were found in the same-day ShareSansar daily-page snapshot. The capture commits were made on the same trading dates at 12:09:13Z, 12:55:06Z, 13:00:39Z and 12:56:37Z respectively; exact commit IDs and per-file SHA-256 values are recorded in the row matrix.
 - The snapshot OHLCV tuple matches the invalid external tuple in 109/109 rows.
 - Therefore the inconsistency is present in the contemporaneous ShareSansar display snapshot itself; it is not introduced only by the later dated-AJAX backfill parser.
 
@@ -21,7 +21,7 @@ Status: contemporaneous secondary snapshot comparison complete; no row promoted 
 
 ## Decision
 
-- Keep all 109 rows quarantined as `UNKNOWN_INVALID_OHLCV_SOURCE_CORROBORATED`.
+- Keep all 109 rows quarantined as `UNKNOWN_INVALID_OHLCV_SOURCE_CORROBORATED`. The snapshot corroborates the presence of the invalid tuple in the same-day page, not its correctness or exchange authenticity.
 - Do not repair Open/High/Low or infer which field is wrong. The same-day secondary snapshot reproduces the invalid tuple, but cannot establish the correct exchange OHLC.
 - No raw source values changed; zero rows inserted; no scanner/training promotion.
 - A complete official NEPSE EOD payload or a complete, date-matched floorsheet plus independently validated OHLC reconstruction is required for row-level resolution.

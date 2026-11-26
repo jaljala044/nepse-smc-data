@@ -1,0 +1,43 @@
+name: P4.33 first-trade floorsheet evidence capture
+on:
+  push:
+    branches:
+      - p433-first-trade-floorsheet-capture
+    paths:
+      - "tools/capture_p433_first_trade_floorsheets.py"
+      - "tools/tests/test_capture_p433_first_trade_floorsheets.py"
+      - ".github/workflows/p433-first-trade-floorsheet-capture.yml"
+  pull_request:
+    paths:
+      - "tools/capture_p433_first_trade_floorsheets.py"
+      - "tools/tests/test_capture_p433_first_trade_floorsheets.py"
+      - ".github/workflows/p433-first-trade-floorsheet-capture.yml"
+permissions:
+  contents: write
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run P4.33 regression tests
+        run: |
+          cd tools
+          python -m unittest discover -s tests -p 'test_capture_p433_first_trade_floorsheets.py' -v
+      - name: Attempt four exact-date archive captures
+        run: python tools/capture_p433_first_trade_floorsheets.py
+      - name: Commit raw captures and evidence report
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reference/p433_floorsheets
+          if ! git diff --cached --quiet; then
+            git commit -m "evidence(p4.33): capture four first-trade boundary floorsheets"
+            git push
+          fi

@@ -8,6 +8,7 @@ on:
       - "reference/NEPSE_GLOBAL_DUPLICATE_AUDIT_FINDINGS.csv"
       - "reference/NEPSE_GLOBAL_DUPLICATE_AUDIT_SCAN_SUMMARY.csv"
       - "tools/audit_global_data_integrity.py"
+      - "tools/p443_join_ohlcv_exceptions.py"
       - "p443_content_audit.py"
       - "test_p443_content_audit.py"
       - "test_global_duplicate_audit_inventory.py"
@@ -20,6 +21,7 @@ on:
       - "reference/NEPSE_GLOBAL_DUPLICATE_AUDIT_FINDINGS.csv"
       - "reference/NEPSE_GLOBAL_DUPLICATE_AUDIT_SCAN_SUMMARY.csv"
       - "tools/audit_global_data_integrity.py"
+      - "tools/p443_join_ohlcv_exceptions.py"
       - "p443_content_audit.py"
       - "test_p443_content_audit.py"
       - "test_global_duplicate_audit_inventory.py"
@@ -53,6 +55,12 @@ jobs:
       - name: Run strict pinned-byte cross-check
         if: ${{ !cancelled() }}
         run: python p443_content_audit.py --output audit-strict
+      - name: Reconcile strict OHLCV findings with historical exception registers
+        shell: bash
+        run: |
+          set -o pipefail
+          (cd audit-strict && python -m zipfile -c ../p443-join-input.zip findings.jsonl)
+          python tools/p443_join_ohlcv_exceptions.py p443-join-input.zip --output audit-strict/exception_join.csv | tee audit-strict/exception_join_summary.json
       - name: Preserve strict audit outputs
         if: always()
         uses: actions/upload-artifact@v4

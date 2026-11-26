@@ -45,6 +45,6 @@ jobs:
           git add reference/p436_official_eod_history
           if ! git diff --cached --quiet; then
             git commit -m "evidence(p4.36): capture official NEPSE historical EOD records"
-            git pull --rebase origin "$GITHUB_REF_NAME"
+            git pull --rebase -X theirs origin "$GITHUB_REF_NAME"
             git push
           fi

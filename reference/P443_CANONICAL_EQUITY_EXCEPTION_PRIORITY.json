@@ -291,7 +291,7 @@
     "note": "Second public archive corroborates five target contracts, but completeness and independent upstream lineage are unproven."
   },
   "latest_ci": {
-    "last_completed_strict_run": 45901012377,
+    "last_completed_strict_run": 45902069156,
     "current_head_strict_run": 45899542346,
     "current_head_status": "SUCCESS",
     "recovery_run": 45899542388,
@@ -302,7 +302,9 @@
     "full_session_parity_status": "SUCCESS",
     "last_completed_strict_head": "a1ceae92bf7ea104e15b652d4e55f7029b5a0923",
     "strict_run_status": "SUCCESS",
-    "priority_recovery_run": 45901012346
+    "priority_recovery_run": 45901012346,
+    "last_completed_full_session_parity_run": 45902069128,
+    "last_full_session_parity_status": "SUCCESS_WITH_ONE_ROW_CONFLICT_REVIEW_REQUIRED"
   },
   "full_session_contract_parity": {
     "workflow_run": 45899859073,
@@ -365,5 +367,49 @@
     "open_close_validation": "NOT_PERFORMED",
     "evidence_file": "reference/P443_BULK_EQUITY_FLOORSHEET_BATCH01_2026-11-27.json",
     "note": "No pinned partition is an evidence-availability gap, not no-trade. H/L/volume match is partial corroboration; conflicts require source adjudication."
+  },
+  "full_session_contract_parity_batch_01": {
+    "workflow_run": 45902069128,
+    "artifact_id": 15155284907,
+    "dates": 22,
+    "exact_parity_sessions": 21,
+    "row_conflict_sessions": 1,
+    "unavailable_or_invalid_sessions": 0,
+    "exact_parity_rows_across_21_sessions": 1664647,
+    "primary_rows_total": 1752046,
+    "secondary_rows_total": 1762127,
+    "primary_only_rows": 0,
+    "secondary_only_rows": 10081,
+    "conflict_date": "2026-04-10",
+    "conflict_primary_rows": 87399,
+    "conflict_secondary_rows": 97480,
+    "conflict_matched_rows": 87399,
+    "leading_apostrophe_normalizations": 353596,
+    "normalization_dates": [
+      "2025-11-27",
+      "2025-12-11",
+      "2025-12-18",
+      "2026-01-01",
+      "2026-01-08"
+    ],
+    "normalization_scope": "comparison only; one leading apostrophe stripped only when remaining contract ID is numeric; raw bytes unchanged",
+    "shared_fields": [
+      "date",
+      "contract_number",
+      "symbol",
+      "buyer_broker_id",
+      "seller_broker_id",
+      "quantity",
+      "rate",
+      "amount"
+    ],
+    "timestamp_parity": "NOT_CHECKED",
+    "source_completeness": "UNKNOWN",
+    "upstream_independence": "UNKNOWN",
+    "promotion_allowed": false,
+    "canonical_values_changed": 0,
+    "summary_file": "reference/P443_FULL_SESSION_PARITY_BATCH01_2026-11-27.json",
+    "row_level_conflict": "workflow artifact p443-full-session-parity/differences_2026-04-10.csv",
+    "note": "2026-04-10 secondary archive contains 10,081 additional valid unique-contract rows absent from primary; this does not establish which archive is complete or authoritative."
   }
 }

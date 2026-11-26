@@ -315,6 +315,8 @@ def capture(output_dir,requester=request,parser=token_parser,retrieved_at=None):
             aggregate["exact_date_overlaps"]+=canonical.get("exact_date_overlap_count",0)
             aggregate["exact_date_mismatches"]+=canonical.get("exact_date_hlc_volume_mismatch_count",0)
             aggregate["weekly_closure_rows"]+=len(row_summary["weekly_closure_records"])
+            aggregate["zero_trade_rows"]+=row_summary["zero_trade_rows"]
+            aggregate["positive_trade_rows"]+=row_summary["positive_trade_rows"]
         sector_rollup={}
         for sector,items in sector_summary.items():
             valid=[x for x in items if x.get("status")=="captured"]
@@ -329,6 +331,10 @@ def capture(output_dir,requester=request,parser=token_parser,retrieved_at=None):
     (out/"quarantine_matrix.csv").parent.mkdir(parents=True,exist_ok=True)
     write_quarantine_matrix(out/"quarantine_matrix.csv",quarantine_rows)
     disposition_counts=dict(Counter(row["disposition"] for row in quarantine_rows))
+    date_sets={tuple(x.get("observed_dates",[])) for x in symbol_results if x.get("status")=="captured"}
+    date_set_consistency={"unique_date_sets":len(date_sets),
+        "all_captured_symbols_share_same_date_set":len(date_sets)==1,
+        "shared_date_count":len(next(iter(date_sets))) if len(date_sets)==1 else None}
     report={
         "task":"P4.37","source":"NEPSE official API domain",
         "retrieved_at_utc":stamp,
@@ -344,6 +350,7 @@ def capture(output_dir,requester=request,parser=token_parser,retrieved_at=None):
           "security_ids_cross_checked_against_official_security_master":True,
           "sector_counts":sample_check["sector_counts"]},
         "records":records,"aggregate":dict(aggregate),"sector_rollup":sector_rollup,
+        "date_set_consistency":date_set_consistency,
         "results":symbol_results,
         "weekday_regime":{"through_2026-04-05":"Sunday-Thursday regular sessions; Friday/Saturday weekly closures","from_2026-04-06":"Monday-Friday regular sessions; Saturday/Sunday weekly closures","limitation":"Weekday compatibility does not establish an actual open session; holidays and exceptional closures require the evidence-backed calendar."},
         "interpretation":"Exploratory stratified sample only; not a full-universe finding. Canonical source is ShareSansar-derived, not NEPSE primary. The importer does not enforce an authoritative session calendar; date-stamped duplicate rows remain quarantined. Official EOD HLCV comparisons do not prove contract-level execution or broker flow. Canonical rows are not modified."

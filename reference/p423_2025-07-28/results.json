@@ -36,7 +36,9 @@
     "volume_matches_canonical": 86,
     "volume_matches_external": 86,
     "turnover_matches_external": 86,
-    "open_close_unknown": 86
+    "open_close_unknown": 86,
+    "unique_mapped_symbols": 313,
+    "mapped_symbols_outside_target": 227
   },
   "symbols": [
     {

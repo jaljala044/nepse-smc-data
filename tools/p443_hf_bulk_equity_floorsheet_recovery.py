@@ -68,21 +68,35 @@ def read_queue(root):
 
 
 def parse_hf_session(reader, day, stats=None):
-    """Validate rows but retain duplicate contract IDs as a separate review finding."""
+    """Validate every row; retain malformed rows and ID collisions as review findings."""
     contracts = Counter()
     contract_ids = Counter()
+    invalid_rows = []
     for row in reader:
-        key = signature(row, True, day, stats)
+        try:
+            key = signature(row, True, day, stats)
+        except ValueError as error:
+            invalid_rows.append({
+                "error": str(error),
+                "contract": row.get("contract_no", row.get("contract", "")),
+                "date": row.get("date", row.get("calculation_date", "")),
+                "symbol": row.get("symbol", row.get("stock_symbol", "")),
+                "buyer": row.get("buyer", ""),
+                "seller": row.get("seller", ""),
+                "quantity": row.get("quantity", ""),
+                "rate": row.get("rate", ""),
+                "amount": row.get("amount", ""),
+            })
+            continue
         contracts[key] += 1
         contract_ids[key[1]] += 1
-    if not contracts:
+    if not contracts and not invalid_rows:
         raise ValueError("empty session")
     collisions = {contract: count for contract, count in contract_ids.items() if count > 1}
     collision_rows = [
         (key, count) for key, count in contracts.items() if key[1] in collisions
     ]
-    return contracts, collisions, collision_rows
-
+    return contracts, collisions, collision_rows, invalid_rows
 
 def recover_hf_partition(day, metadata, symbols, raw_directory):
     path = f"floorsheet/{day}.csv.gz"
@@ -101,25 +115,36 @@ def recover_hf_partition(day, metadata, symbols, raw_directory):
         raw = gzip.decompress(compressed)
         (raw_directory / f"floorsheet_{day}.csv").write_bytes(raw)
         stats = Counter()
-        contracts, collisions, collision_rows = parse_hf_session(
+        contracts, collisions, collision_rows, invalid_rows = parse_hf_session(
             csv.DictReader(io.StringIO(raw.decode("utf-8-sig"))),
             day,
             stats,
         )
         observed = defaultdict(list)
-        if not collisions:
+        if not collisions and not invalid_rows:
             for row, occurrences in contracts.items():
                 date, contract, symbol, buyer, seller, quantity, rate, amount = row
                 if symbol in symbols:
                     observed[symbol].extend([(rate, quantity, contract)] * occurrences)
 
+        if invalid_rows:
+            session_status = "ROW_VALIDATION_REVIEW"
+        elif collisions:
+            session_status = "CONTRACT_ID_COLLISION_REVIEW"
+        else:
+            session_status = "PASS"
+
         return day, {
-            "status": "CONTRACT_ID_COLLISION_REVIEW" if collisions else "PASS",
+            "status": session_status,
             "observed": observed,
             "collision_rows": collision_rows,
+            "invalid_rows": invalid_rows,
             "summary": {
                 "date": day,
-                "rows": contracts.total(),
+                "rows": contracts.total() + len(invalid_rows),
+                "valid_rows": contracts.total(),
+                "invalid_rows": len(invalid_rows),
+                "invalid_error_counts": dict(Counter(row["error"] for row in invalid_rows)),
                 "symbols": len({row[2] for row in contracts}),
                 "unique_contract_ids": len(contracts),
                 "duplicate_contract_ids": len(collisions),
@@ -207,6 +232,8 @@ def main():
                 status = "NO_HF_PINNED_PARTITION"
             elif result is None:
                 status = "HF_AVAILABLE_NOT_FETCHED"
+            elif result["status"] == "ROW_VALIDATION_REVIEW":
+                status = "ROW_VALIDATION_REVIEW"
             elif result["status"] == "CONTRACT_ID_COLLISION_REVIEW":
                 status = "CONTRACT_ID_COLLISION_REVIEW"
             elif result["status"] != "PASS":
@@ -256,6 +283,17 @@ def main():
             result = results[day]
             for signature_row, occurrences in result.get("collision_rows", []):
                 writer.writerow([*signature_row, occurrences])
+
+    invalid_path = root / f"hf_bulk_equity_invalid_rows_{tag}.csv"
+    with invalid_path.open("w", newline="") as handle:
+        writer = csv.writer(handle)
+        writer.writerow(["error", "contract", "date", "symbol", "buyer", "seller", "quantity", "rate", "amount"])
+        for day in selected:
+            for row in results[day].get("invalid_rows", []):
+                writer.writerow([
+                    row["error"], row["contract"], row["date"], row["symbol"],
+                    row["buyer"], row["seller"], row["quantity"], row["rate"], row["amount"],
+                ])
 
     selected_requests = sum(len(bydate[day]) for day in selected)
     report = {

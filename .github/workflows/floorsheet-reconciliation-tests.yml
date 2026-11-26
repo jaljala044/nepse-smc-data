@@ -11,6 +11,7 @@ on:
       - 'tools/tests/test_reconcile_floorsheet_ohlcv.py'
       - 'tools/audit_observed_session_gaps.py'
       - 'tools/tests/test_audit_observed_session_gaps.py'
+      - 'reference/p417_281_equity_observed_session_archive_gap_audit_2026-11-26.md'
       - 'tools/reconcile_nov20_independent_floorsheet.py'
       - '02_floorsheet_daily/floorsheet_2026-11-20.csv'
       - '.github/workflows/floorsheet-reconciliation-tests.yml'
@@ -57,7 +58,8 @@ jobs:
             --calendar reference/nepse_canonical_session_calendar_2025-2026.csv \
             --ohlcv-dir starter/03_stock_charts_ohlcv \
             --expected-symbol-count 281 \
-            --output audit-output/281_equity_observed_session_archive_gaps.csv
+            --output audit-output/281_equity_observed_session_archive_gaps.csv \
+            --detail-output audit-output/281_equity_observed_session_archive_gap_dates.csv
       - uses: actions/upload-artifact@v4
         if: always()
         with:

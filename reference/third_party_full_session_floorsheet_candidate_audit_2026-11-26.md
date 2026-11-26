@@ -218,3 +218,31 @@ This resolves **one date**, not the full 281-equity historical completeness proj
 ### Machine-readable evidence
 
 See `reference/floorsheet_source_verification_2026-11-20.json` for source hashes, counts, status and UNL contracts.
+
+
+## Additional recent-session cross-source parity — 2026-11-19 and 2026-11-24
+
+Expanded the CI audit to adjacent dates using the same published pipeline Parquet partitions and SocrateAI daily CSVs. Workflow run https://github.com/jaljala044/nepse-smc-data/actions/runs/45844039616 completed SUCCESS; all three date matrix jobs (19, 20, 24) and the existing reconciliation tests passed.
+
+### 2026-11-19
+
+- Parquet: 40,837 rows; 40,837 valid; 0 invalid; 347 symbols; 9,437,842 shares; NPR 3,877,645,728.62 turnover.
+- SocrateAI CSV: exact normalized trade multiset match: 40,837 matched; 0 Parquet-only; 0 CSV-only.
+- Parquet SHA-256: `cecce1d713aabdf198f8df50b71b5a42a54d58918ae6890852ed9711c0ee6fc1`.
+- CSV SHA-256: `76d1ef207f2b06dc05ac74ccc8386a32c28dba4151bf23b26e27151712eae40d`.
+- UNL: 8 contracts, 80 shares, NPR 3,854,360 turnover.
+
+### 2026-11-24
+
+- Parquet: 52,387 rows; 52,387 valid; 0 invalid; 350 symbols; 14,670,177 shares; NPR 5,553,019,249.46 turnover.
+- SocrateAI CSV: exact normalized trade multiset match: 52,387 matched; 0 Parquet-only; 0 CSV-only.
+- Parquet SHA-256: `f84c71f66cdd027571e35492a6b7cd7125866bda1317beee718358c418248f0e`.
+- CSV SHA-256: `53b864b52033663940dae20b2a4113765ec90657ef79e9ce7fc9887b4be0955d`.
+- UNL: 8 contracts, 72 shares, NPR 3,501,589 turnover.
+
+### Interpretation / source status
+
+- These two dates have exact normalized file parity between the published Parquet and SocrateAI CSV, zero invalid rows, and matching aggregates.
+- Unlike 2026-11-20, this pass did **not** locate a date-specific independent pipeline workflow log showing upstream totalElements, complete page count, and the quality gate for Nov 19 or Nov 24. Therefore classify them as `CROSS_SOURCE_PARITY_CONFIRMED_COMPLETENESS_NOT_YET_VERIFIED`, not `VERIFIED_COMPLETE`.
+- Positive UNL contracts are evidence of trading on both dates. Absence for any symbol on either date must remain UNKNOWN until upstream full-pagination evidence or equivalent independent completeness proof is found.
+- The three-date matrix checker is now merged and reusable. Merge commit: `ad79a4493ca69df4ed16c29401c8f0e12c09627c` (PR #17).

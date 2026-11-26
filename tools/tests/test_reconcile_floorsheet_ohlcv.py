@@ -69,6 +69,13 @@ class FloorsheetReconciliationTests(unittest.TestCase):
         xyz = next(r for r in rows if r["symbol"] == "XYZ")
         self.assertEqual(xyz["trade_status"], "NO_TRADE")
 
+    def test_security_without_ohlcv_bar_still_gets_reconciled(self):
+        (self.ohlcv / "ABC_OHLCV.csv").write_text("Date,Open,High,Low,Close,Volume\\n", encoding="utf-8")
+        digest = hashlib.sha256(self.floor.read_bytes()).hexdigest()
+        rows = self.run_reconcile(complete="true", evidence="complete-day extract",
+                                  uri="https://source.example/floorsheet/2026-11-20", digest=digest)
+        self.assertEqual(next(r for r in rows if r["symbol"] == "ABC")["trade_status"], "TRADED")
+
     def test_closed_session_never_becomes_no_trade(self):
         digest = hashlib.sha256(self.floor.read_bytes()).hexdigest()
         with (self.ohlcv / "XYZ_OHLCV.csv").open("w", newline="") as handle:

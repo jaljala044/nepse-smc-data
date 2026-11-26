@@ -93,8 +93,8 @@ def capture(output_dir,fetcher=fetch,retrieved_at=None,metadata=None):
     raw=gzip.decompress(compressed);rec["uncompressed_bytes"]=len(raw);rec["uncompressed_sha256"]=hashlib.sha256(raw).hexdigest()
     if meta and meta.get("size")!=len(compressed):rec["integrity_error"]="compressed size differs from HF tree metadata"
     if meta and (meta.get("lfs") or {}).get("oid")!=rec["compressed_sha256"]:rec["integrity_error"]="LFS SHA-256 differs from downloaded bytes"
-    gz_name=f"floorsheet_{target['date']}.csv.gz";csv_name=f"floorsheet_{target['date']}.csv"
-    (out/gz_name).write_bytes(compressed);(out/csv_name).write_bytes(raw);rec["compressed_filename"]=gz_name;rec["filename"]=csv_name
+    gz_name=f"floorsheet_{target['date']}.csv.gz"
+    (out/gz_name).write_bytes(compressed);rec["compressed_filename"]=gz_name;rec["decompressed_csv_bytes"]=len(raw)
     rec["validation"]=validate_rows(raw,target["symbol"],target["date"])
     rec["capture_status"]="captured" if "integrity_error" not in rec else "integrity_failed"
   except Exception as exc:rec["capture_status"]="unavailable";rec["error"]=f"{type(exc).__name__}: {exc}"

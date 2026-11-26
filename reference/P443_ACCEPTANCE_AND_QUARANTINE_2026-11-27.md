@@ -22,6 +22,8 @@ A second public archive comparison produced five exact matches for BNT (2026-06-
 
 Both archives remain third-party datasets. File completeness, independent upstream lineage and authoritative exchange provenance are unproven. All 15 observations remain `promotion_allowed=false`; none validates a complete OHLCV candle or authorizes canonical promotion.
 
+A full-session contract multiset comparison also passed for the five dates available in both archives: **262,976 / 262,976** rows matched on date, contract number, symbol, buyer/seller broker IDs, quantity, rate and amount; zero rows were unique to either side. The check did not compare timestamps or establish completeness/independent lineage. Its per-date counts and hashes are preserved in `P443_FULL_SESSION_CONTRACT_PARITY_2026-11-27.csv`; all results remain non-promotable.
+
 ## Quarantine disposition (policy record, not full canonical-ingestion enforcement)
 
 | Path | Git blob SHA | Rows | Repeated contract occurrences | Disposition |

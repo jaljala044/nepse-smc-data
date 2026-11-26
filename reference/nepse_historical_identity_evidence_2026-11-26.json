@@ -1,7 +1,7 @@
 {
   "date": "2026-11-26",
   "base_review_blob": "8bd7ebe58b52c7e45cf312895d78d9d59452be91",
-  "provider": "ShareSansar",
+  "provider": "ShareSansar and NepseAlpha",
   "scope": "historical identity and lifecycle evidence; not stable-ID or effective-date resolution",
   "records": [
     {
@@ -300,16 +300,39 @@
       "stable_id": null,
       "effective_date_verified": false,
       "raw_history_preserved": true
+    },
+    {
+      "symbol": "MMFDBP",
+      "instrument_class": "promoter_share",
+      "event": "historical identity confirmed",
+      "reported_on": null,
+      "source": "https://nepsealpha.com/stocks/MMFDBP/info",
+      "successor_name": null,
+      "stable_id": null,
+      "effective_date_verified": false,
+      "raw_history_preserved": true
+    },
+    {
+      "symbol": "NICAD~2085~2F86",
+      "instrument_class": "debenture",
+      "event": "probable name/format alias; identical instrument name corroborated, exact source ticker and stable-ID equivalence not proven",
+      "reported_on": null,
+      "source": "https://www.nepsealpha.com/financials-reports?page=40",
+      "additional_source": "https://www.nepsealpha.com/announcement?page=418",
+      "candidate_symbol": "NICAD85/86",
+      "candidate_security_id": "2825",
+      "stable_id": null,
+      "effective_date_verified": false,
+      "raw_history_preserved": true
     }
   ],
-  "remaining_without_provider_evidence": [
-    "MMFDBP",
-    "NICAD~2085~2F86"
-  ],
+  "remaining_without_provider_evidence": [],
   "summary": {
     "baseline": 29,
-    "with_provider_evidence": 27,
-    "remaining_without_provider_evidence": 2
+    "with_provider_evidence": 29,
+    "remaining_without_provider_evidence": 0,
+    "identity_or_event_supported": 28,
+    "probable_alias_only": 1
   },
   "limitations": [
     "Reported dates are publication dates, not verified trading cessation boundaries.",

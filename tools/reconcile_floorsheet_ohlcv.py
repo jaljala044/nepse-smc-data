@@ -48,6 +48,7 @@ def reconcile_date(date, floor_path, ohlcv_dir, calendar, manifest):
 
     trades = defaultdict(lambda: {"contracts": 0, "quantity": 0, "turnover": Decimal("0"), "bad_rows": 0})
     file_valid = floor_path.is_file()
+    seen_contracts = set()
     if file_valid:
         rows = read_csv(floor_path)
         for row in rows:
@@ -56,11 +57,14 @@ def reconcile_date(date, floor_path, ohlcv_dir, calendar, manifest):
             qty = dec(row.get("Quantity") or row.get("quantity"))
             rate = dec(row.get("Rate") or row.get("rate"))
             contract = (row.get("Transaction") or row.get("Contract_No") or row.get("contract_no") or "").strip()
-            if d != date or not symbol or qty is None or rate is None or qty <= 0 or rate <= 0 or not contract:
+            if (d != date or not symbol or qty is None or rate is None or qty <= 0
+                    or qty != qty.to_integral_value() or rate <= 0 or not contract
+                    or contract in seen_contracts):
                 file_valid = False
                 if symbol:
                     trades[symbol]["bad_rows"] += 1
                 continue
+            seen_contracts.add(contract)
             trades[symbol]["contracts"] += 1
             trades[symbol]["quantity"] += int(qty)
             trades[symbol]["turnover"] += qty * rate

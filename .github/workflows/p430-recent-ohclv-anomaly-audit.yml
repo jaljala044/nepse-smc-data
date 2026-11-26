@@ -54,7 +54,8 @@ jobs:
             --queue evidence/p430_recent_anomaly_queue.csv \
             --mapping evidence/main/reference/nepse_security_id_snapshot_2026-11-25.csv \
             --capture-dir evidence/nepse-official-p430 \
-            --output reference/p430_11_recent_anomaly_official_reconciliation_2026-11-26.csv
+            --output reference/p430_11_recent_anomaly_official_reconciliation_2026-11-26.csv \\
+            --expected-count 11
       - name: Verify complete and accepted official coverage
         run: |
           python - <<'PY'

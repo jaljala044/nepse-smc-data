@@ -67,3 +67,8 @@ The evidence supports the one-day date-label correction in the provisional deriv
 ## Next priority — P4.28: official per-security EOD validation
 
 Capture exact official NEPSE EOD rows for the 490 candidate tuples (254 unique symbols across two dates), using validated symbol-to-security-ID mappings and the official history endpoint while the dates remain inside the rolling history window. Validate endpoint provenance, security identity, exact date, one-row uniqueness, OHLCV validity and payload hash. If official evidence cannot be obtained for a symbol/date, retain the secondary-only disposition and UNKNOWN policy.
+
+
+## Superseding primary-source result — P4.28
+
+The secondary/calendar stage above is superseded by official NEPSE EOD capture. All 490 symbol/date rows were found exactly once and accepted with zero quality flags and matching security IDs. 487 tuples match exactly; KBL, SAIL and ULBSL on 2026-03-01 require official Close values of 191.80, 1,329.00 and 3,178.00 respectively. See [P4.28 full matrix](p428_599_official_eod_reconciliation_2026-11-26.csv) and [correction ledger](p428_112_official_eod_corrections_2026-11-26.csv). The 490 official business dates can now be applied in the derived dataset during P4.29. Raw dates remain unchanged.

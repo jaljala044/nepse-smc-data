@@ -112,7 +112,7 @@ class P435AuthenticatedFloorsheetTests(unittest.TestCase):
             raise AssertionError(url)
         with tempfile.TemporaryDirectory() as tmp:
             result=capture(tmp,fake,lambda obj,path:("A","R"),"2026-11-26T00:00:00Z")
-        self.assertEqual(len(result["control_results"]),3)
+        self.assertEqual(len(result["control_results"]),7)
         self.assertTrue(all(x["status"]=="page0_captured" for x in result["control_results"]))
 
 if __name__=="__main__":unittest.main()

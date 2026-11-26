@@ -52,11 +52,11 @@ def read_snapshot(path):
     return raw, indexed
 
 
-def build(queue_path, snapshot_dir, output_path):
+def build(queue_path, snapshot_dir, output_path, expected_count=109):
     with queue_path.open(newline="", encoding="utf-8-sig") as fh:
         queue = list(csv.DictReader(fh))
-    if len(queue) != 109:
-        raise ValueError(f"expected 109 quarantined rows, found {len(queue)}")
+    if expected_count is not None and len(queue) != expected_count:
+        raise ValueError(f"expected {expected_count} quarantined rows, found {len(queue)}")
 
     cache = {}
     output = []

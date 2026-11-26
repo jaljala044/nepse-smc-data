@@ -18,7 +18,8 @@ class P433CaptureTests(unittest.TestCase):
             self.assertEqual(rec["validation"]["target_symbol_duplicate_contract_numbers"],0)
             self.assertEqual(rec["validation"]["target_symbol_duplicate_record_ids"],0)
             self.assertEqual(rec["compressed_sha256"],hashlib.sha256(self.compressed).hexdigest())
-            self.assertEqual((Path(tmp)/"floorsheet_2024-05-19.csv").read_bytes(),self.raw)
+            self.assertEqual((Path(tmp)/"floorsheet_2024-05-19.csv.gz").read_bytes(),self.compressed)
+            self.assertFalse((Path(tmp)/"floorsheet_2024-05-19.csv").exists())
     def test_duplicate_contract_number_within_symbol_fails(self):
         raw=b"contract_no,calculation_date,stock_symbol,quantity,rate,amount,id\n1,2024-05-19,NMLBBL,10,100,1000,11\n1,2024-05-19,NMLBBL,10,100,1000,12\n"
         result=validate_rows(raw,"NMLBBL","2024-05-19")

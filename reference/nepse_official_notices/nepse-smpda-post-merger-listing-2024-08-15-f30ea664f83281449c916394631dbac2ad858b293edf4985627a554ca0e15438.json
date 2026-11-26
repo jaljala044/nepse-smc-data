@@ -1,0 +1,15 @@
+{
+  "source_id": "nepse-smpda-post-merger-listing-2024-08-15",
+  "url": "https://www.nepalstock.com/api/nots/security/fetchFiles?fileLocation=rita_listing%2F2024-08-15%2FSMPDA_1723716902880.pdf",
+  "final_url": "https://www.nepalstock.com/api/nots/security/fetchFiles?fileLocation=rita_listing%2F2024-08-15%2FSMPDA_1723716902880.pdf",
+  "published_at": null,
+  "retrieved_at_utc": "2026-11-26T17:30:40.767134Z",
+  "http_status": 200,
+  "content_type": "application/pdf",
+  "content_length_header": "516758",
+  "raw_byte_count": 516758,
+  "raw_evidence_sha256": "f30ea664f83281449c916394631dbac2ad858b293edf4985627a554ca0e15438",
+  "raw_evidence_path": "reference/nepse_official_notices/nepse-smpda-post-merger-listing-2024-08-15-f30ea664f83281449c916394631dbac2ad858b293edf4985627a554ca0e15438.bin",
+  "calendar_populated": false,
+  "human_review_required": true
+}

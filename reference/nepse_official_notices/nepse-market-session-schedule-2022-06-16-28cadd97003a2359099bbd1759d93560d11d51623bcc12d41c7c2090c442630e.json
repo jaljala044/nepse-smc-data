@@ -1,0 +1,15 @@
+{
+  "source_id": "nepse-market-session-schedule-2022-06-16",
+  "url": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=santosh_thapa%2F2022-06-16%2Fmarket+session+notice_1655356331971.PDF",
+  "final_url": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=santosh_thapa%2F2022-06-16%2Fmarket+session+notice_1655356331971.PDF",
+  "published_at": null,
+  "retrieved_at_utc": "2026-11-26T17:30:42.800875Z",
+  "http_status": 200,
+  "content_type": "application/pdf",
+  "content_length_header": "50496",
+  "raw_byte_count": 50496,
+  "raw_evidence_sha256": "28cadd97003a2359099bbd1759d93560d11d51623bcc12d41c7c2090c442630e",
+  "raw_evidence_path": "reference/nepse_official_notices/nepse-market-session-schedule-2022-06-16-28cadd97003a2359099bbd1759d93560d11d51623bcc12d41c7c2090c442630e.bin",
+  "calendar_populated": false,
+  "human_review_required": true
+}

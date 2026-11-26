@@ -1,0 +1,15 @@
+{
+  "source_id": "nepse-nmlbbl-post-merger-listing-2024-05-17",
+  "url": "https://www.nepalstock.com/api/nots/security/fetchFiles?fileLocation=rita_listing%2F2024-05-17%2FNMLBBL_1715925622934.pdf",
+  "final_url": "https://www.nepalstock.com/api/nots/security/fetchFiles?fileLocation=rita_listing%2F2024-05-17%2FNMLBBL_1715925622934.pdf",
+  "published_at": null,
+  "retrieved_at_utc": "2026-11-26T17:30:37.615465Z",
+  "http_status": 200,
+  "content_type": "application/pdf",
+  "content_length_header": "483523",
+  "raw_byte_count": 483523,
+  "raw_evidence_sha256": "366c28bcb864ea51d9ce4defff49ae0263fe03cff209e352c2a6a222b2e24053",
+  "raw_evidence_path": "reference/nepse_official_notices/nepse-nmlbbl-post-merger-listing-2024-05-17-366c28bcb864ea51d9ce4defff49ae0263fe03cff209e352c2a6a222b2e24053.bin",
+  "calendar_populated": false,
+  "human_review_required": true
+}

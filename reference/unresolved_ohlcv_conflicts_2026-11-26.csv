@@ -1,0 +1,2 @@
+date,symbol,smc_open,smc_high,smc_low,smc_close,smc_volume,starter_open,starter_high,starter_low,starter_close,starter_volume,status,source_resolution,notes
+2026-11-19,RHGCL,252.10,259.50,252.10,256.00,4216,252.10,259.50,252.10,258.00,9054,quarantined_unresolved,not_verified,"The two repository snapshots conflict on close and volume. The supplied ShareHub evidence package does not cover RHGCL on this date. Preserve both source values; do not choose either until dated primary/independent evidence is acquired."

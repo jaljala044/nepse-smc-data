@@ -1,6 +1,6 @@
-trade_date,symbol,total_quantity,total_turnover_npr,calculated_vwap_npr,source,verification_status,notes
-2025-07-28,BGWT,14028,13256345,944.99,user_supplied_chukul_floorsheet_totals,user_supplied_not_independently_verified,"Correct symbol BGWT; BGWAT was a typo. Aggregate totals supplied by user; contract rows and trade count not available."
-2025-07-28,MEHL,29753,14008898,470.84,user_supplied_chukul_floorsheet_totals,user_supplied_not_independently_verified,"Aggregate totals supplied by user; contract rows and trade count not available."
-2025-07-28,RAWA,3165,2515663,794.84,user_supplied_chukul_floorsheet_totals,user_supplied_not_independently_verified,"Aggregate totals supplied by user; contract rows and trade count not available."
-2025-07-28,RHGCL,296715,103872614,350.08,user_supplied_chukul_floorsheet_totals,user_supplied_not_independently_verified,"Aggregate totals supplied by user; contract rows and trade count not available."
-2025-07-28,ULHC,32288,16273342,504.01,user_supplied_chukul_floorsheet_totals,user_supplied_not_independently_verified,"Aggregate totals supplied by user; contract rows and trade count not available."
+trade_date,symbol,open,high,low,close,total_quantity,total_turnover_npr,calculated_vwap_npr,trade_count,page_count,source,verification_status,notes
+2025-07-28,BGWT,940.00,992.00,933.40,957.17,14028,13256345.00,944.99,194,2,ShareHub_chart_and_floorsheet,user_supplied_evidence_reconciled,"Workbook contract rows; one trade at NPR 925.00 below published low; retained and flagged."
+2025-07-28,MEHL,471.10,480.50,460.00,475.63,29753,14008898.10,470.84,333,4,ShareHub_chart_and_floorsheet,user_supplied_evidence_reconciled,"Workbook contract rows; closing-window VWAP rounds to published close."
+2025-07-28,RAWA,796.00,811.00,780.30,796.90,3165,2515662.50,794.84,74,1,ShareHub_chart_and_floorsheet,user_supplied_evidence_reconciled,"Workbook contract rows; closing-window VWAP rounds to published close."
+2025-07-28,RHGCL,346.70,362.00,341.40,357.05,296715,103872614.40,350.08,1030,11,ShareHub_chart_and_floorsheet,user_supplied_evidence_reconciled,"Workbook contract rows; closing-window VWAP rounds to published close."
+2025-07-28,ULHC,509.00,515.00,495.00,510.75,32288,16273342.10,504.01,300,3,ShareHub_chart_and_floorsheet,user_supplied_evidence_reconciled,"Workbook contract rows; closing-window VWAP rounds to published close."

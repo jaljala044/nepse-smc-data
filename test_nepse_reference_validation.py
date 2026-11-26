@@ -94,6 +94,12 @@ class InstrumentValidationTests(unittest.TestCase):
         errors = validate_instrument_rows([row, dict(row)])
         self.assertTrue(any("overlapping stable security_id" in e for e in errors))
 
+    def test_rejects_non_numeric_or_non_positive_security_id(self):
+        for bad_id in ("0", "-1", "abc", "1.5"):
+            rows = [{"security_id": bad_id, "symbol": "ABC", "valid_from": "2020-01-01"}]
+            errors = validate_instrument_rows(rows)
+            self.assertTrue(any("security_id must be a positive integer" in e for e in errors), bad_id)
+
     def test_missing_valid_from_is_rejected(self):
         rows = [{"security_id": "1001", "symbol": "ABC", "valid_from": "", "valid_to": ""}]
         self.assertTrue(any("missing valid_from" in e for e in validate_instrument_rows(rows)))

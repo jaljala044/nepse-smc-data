@@ -52,6 +52,10 @@ def records(raw, fmt):
 def first(row, *keys):
     return next((str(row[k]).strip() for k in keys if row.get(k) not in (None,"")), "")
 
+def non_json_capture(raw):
+    text = raw.lstrip()
+    return text.startswith(b"<html") or text.startswith(b"<!DOCTYPE html") or raw.strip().startswith(b"Searched Date is not valid.")
+
 def scan(raw, entry):
     path = entry["path"]
     seen, business, previous = {}, {}, {}
@@ -135,6 +139,8 @@ def main():
                 if entry["format"] not in ("csv","csv.gz","json"):
                 elif entry["format"]=="json" and not raw.strip():
                     result.update(status="empty_capture",records=0)
+                elif entry["format"]=="json" and non_json_capture(raw):
+                    result.update(status="non_json_response",records=0,error=raw[:160].decode("utf-8","replace"))
                     result["status"]="inventory_only"
                 else:
                     count,schemas,findings=scan(raw,entry)
@@ -149,6 +155,7 @@ def main():
                  parsed_records=sum(x["records"] for x in coverage),findings=dict(totals),
                  limitations=["Within-file checks only; no independent date or source adjudication.",
                               "Unclassified records are parsed but not business-key validated.",
+                              "Non-JSON provider error bodies are recorded as non_json_response, not counted as parsed records.",
                               "Finding classes overlap; counts are not unique affected records.",
                               "No corrections or canonical promotion."])
     (out/"coverage.json").write_text(json.dumps(coverage,indent=2))

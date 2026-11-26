@@ -1,0 +1,8 @@
+symbol,repository_path,blob_sha,total_rows,first_date,last_date,rows_in_sample_window,matched_observed_open_dates,no_row_on_observed_open_dates,observed_date_match_pct,duplicate_dates_in_sample
+ACLBSL,03_stock_charts_ohlcv/ACLBSL_OHLCV.csv,7eb1a2c7ae261db2aecc2ea9555ab7a026fb3d27,934,2024-03-05,2026-11-20,303,222,3,98.67,0
+ADBL,03_stock_charts_ohlcv/ADBL_OHLCV.csv,179531d7d3060e758be651a1c6ac63d3ae682eec,935,2024-03-04,2026-11-20,303,222,3,98.67,0
+AHL,03_stock_charts_ohlcv/AHL_OHLCV.csv,849d48c09dc376d5ea4872dc980358a2b90d4e13,936,2024-03-04,2026-11-20,304,223,2,99.11,0
+AHPC,03_stock_charts_ohlcv/AHPC_OHLCV.csv,003a8c1d99a573cd5ffaf96c17100dbc6251a194,936,2024-03-04,2026-11-20,304,223,2,99.11,0
+AKJCL,03_stock_charts_ohlcv/AKJCL_OHLCV.csv,1d9e25da110be52dc7522cded1db4efe31c1b03b,936,2024-03-04,2026-11-20,304,223,2,99.11,0
+AKPL,03_stock_charts_ohlcv/AKPL_OHLCV.csv,8e8359da5117ddda99bba2df20c12e93157b36d5,936,2024-03-04,2026-11-20,304,223,2,99.11,0
+ALBSL,03_stock_charts_ohlcv/ALBSL_OHLCV.csv,a5630049b1187498568f812722b4b18aa8786bb4,933,2024-03-04,2026-11-20,304,223,2,99.11,0

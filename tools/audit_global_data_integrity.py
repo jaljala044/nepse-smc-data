@@ -5,6 +5,7 @@ import csv
 import gzip
 import hashlib
 import json
+import re
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -36,6 +37,10 @@ def read_rows(path):
     with opener(path, "rt", newline="", encoding="utf-8-sig") as stream:
         yield from csv.DictReader(stream)
 
+
+def floorsheet_date_from_filename(path):
+    match = re.search(r"floorsheet_(20\\d{2})[-_](\\d{2})[-_](\\d{2})", path.name, re.I)
+    return "-".join(match.groups()) if match else ""
 
 def scan_csv(path, category, findings, stats):
     rows = list(read_rows(path))
@@ -72,25 +77,32 @@ def scan_csv(path, category, findings, stats):
                 emit(findings, {"finding_type":"consecutive_identical_ohlcv_tuple","category":category,"path":path.relative_to(ROOT),"line":line,"related_line":prior[2],"key":f"{symbol}|{prior[0]}|{date}","detail":"Same OHLCV tuple on consecutive file rows; repeated values alone do not establish duplication"})
             prior = (date, payload, line)
     elif category == "floorsheet_or_reconciliation":
-        txn = choose(headers, ["Contract_No", "ContractNo", "Contract Number", "contract_id", "contractId", "Transaction ID", "TransactionId"])
+        txn = choose(headers, ["ID", "Row_ID", "RowId", "Contract_ID", "ContractId", "Transaction_ID", "TransactionId"])
         if not txn and choose(headers, ["Transaction"]) and all(choose(headers, [name]) for name in ["Symbol", "Buyer", "Seller", "Quantity", "Rate"]):
             txn = choose(headers, ["Transaction"])
+        contract_no = choose(headers, ["Contract_No", "ContractNo", "Contract Number"])
+        symbol_col = choose(headers, ["Symbol", "Stock_Symbol", "Scrip"])
+        buyer_col = choose(headers, ["Buyer", "Buyer_ID", "BuyerBroker"])
+        seller_col = choose(headers, ["Seller", "Seller_ID", "SellerBroker"])
+        date_col = choose(headers, ["Trading_Date", "TradingDate", "Date", "business_date"])
         date_col = choose(headers, ["Trading_Date", "TradingDate", "Date", "business_date"])
         seen, exact = {}, {}
         for line, row in enumerate(rows, 2):
-            date = (row.get(date_col) or "").strip() if date_col else ""
+            date = (row.get(date_col) or "").strip() if date_col else floorsheet_date_from_filename(path)
             fingerprint = tuple((row.get(h) or "").strip() for h in headers)
             if fingerprint in exact:
                 emit(findings, {"finding_type":"exact_duplicate_floorsheet_row","category":category,"path":path.relative_to(ROOT),"line":line,"related_line":exact[fingerprint],"key":date,"detail":"Exact row repeated within this file"})
             else:
                 exact[fingerprint] = line
             if txn:
-                tid = (row.get(txn) or "").strip()
+                tid = (row.get(txn) or "").strip() if txn else ""
+                if not tid and contract_no and symbol_col and buyer_col and seller_col:
+                    tid = "|".join((row.get(contract_no,"").strip(),row.get(symbol_col,"").strip(),row.get(buyer_col,"").strip(),row.get(seller_col,"").strip()))
                 if not tid:
                     continue
                 key = (date, tid)
                 if key in seen:
-                    emit(findings, {"finding_type":"duplicate_floorsheet_contract_key","category":category,"path":path.relative_to(ROOT),"line":line,"related_line":seen[key],"key":"|".join(key),"detail":"Contract identity repeats within this source file/session; inspect source pagination and provenance"})
+                    emit(findings, {"finding_type":"duplicate_floorsheet_record_id","category":category,"path":path.relative_to(ROOT),"line":line,"related_line":seen[key],"key":"|".join(key),"detail":"Record ID repeats within this source file/session; review before classifying as duplicate"})
                 else:
                     seen[key] = line
         if not txn:

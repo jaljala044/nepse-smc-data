@@ -63,7 +63,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: nepse-official-eod-$EOD_SYMBOL-$EOD_DATE
+          name: nepse-official-eod-${{ env.EOD_SYMBOL }}-${{ env.EOD_DATE }}
           path: evidence/nepse-official-eod/
           if-no-files-found: warn
           retention-days: 90

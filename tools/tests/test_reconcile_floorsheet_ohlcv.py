@@ -151,6 +151,29 @@ class FloorsheetReconciliationTests(unittest.TestCase):
         xyz = next(r for r in rows if r["symbol"] == "XYZ")
         self.assertEqual(xyz["trade_status"], "UNKNOWN")
 
+    def test_duplicate_ohlcv_date_blocks_no_trade(self):
+        with (self.ohlcv / "XYZ_OHLCV.csv").open("w", newline="") as handle:
+            writer = csv.DictWriter(handle, fieldnames=["Date", "Open", "High", "Low", "Close", "Volume"])
+            writer.writeheader()
+            for volume in ("0", "5"):
+                writer.writerow({"Date": "2026-11-20", "Open": "1", "High": "1", "Low": "1", "Close": "1", "Volume": volume})
+        digest = hashlib.sha256(self.floor.read_bytes()).hexdigest()
+        rows = self.run_reconcile(complete="true", evidence="full-day totals verified",
+                                  uri="https://source.example/floorsheet/2026-11-20", digest=digest)
+        xyz = next(r for r in rows if r["symbol"] == "XYZ")
+        self.assertEqual(xyz["trade_status"], "UNKNOWN")
+
+    def test_missing_floorsheet_schema_blocks_no_trade(self):
+        self.floor.write_text("wrong,headers\\n", encoding="utf-8")
+        digest = hashlib.sha256(self.floor.read_bytes()).hexdigest()
+        manifest = {"floorsheet_complete": "true", "completeness_evidence": "full-day totals verified",
+                    "source_uri": "https://source.example/floorsheet/2026-11-20", "source_sha256": digest,
+                    "expected_trades": "0", "expected_shares": "0",
+                    "expected_turnover_npr": "0", "expected_symbols": "0"}
+        rows = ENGINE.reconcile_date("2026-11-20", self.floor, self.ohlcv,
+                                     {"2026-11-20": "verified_open"}, {"2026-11-20": manifest})
+        self.assertTrue(all(r["trade_status"] == "UNKNOWN" for r in rows))
+
 
 if __name__ == "__main__":
     unittest.main()

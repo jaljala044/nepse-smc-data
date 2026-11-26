@@ -72,10 +72,8 @@ def capture_pair(client, symbol, day, security_id, output_dir):
         response = post_page(client, url)
         retrieved_at = datetime.now(NPT).isoformat()
         content_type = response.headers.get("content-type", "")
-        if "json" not in content_type.lower():
-            raise RuntimeError(f"NEPSE floorsheet returned non-JSON content: {content_type}")
         raw = response.content
-        if response.status_code != 200:
+        if response.status_code != 200 or "json" not in content_type.lower():
             file_path = output_dir / f"{symbol}_{day}_page_{page}.json"
             file_path.parent.mkdir(parents=True, exist_ok=True)
             file_path.write_bytes(raw)
@@ -84,8 +82,12 @@ def capture_pair(client, symbol, day, security_id, output_dir):
                 "retrieved_at": retrieved_at, "http_status": response.status_code,
                 "content_type": content_type, "bytes": len(raw),
                 "sha256": hashlib.sha256(raw).hexdigest(), "rows": 0,
+                "body_excerpt": raw[:300].decode("utf-8", errors="replace"),
             })
-            access_status = f"HTTP_{response.status_code}_ACCESS_DENIED" if response.status_code == 403 else f"HTTP_{response.status_code}_ERROR"
+            access_status = f"HTTP_{response.status_code}_ACCESS_DENIED" if response.status_code == 403 else (
+                "NON_JSON_RESPONSE_REQUIRES_REVIEW" if "json" not in content_type.lower()
+                else f"HTTP_{response.status_code}_ERROR"
+            )
             schema_status = access_status
             total_pages, total_elements = 0, 0
             break

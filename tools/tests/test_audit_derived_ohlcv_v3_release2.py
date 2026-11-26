@@ -60,10 +60,10 @@ class DerivedOhlcvV3AuditTests(unittest.TestCase):
             "official_high":"449.8","official_low":"440.5","official_close":"445.1",
             "official_volume":"4553","official_payload_sha256":"payload",
         }], matrix_fields)
-        correction_fields = ["symbol","business_date","field","raw_value","derived_value","disposition"]
+        correction_fields = ["symbol","business_date","field","candidate_value","official_value","disposition"]
         correction = root / "correction.csv"
         write_csv(correction, [{
-            "symbol":"TEST","business_date":"2026-04-24","field":"Open","raw_value":"449.9","derived_value":"445.0",
+            "symbol":"TEST","business_date":"2026-04-24","field":"Open","candidate_value":"449.9","official_value":"445.0",
             "disposition":"PRIMARY_OFFICIAL_NEPSE_EOD_OPEN_CORRECTION",
         }], correction_fields)
         return v2, v3, raw, matrix, correction

@@ -16,7 +16,7 @@ from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from typing import Any
 
-DATE = "2026-11-20"
+DEFAULT_DATE = "2026-11-20"
 
 
 def dec(value: Any) -> Decimal:
@@ -220,17 +220,21 @@ def compare(left: Counter, right: Counter) -> dict:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
+    ap.add_argument("--date", default=DEFAULT_DATE)
     ap.add_argument("--parquet", type=Path, required=True)
     ap.add_argument("--candidate", type=Path, required=True)
-    ap.add_argument("--local", type=Path, required=True)
+    ap.add_argument("--local", type=Path)
     ap.add_argument("--out", type=Path, required=True)
     args = ap.parse_args()
+    audit_date = args.date
 
     datasets = {
         "independent_nepse_pipeline_parquet": (read_parquet(args.parquet), "parquet", args.parquet),
         "socrateai_full_session_csv": (read_csv(args.candidate, "candidate"), "csv", args.candidate),
-        "local_500_row_extract": (read_csv(args.local, "local"), "csv", args.local),
     }
+    if args.local:
+        datasets["local_partial_extract"] = (read_csv(args.local, "local"), "csv", args.local)
+
     summaries = {}
     counters = {}
     for name, (rows, source, path) in datasets.items():
@@ -239,28 +243,59 @@ def main() -> None:
         summaries[name] = meta
         counters[name] = keys
 
+    comparisons = {
+        "pipeline_vs_socrateai": compare(
+            counters["independent_nepse_pipeline_parquet"],
+            counters["socrateai_full_session_csv"],
+        )
+    }
+    gates = {
+        "pipeline_and_candidate_same_date": (
+            summaries["independent_nepse_pipeline_parquet"]["date_counts"]
+            == {audit_date: summaries["independent_nepse_pipeline_parquet"]["rows"]}
+            and summaries["socrateai_full_session_csv"]["date_counts"]
+            == {audit_date: summaries["socrateai_full_session_csv"]["rows"]}
+        ),
+        "pipeline_candidate_equal_rows_and_symbols": (
+            summaries["independent_nepse_pipeline_parquet"]["rows"]
+            == summaries["socrateai_full_session_csv"]["rows"]
+            and summaries["independent_nepse_pipeline_parquet"]["distinct_symbols"]
+            == summaries["socrateai_full_session_csv"]["distinct_symbols"]
+        ),
+        "pipeline_candidate_exact_trade_multiset": (
+            not (counters["independent_nepse_pipeline_parquet"] - counters["socrateai_full_session_csv"])
+            and not (counters["socrateai_full_session_csv"] - counters["independent_nepse_pipeline_parquet"])
+        ),
+    }
+    if args.local:
+        local_key = "local_partial_extract"
+        comparisons["pipeline_vs_local_partial"] = compare(
+            counters["independent_nepse_pipeline_parquet"], counters[local_key]
+        )
+        comparisons["pipeline_vs_local_identity_without_amount"] = compare_core(
+            counters["independent_nepse_pipeline_parquet"], counters[local_key]
+        )
+        comparisons["socrateai_vs_local_partial"] = compare(
+            counters["socrateai_full_session_csv"], counters[local_key]
+        )
+        comparisons["socrateai_vs_local_identity_without_amount"] = compare_core(
+            counters["socrateai_full_session_csv"], counters[local_key]
+        )
+        gates["local_extract_is_full_session"] = (
+            summaries[local_key]["rows"] == summaries["independent_nepse_pipeline_parquet"]["rows"]
+        )
+
     report = {
-        "audit_date": DATE,
+        "audit_date": audit_date,
         "classification": "AUDIT_ONLY_NOT_CANONICAL",
         "sources": summaries,
-        "comparisons": {
-            "pipeline_vs_socrateai": compare(counters["independent_nepse_pipeline_parquet"], counters["socrateai_full_session_csv"]),
-            "pipeline_vs_local_500": compare(counters["independent_nepse_pipeline_parquet"], counters["local_500_row_extract"]),
-            "pipeline_vs_local_500_identity_without_amount": compare_core(counters["independent_nepse_pipeline_parquet"], counters["local_500_row_extract"]),
-            "socrateai_vs_local_500": compare(counters["socrateai_full_session_csv"], counters["local_500_row_extract"]),
-            "socrateai_vs_local_500_identity_without_amount": compare_core(counters["socrateai_full_session_csv"], counters["local_500_row_extract"]),
-        },
-        "gates": {
-            "pipeline_and_candidate_same_date": summaries["independent_nepse_pipeline_parquet"]["date_counts"] == {DATE: summaries["independent_nepse_pipeline_parquet"]["rows"]} and summaries["socrateai_full_session_csv"]["date_counts"] == {DATE: summaries["socrateai_full_session_csv"]["rows"]},
-            "pipeline_candidate_equal_rows_and_symbols": summaries["independent_nepse_pipeline_parquet"]["rows"] == summaries["socrateai_full_session_csv"]["rows"] and summaries["independent_nepse_pipeline_parquet"]["distinct_symbols"] == summaries["socrateai_full_session_csv"]["distinct_symbols"],
-            "pipeline_candidate_exact_trade_multiset": not (counters["independent_nepse_pipeline_parquet"] - counters["socrateai_full_session_csv"]) and not (counters["socrateai_full_session_csv"] - counters["independent_nepse_pipeline_parquet"]),
-            "local_extract_is_full_session": summaries["local_500_row_extract"]["rows"] == summaries["independent_nepse_pipeline_parquet"]["rows"],
-        },
+        "comparisons": comparisons,
+        "gates": gates,
         "limitations": [
-            "The independent capture workflow log is separate evidence; this script compares the published Parquet bytes after download.",
-            "Buyer/seller member identifiers are compared to CSV buyer/seller numeric identifiers after integer normalization; any semantic mapping mismatch will appear as unmatched rows rather than being silently coerced.",
+            "This job compares the published Parquet bytes and CSV records; capture logs must be separately checked for upstream totalElements and complete pagination.",
             "A matching published partition does not replace missing private bronze raw-page replay evidence.",
-            "This audit does not promote canonical data or authorize NO_TRADE inference."
+            "This audit does not promote canonical data or authorize NO_TRADE inference.",
+            "Only 2026-11-20 currently has separately verified upstream totalElements, full-page capture and quality-gate logs in the project evidence register.",
         ],
     }
     args.out.parent.mkdir(parents=True, exist_ok=True)

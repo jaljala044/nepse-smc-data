@@ -1,0 +1,100 @@
+{
+  "task": "P4.34",
+  "source": "NEPSE official web/API domain",
+  "retrieved_at_utc": "2026-11-26T18:31:23.544640+00:00",
+  "authentication_policy": "No token challenge was solved and no access-control bypass was attempted. Token response values are never persisted.",
+  "records": [
+    {
+      "name": "market_status",
+      "method": "GET",
+      "url": "https://www.nepalstock.com/api/nots/nepse-data/market-open",
+      "http_status": 401,
+      "content_type": "text/html;charset=UTF-8",
+      "response_bytes": 87,
+      "response_sha256": "ee73a9a8cdc37c9dc5df7798e6ee814f7a2270a90c723dd64dd379790fd1c298",
+      "response_summary": {
+        "json_type": "non_json"
+      },
+      "filename": "market_status.json"
+    },
+    {
+      "name": "security_list",
+      "method": "GET",
+      "url": "https://www.nepalstock.com/api/nots/security?nonDelisted=true",
+      "http_status": 401,
+      "content_type": "text/html;charset=UTF-8",
+      "response_bytes": 87,
+      "response_sha256": "ee73a9a8cdc37c9dc5df7798e6ee814f7a2270a90c723dd64dd379790fd1c298",
+      "response_summary": {
+        "json_type": "non_json"
+      },
+      "filename": "security_list.json"
+    },
+    {
+      "name": "token_prove",
+      "method": "GET",
+      "url": "https://www.nepalstock.com/api/authenticate/prove",
+      "http_status": 200,
+      "content_type": "application/json",
+      "response_bytes": 723,
+      "response_sha256": "b43f60b9db83bd5451cebd9667e2ebbfda55683d2de201d5ecf49970261fb44c",
+      "response_summary": {
+        "json_type": "object",
+        "keys": [
+          "accessToken",
+          "isDisplayActive",
+          "popupDocFor",
+          "refreshToken",
+          "salt",
+          "salt1",
+          "salt2",
+          "salt3",
+          "salt4",
+          "salt5",
+          "serverTime",
+          "tokenType"
+        ],
+        "floorsheet_keys": [],
+        "content_count": null,
+        "total_elements": null,
+        "total_pages": null
+      },
+      "token_fields_present": {
+        "accessToken": true,
+        "refreshToken": true,
+        "salt1": true,
+        "salt2": true,
+        "salt3": true,
+        "salt4": true,
+        "salt5": true,
+        "serverTime": true
+      },
+      "body_saved": false
+    },
+    {
+      "symbol": "NMLBBL",
+      "business_date": "2024-05-19",
+      "security_id": null,
+      "status": "skipped_security_id_unavailable"
+    },
+    {
+      "symbol": "NMLBBL",
+      "business_date": "2024-05-16",
+      "security_id": null,
+      "status": "skipped_security_id_unavailable"
+    },
+    {
+      "symbol": "SMPDA",
+      "business_date": "2024-08-18",
+      "security_id": null,
+      "status": "skipped_security_id_unavailable"
+    },
+    {
+      "symbol": "SMPDA",
+      "business_date": "2024-08-14",
+      "security_id": null,
+      "status": "skipped_security_id_unavailable"
+    }
+  ],
+  "interpretation": "A 200 page-0 response is not complete-session evidence. Capture every page and require upstream totalElements/totalPages plus contract-level validation. A 401/403 or unexpected payload means official historical access remains unavailable by this probe; UNKNOWN is retained."
+}

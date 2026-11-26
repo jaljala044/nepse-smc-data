@@ -1,7 +1,7 @@
 {
   "task": "P4.37",
   "source": "NEPSE official API domain",
-  "retrieved_at_utc": "2026-11-26T19:39:20.281789+00:00",
+  "retrieved_at_utc": "2026-11-26T19:40:59.931613+00:00",
   "window": {
     "start": "2025-11-26",
     "end": "2026-11-26",
@@ -42,7 +42,7 @@
       "http_status": 200,
       "content_type": "application/json",
       "response_bytes": 722,
-      "response_sha256": "c30b6f0f55c2370c46f3e328fc21f1590456e781f9ac98c1ab3af447217e02ee",
+      "response_sha256": "5b7391cfc7ac72b0671497b88b207823b1e636513048311be8e3ca94b437e81f",
       "etag": null,
       "last_modified": null,
       "token_fields_present": {
@@ -76,7 +76,7 @@
     "canonical_only_tuple_matches": 1455,
     "exact_date_overlaps": 5130,
     "exact_date_mismatches": 3,
-    "weekend_rows": 648
+    "weekly_closure_rows": 0
   },
   "sector_rollup": {
     "Microfinance": {
@@ -229,116 +229,7 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
-      "friday_saturday_records": [
-        {
-          "date": "2026-11-20",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-13",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-06",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-30",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-16",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-09",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-02",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-18",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-11",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-21",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-14",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-07",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-31",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-10",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-03",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-26",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-19",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-12",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-05",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-22",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-15",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-08",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-10",
-          "weekday": "friday"
-        }
-      ],
+      "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
         "2025-11-27",
@@ -733,7 +624,7 @@
           "http_status": 200,
           "content_type": "application/json",
           "response_bytes": 38885,
-          "response_sha256": "e7ecd2e7e1c15b8f9c4087abf27923fa8794719f3851d82d90c11770a809e9fe",
+          "response_sha256": "1ba39fc9bf3a4458d11a28401eca52640e9129d5a8f0622164f6dedc887d94b7",
           "etag": null,
           "last_modified": null,
           "status": "captured",
@@ -755,116 +646,7 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
-      "friday_saturday_records": [
-        {
-          "date": "2026-11-20",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-13",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-06",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-30",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-16",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-09",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-02",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-18",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-11",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-21",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-14",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-07",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-31",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-10",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-03",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-26",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-19",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-12",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-05",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-22",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-15",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-08",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-10",
-          "weekday": "friday"
-        }
-      ],
+      "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
         "2025-11-27",
@@ -1281,116 +1063,7 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
-      "friday_saturday_records": [
-        {
-          "date": "2026-11-20",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-13",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-06",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-30",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-16",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-09",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-02",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-18",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-11",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-21",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-14",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-07",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-31",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-10",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-03",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-26",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-19",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-12",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-05",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-22",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-15",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-08",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-10",
-          "weekday": "friday"
-        }
-      ],
+      "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
         "2025-11-27",
@@ -1806,116 +1479,7 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
-      "friday_saturday_records": [
-        {
-          "date": "2026-11-20",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-13",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-06",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-30",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-16",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-09",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-02",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-18",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-11",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-21",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-14",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-07",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-31",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-10",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-03",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-26",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-19",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-12",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-05",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-22",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-15",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-08",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-10",
-          "weekday": "friday"
-        }
-      ],
+      "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
         "2025-11-27",
@@ -2331,116 +1895,7 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
-      "friday_saturday_records": [
-        {
-          "date": "2026-11-20",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-13",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-06",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-30",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-16",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-09",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-02",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-18",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-11",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-21",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-14",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-07",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-31",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-10",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-03",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-26",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-19",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-12",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-05",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-22",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-15",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-08",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-10",
-          "weekday": "friday"
-        }
-      ],
+      "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
         "2025-11-27",
@@ -2731,7 +2186,7 @@
           "http_status": 200,
           "content_type": "application/json",
           "response_bytes": 39860,
-          "response_sha256": "0668f14310f31daef55be6fb8e5a79b7d992c8d9171b763263352f8ce022cfbe",
+          "response_sha256": "0fcba99d9ac6cade3dbc2f8f013c00635cccac8ce7a1af37f2aa83052543501c",
           "etag": null,
           "last_modified": null,
           "status": "captured",
@@ -2753,116 +2208,7 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
-      "friday_saturday_records": [
-        {
-          "date": "2026-11-20",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-13",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-06",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-30",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-16",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-09",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-02",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-18",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-11",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-21",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-14",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-07",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-31",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-10",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-03",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-26",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-19",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-12",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-05",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-22",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-15",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-08",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-10",
-          "weekday": "friday"
-        }
-      ],
+      "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
         "2025-11-27",
@@ -3159,116 +2505,7 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
-      "friday_saturday_records": [
-        {
-          "date": "2026-11-20",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-13",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-06",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-30",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-16",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-09",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-02",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-18",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-11",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-21",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-14",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-07",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-31",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-10",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-03",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-26",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-19",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-12",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-05",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-22",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-15",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-08",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-10",
-          "weekday": "friday"
-        }
-      ],
+      "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
         "2025-11-27",
@@ -3662,7 +2899,7 @@
           "http_status": 200,
           "content_type": "application/json",
           "response_bytes": 39163,
-          "response_sha256": "ba6160e70cea3833b0d104ba1782f2d05fa6630507bb31407017d2aaadf85f8a",
+          "response_sha256": "eefeecb04bbd2392f4f69d51b5c88486a958ca17c718904b85970841c65d091a",
           "etag": null,
           "last_modified": null,
           "status": "captured",
@@ -3684,116 +2921,7 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
-      "friday_saturday_records": [
-        {
-          "date": "2026-11-20",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-13",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-06",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-30",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-16",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-09",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-02",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-18",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-11",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-21",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-14",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-07",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-31",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-10",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-03",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-26",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-19",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-12",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-05",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-22",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-15",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-08",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-10",
-          "weekday": "friday"
-        }
-      ],
+      "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
         "2025-11-27",
@@ -4209,116 +3337,7 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
-      "friday_saturday_records": [
-        {
-          "date": "2026-11-20",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-13",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-06",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-30",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-16",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-09",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-02",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-18",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-11",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-21",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-14",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-07",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-31",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-10",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-03",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-26",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-19",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-12",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-05",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-22",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-15",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-08",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-10",
-          "weekday": "friday"
-        }
-      ],
+      "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
         "2025-11-27",
@@ -4713,7 +3732,7 @@
           "http_status": 200,
           "content_type": "application/json",
           "response_bytes": 39253,
-          "response_sha256": "a1f425d95ac684fe54138e99f660b79ea6543a556d866a1ab57f16e10e612946",
+          "response_sha256": "44b4e08d71d87f00b484a57f4319b97fdcd812de144781add10cf19085a0565f",
           "etag": null,
           "last_modified": null,
           "status": "captured",
@@ -4735,116 +3754,7 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
-      "friday_saturday_records": [
-        {
-          "date": "2026-11-20",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-13",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-06",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-30",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-16",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-09",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-02",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-18",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-11",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-21",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-14",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-07",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-31",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-10",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-03",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-26",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-19",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-12",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-05",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-22",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-15",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-08",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-10",
-          "weekday": "friday"
-        }
-      ],
+      "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
         "2025-11-27",
@@ -5239,7 +4149,7 @@
           "http_status": 200,
           "content_type": "application/json",
           "response_bytes": 39475,
-          "response_sha256": "80d3386a5a5588b959d480b54f2984a36441ac367d45875232ab17d11c769737",
+          "response_sha256": "a18a61cfd1fc9fd4db685003f2cef4fa25c232c5a19519a92ea445243531c641",
           "etag": null,
           "last_modified": null,
           "status": "captured",
@@ -5261,116 +4171,7 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
-      "friday_saturday_records": [
-        {
-          "date": "2026-11-20",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-13",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-06",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-30",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-16",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-09",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-02",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-18",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-11",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-21",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-14",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-07",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-31",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-10",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-03",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-26",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-19",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-12",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-05",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-22",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-15",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-08",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-10",
-          "weekday": "friday"
-        }
-      ],
+      "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
         "2025-11-27",
@@ -5764,7 +4565,7 @@
           "http_status": 200,
           "content_type": "application/json",
           "response_bytes": 39222,
-          "response_sha256": "fcd6e1faa0a9bb81464d9c42f36b9dff50e8d84d5a3b6bdfbbd03091b1a5f9b3",
+          "response_sha256": "57f7e47eab8d2073425ea6965914c1067a19f6d653172c60bb4d189dbefcf0de",
           "etag": null,
           "last_modified": null,
           "status": "captured",
@@ -5786,116 +4587,7 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
-      "friday_saturday_records": [
-        {
-          "date": "2026-11-20",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-13",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-06",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-30",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-16",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-09",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-02",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-18",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-11",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-21",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-14",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-07",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-31",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-10",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-03",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-26",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-19",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-12",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-05",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-22",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-15",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-08",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-10",
-          "weekday": "friday"
-        }
-      ],
+      "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
         "2025-11-27",
@@ -6289,7 +4981,7 @@
           "http_status": 200,
           "content_type": "application/json",
           "response_bytes": 39475,
-          "response_sha256": "ca94e81a3f3d8f9535e61f382796512d1ab13a3791d5ba1c937e406ce12f2413",
+          "response_sha256": "3a79a8ad38c2266af626dd27f16935ef38dc5cafe8db163ef441f0a878f9ac51",
           "etag": null,
           "last_modified": null,
           "status": "captured",
@@ -6311,116 +5003,7 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
-      "friday_saturday_records": [
-        {
-          "date": "2026-11-20",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-13",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-06",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-30",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-16",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-09",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-02",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-18",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-11",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-21",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-14",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-07",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-31",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-10",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-03",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-26",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-19",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-12",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-05",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-22",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-15",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-08",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-10",
-          "weekday": "friday"
-        }
-      ],
+      "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
         "2025-11-27",
@@ -6831,7 +5414,7 @@
           "http_status": 200,
           "content_type": "application/json",
           "response_bytes": 39084,
-          "response_sha256": "6a6d1e0447a00f4455fa2e1a6f21c5d76ef3fe1e62d0d0b6290a60618b01f517",
+          "response_sha256": "59ae5d742c42eaed4febe7e26864e38df7adeeb13303194ff9ef9244791a6d6a",
           "etag": null,
           "last_modified": null,
           "status": "captured",
@@ -6853,116 +5436,7 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
-      "friday_saturday_records": [
-        {
-          "date": "2026-11-20",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-13",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-06",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-30",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-16",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-09",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-02",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-18",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-11",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-21",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-14",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-07",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-31",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-10",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-03",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-26",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-19",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-12",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-05",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-22",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-15",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-08",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-10",
-          "weekday": "friday"
-        }
-      ],
+      "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
         "2025-11-27",
@@ -7357,7 +5831,7 @@
           "http_status": 200,
           "content_type": "application/json",
           "response_bytes": 40299,
-          "response_sha256": "7a063aca6148464489330a5760807f15aab261e126bb030e976a0ece4f9f6ff7",
+          "response_sha256": "1b5d0a5acc26e0103848e844072c060fb4cbae0748ebe5b614a6319a90f3a2b5",
           "etag": null,
           "last_modified": null,
           "status": "captured",
@@ -7379,116 +5853,7 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
-      "friday_saturday_records": [
-        {
-          "date": "2026-11-20",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-13",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-06",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-30",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-16",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-09",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-02",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-18",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-11",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-21",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-14",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-07",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-31",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-10",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-03",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-26",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-19",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-12",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-05",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-22",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-15",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-08",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-10",
-          "weekday": "friday"
-        }
-      ],
+      "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
         "2025-11-27",
@@ -7898,7 +6263,7 @@
           "http_status": 200,
           "content_type": "application/json",
           "response_bytes": 36603,
-          "response_sha256": "b84c224ed3228430e559fc6cfbf6a95efa05d2a13d754aa81b7ba4454a406492",
+          "response_sha256": "92f5e43aaaace4288ac69d45f6e12735580f481c17551692175c5e435fb8511e",
           "etag": null,
           "last_modified": null,
           "status": "captured",
@@ -7920,116 +6285,7 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
-      "friday_saturday_records": [
-        {
-          "date": "2026-11-20",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-13",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-06",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-30",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-16",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-09",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-02",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-18",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-11",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-21",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-14",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-07",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-31",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-10",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-03",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-26",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-19",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-12",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-05",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-22",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-15",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-08",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-10",
-          "weekday": "friday"
-        }
-      ],
+      "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
         "2025-11-27",
@@ -8563,116 +6819,7 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
-      "friday_saturday_records": [
-        {
-          "date": "2026-11-20",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-13",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-06",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-30",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-16",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-09",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-02",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-18",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-11",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-21",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-14",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-07",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-31",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-10",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-03",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-26",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-19",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-12",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-05",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-22",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-15",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-08",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-10",
-          "weekday": "friday"
-        }
-      ],
+      "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
         "2025-11-27",
@@ -8969,116 +7116,7 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
-      "friday_saturday_records": [
-        {
-          "date": "2026-11-20",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-13",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-06",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-30",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-16",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-09",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-02",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-18",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-11",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-21",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-14",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-07",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-31",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-10",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-03",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-26",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-19",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-12",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-05",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-22",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-15",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-08",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-10",
-          "weekday": "friday"
-        }
-      ],
+      "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
         "2025-11-27",
@@ -9374,116 +7412,7 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
-      "friday_saturday_records": [
-        {
-          "date": "2026-11-20",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-13",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-06",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-30",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-16",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-09",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-02",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-18",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-11",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-21",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-14",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-07",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-31",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-10",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-03",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-26",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-19",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-12",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-05",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-22",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-15",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-08",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-10",
-          "weekday": "friday"
-        }
-      ],
+      "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
         "2025-11-27",
@@ -9880,7 +7809,7 @@
           "http_status": 200,
           "content_type": "application/json",
           "response_bytes": 39844,
-          "response_sha256": "bf3f65970bcdaf46230040b5f636057b7df9c07bea8384512abea04be0dd1b25",
+          "response_sha256": "d191c5bb4ab857f73fb57f99f4747ed21dc1e4c68fb33e4e19ebfb7c98de17a4",
           "etag": null,
           "last_modified": null,
           "status": "captured",
@@ -9902,116 +7831,7 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
-      "friday_saturday_records": [
-        {
-          "date": "2026-11-20",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-13",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-06",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-30",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-16",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-09",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-02",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-18",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-11",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-21",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-14",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-07",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-31",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-10",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-03",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-26",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-19",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-12",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-05",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-22",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-15",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-08",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-10",
-          "weekday": "friday"
-        }
-      ],
+      "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
         "2025-11-27",
@@ -10405,7 +8225,7 @@
           "http_status": 200,
           "content_type": "application/json",
           "response_bytes": 39095,
-          "response_sha256": "2dc38b6333052a825c75f0216399a6d4deb3203ce52ccb126cb9e904dfeb2ef3",
+          "response_sha256": "2d1e72ee79c1fe43672ae32a3cd67c31c80be92351912fcce61da934354c27f5",
           "etag": null,
           "last_modified": null,
           "status": "captured",
@@ -10427,116 +8247,7 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
-      "friday_saturday_records": [
-        {
-          "date": "2026-11-20",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-13",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-06",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-30",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-16",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-09",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-02",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-18",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-11",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-21",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-14",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-07",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-31",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-10",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-03",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-26",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-19",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-12",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-05",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-22",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-15",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-08",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-10",
-          "weekday": "friday"
-        }
-      ],
+      "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
         "2025-11-27",
@@ -10953,116 +8664,7 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
-      "friday_saturday_records": [
-        {
-          "date": "2026-11-20",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-13",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-06",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-30",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-16",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-09",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-02",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-18",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-11",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-21",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-14",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-07",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-31",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-10",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-03",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-26",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-19",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-12",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-05",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-22",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-15",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-08",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-10",
-          "weekday": "friday"
-        }
-      ],
+      "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
         "2025-11-27",
@@ -11479,116 +9081,7 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
-      "friday_saturday_records": [
-        {
-          "date": "2026-11-20",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-13",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-06",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-30",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-16",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-09",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-02",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-18",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-11",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-21",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-14",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-07",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-31",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-10",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-03",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-26",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-19",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-12",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-05",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-22",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-15",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-08",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-10",
-          "weekday": "friday"
-        }
-      ],
+      "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
         "2025-11-27",
@@ -12005,116 +9498,7 @@
       "out_of_window_dates": [],
       "missing_hlc_rows": 0,
       "missing_volume_rows": 0,
-      "friday_saturday_records": [
-        {
-          "date": "2026-11-20",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-13",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-11-06",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-30",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-16",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-09",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-10-02",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-18",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-09-11",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-21",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-14",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-08-07",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-31",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-10",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-07-03",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-26",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-19",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-12",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-06-05",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-22",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-15",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-05-08",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-24",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-17",
-          "weekday": "friday"
-        },
-        {
-          "date": "2026-04-10",
-          "weekday": "friday"
-        }
-      ],
+      "weekly_closure_records": [],
       "observed_dates": [
         "2025-11-26",
         "2025-11-27",
@@ -12372,5 +9756,10 @@
       "evidence_gate_pass": true
     }
   ],
+  "weekday_regime": {
+    "through_2026-04-05": "Sunday-Thursday regular sessions; Friday/Saturday weekly closures",
+    "from_2026-04-06": "Monday-Friday regular sessions; Saturday/Sunday weekly closures",
+    "limitation": "Weekday compatibility does not establish an actual open session; holidays and exceptional closures require the evidence-backed calendar."
+  },
   "interpretation": "Exploratory stratified sample only; not a full-universe finding. Official EOD HLCV comparisons do not prove contract-level execution or broker flow. Canonical rows are not modified. Suspected date-shift patterns remain quarantined pending provenance investigation."
 }

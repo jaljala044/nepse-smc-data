@@ -43,3 +43,13 @@ This continuation defines work packages #31–#40 from the still-open acceptance
 ## Current stopping point
 
 The three available machine audits (#31–#33) are complete and read back. The remaining seven packages require exact-head CI evidence or new primary-source material; they are not marked complete merely because the next action is documented.
+
+
+## Live recheck addendum — 2026-11-27 20:00 UTC
+
+- Rechecked branch head: `p443-global-integrity-audit` = `c3084ac8a1b7682acd9a4497699b35a06457379a`.
+- Work package #34 is now **COMPLETE for exact-head CI**: P4.43 workflow run #340 (`46056596815`) completed successfully on that exact SHA. This supersedes the earlier #325 ancestor-only checkpoint. PR #80 remains draft/open/unmerged; CI success is not PR acceptance.
+- Work package #35 remains **BLOCKED**: the 281 official per-security history payloads cover 2026-10-05 through 2026-11-26 and contain no Open field; their dates do not overlap the 23,377 pair endpoint dates. No primary endpoint evidence can be derived from those captures.
+- **Next active item: #36 — resolve the 21 unmatched symbols.** Preserve the five supported current successor edges (JALPA/KLBSL→MATRI; SABSL/SDLBSL→SMPDA; SAMAJ→GBLBS) strictly as current-identity links. They do not establish predecessor historical IDs or effective dates. The next pass must seek archived exchange security lists / primary lifecycle notices for the remaining 21, record raw-byte provenance, and leave unsupported mappings HOLD/UNKNOWN.
+- Rechecked the app/web repo as well: PR #241 has since merged to `main`; PRs #240 and #243 remain open draft PRs with passing relevant CI. PR #245/#246 are stacked draft work and their checks pass, but they are not merged to main.
+- No raw OHLCV, floorsheet, lifecycle, canonical, scanner-input or identity-ledger records were changed in this recheck. No promotion or hold release occurred.

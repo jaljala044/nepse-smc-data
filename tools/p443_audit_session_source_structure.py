@@ -27,7 +27,7 @@ def read_csv(path):
 
 def parse_number(value, integral=False):
     value = (value or "").strip()
-    if not re.fullmatch(r"(?:[0-9]+|[0-9]{1,3}(?:,[0-9]{3})+)(?:\\.[0-9]+)?", value):
+    if not re.fullmatch(r"(?:[0-9]+|[0-9]{1,3}(?:,[0-9]{3})+)(?:\.[0-9]+)?", value):
         raise ValueError("invalid numeric field")
     number = Decimal(value.replace(",", ""))
     if not number.is_finite() or number < 0:
@@ -44,7 +44,7 @@ def audit_file(source, item, expected, recovery):
     raw = subprocess.check_output(
         ["git", "-C", str(source), "show", SOURCE_COMMIT + ":" + path]
     )
-    git_blob = hashlib.sha1(f"blob {len(raw)}\\0".encode() + raw).hexdigest()
+    git_blob = hashlib.sha1(f"blob {len(raw)}\0".encode() + raw).hexdigest()
     if len(raw) != int(item["bytes"]) or git_blob != item["git_blob_sha"]:
         raise ValueError("pinned source byte-size or Git blob SHA mismatch")
 

@@ -46,7 +46,7 @@ This queue decomposes the open acceptance criteria into 30 reviewable work packa
 
 | # | Work package | Status | Acceptance / dependency |
 |---:|---|---|---|
-| 26 | P4.23: preserve and reconcile all 87 same-date conflict keys, including RHGCL | PARTIAL — created and read back `reference/P423_87_SAME_DATE_CONFLICT_RECONCILIATION_2026-11-27.csv`: 87 unique date/symbol keys; 86 remain `UNKNOWN_SOURCE_CONFLICT` for 2025-07-28; RHGCL 2026-11-19 is `OFFICIAL_CAPTURE_ACCEPTED_DERIVED_VIEW_ONLY` (NEPSE security ID 8108; payload SHA-256 `303d92756ffbcaa2e6ab5020c29e1eab1b63ed99797bf024914dbb863cbae183`). Raw SMC rows remain unchanged | 86 historical close conflicts still need primary evidence; preserve RHGCL official result only in the versioned derived view |
+| 26 | P4.23: preserve and reconcile all 87 same-date conflict keys, including RHGCL | PARTIAL — consolidated index has 87 unique keys; 86/87 (2025-07-28) remain `UNKNOWN_SOURCE_CONFLICT`. RHGCL 2026-11-19 now has a verified date-specific NEPSE `today-price` EOD capture with full O/H/L/C 252.10/259.50/252.10/258.00, volume 9,054, turnover NPR 2,332,952.50 and 47 trades; security ID 8108; payload SHA-256 `303d92756ffbcaa2e6ab5020c29e1eab1b63ed99797bf024914dbb863cbae183`. This supports a versioned derived view only; raw SMC row remains unchanged | 86 historical close conflicts still require primary date-matched evidence; no raw/canonical mutation or bulk promotion |
 | 27 | P4.23: acquire and completeness-validate 2025-07-28 floorsheet evidence for 86 conflict keys | BLOCKED | Complete primary-origin capture, pagination proof and per-symbol totals |
 | 28 | P4.23.2: reconstruct 2025-07-28 Open/Close for 86 symbols without assuming contract-ID order | BLOCKED | Timestamped primary records or independently validated ordering semantics |
 | 29 | P4.35: independently classify lineage and coverage for 1,368 historical OHLCV flags | BLOCKED | Independent historical source or exact acquisition blocker by candidate |
@@ -230,3 +230,12 @@ This queue decomposes the open acceptance criteria into 30 reviewable work packa
 - RHGCL retains SMC raw values (Close 256.00 / Volume 4,216), official NEPSE values (Close 258.00 / Volume 9,054), security ID 8108, retrieval timestamp and exact raw response SHA-256. Disposition is `OFFICIAL_CAPTURE_ACCEPTED_DERIVED_VIEW_ONLY`; original raw row remains untouched.
 - Exact key check: 87 rows / 87 unique `(date,symbol)` keys; 86 unresolved secondary-source conflicts and one official-confirmed RHGCL derived-view decision.
 - #26 remains PARTIAL because 86/87 still lack date-matched primary evidence. No raw or canonical OHLCV was modified and no other row was promoted.
+
+
+### Work package #26 — RHGCL official EOD artifact re-read and conflict-status correction (2026-11-27)
+
+- Re-downloaded official capture artifact ID `15137973461` and independently recomputed ZIP SHA-256 `72266336645ba3191c441cfa66cd493462b44f7a92fcc68db4b968e0d693a6ee`, matching the committed capture manifest.
+- Raw page member SHA-256 `303d92756ffbcaa2e6ab5020c29e1eab1b63ed99797bf024914dbb863cbae183` (175,513 bytes). The validated target row includes Open 252.10, High 259.50, Low 252.10, Close 258.00, volume 9,054, turnover NPR 2,332,952.50 and 47 trades; NEPSE security ID 8108; page 0 of 1, upstream total elements 347.
+- This is a separate date-specific official `today-price` EOD capture. It supersedes the older security-history endpoint note that had no Open field; the two endpoint observations must not be conflated.
+- Updated the 87-key reconciliation CSV with explicit official O/H/L/C/volume/turnover/trade fields and artifact provenance. RHGCL disposition is `PRIMARY_CONFIRMED_DERIVED_VIEW_ONLY`; the original SMC row remains preserved. The other 86 2025-07-28 keys remain unresolved.
+- No raw OHLCV, canonical data, scanner inputs or conflict labels were modified.

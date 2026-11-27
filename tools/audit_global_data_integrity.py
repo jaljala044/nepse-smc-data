@@ -93,18 +93,19 @@ def scan_csv(path, category, findings, stats):
                 emit(findings, {"finding_type":"exact_duplicate_floorsheet_row","category":category,"path":path.relative_to(ROOT),"line":line,"related_line":exact[fingerprint],"key":date,"detail":"Exact row repeated within this file"})
             else:
                 exact[fingerprint] = line
-            if txn or (contract_no and symbol_col and buyer_col and seller_col):
-                tid = (row.get(txn) or "").strip() if txn else ""
-                if not tid and contract_no and symbol_col and buyer_col and seller_col:
-                    tid = "|".join((row.get(contract_no,"").strip(),row.get(symbol_col,"").strip(),row.get(buyer_col,"").strip(),row.get(seller_col,"").strip()))
+            # Only an explicit source record/transaction identifier is a row key.
+            # Contract number + symbol + broker fields are descriptive business
+            # attributes, not a substitute for a source-issued record ID.
+            if txn:
+                tid = (row.get(txn) or "").strip()
                 if not tid:
                     continue
                 key = (date, tid)
                 if key in seen:
-                    emit(findings, {"finding_type":"duplicate_floorsheet_record_id","category":category,"path":path.relative_to(ROOT),"line":line,"related_line":seen[key],"key":"|".join(key),"detail":"Record ID repeats within this source file/session; review before classifying as duplicate"})
+                    emit(findings, {"finding_type":"duplicate_floorsheet_record_id","category":category,"path":path.relative_to(ROOT),"line":line,"related_line":seen[key],"key":"|".join(key),"detail":"Explicit source record ID repeats within this source file/session; review before classifying as duplicate"})
                 else:
                     seen[key] = line
-        if not txn and not (contract_no and symbol_col and buyer_col and seller_col):
+        if not txn:
             stats["unsupported"] += 1
     elif category == "session_calendar":
         date_col = choose(headers, ["date", "session_date", "Trading_Date"])

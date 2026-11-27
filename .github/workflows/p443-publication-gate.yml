@@ -22,14 +22,16 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - run: python -m pip install google-auth requests
       - run: python -m unittest test_p443_canonical_publication test_p443_historical_quarantine test_p443_scanner_quarantine -v
       - run: python -m py_compile github_floorsheet_pull.py
-      - name: Verify actual pinned historical quarantine artifact
+      - name: Verify actual private Drive quarantine overlay
         env:
-          GH_TOKEN: ${{ github.token }}
+          GDRIVE_SERVICE_ACCOUNT_JSON: ${{ secrets.GDRIVE_SERVICE_ACCOUNT_JSON }}
         run: |
           set -euo pipefail
           umask 077
-          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/15155667000/zip" > "$RUNNER_TEMP/p443-overlay.zip"
-          python -m scanner_inputs.retrieve_quarantine_overlay "$RUNNER_TEMP/p443-overlay.zip" "$RUNNER_TEMP/p443-overlay.csv"
-          python -c 'import sys; from scanner_inputs.historical_quarantine import load_holds; h=load_holds(sys.argv[1]); print("Verified keys:", len(h), "Affected dates:", len({k[1] for k in h}))' "$RUNNER_TEMP/p443-overlay.csv"
+          test -n "$GDRIVE_SERVICE_ACCOUNT_JSON" || { echo "Missing GDRIVE_SERVICE_ACCOUNT_JSON secret; fail closed"; exit 1; }
+          printf '%s' "$GDRIVE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/gdrive-service-account.json"
+          export GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/gdrive-service-account.json"
+          python -m scanner_inputs.retrieve_drive_quarantine "$RUNNER_TEMP/p443-overlay.csv"

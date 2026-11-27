@@ -43,3 +43,16 @@ This set agrees in cardinality and membership with the existing 26-symbol residu
 **Work package #3 is PARTIAL, not complete.** The current-snapshot reconciliation is now explicit and the 26-symbol unresolved set is verified. The acceptance criterion—effective-dated symbol/name/ID mapping for all 209 symbols—remains unmet because the available crosswalk/snapshot is point-in-time and does not include effective intervals or historical stable IDs. Do not release holds or promote repeated-pair rows based on this result.
 
 Next dependency: obtain archived NEPSE security lists or official effective-dated security-ID history, then reconcile the 26 residual symbols (#4) and validate historical identity intervals across all 209 symbols.
+
+
+## Successor-alias correction (2026-11-27)
+
+The 26 symbols without a direct current-snapshot row are not all unresolved current identities. The lifecycle evidence ledger plus the 2026-11-25 NEPSE security snapshot establish five predecessor-to-successor current-identity links:
+
+- JALPA → MATRI (current security ID 694)
+- KLBSL → MATRI (current security ID 694)
+- SABSL → SMPDA (current security ID 2896)
+- SDLBSL → SMPDA (current security ID 2896)
+- SAMAJ → GBLBS (current security ID 583)
+
+The successor IDs are from the 2026-11-25 snapshot blob `eed3bbb3152e83d4abcb0ee8d03d720c33c63cef`. Full row-level mapping and evidence limits are in `P444_MERGER_SUCCESSOR_CURRENT_ID_CROSSWALK_2026-11-27.csv`. This updates the current-identity interpretation: 5 of the 26 residual predecessor symbols map to 3 current successor identities; 21 residual symbols still lack a supported successor/current mapping. Historical predecessor stable IDs remain unverified, and the SABSL/SDLBSL effective date remains disputed. Preserve predecessor OHLCV under the old ticker; use the successor ticker/current ID for current-security lookups only.

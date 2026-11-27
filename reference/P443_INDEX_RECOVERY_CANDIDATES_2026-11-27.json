@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-11-27",
+  "source_audit_artifact": 15168438563,
+  "records": [
+    {
+      "date": "2025-04-03",
+      "symbol": "NEPSE_index",
+      "open": "2700.40",
+      "high": "2732.85",
+      "low": "2700.23",
+      "close": "2703.39",
+      "reported_turnover": "7844642487.27",
+      "status": "SECONDARY_RECOVERY_CANDIDATE",
+      "sources": [
+        "https://expertnepal.com/nepse-index/",
+        "https://kathmandupost.com/money/2025/04/03/nepse-index-increases-by-3-35-points-trading-volume-reaches-rs7-84-billion"
+      ],
+      "limitations": "Second source corroborates close and approximate turnover, not full OHLC."
+    },
+    {
+      "date": "2025-11-24",
+      "symbol": "NEPSE_index",
+      "open": "2601.20",
+      "high": "2650.66",
+      "low": "2601.11",
+      "close": "2650.66",
+      "reported_turnover": null,
+      "status": "CROSS_SOURCE_OHLC_CANDIDATE",
+      "sources": [
+        "https://www.sharesansar.com/newsdetail/nepse-index-upsurges-by-significant-5044-points-all-indices-close-at-green-while-intraday-turnover-stood-at-703-arba-2025-11-24",
+        "https://hamroshare.com.np/news/market-wrap/2025-11-24"
+      ],
+      "limitations": "Turnover scope differs; primary capture unavailable."
+    }
+  ],
+  "nov26": {
+    "floor_turnover": "5489584101.96",
+    "secondary_reported_turnover": "5489584101.95",
+    "difference": "0.01",
+    "source": "https://www.sharesansar.com/market",
+    "status": "SECONDARY_TOTAL_CORROBORATION_ONLY"
+  },
+  "remaining": {
+    "benchmark_precision_candidates": 11,
+    "other_index_violations": 208
+  },
+  "promotion_allowed": false
+}

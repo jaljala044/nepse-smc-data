@@ -1,0 +1,23 @@
+{
+  "date": "2026-03-01",
+  "original_archive": {
+    "date": "2026-03-01",
+    "blob": "0c3ad57b79970744b60618f7d9b0705086a03425",
+    "symbols": 13,
+    "quantity": 364868,
+    "turnover": "65246109.50",
+    "transactions": 30
+  },
+  "alternative": {
+    "date": "2026-03-02",
+    "blob": "53bc1975d9c4e3f20989b85791a815b6eb806b04",
+    "symbols": 341,
+    "quantity": 13193462,
+    "turnover": "5648319041.36",
+    "transactions": 55206
+  },
+  "source_commit": "524442d518d2f2705ade0680c9d2e3f90738e3d6",
+  "status": "MATCHING_SECONDARY_DATE_SHIFT_CANDIDATE",
+  "publication_allowed": false,
+  "official_transaction_total_verified": false
+}

@@ -34,3 +34,8 @@ The available 2026-11-25 list is a dated current snapshot, not an archived histo
 **Work package #4 is PARTIAL — evidence coverage is reconciled for 26/26, but historical IDs and effective dates are verified for 0/26.** No raw/canonical OHLCV, scanner-input, lifecycle disposition, or repeated-pair row was changed or promoted.
 
 Next required evidence: dated NEPSE security-list snapshots or an official historical security register with stable IDs and validity intervals, plus exchange lifecycle notices that establish the relevant trading boundaries.
+
+
+## Successor identity resolution addendum (2026-11-27)
+
+Five of the 26 predecessor symbols have current successor identity mappings in the 2026-11-25 NEPSE security snapshot: JALPA/KLBSL → MATRI (ID 694), SABSL/SDLBSL → SMPDA (ID 2896), and SAMAJ → GBLBS (ID 583). The exact crosswalk is `P444_MERGER_SUCCESSOR_CURRENT_ID_CROSSWALK_2026-11-27.csv`. Thus 21 residual symbols remain without a supported current successor mapping. This resolves their current lookup target, not their predecessor historical stable IDs or exact last-trade boundaries. For SABSL/SDLBSL, the merger date conflict remains open; for SAMAJ, the notice event date was not extracted. Historical OHLCV remains attached to each predecessor ticker and must not be overwritten.

@@ -119,5 +119,70 @@
     "Repeated contract numbers are collision findings, not proof that the rows are duplicate trades.",
     "The 2024-08-01 arithmetic failures remain quarantined for row-level review; no automatic amount correction is allowed.",
     "No HF partition for a request is UNKNOWN, not proof of no trade."
-  ]
+  ],
+  "secondary_recovery_validation": {
+    "workflow_run": {
+      "id": 45927217229,
+      "run_number": 274,
+      "conclusion": "success",
+      "steps_passed": 39,
+      "strict_artifact_id": 15166608442
+    },
+    "coverage_summary": {
+      "secondary_inventory_dates": 603,
+      "secondary_only_dates": 74,
+      "primary_and_secondary_dates": 22,
+      "no_indexed_source_dates": 220,
+      "secondary_only_requests": 15439,
+      "primary_and_secondary_requests": 5235,
+      "no_indexed_source_requests": 48099
+    },
+    "four_batches": [
+      {
+        "offset": 0,
+        "limit": 20,
+        "dates": 20,
+        "requests": 4467
+      },
+      {
+        "offset": 20,
+        "limit": 20,
+        "dates": 20,
+        "requests": 4344
+      },
+      {
+        "offset": 40,
+        "limit": 20,
+        "dates": 20,
+        "requests": 4297
+      },
+      {
+        "offset": 60,
+        "limit": 20,
+        "dates": 14,
+        "requests": 2331
+      }
+    ],
+    "status_counts": {
+      "partition_quarantine_candidate": 9085,
+      "hlv_match_open_close_unverified": 4553,
+      "hlv_conflict": 1801
+    },
+    "sessions": {
+      "total": 74,
+      "rows": 6131763,
+      "invalid_rows": 72500,
+      "sessions_without_duplicate_or_invalid_rows": 32,
+      "partition_quarantine_sessions": 42,
+      "repeated_contract_number_occurrences_beyond_first_raw": 3522210,
+      "duplicate_count_scope": "raw contract_no values counted before row arithmetic validation; includes repeats in invalid rows",
+      "treatment": "whole session partition quarantined on any repeated raw contract number or invalid row; no rows deleted or deduplicated"
+    },
+    "limitations": [
+      "This second recovery pass rechecks the same 74 HF-only partitions with a stricter whole-partition quarantine gate; it is not an independent upstream source.",
+      "H/L/volume matches do not validate open or close, chronology, completeness or exchange authority.",
+      "The 2024-08-01 session has 72,500 amount arithmetic failures and remains quarantined.",
+      "All 9,085 partition-quarantine requests remain review-only; no canonical changes or promotion."
+    ]
+  }
 }

@@ -3,6 +3,9 @@ on:
   push:
     paths:
       - 'scanner_inputs/canonical_publication.py'
+      - 'scanner_inputs/session_totals.py'
+      - 'scanner_inputs/equity_exception_holds.py'
+      - 'reference/*_ohlc_exception_register_2026-11-26.csv'
       - 'scanner_inputs/retrieve_quarantine_overlay.py'
       - 'github_floorsheet_pull.py'
       - 'test_p443_canonical_publication.py'

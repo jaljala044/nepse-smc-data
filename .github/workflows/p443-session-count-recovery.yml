@@ -4,6 +4,7 @@ on:
     paths:
       - 'tools/p443_recover_session_counts.py'
       - 'tools/p443_consolidate_session_candidates.py'
+      - 'tools/p443_audit_session_source_structure.py'
       - 'reference/P443_SESSION_CONTROL_MARCH01_DISPOSITION.json'
       - 'reference/P443_SESSION_CONTROL_ARCHIVE_CROSSWALK_2026-11-27.csv'
       - 'reference/P443_SESSION_CONTROL_SECONDARY_SOURCE_INVENTORY.csv'
@@ -28,6 +29,8 @@ jobs:
         run: python tools/p443_recover_session_counts.py "$RUNNER_TEMP/sharesansar" session-recovery
       - name: Consolidate master session candidates
         run: python tools/p443_consolidate_session_candidates.py "$RUNNER_TEMP/sharesansar" session-recovery
+      - name: Independently audit pinned source structure and aggregates
+        run: python tools/p443_audit_session_source_structure.py "$RUNNER_TEMP/sharesansar" session-recovery
       - uses: actions/upload-artifact@v4
         with:
           name: p443-session-count-recovery

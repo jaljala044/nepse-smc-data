@@ -65,6 +65,8 @@ def reject_held(symbol, day, holds):
     k = key(symbol,day)
     if k[1] in SESSION_HOLDS:
         raise ValueError(f"Quarantined session: {k[1]}")
+    if (k[0], "*") in holds:
+        raise ValueError(f"Quarantined lifecycle identity: {k[0]}: {holds[(k[0], '*')]}")
     if k in holds:
         raise ValueError(f"Quarantined security/date: {k}: {holds[k]}")
 

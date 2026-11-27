@@ -22,7 +22,7 @@ This queue decomposes the open acceptance criteria into 30 reviewable work packa
 | 9 | Audit effective-date interval overlaps and impossible lifecycle sequences | IMPLEMENTED — regression tests and compile passed in run #18; overall workflow failed at private Drive verification | Review-only findings; no dates inferred and no holds released |
 | 10 | Parse and verify the existing 281 per-security NEPSE history captures without treating current IDs as historical IDs | COMPLETE — latest run 46033103956 audited all 281/281 payloads: 8,142 rows, all manifest hashes match, zero row issues; no Open field in any payload; see `P443_P444_ACTIVE_10_TASK_BATCH_READBACK_2026-11-27.md` | Point-in-time capture only; no historical-ID continuity inferred |
 | 11 | Build exact per-security execution evidence for every repeated-pair endpoint date | BLOCKED — new exact-symbol/date coverage audit added; pinned 281-capture overlaps only NESDO/ULBSL/YMHL with 640 pair rows, but 0 endpoint dates fall in capture window; CI regression and audit steps passed in Run #325 (overall workflow still running) | Requires date-matched primary execution payloads joined through verified historical identity; no alias inference |
-| 12 | Expand the 23,377-pair matrix with source row identity, stable-ID confidence, session evidence and per-security evidence | PARTIAL — Run #329 passed all 63 workflow steps and matrix audit reported 23,377 rows / 209 symbols / 23,377 unique pair IDs with zero logical issues, but the JSON summary had a malformed escaped trailing newline; corrected writer and JSON-output regression test committed in `14d93b1` / `2f30455`, validation pending | All rows retained; no inferred promotions |
+| 12 | Expand the 23,377-pair matrix with source row identity, stable-ID confidence, session evidence and per-security evidence | PARTIAL — Run #334 passed all workflow steps; strict artifact JSON now parses with a real newline and validates 23,377 rows / 209 symbols / 23,377 unique pair IDs / zero issues. Execution bundles and historical stable IDs remain absent for all rows; all remain held | Matrix structure/read-back complete; actual historical execution evidence and verified IDs still required |
 
 ## P4.43 — global integrity and canonical quarantine
 
@@ -137,6 +137,16 @@ This queue decomposes the open acceptance criteria into 30 reviewable work packa
 - Run #324 tested an earlier code head than the current branch documentation head. It is not represented as validation of any later commit.
 - No raw source, OHLCV, floorsheet, lifecycle disposition, canonical row or scanner input was modified; no promotion or hold release occurred.
 
+
+### Run #334 — matrix JSON artifact read-back corrected and verified
+
+- Run #334 completed successfully on tested SHA `48492befc3da6581cbba8e0a9609769774cc3505`: https://github.com/jaljala044/nepse-smc-data/actions/runs/46041575399
+- Strict artifact ID `15221155794`; ZIP SHA-256 `30d6e1a395268228d49f4679485f10d4d87c30ee2ad0e880fc8606165d5c4236`, matching GitHub artifact metadata.
+- `P444_UNCOVERED_REPEAT_PAIR_EVIDENCE_READBACK_AUDIT_2026-11-27.json` parses successfully and ends with a real newline. It reports 23,377 rows, 209 symbols, 23,377 unique pair IDs, date range 2024-03-05 through 2026-11-20, `issues=[]`, `valid=true`, `promotion_allowed=false`, and `canonical_data_modified=false`.
+- All 23,377 previous and current execution-evidence bundles remain absent. Historical stable IDs remain absent; identity counts remain 21,082 current-snapshot-only and 2,295 unresolved. Session evidence remains incomplete (current: 1,503 closed / 21,874 unknown; previous: 979 closed / 22,398 unknown).
+- Exact-symbol endpoint coverage remains 0/46,754 occurrences covered and 0 pairs with both endpoints covered. Only NESDO, ULBSL and YMHL overlap the 281-symbol capture, and none of their endpoint dates fall within its window.
+- Work package #12 is COMPLETE for matrix structure, schema validation and reproducible artifact read-back only. Work package #11 remains BLOCKED; no historical execution evidence or stable IDs were created, and this does not authorize any disposition change or promotion.
+- Run #334 tested the code commit above; the current branch head at this documentation update is later. No raw/canonical rows were changed.
 
 ### Work package #11 — exact-symbol endpoint coverage audit added
 

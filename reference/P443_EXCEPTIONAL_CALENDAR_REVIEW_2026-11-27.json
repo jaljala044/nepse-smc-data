@@ -1,0 +1,26 @@
+{
+  "task": "P4.43.14.12.13.10",
+  "reviewed_dates": 3,
+  "reviewed_requests": 6,
+  "results": [
+    {
+      "date": "2016-09-03",
+      "requests": 4,
+      "disposition": "CONTEMPORANEOUS_SCHEDULE_CLOSURE_HOLD_CANDIDATE",
+      "evidence": "https://www.sharesansar.com/newsdetail/nepse-index-rises-by-14-65-with-turnover-of-rs-1-64-arba-banking-surges-by-double-digit",
+      "reason": "2016-09-04 report explicitly identifies Sunday as first trading day of week; not direct exchange closure notice"
+    },
+    {
+      "date": "2011-06-19",
+      "requests": 1,
+      "disposition": "UNRESOLVED_EXACT_DATE"
+    },
+    {
+      "date": "2011-06-20",
+      "requests": 1,
+      "disposition": "UNRESOLVED_EXACT_DATE"
+    }
+  ],
+  "promoted": 0,
+  "limitations": "No exact-date 2011 evidence located in bounded search; no exchange-level confirmation of September 3 closure; no raw modifications."
+}

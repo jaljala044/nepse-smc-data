@@ -24,7 +24,7 @@ class PublicationTests(unittest.TestCase):
             review_status="independently_verified", source_url="https://www.nepalstock.com/test-fixture",
             evidence_sha256=hashlib.sha256(self.evidence.read_bytes()).hexdigest(),
             contracts=1, quantity=10, turnover_npr="1000")))
-        for name, value in (("load_holds", {}), ("load_equity_holds", {}), ("verified_closed_dates", set())):
+        for name, value in (("load_holds", {}), ("load_equity_holds", {}), ("load_lifecycle_holds", {}), ("verified_closed_dates", set())):
             ctx = patch.object(p, name, return_value=value)
             ctx.start()
             self.addCleanup(ctx.stop)
@@ -71,6 +71,12 @@ class PublicationTests(unittest.TestCase):
     def test_held_security(self):
         with patch.object(p, "load_holds", return_value={("ABC", self.day): "HOLD"}):
             with self.assertRaisesRegex(ValueError, "Quarantined"):
+                self.publish()
+        self.assertFalse(self.dest.exists())
+
+    def test_p444_lifecycle_identity_hold(self):
+        with patch.object(p, "load_lifecycle_holds", return_value={("ABC", "*"): "P444_LIFECYCLE_IDENTITY_HOLD"}):
+            with self.assertRaisesRegex(ValueError, "Quarantined lifecycle identity"):
                 self.publish()
         self.assertFalse(self.dest.exists())
 

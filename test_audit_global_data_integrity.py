@@ -65,6 +65,17 @@ class GlobalBusinessKeyAuditTests(unittest.TestCase):
         self.assertEqual({row["finding_type"] for row in findings},
                          {"exact_duplicate_floorsheet_row", "duplicate_floorsheet_record_id"})
 
+    def test_composite_contract_fields_are_not_treated_as_record_id(self):
+        findings, stats = self.scan_rows(
+            ["Date", "ContractNo", "Symbol", "Buyer", "Seller", "Quantity", "Rate"],
+            [
+                ["2025-01-02", "77", "ABC", "1", "2", "10", "100"],
+                ["2025-01-02", "77", "ABC", "1", "2", "20", "100"],
+            ],
+        )
+        self.assertEqual(findings, [])
+        self.assertEqual(stats["unsupported"], 1)
+
     def test_finding_total_uses_emitted_record_id_class(self):
         rows = [{"finding_type": "duplicate_floorsheet_record_id"}]
         totals = finding_totals(rows)

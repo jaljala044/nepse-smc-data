@@ -1,0 +1,34 @@
+{
+  "date": "2026-11-27",
+  "result": "10_snapshot_records_reviewed",
+  "counts": {
+    "records_reviewed": 10,
+    "exact_symbol_security_id_matches": 10,
+    "display_name_debenture_candidates": 2,
+    "display_name_promoter_share_candidates": 5,
+    "unresolved_class": 3,
+    "official_instrument_type_field": 0,
+    "promotion_allowed": 0
+  },
+  "source": {
+    "repository": "jaljala044/nepse-smc-data",
+    "commit": "56362fb4f65b91fdcca8f50b50e53ad80e703649",
+    "path": "reference/p435_official_historical_floorsheets/security_list.json",
+    "blob_sha": "0891e10b56de572816680c8065718ecd4420bd03",
+    "record_count": 573,
+    "fields": [
+      "id",
+      "symbol",
+      "securityName",
+      "name",
+      "activeStatus"
+    ]
+  },
+  "unresolved_symbols": [
+    "EBLD86",
+    "KRBL",
+    "WNLB"
+  ],
+  "row_level_file": "P443_SNAPSHOT_INSTRUMENT_CLASS_REVIEW_2026-11-27.csv",
+  "limitation": "All classifications are display-name candidates only; captured security master has no instrument-type field. Status S does not establish instrument class."
+}

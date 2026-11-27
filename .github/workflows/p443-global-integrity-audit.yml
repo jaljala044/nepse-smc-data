@@ -5,6 +5,7 @@ on:
     paths:
       - "reference/NEPSE_GLOBAL_DUPLICATE_AUDIT_INVENTORY.csv"
       - "reference/NEPSE_GLOBAL_DUPLICATE_AUDIT_REPORT.md"
+      - "reference/P443_NEXT5_WORKSTREAM_READBACK_2026-11-27.md"
       - "reference/NEPSE_GLOBAL_DUPLICATE_AUDIT_FINDINGS.csv"
       - "reference/NEPSE_GLOBAL_DUPLICATE_AUDIT_SCAN_SUMMARY.csv"
       - "tools/audit_global_data_integrity.py"

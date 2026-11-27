@@ -1,0 +1,21 @@
+name: P4.43 reconstruction standard
+on:
+  workflow_dispatch:
+  push:
+    branches: [p443-global-integrity-audit]
+    paths:
+      - 'tools/nepse_reconstruction_standard.py'
+      - 'tools/test_nepse_reconstruction_standard.py'
+      - '.github/workflows/p443-reconstruction-standard.yml'
+permissions:
+  contents: read
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python tools/test_nepse_reconstruction_standard.py

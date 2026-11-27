@@ -45,6 +45,7 @@ on:
       - "test_p443_content_audit.py"
       - "test_p443_scanner_quarantine.py"
       - "test_p443_cross_repository.py"
+      - "test_p443_corporate_action_percentage_residual_review.py"
       - "scanner_inputs/prepare_scanner_inputs.py"
       - "test_global_duplicate_audit_inventory.py"
       - "test_global_duplicate_audit_scan.py"
@@ -87,6 +88,7 @@ on:
       - "test_p443_content_audit.py"
       - "test_p443_scanner_quarantine.py"
       - "test_p443_cross_repository.py"
+      - "test_p443_corporate_action_percentage_residual_review.py"
       - "scanner_inputs/prepare_scanner_inputs.py"
       - "test_global_duplicate_audit_inventory.py"
       - "test_global_duplicate_audit_scan.py"
@@ -164,6 +166,8 @@ jobs:
         run: python -m unittest test_p444_build_uncovered_repeat_pair_matrix -v
       - name: Verify P4.44 lifecycle evidence ledger and provenance rules
         run: python -m unittest test_p444_validate_lifecycle_evidence -v
+      - name: Verify corporate-action percentage residual review holds
+        run: python -m unittest test_p443_corporate_action_percentage_residual_review -v
       - name: Audit P4.44 effective-dated lifecycle evidence ledger
         run: python tools/p444_validate_lifecycle_evidence.py reference/P444_EFFECTIVE_DATED_LIFECYCLE_EVIDENCE_2026-11-27.csv
       - name: Build P4.44 row-level evidence matrix for 209 uncovered symbols

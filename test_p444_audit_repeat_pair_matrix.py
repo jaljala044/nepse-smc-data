@@ -119,7 +119,7 @@ class MatrixArtifactAuditTests(unittest.TestCase):
         )
         self.assertEqual(result.returncode, 0, result.stderr)
         raw = summary.read_bytes()
-        self.assertTrue(raw.endswith(b"\\n"))
+        self.assertTrue(raw.endswith(b"\n"))
         parsed = json.loads(raw)
         self.assertTrue(parsed["valid"])
 

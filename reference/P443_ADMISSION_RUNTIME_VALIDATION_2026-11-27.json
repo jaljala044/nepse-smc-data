@@ -1,0 +1,22 @@
+{
+  "task": "P4.43.14.17.6",
+  "execution": "local Python, source reconstructed from GitHub connector and verified using git hash-object",
+  "source_revision": "fa245a7b29f62af54e49cdab7b1cd354c8cdc296",
+  "source_blobs": {
+    "scanner_inputs/historical_quarantine.py": "ceeb1cd72ffc9c63fdd0825e29faffe14941976e",
+    "scanner_inputs/prepare_scanner_inputs.py": "23f0ef237b23e4bffba9ab54d4f518ef1f6141a3",
+    "test_p443_historical_quarantine.py": "0c1612fa887d48c48f8c5511accc743563088dca"
+  },
+  "overlay_sha256": "6d76c2a161dc3a65067806b5114a418be6aee0a90ebdc5519e2a718a531f7a2d",
+  "overlay_loaded": 68773,
+  "actual_keys_rejected": 68773,
+  "unauthorized_admissions": 0,
+  "unittest": {
+    "command": "python -m unittest test_p443_historical_quarantine -v",
+    "tests": 13,
+    "passed": 13,
+    "failures": 0,
+    "errors": 0
+  },
+  "limitations": "Actual overlay execution used local manifest path override (same checked fields); regression tests use synthetic fixtures. No live production application ingestion, full clean publication or independent data validity demonstrated. No raw changes or canonical promotion."
+}

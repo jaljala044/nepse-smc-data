@@ -1,5 +1,6 @@
 """Read-only P4.44 row-level evidence matrix for 209 uncovered repeat symbols."""
 import argparse, ast, csv, hashlib, json, subprocess, io
+from decimal import Decimal
 from collections import Counter, defaultdict
 from functools import lru_cache
 from pathlib import Path
@@ -68,7 +69,7 @@ def source_rows(path,expected_blob):
         n={k.lower().replace("_","").replace(" ",""):v for k,v in r.items()}
         day=next((n[k] for k in ("date","tradingdate","tradedate") if k in n),None)
         if day is None: raise ValueError(f"date column missing: {path}")
-        vals=tuple(n.get(k,"") for k in ("open","high","low","close","volume"))
+        vals=tuple(Decimal(n[k]) for k in ("open","high","low","close","volume"))
         out[str(reader.line_num)]=(day.strip(),vals)
     return out
 

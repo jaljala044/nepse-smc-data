@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "reviewed_commit": "52e29018f1819eefb65dbd805cb2830eaad1c008",
+  "pr": 161,
+  "verified_job": 140274046731,
+  "verified_run": 45928078160,
+  "tests": 1236,
+  "failures": 0,
+  "errors": 0,
+  "quarantine_keys": 1329,
+  "workflow_status": [
+    {
+      "id": 45928078160,
+      "name": "Backend contract tests",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 45928078088,
+      "name": "backend-tests",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 45928072597,
+      "name": "NEPSE historical data integrity",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 45928072566,
+      "name": "Backend contract tests",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "production_approved": false,
+  "limitations": [
+    "Calendar contains no verified open sessions; no production approval.",
+    "Software regression is not independent validation of historical candles.",
+    "PR remains unmerged; cross-repository acceptance remains pending."
+  ]
+}

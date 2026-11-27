@@ -176,7 +176,7 @@ The branch head at the start of this validation was `e4c0364e58e4b0c946975156029
 
 - Run: https://github.com/jaljala044/nepse-smc-data/actions/runs/46005266027
 - Run ID: `46005266027`; conclusion: `success`; all 52 job steps completed with no failed steps.
-- Global artifact ID `15200727323`; archive size 1,403,274 bytes; GitHub-reported ZIP SHA-256 `963ba29f4205b3621356ed399eb5fb3650e670e5e0b6c93fdbcbc4be157eebc7`.
+- Global artifact ID `15200727323`; archive size 1,403,274 bytes; GitHub-reported ZIP SHA-256 `963ba29f4205b3621356ed399eb5fb3650e670e5b0b6c93fdbcbc4be157eebc7`.
 - Strict-content artifact ID `15200372454`; archive size 58,287,637 bytes; GitHub-reported ZIP SHA-256 `f57d23ac588e7a47471480452ca7242cf84ea9e3b27fcd29426006b755a348c8`. Both archives were downloaded and their local SHA-256 values matched the GitHub artifact digests.
 
 ### Global audit artifact read-back

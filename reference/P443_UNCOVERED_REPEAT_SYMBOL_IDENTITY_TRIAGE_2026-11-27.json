@@ -24,13 +24,16 @@
     "total_symbols": 209,
     "target_registry_mutual_fund": 39,
     "current_equity_crosswalk": 3,
-    "current_snapshot_present": 175,
-    "no_current_snapshot": 34,
-    "debenture_bond_name_candidates": 61,
+    "current_snapshot_present": 183,
+    "no_current_snapshot": 26,
+    "debenture_bond_name_candidates": 69,
     "promoter_name_candidates": 62,
     "other_snapshot_class_review": 10,
     "unresolved_historical_identity": 26,
-    "filename_encoding_candidates": 8
+    "filename_encoding_candidates": 8,
+    "filename_encoding_candidates_reviewed": 8,
+    "filename_encoding_candidates_unresolved": 0,
+    "historical_identity_unresolved_or_unverified": 26
   },
   "mutual_fund_registry_matches_with_nonobvious_snapshot_names": [
     "H8020",
@@ -73,5 +76,20 @@
     "all_matched_records_stable_id_null": true,
     "all_matched_records_effective_date_unverified": true,
     "limitation": "Secondary-source identity/event evidence and project archive boundary observations only; not NEPSE-primary historical IDs or exchange-certified lifecycle boundaries. Dates are not promoted."
+  },
+  "filename_encoding_review": {
+    "source_repository": "jaljala044/nepse-smc-data",
+    "pinned_ohlcv_source_commit": "56362fb4f65b91fdcca8f50b50e53ad80e703649",
+    "external_security_snapshot_repository": "jaljala044/nepse-elite-ai-scanner-pro",
+    "external_security_snapshot_commit": "5a8768828d58bdcebb82393262726d1d030b7ec4",
+    "external_security_snapshot_blob_sha": "ed548857eb550fbb237910eb903fc202751c63a1",
+    "result": "8/8 decoded symbols and candidate security IDs exactly match rows in the 2026-11-25 snapshot; all snapshot status A; all eight display names indicate debenture/bond instruments.",
+    "details_file": "P443_FILENAME_ENCODING_IDENTITY_REVIEW_2026-11-27.csv",
+    "historical_continuity": "UNVERIFIED",
+    "historical_priority97_records_found": 0,
+    "lifecycle_dates_verified": 0,
+    "warning": "The dated snapshot's ohlcv_file_present field is 'no' for these entries even though eight legacy OHLCV archive files exist in the pinned source repository. These are distinct datasets/coverage indicators; this review does not imply the current scanner target universe contains those files.",
+    "promotion_allowed": false,
+    "canonical_changes": false
   }
 }

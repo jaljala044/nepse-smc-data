@@ -262,3 +262,37 @@ https://github.com/jaljala044/nepse-smc-data/actions/runs/46007511539
 5. Continue P4.44 historical stable-ID/lifecycle evidence acquisition; no inferred IDs or dates.
 
 No canonical OHLCV, raw source, or overlay payload was changed, shifted, deduplicated, corrected, or promoted. P4.43 and P4.44 remain incomplete.
+
+
+
+## Next-five continuation — Run #313 completion and current-head Run #314 (2026-11-27)
+
+### Run #313 completed successfully
+
+Full P4.43 global-integrity workflow #313:
+https://github.com/jaljala044/nepse-smc-data/actions/runs/46007287653
+
+- Exact tested commit: `271c63022d9134e21a1e08718777cbc6f1263ffb` (behind the branch head at this refresh).
+- Job conclusion: success; all 53 steps completed successfully.
+- This includes the four HF-only bulk floorsheet batches, 2024-08-01 rate-precision diagnostic, secondary historical coverage mapping, secondary contract normalization/integrity regressions, strict outputs, and machine-readable outputs.
+- Artifacts reported by GitHub:
+  - `p443-strict-content-audit`, ID `15201004193`, 58,287,639 bytes, SHA-256 `47f081e960b9061b19d5023fbaca58490c9c28e2c83db897bee893eceea8f61d`.
+  - `p443-global-integrity-audit`, ID `15200569698`, 1,403,274 bytes, SHA-256 `0bc9495e4e56e7d5dfd2ccee24ff69952238ab32aef4af883172feb22b762d15`.
+- These are verified artifact metadata/digests from the Actions API; contents have not yet been independently downloaded and read back in this continuation.
+
+### Current branch-head validation
+
+- Branch and PR #80 head before this report update: `e5bdfd4a9cb0ec2b64480a3a84df9fd7a37c834a`.
+- Full audit Run #314 is in progress on that exact commit:
+  https://github.com/jaljala044/nepse-smc-data/actions/runs/46007835131
+- At read-back, the first HF-only batch was active; later HF batches, rate diagnostic, secondary coverage, regression checks and output preservation were pending.
+- Run #313 success does not validate the newer #314 head. No #314 success is claimed.
+
+### Current acceptance boundary
+
+- Publication gate #9 on commit `9d95329d170a7327796ed35e976cea437000ef4a` passed all 60 regression tests and Python compilation, but failed closed before Drive access because `GDRIVE_SERVICE_ACCOUNT_JSON` was unavailable. No overlay payload was retrieved.
+- The private Drive secret must be configured by an authorized repository administrator; do not commit or expose credentials.
+- P4.44 still has 26 residual symbols without verified historical effective-dated stable IDs; keep all unresolved identity/lifecycle rows HOLD/UNKNOWN.
+- Independent official session completeness, March 1/2 date lineage, and primary corporate-action evidence remain unresolved.
+
+No canonical OHLCV, raw source, or overlay payload was changed, shifted, deduplicated, corrected, or promoted. PR #80 remains open, draft and unmerged; issue #82 remains open.

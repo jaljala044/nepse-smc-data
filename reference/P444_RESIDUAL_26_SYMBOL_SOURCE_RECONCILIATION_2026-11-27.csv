@@ -1,27 +1,27 @@
-symbol,category,primary_exchange_evidence,secondary_evidence,identity_or_event_fact,limitation,disposition
-CMF1,mutual_fund,no,ShareHub matured-funds table; ShareSansar maturity report,Fund maturity date listed 2025-03-02,No NEPSE cancellation letter or historical stable ID captured,HOLD_UNKNOWN
-CMF2,mutual_fund,no,ShareHub matured-funds table; Punji no-longer-trading list,Fund maturity date listed 2026-07-05; reported delisted,No NEPSE cancellation letter or historical stable ID captured,HOLD_UNKNOWN
-GBD80/81,debenture,no,ShareSansar company page,Debenture ticker/name association,No official listing or cancellation record; stable ID unknown,HOLD_UNKNOWN
-HBLD83,debenture,no,ShareSansar delisting report; Merolagani notice,10% Himalayan Bank Debenture 2083; reported delisting 2026-08-19/20,No NEPSE signed cancellation PDF captured; exact effective trading boundary unresolved,HOLD_UNKNOWN
-JALPA,equity,yes,Merolagani and Nepali Paisa merger records,NEPSE-hosted ticker list and merger notice identify Jalpa/Kisan -> Matribhumi; joint operation 2024-07-11,No historical stable ID; no signed exchange last-trade record,HOLD_UNKNOWN
-KLBSL,equity,yes,Nepali Paisa merger records,NEPSE-hosted merger notice identifies Kisan/Jalpa -> Matribhumi; joint operation 2024-07-11,No historical stable ID; no signed exchange last-trade record,HOLD_UNKNOWN
-KLBSLP,promoter_share,no,ShareSansar ticker/name report,Promoter ticker identity lead,No official security-ID mapping or lifecycle record,HOLD_UNKNOWN
-LEMF,mutual_fund,no,ShareHub matured-funds table; ShareSansar maturity report,Laxmi Equity Fund maturity date listed 2024-06-12,No NEPSE cancellation letter or historical stable ID captured,HOLD_UNKNOWN
-MKLB,equity,yes,ShareSansar and Nepali Paisa merger records,NEPSE-hosted ticker list identifies MKLB; secondary records link acquisition to Samata Gharelu effective 2024-07-08,NEPSE primary notice for precise suspension/last-trade boundary not captured,HOLD_UNKNOWN
-MMFDB,equity,yes,ShareSansar merger report; Nepali Paisa merger records,NEPSE-hosted ticker list identifies MMFDB; merger to Nerude Mirmire reported 2024-03-13,No historical stable ID; signed last-trade notice not captured,HOLD_UNKNOWN
-NIBD2082,debenture,no,ShareSansar redemption notice,Redemption notice lead dated 2026-06-09,No NEPSE cancellation/last-trade notice captured,HOLD_UNKNOWN
-NICAD8182,debenture,no,ShareSansar delisting report; Sajilo historical page,9% NIC Asia Debenture 2081/82; reported maturity/delisting 2025-01-13,No NEPSE signed cancellation PDF captured,HOLD_UNKNOWN
-NICAD8283,debenture,yes,ShareSansar delisting report,NEPSE signed cancellation letter identifies instrument and cancellation after trading on 2082-06-02,Stable security ID and full trade history absent,HOLD_UNKNOWN
-NICD83/84,debenture,no,ShareSansar delisting report; Sajilo historical page,10.25% NIC Asia Debenture 2083/84; reported delisting 2026-08-26,No NEPSE signed cancellation PDF captured,HOLD_UNKNOWN
-NICGF,mutual_fund,yes,ShareHub matured-funds table; ShareSansar maturity report,NEPSE signed cancellation letter identifies NIC Asia Growth Fund and cancellation effective 2081-11-26,Historical stable ID and complete trading history absent,HOLD_UNKNOWN
-NLBBL,equity,yes,ShareSansar merger report; Nepali Paisa merger records,NEPSE-hosted ticker list identifies NLBBL? no — correction: ticker list document scope is JALPA/MKLB/MMFDB/SABSL/SDLBSL only, no NLBBL; merger notice evidence currently secondary only,No direct NEPSE identity notice in captured six-document set,HOLD_UNKNOWN
-NMB50,mutual_fund,no,ShareHub matured-funds table; Punji no-longer-trading list,Fund maturity date listed 2026-08-28; reported delisted,No NEPSE cancellation letter or historical stable ID captured,HOLD_UNKNOWN
-SABSL,equity,yes,ShareSansar merger report; Nepali Paisa merger records,NEPSE-hosted issuer notice identifies merger into Sampada; printed date conflicts with Priority97 2024-07-14,Date conflict unresolved; stable ID absent,HOLD_UNKNOWN
-SAEF,mutual_fund,no,ShareHub matured-funds table; ShareSansar maturity report,Sanima Equity Fund maturity date listed 2024-12-26,No NEPSE cancellation letter or historical stable ID captured,HOLD_UNKNOWN
-SAMAJ,equity,yes,ShareSansar and Merolagani merger records,NEPSE-hosted issuer notice identifies merger into Grameen Bikas; secondary date 2025-10-19,No historical stable ID; signed trading suspension record not captured,HOLD_UNKNOWN
-SBLD2082,debenture,yes,ShareSansar delisting report; Hamroshare notice mirror,NEPSE signed listing-cancellation notice indexed for 2082-09-24 (2026-01-08),Raw PDF bytes/hash not captured in this evidence batch,HOLD_UNKNOWN
-SBLD83,debenture,no,Sajilo historical page,10.25% SBL Debenture 2083; last trade reported 2026-09-01,No NEPSE cancellation letter captured,HOLD_UNKNOWN
-SDLBSL,equity,yes,ShareSansar merger report; Nepali Paisa merger records,NEPSE-hosted issuer notice identifies merger into Sampada; printed date conflicts with Priority97 2024-07-14,Date conflict unresolved; stable ID absent,HOLD_UNKNOWN
-SFCL,equity,no,ShareSansar and Nepali Paisa merger records,Merger to Pokhara Finance reported with joint operations 2026-07-10,No direct NEPSE-hosted signed trading suspension/cancellation record captured,HOLD_UNKNOWN
-SFCLP,promoter_share,no,ShareSansar company page,Promoter ticker identity lead only,No official security-ID mapping or lifecycle record,HOLD_UNKNOWN
-SRD80,debenture,no,ShareSansar delisting report,10% Sunrise Debenture 2080; reported maturity/delisting 2024-05-14,No NEPSE signed cancellation letter or historical stable ID captured,HOLD_UNKNOWN
+"symbol","instrument_class_candidate","nepse_primary_notice_reference","secondary_source_leads","fact_supported","limitation","disposition"
+"CMF1","mutual_fund","no","ShareHub; ShareSansar","2025-03-02 maturity date lead","No exchange cancellation notice or historical ID","HOLD_UNKNOWN"
+"CMF2","mutual_fund","no","ShareHub; Punji","2026-07-05 maturity date; reported delisted","No exchange cancellation notice or historical ID","HOLD_UNKNOWN"
+"GBD80/81","debenture","no","ShareSansar company page","Ticker/name association lead","No official listing or cancellation record","HOLD_UNKNOWN"
+"HBLD83","debenture","no","ShareSansar; Merolagani","Delisting reported 2026-08-19/20","No signed NEPSE cancellation PDF captured","HOLD_UNKNOWN"
+"JALPA","equity","yes","Merolagani; Nepali Paisa","NEPSE-hosted ticker list and merger notice identify successor Matribhumi; joint operation 2024-07-11","No historical stable ID or signed last-trade record","HOLD_UNKNOWN"
+"KLBSL","equity","yes","Nepali Paisa","NEPSE-hosted merger notice identifies Kisan/Jalpa successor Matribhumi; 2024-07-11","No historical stable ID or signed last-trade record","HOLD_UNKNOWN"
+"KLBSLP","promoter_share","no","ShareSansar","Ticker/name lead","No official ID mapping or lifecycle record","HOLD_UNKNOWN"
+"LEMF","mutual_fund","no","ShareHub; ShareSansar","2024-06-12 maturity date lead","No exchange cancellation notice or historical ID","HOLD_UNKNOWN"
+"MKLB","equity","yes","ShareSansar; Nepali Paisa","NEPSE-hosted ticker list identifies MKLB; acquisition to Samata Gharelu reported effective 2024-07-08","No signed exchange last-trade boundary","HOLD_UNKNOWN"
+"MMFDB","equity","yes","ShareSansar; Nepali Paisa","NEPSE-hosted ticker list identifies MMFDB; merger to Nerude Mirmire reported 2024-03-13","No historical stable ID or signed last-trade notice","HOLD_UNKNOWN"
+"NIBD2082","debenture","no","ShareSansar","Redemption notice lead dated 2026-06-09","No exchange cancellation or last-trade notice","HOLD_UNKNOWN"
+"NICAD8182","debenture","no","ShareSansar; Sajilo","Maturity/delisting reported 2025-01-13","No signed NEPSE cancellation PDF captured","HOLD_UNKNOWN"
+"NICAD8283","debenture","yes","ShareSansar","NEPSE signed cancellation letter identifies instrument and after-trading cancellation date 2082-06-02","Historical ID and full trade history absent","HOLD_UNKNOWN"
+"NICD83/84","debenture","no","ShareSansar; Sajilo","Delisting reported 2026-08-26","No signed NEPSE cancellation PDF captured","HOLD_UNKNOWN"
+"NICGF","mutual_fund","yes","ShareHub; ShareSansar","NEPSE signed cancellation letter identifies NICGF; effective 2081-11-26","Historical ID and complete trading history absent","HOLD_UNKNOWN"
+"NLBBL","equity","no","ShareSansar; Nepali Paisa","Merger to Nerude Mirmire reported 2024-03-13","No direct NEPSE identity notice in captured source set","HOLD_UNKNOWN"
+"NMB50","mutual_fund","no","ShareHub; Punji","2026-08-28 maturity date; reported delisted","No NEPSE cancellation letter or historical ID","HOLD_UNKNOWN"
+"SABSL","equity","yes","ShareSansar; Nepali Paisa","NEPSE-hosted issuer notice identifies merger into Sampada","Notice date conflicts with existing 2024-07-14 register date","HOLD_UNKNOWN_DATE_CONFLICT"
+"SAEF","mutual_fund","no","ShareHub; ShareSansar","2024-12-26 maturity date lead","No NEPSE cancellation letter or historical ID","HOLD_UNKNOWN"
+"SAMAJ","equity","yes","ShareSansar; Merolagani","NEPSE-hosted issuer notice identifies merger into Grameen Bikas","No historical stable ID or signed trading suspension record","HOLD_UNKNOWN"
+"SBLD2082","debenture","yes","NEPSE indexed signed notice; ShareSansar; Hamroshare","NEPSE notice says cancellation after trading on 2082-09-24 (2026-01-08)","Original PDF bytes and SHA-256 not yet captured","HOLD_UNKNOWN_PROVENANCE_INCOMPLETE"
+"SBLD83","debenture","no","Sajilo","10.25% SBL Debenture 2083; last trade reported 2026-09-01","No NEPSE cancellation letter captured","HOLD_UNKNOWN"
+"SDLBSL","equity","yes","ShareSansar; Nepali Paisa","NEPSE-hosted issuer notice identifies merger into Sampada","Notice date conflicts with existing 2024-07-14 register date","HOLD_UNKNOWN_DATE_CONFLICT"
+"SFCL","equity","no","ShareSansar; Nepali Paisa","Merger to Pokhara Finance reported effective 2026-07-10","No direct NEPSE signed suspension/cancellation record captured","HOLD_UNKNOWN"
+"SFCLP","promoter_share","no","ShareSansar","Ticker/name lead only","No official ID mapping or lifecycle record","HOLD_UNKNOWN"
+"SRD80","debenture","no","ShareSansar","Maturity/delisting reported 2024-05-14","No NEPSE signed cancellation letter or historical ID","HOLD_UNKNOWN"

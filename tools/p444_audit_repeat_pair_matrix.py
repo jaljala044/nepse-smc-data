@@ -146,7 +146,7 @@ def main():
     args = parser.parse_args()
     result = audit(args.matrix, args.expected_pairs, args.expected_symbols)
     if args.summary_output:
-        Path(args.summary_output).write_text(json.dumps(result, indent=2) + "\\n")
+        Path(args.summary_output).write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps(result, indent=2))
     raise SystemExit(0 if result["valid"] else 1)
 

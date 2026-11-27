@@ -17,6 +17,8 @@ on:
       - "tools/p443_equity_first_repeat_review.py"
       - "tools/p443_equity_security_date_queue.py"
       - "tools/p443_bulk_equity_floorsheet_recovery.py"
+      - "tools/p443_observed_open_close.py"
+      - "test_p443_observed_open_close.py"
       - "tools/p443_secondary_bulk_coverage.py"
       - "tools/p443_secondary_bulk_recovery.py"
       - "test_p443_secondary_bulk_recovery.py"
@@ -55,6 +57,8 @@ on:
       - "tools/p443_equity_first_repeat_review.py"
       - "tools/p443_equity_security_date_queue.py"
       - "tools/p443_bulk_equity_floorsheet_recovery.py"
+      - "tools/p443_observed_open_close.py"
+      - "test_p443_observed_open_close.py"
       - "tools/p443_secondary_bulk_coverage.py"
       - "tools/p443_secondary_bulk_recovery.py"
       - "test_p443_secondary_bulk_recovery.py"
@@ -152,6 +156,10 @@ jobs:
         run: python -m unittest test_p443_bulk_equity_floorsheet_recovery -v
       - name: Map and reconcile first bulk equity floorsheet batch
         run: python tools/p443_bulk_equity_floorsheet_recovery.py --directory audit-strict --max-dates 22
+      - name: Verify observed boundary regression tests
+        run: python -m unittest test_p443_observed_open_close -v
+      - name: Reconcile observed opening and closing executions
+        run: python tools/p443_observed_open_close.py --directory audit-strict
       - name: HF-only bulk floorsheet recovery regression tests
         run: python -m unittest test_p443_hf_bulk_equity_floorsheet_recovery -v
       - name: 2024-08-01 HF rate-precision diagnostic regression tests

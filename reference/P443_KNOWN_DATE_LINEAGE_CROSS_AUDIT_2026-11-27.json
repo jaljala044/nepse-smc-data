@@ -1,0 +1,99 @@
+{
+  "task": "P4.43 known date-lineage audits exact-key reconciliation",
+  "pinned_global_input_commit": "56362fb4f65b91fdcca8f50b50e53ad80e703649",
+  "global_inventory": {
+    "files": 928,
+    "bytes": 60662491,
+    "structured_files_parsed": 784,
+    "inventory_only_or_unsupported": 138,
+    "non_json_provider_responses": 6,
+    "ohlcv_symbol_archive_files": 525,
+    "ohlcv_files_with_repeat_findings": 462,
+    "repeat_finding_symbols": 462,
+    "security_date_lineage_symbols": 253,
+    "security_date_lineage_rows": 68783
+  },
+  "prior_audits": {
+    "P427_P428": {
+      "candidate_rows": 490,
+      "unique_symbols": 254,
+      "official_eod_rows": 599,
+      "official_rows_found_once": 490,
+      "exact_ohlcv_matches": 487,
+      "official_close_differences": 3,
+      "additional_invalid_external_ohlcv_rows": 109,
+      "correction_ledger_rows": 112
+    },
+    "P442": {
+      "rows": 162,
+      "symbols": 2,
+      "source_row_matches": 162,
+      "official_hlc_volume_matches": 162
+    },
+    "P437": {
+      "closed_date_carry_forward_rows": 1455,
+      "symbols_affected": 19,
+      "sample_symbols": 24,
+      "sectors": 12,
+      "verified_closed_dates": 81
+    },
+    "P45": {
+      "overlay_rows": 20,
+      "unique_symbols": 18,
+      "all_rows_subset_of_P427": true
+    }
+  },
+  "overlap": {
+    "P45_with_P427_raw_keys": 20,
+    "P442_with_P427_raw_keys": 4,
+    "P442_with_P437_closed_keys": 0,
+    "P437_with_P427_raw_keys": 36,
+    "distinct_symbol_source_date_keys_union": 2067,
+    "union_arithmetic": "490 + 162 + 1455 - 4 - 36 = 2067; P4.5 adds 0 because all 20 are already in P4.27",
+    "note": "Exact key is symbol + source date; this deduplicates shared observations and does not imply all rows have identical evidentiary strength."
+  },
+  "crosswalk": {
+    "filename": "P443_KNOWN_DATE_LINEAGE_CROSS_AUDIT_2026-11-27.csv",
+    "rows": 2067,
+    "columns": [
+      "symbol",
+      "source_date",
+      "source_audits",
+      "overlap_audit_count",
+      "p427_external_date",
+      "p427_official_status",
+      "p427_exact_ohlcv",
+      "p442_official_date",
+      "p442_offset_days",
+      "p442_source_path",
+      "p437_official_date",
+      "p437_offset_days",
+      "p437_disposition",
+      "p45_overlay"
+    ]
+  },
+  "source_blob_shas": {
+    "p427": "f6d0c710038a6a4d105e9bec5a5c816579c64089",
+    "p428": "bece4a5c50dd80d0836306944435dffc875a53a8",
+    "p428_corrections": "a6d507d0fb309c9d692b33211a6cf503d5a3cfc4",
+    "p442": "48e1fd71e7c3521aa92d932d34143934b397a144",
+    "p437_matrix": "905a17f5bc04deb3a6a901759cb61dcd8d0f993a",
+    "p45": "e85d205ca11ea07fe572a32e3ce977d795943d10"
+  },
+  "disposition": "Known-audit crosswalk complete for P4.27/P4.28, P4.5, P4.37 and P4.42. It does not complete full 928-file date-lineage adjudication.",
+  "outstanding": {
+    "full_928_file_date_shift_scan": "INCOMPLETE",
+    "official_instrument_identity_for_all_525_ohlcv_files": "INCOMPLETE",
+    "full_period_official_session_calendar": "INCOMPLETE",
+    "full_period_per_security_official_eod_or_complete_floorsheets": "INCOMPLETE",
+    "source_lineage_table_coverage": "68,783 rows across 253 symbols; 209 of the 462 symbols in repeat findings are not represented in this source-lineage table",
+    "repeat_triage_prior_date_shift_flag": "false for all 94,543 adjacent repeated-tuple pairs; this is not a general scan of all rows for shifted dates"
+  },
+  "safeguards": {
+    "canonical_data_modified": false,
+    "raw_rows_modified": false,
+    "automatic_relabels": 0,
+    "automatic_deletions": 0,
+    "promotions": 0
+  }
+}

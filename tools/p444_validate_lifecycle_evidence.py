@@ -26,7 +26,7 @@ def validate(path,known_symbols=None,verify_files=False):
         if confidence not in ACCEPTED_CONFIDENCE: issues.append({"row":n,"code":"INVALID_CONFIDENCE","symbol":sym})
         evidence_fields=[r.get(k,"").strip() for k in ("source_url","retrieved_at_utc","raw_payload_path","raw_sha256","git_blob_sha")]
         complete=all(evidence_fields) and r.get("source_tier") in ACCEPTED_TIERS and confidence=="verified"
-        if any(evidence_fields) and not complete: issues.append({"row":n,"code":"INCOMPLETE_PROVENANCE","symbol":sym})
+        if confidence=="verified" and not complete: issues.append({"row":n,"code":"INCOMPLETE_PROVENANCE","symbol":sym})
         if complete:
             key=(sym,event,r.get("effective_date"),r.get("source_url"))
             if key in seen: issues.append({"row":n,"code":"DUPLICATE_EVENT_RECORD","symbol":sym})

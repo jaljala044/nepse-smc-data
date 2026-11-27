@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-27",
+  "result": "8_of_8_exact_decoded_symbol_and_security_id_matches",
+  "counts": {
+    "candidates": 8,
+    "exact_symbol_matches": 8,
+    "exact_security_id_matches": 8,
+    "snapshot_status_A": 8,
+    "ohlcv_files_fetched": 8,
+    "ohlcv_rows": 2214,
+    "priority97_historical_records": 0,
+    "historical_id_continuity_verified": 0,
+    "lifecycle_dates_verified": 0,
+    "promotion_allowed": 0
+  },
+  "snapshot": {
+    "repository": "jaljala044/nepse-elite-ai-scanner-pro",
+    "commit": "5a8768828d58bdcebb82393262726d1d030b7ec4",
+    "path": "data/reference/nepse_security_id_snapshot_2026-11-25.csv",
+    "blob_sha": "ed548857eb550fbb237910eb903fc202751c63a1"
+  },
+  "ohlcv_source": {
+    "repository": "jaljala044/nepse-smc-data",
+    "commit": "56362fb4f65b91fdcca8f50b50e53ad80e703649"
+  },
+  "row_level_csv": "P443_FILENAME_ENCODING_IDENTITY_REVIEW_2026-11-27.csv",
+  "limitation": "Current-snapshot exact match is not historical stable-ID continuity or lifecycle proof. Snapshot ohlcv_file_present=no differs from existence of legacy OHLCV archive files; no data promoted."
+}

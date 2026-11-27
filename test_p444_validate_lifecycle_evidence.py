@@ -65,9 +65,14 @@ class LifecycleValidatorTests(unittest.TestCase):
         path = self.write([{"symbol": "ABC", "event_type": "merger_successor",
                             "source_tier": "issuer_primary", "effective_date_confidence": "corroborated",
                             "disposition": "HOLD_UNKNOWN"}])
-        codes = [item["code"] for item in validate(path)["issues"]]
+        result = validate(path)
+        codes = [item["code"] for item in result["issues"]]
         self.assertIn("EVENT_DATE_MISSING", codes)
         self.assertIn("MERGER_SUCCESSOR_MISSING", codes)
+        self.assertTrue(result["valid"], "review-only evidence gaps must not stop unrelated audits")
+        self.assertFalse(result["evidence_complete"])
+        self.assertEqual(len(result["review_findings"]), 2)
+        self.assertEqual(result["error_findings"], [])
 
     def test_conflicting_same_date_events_are_flagged(self):
         base = {"symbol": "ABC", "event_type": "listing", "effective_date": "2020-01-01",

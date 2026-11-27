@@ -55,7 +55,10 @@ class LifecycleSequenceAuditTests(unittest.TestCase):
         self.assertIn("RESUMPTION_WITHOUT_PRIOR_SUSPENSION", codes)
 
     def test_bad_schema_fails_closed(self):
-        path = self.write([{"symbol": "ABC"}])
+        temp = tempfile.TemporaryDirectory()
+        self.addCleanup(temp.cleanup)
+        path = Path(temp.name) / "bad.csv"
+        path.write_text("symbol,event_type\\nABC,listing\\n", encoding="utf-8")
         with self.assertRaisesRegex(ValueError, "schema"):
             audit(path)
 

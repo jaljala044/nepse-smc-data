@@ -1,0 +1,4102 @@
+{
+  "workflow_run": 46003450662,
+  "records": 239,
+  "flag_counts": {
+    "MISSING_CASH_DIVIDEND": 68,
+    "MISSING_BONUS_SHARE": 141,
+    "BOOK_CLOSURE_DATE_UNRESOLVED": 29,
+    "SUBSCRIPTION_DATES_MISSING": 6,
+    "UNVERIFIED_TOTAL_UNITS": 1,
+    "UNVERIFIED_ISSUE_PRICE": 1,
+    "INVALID_CASH_DIVIDEND": 2,
+    "INVALID_TOTAL_DIVIDEND": 2
+  },
+  "events": [
+    {
+      "symbol": "ALICL",
+      "kind": "dividend",
+      "path": "data/company-wise/ALICL/dividend.csv",
+      "line": 12,
+      "raw": {
+        "fiscal_year": "2068/2069",
+        "bonus_share": "8.29",
+        "cash_dividend": "",
+        "total_dividend": "8.29",
+        "book_closure_date": "2013-01-19 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "API",
+      "kind": "dividend",
+      "path": "data/company-wise/API/dividend.csv",
+      "line": 10,
+      "raw": {
+        "fiscal_year": "2073/2074",
+        "bonus_share": "8.00",
+        "cash_dividend": "",
+        "total_dividend": "8.00",
+        "book_closure_date": "2018-01-05 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "API",
+      "kind": "dividend",
+      "path": "data/company-wise/API/dividend.csv",
+      "line": 11,
+      "raw": {
+        "fiscal_year": "2072/2073",
+        "bonus_share": "5.00",
+        "cash_dividend": "",
+        "total_dividend": "5.00",
+        "book_closure_date": "2016-08-17 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "BBC",
+      "kind": "dividend",
+      "path": "data/company-wise/BBC/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2075/2076",
+        "bonus_share": "",
+        "cash_dividend": "14.00",
+        "total_dividend": "14.00",
+        "book_closure_date": "2025-02-21 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "BFC",
+      "kind": "dividend",
+      "path": "data/company-wise/BFC/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2067/2068",
+        "bonus_share": "20.00",
+        "cash_dividend": "",
+        "total_dividend": "20.00",
+        "book_closure_date": "2012-02-10 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "BGWT",
+      "kind": "dividend",
+      "path": "data/company-wise/BGWT/dividend.csv",
+      "line": 4,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "10.5263",
+        "total_dividend": "10.5263",
+        "book_closure_date": "2023-12-21 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "BHDC",
+      "kind": "dividend",
+      "path": "data/company-wise/BHDC/dividend.csv",
+      "line": 4,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "8.00",
+        "cash_dividend": "",
+        "total_dividend": "8.00",
+        "book_closure_date": "2024-11-13 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "BHDC",
+      "kind": "dividend",
+      "path": "data/company-wise/BHDC/dividend.csv",
+      "line": 5,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "5.2632",
+        "total_dividend": "5.2632",
+        "book_closure_date": "2024-01-02 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "BNT",
+      "kind": "dividend",
+      "path": "data/company-wise/BNT/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "50.00",
+        "total_dividend": "50.00",
+        "book_closure_date": "2025-01-03 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "BNT",
+      "kind": "dividend",
+      "path": "data/company-wise/BNT/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "60.00",
+        "total_dividend": "60.00",
+        "book_closure_date": "2024-01-05 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "BPCL",
+      "kind": "dividend",
+      "path": "data/company-wise/BPCL/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "5.00",
+        "total_dividend": "5.00",
+        "book_closure_date": "2025-01-02 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "BPCL",
+      "kind": "dividend",
+      "path": "data/company-wise/BPCL/dividend.csv",
+      "line": 4,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "5.00",
+        "total_dividend": "5.00",
+        "book_closure_date": "2024-01-04 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "C30MF",
+      "kind": "dividend",
+      "path": "data/company-wise/C30MF/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "12.75",
+        "total_dividend": "12.75",
+        "book_closure_date": "2025-08-29 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "C30MF",
+      "kind": "dividend",
+      "path": "data/company-wise/C30MF/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": "2024-10-09 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "CBBL",
+      "kind": "dividend",
+      "path": "data/company-wise/CBBL/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "11.9631",
+        "cash_dividend": "13.0369",
+        "total_dividend": "25.00",
+        "book_closure_date": ""
+      },
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "CFCL",
+      "kind": "dividend",
+      "path": "data/company-wise/CFCL/dividend.csv",
+      "line": 10,
+      "raw": {
+        "fiscal_year": "2069/2070",
+        "bonus_share": "10.00",
+        "cash_dividend": "",
+        "total_dividend": "10.00",
+        "book_closure_date": "2014-07-03 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "CHDC",
+      "kind": "dividend",
+      "path": "data/company-wise/CHDC/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "11.00",
+        "cash_dividend": "",
+        "total_dividend": "11.00",
+        "book_closure_date": "2024-09-23 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "CIT",
+      "kind": "dividend",
+      "path": "data/company-wise/CIT/dividend.csv",
+      "line": 15,
+      "raw": {
+        "fiscal_year": "2068/2069",
+        "bonus_share": "38.89",
+        "cash_dividend": "",
+        "total_dividend": "38.89",
+        "book_closure_date": "2013-06-28 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "CIT",
+      "kind": "dividend",
+      "path": "data/company-wise/CIT/dividend.csv",
+      "line": 16,
+      "raw": {
+        "fiscal_year": "2067/2068",
+        "bonus_share": "35.00",
+        "cash_dividend": "",
+        "total_dividend": "35.00",
+        "book_closure_date": "2012-07-21 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "CMF2",
+      "kind": "dividend",
+      "path": "data/company-wise/CMF2/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "8.25",
+        "total_dividend": "8.25",
+        "book_closure_date": "2025-08-29 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "CMF2",
+      "kind": "dividend",
+      "path": "data/company-wise/CMF2/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "6.5",
+        "total_dividend": "6.5",
+        "book_closure_date": "2024-10-09 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "CYCL",
+      "kind": "dividend",
+      "path": "data/company-wise/CYCL/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "12.76",
+        "cash_dividend": "0.67",
+        "total_dividend": "13.43",
+        "book_closure_date": ""
+      },
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "CZBIL",
+      "kind": "dividend",
+      "path": "data/company-wise/CZBIL/dividend.csv",
+      "line": 5,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "5.79",
+        "total_dividend": "5.79",
+        "book_closure_date": "2023-10-02 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "EDBL",
+      "kind": "dividend",
+      "path": "data/company-wise/EDBL/dividend.csv",
+      "line": 11,
+      "raw": {
+        "fiscal_year": "2068/2069",
+        "bonus_share": "25.00",
+        "cash_dividend": "",
+        "total_dividend": "25.00",
+        "book_closure_date": "2012-12-31 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "EHPL",
+      "kind": "rights",
+      "path": "data/company-wise/EHPL/right-share.csv",
+      "line": 2,
+      "raw": {
+        "ratio": "1:0.871",
+        "total_units": "5400092.74",
+        "issue_price": "100.00",
+        "opening_date": "",
+        "closing_date": "",
+        "status": "",
+        "issue_manager": "None"
+      },
+      "flags": [
+        "SUBSCRIPTION_DATES_MISSING"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "ENL",
+      "kind": "dividend",
+      "path": "data/company-wise/ENL/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "8.4211",
+        "total_dividend": "8.4211",
+        "book_closure_date": "2023-11-22 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "FMDBL",
+      "kind": "dividend",
+      "path": "data/company-wise/FMDBL/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "11.0526",
+        "total_dividend": "11.0526",
+        "book_closure_date": "2026-12-01"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "GBBL",
+      "kind": "dividend",
+      "path": "data/company-wise/GBBL/dividend.csv",
+      "line": 4,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "5.00",
+        "total_dividend": "5.00",
+        "book_closure_date": "2025-01-02 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "GBBL",
+      "kind": "dividend",
+      "path": "data/company-wise/GBBL/dividend.csv",
+      "line": 11,
+      "raw": {
+        "fiscal_year": "2073/2074",
+        "bonus_share": "15.00",
+        "cash_dividend": "",
+        "total_dividend": "15.00",
+        "book_closure_date": "2017-12-29 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "GBBL",
+      "kind": "dividend",
+      "path": "data/company-wise/GBBL/dividend.csv",
+      "line": 12,
+      "raw": {
+        "fiscal_year": "2072/2073",
+        "bonus_share": "20.00",
+        "cash_dividend": "",
+        "total_dividend": "20.00",
+        "book_closure_date": "2017-02-03 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "GBBL",
+      "kind": "dividend",
+      "path": "data/company-wise/GBBL/dividend.csv",
+      "line": 13,
+      "raw": {
+        "fiscal_year": "2071/2072",
+        "bonus_share": "20.00",
+        "cash_dividend": "",
+        "total_dividend": "20.00",
+        "book_closure_date": "2015-12-29 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "GBIME",
+      "kind": "dividend",
+      "path": "data/company-wise/GBIME/dividend.csv",
+      "line": 12,
+      "raw": {
+        "fiscal_year": "2072/2073",
+        "bonus_share": "16.00",
+        "cash_dividend": "",
+        "total_dividend": "16.00",
+        "book_closure_date": "2017-03-20 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "GBIME",
+      "kind": "dividend",
+      "path": "data/company-wise/GBIME/dividend.csv",
+      "line": 13,
+      "raw": {
+        "fiscal_year": "2071/2072",
+        "bonus_share": "23.00",
+        "cash_dividend": "",
+        "total_dividend": "23.00",
+        "book_closure_date": "2015-10-29 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "GBIME",
+      "kind": "dividend",
+      "path": "data/company-wise/GBIME/dividend.csv",
+      "line": 15,
+      "raw": {
+        "fiscal_year": "2069/2070",
+        "bonus_share": "15.00",
+        "cash_dividend": "",
+        "total_dividend": "15.00",
+        "book_closure_date": "2013-12-18 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "GCIL",
+      "kind": "dividend",
+      "path": "data/company-wise/GCIL/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "15.00",
+        "cash_dividend": "",
+        "total_dividend": "15.00",
+        "book_closure_date": "2024-01-01 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "GFCL",
+      "kind": "dividend",
+      "path": "data/company-wise/GFCL/dividend.csv",
+      "line": 8,
+      "raw": {
+        "fiscal_year": "2071/2072",
+        "bonus_share": "10.00",
+        "cash_dividend": "",
+        "total_dividend": "10.00",
+        "book_closure_date": "2016-01-01 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "GILB",
+      "kind": "dividend",
+      "path": "data/company-wise/GILB/dividend.csv",
+      "line": 4,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": "2024-01-04 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "GMFIL",
+      "kind": "dividend",
+      "path": "data/company-wise/GMFIL/dividend.csv",
+      "line": 7,
+      "raw": {
+        "fiscal_year": "2073/2074",
+        "bonus_share": "15.8",
+        "cash_dividend": "",
+        "total_dividend": "15.8",
+        "book_closure_date": "2018-01-03 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "GSY",
+      "kind": "dividend",
+      "path": "data/company-wise/GSY/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "5.1",
+        "total_dividend": "5.1",
+        "book_closure_date": "2025-08-12 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "GUFL",
+      "kind": "dividend",
+      "path": "data/company-wise/GUFL/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2071/2072",
+        "bonus_share": "7.00",
+        "cash_dividend": "",
+        "total_dividend": "7.00",
+        "book_closure_date": "2015-05-27 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "H8020",
+      "kind": "dividend",
+      "path": "data/company-wise/H8020/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "16.16",
+        "total_dividend": "16.16",
+        "book_closure_date": "2025-09-12 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "H8020",
+      "kind": "dividend",
+      "path": "data/company-wise/H8020/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "6.00",
+        "total_dividend": "6.00",
+        "book_closure_date": "2024-10-25 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "HATHY",
+      "kind": "dividend",
+      "path": "data/company-wise/HATHY/dividend.csv",
+      "line": 5,
+      "raw": {
+        "fiscal_year": "2078/2079",
+        "bonus_share": "0.00",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": ""
+      },
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "HATHY",
+      "kind": "dividend",
+      "path": "data/company-wise/HATHY/dividend.csv",
+      "line": 6,
+      "raw": {
+        "fiscal_year": "2077/2078",
+        "bonus_share": "25.00",
+        "cash_dividend": "30.00",
+        "total_dividend": "55.00",
+        "book_closure_date": ""
+      },
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "HEI",
+      "kind": "dividend",
+      "path": "data/company-wise/HEI/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "8.75",
+        "total_dividend": "8.75",
+        "book_closure_date": "2025-02-27 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "HIDCL",
+      "kind": "dividend",
+      "path": "data/company-wise/HIDCL/dividend.csv",
+      "line": 4,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "5.263",
+        "total_dividend": "5.263",
+        "book_closure_date": "2024-01-03 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "HLI",
+      "kind": "dividend",
+      "path": "data/company-wise/HLI/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "8.00",
+        "total_dividend": "8.00",
+        "book_closure_date": "2025-06-11 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "HLI",
+      "kind": "dividend",
+      "path": "data/company-wise/HLI/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "14.00",
+        "cash_dividend": "",
+        "total_dividend": "14.00",
+        "book_closure_date": "2025-02-07 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "ICFC",
+      "kind": "dividend",
+      "path": "data/company-wise/ICFC/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "10.5263",
+        "total_dividend": "10.5263",
+        "book_closure_date": "2026-09-21 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "ICFC",
+      "kind": "dividend",
+      "path": "data/company-wise/ICFC/dividend.csv",
+      "line": 5,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "6.5",
+        "total_dividend": "6.5",
+        "book_closure_date": "2023-12-29 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "ICFCD88",
+      "kind": "dividend",
+      "path": "data/company-wise/ICFCD88/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "2.5",
+        "total_dividend": "2.5",
+        "book_closure_date": ""
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE",
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "ICFCD88",
+      "kind": "dividend",
+      "path": "data/company-wise/ICFCD88/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "0.00",
+        "cash_dividend": "2.5",
+        "total_dividend": "2.5",
+        "book_closure_date": ""
+      },
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "ICFCD88",
+      "kind": "dividend",
+      "path": "data/company-wise/ICFCD88/dividend.csv",
+      "line": 4,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "2.5",
+        "total_dividend": "2.5",
+        "book_closure_date": ""
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE",
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "ICFCD89",
+      "kind": "dividend",
+      "path": "data/company-wise/ICFCD89/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "6.00",
+        "cash_dividend": "0.316",
+        "total_dividend": "6.316",
+        "book_closure_date": ""
+      },
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "IGI",
+      "kind": "dividend",
+      "path": "data/company-wise/IGI/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "9.7368",
+        "total_dividend": "9.7368",
+        "book_closure_date": "2025-02-24 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "ILI",
+      "kind": "dividend",
+      "path": "data/company-wise/ILI/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "21.0526",
+        "total_dividend": "21.0526",
+        "book_closure_date": "2025-02-27 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "JBBL",
+      "kind": "dividend",
+      "path": "data/company-wise/JBBL/dividend.csv",
+      "line": 7,
+      "raw": {
+        "fiscal_year": "2073/2074",
+        "bonus_share": "10.00",
+        "cash_dividend": "",
+        "total_dividend": "10.00",
+        "book_closure_date": "2017-12-31 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "JBBL",
+      "kind": "dividend",
+      "path": "data/company-wise/JBBL/dividend.csv",
+      "line": 8,
+      "raw": {
+        "fiscal_year": "2072/2073",
+        "bonus_share": "11.7",
+        "cash_dividend": "",
+        "total_dividend": "11.7",
+        "book_closure_date": "2016-12-29 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "JBBL",
+      "kind": "dividend",
+      "path": "data/company-wise/JBBL/dividend.csv",
+      "line": 9,
+      "raw": {
+        "fiscal_year": "2071/2072",
+        "bonus_share": "9.00",
+        "cash_dividend": "",
+        "total_dividend": "9.00",
+        "book_closure_date": "2015-10-19 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "JBBL",
+      "kind": "dividend",
+      "path": "data/company-wise/JBBL/dividend.csv",
+      "line": 10,
+      "raw": {
+        "fiscal_year": "2070/2071",
+        "bonus_share": "7.00",
+        "cash_dividend": "",
+        "total_dividend": "7.00",
+        "book_closure_date": "2015-04-12 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "JFL",
+      "kind": "dividend",
+      "path": "data/company-wise/JFL/dividend.csv",
+      "line": 5,
+      "raw": {
+        "fiscal_year": "2073/2074",
+        "bonus_share": "18.00",
+        "cash_dividend": "",
+        "total_dividend": "18.00",
+        "book_closure_date": "2018-01-03 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "JFL",
+      "kind": "dividend",
+      "path": "data/company-wise/JFL/dividend.csv",
+      "line": 6,
+      "raw": {
+        "fiscal_year": "2072/2073",
+        "bonus_share": "10.00",
+        "cash_dividend": "",
+        "total_dividend": "10.00",
+        "book_closure_date": "2016-12-28 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "JFL",
+      "kind": "dividend",
+      "path": "data/company-wise/JFL/dividend.csv",
+      "line": 7,
+      "raw": {
+        "fiscal_year": "2071/2072",
+        "bonus_share": "25.00",
+        "cash_dividend": "",
+        "total_dividend": "25.00",
+        "book_closure_date": "2015-10-27 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "JFL",
+      "kind": "dividend",
+      "path": "data/company-wise/JFL/dividend.csv",
+      "line": 9,
+      "raw": {
+        "fiscal_year": "2068/2069",
+        "bonus_share": "50.00",
+        "cash_dividend": "",
+        "total_dividend": "50.00",
+        "book_closure_date": "2012-12-10 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "JSLBB",
+      "kind": "dividend",
+      "path": "data/company-wise/JSLBB/dividend.csv",
+      "line": 8,
+      "raw": {
+        "fiscal_year": "2072/2073",
+        "bonus_share": "20.00",
+        "cash_dividend": "",
+        "total_dividend": "20.00",
+        "book_closure_date": "2016-11-30 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "KBL",
+      "kind": "dividend",
+      "path": "data/company-wise/KBL/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "2.1053",
+        "total_dividend": "2.1053",
+        "book_closure_date": "2026-10-05 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "KBL",
+      "kind": "dividend",
+      "path": "data/company-wise/KBL/dividend.csv",
+      "line": 12,
+      "raw": {
+        "fiscal_year": "2069/2070",
+        "bonus_share": "14.00",
+        "cash_dividend": "",
+        "total_dividend": "14.00",
+        "book_closure_date": "2014-04-09 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "KBSH",
+      "kind": "dividend",
+      "path": "data/company-wise/KBSH/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "18.00",
+        "cash_dividend": "0.9474",
+        "total_dividend": "18.9474",
+        "book_closure_date": ""
+      },
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "KDBY",
+      "kind": "dividend",
+      "path": "data/company-wise/KDBY/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": "2026-08-20 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "KDBY",
+      "kind": "dividend",
+      "path": "data/company-wise/KDBY/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "10.5",
+        "total_dividend": "10.5",
+        "book_closure_date": "2025-08-25 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "KDBY",
+      "kind": "dividend",
+      "path": "data/company-wise/KDBY/dividend.csv",
+      "line": 4,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "9.5",
+        "total_dividend": "9.5",
+        "book_closure_date": "2024-09-04 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "KDBY",
+      "kind": "dividend",
+      "path": "data/company-wise/KDBY/dividend.csv",
+      "line": 5,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "6.00",
+        "total_dividend": "6.00",
+        "book_closure_date": "2023-09-04 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "KEF",
+      "kind": "dividend",
+      "path": "data/company-wise/KEF/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": "2026-08-20 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "KEF",
+      "kind": "dividend",
+      "path": "data/company-wise/KEF/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "11.5",
+        "total_dividend": "11.5",
+        "book_closure_date": "2025-08-25 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "KEF",
+      "kind": "dividend",
+      "path": "data/company-wise/KEF/dividend.csv",
+      "line": 4,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "9.5",
+        "total_dividend": "9.5",
+        "book_closure_date": "2024-09-04 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "KEF",
+      "kind": "dividend",
+      "path": "data/company-wise/KEF/dividend.csv",
+      "line": 5,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": "2023-09-04 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "KMCDB",
+      "kind": "dividend",
+      "path": "data/company-wise/KMCDB/dividend.csv",
+      "line": 7,
+      "raw": {
+        "fiscal_year": "2075/2076",
+        "bonus_share": "12.00",
+        "cash_dividend": "0.63",
+        "total_dividend": "12.63",
+        "book_closure_date": ""
+      },
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "KMCDB",
+      "kind": "dividend",
+      "path": "data/company-wise/KMCDB/dividend.csv",
+      "line": 9,
+      "raw": {
+        "fiscal_year": "2073/2074",
+        "bonus_share": "21.21",
+        "cash_dividend": "",
+        "total_dividend": "21.21",
+        "book_closure_date": "2018-02-18 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "KMCDB",
+      "kind": "dividend",
+      "path": "data/company-wise/KMCDB/dividend.csv",
+      "line": 10,
+      "raw": {
+        "fiscal_year": "2072/2073",
+        "bonus_share": "65.00",
+        "cash_dividend": "",
+        "total_dividend": "65.00",
+        "book_closure_date": "2017-04-17 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "KSBBL",
+      "kind": "dividend",
+      "path": "data/company-wise/KSBBL/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "15.00",
+        "total_dividend": "15.00",
+        "book_closure_date": "2026-09-03 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "KSY",
+      "kind": "dividend",
+      "path": "data/company-wise/KSY/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "2.9",
+        "total_dividend": "2.9",
+        "book_closure_date": "2026-08-20 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "KSY",
+      "kind": "dividend",
+      "path": "data/company-wise/KSY/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "9.00",
+        "total_dividend": "9.00",
+        "book_closure_date": "2025-08-25 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "LICN",
+      "kind": "dividend",
+      "path": "data/company-wise/LICN/dividend.csv",
+      "line": 10,
+      "raw": {
+        "fiscal_year": "2070/2071",
+        "bonus_share": "30.00",
+        "cash_dividend": "",
+        "total_dividend": "30.00",
+        "book_closure_date": "2015-02-13 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "LLBS",
+      "kind": "dividend",
+      "path": "data/company-wise/LLBS/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "4.75",
+        "cash_dividend": "0.25",
+        "total_dividend": "5.00",
+        "book_closure_date": ""
+      },
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "LUK",
+      "kind": "dividend",
+      "path": "data/company-wise/LUK/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "20.00",
+        "total_dividend": "20.00",
+        "book_closure_date": "2025-08-19 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "LUK",
+      "kind": "dividend",
+      "path": "data/company-wise/LUK/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "7.5",
+        "total_dividend": "7.5",
+        "book_closure_date": "2024-08-15 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "LUK",
+      "kind": "dividend",
+      "path": "data/company-wise/LUK/dividend.csv",
+      "line": 4,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "9.5",
+        "total_dividend": "9.5",
+        "book_closure_date": "2023-08-17 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "LVF2",
+      "kind": "dividend",
+      "path": "data/company-wise/LVF2/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "15.00",
+        "total_dividend": "15.00",
+        "book_closure_date": "2025-08-11 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "LVF2",
+      "kind": "dividend",
+      "path": "data/company-wise/LVF2/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "4.5",
+        "total_dividend": "4.5",
+        "book_closure_date": "2024-08-15 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MAKAR",
+      "kind": "dividend",
+      "path": "data/company-wise/MAKAR/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "13.00",
+        "cash_dividend": "0.6842",
+        "total_dividend": "13.6842",
+        "book_closure_date": ""
+      },
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MANDU",
+      "kind": "dividend",
+      "path": "data/company-wise/MANDU/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "12.00",
+        "total_dividend": "12.00",
+        "book_closure_date": "2026-08-21 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MANDU",
+      "kind": "dividend",
+      "path": "data/company-wise/MANDU/dividend.csv",
+      "line": 4,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "12.00",
+        "total_dividend": "12.00",
+        "book_closure_date": "2024-09-16 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MANDU",
+      "kind": "dividend",
+      "path": "data/company-wise/MANDU/dividend.csv",
+      "line": 5,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": "2023-11-20 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MBLEF",
+      "kind": "dividend",
+      "path": "data/company-wise/MBLEF/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "8.00",
+        "total_dividend": "8.00",
+        "book_closure_date": "2026-08-18 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MDB",
+      "kind": "dividend",
+      "path": "data/company-wise/MDB/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "5.00",
+        "cash_dividend": "6.00",
+        "total_dividend": "11.00",
+        "book_closure_date": ""
+      },
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MDB",
+      "kind": "dividend",
+      "path": "data/company-wise/MDB/dividend.csv",
+      "line": 16,
+      "raw": {
+        "fiscal_year": "2068/2069",
+        "bonus_share": "20.00",
+        "cash_dividend": "",
+        "total_dividend": "20.00",
+        "book_closure_date": "2012-11-21 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MFIL",
+      "kind": "dividend",
+      "path": "data/company-wise/MFIL/dividend.csv",
+      "line": 5,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "5.263",
+        "total_dividend": "5.263",
+        "book_closure_date": "2023-12-27 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MFIL",
+      "kind": "dividend",
+      "path": "data/company-wise/MFIL/dividend.csv",
+      "line": 15,
+      "raw": {
+        "fiscal_year": "2067/2068",
+        "bonus_share": "12.5",
+        "cash_dividend": "",
+        "total_dividend": "12.5",
+        "book_closure_date": ""
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND",
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MKJC",
+      "kind": "rights",
+      "path": "data/company-wise/MKJC/right-share.csv",
+      "line": 2,
+      "raw": {
+        "ratio": "1:0.70",
+        "total_units": "None",
+        "issue_price": "None",
+        "opening_date": "",
+        "closing_date": "",
+        "status": "",
+        "issue_manager": "None"
+      },
+      "flags": [
+        "SUBSCRIPTION_DATES_MISSING",
+        "UNVERIFIED_TOTAL_UNITS",
+        "UNVERIFIED_ISSUE_PRICE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MLBBL",
+      "kind": "dividend",
+      "path": "data/company-wise/MLBBL/dividend.csv",
+      "line": 11,
+      "raw": {
+        "fiscal_year": "2071/2072",
+        "bonus_share": "20.00",
+        "cash_dividend": "",
+        "total_dividend": "20.00",
+        "book_closure_date": "2015-12-25 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MLBL",
+      "kind": "dividend",
+      "path": "data/company-wise/MLBL/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "3.7",
+        "cash_dividend": "3.78",
+        "total_dividend": "7.48",
+        "book_closure_date": ""
+      },
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MLBL",
+      "kind": "dividend",
+      "path": "data/company-wise/MLBL/dividend.csv",
+      "line": 5,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "6.4",
+        "total_dividend": "6.4",
+        "book_closure_date": "2024-01-04 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MLBL",
+      "kind": "dividend",
+      "path": "data/company-wise/MLBL/dividend.csv",
+      "line": 12,
+      "raw": {
+        "fiscal_year": "2072/2073",
+        "bonus_share": "8.00",
+        "cash_dividend": "",
+        "total_dividend": "8.00",
+        "book_closure_date": "2017-04-20 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MMF1",
+      "kind": "dividend",
+      "path": "data/company-wise/MMF1/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "11.75",
+        "total_dividend": "11.75",
+        "book_closure_date": "2025-09-12 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MNMF1",
+      "kind": "dividend",
+      "path": "data/company-wise/MNMF1/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "2.2",
+        "total_dividend": "2.2",
+        "book_closure_date": "2026-09-09 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MNMF1",
+      "kind": "dividend",
+      "path": "data/company-wise/MNMF1/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "3.8",
+        "total_dividend": "3.8",
+        "book_closure_date": "2025-08-15 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MPFL",
+      "kind": "dividend",
+      "path": "data/company-wise/MPFL/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2072/2073",
+        "bonus_share": "12.00",
+        "cash_dividend": "",
+        "total_dividend": "12.00",
+        "book_closure_date": "2017-06-21 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MPFL",
+      "kind": "dividend",
+      "path": "data/company-wise/MPFL/dividend.csv",
+      "line": 4,
+      "raw": {
+        "fiscal_year": "2071/2072",
+        "bonus_share": "15.00",
+        "cash_dividend": "",
+        "total_dividend": "15.00",
+        "book_closure_date": "2016-03-28 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MPFL",
+      "kind": "dividend",
+      "path": "data/company-wise/MPFL/dividend.csv",
+      "line": 5,
+      "raw": {
+        "fiscal_year": "2070/2071",
+        "bonus_share": "12.00",
+        "cash_dividend": "",
+        "total_dividend": "12.00",
+        "book_closure_date": ""
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND",
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MPFL",
+      "kind": "dividend",
+      "path": "data/company-wise/MPFL/dividend.csv",
+      "line": 6,
+      "raw": {
+        "fiscal_year": "2068/2069",
+        "bonus_share": "0.00",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": ""
+      },
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MSHL",
+      "kind": "dividend",
+      "path": "data/company-wise/MSHL/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "15.00",
+        "cash_dividend": "0.789",
+        "total_dividend": "15.789",
+        "book_closure_date": ""
+      },
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MSLB",
+      "kind": "dividend",
+      "path": "data/company-wise/MSLB/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "9.5",
+        "cash_dividend": "0.5",
+        "total_dividend": "10.00",
+        "book_closure_date": ""
+      },
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NABIL",
+      "kind": "dividend",
+      "path": "data/company-wise/NABIL/dividend.csv",
+      "line": 4,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": "2024-11-25 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NABIL",
+      "kind": "dividend",
+      "path": "data/company-wise/NABIL/dividend.csv",
+      "line": 5,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "11.00",
+        "total_dividend": "11.00",
+        "book_closure_date": "2023-12-15 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NADEP",
+      "kind": "dividend",
+      "path": "data/company-wise/NADEP/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2075/2076",
+        "bonus_share": "10.00",
+        "cash_dividend": "",
+        "total_dividend": "10.00",
+        "book_closure_date": "2020-09-30 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NBF2",
+      "kind": "dividend",
+      "path": "data/company-wise/NBF2/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "3.5",
+        "total_dividend": "3.5",
+        "book_closure_date": "2026-09-23 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NBF2",
+      "kind": "dividend",
+      "path": "data/company-wise/NBF2/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "13.00",
+        "total_dividend": "13.00",
+        "book_closure_date": "2025-09-07 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NBF2",
+      "kind": "dividend",
+      "path": "data/company-wise/NBF2/dividend.csv",
+      "line": 4,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "8.00",
+        "total_dividend": "8.00",
+        "book_closure_date": "2024-09-27 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NBF2",
+      "kind": "dividend",
+      "path": "data/company-wise/NBF2/dividend.csv",
+      "line": 5,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "9.6",
+        "total_dividend": "9.6",
+        "book_closure_date": "2023-10-13 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NBF3",
+      "kind": "dividend",
+      "path": "data/company-wise/NBF3/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "2.5",
+        "total_dividend": "2.5",
+        "book_closure_date": "2026-09-23 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NBF3",
+      "kind": "dividend",
+      "path": "data/company-wise/NBF3/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "13.00",
+        "total_dividend": "13.00",
+        "book_closure_date": "2025-09-07 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NESDO",
+      "kind": "dividend",
+      "path": "data/company-wise/NESDO/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2078/2079",
+        "bonus_share": "",
+        "cash_dividend": "15.00",
+        "total_dividend": "15.00",
+        "book_closure_date": "2023-10-05 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NHDL",
+      "kind": "dividend",
+      "path": "data/company-wise/NHDL/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "10.00",
+        "cash_dividend": "0.53",
+        "total_dividend": "10.53",
+        "book_closure_date": ""
+      },
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NIBLGF",
+      "kind": "dividend",
+      "path": "data/company-wise/NIBLGF/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": "2025-09-12 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NIBLGF",
+      "kind": "dividend",
+      "path": "data/company-wise/NIBLGF/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "6.35",
+        "total_dividend": "6.35",
+        "book_closure_date": "2024-10-02 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NIBSF2",
+      "kind": "dividend",
+      "path": "data/company-wise/NIBSF2/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "7.00",
+        "total_dividend": "7.00",
+        "book_closure_date": "2025-09-12 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NICA",
+      "kind": "rights",
+      "path": "data/company-wise/NICA/right-share.csv",
+      "line": 2,
+      "raw": {
+        "ratio": "1:0.50",
+        "total_units": "74587835.00",
+        "issue_price": "100.00",
+        "opening_date": "",
+        "closing_date": "",
+        "status": "",
+        "issue_manager": "NIMB Ace Capital Limited"
+      },
+      "flags": [
+        "SUBSCRIPTION_DATES_MISSING"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NICBF",
+      "kind": "dividend",
+      "path": "data/company-wise/NICBF/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "9.9",
+        "total_dividend": "9.9",
+        "book_closure_date": "2025-08-14 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NICBF",
+      "kind": "dividend",
+      "path": "data/company-wise/NICBF/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "9.25",
+        "total_dividend": "9.25",
+        "book_closure_date": "2024-09-13 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NICBF",
+      "kind": "dividend",
+      "path": "data/company-wise/NICBF/dividend.csv",
+      "line": 4,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": "2023-11-08 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NICFC",
+      "kind": "dividend",
+      "path": "data/company-wise/NICFC/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "10.1",
+        "total_dividend": "10.1",
+        "book_closure_date": "2025-08-14 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NICFC",
+      "kind": "dividend",
+      "path": "data/company-wise/NICFC/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "10.5",
+        "total_dividend": "10.5",
+        "book_closure_date": "2024-09-13 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NICL",
+      "kind": "dividend",
+      "path": "data/company-wise/NICL/dividend.csv",
+      "line": 10,
+      "raw": {
+        "fiscal_year": "2073/2074",
+        "bonus_share": "4.52",
+        "cash_dividend": "",
+        "total_dividend": "4.52",
+        "book_closure_date": "2018-04-20 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NICL",
+      "kind": "dividend",
+      "path": "data/company-wise/NICL/dividend.csv",
+      "line": 11,
+      "raw": {
+        "fiscal_year": "2072/2073",
+        "bonus_share": "5.00",
+        "cash_dividend": "",
+        "total_dividend": "5.00",
+        "book_closure_date": "2017-09-01 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NICL",
+      "kind": "dividend",
+      "path": "data/company-wise/NICL/dividend.csv",
+      "line": 14,
+      "raw": {
+        "fiscal_year": "2067/2068",
+        "bonus_share": "7.37",
+        "cash_dividend": "",
+        "total_dividend": "7.37",
+        "book_closure_date": "2012-05-08 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NICLBSL",
+      "kind": "dividend",
+      "path": "data/company-wise/NICLBSL/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "15.00",
+        "total_dividend": "15.00",
+        "book_closure_date": "2023-12-11 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NICSF",
+      "kind": "dividend",
+      "path": "data/company-wise/NICSF/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "8.65",
+        "total_dividend": "8.65",
+        "book_closure_date": "2025-08-14 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NICSF",
+      "kind": "dividend",
+      "path": "data/company-wise/NICSF/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "14.00",
+        "total_dividend": "14.00",
+        "book_closure_date": "2024-09-13 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NIFRA",
+      "kind": "dividend",
+      "path": "data/company-wise/NIFRA/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "5.2632",
+        "total_dividend": "5.2632",
+        "book_closure_date": "2026-09-30 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NIFRA",
+      "kind": "dividend",
+      "path": "data/company-wise/NIFRA/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "6.3158",
+        "total_dividend": "6.3158",
+        "book_closure_date": "2025-11-28 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NIFRA",
+      "kind": "dividend",
+      "path": "data/company-wise/NIFRA/dividend.csv",
+      "line": 4,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "4.2105",
+        "total_dividend": "4.2105",
+        "book_closure_date": "2023-12-22 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NIL",
+      "kind": "dividend",
+      "path": "data/company-wise/NIL/dividend.csv",
+      "line": 13,
+      "raw": {
+        "fiscal_year": "2068/2069",
+        "bonus_share": "11.5",
+        "cash_dividend": "",
+        "total_dividend": "11.5",
+        "book_closure_date": "2013-05-03 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NIL",
+      "kind": "dividend",
+      "path": "data/company-wise/NIL/dividend.csv",
+      "line": 14,
+      "raw": {
+        "fiscal_year": "2067/2068",
+        "bonus_share": "5.00",
+        "cash_dividend": "",
+        "total_dividend": "5.00",
+        "book_closure_date": "2012-03-27 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NLG",
+      "kind": "dividend",
+      "path": "data/company-wise/NLG/dividend.csv",
+      "line": 11,
+      "raw": {
+        "fiscal_year": "2071/2072",
+        "bonus_share": "20.00",
+        "cash_dividend": "",
+        "total_dividend": "20.00",
+        "book_closure_date": "2015-12-31 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NLG",
+      "kind": "dividend",
+      "path": "data/company-wise/NLG/dividend.csv",
+      "line": 14,
+      "raw": {
+        "fiscal_year": "2068/2069",
+        "bonus_share": "20.00",
+        "cash_dividend": "",
+        "total_dividend": "20.00",
+        "book_closure_date": "2012-06-15 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NLIC",
+      "kind": "dividend",
+      "path": "data/company-wise/NLIC/dividend.csv",
+      "line": 4,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "21.05",
+        "total_dividend": "21.05",
+        "book_closure_date": "2024-06-18 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NLICL",
+      "kind": "dividend",
+      "path": "data/company-wise/NLICL/dividend.csv",
+      "line": 15,
+      "raw": {
+        "fiscal_year": "2068/2069",
+        "bonus_share": "25.00",
+        "cash_dividend": "",
+        "total_dividend": "25.00",
+        "book_closure_date": "2013-03-14 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NMB",
+      "kind": "dividend",
+      "path": "data/company-wise/NMB/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "7.00",
+        "total_dividend": "7.00",
+        "book_closure_date": "2026-11-27 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NMB50",
+      "kind": "dividend",
+      "path": "data/company-wise/NMB50/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "3.15",
+        "total_dividend": "3.15",
+        "book_closure_date": "2026-08-24 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NMB50",
+      "kind": "dividend",
+      "path": "data/company-wise/NMB50/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "15.00",
+        "total_dividend": "15.00",
+        "book_closure_date": "2025-08-29 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NMB50",
+      "kind": "dividend",
+      "path": "data/company-wise/NMB50/dividend.csv",
+      "line": 4,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "15.00",
+        "total_dividend": "15.00",
+        "book_closure_date": "2024-09-27 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NMB50",
+      "kind": "dividend",
+      "path": "data/company-wise/NMB50/dividend.csv",
+      "line": 5,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "15.00",
+        "total_dividend": "15.00",
+        "book_closure_date": "2023-09-29 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NMBHF2",
+      "kind": "dividend",
+      "path": "data/company-wise/NMBHF2/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "4.5",
+        "total_dividend": "4.5",
+        "book_closure_date": "2026-08-24 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NMBMF",
+      "kind": "dividend",
+      "path": "data/company-wise/NMBMF/dividend.csv",
+      "line": 9,
+      "raw": {
+        "fiscal_year": "2071/2072",
+        "bonus_share": "15.00",
+        "cash_dividend": "",
+        "total_dividend": "15.00",
+        "book_closure_date": "2016-04-28 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NSIF2",
+      "kind": "dividend",
+      "path": "data/company-wise/NSIF2/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": "2026-08-24 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NSIF2",
+      "kind": "dividend",
+      "path": "data/company-wise/NSIF2/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "15.00",
+        "total_dividend": "15.00",
+        "book_closure_date": "2025-08-29 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NSIF2",
+      "kind": "dividend",
+      "path": "data/company-wise/NSIF2/dividend.csv",
+      "line": 4,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": "2024-09-27 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "OHL",
+      "kind": "dividend",
+      "path": "data/company-wise/OHL/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "5.2632",
+        "total_dividend": "5.2632",
+        "book_closure_date": "2023-09-29 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "OHL",
+      "kind": "dividend",
+      "path": "data/company-wise/OHL/dividend.csv",
+      "line": 8,
+      "raw": {
+        "fiscal_year": "2071/2072",
+        "bonus_share": "20.00",
+        "cash_dividend": "",
+        "total_dividend": "20.00",
+        "book_closure_date": "2015-11-15 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "OHL",
+      "kind": "dividend",
+      "path": "data/company-wise/OHL/dividend.csv",
+      "line": 9,
+      "raw": {
+        "fiscal_year": "2070/2071",
+        "bonus_share": "10.00",
+        "cash_dividend": "",
+        "total_dividend": "10.00",
+        "book_closure_date": "2014-09-18 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "PCBL",
+      "kind": "dividend",
+      "path": "data/company-wise/PCBL/dividend.csv",
+      "line": 9,
+      "raw": {
+        "fiscal_year": "2073/2074",
+        "bonus_share": "27.00",
+        "cash_dividend": "",
+        "total_dividend": "27.00",
+        "book_closure_date": "2017-12-20 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "PRIN",
+      "kind": "dividend",
+      "path": "data/company-wise/PRIN/dividend.csv",
+      "line": 10,
+      "raw": {
+        "fiscal_year": "2072/2073",
+        "bonus_share": "17.00",
+        "cash_dividend": "",
+        "total_dividend": "17.00",
+        "book_closure_date": "2016-10-18 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "PRIN",
+      "kind": "dividend",
+      "path": "data/company-wise/PRIN/dividend.csv",
+      "line": 11,
+      "raw": {
+        "fiscal_year": "2071/2072",
+        "bonus_share": "12.00",
+        "cash_dividend": "",
+        "total_dividend": "12.00",
+        "book_closure_date": "2015-12-03 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "PRSF",
+      "kind": "dividend",
+      "path": "data/company-wise/PRSF/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "12.00",
+        "total_dividend": "12.00",
+        "book_closure_date": "2026-09-10 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "PRSF",
+      "kind": "dividend",
+      "path": "data/company-wise/PRSF/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": "2025-08-31 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "PRSF",
+      "kind": "dividend",
+      "path": "data/company-wise/PRSF/dividend.csv",
+      "line": 4,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "8.5",
+        "total_dividend": "8.5",
+        "book_closure_date": "2024-09-30 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "PSF",
+      "kind": "dividend",
+      "path": "data/company-wise/PSF/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "12.00",
+        "total_dividend": "12.00",
+        "book_closure_date": "2026-09-10 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "PSF",
+      "kind": "dividend",
+      "path": "data/company-wise/PSF/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "12.00",
+        "total_dividend": "12.00",
+        "book_closure_date": "2025-08-31 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "PSF",
+      "kind": "dividend",
+      "path": "data/company-wise/PSF/dividend.csv",
+      "line": 4,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": "2024-09-30 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "PSF",
+      "kind": "dividend",
+      "path": "data/company-wise/PSF/dividend.csv",
+      "line": 5,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "9.5",
+        "total_dividend": "9.5",
+        "book_closure_date": "2023-09-29 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "RHGCL",
+      "kind": "rights",
+      "path": "data/company-wise/RHGCL/right-share.csv",
+      "line": 3,
+      "raw": {
+        "ratio": "1:0.251411",
+        "total_units": "3081262.00",
+        "issue_price": "100.00",
+        "opening_date": "",
+        "closing_date": "",
+        "status": "",
+        "issue_manager": "None"
+      },
+      "flags": [
+        "SUBSCRIPTION_DATES_MISSING"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "RLEL",
+      "kind": "dividend",
+      "path": "data/company-wise/RLEL/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "10.53",
+        "total_dividend": "10.53",
+        "book_closure_date": "2026-10-09 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "RMF1",
+      "kind": "dividend",
+      "path": "data/company-wise/RMF1/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "2.75",
+        "total_dividend": "2.75",
+        "book_closure_date": "2026-09-28 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "RMF1",
+      "kind": "dividend",
+      "path": "data/company-wise/RMF1/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "20.00",
+        "total_dividend": "20.00",
+        "book_closure_date": "2025-08-25 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "RMF1",
+      "kind": "dividend",
+      "path": "data/company-wise/RMF1/dividend.csv",
+      "line": 4,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "3.81",
+        "total_dividend": "3.81",
+        "book_closure_date": "2024-09-16 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "RMF2",
+      "kind": "dividend",
+      "path": "data/company-wise/RMF2/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "6.00",
+        "total_dividend": "6.00",
+        "book_closure_date": "2026-09-28 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "RMF2",
+      "kind": "dividend",
+      "path": "data/company-wise/RMF2/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "13.00",
+        "total_dividend": "13.00",
+        "book_closure_date": "2025-08-25 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "RMF2",
+      "kind": "dividend",
+      "path": "data/company-wise/RMF2/dividend.csv",
+      "line": 4,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "8.74",
+        "total_dividend": "8.74",
+        "book_closure_date": "2024-09-16 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "RSDC",
+      "kind": "dividend",
+      "path": "data/company-wise/RSDC/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "9.4",
+        "total_dividend": "9.4",
+        "book_closure_date": "2026-12-04"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "RSML",
+      "kind": "dividend",
+      "path": "data/company-wise/RSML/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "30.00",
+        "total_dividend": "30.00",
+        "book_closure_date": "2026-09-30 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "RSY",
+      "kind": "dividend",
+      "path": "data/company-wise/RSY/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "8.4211",
+        "total_dividend": "8.4211",
+        "book_closure_date": "2026-08-26 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "RURU",
+      "kind": "dividend",
+      "path": "data/company-wise/RURU/dividend.csv",
+      "line": 4,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "10.5263",
+        "total_dividend": "10.5263",
+        "book_closure_date": "2024-01-02 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SADBL",
+      "kind": "dividend",
+      "path": "data/company-wise/SADBL/dividend.csv",
+      "line": 13,
+      "raw": {
+        "fiscal_year": "2071/2072",
+        "bonus_share": "20.85",
+        "cash_dividend": "",
+        "total_dividend": "20.85",
+        "book_closure_date": "2016-02-04 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SADBL",
+      "kind": "dividend",
+      "path": "data/company-wise/SADBL/dividend.csv",
+      "line": 16,
+      "raw": {
+        "fiscal_year": "2068/2069",
+        "bonus_share": "0.00",
+        "cash_dividend": "11.00",
+        "total_dividend": "11.00",
+        "book_closure_date": ""
+      },
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SAGF",
+      "kind": "dividend",
+      "path": "data/company-wise/SAGF/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "5.00",
+        "total_dividend": "5.00",
+        "book_closure_date": "2026-09-03 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SAGF",
+      "kind": "dividend",
+      "path": "data/company-wise/SAGF/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "15.79",
+        "total_dividend": "15.79",
+        "book_closure_date": "2025-08-22 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SAGF",
+      "kind": "dividend",
+      "path": "data/company-wise/SAGF/dividend.csv",
+      "line": 4,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": "2024-09-11 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SALICO",
+      "kind": "dividend",
+      "path": "data/company-wise/SALICO/dividend.csv",
+      "line": 4,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "5.00",
+        "total_dividend": "5.00",
+        "book_closure_date": "2024-03-26 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SANIMA",
+      "kind": "dividend",
+      "path": "data/company-wise/SANIMA/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": "2026-09-17 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SANIMA",
+      "kind": "dividend",
+      "path": "data/company-wise/SANIMA/dividend.csv",
+      "line": 4,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "5.2632",
+        "total_dividend": "5.2632",
+        "book_closure_date": "2024-11-10 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SANIMA",
+      "kind": "dividend",
+      "path": "data/company-wise/SANIMA/dividend.csv",
+      "line": 11,
+      "raw": {
+        "fiscal_year": "2073/2074",
+        "bonus_share": "16.00",
+        "cash_dividend": "",
+        "total_dividend": "16.00",
+        "book_closure_date": "2017-09-22 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SANVI",
+      "kind": "dividend",
+      "path": "data/company-wise/SANVI/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "5.25",
+        "total_dividend": "5.25",
+        "book_closure_date": ""
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE",
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SARBTM",
+      "kind": "dividend",
+      "path": "data/company-wise/SARBTM/dividend.csv",
+      "line": 5,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "15.00",
+        "total_dividend": "15.00",
+        "book_closure_date": "2024-04-12 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SBCF",
+      "kind": "dividend",
+      "path": "data/company-wise/SBCF/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "19.00",
+        "total_dividend": "19.00",
+        "book_closure_date": "2025-08-11 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SBL",
+      "kind": "dividend",
+      "path": "data/company-wise/SBL/dividend.csv",
+      "line": 5,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "4.21",
+        "total_dividend": "4.21",
+        "book_closure_date": "2023-11-07 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SBL",
+      "kind": "dividend",
+      "path": "data/company-wise/SBL/dividend.csv",
+      "line": 11,
+      "raw": {
+        "fiscal_year": "2073/2074",
+        "bonus_share": "14.00",
+        "cash_dividend": "",
+        "total_dividend": "14.00",
+        "book_closure_date": "2018-03-04 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SBL",
+      "kind": "dividend",
+      "path": "data/company-wise/SBL/dividend.csv",
+      "line": 12,
+      "raw": {
+        "fiscal_year": "2072/2073",
+        "bonus_share": "39.00",
+        "cash_dividend": "",
+        "total_dividend": "39.00",
+        "book_closure_date": "2017-02-02 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SCB",
+      "kind": "dividend",
+      "path": "data/company-wise/SCB/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "16.00",
+        "total_dividend": "16.00",
+        "book_closure_date": "2026-11-26 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SCB",
+      "kind": "dividend",
+      "path": "data/company-wise/SCB/dividend.csv",
+      "line": 5,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "19.00",
+        "total_dividend": "19.00",
+        "book_closure_date": "2023-11-23 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SEF",
+      "kind": "dividend",
+      "path": "data/company-wise/SEF/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "20.00",
+        "total_dividend": "20.00",
+        "book_closure_date": "2025-08-22 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SEF",
+      "kind": "dividend",
+      "path": "data/company-wise/SEF/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "5.00",
+        "total_dividend": "5.00",
+        "book_closure_date": "2023-08-30 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SFEF",
+      "kind": "dividend",
+      "path": "data/company-wise/SFEF/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "4.5",
+        "total_dividend": "4.5",
+        "book_closure_date": "2026-09-03 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SFEF",
+      "kind": "dividend",
+      "path": "data/company-wise/SFEF/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "13.5",
+        "total_dividend": "13.5",
+        "book_closure_date": "2025-08-19 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SFMF",
+      "kind": "dividend",
+      "path": "data/company-wise/SFMF/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "14.00",
+        "total_dividend": "14.00",
+        "book_closure_date": "2025-08-19 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SHINE",
+      "kind": "dividend",
+      "path": "data/company-wise/SHINE/dividend.csv",
+      "line": 11,
+      "raw": {
+        "fiscal_year": "2073/2074",
+        "bonus_share": "25.00",
+        "cash_dividend": "",
+        "total_dividend": "25.00",
+        "book_closure_date": "2017-12-25 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SHINE",
+      "kind": "dividend",
+      "path": "data/company-wise/SHINE/dividend.csv",
+      "line": 12,
+      "raw": {
+        "fiscal_year": "2072/2073",
+        "bonus_share": "27.00",
+        "cash_dividend": "",
+        "total_dividend": "27.00",
+        "book_closure_date": "2016-11-30 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SHINE",
+      "kind": "dividend",
+      "path": "data/company-wise/SHINE/dividend.csv",
+      "line": 15,
+      "raw": {
+        "fiscal_year": "2069/2070",
+        "bonus_share": "20.00",
+        "cash_dividend": "",
+        "total_dividend": "20.00",
+        "book_closure_date": "2013-10-17 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SHL",
+      "kind": "dividend",
+      "path": "data/company-wise/SHL/dividend.csv",
+      "line": 15,
+      "raw": {
+        "fiscal_year": "2067/2068",
+        "bonus_share": "20.00",
+        "cash_dividend": "32.63",
+        "total_dividend": "52.63",
+        "book_closure_date": ""
+      },
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SHPC",
+      "kind": "dividend",
+      "path": "data/company-wise/SHPC/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "10.00",
+        "cash_dividend": "5.00",
+        "total_dividend": "15.00",
+        "book_closure_date": ""
+      },
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SICL",
+      "kind": "dividend",
+      "path": "data/company-wise/SICL/dividend.csv",
+      "line": 10,
+      "raw": {
+        "fiscal_year": "2069/2070",
+        "bonus_share": "20.00",
+        "cash_dividend": "",
+        "total_dividend": "20.00",
+        "book_closure_date": "2014-06-06 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SICL",
+      "kind": "dividend",
+      "path": "data/company-wise/SICL/dividend.csv",
+      "line": 11,
+      "raw": {
+        "fiscal_year": "2068/2069",
+        "bonus_share": "40.00",
+        "cash_dividend": "",
+        "total_dividend": "40.00",
+        "book_closure_date": "2013-06-04 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SIFC",
+      "kind": "dividend",
+      "path": "data/company-wise/SIFC/dividend.csv",
+      "line": 4,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "5.05",
+        "total_dividend": "5.05",
+        "book_closure_date": "2024-01-05 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SIFC",
+      "kind": "dividend",
+      "path": "data/company-wise/SIFC/dividend.csv",
+      "line": 10,
+      "raw": {
+        "fiscal_year": "2073/2074",
+        "bonus_share": "26.57",
+        "cash_dividend": "",
+        "total_dividend": "26.57",
+        "book_closure_date": "2018-06-18 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SIGS2",
+      "kind": "dividend",
+      "path": "data/company-wise/SIGS2/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "8.00",
+        "total_dividend": "8.00",
+        "book_closure_date": "2026-08-31 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SIGS2",
+      "kind": "dividend",
+      "path": "data/company-wise/SIGS2/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "20.00",
+        "total_dividend": "20.00",
+        "book_closure_date": "2025-08-22 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SIGS2",
+      "kind": "dividend",
+      "path": "data/company-wise/SIGS2/dividend.csv",
+      "line": 4,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "6.5",
+        "total_dividend": "6.5",
+        "book_closure_date": "2023-08-30 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SIGS3",
+      "kind": "dividend",
+      "path": "data/company-wise/SIGS3/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": "2026-08-31 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SIGS3",
+      "kind": "dividend",
+      "path": "data/company-wise/SIGS3/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "17.00",
+        "total_dividend": "17.00",
+        "book_closure_date": "2025-08-22 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SIGS3",
+      "kind": "dividend",
+      "path": "data/company-wise/SIGS3/dividend.csv",
+      "line": 4,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "7.00",
+        "total_dividend": "7.00",
+        "book_closure_date": "2024-09-08 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SIKLES",
+      "kind": "dividend",
+      "path": "data/company-wise/SIKLES/dividend.csv",
+      "line": 4,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "6.00",
+        "total_dividend": "6.00",
+        "book_closure_date": "2023-12-29 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SJLIC",
+      "kind": "dividend",
+      "path": "data/company-wise/SJLIC/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "20.00",
+        "total_dividend": "20.00",
+        "book_closure_date": "2024-12-06 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SLCF",
+      "kind": "dividend",
+      "path": "data/company-wise/SLCF/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "21.05",
+        "total_dividend": "21.05",
+        "book_closure_date": "2025-08-22 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SMH",
+      "kind": "dividend",
+      "path": "data/company-wise/SMH/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "14.00",
+        "cash_dividend": "4.421",
+        "total_dividend": "18.421",
+        "book_closure_date": ""
+      },
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SMHL",
+      "kind": "dividend",
+      "path": "data/company-wise/SMHL/dividend.csv",
+      "line": 5,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "2.00",
+        "total_dividend": "2.00",
+        "book_closure_date": "2024-01-02 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SMPDA",
+      "kind": "dividend",
+      "path": "data/company-wise/SMPDA/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "4.00",
+        "cash_dividend": "0.21",
+        "total_dividend": "4.21",
+        "book_closure_date": ""
+      },
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SONA",
+      "kind": "dividend",
+      "path": "data/company-wise/SONA/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "5.263",
+        "total_dividend": "5.263",
+        "book_closure_date": "2026-11-26 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SPIL",
+      "kind": "dividend",
+      "path": "data/company-wise/SPIL/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "30.00",
+        "total_dividend": "30.00",
+        "book_closure_date": "2025-02-14 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SPIL",
+      "kind": "dividend",
+      "path": "data/company-wise/SPIL/dividend.csv",
+      "line": 4,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "11.00",
+        "total_dividend": "11.00",
+        "book_closure_date": "2024-02-23 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SRLI",
+      "kind": "dividend",
+      "path": "data/company-wise/SRLI/dividend.csv",
+      "line": 4,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "18.3811",
+        "cash_dividend": "",
+        "total_dividend": "18.3811",
+        "book_closure_date": "2024-09-27 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SWBBL",
+      "kind": "dividend",
+      "path": "data/company-wise/SWBBL/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "4.75",
+        "cash_dividend": "0.25",
+        "total_dividend": "5.00",
+        "book_closure_date": ""
+      },
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SWMF",
+      "kind": "dividend",
+      "path": "data/company-wise/SWMF/dividend.csv",
+      "line": 3,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "14.0051",
+        "cash_dividend": "",
+        "total_dividend": "14.0051",
+        "book_closure_date": "2024-08-08 [Closed]"
+      },
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "TAMOR",
+      "kind": "dividend",
+      "path": "data/company-wise/TAMOR/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "5.263",
+        "total_dividend": "5.263",
+        "book_closure_date": "2026-10-05 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "UHEWA",
+      "kind": "rights",
+      "path": "data/company-wise/UHEWA/right-share.csv",
+      "line": 2,
+      "raw": {
+        "ratio": "1:1",
+        "total_units": "5750000.00",
+        "issue_price": "100.00",
+        "opening_date": "",
+        "closing_date": "",
+        "status": "",
+        "issue_manager": "None"
+      },
+      "flags": [
+        "SUBSCRIPTION_DATES_MISSING"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "UNL",
+      "kind": "dividend",
+      "path": "data/company-wise/UNL/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "1,540.00",
+        "total_dividend": "1,540.00",
+        "book_closure_date": "2026-11-25 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE",
+        "INVALID_CASH_DIVIDEND",
+        "INVALID_TOTAL_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "UNL",
+      "kind": "dividend",
+      "path": "data/company-wise/UNL/dividend.csv",
+      "line": 5,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "1,580.00",
+        "total_dividend": "1,580.00",
+        "book_closure_date": "2023-11-28 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE",
+        "INVALID_CASH_DIVIDEND",
+        "INVALID_TOTAL_DIVIDEND"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "UNL",
+      "kind": "dividend",
+      "path": "data/company-wise/UNL/dividend.csv",
+      "line": 10,
+      "raw": {
+        "fiscal_year": "2074/2075",
+        "bonus_share": "0.00",
+        "cash_dividend": "700.00",
+        "total_dividend": "700.00",
+        "book_closure_date": ""
+      },
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "UNL",
+      "kind": "dividend",
+      "path": "data/company-wise/UNL/dividend.csv",
+      "line": 17,
+      "raw": {
+        "fiscal_year": "2066/2067",
+        "bonus_share": "0.00",
+        "cash_dividend": "590.00",
+        "total_dividend": "590.00",
+        "book_closure_date": ""
+      },
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "UPCL",
+      "kind": "rights",
+      "path": "data/company-wise/UPCL/right-share.csv",
+      "line": 2,
+      "raw": {
+        "ratio": "1:1",
+        "total_units": "24851236.18",
+        "issue_price": "100.00",
+        "opening_date": "",
+        "closing_date": "",
+        "status": "",
+        "issue_manager": "Mukinath Capital Limited"
+      },
+      "flags": [
+        "SUBSCRIPTION_DATES_MISSING"
+      ],
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "VLUCL",
+      "kind": "dividend",
+      "path": "data/company-wise/VLUCL/dividend.csv",
+      "line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "3.6842",
+        "total_dividend": "3.6842",
+        "book_closure_date": "2026-11-02 [Closed]"
+      },
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "adjustment_allowed": false
+    }
+  ]
+}

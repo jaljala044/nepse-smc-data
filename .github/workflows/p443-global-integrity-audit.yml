@@ -22,7 +22,9 @@ on:
       - "test_p443_secondary_bulk_recovery.py"
       - "test_p443_bulk_equity_floorsheet_recovery.py"
       - "tools/p443_hf_bulk_equity_floorsheet_recovery.py"
+      - "tools/p443_hf_20240801_rate_precision.py"
       - "test_p443_hf_bulk_equity_floorsheet_recovery.py"
+      - "test_p443_hf_20240801_rate_precision.py"
       - "test_p443_equity_security_date_queue.py"
       - "test_p443_verify_unresolved_pairs.py"
       - "tools/p443_verify_unresolved_pairs.py"
@@ -57,8 +59,10 @@ on:
       - "tools/p443_secondary_bulk_recovery.py"
       - "test_p443_secondary_bulk_recovery.py"
       - "tools/p443_hf_bulk_equity_floorsheet_recovery.py"
+      - "tools/p443_hf_20240801_rate_precision.py"
       - "test_p443_bulk_equity_floorsheet_recovery.py"
       - "test_p443_hf_bulk_equity_floorsheet_recovery.py"
+      - "test_p443_hf_20240801_rate_precision.py"
       - "test_p443_equity_security_date_queue.py"
       - "test_p443_verify_unresolved_pairs.py"
       - "tools/p443_verify_unresolved_pairs.py"
@@ -150,6 +154,8 @@ jobs:
         run: python tools/p443_bulk_equity_floorsheet_recovery.py --directory audit-strict --max-dates 22
       - name: HF-only bulk floorsheet recovery regression tests
         run: python -m unittest test_p443_hf_bulk_equity_floorsheet_recovery -v
+      - name: 2024-08-01 HF rate-precision diagnostic regression tests
+        run: python -m unittest test_p443_hf_20240801_rate_precision -v
       - name: Map and reconcile first HF-only equity floorsheet batch
         run: python tools/p443_hf_bulk_equity_floorsheet_recovery.py --directory audit-strict --max-dates 22 --offset 0
       - name: Map and reconcile second HF-only equity floorsheet batch
@@ -158,6 +164,8 @@ jobs:
         run: python tools/p443_hf_bulk_equity_floorsheet_recovery.py --directory audit-strict --max-dates 22 --offset 44
       - name: Map and reconcile fourth HF-only equity floorsheet batch
         run: python tools/p443_hf_bulk_equity_floorsheet_recovery.py --directory audit-strict --max-dates 22 --offset 66
+      - name: Diagnose 2024-08-01 HF rate-precision pattern
+        run: python tools/p443_hf_20240801_rate_precision.py --input audit-strict/hf_bulk_equity_invalid_rows_batch03.csv --output audit-strict/hf_2024_08_01_rate_precision_diagnostic.json
       - name: Map secondary historical floorsheet coverage
         run: python tools/p443_secondary_bulk_coverage.py --directory audit-strict
       - name: Verify secondary contract normalization and integrity regressions

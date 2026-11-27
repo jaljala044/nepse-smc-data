@@ -1,0 +1,274 @@
+{
+  "schema_version": 1,
+  "run_id": 45931899365,
+  "job_id": 140286190684,
+  "artifact_id": 15168269826,
+  "source_commit": "03ca69ff1db7b8c5b3f7d3e60389813f64beac0c",
+  "total": 220,
+  "counts": {
+    "HOLD_SOURCE_RECOVERY": 174,
+    "ROUNDING_REPRESENTATION_VALID_REVIEW_REQUIRED": 46
+  },
+  "benchmark": [
+    {
+      "date": "2024-03-10",
+      "symbol": "NEPSE_index",
+      "source_sha256": "159de54ede4f48ad6ed4c72ddf6f09fd0a4f4a598d6f09f856386c9b75dfb140",
+      "gap": "0.0046",
+      "classification": "WITHIN_0_005_ROUNDING_CANDIDATE",
+      "raw": {
+        "open": "2032.58",
+        "high": "2061.2027",
+        "low": "2032.5846",
+        "close": "2052.65",
+        "volume": "2922112738.51"
+      },
+      "rounding_candidate": {
+        "open": "2032.58",
+        "high": "2061.20",
+        "low": "2032.58",
+        "close": "2052.65",
+        "volume": "2922112738.51"
+      },
+      "status": "ROUNDING_REPRESENTATION_VALID_REVIEW_REQUIRED",
+      "promotion_allowed": false
+    },
+    {
+      "date": "2024-03-14",
+      "symbol": "NEPSE_index",
+      "source_sha256": "2f1012c8f2ce56083eb8fa615ea32ca035fdad0bb1f6cbd07c6a94e77687c2ff",
+      "gap": "0.0045",
+      "classification": "WITHIN_0_005_ROUNDING_CANDIDATE",
+      "raw": {
+        "open": "2110.56",
+        "high": "2110.5555",
+        "low": "2074.0587",
+        "close": "2080.87",
+        "volume": "3942583959.23"
+      },
+      "rounding_candidate": {
+        "open": "2110.56",
+        "high": "2110.56",
+        "low": "2074.06",
+        "close": "2080.87",
+        "volume": "3942583959.23"
+      },
+      "status": "ROUNDING_REPRESENTATION_VALID_REVIEW_REQUIRED",
+      "promotion_allowed": false
+    },
+    {
+      "date": "2024-04-16",
+      "symbol": "NEPSE_index",
+      "source_sha256": "645106118b916606cdde7362210eaac969eeb8c59fe4dbfdc9de63a671f9f32c",
+      "gap": "0.0038",
+      "classification": "WITHIN_0_005_ROUNDING_CANDIDATE",
+      "raw": {
+        "open": "2004.97",
+        "high": "2004.9662",
+        "low": "1988.1965",
+        "close": "1991.71",
+        "volume": "2102327147.18"
+      },
+      "rounding_candidate": {
+        "open": "2004.97",
+        "high": "2004.97",
+        "low": "1988.20",
+        "close": "1991.71",
+        "volume": "2102327147.18"
+      },
+      "status": "ROUNDING_REPRESENTATION_VALID_REVIEW_REQUIRED",
+      "promotion_allowed": false
+    },
+    {
+      "date": "2024-04-29",
+      "symbol": "NEPSE_index",
+      "source_sha256": "8c873d9a61920c8180005937bde227bf24cdaa429b48dc39946333eef1ec49a6",
+      "gap": "0.0028",
+      "classification": "WITHIN_0_005_ROUNDING_CANDIDATE",
+      "raw": {
+        "open": "1990.32",
+        "high": "1990.3172",
+        "low": "1974.5283",
+        "close": "1980.34",
+        "volume": "2958917323.53"
+      },
+      "rounding_candidate": {
+        "open": "1990.32",
+        "high": "1990.32",
+        "low": "1974.53",
+        "close": "1980.34",
+        "volume": "2958917323.53"
+      },
+      "status": "ROUNDING_REPRESENTATION_VALID_REVIEW_REQUIRED",
+      "promotion_allowed": false
+    },
+    {
+      "date": "2024-09-12",
+      "symbol": "NEPSE_index",
+      "source_sha256": "e07561f6231d02e3fb61433a5d2c7ec66e6410d87bb6b22f7acaa4403ad2da37",
+      "gap": "0.0099",
+      "classification": "WITHIN_0_01_ROUNDING_CANDIDATE",
+      "raw": {
+        "open": "2625.46",
+        "high": "2688.5201",
+        "low": "2604.83",
+        "close": "2688.53",
+        "volume": "8167928463.51"
+      },
+      "rounding_candidate": null,
+      "status": "HOLD_SOURCE_RECOVERY",
+      "promotion_allowed": false
+    },
+    {
+      "date": "2025-04-23",
+      "symbol": "NEPSE_index",
+      "source_sha256": "18305edfcfaed8c1f24cf6e2306783aae67890164880ac86b793cf9725507406",
+      "gap": "0.0018",
+      "classification": "WITHIN_0_005_ROUNDING_CANDIDATE",
+      "raw": {
+        "open": "2687.69",
+        "high": "2687.6882",
+        "low": "2653.7453",
+        "close": "2655.94",
+        "volume": "6115797243.66"
+      },
+      "rounding_candidate": {
+        "open": "2687.69",
+        "high": "2687.69",
+        "low": "2653.75",
+        "close": "2655.94",
+        "volume": "6115797243.66"
+      },
+      "status": "ROUNDING_REPRESENTATION_VALID_REVIEW_REQUIRED",
+      "promotion_allowed": false
+    },
+    {
+      "date": "2025-07-29",
+      "symbol": "NEPSE_index",
+      "source_sha256": "8c380116d6f6ce16fe183e25915ff452538ab32a6265da433d89474343420c31",
+      "gap": "0.0032",
+      "classification": "WITHIN_0_005_ROUNDING_CANDIDATE",
+      "raw": {
+        "open": "2976.0",
+        "high": "3028.7936",
+        "low": "2976.0032",
+        "close": "3002.07",
+        "volume": "18518605892.13"
+      },
+      "rounding_candidate": {
+        "open": "2976.00",
+        "high": "3028.79",
+        "low": "2976.00",
+        "close": "3002.07",
+        "volume": "18518605892.13"
+      },
+      "status": "ROUNDING_REPRESENTATION_VALID_REVIEW_REQUIRED",
+      "promotion_allowed": false
+    },
+    {
+      "date": "2025-08-12",
+      "symbol": "NEPSE_index",
+      "source_sha256": "8c4733a3e2d0393a14cbccc0733df8efe1f0d81c5757c8943537309ec443d2fe",
+      "gap": "0.005",
+      "classification": "WITHIN_0_005_ROUNDING_CANDIDATE",
+      "raw": {
+        "open": "2824.01",
+        "high": "2828.5787",
+        "low": "2796.245",
+        "close": "2796.24",
+        "volume": "6915013095.02"
+      },
+      "rounding_candidate": null,
+      "status": "HOLD_SOURCE_RECOVERY",
+      "promotion_allowed": false
+    },
+    {
+      "date": "2025-08-17",
+      "symbol": "NEPSE_index",
+      "source_sha256": "0a0d600bdd6b2e42064f167a060931e14cd9e0fa148ea43246b6223e7b3936ef",
+      "gap": "0.0054",
+      "classification": "WITHIN_0_01_ROUNDING_CANDIDATE",
+      "raw": {
+        "open": "2789.85",
+        "high": "2803.2566",
+        "low": "2761.2254",
+        "close": "2761.22",
+        "volume": "7730985058.93"
+      },
+      "rounding_candidate": null,
+      "status": "HOLD_SOURCE_RECOVERY",
+      "promotion_allowed": false
+    },
+    {
+      "date": "2025-09-18",
+      "symbol": "NEPSE_index",
+      "source_sha256": "b63a9314946ea29a9de78a2dd1cf5d4059250b9f66a3d9e56ad7ab29742fb0aa",
+      "gap": "0.006",
+      "classification": "WITHIN_0_01_ROUNDING_CANDIDATE",
+      "raw": {
+        "open": "2637.98",
+        "high": "2637.9789",
+        "low": "2511.916",
+        "close": "2511.91",
+        "volume": "728668403.8"
+      },
+      "rounding_candidate": null,
+      "status": "HOLD_SOURCE_RECOVERY",
+      "promotion_allowed": false
+    },
+    {
+      "date": "2025-11-23",
+      "symbol": "NEPSE_index",
+      "source_sha256": "157c73da98aec7a220ba771cc9d33375e61f1cdfb0886d44b0883b26ff22a252",
+      "gap": "0.0034",
+      "classification": "WITHIN_0_005_ROUNDING_CANDIDATE",
+      "raw": {
+        "open": "2562.34",
+        "high": "2600.935",
+        "low": "2562.3434",
+        "close": "2600.22",
+        "volume": "6284259968.68"
+      },
+      "rounding_candidate": {
+        "open": "2562.34",
+        "high": "2600.94",
+        "low": "2562.34",
+        "close": "2600.22",
+        "volume": "6284259968.68"
+      },
+      "status": "ROUNDING_REPRESENTATION_VALID_REVIEW_REQUIRED",
+      "promotion_allowed": false
+    },
+    {
+      "date": "2025-11-24",
+      "symbol": "NEPSE_index",
+      "source_sha256": "66d020f92f8a8ef1ad62bd6056c44c9655bad877ad66537bdadc4c614eb0354a",
+      "gap": "3.0773",
+      "classification": "MATERIAL_BOUNDS_VIOLATION",
+      "raw": {
+        "open": "2601.2",
+        "high": "2647.5827",
+        "low": "2601.119",
+        "close": "2650.66",
+        "volume": "7032556347.18"
+      },
+      "rounding_candidate": null,
+      "status": "HOLD_SOURCE_RECOVERY",
+      "promotion_allowed": false
+    }
+  ],
+  "remaining_recovery": {
+    "benchmark": 5,
+    "other_indices": 169,
+    "precision_failures": 14,
+    "material": 160,
+    "missing_benchmark_date": "2025-04-03",
+    "missing_benchmark_outside_exception_count": true
+  },
+  "promotion_allowed": false,
+  "limitations": [
+    "Uniform rounding does not establish exchange source precision policy.",
+    "All 220 raw exceptions remain unchanged and withheld.",
+    "No external replacement values admitted."
+  ]
+}

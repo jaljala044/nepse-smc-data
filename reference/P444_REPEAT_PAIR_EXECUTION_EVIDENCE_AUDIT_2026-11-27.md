@@ -62,3 +62,14 @@ Run #329 completed all 63 workflow steps successfully on tested SHA `563923b91ce
 The artifact ZIP SHA-256 matched GitHub's metadata: `032e17713a22bef5f4506926d0bd5ed00c1d4d42a2bac058ecada730b00079db`. However, inspection found the matrix read-back JSON ended with a literal escaped newline sequence rather than a real line terminator, making the JSON file invalid despite the workflow step's successful process exit. This is a serialization defect, not a matrix-row finding. It is explicitly **not accepted as a valid artifact read-back**.
 
 Correction: commit `14d93b1dfa8dd05b242fda33638a9467f73e9794` changes the summary writer to emit a real newline; commit `2f304554d3377c99fe72bd296312f99bb3b63fc1` adds a regression test that runs the CLI and parses the generated JSON. A new full workflow/artifact read-back is required before work package #12 can be marked complete.
+
+
+## Run #334 — corrected matrix JSON read-back verified
+
+- Run #334 completed successfully on tested SHA `48492befc3da6581cbba8e0a9609769774cc3505`: https://github.com/jaljala044/nepse-smc-data/actions/runs/46041575399
+- Strict artifact ID `15221155794`; downloaded ZIP SHA-256 `30d6e1a395268228d49f4679485f10d4d87c30ee2ad0e880fc8606165d5c4236`, matching GitHub artifact metadata.
+- `P444_UNCOVERED_REPEAT_PAIR_EVIDENCE_READBACK_AUDIT_2026-11-27.json` is valid JSON and ends with an actual newline. Read-back: 23,377 rows, 209 symbols, 23,377 unique pair IDs, date range 2024-03-05 through 2026-11-20, `issues=[]`, `valid=true`, `promotion_allowed=false`, `canonical_data_modified=false`.
+- Evidence remains absent: all 23,377 previous and current execution bundles are absent; historical stable IDs remain unpopulated. Identity remains 21,082 current-snapshot-only and 2,295 unresolved. Session evidence: current 1,503 closed / 21,874 unknown; previous 979 closed / 22,398 unknown.
+- Endpoint coverage: 0/46,754 endpoint occurrences covered; 0 pairs have both endpoints covered. Exact symbol overlap remains NESDO, ULBSL and YMHL only, with no endpoint dates in the pinned capture window.
+
+**Work package #12 is COMPLETE only for matrix structure, schema validation and artifact read-back. Work package #11 remains BLOCKED.** This confirms the serialization fix; it does not provide missing historical execution evidence, verify historical IDs, release holds, or authorize promotion. Canonical data remains unchanged.

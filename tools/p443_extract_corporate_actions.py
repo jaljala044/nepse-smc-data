@@ -65,6 +65,7 @@ def run(source, output):
                         raise ValueError("Reversed subscription dates")
             except (ValueError, ArithmeticError, IndexError):
                 flags.append("SOURCE_FIELD_REVIEW")
+                print(json.dumps({"symbol":symbol,"kind":kind,"path":path,"line":line,"raw":row},ensure_ascii=False))
             if symbol in target:
                 covered.add(symbol)
             events.append(dict(symbol=symbol,event_source=kind,target_equity=str(symbol in target).lower(),source_path=path,source_blob=item["git_blob_sha"],source_line=line,raw_event=payload,review_status=";".join(flags) or "UNVERIFIED_SECONDARY",effective_date="",adjustment_factor="",adjustment_allowed="false"))

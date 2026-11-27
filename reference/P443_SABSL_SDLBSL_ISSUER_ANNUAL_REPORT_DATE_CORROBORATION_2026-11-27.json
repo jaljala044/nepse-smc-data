@@ -1,0 +1,45 @@
+{
+  "task": "P4.43 issuer-primary date corroboration for SABSL/SDLBSL",
+  "review_date": "2026-11-27",
+  "source": {
+    "source_id": "SAMPADA_FY2080_81_ANNUAL_REPORT",
+    "authority": "Issuer-hosted annual report with audited financial statements and notes",
+    "issuer": "Sampada Laghubitta Bittiya Sanstha Limited",
+    "document": "8th Annual Report FY 2080/81 (2023-2024)",
+    "url": "https://www.sampadalaghubitta.com.np/upload/document/1745558125-book%20compile_compressed.pdf",
+    "statements": [
+      {
+        "location": "Notes to financial statements, Reporting Entity",
+        "claim": "The joint operation commenced on July 14, 2024."
+      },
+      {
+        "location": "Events After Reporting Date",
+        "claim": "The institution started joint operation as Sampada Laghubitta from Ashadh 30, 2081."
+      }
+    ],
+    "board_authorization_date_bs": "2081.11.11",
+    "local_sha256": null,
+    "checksum_status": "NOT_CAPTURED"
+  },
+  "symbols": [
+    "SABSL",
+    "SDLBSL",
+    "SMPDA"
+  ],
+  "corporate_joint_operation_date": "2024-07-14",
+  "corporate_date_disposition": "ISSUER_PRIMARY_CORROBORATED_2024-07-14",
+  "exchange_trading_boundary_date": null,
+  "exchange_boundary_disposition": "HOLD_UNRESOLVED_PENDING_NEPSE_TRADING_NOTICE",
+  "conflicting_nepse_hosted_notice_date": "2025-07-14",
+  "conflict_disposition": "RETAINED_AS_SOURCE_DISCREPANCY",
+  "stable_security_ids_verified": 0,
+  "lifecycle_intervals_promoted": 0,
+  "ohlcv_changes": 0,
+  "date_shifts": 0,
+  "promotion_allowed": false,
+  "limitations": [
+    "Issuer annual report corroborates corporate joint-operation date, not exact exchange last-trade or first-trade boundaries.",
+    "A separate NEPSE-hosted issuer notice prints 2082-03-30 (2025-07-14); discrepancy remains recorded.",
+    "No local source bytes or SHA-256 were captured."
+  ]
+}

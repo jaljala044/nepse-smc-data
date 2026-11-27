@@ -231,3 +231,9 @@ These are overlap counts, not four additional unique defects. The 94,543 consecu
 4. Decide whether full canonical-ingestion quarantine enforcement belongs in a separate implementation issue; the scanner-preparation guard is not a canonical ingestion gate.
 
 **P4.43 is not complete.** The audit pipeline and pinned scan now pass; evidence adjudication and final acceptance items remain open. PR #80 remains draft until those items are resolved or explicitly accepted as documented blockers.
+
+
+## Filename-encoding identity review — 2026-11-27
+The eight slash-encoded historical filenames were decoded and cross-checked against the pinned 2026-11-25 security snapshot (scanner repository commit `5a8768828d58bdcebb82393262726d1d030b7ec4`, snapshot blob `ed548857eb550fbb237910eb903fc202751c63a1`). All **8/8** decoded symbols and candidate security IDs match exact snapshot rows, all status `A`; display names identify debentures/bonds. All eight legacy OHLCV files were fetched at pinned base `56362fb4f65b91fdcca8f50b50e53ad80e703649`, comprising 2,214 rows. The row-level mapping and source blob SHAs are in `P443_FILENAME_ENCODING_IDENTITY_REVIEW_2026-11-27.csv`. The snapshot marks `ohlcv_file_present=no` for these securities, while the historical archive has files; these are different coverage indicators and are not conflated.
+
+This resolves filename decoding/current-snapshot matching only. No Priority 97 historical identity record matched these eight; historical security-ID continuity, lifecycle dates and exchange-certified trading boundaries remain UNKNOWN. No stable IDs, aliases, or validity intervals were promoted; no OHLCV changes or promotions occurred.

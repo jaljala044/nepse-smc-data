@@ -1,0 +1,31 @@
+name: P443 corporate action candidate recovery
+on:
+  push:
+    paths:
+      - 'tools/p443_extract_corporate_actions.py'
+      - 'reference/P443_CORPORATE_ACTION_SECONDARY_INVENTORY.csv'
+      - 'reference/nepse_target_universe_candidates_2026-11-26.csv'
+      - '.github/workflows/p443-corporate-action-recovery.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Obtain pinned corporate-action source
+        run: |
+          git init "$RUNNER_TEMP/corporate-source"
+          git -C "$RUNNER_TEMP/corporate-source" remote add origin https://github.com/SamirWagle/Nepse-All-Scraper.git
+          git -C "$RUNNER_TEMP/corporate-source" fetch --depth=1 origin c9c7ae42cf10e4b110ec6ea32d0cf480bdc81b54
+      - name: Extract and reconcile equity corporate-action candidates
+        run: python tools/p443_extract_corporate_actions.py "$RUNNER_TEMP/corporate-source" corporate-recovery
+      - uses: actions/upload-artifact@v4
+        with:
+          name: p443-corporate-action-recovery
+          path: corporate-recovery/
+          if-no-files-found: error

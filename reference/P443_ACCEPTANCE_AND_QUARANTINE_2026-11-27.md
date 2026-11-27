@@ -6,7 +6,7 @@
 
 ## Current validated evidence
 
-- Strict audit Run 277 (45927798013) passed all 39 stages on the latest report/decision revision, including the primary archive batch, all four HF-only recovery batches, secondary inventory coverage, contract-normalization/integrity regression tests and artifact preservation. Earlier Run 274 (45927217229) also passed all 39 stages, including the four strict secondary-partition recovery batches.
+- Strict audit Run 277 (45927798013) passed all 39 stages on the latest executable-code revision, including the primary archive batch, all four HF-only recovery batches, secondary inventory coverage, contract-normalization/integrity regression tests and artifact preservation. Earlier Run 274 (45927217229) also passed all 39 stages, including the four strict secondary-partition recovery batches. Subsequent changes only refreshed documentation.
 - Priority floorsheet recovery Run 11 (45899542388) passed all 10 selected partitions.
 - Secondary priority comparison Run 2 (45899542326) passed all five selected contract comparisons.
 - The strict inventory covers 928 files: 784 structured files parsed, 138 inventory-only/unsupported, six non-JSON responses, 1,668,641 parseable records, zero file failures.
@@ -33,6 +33,17 @@ A second strict pass in **Run 274 (45927217229)** independently re-ran the same 
 The follow-up **Run 277 (45927798013)** passed all 39 stages on the refreshed report/decision revision. It re-ran the primary and four HF-only batches, rechecked secondary inventory coverage, and passed the contract-normalization/integrity regression suite, including leading-apostrophe normalization and invalid-field rejection. Its artifacts are 15167322364 and 15167481897.
 
 Separate April evidence workflows also passed: candle reconstruction Run 1 (45926508499) reviewed four sessions (2026-04-24 through 2026-04-29), and lot analysis Run 1 (45926987474) reviewed 11 symbol/date candidates. Three daily files passed row-level content checks; 2026-04-29 was PARTIAL_FAIL with one invalid amount and one invalid rate. The 11 candidates have exact floorsheet-volume matches; below-published-low executions in the lot review were all quantities below 10 shares, but the quantity threshold is only a proxy for odd-lot status and does not authenticate trade type. Contract-ID ordering is unverified, the independent archive and session completeness are not established, and the 2026-04-29 partial failure prevents full-session validation. These are research candidates only; verified replacements and promotions remain zero. Artifacts: 15166686701 and 15166757126.
+
+## Prior date-lineage audit reconciliation
+
+A cross-audit index now records the existing date-shift and scrape-date findings without double-counting overlapping scopes:
+
+- **P4.27/P4.28:** 490 one-day candidates (2026-03-01→2026-03-02 and 2026-07-24→2026-07-25) were found exactly once in official per-security EOD history; 487 OHLCV tuples matched and three official Close values differ. This is bounded prior work, not a 928-file scan.
+- **P4.42:** 162 NMLBBL/SMPDA rows (81 per symbol) match their upstream ShareSansar daily rows and an official HLCV+volume tuple on another date. The evidence supports scrape-date labeling, but does not authorize automatic business-date relabeling. Offsets are +1:74, +2:62, +3:18, +4:6, +5:2.
+- **P4.37:** a purposive 24-security / 12-sector sample found 1,455 canonical-only rows across 19 symbols matching other-date official HLCV tuples on 81 verified-closed dates; 36 official-only rows matched canonical tuples on other closed dates, and three exact-date mismatches remain.
+- **P4.5:** 20 provisional overlay candidates across two date pairs are recorded; they may overlap P4.27/P4.28 and are not additive unique findings without a row-key join.
+
+The counts above must not be summed: scopes and time windows overlap. The full 928-file date-shift scan and key-level reconciliation remain **incomplete**. The machine-readable cross-audit index is P443_DATE_LINEAGE_CROSS_AUDIT_2026-11-27.json. No raw/canonical date was rewritten and no row was promoted.
 
 ## Quarantine disposition (policy record, not full canonical-ingestion enforcement)
 

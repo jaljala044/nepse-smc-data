@@ -35,6 +35,8 @@ on:
       - "test_p444_build_uncovered_repeat_pair_matrix.py"
       - "tools/p444_validate_lifecycle_evidence.py"
       - "test_p444_validate_lifecycle_evidence.py"
+      - "tools/p444_audit_lifecycle_sequences.py"
+      - "test_p444_audit_lifecycle_sequences.py"
       - "tools/p444_audit_repeat_pair_matrix.py"
       - "test_p444_audit_repeat_pair_matrix.py"
       - "reference/P444_EFFECTIVE_DATED_LIFECYCLE_EVIDENCE_2026-11-27.csv"
@@ -84,6 +86,10 @@ on:
       - "tools/p443_verify_unresolved_pairs.py"
       - "tools/p444_build_uncovered_repeat_pair_matrix.py"
       - "test_p444_build_uncovered_repeat_pair_matrix.py"
+      - "tools/p444_validate_lifecycle_evidence.py"
+      - "test_p444_validate_lifecycle_evidence.py"
+      - "tools/p444_audit_lifecycle_sequences.py"
+      - "test_p444_audit_lifecycle_sequences.py"
       - "reference/P443_AUTHENTICATED_HOLIDAY_EVIDENCE_2015_2026.csv"
       - "test_p443_recorded_closure_row_hold.py"
       - "test_p443_equity_first_repeat_review.py"
@@ -179,6 +185,10 @@ jobs:
         run: python -m unittest test_p443_corporate_action_date_recovery_queue -v
       - name: Audit P4.44 effective-dated lifecycle evidence ledger
         run: python tools/p444_validate_lifecycle_evidence.py reference/P444_EFFECTIVE_DATED_LIFECYCLE_EVIDENCE_2026-11-27.csv
+      - name: Verify P4.44 lifecycle sequence audit regression tests
+        run: python -m unittest test_p444_audit_lifecycle_sequences -v
+      - name: Audit P4.44 lifecycle event sequences (review only)
+        run: python tools/p444_audit_lifecycle_sequences.py reference/P444_EFFECTIVE_DATED_LIFECYCLE_EVIDENCE_2026-11-27.csv > audit-strict/P444_LIFECYCLE_SEQUENCE_AUDIT_2026-11-27.json
       - name: Build P4.44 row-level evidence matrix for 209 uncovered symbols
         run: python tools/p444_build_uncovered_repeat_pair_matrix.py --findings audit-strict/findings.jsonl --output-dir audit-strict
       - name: Verify P4.44 matrix artifact read-back integrity tests

@@ -73,7 +73,9 @@ def source_rows(path,expected_blob):
     return out
 
 def build(findings,output,expected_pairs=23377,expected_symbols=209):
-    triage=csv_rows(git_bytes(TRIAGE)); by_symbol={r["symbol"].strip():r for r in triage}
+    triage_raw=Path(TRIAGE).read_bytes()
+    triage_sha256=hashlib.sha256(triage_raw).hexdigest()
+    triage=csv_rows(triage_raw); by_symbol={r["symbol"].strip():r for r in triage}
     if len(by_symbol)!=expected_symbols: raise ValueError(f"triage symbols {len(by_symbol)} != {expected_symbols}")
     closed,execution=load_evidence(); counts=Counter(); symbols=set(); dates=[]; total=0
     out=Path(output); out.mkdir(parents=True,exist_ok=True)
@@ -100,7 +102,7 @@ def build(findings,output,expected_pairs=23377,expected_symbols=209):
         w.writerow(row); total+=1; symbols.add(sym); dates.extend((pd,cd))
         counts["identity_"+ident["identity_scope"]]+=1
     if total!=expected_pairs or len(symbols)!=expected_symbols: raise ValueError(f"coverage mismatch: {total} pairs/{len(symbols)} symbols")
-    summary={"task":"P4.44 uncovered repeat pair evidence matrix","pinned_source_commit":PIN,"pairs":total,"symbols":len(symbols),"date_min":min(dates),"date_max":max(dates),"counts":dict(sorted(counts.items())),"disposition":"HOLD_UNKNOWN_NO_INFERENCE","promotion_allowed":False,"canonical_data_modified":False,"limitations":["Current snapshot IDs do not prove historical continuity.","Market-open evidence does not prove a specific security traded.","Missing execution evidence is not evidence of no trade.","Repeated tuples do not prove duplicate executions."]}
+    summary={"task":"P4.44 uncovered repeat pair evidence matrix","pinned_source_commit":PIN,"triage_path":TRIAGE,"triage_sha256":triage_sha256,"pairs":total,"symbols":len(symbols),"date_min":min(dates),"date_max":max(dates),"counts":dict(sorted(counts.items())),"disposition":"HOLD_UNKNOWN_NO_INFERENCE","promotion_allowed":False,"canonical_data_modified":False,"limitations":["Current snapshot IDs do not prove historical continuity.","Market-open evidence does not prove a specific security traded.","Missing execution evidence is not evidence of no trade.","Repeated tuples do not prove duplicate executions."]}
     (out/"P444_UNCOVERED_REPEAT_PAIR_EVIDENCE_SUMMARY_2026-11-27.json").write_text(json.dumps(summary,indent=2)+"\n")
     report=["# P4.44 — uncovered repeated-pair row-level evidence matrix","",f"Pinned source: {PIN}",f"Rows: {total:,} across {len(symbols)} symbols; date range {summary['date_min']} to {summary['date_max']}.","","Every row includes exact source path/blob/row identity, both dates, identity scope, and available session/execution evidence. Current snapshot IDs are separated from historical stable IDs.","","All rows remain HOLD/UNKNOWN. No canonical data changed; no pair was promoted or deduplicated.","","## Counts",""]+[f"- {k}: {v:,}" for k,v in sorted(counts.items())]+["","## Limitations",""]+[f"- {x}" for x in summary["limitations"]]+[""]
     (out/"P444_UNCOVERED_REPEAT_PAIR_EVIDENCE_2026-11-27.md").write_text("\n".join(report))

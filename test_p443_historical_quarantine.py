@@ -44,7 +44,7 @@ class GateTests(unittest.TestCase):
     def test_clean_key(self):
         q.reject_held("ABC","2026-04-08",self.holds)
     def test_broker_held(self):
-        path=self.root/"broker_summary.csv";path.write_text("symbol,date,broker\nABC,2026-04-09,14\n")
+        path=self.root/"broker_summary.csv";path.write_text("symbol,date,broker,buy_qty,sell_qty,buy_value,sell_value\nABC,2026-04-09,14,10,0,1000,0\n")
         with self.assertRaises(ValueError):p.validate_broker_table(path,set(),self.holds)
     def test_broker_unknown_schema(self):
         path=self.root/"broker_summary.csv";path.write_text("symbol,broker\nABC,14\n")

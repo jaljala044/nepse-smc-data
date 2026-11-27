@@ -10,10 +10,11 @@ from tempfile import TemporaryDirectory
 from datetime import date
 from .historical_quarantine import load_holds
 from .equity_exception_holds import load_equity_holds
+from .session_totals import reconcile
 from .prepare_scanner_inputs import validate_floorsheet, verified_closed_dates
 
 
-def publish_daily_floorsheet(raw, day, destination, overlay):
+def publish_daily_floorsheet(raw, day, destination, overlay, *, control_path, evidence_path):
     if date.fromisoformat(day).isoformat() != day:
         raise ValueError("Invalid archive session")
     holds = {**load_holds(overlay), **load_equity_holds()}
@@ -43,6 +44,7 @@ def publish_daily_floorsheet(raw, day, destination, overlay):
                     raise ValueError("Contract session not established")
                 writer.writerow(dict(row, date=day))
         validate_floorsheet(normalized, closed, holds)
+        reconcile(raw, day, control_path, evidence_path)
         if destination.exists():
             if destination.read_bytes() == raw:
                 return "unchanged"

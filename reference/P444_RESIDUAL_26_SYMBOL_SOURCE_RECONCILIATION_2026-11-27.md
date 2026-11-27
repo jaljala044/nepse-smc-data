@@ -19,7 +19,7 @@ A second targeted source pass found additional date-specific lifecycle evidence 
 NEPSE signed cancellation notice for SBLD2082:
 https://www.nepalstock.com/api/nots/security/fetchFiles?fileLocation=rita_listing%2F2026-01-08%2FSBLD2082_1767865294859.pdf
 
-The indexed notice identifies 10.50% SBL Debenture 2082 and says listing cancellation is effective after trading on 2082-09-24 (2026-01-08). The raw PDF bytes and SHA-256 were not captured into the repository during this pass, so it is a primary-source lead, not yet a fully provenance-complete evidence record.
+The official one-page NEPSE PDF was opened and its rendered page visually inspected. The signed letter is addressed to Siddhartha Bank Limited; it identifies “10.50% S.B.L. Debenture 2082 (SBLD2082),” states maturity on 2082-09-26, and says listing cancellation applies after trading on 2082-09-24. The document URL is the original NEPSE file endpoint above. The browser PDF renderer exposed the page image, but direct raw-byte download failed; therefore the original PDF SHA-256 and Git blob are still unavailable. Treat the primary content as visually inspected, but the repository provenance record remains incomplete.
 
 ## Important date conflict retained
 

@@ -66,7 +66,7 @@ This queue decomposes the open acceptance criteria into 30 reviewable work packa
 - P4.44 repeated-pair matrix: 23,377 rows; all `HOLD_UNKNOWN_NO_INFERENCE`; zero promotions.
 - Session recovery: 149 rows, 148 candidate-total matches and one baseline conflict; all publication disallowed.
 - March 1/2: alternative date remains a candidate only; official transaction total not verified.
-- Canonical publication code currently checks P4.43 historical overlay and equity exception registers, but does not load P4.44 lifecycle ledger or repeated-pair matrix. This is a concrete gate-coverage gap, not a completed control.
-- Latest observed successful global audit run is #315 (run ID `46008233756`), but its workflow head SHA is `a3fb067a11245c1dc554990113c3f6b6a5065008`, not the current branch head `4630178881feceb9a1d9faa3c1f00dd8021790c0`. Do not use it as proof that the current head passed.
+- Canonical publication and scanner staging now load the 26-symbol P4.44 lifecycle ledger as symbol-wide wildcard holds. Regression coverage passed in publication-gate run #13; the overall workflow remains failed closed at the private Drive credential check. The 23,377-pair matrix remains an evidence/review artifact, not a promotion input.
+- Latest observed successful full global audit run is #315 (`46008233756`) on `a3fb067a11245c1dc554990113c3f6b6a5065008`; its strict/global artifacts were downloaded and SHA-256 read-back verified. The later run #316 (`46009773312`) is in progress on intermediate SHA `4653263c575dee39243ccfb6e07d15b2d87ad0a3`, not the current branch head `e7cd8cb8f635e5fe672e600d29292b4ec7b8ba4e`. Do not claim current-head validation.
 
 **No raw OHLCV, floorsheet, canonical, date, security identity or scanner input rows were changed by this queue creation.**

@@ -26,9 +26,9 @@
     "current_equity_crosswalk": 3,
     "current_snapshot_present": 183,
     "no_current_snapshot": 26,
-    "debenture_bond_name_candidates": 69,
-    "promoter_name_candidates": 62,
-    "other_snapshot_class_review": 10,
+    "debenture_bond_name_candidates": 71,
+    "promoter_name_candidates": 67,
+    "other_snapshot_class_review": 3,
     "unresolved_historical_identity": 26,
     "filename_encoding_candidates": 8,
     "filename_encoding_candidates_reviewed": 8,
@@ -91,5 +91,27 @@
     "warning": "The dated snapshot's ohlcv_file_present field is 'no' for these entries even though eight legacy OHLCV archive files exist in the pinned source repository. These are distinct datasets/coverage indicators; this review does not imply the current scanner target universe contains those files.",
     "promotion_allowed": false,
     "canonical_changes": false
+  },
+  "snapshot_class_review": {
+    "records_reviewed": 10,
+    "display_name_debenture_candidates": 2,
+    "display_name_promoter_share_candidates": 5,
+    "unresolved_class": 3,
+    "official_security_master_blob_sha": "0891e10b56de572816680c8065718ecd4420bd03",
+    "official_security_master_fields": [
+      "id",
+      "symbol",
+      "securityName",
+      "name",
+      "activeStatus"
+    ],
+    "instrument_type_field_present": false,
+    "classification_is_name_based_only": true,
+    "unresolved_symbols": [
+      "EBLD86",
+      "KRBL",
+      "WNLB"
+    ],
+    "promotion_allowed": false
   }
 }

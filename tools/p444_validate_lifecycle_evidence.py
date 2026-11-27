@@ -25,6 +25,7 @@ SOURCE_TIERS = {
 CONFIDENCE = {"verified", "corroborated", "unverified", "none"}
 TERMINAL_EVENTS = {"delisting", "maturity", "redemption", "liquidation"}
 TRADING_EVENTS = {"listing", "trading_release", "resumption"}
+REVIEW_ONLY_CODES = {"EVENT_DATE_MISSING", "MERGER_SUCCESSOR_MISSING"}
 
 
 def validate(path, known_symbols=None, verify_files=False):
@@ -38,7 +39,7 @@ def validate(path, known_symbols=None, verify_files=False):
         if missing:
             issues.append({"row": 1, "code": "MISSING_REQUIRED_COLUMNS", "columns": missing})
             return {"rows": 0, "symbols": 0, "provenance_complete_rows": 0,
-                    "hold_unknown_rows": 0, "issues": issues, "valid": False}
+                    "hold_unknown_rows": 0, "issues": issues, "review_findings": [], "error_findings": issues, "evidence_complete": False, "valid": False}
         rows = list(reader)
 
     by_symbol = defaultdict(list)
@@ -126,13 +127,18 @@ def validate(path, known_symbols=None, verify_files=False):
         and row.get("effective_date_confidence") == "verified"
         for row in rows
     )
+    review_findings = [issue for issue in issues if issue["code"] in REVIEW_ONLY_CODES]
+    error_findings = [issue for issue in issues if issue["code"] not in REVIEW_ONLY_CODES]
     return {
         "rows": len(rows),
         "symbols": len({(row.get("symbol") or "").strip().upper() for row in rows if (row.get("symbol") or "").strip()}),
         "provenance_complete_rows": provenance_complete,
         "hold_unknown_rows": sum((row.get("disposition") or "").startswith("HOLD") for row in rows),
         "issues": issues,
-        "valid": not issues,
+        "review_findings": review_findings,
+        "error_findings": error_findings,
+        "evidence_complete": not issues,
+        "valid": not error_findings,
     }
 
 

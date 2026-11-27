@@ -46,7 +46,7 @@ This queue decomposes the open acceptance criteria into 30 reviewable work packa
 
 | # | Work package | Status | Acceptance / dependency |
 |---:|---|---|---|
-| 26 | P4.23: preserve and reconcile all 87 same-date conflict keys, including partial RHGCL primary HLCV evidence | PARTIAL — 87 retained; 86 2025-07-28 unresolved; RHGCL Open absent | Key-complete matrix and source-specific field dispositions |
+| 26 | P4.23: preserve and reconcile all 87 same-date conflict keys, including RHGCL | PARTIAL — RHGCL 2026-11-19 is now PRIMARY_CONFIRMED for full OHLCV (security ID 8108; raw response SHA-256 `303d92756ffbcaa2e6ab5020c29e1eab1b63ed99797bf024914dbb863cbae183`; derived view uses official Close 258.00 / Volume 9,054; raw SMC row preserved); 86 keys on 2025-07-28 remain unresolved | Key-complete matrix and source-specific field dispositions |
 | 27 | P4.23: acquire and completeness-validate 2025-07-28 floorsheet evidence for 86 conflict keys | BLOCKED | Complete primary-origin capture, pagination proof and per-symbol totals |
 | 28 | P4.23.2: reconstruct 2025-07-28 Open/Close for 86 symbols without assuming contract-ID order | BLOCKED | Timestamped primary records or independently validated ordering semantics |
 | 29 | P4.35: independently classify lineage and coverage for 1,368 historical OHLCV flags | BLOCKED | Independent historical source or exact acquisition blocker by candidate |

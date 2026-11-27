@@ -1,0 +1,56 @@
+{
+  "task": "P4.43 review of the three official EOD close-value conflicts within the 490 P4.27/P4.28 date-shift candidates",
+  "pinned_global_input_commit": "56362fb4f65b91fdcca8f50b50e53ad80e703649",
+  "source_reconciliation_path": "reference/p428_599_official_eod_reconciliation_2026-11-26.csv",
+  "source_reconciliation_blob_sha": "bece4a5c50dd80d0836306944435dffc875a53a8",
+  "correction_ledger_path": "reference/p428_112_official_eod_corrections_2026-11-26.csv",
+  "correction_ledger_blob_sha": "a6d507d0fb309c9d692b33211a6cf503d5a3cfc4",
+  "date_shift_candidate_scope": {
+    "rows": 490,
+    "dates": [
+      "2026-03-01",
+      "2026-07-24"
+    ],
+    "official_rows_found_exactly_once": 490,
+    "exact_full_ohlcv_matches": 487,
+    "close_only_conflicts": 3
+  },
+  "conflicts": [
+    {
+      "symbol": "KBL",
+      "date": "2026-03-01",
+      "candidate_close": 192,
+      "official_close": 191.8,
+      "security_id": 142,
+      "volume_match": true,
+      "turnover_match": true
+    },
+    {
+      "symbol": "SAIL",
+      "date": "2026-03-01",
+      "candidate_close": 1306,
+      "official_close": 1329,
+      "security_id": 9301,
+      "volume_match": true,
+      "turnover_match": true
+    },
+    {
+      "symbol": "ULBSL",
+      "date": "2026-03-01",
+      "candidate_close": 3118,
+      "official_close": 3178,
+      "security_id": 8063,
+      "volume_match": true,
+      "turnover_match": true
+    }
+  ],
+  "official_payload_sha256": "f95a54e751d3fe604c25e797e948831a35928166e2efea2319e244c9c359a5b5",
+  "retrieved_at": "2026-11-26T23:00:15.162202+05:45",
+  "assessment": "All three rows are already present in the 112-row official correction ledger as close-only differences. Open/high/low/volume and turnover agree with the candidate; no new independent conflict category was found. The official value is retained as evidence, but this audit does not alter raw OHLCV or issue a canonical correction.",
+  "disposition": "OFFICIAL_CLOSE_DIFFERS_HOLD_FOR_SOURCE_CORRECTION_REVIEW",
+  "correction_authorized": false,
+  "raw_or_canonical_changes": 0,
+  "date_relabels": 0,
+  "promotions": 0,
+  "limitation": "The official API payload is a captured point-in-time response. This review does not independently explain whether the discrepancy originates in the external candidate, a later source correction, or source-version timing."
+}

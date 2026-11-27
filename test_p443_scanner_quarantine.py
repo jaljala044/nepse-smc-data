@@ -83,7 +83,7 @@ class QuarantineTests(unittest.TestCase):
             stale.write_text("stale\\n")
             mod.write(supplement / "benchmark_daily.csv", FIELDS, [supplemental_row] if supplemental_row else [])
             for name in ("sectors", "sector_data", "corporate_actions", "broker_summary"):
-                (original / (name + ".csv")).write_text("symbol,date,broker\n" if name == "broker_summary" else "fixture\n")
+                (original / (name + ".csv")).write_text("symbol,date,broker,buy_qty,sell_qty,buy_value,sell_value\n" if name == "broker_summary" else "fixture\n")
             with patch.object(mod, "SUPPLEMENT", supplement), patch.object(mod, "verified_closed_dates", return_value=set()), patch.object(mod, "load_holds", return_value={}):
                 if success:
                     mod.prepare(original, output, root / "overlay.csv")
@@ -234,6 +234,39 @@ class TreeGateTests(unittest.TestCase):
             (root / "unknown.json").write_text("{}")
             with self.assertRaisesRegex(ValueError, "Unclassified"):
                 mod.validate_staged_tree(root, set(), {})
+
+class BrokerPartitionTests(unittest.TestCase):
+    def test_duplicate_and_conflict(self):
+        for second, expected in [("100.00", "Exact duplicate"), ("101", "Conflicting duplicate")]:
+            with self.subTest(second=second), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp)
+                folder = root / "Brokers"
+                folder.mkdir()
+                header = ",".join(mod.BROKER_FIELDS) + "\n"
+                a = folder / "a.csv"
+                b = folder / "b.csv"
+                a.write_text(header + "ABC,2026-01-04,6,10,0,100,0\n")
+                b.write_text(header + f" abc ,2026-01-04,006,10.0,0,{second},0\n")
+                before = (a.read_bytes(), b.read_bytes())
+                with self.assertRaisesRegex(ValueError, expected):
+                    mod.validate_staged_tree(root, set(), {})
+                self.assertEqual(before, (a.read_bytes(), b.read_bytes()))
+
+    def test_distinct_brokers_and_dates(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            header = ",".join(mod.BROKER_FIELDS) + "\n"
+            (root / "broker_summary.csv").write_text(header + "ABC,2026-01-04,6,10,0,100,0\n")
+            (root / "brokers_extra.csv").write_text(header + "ABC,2026-01-04,7,10,0,100,0\nABC,2026-01-05,6,10,0,100,0\n")
+            mod.validate_staged_tree(root, set(), {})
+
+    def test_invalid_metrics(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "broker_summary.csv"
+            for row in ("ABC,2026-01-04,6,1.5,0,100,0", "ABC,2026-01-04,6,10,0,NaN,0", "ABC,2026-01-04,0,10,0,100,0"):
+                path.write_text(",".join(mod.BROKER_FIELDS) + "\n" + row + "\n")
+                with self.assertRaises(ValueError):
+                    mod.validate_broker_table(path, set(), {})
 
 if __name__ == "__main__":
     unittest.main()

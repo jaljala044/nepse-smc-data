@@ -1,5 +1,6 @@
 """Read-only pinned inventory content audit. Findings are review flags, not repairs."""
 import argparse
+import ast
 import csv
 import gzip
 import hashlib
@@ -165,6 +166,33 @@ def scan(raw, entry):
         schemas["contract_no_reused_across_symbols"] = sum(1 for k,v in contract_no_symbols.items() if len(v) > 1)
     return count, dict(schemas), findings
 
+def inspect_non_tabular(raw, fmt):
+    """Format-specific inspection, never counted as validated market rows."""
+    if fmt == "pdf":
+        from pypdf import PdfReader
+        pdf = PdfReader(io.BytesIO(raw), strict=True)
+        pages = [page.extract_text() or "" for page in pdf.pages]
+        if not pages or not any(t.strip() for t in pages):
+            return dict(status="document_manual_review", pages=len(pages))
+        return dict(status="document_text_inspected", pages=len(pages),
+                    text_chars=sum(map(len, pages)))
+    text = raw.decode("utf-8-sig")
+    if not text.strip():
+        raise ValueError("Empty non-tabular artifact")
+    if fmt == "py":
+        ast.parse(text)
+        return dict(status="code_syntax_checked", lines=len(text.splitlines()))
+    if fmt == "yml":
+        import yaml
+        obj = yaml.safe_load(text)
+        if not isinstance(obj, dict) or not obj:
+            raise ValueError("Invalid workflow mapping")
+        return dict(status="workflow_syntax_checked", lines=len(text.splitlines()))
+    if fmt in ("md", "txt"):
+        return dict(status="text_inspected", lines=len(text.splitlines()))
+    raise ValueError("Unknown inventory format")
+
+
 def main():
     p=argparse.ArgumentParser()
     p.add_argument("--output",required=True)
@@ -183,7 +211,7 @@ def main():
                 if sha!=entry["git_blob_sha"] or len(raw)!=int(entry["bytes"]):
                     raise ValueError("pinned bytes mismatch")
                 if entry["format"] not in ("csv","csv.gz","json"):
-                    result["status"]="inventory_only"
+                    result.update(inspect_non_tabular(raw, entry["format"]))
                 elif entry["format"]=="json" and not raw.strip():
                     result.update(status="empty_capture",records=0)
                 elif entry["format"]=="json" and non_json_capture(raw):
@@ -203,6 +231,7 @@ def main():
                               "Unclassified records are parsed but not business-key validated.",
                               "Non-JSON provider error bodies are recorded as non_json_response, not counted as parsed records.",
                               "Finding classes overlap; counts are not unique affected records.",
+                              "Non-tabular checks are syntax or text extraction, not factual or semantic certification.",
                               "No corrections or canonical promotion."])
     (out/"coverage.json").write_text(json.dumps(coverage,indent=2))
     (out/"summary.json").write_text(json.dumps(summary,indent=2))

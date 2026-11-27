@@ -1,0 +1,16 @@
+{
+  "scope": "195 session candidates",
+  "workflow_run": 46002462651,
+  "workflow_head": "4021b46f0cd695149354fd73ef4a11379f961a04",
+  "artifact_id": 15198727482,
+  "artifact_sha256": "9cc96738fad27f6eb0c869aaf18259d0cc7f20d84a2e8ccc63040ec5d22d15ea",
+  "counts": {
+    "existing": 41,
+    "archive_parity": 5,
+    "secondary_match": 148,
+    "date_shift": 1
+  },
+  "officially_approved": 0,
+  "promoted": 0,
+  "limitations": "Candidate completeness only. Artifact expiry 2027-02-25; reproducible from pinned source and workflow, not official certification."
+}

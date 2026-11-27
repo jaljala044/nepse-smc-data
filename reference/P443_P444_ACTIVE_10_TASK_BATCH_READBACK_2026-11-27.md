@@ -114,3 +114,12 @@ No raw captures, OHLCV, canonical data, lifecycle dispositions or scanner inputs
 ## Merger successor mapping correction (2026-11-27)
 
 Current successor lookups are now explicit in `P444_MERGER_SUCCESSOR_CURRENT_ID_CROSSWALK_2026-11-27.csv`: JALPA/KLBSL → MATRI (security ID 694), SABSL/SDLBSL → SMPDA (security ID 2896), and SAMAJ → GBLBS (security ID 583), all using the 2026-11-25 snapshot. These five predecessor symbols are not to be treated as standalone current securities where the successor relationship is established. Preserve their historical OHLCV under the predecessor tickers; use successor code/ID for current lookups. Do not reuse a successor ID as the predecessor's historical stable ID, and do not infer unresolved merger dates or last-trade boundaries.
+
+
+## P4.23 status correction — RHGCL primary EOD capture (2026-11-27)
+
+A fresh read-back of the committed official evidence supersedes the earlier statement that RHGCL Open was absent and the key remained only partially confirmed. The committed `reference/official_eod_captures/RHGCL_2026-11-19_nepse_eod.json` contains a validated official NEPSE row for security ID 8108 / RHGCL / 2026-11-19 with Open 252.10, High 259.50, Low 252.10, Close 258.00, quantity 9,054, turnover NPR 2,332,952.50 and 47 trades. The source response is one page (347 upstream rows), HTTP 200, captured 2026-11-26T22:33:29.871784+05:45; raw payload SHA-256 is `303d92756ffbcaa2e6ab5020c29e1eab1b63ed99797bf024914dbb863cbae183`. The validator status is `OFFICIAL_CAPTURE_ACCEPTED` with zero quality flags.
+
+The versioned derived OHLCV decision is therefore supported for RHGCL 2026-11-19: use the official full OHLCV tuple; preserve the discrepant SMC raw tuple unchanged. This does not resolve the other 86 conflict keys dated 2025-07-28. The 86-row secondary counterpart index remains complete (86/86, no missing or duplicate keys), but all 86 remain `CONFLICT_UNRESOLVED_PRIMARY_EVIDENCE_PENDING`. Their timestamp/order blocker remains: the candidate YONEPSE archive has no trade timestamps, so Open/Close must not be inferred from contract-ID ordering.
+
+**Corrected work-package #26 disposition:** 86 unresolved 2025-07-28 keys; RHGCL 2026-11-19 primary-confirmed separately. No raw source rows changed in this read-back.

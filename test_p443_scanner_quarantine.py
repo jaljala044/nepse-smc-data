@@ -83,17 +83,17 @@ class QuarantineTests(unittest.TestCase):
             stale.write_text("stale\\n")
             mod.write(supplement / "benchmark_daily.csv", FIELDS, [supplemental_row] if supplemental_row else [])
             for name in ("sectors", "sector_data", "corporate_actions", "broker_summary"):
-                (original / (name + ".csv")).write_text("fixture\n")
-            with patch.object(mod, "SUPPLEMENT", supplement), patch.object(mod, "verified_closed_dates", return_value=set()):
+                (original / (name + ".csv")).write_text("symbol,date,broker\n" if name == "broker_summary" else "fixture\n")
+            with patch.object(mod, "SUPPLEMENT", supplement), patch.object(mod, "verified_closed_dates", return_value=set()), patch.object(mod, "load_holds", return_value={}):
                 if success:
-                    mod.prepare(original, output)
+                    mod.prepare(original, output, root / "overlay.csv")
                     self.assertEqual(len(list(mod.rows(output / "daily_prices.csv"))), 2)
                     for period in ("weekly", "monthly"):
                         self.assertEqual(len(list(mod.rows(output / (period + "_prices.csv")))), 2)
                     self.assertEqual(stale.read_text(), "stale\\n")
                 else:
                     with self.assertRaises(ValueError):
-                        mod.prepare(original, output)
+                        mod.prepare(original, output, root / "overlay.csv")
                     self.assertFalse(output.exists())
             self.assertEqual(source.read_bytes(), before)
 
@@ -192,11 +192,48 @@ class FloorsheetTests(unittest.TestCase):
             source = original / "floorsheet.csv"
             mod.write(source, self.fields, [self.trade(amount="1")])
             before = source.read_bytes()
-            with patch.object(mod, "SUPPLEMENT", supplement), patch.object(mod, "verified_closed_dates", return_value=set()):
+            with patch.object(mod, "SUPPLEMENT", supplement), patch.object(mod, "verified_closed_dates", return_value=set()), patch.object(mod, "load_holds", return_value={}):
                 with self.assertRaisesRegex(ValueError, "amount mismatch"):
-                    mod.prepare(original, output)
+                    mod.prepare(original, output, root / "overlay.csv")
             self.assertFalse(output.exists())
             self.assertEqual(source.read_bytes(), before)
+
+class TreeGateTests(unittest.TestCase):
+    def test_cross_file_duplicate(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            folder = root / "Floorsheet"
+            folder.mkdir()
+            trade = FloorsheetTests().trade()
+            for name in ("a.csv", "b.csv"):
+                mod.write(folder / name, FloorsheetTests.fields, [trade])
+            with self.assertRaisesRegex(ValueError, "across files"):
+                mod.validate_staged_tree(root, set(), {})
+
+    def test_nested_held_trade(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            folder = root / "02_floorsheet_daily"
+            folder.mkdir()
+            mod.write(folder / "a.csv", FloorsheetTests.fields, [FloorsheetTests().trade()])
+            with self.assertRaisesRegex(ValueError, "Quarantined"):
+                mod.validate_staged_tree(root, set(), {("ABC", "2026-01-04"): "HOLD"})
+
+    def test_alternate_daily_path_rejected(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            folder = root / "nested"
+            folder.mkdir()
+            mod.write(folder / "daily_prices.csv", FIELDS, [candle()])
+            with self.assertRaisesRegex(ValueError, "Unclassified"):
+                mod.validate_staged_tree(root, set(), {})
+
+    def test_unknown_file_rejected(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "unknown.json").write_text("{}")
+            with self.assertRaisesRegex(ValueError, "Unclassified"):
+                mod.validate_staged_tree(root, set(), {})
 
 if __name__ == "__main__":
     unittest.main()

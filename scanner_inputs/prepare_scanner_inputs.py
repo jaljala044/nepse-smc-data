@@ -167,25 +167,50 @@ def aggregate_daily(values, period, closed_dates):
     return result
 
 
-def validate_broker_table(path, closed_dates, holds):
+BROKER_FIELDS = ("symbol", "date", "broker", "buy_qty", "sell_qty", "buy_value", "sell_value")
+
+
+def validate_broker_table(path, closed_dates, holds, shared_seen=None):
+    """Reject repeated aggregate keys; distinguish equivalent values from conflicts."""
     if path.suffix.lower() != ".csv":
         raise ValueError("Unsupported broker format; verified CSV required")
+    seen = {} if shared_seen is None else shared_seen
     with path.open(newline="", encoding="utf-8-sig") as stream:
         reader = csv.DictReader(stream)
         fields = reader.fieldnames or []
-        if len(set(fields)) != len(fields) or not {"symbol", "date"}.issubset(fields):
-            raise ValueError("Broker table requires unambiguous symbol/date")
-        for row in reader:
-            if None in row or any(v is None for v in row.values()):
-                raise ValueError("Malformed broker row")
-            reject_held(row["symbol"], row["date"], holds)
-            if row["date"].strip() in closed_dates:
-                raise ValueError("Broker row on verified closed session")
+        if len(set(fields)) != len(fields) or set(fields) != set(BROKER_FIELDS):
+            raise ValueError("Broker table requires unambiguous canonical fields")
+        for number, row in enumerate(reader, 2):
+            try:
+                if None in row or any(v is None for v in row.values()):
+                    raise ValueError("Malformed broker row")
+                symbol = row["symbol"].strip().upper()
+                day = row["date"].strip()
+                broker = row["broker"].strip()
+                reject_held(symbol, day, holds)
+                if day in closed_dates:
+                    raise ValueError("Broker row on verified closed session")
+                if not broker.isascii() or not broker.isdecimal() or int(broker) <= 0:
+                    raise ValueError("Invalid broker identifier")
+                key = (day, symbol, int(broker))
+                values = tuple(Decimal(row[k]) for k in BROKER_FIELDS[3:])
+                if not all(v.is_finite() and v >= 0 for v in values):
+                    raise ValueError("Invalid broker quantity or value")
+                if any(v != v.to_integral_value() for v in values[:2]):
+                    raise ValueError("Nonintegral broker quantity")
+                if key in seen:
+                    previous, source, line = seen[key]
+                    kind = "Exact duplicate" if previous == values else "Conflicting duplicate"
+                    raise ValueError(f"{kind} broker key {key}; first at {source}:{line}")
+                seen[key] = (values, str(path), number)
+            except (ValueError, InvalidOperation, TypeError, KeyError) as exc:
+                raise ValueError(f"Rejected broker row {path}:{number}: {exc}") from exc
 
 
 def validate_staged_tree(stage, closed_dates, holds):
     """Fail closed on alternate data paths and cross-file transaction identities."""
     shared_seen = set()
+    broker_seen = {}
     generated = {"daily_prices.csv", "weekly_prices.csv", "monthly_prices.csv"}
     metadata = {"sectors.csv", "sector_data.csv", "corporate_actions.csv"}
     for candidate in sorted(stage.rglob("*")):
@@ -201,7 +226,7 @@ def validate_staged_tree(stage, closed_dates, holds):
         if name.startswith(("floorsheet.", "floorsheet_")) or parents & {"floorsheet", "floorsheets", "02_floorsheet_daily"}:
             validate_floorsheet(candidate, closed_dates, holds, shared_seen)
         elif name.startswith(("broker_summary.", "broker_summary_", "brokers.", "brokers_")) or parents & {"broker_summary", "brokers"}:
-            validate_broker_table(candidate, closed_dates, holds)
+            validate_broker_table(candidate, closed_dates, holds, broker_seen)
         elif len(relative.parts) == 1 and candidate.name in generated | metadata:
             continue
         else:
@@ -259,7 +284,10 @@ def prepare(original, output, overlay=None):
             partitions = sorted((SUPPLEMENT / "broker_summary").glob("*.csv"))
             if not partitions:
                 raise ValueError("Missing supplemental broker session files.")
-            expected = ["symbol", "date", "broker", "buy_qty", "sell_qty", "buy_value", "sell_value"]
+            expected = BROKER_FIELDS
+            partition_seen = {}
+            for path in partitions:
+                validate_broker_table(path, closed_dates, holds, partition_seen)
             with broker_target.open("w", newline="", encoding="utf-8") as target:
                 writer = csv.DictWriter(target, expected)
                 writer.writeheader()

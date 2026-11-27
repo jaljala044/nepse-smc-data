@@ -19,7 +19,7 @@ This queue decomposes the open acceptance criteria into 30 reviewable work packa
 | 6 | Resolve SABSL/SDLBSL → SMPDA conflicting 2024-07-14 vs 2025-07-14 claims | BLOCKED | Date-authentic primary notice and effective-date interpretation |
 | 7 | Recover cancellation notices and raw payload provenance for NICAD8283, NICGF and SBLD2082 | PARTIAL | Original PDFs, SHA-256 and unambiguous Bikram Sambat/Gregorian date conversion |
 | 8 | Complete lifecycle event ledger schema validation (event types, dates, source tier, confidence, ID, successor) | PARTIAL — validator and regression tests exist; full interval-overlap / impossible-sequence coverage remains open | Current tests reject malformed dates/events, incomplete verified provenance, duplicate event records and same-date source conflicts |
-| 9 | Audit effective-date interval overlaps and impossible lifecycle sequences | PARTIAL — audit tool added; first CI run caught a malformed-schema test-fixture defect, corrected; rerun pending | Review-only findings; no dates inferred and no holds released |
+| 9 | Audit effective-date interval overlaps and impossible lifecycle sequences | IMPLEMENTED — regression tests and compile passed in run #18; overall workflow failed at private Drive verification | Review-only findings; no dates inferred and no holds released |
 | 10 | Parse and verify the existing 281 per-security NEPSE history captures without treating current IDs as historical IDs | PARTIAL EXISTING EVIDENCE | Raw response hashes, field coverage and explicit current-snapshot limitation |
 | 11 | Build exact per-security execution evidence for every repeated-pair endpoint date | BLOCKED | Security identity plus date-matched execution payload; market totals are insufficient |
 | 12 | Expand the 23,377-pair matrix with source row identity, stable-ID confidence, session evidence and per-security evidence | PENDING | All rows retained; no inferred promotions |
@@ -79,4 +79,4 @@ This queue decomposes the open acceptance criteria into 30 reviewable work packa
 - The audit is read-only: it reports zero mutations, zero promotions and zero disposition changes. Review findings do not establish that a source record is wrong; they require evidence review.
 - Added the new test module to `.github/workflows/p443-publication-gate.yml`. Workflow result has not yet been verified; do not count the tests as passed until a run is observed.
 - No lifecycle register, raw source, OHLCV, floorsheet, canonical or scanner-input data rows were changed.
-- Current branch head after fixture correction: `7ff62a8eb922196f63f805335148fdc4fe311fda`.
+- Run #18 tested code commit: `7ff62a8eb922196f63f805335148fdc4fe311fda`. Queue/documentation head has advanced separately; no new full workflow has tested the final documentation-only head.

@@ -19,7 +19,7 @@ This queue decomposes the open acceptance criteria into 30 reviewable work packa
 | 6 | Resolve SABSL/SDLBSL → SMPDA conflicting 2024-07-14 vs 2025-07-14 claims | BLOCKED | Date-authentic primary notice and effective-date interpretation |
 | 7 | Recover cancellation notices and raw payload provenance for NICAD8283, NICGF and SBLD2082 | PARTIAL | Original PDFs, SHA-256 and unambiguous Bikram Sambat/Gregorian date conversion |
 | 8 | Complete lifecycle event ledger schema validation (event types, dates, source tier, confidence, ID, successor) | PARTIAL — validator and regression tests exist; full interval-overlap / impossible-sequence coverage remains open | Current tests reject malformed dates/events, incomplete verified provenance, duplicate event records and same-date source conflicts |
-| 9 | Audit effective-date interval overlaps and impossible lifecycle sequences | PENDING | Deterministic report; conflicts remain HOLD |
+| 9 | Audit effective-date interval overlaps and impossible lifecycle sequences | IMPLEMENTED — non-mutating audit script and regression tests added; CI result pending | Review-only findings; no dates inferred and no holds released |
 | 10 | Parse and verify the existing 281 per-security NEPSE history captures without treating current IDs as historical IDs | PARTIAL EXISTING EVIDENCE | Raw response hashes, field coverage and explicit current-snapshot limitation |
 | 11 | Build exact per-security execution evidence for every repeated-pair endpoint date | BLOCKED | Security identity plus date-matched execution payload; market totals are insufficient |
 | 12 | Expand the 23,377-pair matrix with source row identity, stable-ID confidence, session evidence and per-security evidence | PENDING | All rows retained; no inferred promotions |
@@ -54,7 +54,7 @@ This queue decomposes the open acceptance criteria into 30 reviewable work packa
 
 ## Execution order and guardrails
 
-1. Continue #1–#12 first because identity and per-security execution evidence are dependencies for the unresolved P4.44 repeated-pair matrix.
+1. Continue #1–#12 first because identity and per-security execution evidence are dependencies for the unresolved P4.44 repeated-pair matrix. #9 now has a non-mutating audit tool; next validate its CI result and address any flagged sequence conflicts.
 2. In parallel, implement #21–#23 only after reviewing the existing scanner gate and test conventions; preserve a fail-closed default and avoid weakening existing overlay checks.
 3. Continue #18–#20 only when primary session and contract evidence is available.
 4. Treat #26–#30 as independent queues; do not import secondary mirrors as independent primary evidence.
@@ -70,3 +70,13 @@ This queue decomposes the open acceptance criteria into 30 reviewable work packa
 - Latest successful full global audit run is #316 (`46009773312`) on intermediate SHA `4653263c575dee39243ccfb6e07d15b2d87ad0a3`; all 53 steps passed. Both artifacts were downloaded and their local SHA-256 values matched GitHub: strict `77dc65bff7ac0099f89b3c63383faf10e0b54d74e08d9bd88fe7e40fcb6206d3`, global `cb38c4e08bf0a36b0008a72f1e7b45e5c6e6b22cf998169361378020617c5f23`. The current branch head is newer (`9798cdf990fdc6f8eb0ea070d17876d2456b68c6`); run #316 is not current-head validation.
 
 **No raw OHLCV, floorsheet, canonical, date, security identity or scanner input rows were changed by this queue creation.**
+
+
+## 2026-11-27 continuation checkpoint
+
+- Added `tools/p444_audit_lifecycle_sequences.py` and `test_p444_audit_lifecycle_sequences.py`.
+- The audit validates required schema columns and emits review findings for missing event dates, missing merger successors, duplicate event dates, terminal events preceding later trading events, and resumptions without a prior suspension candidate.
+- The audit is read-only: it reports zero mutations, zero promotions and zero disposition changes. Review findings do not establish that a source record is wrong; they require evidence review.
+- Added the new test module to `.github/workflows/p443-publication-gate.yml`. Workflow result has not yet been verified; do not count the tests as passed until a run is observed.
+- No lifecycle register, raw source, OHLCV, floorsheet, canonical or scanner-input data rows were changed.
+- Current branch head at this checkpoint: `e4cd0f0cfebce5cf66cd6dafa54290b794997816`.

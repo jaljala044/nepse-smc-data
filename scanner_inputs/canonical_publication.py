@@ -9,13 +9,14 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 from datetime import date
 from .historical_quarantine import load_holds
+from .equity_exception_holds import load_equity_holds
 from .prepare_scanner_inputs import validate_floorsheet, verified_closed_dates
 
 
 def publish_daily_floorsheet(raw, day, destination, overlay):
     if date.fromisoformat(day).isoformat() != day:
         raise ValueError("Invalid archive session")
-    holds = load_holds(overlay)
+    holds = {**load_holds(overlay), **load_equity_holds()}
     closed = verified_closed_dates()
     destination = Path(destination)
     if destination.name != f"floorsheet_{day}.csv" or destination.is_symlink():

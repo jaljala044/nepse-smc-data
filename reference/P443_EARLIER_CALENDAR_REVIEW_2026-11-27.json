@@ -1,0 +1,41 @@
+{
+  "task": "P4.43.14.12.13.9",
+  "reviewed_dates": 164,
+  "reviewed_requests": 34787,
+  "disposition": {
+    "REGULAR_SCHEDULE_HOLD_CANDIDATE": {
+      "dates": 158,
+      "requests": 34341
+    },
+    "PROVIDER_CORROBORATED_OPEN": {
+      "dates": 3,
+      "requests": 440
+    },
+    "OLDER_WEEKEND_UNVERIFIED": {
+      "dates": 1,
+      "requests": 4
+    },
+    "UNRESOLVED": {
+      "dates": 2,
+      "requests": 2
+    }
+  },
+  "sources": {
+    "regular_schedule": [
+      "https://www.sharesansar.com/newsdetail/nepse-decides-to-close-stock-trading-on-fridays-from-ashoj-2022-09-04",
+      "https://www.sharesansar.com/newsdetail/nepal-stock-exchange-opens-monday-to-friday-under-new-government-timings-2026-04-08"
+    ],
+    "open_sessions": {
+      "2016-09-04": "https://www.sharesansar.com/newsdetail/nepse-index-rises-by-14-65-with-turnover-of-rs-1-64-arba-banking-surges-by-double-digit",
+      "2024-08-15": "https://www.sharesansar.com/newsdetail/nepse-index-surges-past-3000-points-with-all-time-high-turnover-of-rs-2995-arba-three-companies-hit-positive-circuit-2024-08-15",
+      "2025-06-19": "https://www.sharesansar.com/newsdetail/nepse-closes-with-a-loss-of-2476-points-trading-sector-leads-decline-2025-06-19"
+    }
+  },
+  "unresolved_dates": {
+    "2011-06-19": 1,
+    "2011-06-20": 1,
+    "2016-09-03": 4
+  },
+  "promoted": 0,
+  "limitations": "Schedule-based holds are not individual exchange closure confirmations. Open-session reports are not stock-level OHLCV verification. Earlier dates remain unresolved; no raw changes."
+}

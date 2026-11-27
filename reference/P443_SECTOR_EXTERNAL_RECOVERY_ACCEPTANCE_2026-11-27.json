@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "run_id": 45932598060,
+  "job_id": 140288403910,
+  "artifact_id": 15168809879,
+  "source_commit": "6b0e3cf60cb280b501f7c3cb84202f054c10bffb",
+  "alternate_source_repository": "menaceXnadin/nepse-historical-market-data-csv",
+  "alternate_source_revision": "7e95d749f267a7d32a8d7e0a160eb708c01fbf8c",
+  "counts": {
+    "SECONDARY_INVALID_OHLC": 7,
+    "SECONDARY_VALID_OHLC_CANDIDATE": 162
+  },
+  "by_symbol": {
+    "Banking_index": {
+      "SECONDARY_VALID_OHLC_CANDIDATE": 13
+    },
+    "Development%20Bank_index": {
+      "SECONDARY_VALID_OHLC_CANDIDATE": 11
+    },
+    "Finance_index": {
+      "SECONDARY_INVALID_OHLC": 1,
+      "SECONDARY_VALID_OHLC_CANDIDATE": 23
+    },
+    "Float_index": {
+      "SECONDARY_VALID_OHLC_CANDIDATE": 2
+    },
+    "Hotels%20and%20Tourism_index": {
+      "SECONDARY_VALID_OHLC_CANDIDATE": 16,
+      "SECONDARY_INVALID_OHLC": 1
+    },
+    "HydroPower_index": {
+      "SECONDARY_VALID_OHLC_CANDIDATE": 5
+    },
+    "Investment_index": {
+      "SECONDARY_VALID_OHLC_CANDIDATE": 18
+    },
+    "Life%20Insurance_index": {
+      "SECONDARY_VALID_OHLC_CANDIDATE": 14
+    },
+    "Microfinance_index": {
+      "SECONDARY_VALID_OHLC_CANDIDATE": 5
+    },
+    "Mutual%20Fund_index": {
+      "SECONDARY_INVALID_OHLC": 1,
+      "SECONDARY_VALID_OHLC_CANDIDATE": 4
+    },
+    "Non%20Life%20Insurance_index": {
+      "SECONDARY_VALID_OHLC_CANDIDATE": 15,
+      "SECONDARY_INVALID_OHLC": 1
+    },
+    "Others_index": {
+      "SECONDARY_VALID_OHLC_CANDIDATE": 20,
+      "SECONDARY_INVALID_OHLC": 1
+    },
+    "Trading_index": {
+      "SECONDARY_VALID_OHLC_CANDIDATE": 16,
+      "SECONDARY_INVALID_OHLC": 2
+    }
+  },
+  "source_status": {
+    "Finance_index": "PASS",
+    "Others_index": "PASS",
+    "Trading_index": "PASS",
+    "Investment_index": "PASS",
+    "Banking_index": "PASS",
+    "HydroPower_index": "PASS",
+    "Microfinance_index": "PASS",
+    "Float_index": "PASS",
+    "Hotels%20and%20Tourism_index": "PASS",
+    "Non%20Life%20Insurance_index": "PASS",
+    "Life%20Insurance_index": "PASS",
+    "Development%20Bank_index": "PASS",
+    "Mutual%20Fund_index": "PASS",
+    "Sensitive_index": "PASS",
+    "Sen.%20Float_index": "PASS"
+  },
+  "total": 169,
+  "remaining_invalid": 7,
+  "promotion_allowed": false,
+  "limitations": [
+    "Structural OHLC validity and source fingerprint integrity do not establish historical accuracy or upstream independence.",
+    "All 162 replacement candidates require evidence and rights review.",
+    "Seven invalid alternative values require additional sources; original archive remains unchanged."
+  ]
+}

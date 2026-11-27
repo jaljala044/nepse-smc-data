@@ -84,6 +84,7 @@ def audit(root: Path, manifest: Path, expected_symbols: int | None = 281) -> dic
         row_issues = 0
         has_open = False
         for index, row in enumerate(rows):
+            current_row_issues = 0
             if not isinstance(row, dict):
                 issues.append({"symbol": symbol, "row": index, "code": "ROW_NOT_OBJECT"})
                 row_issues += 1
@@ -103,27 +104,29 @@ def audit(root: Path, manifest: Path, expected_symbols: int | None = 281) -> dic
                 dates.append(raw_day)
             except (TypeError, ValueError):
                 issues.append({"symbol": symbol, "row": index, "code": "INVALID_BUSINESS_DATE"})
-                row_issues += 1
+                current_row_issues += 1
 
             for key in NUMERIC_FIELDS:
                 value = row[key]
                 if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
                     issues.append({"symbol": symbol, "row": index, "code": "NON_NUMERIC_FIELD", "field": key})
-                    row_issues += 1
-            if row_issues and row_issues > 0:
+                    current_row_issues += 1
+            if current_row_issues:
+                row_issues += current_row_issues
                 continue
             if row["totalTrades"] < 0 or int(row["totalTrades"]) != row["totalTrades"]:
                 issues.append({"symbol": symbol, "row": index, "code": "INVALID_TOTAL_TRADES"})
-                row_issues += 1
+                current_row_issues += 1
             if row["totalTradedQuantity"] < 0 or int(row["totalTradedQuantity"]) != row["totalTradedQuantity"]:
                 issues.append({"symbol": symbol, "row": index, "code": "INVALID_TOTAL_QUANTITY"})
-                row_issues += 1
+                current_row_issues += 1
             if row["totalTradedValue"] < 0 or row["highPrice"] < 0 or row["lowPrice"] < 0 or row["closePrice"] < 0:
                 issues.append({"symbol": symbol, "row": index, "code": "NEGATIVE_MARKET_VALUE"})
-                row_issues += 1
+                current_row_issues += 1
             if row["highPrice"] < row["lowPrice"] or not row["lowPrice"] <= row["closePrice"] <= row["highPrice"]:
                 issues.append({"symbol": symbol, "row": index, "code": "PRICE_RANGE_INCONSISTENT"})
-                row_issues += 1
+                current_row_issues += 1
+            row_issues += current_row_issues
 
         if len(dates) != len(set(dates)):
             issues.append({"symbol": symbol, "code": "DUPLICATE_BUSINESS_DATE"})

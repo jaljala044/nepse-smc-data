@@ -1,0 +1,27 @@
+{
+  "task": "P4.43 uncovered repeated-OHLCV symbol/date lineage gap",
+  "date": "2026-11-27",
+  "pinned_commit": "56362fb4f65b91fdcca8f50b50e53ad80e703649",
+  "counts": {
+    "symbols_with_consecutive_repeat_findings": 462,
+    "symbols_in_strict_security_date_lineage_table": 253,
+    "uncovered_symbols": 209,
+    "covered_symbols": 253,
+    "uncovered_consecutive_pair_findings": 23377,
+    "total_consecutive_pair_findings": 94543,
+    "covered_pair_findings": 71166,
+    "uncovered_source_files": 209,
+    "uncovered_source_date_keys": 23377,
+    "uncovered_repeat_review_symbols": 203,
+    "symbols_in_global_repeat_findings_but_not_review_queue": [
+      "MMFDB", "NFSPO", "NIFRAP", "NLBBL", "NRICP", "SFCLP"
+    ]
+  },
+  "date_range": {"first": "2024-03-06", "last": "2026-11-20"},
+  "interpretation": "Coverage gap in the strict equity security/date source-lineage table only; absence from that table is not proof that no other evidence exists.",
+  "disposition": "HOLD_UNKNOWN_NO_INFERENCE",
+  "promotion_allowed": false,
+  "no_mutations": true,
+  "symbol_summary_sha256": "d3914145f593880421668b9d9d42b20816a90991ef01369705b4a6e87a928aab",
+  "detailed_crosswalk_sha256": "02bfac1e92101d2615220492797abdbeabcc10834563900d5584a9b670940503"
+}

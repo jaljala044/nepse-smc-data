@@ -8,6 +8,11 @@ from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
+try:
+    from .historical_quarantine import load_holds, reject_held, validate_rows
+except ImportError:
+    from historical_quarantine import load_holds, reject_held, validate_rows
+
 SUPPLEMENT = Path(__file__).resolve().parent
 TABLE_EXTENSIONS = (".csv", ".xlsx", ".xls")
 
@@ -75,7 +80,7 @@ BLOCKED_FLOORSHEET_SHA256 = {
 }
 
 
-def validate_floorsheet(path, closed_dates):
+def validate_floorsheet(path, closed_dates, holds=None):
     """Validate canonical trade CSV; reject ambiguous schemas and unsupported formats."""
     raw = path.read_bytes()
     blob_sha = hashlib.sha1(f"blob {len(raw)}\0".encode() + raw).hexdigest()
@@ -118,6 +123,8 @@ def validate_floorsheet(path, closed_dates):
                     raise ValueError("Invalid or closed session")
                 if not all(val(k) for k in ("contract", "symbol", "buyer", "seller")):
                     raise ValueError("Missing trade fields")
+                if holds is not None:
+                    reject_held(val("symbol"), day, holds)
                 identity = val("identity") if cols["identity"] else val("contract")
                 if not identity or (day, identity) in seen:
                     raise ValueError("Missing or duplicate transaction identity")
@@ -156,7 +163,26 @@ def aggregate_daily(values, period, closed_dates):
     return result
 
 
-def prepare(original, output):
+def validate_broker_table(path, closed_dates, holds):
+    if path.suffix.lower() != ".csv":
+        raise ValueError("Unsupported broker format; verified CSV required")
+    with path.open(newline="", encoding="utf-8-sig") as stream:
+        reader = csv.DictReader(stream)
+        fields = reader.fieldnames or []
+        if len(set(fields)) != len(fields) or not {"symbol", "date"}.issubset(fields):
+            raise ValueError("Broker table requires unambiguous symbol/date")
+        for row in reader:
+            if None in row or any(v is None for v in row.values()):
+                raise ValueError("Malformed broker row")
+            reject_held(row["symbol"], row["date"], holds)
+            if row["date"].strip() in closed_dates:
+                raise ValueError("Broker row on verified closed session")
+
+
+def prepare(original, output, overlay=None):
+    if overlay is None:
+        raise ValueError("Mandatory --quarantine-overlay required")
+    holds = load_holds(overlay)
     if output.exists():
         raise FileExistsError(f"Choose a new output folder: {output}")
     output.parent.mkdir(parents=True, exist_ok=True)
@@ -171,6 +197,7 @@ def prepare(original, output):
         original_rows = list(rows(daily))
         closed_dates = verified_closed_dates()
         validate_daily(original_rows, closed_dates)
+        validate_rows(original_rows, holds)
         present = {(row["symbol"].strip().upper(), row["date"]) for row in original_rows}
         additions = []
         for path in [SUPPLEMENT / "benchmark_daily.csv", *sorted((SUPPLEMENT / "price_gap_fills").glob("*.csv"))]:
@@ -180,6 +207,7 @@ def prepare(original, output):
                     additions.append(row)
                     present.add(key)
         validate_daily(original_rows + additions, closed_dates)
+        validate_rows(original_rows + additions, holds)
         if additions:
             extra = dict.fromkeys(field for row in additions for field in row if field not in fields)
             combined = sorted(original_rows + additions, key=lambda row: (row["symbol"], row["date"]))
@@ -206,9 +234,14 @@ def prepare(original, output):
                 writer.writeheader()
                 for path in partitions:
                     writer.writerows(rows(path))
-        for candidate in stage.iterdir():
-            if candidate.is_file() and (candidate.name.lower().startswith("floorsheet.") or candidate.name.lower().startswith("floorsheet_")):
-                validate_floorsheet(candidate, closed_dates)
+        for candidate in stage.rglob("*"):
+            if not candidate.is_file():
+                continue
+            name = candidate.name.lower()
+            if name.startswith(("floorsheet.", "floorsheet_")) or "floorsheet" in candidate.relative_to(stage).parts[:-1]:
+                validate_floorsheet(candidate, closed_dates, holds)
+            elif name.startswith(("broker_summary.", "broker_summary_", "brokers.", "brokers_")) or any(p in {"broker_summary", "brokers"} for p in candidate.relative_to(stage).parts[:-1]):
+                validate_broker_table(candidate, closed_dates, holds)
         stage.rename(output)
     print(f"Prepared {output} with {len(additions)} new daily price rows.")
 
@@ -217,5 +250,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("original", type=Path, help="Existing data directory with daily_prices.csv")
     parser.add_argument("output", type=Path, help="A new output directory")
+    parser.add_argument('--quarantine-overlay', type=Path, required=True, help='Pinned P4.43 hold overlay CSV')
     args = parser.parse_args()
-    prepare(args.original, args.output)
+    prepare(args.original, args.output, args.quarantine_overlay)

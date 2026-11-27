@@ -168,3 +168,30 @@ Added `reference/P443_OVERLAY_ARTIFACT_PREFLIGHT_2026-11-27.json` (blob `5a82fdc
 5. Continue P4.44 stable-ID and lifecycle evidence acquisition for the 209-symbol / 23,377-pair matrix; no inference from current display names or ticker similarity.
 
 No canonical OHLCV, raw source, or pinned baseline was modified. No date shift, corporate-action factor, adjustment, deduplication, or promotion was authorized. P4.43/P4.44 remain incomplete.
+
+
+## Next-five continuation — full current-head P4.43 run 305 read-back (2026-11-27)
+
+The branch head at the start of this validation was `e4c0364e58e4b0c9469751560292122304c2302e`. Full P4.43 workflow run #305 completed successfully on that exact SHA:
+
+- Run: https://github.com/jaljala044/nepse-smc-data/actions/runs/46005266027
+- Run ID: `46005266027`; conclusion: `success`; all 52 job steps completed with no failed steps.
+- Global artifact ID `15200727323`; archive size 1,403,274 bytes; GitHub-reported ZIP SHA-256 `963ba29f4205b3621356ed399eb5fb3650e670e5b0b6c93fdbcbc4be157eebc7`.
+- Strict-content artifact ID `15200372454`; archive size 58,287,637 bytes; GitHub-reported ZIP SHA-256 `f57d23ac588e7a47471480452ca7242cf84ea9e3b27fcd29426006b755a348c8`. Both archives were downloaded and their local SHA-256 values matched the GitHub artifact digests.
+
+### Global audit artifact read-back
+
+The global artifact reports 928 inventory files, 1,650,883 CSV rows / JSON documents parsed, 691 parsed CSV files, 93 parsed JSON documents, six non-JSON provider responses, 146 unsupported file/check combinations, zero parse errors, and 189,899 findings. Finding classes include 95,356 repeated tuples across rows, 94,543 consecutive identical OHLCV tuples, zero OHLCV duplicate symbol/date keys, zero exact OHLCV duplicate rows, zero duplicate floorsheet contract keys, zero exact repeated floorsheet rows, and zero duplicate dates within an individual calendar file. The report explicitly treats repeated tuples as review leads, not errors, and unsupported checks are not certified clean. This is a deterministic read-only scan of pinned base `56362fb4f65b91fdcca8f50b50e53ad80e703649`.
+
+### Strict audit artifact read-back
+
+- The strict summary independently records the 928-file pinned scope, 1,668,641 parsed records, 94,543 repeated adjacent tuple pairs, 1,331 invalid-OHLCV flags, and ten exact repeated JSON summary objects. Its record counter is a different parser/output measure from the global scan's CSV-row-plus-JSON-document counter; the two totals are not interchangeable.
+- HF-only fourth batch: eight selected dates / 1,058 requests; 916 H/L/volume matches with open/close still unverified and 142 H/L/volume conflicts. The eight fetched partitions contained valid arithmetic rows, unique contract IDs within each partition, no duplicate contract IDs, and matched pinned LFS size/SHA metadata. This is a selected subset, not all 74 HF-only dates; 14,381 HF-available requests remain not fetched in this batch plan, and 48,099 requests have no indexed HF partition.
+- 2024-08-01 rate diagnostic: all 72,500 rows remain strict amount-arithmetic failures; all stored rates are whole rupees; implied rates lie within 0.5 rupees; 72,496 round half-up to the stored rate; 9,045 are exact half-rupee ties and four do not follow half-up. This remains a hypothesis about source precision loss, not proof of execution rates. No reconstruction or promotion is authorized.
+- Secondary inventory mapping covers 603 indexed dates: 74 secondary-only candidate dates (15,439 requests), 22 dates also present in the primary archive (5,235 requests), and 220 dates with no indexed source (48,099 requests). Coverage inventory is not content validation or proof of no trade.
+- Observed opening/closing evidence covers 3,177 targets across 22 dates: 2,357 observed OHLCV matches, 790 ambiguous boundary ties, and 30 observed open/close conflicts. No candidate was promoted.
+- P4.44 read-back in the same artifact remains valid: 23,377 rows / 209 symbols / 23,377 unique pair IDs; 21,082 current-snapshot-only identity rows, 2,295 unresolved identity rows, zero verified historical effective-dated IDs, and all unresolved evidence remains held.
+
+Run #305 closes the current-head CI evidence gap for the audited code and documentation state. It does not close P4.43 acceptance: unsupported inventory checks, independent source provenance/session completeness, full date-lineage adjudication, overlay payload recovery, and unresolved evidence queues remain open. P4.44 remains incomplete. PR #80 stays open, draft and unmerged.
+
+No canonical OHLCV or raw source values were changed, shifted, deduplicated, corrected, or promoted. No corporate-action factor, inferred rate, stable ID, or lifecycle date was approved.

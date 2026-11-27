@@ -229,3 +229,36 @@ https://github.com/jaljala044/nepse-smc-data/actions/runs/46007082433
 The Drive credential must be configured by an authorized repository administrator before the actual retrieval gate can pass. Do not add a credential to the repository, commit it, expose it in logs, or weaken the fail-closed check. After the secret is configured, rerun the publication gate and verify the downloaded file against the existing pinned SHA before any use.
 
 No canonical OHLCV, raw source, or overlay payload was changed or promoted. P4.43 and P4.44 remain incomplete; PR #80 remains open, draft and unmerged; issue #82 remains open.
+
+
+
+## Next-five continuation — current branch and Drive gate read-back (2026-11-27)
+
+Branch / PR #80 head at this refresh: `9d95329d170a7327796ed35e976cea437000ef4a`. PR #80 remains open, draft and unmerged; P4.44 issue #82 remains open.
+
+### Current-head publication gate
+
+Publication-gate run #9:
+https://github.com/jaljala044/nepse-smc-data/actions/runs/46007511539
+
+- Run targets the exact current head `9d95329d170a7327796ed35e976cea437000ef4a`.
+- All 60 regression tests passed, including seven Drive retrieval tests; Python compilation passed.
+- The actual private Drive retrieval step failed closed because `GDRIVE_SERVICE_ACCOUNT_JSON` was empty/unavailable. The job log explicitly states: `Missing GDRIVE_SERVICE_ACCOUNT_JSON secret; fail closed`.
+- No Drive request was made, no overlay payload was downloaded, and no digest verification or promotion occurred. This is a credential/configuration blocker, not a payload-integrity failure.
+
+### Full global audit status
+
+- Run #308 passed all 52 steps on `c6ed9804b39bb75a962550b7b9b4b0ca7a971b42`; it is an earlier successful validation, not current-head evidence.
+- Run #313 is still in progress on `271c63022d9134e21a1e08718777cbc6f1263ffb`, which is also behind the current branch head.
+- At read-back, the pinned inventory, read-only scan, strict regression tests, Drive retrieval regression tests, pinned-byte cross-check, P4.44 evidence checks, and opening/closing execution reconciliation had passed in #313. The second HF-only batch was active; the third/fourth batches, rate-precision diagnostic, secondary coverage, secondary contract checks and artifact preservation were pending.
+- Run #313 has no final artifact read-back yet. It cannot validate current head `9d95329...`.
+
+### Next acceptance gates
+
+1. An authorized repository administrator must configure the private Drive service-account secret without exposing or committing credentials; then rerun publication gate #9 and verify the original overlay's pinned size and SHA-256.
+2. Complete the full P4.43 workflow on the exact latest branch head and inspect its artifacts.
+3. Continue independent official session completeness and March 1/2 date-lineage evidence acquisition.
+4. Obtain original primary corporate-action notices and resolve conflicting dates; keep all unverified dates/factors held.
+5. Continue P4.44 historical stable-ID/lifecycle evidence acquisition; no inferred IDs or dates.
+
+No canonical OHLCV, raw source, or overlay payload was changed, shifted, deduplicated, corrected, or promoted. P4.43 and P4.44 remain incomplete.

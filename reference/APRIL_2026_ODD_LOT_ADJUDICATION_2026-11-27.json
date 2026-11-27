@@ -1,0 +1,617 @@
+{
+  "run_id": 45926987474,
+  "job_id": 140270503566,
+  "prior_adjudication_blob": "f2c3144c211a92d5b914122a3cd5cb4a5312fc28",
+  "totals": {
+    "rows": 11,
+    "regular_low_matches": 11,
+    "high_matches": 11,
+    "close_matches": 11,
+    "volume_matches": 11,
+    "open_only_changes": 11,
+    "valid_candidates": 11,
+    "odd_contracts": 43,
+    "odd_volume": 134,
+    "low_discrepancies": 6,
+    "low_discrepancies_explained": 6,
+    "below_low_contracts": 17,
+    "below_low_shares": 37
+  },
+  "rows": [
+    {
+      "date": "2026-04-24",
+      "symbol": "MERO",
+      "source_sha256": "83b3f29234e1a42fdc210d66fa2cfe58cd65966f5a294bfea3af40679e847db2",
+      "original": [
+        731.1,
+        730,
+        720,
+        726,
+        1671
+      ],
+      "all_contracts": 34,
+      "regular_contracts": 34,
+      "odd_contracts": 0,
+      "all_volume": "1671.0",
+      "regular_volume": "1671.0",
+      "odd_volume": "0",
+      "below_published_low": [],
+      "all_below_low_are_under_10": false,
+      "promotion_allowed": false,
+      "regular_high": "730.0",
+      "regular_low": "720.0",
+      "regular_open_by_id": "730.0",
+      "regular_close_by_id": "726.0",
+      "regular_low_matches_published": true,
+      "prior_all_trade_candidate": [
+        730,
+        730,
+        720,
+        726,
+        1671
+      ],
+      "regular_price_all_volume_candidate": [
+        730,
+        730,
+        720,
+        726,
+        1671
+      ],
+      "changed_fields": [
+        "open"
+      ],
+      "valid_ohlcv": true,
+      "status": "HOLD_UNVERIFIED_TRADE_TYPE_CHRONOLOGY_COMPLETENESS"
+    },
+    {
+      "date": "2026-04-24",
+      "symbol": "UAIL",
+      "source_sha256": "83b3f29234e1a42fdc210d66fa2cfe58cd65966f5a294bfea3af40679e847db2",
+      "original": [
+        449.9,
+        449.8,
+        440.5,
+        445.1,
+        4553
+      ],
+      "all_contracts": 52,
+      "regular_contracts": 52,
+      "odd_contracts": 0,
+      "all_volume": "4553.0",
+      "regular_volume": "4553.0",
+      "odd_volume": "0",
+      "below_published_low": [],
+      "all_below_low_are_under_10": false,
+      "promotion_allowed": false,
+      "regular_high": "449.8",
+      "regular_low": "440.5",
+      "regular_open_by_id": "445.0",
+      "regular_close_by_id": "445.1",
+      "regular_low_matches_published": true,
+      "prior_all_trade_candidate": [
+        445,
+        449.8,
+        440.5,
+        445.1,
+        4553
+      ],
+      "regular_price_all_volume_candidate": [
+        445,
+        449.8,
+        440.5,
+        445.1,
+        4553
+      ],
+      "changed_fields": [
+        "open"
+      ],
+      "valid_ohlcv": true,
+      "status": "HOLD_UNVERIFIED_TRADE_TYPE_CHRONOLOGY_COMPLETENESS"
+    },
+    {
+      "date": "2026-04-27",
+      "symbol": "API",
+      "source_sha256": "002245dbc9caa2f9726c4997689ac2da93fbdaafb4a3875752490e079fbcd5e5",
+      "original": [
+        339.9,
+        345,
+        340,
+        341,
+        206969
+      ],
+      "all_contracts": 543,
+      "regular_contracts": 535,
+      "odd_contracts": 8,
+      "all_volume": "206969.0",
+      "regular_volume": "206935.0",
+      "odd_volume": "34.0",
+      "below_published_low": [
+        {
+          "quantity": "6.0",
+          "rate": "331.8",
+          "contract": "2026042704004173"
+        },
+        {
+          "quantity": "2.0",
+          "rate": "331.8",
+          "contract": "2026042704005091"
+        },
+        {
+          "quantity": "8.0",
+          "rate": "335.0",
+          "contract": "2026042704006882"
+        }
+      ],
+      "all_below_low_are_under_10": true,
+      "promotion_allowed": false,
+      "regular_high": "345.0",
+      "regular_low": "340.0",
+      "regular_open_by_id": "345.0",
+      "regular_close_by_id": "341.0",
+      "regular_low_matches_published": true,
+      "prior_all_trade_candidate": [
+        345,
+        345,
+        331.8,
+        341,
+        206969
+      ],
+      "regular_price_all_volume_candidate": [
+        345,
+        345,
+        340,
+        341,
+        206969
+      ],
+      "changed_fields": [
+        "open"
+      ],
+      "valid_ohlcv": true,
+      "status": "HOLD_UNVERIFIED_TRADE_TYPE_CHRONOLOGY_COMPLETENESS"
+    },
+    {
+      "date": "2026-04-27",
+      "symbol": "RAWA",
+      "source_sha256": "002245dbc9caa2f9726c4997689ac2da93fbdaafb4a3875752490e079fbcd5e5",
+      "original": [
+        648.7,
+        645,
+        625,
+        630,
+        3747
+      ],
+      "all_contracts": 42,
+      "regular_contracts": 42,
+      "odd_contracts": 0,
+      "all_volume": "3747.0",
+      "regular_volume": "3747.0",
+      "odd_volume": "0",
+      "below_published_low": [],
+      "all_below_low_are_under_10": false,
+      "promotion_allowed": false,
+      "regular_high": "645.0",
+      "regular_low": "625.0",
+      "regular_open_by_id": "640.0",
+      "regular_close_by_id": "630.0",
+      "regular_low_matches_published": true,
+      "prior_all_trade_candidate": [
+        640,
+        645,
+        625,
+        630,
+        3747
+      ],
+      "regular_price_all_volume_candidate": [
+        640,
+        645,
+        625,
+        630,
+        3747
+      ],
+      "changed_fields": [
+        "open"
+      ],
+      "valid_ohlcv": true,
+      "status": "HOLD_UNVERIFIED_TRADE_TYPE_CHRONOLOGY_COMPLETENESS"
+    },
+    {
+      "date": "2026-04-28",
+      "symbol": "SPDL",
+      "source_sha256": "1daa9dce4732f61b4946269e7a93f96971c1f6e89dfa4996adef8c3a9bf75923",
+      "original": [
+        408,
+        406.3,
+        396,
+        399,
+        64356
+      ],
+      "all_contracts": 212,
+      "regular_contracts": 209,
+      "odd_contracts": 3,
+      "all_volume": "64356.0",
+      "regular_volume": "64353.0",
+      "odd_volume": "3.0",
+      "below_published_low": [
+        {
+          "quantity": "1.0",
+          "rate": "389.0",
+          "contract": "2026042804008474"
+        },
+        {
+          "quantity": "1.0",
+          "rate": "390.0",
+          "contract": "2026042804008486"
+        },
+        {
+          "quantity": "1.0",
+          "rate": "391.9",
+          "contract": "2026042804008521"
+        }
+      ],
+      "all_below_low_are_under_10": true,
+      "promotion_allowed": false,
+      "regular_high": "406.3",
+      "regular_low": "396.0",
+      "regular_open_by_id": "404.0",
+      "regular_close_by_id": "399.0",
+      "regular_low_matches_published": true,
+      "prior_all_trade_candidate": [
+        404,
+        406.3,
+        389,
+        399,
+        64356
+      ],
+      "regular_price_all_volume_candidate": [
+        404,
+        406.3,
+        396,
+        399,
+        64356
+      ],
+      "changed_fields": [
+        "open"
+      ],
+      "valid_ohlcv": true,
+      "status": "HOLD_UNVERIFIED_TRADE_TYPE_CHRONOLOGY_COMPLETENESS"
+    },
+    {
+      "date": "2026-04-29",
+      "symbol": "RADHI",
+      "source_sha256": "bbc354b933dcd565bca0107cda02d07aa5f3e1da26c932745308120822ad8ec4",
+      "original": [
+        780,
+        775,
+        755,
+        764.8,
+        57510
+      ],
+      "all_contracts": 276,
+      "regular_contracts": 272,
+      "odd_contracts": 4,
+      "all_volume": "57510.0",
+      "regular_volume": "57494.0",
+      "odd_volume": "16.0",
+      "below_published_low": [
+        {
+          "quantity": "1.0",
+          "rate": "749.9",
+          "contract": "2026042904001811"
+        }
+      ],
+      "all_below_low_are_under_10": true,
+      "promotion_allowed": false,
+      "regular_high": "775.0",
+      "regular_low": "755.0",
+      "regular_open_by_id": "775.0",
+      "regular_close_by_id": "764.8",
+      "regular_low_matches_published": true,
+      "prior_all_trade_candidate": [
+        775,
+        775,
+        749.9,
+        764.8,
+        57510
+      ],
+      "regular_price_all_volume_candidate": [
+        775,
+        775,
+        755,
+        764.8,
+        57510
+      ],
+      "changed_fields": [
+        "open"
+      ],
+      "valid_ohlcv": true,
+      "status": "HOLD_UNVERIFIED_TRADE_TYPE_CHRONOLOGY_COMPLETENESS"
+    },
+    {
+      "date": "2026-04-29",
+      "symbol": "RAWA",
+      "source_sha256": "bbc354b933dcd565bca0107cda02d07aa5f3e1da26c932745308120822ad8ec4",
+      "original": [
+        615,
+        610,
+        587,
+        610,
+        2840
+      ],
+      "all_contracts": 58,
+      "regular_contracts": 58,
+      "odd_contracts": 0,
+      "all_volume": "2840.0",
+      "regular_volume": "2840.0",
+      "odd_volume": "0",
+      "below_published_low": [],
+      "all_below_low_are_under_10": false,
+      "promotion_allowed": false,
+      "regular_high": "610.0",
+      "regular_low": "587.0",
+      "regular_open_by_id": "610.0",
+      "regular_close_by_id": "610.0",
+      "regular_low_matches_published": true,
+      "prior_all_trade_candidate": [
+        610,
+        610,
+        587,
+        610,
+        2840
+      ],
+      "regular_price_all_volume_candidate": [
+        610,
+        610,
+        587,
+        610,
+        2840
+      ],
+      "changed_fields": [
+        "open"
+      ],
+      "valid_ohlcv": true,
+      "status": "HOLD_UNVERIFIED_TRADE_TYPE_CHRONOLOGY_COMPLETENESS"
+    },
+    {
+      "date": "2026-04-29",
+      "symbol": "UAIL",
+      "source_sha256": "bbc354b933dcd565bca0107cda02d07aa5f3e1da26c932745308120822ad8ec4",
+      "original": [
+        446,
+        444.9,
+        438,
+        438,
+        9360
+      ],
+      "all_contracts": 102,
+      "regular_contracts": 99,
+      "odd_contracts": 3,
+      "all_volume": "9360.0",
+      "regular_volume": "9353.0",
+      "odd_volume": "7.0",
+      "below_published_low": [
+        {
+          "quantity": "1.0",
+          "rate": "424.9",
+          "contract": "2026042904012029"
+        }
+      ],
+      "all_below_low_are_under_10": true,
+      "promotion_allowed": false,
+      "regular_high": "444.9",
+      "regular_low": "438.0",
+      "regular_open_by_id": "442.6",
+      "regular_close_by_id": "438.0",
+      "regular_low_matches_published": true,
+      "prior_all_trade_candidate": [
+        442.6,
+        444.9,
+        424.9,
+        438,
+        9360
+      ],
+      "regular_price_all_volume_candidate": [
+        442.6,
+        444.9,
+        438,
+        438,
+        9360
+      ],
+      "changed_fields": [
+        "open"
+      ],
+      "valid_ohlcv": true,
+      "status": "HOLD_UNVERIFIED_TRADE_TYPE_CHRONOLOGY_COMPLETENESS"
+    },
+    {
+      "date": "2026-04-29",
+      "symbol": "UNHPL",
+      "source_sha256": "bbc354b933dcd565bca0107cda02d07aa5f3e1da26c932745308120822ad8ec4",
+      "original": [
+        487.9,
+        487,
+        475,
+        475.4,
+        46481
+      ],
+      "all_contracts": 150,
+      "regular_contracts": 150,
+      "odd_contracts": 0,
+      "all_volume": "46481.0",
+      "regular_volume": "46481.0",
+      "odd_volume": "0",
+      "below_published_low": [],
+      "all_below_low_are_under_10": false,
+      "promotion_allowed": false,
+      "regular_high": "487.0",
+      "regular_low": "475.0",
+      "regular_open_by_id": "480.2",
+      "regular_close_by_id": "475.4",
+      "regular_low_matches_published": true,
+      "prior_all_trade_candidate": [
+        480.2,
+        487,
+        475,
+        475.4,
+        46481
+      ],
+      "regular_price_all_volume_candidate": [
+        480.2,
+        487,
+        475,
+        475.4,
+        46481
+      ],
+      "changed_fields": [
+        "open"
+      ],
+      "valid_ohlcv": true,
+      "status": "HOLD_UNVERIFIED_TRADE_TYPE_CHRONOLOGY_COMPLETENESS"
+    },
+    {
+      "date": "2026-04-29",
+      "symbol": "BGWT",
+      "source_sha256": "bbc354b933dcd565bca0107cda02d07aa5f3e1da26c932745308120822ad8ec4",
+      "original": [
+        740,
+        731,
+        718,
+        730,
+        1573
+      ],
+      "all_contracts": 32,
+      "regular_contracts": 28,
+      "odd_contracts": 4,
+      "all_volume": "1573.0",
+      "regular_volume": "1569.0",
+      "odd_volume": "4.0",
+      "below_published_low": [
+        {
+          "quantity": "1.0",
+          "rate": "700.4",
+          "contract": "2026042905005162"
+        },
+        {
+          "quantity": "1.0",
+          "rate": "717.8",
+          "contract": "2026042905005224"
+        }
+      ],
+      "all_below_low_are_under_10": true,
+      "promotion_allowed": false,
+      "regular_high": "731.0",
+      "regular_low": "718.0",
+      "regular_open_by_id": "720.0",
+      "regular_close_by_id": "730.0",
+      "regular_low_matches_published": true,
+      "prior_all_trade_candidate": [
+        720,
+        731,
+        700.4,
+        730,
+        1573
+      ],
+      "regular_price_all_volume_candidate": [
+        720,
+        731,
+        718,
+        730,
+        1573
+      ],
+      "changed_fields": [
+        "open"
+      ],
+      "valid_ohlcv": true,
+      "status": "HOLD_UNVERIFIED_TRADE_TYPE_CHRONOLOGY_COMPLETENESS"
+    },
+    {
+      "date": "2026-04-29",
+      "symbol": "HRL",
+      "source_sha256": "bbc354b933dcd565bca0107cda02d07aa5f3e1da26c932745308120822ad8ec4",
+      "original": [
+        685.5,
+        685,
+        676.1,
+        679.2,
+        74867
+      ],
+      "all_contracts": 900,
+      "regular_contracts": 879,
+      "odd_contracts": 21,
+      "all_volume": "74867.0",
+      "regular_volume": "74797.0",
+      "odd_volume": "70.0",
+      "below_published_low": [
+        {
+          "quantity": "1.0",
+          "rate": "661.6",
+          "contract": "2026042905000400"
+        },
+        {
+          "quantity": "1.0",
+          "rate": "660.0",
+          "contract": "2026042905000651"
+        },
+        {
+          "quantity": "3.0",
+          "rate": "659.4",
+          "contract": "2026042905003375"
+        },
+        {
+          "quantity": "1.0",
+          "rate": "670.0",
+          "contract": "2026042905005020"
+        },
+        {
+          "quantity": "1.0",
+          "rate": "670.0",
+          "contract": "2026042905009038"
+        },
+        {
+          "quantity": "1.0",
+          "rate": "674.0",
+          "contract": "2026042905009561"
+        },
+        {
+          "quantity": "6.0",
+          "rate": "675.0",
+          "contract": "2026042905009871"
+        }
+      ],
+      "all_below_low_are_under_10": true,
+      "promotion_allowed": false,
+      "regular_high": "685.0",
+      "regular_low": "676.1",
+      "regular_open_by_id": "685.0",
+      "regular_close_by_id": "679.2",
+      "regular_low_matches_published": true,
+      "prior_all_trade_candidate": [
+        685,
+        685,
+        659.4,
+        679.2,
+        74867
+      ],
+      "regular_price_all_volume_candidate": [
+        685,
+        685,
+        676.1,
+        679.2,
+        74867
+      ],
+      "changed_fields": [
+        "open"
+      ],
+      "valid_ohlcv": true,
+      "status": "HOLD_UNVERIFIED_TRADE_TYPE_CHRONOLOGY_COMPLETENESS"
+    }
+  ],
+  "verified_replacements": 0,
+  "raw_modified": false,
+  "promotion_allowed": false,
+  "limitations": [
+    "Quantity below 10 is a proxy, not authenticated trade type.",
+    "Contract ID order is unverified and timestamp absent.",
+    "Independent completeness not established; April 29 remains partial fail.",
+    "Published HLCV agreement is corroboration, not independent validation."
+  ]
+}

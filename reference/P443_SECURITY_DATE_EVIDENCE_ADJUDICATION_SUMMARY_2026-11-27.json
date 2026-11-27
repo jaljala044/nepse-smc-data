@@ -1,0 +1,40 @@
+{
+  "task": "P4.43 security/date evidence-review queue adjudication",
+  "pinned_input_commit": "56362fb4f65b91fdcca8f50b50e53ad80e703649",
+  "source_artifact": "p443-strict-content-audit.zip, workflow run 45928679963",
+  "source_file": "unresolved_pair_security_evidence.csv",
+  "pairs_reviewed": 58972,
+  "unique_symbols": 456,
+  "disjoint_dispositions": {
+    "NO_SECURITY_DATE_EVIDENCE_BOTH_DATES": 58462,
+    "PARTIAL_PREVIOUS_DATE_HLCV_MATCH_CURRENT_UNVERIFIED": 437,
+    "BOTH_DATES_OPEN_CALENDAR_TUPLE_UNVERIFIED": 73
+  },
+  "source_evidence_checks": {
+    "current_date_security_evidence_missing": 58972,
+    "previous_date_security_evidence_missing": 58535,
+    "previous_date_hlcv_and_execution_count_matches_open_unverified": 437,
+    "both_dates_open_calendar_but_security_tuple_unverified": 73,
+    "listed_holiday_flagged_on_either_pair_member": 0
+  },
+  "decision": "Completed triage of all 58,972 queue entries. No entry has sufficient evidence to validate the full OHLCV pair or authorize promotion. 58,462 have no official security-date evidence for either date; 437 have only a previous-date HLCV/execution-count match while the current date is unverified; 73 have both dates marked open but neither security tuple is validated.",
+  "safeguards": {
+    "source_rows_modified": false,
+    "canonical_values_changed": false,
+    "rows_deleted": 0,
+    "pairs_promoted": 0,
+    "promotion_allowed": false
+  },
+  "crosswalk": {
+    "filename": "P443_SECURITY_DATE_EVIDENCE_ADJUDICATION_2026-11-27.csv",
+    "rows": 58972,
+    "sha256": "993f4dca976c31ab4d4012ed9cafc4178e784dce53c6f90479ec4aef5e521c21"
+  },
+  "limitations": [
+    "The pinned official history snapshots do not provide evidence for either date for most pairs.",
+    "A previous-date HLCV/execution-count match does not validate Open or the current-date row.",
+    "An open exchange session does not prove that a specific security traded.",
+    "No new upstream official data was fetched in this pass; missing evidence remains unresolved rather than inferred."
+  ],
+  "status": "Queue triage complete; independent adjudication and P4.43 acceptance remain open."
+}

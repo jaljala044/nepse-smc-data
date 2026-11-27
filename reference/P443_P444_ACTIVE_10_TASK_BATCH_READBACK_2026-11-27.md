@@ -176,3 +176,8 @@ This confirms `contract_no` is not a safe unique row key. The recommended candid
 ## Work package #26 — consolidated 87-key same-date conflict index
 
 Created `reference/P423_87_SAME_DATE_CONFLICT_RECONCILIATION_2026-11-27.csv` and read it back from the branch: 87 data rows, 87 unique `(date,symbol)` keys. The 86 rows for 2025-07-28 retain the pinned SMC raw-file SHA-256, external ShareSansar-derived repository/commit/path/archive SHA-256, full OHLCV comparison and close delta; all remain `UNKNOWN_SOURCE_CONFLICT`. The RHGCL 2026-11-19 row retains SMC raw Close 256.00 / Volume 4,216, official NEPSE Close 258.00 / Volume 9,054, security ID 8108, retrieval time and raw response SHA-256 `303d92756ffbcaa2e6ab5020c29e1eab1b63ed99797bf024914dbb863cbae183`; only the derived view is approved. No raw row changed. #26 remains PARTIAL because the 86 historical rows still lack primary evidence.
+
+
+## Work package #26 — full RHGCL official EOD read-back
+
+Re-downloaded artifact `15137973461` and verified ZIP SHA-256 `72266336645ba3191c441cfa66cd493462b44f7a92fcc68db4b968e0d693a6ee`. The raw official NEPSE page member is 175,513 bytes with SHA-256 `303d92756ffbcaa2e6ab5020c29e1eab1b63ed99797bf024914dbb863cbae183`. Its RHGCL / 2026-11-19 row contains full O/H/L/C 252.10/259.50/252.10/258.00, volume 9,054, turnover NPR 2,332,952.50 and 47 trades; security ID 8108; one page, 347 upstream rows. This is the separate date-specific official `today-price` EOD capture, which supersedes the earlier security-history response's missing Open field. The consolidated 87-key CSV now carries explicit official field values and provenance. RHGCL is `PRIMARY_CONFIRMED_DERIVED_VIEW_ONLY`; the other 86 July 28 keys remain unresolved. No raw/canonical rows changed.

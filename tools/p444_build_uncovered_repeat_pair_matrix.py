@@ -93,7 +93,7 @@ def build(findings,output,expected_pairs=23377,expected_symbols=209):
         ident=identity_fields(by_symbol[sym]); ps=session_fields(sym,pd,closed,execution); cs=session_fields(sym,cd,closed,execution)
         row={"pair_id":f"{f['path']}#{f['previous_row']}->{f['row']}","symbol":sym,"previous_date":pd,"current_date":cd,"source_path":f["path"],"source_blob_sha":f["blob_sha"],"previous_source_row":f["previous_row"],"current_source_row":f["row"],"source_pair_tuple_equal":"true",**ident}
         for prefix,x in (("previous",ps),("current",cs)):
-          for k,v in x.items(): row[f"{prefix}_{k}"]=v
+          for k,v in x.items(): row[f"{prefix}_{'session_status' if k=='status' else k}"]=v
           counts[prefix+"_session_"+x["status"]]+=1
           if x["execution_sources"]: counts[prefix+"_security_execution_present"]+=1
         row.update(disposition="HOLD_UNKNOWN_NO_INFERENCE",promotion_allowed="false")

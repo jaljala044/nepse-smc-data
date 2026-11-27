@@ -1,0 +1,560 @@
+{
+  "run_id": 45926508499,
+  "job_id": 140268942465,
+  "registers": [
+    {
+      "path": "reference/API_ohlc_exception_register_2026-11-26.csv",
+      "sha": "b743f07527baa4da4b32f14e7fbe96481799dc9c"
+    },
+    {
+      "path": "reference/MERO_ohlc_exception_register_2026-11-26.csv",
+      "sha": "5e6361b17b9fec14b0af099a9e84f90d84ea1d97"
+    },
+    {
+      "path": "reference/SPDL_ohlc_exception_register_2026-11-26.csv",
+      "sha": "dbd7aca95de9f7ffac1fbf06b47cf3b33310c0be"
+    },
+    {
+      "path": "reference/remaining_six_equity_ohlc_exception_register_2026-11-26.csv",
+      "sha": "dc748a9c06e8e3c1f457d7d6ca2198ee351b80bd"
+    }
+  ],
+  "field_order": [
+    "open",
+    "high",
+    "low",
+    "close",
+    "volume"
+  ],
+  "rows": [
+    {
+      "date": "2026-04-24",
+      "symbol": "MERO",
+      "original": [
+        731.1,
+        730,
+        720,
+        726,
+        1671
+      ],
+      "candidate": [
+        730,
+        730,
+        720,
+        726,
+        1671
+      ],
+      "changed_fields": [
+        "open"
+      ],
+      "contracts": 34,
+      "first_contract_id": "2026042403000499",
+      "last_contract_id": "2026042403006307",
+      "source_sha256": "83b3f29234e1a42fdc210d66fa2cfe58cd65966f5a294bfea3af40679e847db2",
+      "session_status": "PASS",
+      "status": "HOLD_UNVERIFIED_CHRONOLOGY_AND_COMPLETENESS",
+      "promotion_allowed": false
+    },
+    {
+      "date": "2026-04-24",
+      "symbol": "UAIL",
+      "original": [
+        449.9,
+        449.8,
+        440.5,
+        445.1,
+        4553
+      ],
+      "candidate": [
+        445,
+        449.8,
+        440.5,
+        445.1,
+        4553
+      ],
+      "changed_fields": [
+        "open"
+      ],
+      "contracts": 52,
+      "first_contract_id": "2026042404001156",
+      "last_contract_id": "2026042404012886",
+      "source_sha256": "83b3f29234e1a42fdc210d66fa2cfe58cd65966f5a294bfea3af40679e847db2",
+      "session_status": "PASS",
+      "status": "HOLD_UNVERIFIED_CHRONOLOGY_AND_COMPLETENESS",
+      "promotion_allowed": false
+    },
+    {
+      "date": "2026-04-27",
+      "symbol": "API",
+      "original": [
+        339.9,
+        345,
+        340,
+        341,
+        206969
+      ],
+      "candidate": [
+        345,
+        345,
+        331.8,
+        341,
+        206969
+      ],
+      "changed_fields": [
+        "open",
+        "low"
+      ],
+      "contracts": 543,
+      "first_contract_id": "2026042704000057",
+      "last_contract_id": "2026042704012455",
+      "source_sha256": "002245dbc9caa2f9726c4997689ac2da93fbdaafb4a3875752490e079fbcd5e5",
+      "session_status": "PASS",
+      "status": "HOLD_UNVERIFIED_CHRONOLOGY_AND_COMPLETENESS",
+      "promotion_allowed": false
+    },
+    {
+      "date": "2026-04-27",
+      "symbol": "RAWA",
+      "original": [
+        648.7,
+        645,
+        625,
+        630,
+        3747
+      ],
+      "candidate": [
+        640,
+        645,
+        625,
+        630,
+        3747
+      ],
+      "changed_fields": [
+        "open"
+      ],
+      "contracts": 42,
+      "first_contract_id": "2026042705002025",
+      "last_contract_id": "2026042705016427",
+      "source_sha256": "002245dbc9caa2f9726c4997689ac2da93fbdaafb4a3875752490e079fbcd5e5",
+      "session_status": "PASS",
+      "status": "HOLD_UNVERIFIED_CHRONOLOGY_AND_COMPLETENESS",
+      "promotion_allowed": false
+    },
+    {
+      "date": "2026-04-28",
+      "symbol": "SPDL",
+      "original": [
+        408,
+        406.3,
+        396,
+        399,
+        64356
+      ],
+      "candidate": [
+        404,
+        406.3,
+        389,
+        399,
+        64356
+      ],
+      "changed_fields": [
+        "open",
+        "low"
+      ],
+      "contracts": 212,
+      "first_contract_id": "2026042804001530",
+      "last_contract_id": "2026042804014973",
+      "source_sha256": "1daa9dce4732f61b4946269e7a93f96971c1f6e89dfa4996adef8c3a9bf75923",
+      "session_status": "PASS",
+      "status": "HOLD_UNVERIFIED_CHRONOLOGY_AND_COMPLETENESS",
+      "promotion_allowed": false
+    },
+    {
+      "date": "2026-04-29",
+      "symbol": "RADHI",
+      "original": [
+        780,
+        775,
+        755,
+        764.8,
+        57510
+      ],
+      "candidate": [
+        775,
+        775,
+        749.9,
+        764.8,
+        57510
+      ],
+      "changed_fields": [
+        "open",
+        "low"
+      ],
+      "contracts": 276,
+      "first_contract_id": "2026042904000225",
+      "last_contract_id": "2026042904013930",
+      "source_sha256": "bbc354b933dcd565bca0107cda02d07aa5f3e1da26c932745308120822ad8ec4",
+      "session_status": "PARTIAL_FAIL",
+      "status": "HOLD_UNVERIFIED_CHRONOLOGY_AND_COMPLETENESS",
+      "promotion_allowed": false
+    },
+    {
+      "date": "2026-04-29",
+      "symbol": "RAWA",
+      "original": [
+        615,
+        610,
+        587,
+        610,
+        2840
+      ],
+      "candidate": [
+        610,
+        610,
+        587,
+        610,
+        2840
+      ],
+      "changed_fields": [
+        "open"
+      ],
+      "contracts": 58,
+      "first_contract_id": "2026042905000407",
+      "last_contract_id": "2026042905014115",
+      "source_sha256": "bbc354b933dcd565bca0107cda02d07aa5f3e1da26c932745308120822ad8ec4",
+      "session_status": "PARTIAL_FAIL",
+      "status": "HOLD_UNVERIFIED_CHRONOLOGY_AND_COMPLETENESS",
+      "promotion_allowed": false
+    },
+    {
+      "date": "2026-04-29",
+      "symbol": "UAIL",
+      "original": [
+        446,
+        444.9,
+        438,
+        438,
+        9360
+      ],
+      "candidate": [
+        442.6,
+        444.9,
+        424.9,
+        438,
+        9360
+      ],
+      "changed_fields": [
+        "open",
+        "low"
+      ],
+      "contracts": 102,
+      "first_contract_id": "2026042904000760",
+      "last_contract_id": "2026042904013274",
+      "source_sha256": "bbc354b933dcd565bca0107cda02d07aa5f3e1da26c932745308120822ad8ec4",
+      "session_status": "PARTIAL_FAIL",
+      "status": "HOLD_UNVERIFIED_CHRONOLOGY_AND_COMPLETENESS",
+      "promotion_allowed": false
+    },
+    {
+      "date": "2026-04-29",
+      "symbol": "UNHPL",
+      "original": [
+        487.9,
+        487,
+        475,
+        475.4,
+        46481
+      ],
+      "candidate": [
+        480.2,
+        487,
+        475,
+        475.4,
+        46481
+      ],
+      "changed_fields": [
+        "open"
+      ],
+      "contracts": 150,
+      "first_contract_id": "2026042904000127",
+      "last_contract_id": "2026042904014035",
+      "source_sha256": "bbc354b933dcd565bca0107cda02d07aa5f3e1da26c932745308120822ad8ec4",
+      "session_status": "PARTIAL_FAIL",
+      "status": "HOLD_UNVERIFIED_CHRONOLOGY_AND_COMPLETENESS",
+      "promotion_allowed": false
+    },
+    {
+      "date": "2026-04-29",
+      "symbol": "BGWT",
+      "original": [
+        740,
+        731,
+        718,
+        730,
+        1573
+      ],
+      "candidate": [
+        720,
+        731,
+        700.4,
+        730,
+        1573
+      ],
+      "changed_fields": [
+        "open",
+        "low"
+      ],
+      "contracts": 32,
+      "first_contract_id": "2026042905001005",
+      "last_contract_id": "2026042905014105",
+      "source_sha256": "bbc354b933dcd565bca0107cda02d07aa5f3e1da26c932745308120822ad8ec4",
+      "session_status": "PARTIAL_FAIL",
+      "status": "HOLD_UNVERIFIED_CHRONOLOGY_AND_COMPLETENESS",
+      "promotion_allowed": false
+    },
+    {
+      "date": "2026-04-29",
+      "symbol": "HRL",
+      "original": [
+        685.5,
+        685,
+        676.1,
+        679.2,
+        74867
+      ],
+      "candidate": [
+        685,
+        685,
+        659.4,
+        679.2,
+        74867
+      ],
+      "changed_fields": [
+        "open",
+        "low"
+      ],
+      "contracts": 900,
+      "first_contract_id": "2026042905000025",
+      "last_contract_id": "2026042905014268",
+      "source_sha256": "bbc354b933dcd565bca0107cda02d07aa5f3e1da26c932745308120822ad8ec4",
+      "session_status": "PARTIAL_FAIL",
+      "status": "HOLD_UNVERIFIED_CHRONOLOGY_AND_COMPLETENESS",
+      "promotion_allowed": false
+    }
+  ],
+  "session_evidence": [
+    {
+      "date": "2026-04-24",
+      "download": {
+        "date": "2026-04-24",
+        "url": "https://raw.githubusercontent.com/socrateai-official/nepse-open-data/70324524df83eaa7c2964441ad4026d6ab00cc7e/floorsheet/floorsheet_2026-04-24.csv",
+        "path": "april-evidence/raw/floorsheet_2026-04-24.csv",
+        "retrieved_at_utc": "2026-11-27T02:08:05.983270+00:00",
+        "http_etag": "\"e5672abbeb20d207be0eda40d79306503812bc96ff3cbab58faee5f146664f0d\"",
+        "http_last_modified": "",
+        "http_content_length": "4406037",
+        "actual_size_bytes": 4406037,
+        "expected_size_bytes": 4406037,
+        "size_match": true,
+        "actual_sha256": "83b3f29234e1a42fdc210d66fa2cfe58cd65966f5a294bfea3af40679e847db2",
+        "actual_git_blob_sha": "942888549b4ae2c1a23945d6e36e28ee8edb3f48",
+        "expected_git_blob_sha": "942888549b4ae2c1a23945d6e36e28ee8edb3f48",
+        "git_blob_match": true,
+        "download_status": "PASS",
+        "error": ""
+      },
+      "validation": {
+        "date": "2026-04-24",
+        "source_path": "floorsheet/floorsheet_2026-04-24.csv",
+        "download_sha256": "83b3f29234e1a42fdc210d66fa2cfe58cd65966f5a294bfea3af40679e847db2",
+        "git_blob_match": true,
+        "size_match": true,
+        "content_status": "PASS",
+        "completeness_status": "UNKNOWN",
+        "independent_source_sha256_match": false,
+        "independent_market_totals_match": false,
+        "rows": 75229,
+        "trades": 75229,
+        "shares": 12174516,
+        "turnover_npr": "5270399727.64",
+        "symbols": 351,
+        "duplicate_contracts": 0,
+        "amount_identity_failures": 0,
+        "amount_exact_matches": 75229,
+        "amount_floor_matches": 0,
+        "amount_identity_policy": "DECIMAL_EXACT_WITH_0_01_TOLERANCE",
+        "date_mismatches": 0,
+        "invalid_rows": 0,
+        "broker_ids_missing": 0,
+        "ohlcv_matches": 2,
+        "ohlcv_conflicts": 0,
+        "ohlcv_rows_absent": 0,
+        "validation_errors": "{}"
+      },
+      "saved_archive_totals_match": true,
+      "nonpositive_rate_rows": []
+    },
+    {
+      "date": "2026-04-27",
+      "download": {
+        "date": "2026-04-27",
+        "url": "https://raw.githubusercontent.com/socrateai-official/nepse-open-data/70324524df83eaa7c2964441ad4026d6ab00cc7e/floorsheet/floorsheet_2026-04-27.csv",
+        "path": "april-evidence/raw/floorsheet_2026-04-27.csv",
+        "retrieved_at_utc": "2026-11-27T02:08:07.065288+00:00",
+        "http_etag": "\"9e1a30f87bf116d00db97a64d0d809380e27074c45b138ef9cd4135aa836beb4\"",
+        "http_last_modified": "",
+        "http_content_length": "4734508",
+        "actual_size_bytes": 4734508,
+        "expected_size_bytes": 4734508,
+        "size_match": true,
+        "actual_sha256": "002245dbc9caa2f9726c4997689ac2da93fbdaafb4a3875752490e079fbcd5e5",
+        "actual_git_blob_sha": "fafcefb281bfa0cafa14e9982e5e40e7f0d939c3",
+        "expected_git_blob_sha": "fafcefb281bfa0cafa14e9982e5e40e7f0d939c3",
+        "git_blob_match": true,
+        "download_status": "PASS",
+        "error": ""
+      },
+      "validation": {
+        "date": "2026-04-27",
+        "source_path": "floorsheet/floorsheet_2026-04-27.csv",
+        "download_sha256": "002245dbc9caa2f9726c4997689ac2da93fbdaafb4a3875752490e079fbcd5e5",
+        "git_blob_match": true,
+        "size_match": true,
+        "content_status": "PASS",
+        "completeness_status": "UNKNOWN",
+        "independent_source_sha256_match": false,
+        "independent_market_totals_match": false,
+        "rows": 81006,
+        "trades": 81006,
+        "shares": 10928617,
+        "turnover_npr": "4748809127.76",
+        "symbols": 351,
+        "duplicate_contracts": 0,
+        "amount_identity_failures": 0,
+        "amount_exact_matches": 81006,
+        "amount_floor_matches": 0,
+        "amount_identity_policy": "DECIMAL_EXACT_WITH_0_01_TOLERANCE",
+        "date_mismatches": 0,
+        "invalid_rows": 0,
+        "broker_ids_missing": 0,
+        "ohlcv_matches": 2,
+        "ohlcv_conflicts": 0,
+        "ohlcv_rows_absent": 0,
+        "validation_errors": "{}"
+      },
+      "saved_archive_totals_match": true,
+      "nonpositive_rate_rows": []
+    },
+    {
+      "date": "2026-04-28",
+      "download": {
+        "date": "2026-04-28",
+        "url": "https://raw.githubusercontent.com/socrateai-official/nepse-open-data/70324524df83eaa7c2964441ad4026d6ab00cc7e/floorsheet/floorsheet_2026-04-28.csv",
+        "path": "april-evidence/raw/floorsheet_2026-04-28.csv",
+        "retrieved_at_utc": "2026-11-27T02:08:07.947001+00:00",
+        "http_etag": "\"b54f93aabc401018e699ba7f8d8e52b20c3d5c0ca587a1f582fa18987591b837\"",
+        "http_last_modified": "",
+        "http_content_length": "8878878",
+        "actual_size_bytes": 8878878,
+        "expected_size_bytes": 8878878,
+        "size_match": true,
+        "actual_sha256": "1daa9dce4732f61b4946269e7a93f96971c1f6e89dfa4996adef8c3a9bf75923",
+        "actual_git_blob_sha": "00d71215a765fad19e4bea3e5d8f8ec89e0522bf",
+        "expected_git_blob_sha": "00d71215a765fad19e4bea3e5d8f8ec89e0522bf",
+        "git_blob_match": true,
+        "download_status": "PASS",
+        "error": ""
+      },
+      "validation": {
+        "date": "2026-04-28",
+        "source_path": "floorsheet/floorsheet_2026-04-28.csv",
+        "download_sha256": "1daa9dce4732f61b4946269e7a93f96971c1f6e89dfa4996adef8c3a9bf75923",
+        "git_blob_match": true,
+        "size_match": true,
+        "content_status": "PASS",
+        "completeness_status": "UNKNOWN",
+        "independent_source_sha256_match": false,
+        "independent_market_totals_match": false,
+        "rows": 151354,
+        "trades": 151354,
+        "shares": 14018920,
+        "turnover_npr": "6531723226.36",
+        "symbols": 349,
+        "duplicate_contracts": 0,
+        "amount_identity_failures": 0,
+        "amount_exact_matches": 151354,
+        "amount_floor_matches": 0,
+        "amount_identity_policy": "DECIMAL_EXACT_WITH_0_01_TOLERANCE",
+        "date_mismatches": 0,
+        "invalid_rows": 0,
+        "broker_ids_missing": 0,
+        "ohlcv_matches": 1,
+        "ohlcv_conflicts": 0,
+        "ohlcv_rows_absent": 0,
+        "validation_errors": "{}"
+      },
+      "saved_archive_totals_match": true,
+      "nonpositive_rate_rows": []
+    },
+    {
+      "date": "2026-04-29",
+      "download": {
+        "date": "2026-04-29",
+        "url": "https://raw.githubusercontent.com/socrateai-official/nepse-open-data/70324524df83eaa7c2964441ad4026d6ab00cc7e/floorsheet/floorsheet_2026-04-29.csv",
+        "path": "april-evidence/raw/floorsheet_2026-04-29.csv",
+        "retrieved_at_utc": "2026-11-27T02:08:09.150960+00:00",
+        "http_etag": "\"082dbd086951ae97ce5d04512bf8cf79b79de09c70217321dc24523ef2558b1e\"",
+        "http_last_modified": "",
+        "http_content_length": "6032321",
+        "actual_size_bytes": 6032321,
+        "expected_size_bytes": 6032321,
+        "size_match": true,
+        "actual_sha256": "bbc354b933dcd565bca0107cda02d07aa5f3e1da26c932745308120822ad8ec4",
+        "actual_git_blob_sha": "a795fac9aec031a107256f276a4136d1a83749ac",
+        "expected_git_blob_sha": "a795fac9aec031a107256f276a4136d1a83749ac",
+        "git_blob_match": true,
+        "download_status": "PASS",
+        "error": ""
+      },
+      "validation": {
+        "date": "2026-04-29",
+        "source_path": "floorsheet/floorsheet_2026-04-29.csv",
+        "download_sha256": "bbc354b933dcd565bca0107cda02d07aa5f3e1da26c932745308120822ad8ec4",
+        "git_blob_match": true,
+        "size_match": true,
+        "content_status": "PARTIAL_FAIL",
+        "completeness_status": "UNKNOWN",
+        "independent_source_sha256_match": false,
+        "independent_market_totals_match": false,
+        "rows": 104005,
+        "trades": 104004,
+        "shares": 12133360,
+        "turnover_npr": "4986294173.38",
+        "symbols": 351,
+        "duplicate_contracts": 0,
+        "amount_identity_failures": 0,
+        "amount_exact_matches": 104005,
+        "amount_floor_matches": 0,
+        "amount_identity_policy": "DECIMAL_EXACT_WITH_0_01_TOLERANCE",
+        "date_mismatches": 0,
+        "invalid_rows": 2,
+        "broker_ids_missing": 0,
+        "ohlcv_matches": 6,
+        "ohlcv_conflicts": 0,
+        "ohlcv_rows_absent": 0,
+        "validation_errors": "{\"invalid_amount\": 1, \"invalid_rate\": 1}"
+      },
+      "saved_archive_totals_match": true,
+      "nonpositive_rate_rows": [
+        {
+          "symbol": "NIBLGF",
+          "contract": "2026042901000179",
+          "rate": "0.0"
+        }
+      ]
+    }
+  ],
+  "verified_replacements": 0,
+  "promotion_allowed": false,
+  "limitations": "Contract-ID ordering is unverified; source has no time field. Archive totals are not independent. April 29 invalid row NIBLGF is outside target equities but session remains partial fail. Candidate extrema include all observed target trades; price-range definition and trade-type eligibility require verification."
+}

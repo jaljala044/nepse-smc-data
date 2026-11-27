@@ -1,0 +1,26 @@
+name: P4.43 April candle reconstruction
+on:
+  workflow_dispatch:
+  push:
+    branches: [p443-global-integrity-audit]
+    paths:
+      - 'tools/p443_april_candle_reconstruction.py'
+      - '.github/workflows/p443-april-candle-reconstruction.yml'
+permissions:
+  contents: read
+jobs:
+  reconstruct:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python tools/p443_april_candle_reconstruction.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: april-candidate-evidence
+          path: april-evidence/report.json
+          if-no-files-found: error

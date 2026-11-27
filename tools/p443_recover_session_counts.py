@@ -67,6 +67,8 @@ def run(source, output):
             record.update(symbols=symbols,quantity=quantity,turnover=str(turnover),transactions=trades)
             matches = (symbols == int(expected["traded_securities"]) and quantity == int(expected["traded_shares"]) and turnover == Decimal(expected["turnover_npr"]))
             record["status"] = "CANDIDATE_TOTALS_MATCH" if matches else "BASELINE_TOTALS_CONFLICT"
+            if not matches:
+                print(json.dumps({"date":day,"actual":{"symbols":symbols,"quantity":quantity,"turnover":str(turnover),"transactions":trades},"expected":{"symbols":expected["traded_securities"],"quantity":expected["traded_shares"],"turnover":expected["turnover_npr"]},"source_blob":item["git_blob_sha"]}))
         except (ValueError, ArithmeticError, KeyError, subprocess.CalledProcessError, UnicodeError) as exc:
             record.update(status="REVIEW_ERROR",error=str(exc))
         result.append(record)

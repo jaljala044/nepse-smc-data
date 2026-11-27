@@ -40,6 +40,25 @@ class PublicationTests(unittest.TestCase):
             self.publish(self.raw.replace(b"ABC", b"XYZ"))
         self.assertEqual(self.dest.read_bytes(), self.raw)
 
+    def test_destination_symlink_rejected_without_touching_target(self):
+        target = self.root / "target.csv"
+        target.write_bytes(b"pre-existing target")
+        self.dest.symlink_to(target)
+        with self.assertRaisesRegex(ValueError, "Invalid archive destination"):
+            self.publish()
+        self.assertEqual(target.read_bytes(), b"pre-existing target")
+        self.assertTrue(self.dest.is_symlink())
+
+    def test_parent_symlink_rejected(self):
+        real_parent = self.root / "real-parent"
+        real_parent.mkdir()
+        linked_parent = self.root / "linked-parent"
+        linked_parent.symlink_to(real_parent, target_is_directory=True)
+        self.dest = linked_parent / f"floorsheet_{self.day}.csv"
+        with self.assertRaisesRegex(ValueError, "Invalid archive directory"):
+            self.publish()
+        self.assertEqual(list(real_parent.iterdir()), [])
+
     def test_missing_control(self):
         self.control.unlink()
         with self.assertRaises(FileNotFoundError):

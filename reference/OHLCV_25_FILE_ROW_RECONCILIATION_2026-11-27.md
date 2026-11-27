@@ -45,16 +45,19 @@ The broader v2 release is still **not full-session clean**: its P4.30 audit reta
 
 ## History-side date-label and carry-forward risk
 
-Across the 25 history-starter files:
+The 25 history-starter files contain 6,250 literal Friday/Saturday-dated rows. That count is **not** itself a closed-session count because the documented regular weekly schedule changed on 2026-04-06.
+
+Using the P4.30 calendar's schedule rule (Sunday–Thursday through 2026-04-05; Monday–Friday from 2026-04-06; Saturday closed throughout), the 25 files contain:
 
 | Check | Result |
 |---|---:|
-| Friday/Saturday-dated rows | 6,250 |
-| Weekend rows exactly matching the immediately preceding file row's OHLCV | 5,578 (89.25%) |
-| Weekend rows exactly matching the immediately following file row's OHLCV | 3,523 |
+| Literal Friday/Saturday-dated rows | 6,250 |
+| Rows on weekly-schedule closed dates | 5,851 |
+| Weekly-closed rows exactly matching the immediately preceding file row's OHLCV | 5,826 (99.57%) |
+| Weekly-closed rows exactly matching the immediately following file row's OHLCV | 3,225 |
 | All adjacent identical OHLCV row pairs | 7,703 |
 
-These are **suspected calendar-day carry-forward / scrape-date-label records**, not proven synthetic rows. Do not treat them as additional exchange sessions or use them in indicators/backtests until a dated NEPSE session calendar and symbol-specific evidence establish their business dates. P4.42 already documents that the same pinned ShareSansarScraper lineage can label stale OHLCV with the scrape date rather than the underlying NEPSE business date for NMLBBL/SMPDA; see [P4.42 source-date lineage report](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/p442_sharesansar_date_lineage_report_2026-11-26.md).
+The schedule count is based only on the regular weekly pattern; public holidays and exceptional closures are not added here. These are **suspected calendar-day carry-forward / scrape-date-label records**, not proven synthetic rows. Do not treat them as additional exchange sessions or use them in indicators/backtests until a dated NEPSE session calendar and symbol-specific evidence establish their business dates. P4.42 already documents that the same pinned ShareSansarScraper lineage can label stale OHLCV with the scrape date rather than the underlying NEPSE business date for NMLBBL/SMPDA; see [P4.42 source-date lineage report](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/p442_sharesansar_date_lineage_report_2026-11-26.md).
 
 ## Importer quarantine evidence
 
@@ -64,7 +67,7 @@ The pinned history-starter import manifest records 303,438 source rows, 301,632 
 
 - **Verified:** 525/525 filenames in both repositories; 500 identical blobs; 25 differing blobs; 25/25 pairs parsed; zero duplicate dates in these 25 files; 14,856 common date rows numerically compared; one numerical mismatch identified.
 - **Resolved for derived v2:** RHGCL 2026-11-19 uses official NEPSE Close 258.00 and Volume 9,054 in the versioned derived v2 branch; the raw SMC row remains preserved.
-- **Partial / unverified:** 20,849 SMC-only and 7,769 history-only symbol/date keys have not been reconciled to the full official session calendar. History-side weekend/carry-forward rows remain suspect pending date-lineage checks.
+- **Partial / unverified:** 20,849 SMC-only and 7,769 history-only symbol/date keys have not been reconciled to the full official session calendar. History-side weekly-schedule-closed/carry-forward rows remain suspect pending date-lineage checks.
 - **Quarantined:** the 17 selected invalid-OHLC source observations remain in the history import's flagged-row artifact.
 - **Not established:** membership of these 25 symbols in the target 281 active equities / 47 mutual funds. The 525-file inventory is not the approved universe. No non-convertible debenture, suspended, or delisted classification is inferred here.
 - **Not accessed:** the user's >1-GB Google Drive ZIP and the candidate 763-MB floorsheet archive. No content from either was read or imported.
@@ -80,4 +83,4 @@ The pinned history-starter import manifest records 303,438 source rows, 301,632 
 
 ## Next bounded task
 
-Build a **symbol/date quarantine matrix** for the 7,769 history-only keys, starting with the 6,250 Friday/Saturday rows and 5,578 weekend carry-forward candidates. Match only against verified NEPSE session evidence; use per-security floorsheets where needed. In parallel, preserve the 17 invalid source observations and reconcile the dated 2026-04-24 to 2026-04-29 anomalies. The 281 + 47 active instrument roster remains a separate primary-source gate.
+Build a **symbol/date quarantine matrix** for the 7,769 history-only keys, starting with the 5,851 weekly-schedule-closed rows and 5,826 rows matching the immediately preceding row. Match only against verified NEPSE session evidence; use per-security floorsheets where needed. In parallel, preserve the 17 invalid source observations and reconcile the dated 2026-04-24 to 2026-04-29 anomalies. The 281 + 47 active instrument roster remains a separate primary-source gate.

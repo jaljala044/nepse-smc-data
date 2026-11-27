@@ -140,3 +140,31 @@ https://github.com/jaljala044/nepse-smc-data/actions/runs/46004414129
 At the last check, pinned inventory verification passed and the read-only global scan was in progress. The newly added date-queue test has not yet executed. Older runs #299–#302 target earlier commits and do not replace #303.
 
 No source CSVs or canonical OHLCV were changed. No corporate-action dates, dividend components, adjustment factors, or stable IDs were promoted. Remaining gates: complete the latest full audit; acquire an independent official session completeness benchmark; resolve March 1/2 date lineage from primary evidence; verify corporate actions against original notices; and continue P4.44 effective-dated identity/lifecycle evidence acquisition.
+
+
+## Next-five continuation — current-head evidence and artifact boundary (2026-11-27)
+
+Current branch / PR #80 head before this report refresh: `1d78beb64111c9eec93b3c7111e28cad0062c7d2` (446 commits; PR remains open, draft and unmerged). The head is three commits ahead of the last successful full P4.43 audit run #304, which tested `bb55b6ba88f79f4de7ead09ed0ff6751e327a213`. Run #304 completed successfully, including the new corporate-action date-recovery queue regression step. A commit-specific Actions lookup for the current head returned no PR-triggered workflow runs. The three intervening commits therefore remain outside that verified run; this report refresh is intended to trigger the configured push path for a current-head audit.
+
+### New corporate-action corroboration records
+
+- Added `reference/P443_CORPORATE_ACTION_EXTERNAL_CORROBORATION_BATCH01.json` (blob `f016da6aeb725550818a578f90739de000850dfe`) and batch 02 (blob `40e309aab50c6d1202458218c68e5e467db0f3f8`).
+- CBBL: secondary disclosures reproduce a 2026-12-08 AGM book-closure date, 2026-12-21 AGM date, 11.9631% proposed bonus and 13.0369% proposed cash dividend. The record links to a NEPSE-hosted notice PDF, but the PDF endpoint was not independently retrievable in this review. Treat the reproduced notice as corroboration, not as an independently hashed primary-source capture.
+- MKJC: secondary disclosures reproduce 2026-12-08 book closure and 2026-12-18 AGM. The separate 1:0.70 rights issue remains proposal-only; no subscription dates or adjustment-effective date are established.
+- NICA: secondary records support the 2026-11-27 book-closure / 2026-11-26 last-eligible-trade date semantics, but the adjustment-effective date remains null and the record is not approved.
+- CYCL has a date conflict; KMCDB has no recovered date. Both remain unresolved.
+- Every record retains `adjustment_allowed=false`; no adjustment date or factor is promoted.
+
+### Overlay retrieval preflight — blocked, not repaired by assumption
+
+Added `reference/P443_OVERLAY_ARTIFACT_PREFLIGHT_2026-11-27.json` (blob `5a82fdcdda95377650a0af80b595f45049bbba64`). Artifact 15155667000 was downloaded and its archive SHA-256 verified (`20b74549f8e73aa3f94067ef834e6023b888dd0ec6df69ba174a3ecce7cbeb86`); all 25 members were inspected. None matched the expected overlay payload (30,352,499 bytes; SHA-256 `6d76c2a161dc3a65067806b5114a418be6aee0a90ebdc5519e2a718a531f7a2d`). Result: `BLOCKED_EXPECTED_OVERLAY_NOT_PRESENT`. The expected digest was not changed, partial files were not promoted, and approved replacements remain zero. Rebuild/export with the original overlay CSV is required before this queue can be adjudicated.
+
+### Current disposition and next gates
+
+1. Obtain a successful full P4.43 audit run on the current branch head after this report-triggered run appears; run #304 is successful but predates the three evidence commits and is not a current-head pass.
+2. Recover the original complete overlay payload and verify exact expected bytes and SHA-256 before any overlay adjudication.
+3. Independently retrieve and hash original NEPSE/issuer notices for CBBL, MKJC and NICA; preserve book-closure dates separately from ex-date / adjustment-effective date.
+4. Resolve CYCL's conflicting date and KMCDB's missing date from primary records; otherwise retain HOLD/UNKNOWN.
+5. Continue P4.44 stable-ID and lifecycle evidence acquisition for the 209-symbol / 23,377-pair matrix; no inference from current display names or ticker similarity.
+
+No canonical OHLCV, raw source, or pinned baseline was modified. No date shift, corporate-action factor, adjustment, deduplication, or promotion was authorized. P4.43/P4.44 remain incomplete.

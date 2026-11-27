@@ -46,7 +46,7 @@ This queue decomposes the open acceptance criteria into 30 reviewable work packa
 
 | # | Work package | Status | Acceptance / dependency |
 |---:|---|---|---|
-| 26 | P4.23: preserve and reconcile all 87 same-date conflict keys, including RHGCL | PARTIAL — RHGCL 2026-11-19 is now PRIMARY_CONFIRMED for full OHLCV (security ID 8108; raw response SHA-256 `303d92756ffbcaa2e6ab5020c29e1eab1b63ed99797bf024914dbb863cbae183`; derived view uses official Close 258.00 / Volume 9,054; raw SMC row preserved); 86 keys on 2025-07-28 remain unresolved | Key-complete matrix and source-specific field dispositions |
+| 26 | P4.23: preserve and reconcile all 87 same-date conflict keys, including RHGCL | PARTIAL — created and read back `reference/P423_87_SAME_DATE_CONFLICT_RECONCILIATION_2026-11-27.csv`: 87 unique date/symbol keys; 86 remain `UNKNOWN_SOURCE_CONFLICT` for 2025-07-28; RHGCL 2026-11-19 is `OFFICIAL_CAPTURE_ACCEPTED_DERIVED_VIEW_ONLY` (NEPSE security ID 8108; payload SHA-256 `303d92756ffbcaa2e6ab5020c29e1eab1b63ed99797bf024914dbb863cbae183`). Raw SMC rows remain unchanged | 86 historical close conflicts still need primary evidence; preserve RHGCL official result only in the versioned derived view |
 | 27 | P4.23: acquire and completeness-validate 2025-07-28 floorsheet evidence for 86 conflict keys | BLOCKED | Complete primary-origin capture, pagination proof and per-symbol totals |
 | 28 | P4.23.2: reconstruct 2025-07-28 Open/Close for 86 symbols without assuming contract-ID order | BLOCKED | Timestamped primary records or independently validated ordering semantics |
 | 29 | P4.35: independently classify lineage and coverage for 1,368 historical OHLCV flags | BLOCKED | Independent historical source or exact acquisition blocker by candidate |
@@ -221,3 +221,12 @@ This queue decomposes the open acceptance criteria into 30 reviewable work packa
 - The 2024-08-14 and 2024-08-18 P4.33 samples additionally show unique source `id` values despite extensive `contract_no` reuse. The 22-session two-archive comparison remains limited to its selected sample (21 exact parity dates and one 2026-04-10 row conflict).
 - Conclusion: `contract_no` is not a safe unique row key, whether treated globally or assumed unique within every session. Retain row identity as source/revision/blob + session date + explicit source record ID where the source supplies one. The 74-session summaries do not by themselves prove that every source exposes a stable row ID or establish cross-source identity.
 - #20 remains PARTIAL pending a full source-by-source schema/identity contract and reconciliation; no records were collapsed, deleted or promoted.
+
+
+### Work package #26 — consolidated 87-key reconciliation index (2026-11-27)
+
+- Created `reference/P423_87_SAME_DATE_CONFLICT_RECONCILIATION_2026-11-27.csv` as an additive index; read-back confirms 87 data rows and the full header. It combines the existing 86-row 2025-07-28 conflict matrix with the separate RHGCL 2026-11-19 official-EOD reconciliation.
+- The 86 historical rows retain the SMC raw-file SHA-256, pinned secondary archive repo/commit/path/SHA-256, all OHLCV fields and close delta. They remain `UNKNOWN_SOURCE_CONFLICT`; no close value is selected.
+- RHGCL retains SMC raw values (Close 256.00 / Volume 4,216), official NEPSE values (Close 258.00 / Volume 9,054), security ID 8108, retrieval timestamp and exact raw response SHA-256. Disposition is `OFFICIAL_CAPTURE_ACCEPTED_DERIVED_VIEW_ONLY`; original raw row remains untouched.
+- Exact key check: 87 rows / 87 unique `(date,symbol)` keys; 86 unresolved secondary-source conflicts and one official-confirmed RHGCL derived-view decision.
+- #26 remains PARTIAL because 86/87 still lack date-matched primary evidence. No raw or canonical OHLCV was modified and no other row was promoted.

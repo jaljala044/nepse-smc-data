@@ -95,3 +95,16 @@ The earlier “three previously selected symbols” section above records an int
 The artifact's limitations remain: payload validity and digest parity do not prove exchange completeness, historical security-ID continuity, or a complete expected-session denominator. Missing dates are not classified as non-trading days. No Open values are synthesized. No canonical or scanner-input rows were changed.
 
 This superseding read-back corrects the earlier partial wording without deleting the historical checkpoint.
+
+
+## BENH sparse-date cross-check — P4.44 continuation (2026-11-27)
+
+A focused read-only comparison was performed against the raw BENH payload and the ACLBSL 29-date payload in the pinned scanner repository tree `jaljala044/nepse-elite-ai-scanner-pro@main`.
+
+- BENH raw file: `data/evidence/raw/nepse/security-history/2026-10-05_to_2026-11-26/symbols/BENH/response-01.bin`; Git blob `920fdb4d6560be69f9cc12b12bec832883d52623`; 4,059 bytes.
+- BENH has 22 records, from 2026-10-14 through 2026-11-26. It includes a zero-trade/zero-quantity row on 2026-10-14.
+- ACLBSL peer payload has 29 date keys over 2026-10-05 through 2026-11-26. Compared with that observed date-key set, BENH has no records for 2026-10-05, 2026-10-06, 2026-10-07, 2026-10-08, 2026-10-09, 2026-10-12 and 2026-10-13.
+- The existing calendar has positive market-session observations for security ID 8108 on all seven dates. That is market-session evidence only; it is not evidence that BENH itself traded or did not trade on those dates.
+- Therefore the seven missing BENH keys remain **UNKNOWN**. They are not filled, classified as zero-trade, or treated as holidays. The 2026-10-14 zero-trade BENH row is preserved as an explicit zero observation, not generalized to adjacent dates.
+
+This narrows the sparse-history question but does not resolve whether the NEPSE history endpoint omits no-trade dates, has incomplete per-security capture, or has another symbol-specific coverage rule. No raw payload or canonical data was changed.

@@ -58,6 +58,13 @@ The pinned P4.33 capture report records 544,937 unique archive-local source reco
 
 The scanner-preparation validator is fail-closed for the protected paths/fingerprints and validates supported daily/floorsheet inputs before publishing to a new output directory. It does not mutate source data, filter or repair rows, and is **not** a complete canonical-ingestion gate. Nested/cross-file canonical ingestion still needs explicit protection and tests.
 
+
+
+## Invalid-exception / repeated-candle overlap reconciliation — 2026-11-27
+An exact join of the 1,331 invalid-OHLCV findings to the global repeated-tuple findings found **two** overlapping consecutive pairs (four exception-register endpoint rows): AHPC 2011-06-19/20 (source rows 303/304) and API 2016-09-03/04 (rows 190/191). Both endpoints of each pair match their existing exception register; the current endpoint is the row emitted by the repeated-pair finding. Each repeated tuple remains invalid because Open is outside the High/Low range.
+
+These are overlap counts, not four additional unique defects. The 94,543 consecutive-pair count and 1,331 invalid-flag count must not be added. All four rows remain `HOLD_UNRESOLVED`; equal invalid tuples do not establish duplicated trades or a correct price. No correction, deletion, deduplication, shift, or promotion occurred. Row-level endpoints and exact source blob/row keys are in `P443_INVALID_EXCEPTION_REPEAT_OVERLAP_2026-11-27.csv` and the companion JSON/Markdown report.
+
 ## Outstanding acceptance items
 
 1. Complete independent historical session, security-identity, execution and OHLCV adjudication for the repeat queues and invalid-price exceptions.

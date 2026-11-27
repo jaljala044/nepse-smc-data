@@ -40,6 +40,14 @@ External files at `5a8768828d58bdcebb82393262726d1d030b7ec4`:
 
 The row-level CSV preserves each source's symbol, candidate ID, snapshot ID/status/name, unmatched-review disposition and triage result.
 
+
+
+## Historical identity evidence overlap for the 34 snapshot-unmatched symbols
+
+A further comparison against the existing Priority 97 historical-identity evidence JSON (external blob `589f4ac19451f3faecee41727b44fc62cdeeb818`) found records for **26 of the 34** symbols absent from the current security snapshot. The 26 existing records cover 17 equity, 6 mutual-fund, 10 debenture, and 3 promoter-share records in the source evidence dataset overall; for the 26 matched symbols specifically, the CSV records preserve their instrument classes and event notes. The eight without a matching Priority 97 record are: `GBILD84~2F85`, `GBILD86~2F87`, `MND84~2F85`, `NICAD85~2F86`, `NIFRAUR85~2F86`, `NMBD87~2F88`, `NMBD89~2F90`, `NMBUR93~2F94`.
+
+These records include secondary-source merger, maturity, redemption, delisting and ticker-identity evidence. They do not resolve historical stable IDs or exchange-certified effective trading intervals: all matched records retain `stable_id=null` and `effective_date_verified=false`. Corporate joint-transaction dates and reported last-trade dates must not be treated as the same boundary. No OHLCV rows were spliced or altered.
+
 ## Limits and disposition
 
 Current-snapshot presence/absence does not establish historical identity, lifecycle dates, or whether a repeated OHLCV tuple is valid. Debenture/bond and promoter classes are display-name clues only; the ten other snapshot records remain unresolved. All 23,377 repeat-pair findings remain `HOLD/UNKNOWN` pending date-matched official evidence. No OHLCV values, canonical identities, histories, or scanner coverage were changed or promoted.

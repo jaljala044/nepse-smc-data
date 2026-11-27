@@ -1,0 +1,44 @@
+{
+  "task": "P4.43 uncovered repeated-OHLCV symbol identity and instrument-scope triage",
+  "date": "2026-11-27",
+  "source_commit": "56362fb4f65b91fdcca8f50b50e53ad80e703649",
+  "external_reference": {
+    "repository": "jaljala044/nepse-elite-ai-scanner-pro",
+    "commit": "5a8768828d58bdcebb82393262726d1d030b7ec4",
+    "unmatched_review": {
+      "path": "data/reference/nepse_unmatched_symbol_review_2026-11-26.csv",
+      "blob_sha": "be595b84d07a32ffc76a7cadfa9dff91aebec8bb"
+    },
+    "equity_crosswalk": {
+      "path": "data/reference/nepse_equity_security_id_crosswalk_2026-11-26.csv",
+      "blob_sha": "9711b068f353f8129283258d6d14e3b73dd978fa"
+    },
+    "security_snapshot": {
+      "path": "data/reference/nepse_security_id_snapshot_2026-11-25.csv",
+      "blob_sha": "ed548857eb550fbb237910eb903fc202751c63a1"
+    }
+  },
+  "counts": {
+    "total_symbols": 209,
+    "unmatched_review_rows": 34,
+    "unresolved_historical_identity": 26,
+    "filename_encoding_candidates": 8,
+    "current_snapshot_present": 175,
+    "no_current_snapshot": 34,
+    "current_equity_crosswalk_matches": 3,
+    "SNAPSHOT_NAME_DEBENTURE_BOND_CANDIDATE": 61,
+    "SNAPSHOT_NAME_PROMOTER_SHARE_CANDIDATE": 62,
+    "SNAPSHOT_NAME_FUND_YOJANA_CANDIDATE": 34,
+    "SNAPSHOT_PRESENT_INSTRUMENT_CLASS_REVIEW": 15,
+    "CURRENT_EQUITY_CROSSWALK_MATCH": 3,
+    "NO_CURRENT_SNAPSHOT_HISTORICAL_IDENTITY_UNRESOLVED": 34
+  },
+  "status_counts": {
+    "A": 172,
+    "S": 3
+  },
+  "classification_policy": "Current snapshot display-name keyword triage only; not a primary instrument-type field or historical identity proof. Equity crosswalk matches remain dated current-snapshot candidates, not historical ID continuity.",
+  "promotion_allowed": false,
+  "canonical_changes": false,
+  "history_splice_allowed": false
+}

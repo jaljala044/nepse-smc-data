@@ -1,0 +1,2459 @@
+{
+  "schema_version": 1,
+  "period": [
+    "2015-01-01",
+    "2026-11-30"
+  ],
+  "as_of": "2026-11-27",
+  "source_blobs": [
+    "7d28a7fec7d4650b25ccbc131028112ab783f8d4",
+    "8affc12783c318a552119844fd6bc70bf837ea53",
+    "b63ff7042277a2ffa5ae2277d4bf7910ed836c1d",
+    "b493c0370944e25aa617f02ff2af7998fd83cc68"
+  ],
+  "calendar_commit": "c56ad8df97549cda06ab4b1cae96221e1a599977",
+  "totals": {
+    "total": 4352,
+    "UNRESOLVED_SCHEDULE_OPEN_CANDIDATE": 2103,
+    "UNVERIFIED_SCHEDULE_CLOSURE": 1131,
+    "AUTHENTICATED_HOLIDAY_LISTED": 495,
+    "SECONDARY_OPEN_CANDIDATE": 390,
+    "OFFICIAL_POSITIVE_TRADE_OBSERVED": 229,
+    "CURRENT_DAY_PENDING": 1,
+    "FUTURE": 3
+  },
+  "annual": {
+    "2015": {
+      "total": 365,
+      "UNRESOLVED_SCHEDULE_OPEN_CANDIDATE": 220,
+      "UNVERIFIED_SCHEDULE_CLOSURE": 91,
+      "AUTHENTICATED_HOLIDAY_LISTED": 54
+    },
+    "2016": {
+      "total": 366,
+      "UNVERIFIED_SCHEDULE_CLOSURE": 100,
+      "UNRESOLVED_SCHEDULE_OPEN_CANDIDATE": 233,
+      "AUTHENTICATED_HOLIDAY_LISTED": 33
+    },
+    "2017": {
+      "total": 365,
+      "UNRESOLVED_SCHEDULE_OPEN_CANDIDATE": 230,
+      "UNVERIFIED_SCHEDULE_CLOSURE": 97,
+      "AUTHENTICATED_HOLIDAY_LISTED": 38
+    },
+    "2018": {
+      "total": 365,
+      "UNRESOLVED_SCHEDULE_OPEN_CANDIDATE": 237,
+      "UNVERIFIED_SCHEDULE_CLOSURE": 99,
+      "AUTHENTICATED_HOLIDAY_LISTED": 29
+    },
+    "2019": {
+      "total": 365,
+      "UNRESOLVED_SCHEDULE_OPEN_CANDIDATE": 245,
+      "UNVERIFIED_SCHEDULE_CLOSURE": 98,
+      "AUTHENTICATED_HOLIDAY_LISTED": 22
+    },
+    "2020": {
+      "total": 366,
+      "UNRESOLVED_SCHEDULE_OPEN_CANDIDATE": 186,
+      "UNVERIFIED_SCHEDULE_CLOSURE": 80,
+      "AUTHENTICATED_HOLIDAY_LISTED": 100
+    },
+    "2021": {
+      "total": 365,
+      "UNVERIFIED_SCHEDULE_CLOSURE": 101,
+      "UNRESOLVED_SCHEDULE_OPEN_CANDIDATE": 239,
+      "AUTHENTICATED_HOLIDAY_LISTED": 25
+    },
+    "2022": {
+      "total": 365,
+      "UNVERIFIED_SCHEDULE_CLOSURE": 87,
+      "UNRESOLVED_SCHEDULE_OPEN_CANDIDATE": 242,
+      "AUTHENTICATED_HOLIDAY_LISTED": 36
+    },
+    "2023": {
+      "total": 365,
+      "UNRESOLVED_SCHEDULE_OPEN_CANDIDATE": 227,
+      "UNVERIFIED_SCHEDULE_CLOSURE": 101,
+      "AUTHENTICATED_HOLIDAY_LISTED": 37
+    },
+    "2024": {
+      "total": 366,
+      "UNRESOLVED_SCHEDULE_OPEN_CANDIDATE": 43,
+      "UNVERIFIED_SCHEDULE_CLOSURE": 97,
+      "AUTHENTICATED_HOLIDAY_LISTED": 37,
+      "SECONDARY_OPEN_CANDIDATE": 189
+    },
+    "2025": {
+      "total": 365,
+      "SECONDARY_OPEN_CANDIDATE": 201,
+      "UNVERIFIED_SCHEDULE_CLOSURE": 94,
+      "AUTHENTICATED_HOLIDAY_LISTED": 46,
+      "OFFICIAL_POSITIVE_TRADE_OBSERVED": 24
+    },
+    "2026": {
+      "total": 334,
+      "OFFICIAL_POSITIVE_TRADE_OBSERVED": 205,
+      "UNVERIFIED_SCHEDULE_CLOSURE": 86,
+      "AUTHENTICATED_HOLIDAY_LISTED": 38,
+      "UNRESOLVED_SCHEDULE_OPEN_CANDIDATE": 1,
+      "CURRENT_DAY_PENDING": 1,
+      "FUTURE": 3
+    }
+  },
+  "priority_count": 391,
+  "priority": [
+    {
+      "date": "2024-03-04",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "02ef5865d5c6f04a76ccfe901a4238c7adeb5944"
+    },
+    {
+      "date": "2024-03-05",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "9b96416ddb5c6f487e2fc523fddadf4c5edfcb76"
+    },
+    {
+      "date": "2024-03-06",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "924321615c33312e8994bae8ba50693ed7a362e9"
+    },
+    {
+      "date": "2024-03-07",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "1b1847ec6759983959dc264961d31a5b0ab7332b"
+    },
+    {
+      "date": "2024-03-10",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "14f20e025415abe68cc365bdcc207726af73a556"
+    },
+    {
+      "date": "2024-03-12",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "141f408961d5b92d1fa5122ff6783bf0cc26add0"
+    },
+    {
+      "date": "2024-03-13",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "7d72a9a00e313e58fb3c01520fe4f76305e5e66a"
+    },
+    {
+      "date": "2024-03-14",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "f73a1a80aefd845fbd1abaa361ebdf5dbd0d459b"
+    },
+    {
+      "date": "2024-03-17",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "ba404684b66783a83f98a32fea7ccadb12c2ef69"
+    },
+    {
+      "date": "2024-03-18",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "b787ea9e915b48c6b8cf4bed8cf838ae0a8ab636"
+    },
+    {
+      "date": "2024-03-19",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "bcd2aab41bfbb2627ca111b03aab8d58dcd631dc"
+    },
+    {
+      "date": "2024-03-20",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "ac8a78227fae694d048fb839d44e0fd2fb097f71"
+    },
+    {
+      "date": "2024-03-21",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "880193d27f4b702271b2c4461ef4cbf1d4d969e0"
+    },
+    {
+      "date": "2024-03-25",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "ac2abf9585b8fc15582e29e0c64b6a83be9becbc"
+    },
+    {
+      "date": "2024-03-26",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "6043da66266d0e9b2568cbfc1916090f672f63bc"
+    },
+    {
+      "date": "2024-03-27",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "02dcf73d3a4c1f7e302f6e85f48efb6d997bfcee"
+    },
+    {
+      "date": "2024-03-28",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "a10e7097f818bfb88ad9d7e335ffb9c1125e7c9a"
+    },
+    {
+      "date": "2024-03-31",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "a21f6c1313072d288cd878c469cbfab1acef1ecd"
+    },
+    {
+      "date": "2024-04-01",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "a50fe9b1c9a3093781835fcc19cb99a6c12536bc"
+    },
+    {
+      "date": "2024-04-02",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "40ed01756530379f3c836b0441717fc46bf8303f"
+    },
+    {
+      "date": "2024-04-03",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "cd40bac1d771dd02102c924bfa4353d8c5fac293"
+    },
+    {
+      "date": "2024-04-04",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "9e51a1e3314e8d15432029f2461cae9c1cc3ccf2"
+    },
+    {
+      "date": "2024-04-07",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "a6b75bdd6b91999e28bda832636b6659edd52a65"
+    },
+    {
+      "date": "2024-04-09",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "11262d7ae5c6498bc07678f50cc36f577b9bc8e5"
+    },
+    {
+      "date": "2024-04-10",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "818b8276f092e5214a81f88c680595d7a4aa33c4"
+    },
+    {
+      "date": "2024-04-14",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "f8c6e64ae04a405fa0813e192c75d25ed2816624"
+    },
+    {
+      "date": "2024-04-15",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "128951029d09f607379b1a0a5c6caf441a639d7b"
+    },
+    {
+      "date": "2024-04-16",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "2532896b441b3b855b90a916645e9413906e2cd7"
+    },
+    {
+      "date": "2024-04-18",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "46b3edd8c1825232cc0c50cd12172e4ef122fcac"
+    },
+    {
+      "date": "2024-04-21",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "d5bdc067dd7c32317e1d1b925895c08f74b537b6"
+    },
+    {
+      "date": "2024-04-22",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "0a3096df491cac42454ad9496477c2b78c8bd4b2"
+    },
+    {
+      "date": "2024-04-24",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "18c73baf190c34792f4801b0b0df0d676f106a7e"
+    },
+    {
+      "date": "2024-04-25",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "fac11cde82810f662a2803f0a67e8e3f7e03b332"
+    },
+    {
+      "date": "2024-04-28",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "e2c6fb1bff2c3310e67d6d92152400f396aa2f4a"
+    },
+    {
+      "date": "2024-04-29",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "3bf8804b7b1d6b4d66ba4f88e3d55d8a10e485a1"
+    },
+    {
+      "date": "2024-04-30",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "396f09061c29d92bca077ee224cab8b529cfdf0c"
+    },
+    {
+      "date": "2024-05-02",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "c4d0564ca2b94fabd34da638e10524519e68ed9f"
+    },
+    {
+      "date": "2024-05-05",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "fb0ec62d5ecb91d11e24fbaa05fe2a7fccb98670"
+    },
+    {
+      "date": "2024-05-06",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "46186e7a33a88068542325156410b00daf8ac008"
+    },
+    {
+      "date": "2024-05-07",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "7e1e6bfbadd7017e44ad7b87650e25bf21bab8cb"
+    },
+    {
+      "date": "2024-05-08",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "59c149c16ba9acdb19efdd005567b91de8373248"
+    },
+    {
+      "date": "2024-05-09",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "e7117864ceed5b8918b5300610f9a1d1bbfa20c1"
+    },
+    {
+      "date": "2024-05-12",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "effe13ed0e8a87345b42f95e6d8cb12b4fa6fadd"
+    },
+    {
+      "date": "2024-05-13",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "295983beb36c125128693801c736e32b2637a074"
+    },
+    {
+      "date": "2024-05-14",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "40107e4613243231916a4eb084578ac6735aae78"
+    },
+    {
+      "date": "2024-05-15",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "b708534cc77d4d0615f24b764b22c7570ff12aad"
+    },
+    {
+      "date": "2024-05-16",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "7d57b0ebc5cfd81f77803a22bc943837fab07ed8"
+    },
+    {
+      "date": "2024-05-19",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "39a949035225ca0c5a1a1a81d62ddb26de968cf3"
+    },
+    {
+      "date": "2024-05-20",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "84783887d759dc6eaa2284afdc4c6ad0be189c7a"
+    },
+    {
+      "date": "2024-05-21",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "62b5e509cdd8a435be94e2e02cd6cddda0bb26a2"
+    },
+    {
+      "date": "2024-05-22",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "2caf3f63929537dbcc2b4493a059a931b9e8971a"
+    },
+    {
+      "date": "2024-05-26",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "6420aad35c426f2cc1c4b635da4acb252a059364"
+    },
+    {
+      "date": "2024-05-27",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "9778e2f3fd56e6ffacdbf70774f6aea069c461ad"
+    },
+    {
+      "date": "2024-05-29",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "54307bf3836f2014ebd286e91bdb1829b8b1bb8a"
+    },
+    {
+      "date": "2024-05-30",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "702ef743964d4af6f4f6f608e92a22cf1e1e7ed6"
+    },
+    {
+      "date": "2024-06-02",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "d901455c9c450fa2106f4bf64f942985a4184f16"
+    },
+    {
+      "date": "2024-06-03",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "d222a5207b0096b325fbbd48464e99261c4e500b"
+    },
+    {
+      "date": "2024-06-04",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "ccbaabdfe2a9ac8dd2468116305804b6451b0a31"
+    },
+    {
+      "date": "2024-06-05",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "e48141d5e4f034b1b287fdd795193b29178f9878"
+    },
+    {
+      "date": "2024-06-06",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "dc19fdce43be4aca0fef9f8c69025d627e6ad3ee"
+    },
+    {
+      "date": "2024-06-09",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "4cb5661ecbca38927db4ec80ee989c46d5df44af"
+    },
+    {
+      "date": "2024-06-10",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "8698ad16dceabee78346d98a06cbae89008006e3"
+    },
+    {
+      "date": "2024-06-11",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "a6579bb938d4798349a0a934ba217ac856cbc3c2"
+    },
+    {
+      "date": "2024-06-12",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "ca76f759a7542b372303940257a020e5d0a953fc"
+    },
+    {
+      "date": "2024-06-13",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "51cb87809b63d51161c9e0ca3442a3137fc2aa6a"
+    },
+    {
+      "date": "2024-06-16",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "fb0a245141008950b030ace2c71f8e94e67b7c5c"
+    },
+    {
+      "date": "2024-06-18",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "4d02bfd967366e982fcc428b40d48dd248dc23f3"
+    },
+    {
+      "date": "2024-06-19",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "2e38bc14f28d0c0afc5b04e15c72b7244d86b9b9"
+    },
+    {
+      "date": "2024-06-20",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "756f2bfbeb7419c9fc8b7024c2e916344ff86686"
+    },
+    {
+      "date": "2024-06-23",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "958e61c9dae8b8c3c6d6cba53425d23e03163892"
+    },
+    {
+      "date": "2024-06-24",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "99bc5942ea0b754cd5ee03f3aca8c679b35c56ff"
+    },
+    {
+      "date": "2024-06-25",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "1334e95d8f78b58f4521c14d448be8949af05a4f"
+    },
+    {
+      "date": "2024-06-26",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "c4384670e6c36cc0fdc939551558d98197db26f2"
+    },
+    {
+      "date": "2024-06-27",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "c8d883963cc54c6556664077b15ed4a420fd0e04"
+    },
+    {
+      "date": "2024-06-30",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "96167c16c2e08875a410196431e0607862540e2a"
+    },
+    {
+      "date": "2024-07-01",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "963ecbf9ff325ef9276334a5cb93bb605a9b192d"
+    },
+    {
+      "date": "2024-07-02",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "1c4a7434dd9c8916af084964accdebfa74eca6a0"
+    },
+    {
+      "date": "2024-07-03",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "d479ee1312982915b8d29fc972975bc132ba92a4"
+    },
+    {
+      "date": "2024-07-04",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "bf829e8b88525a2b3c4f925a2cff3422e24ada7e"
+    },
+    {
+      "date": "2024-07-07",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "ed6c00e3668bd9b4aeb48daddc52b76e5bd291a2"
+    },
+    {
+      "date": "2024-07-08",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "087c8dab839fa92decdd3097864afdb69a94a13e"
+    },
+    {
+      "date": "2024-07-09",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "d5bf7233dd523baa409ca507ba0071f7a6b50fe9"
+    },
+    {
+      "date": "2024-07-10",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "6a7abd1438f9c9737f131382a4104426342a51be"
+    },
+    {
+      "date": "2024-07-11",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "14c6104cf1714706af43ac1bd6133edd79b51c4d"
+    },
+    {
+      "date": "2024-07-14",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "d75d1b63a7962dd77909dc4507f1fd83ad6b535d"
+    },
+    {
+      "date": "2024-07-15",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "6fbed5cba0450623ff302346859944b82fb01e8b"
+    },
+    {
+      "date": "2024-07-16",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "0f381fc4698214d9d111afc694461da433edc191"
+    },
+    {
+      "date": "2024-07-17",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "2a8f947b3b20b61447f5915997c000daec080461"
+    },
+    {
+      "date": "2024-07-18",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "8a532bc49da298e8ccd47adad7058c7638cd6b1d"
+    },
+    {
+      "date": "2024-07-21",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "ef98db0c81c562d2a6063d2c3dc85f9b2d18b8f8"
+    },
+    {
+      "date": "2024-07-22",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "cc195d38d591e39f297e0a0f3074ffb0076c5395"
+    },
+    {
+      "date": "2024-07-23",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "7a4307bca2c4cf32a8f6349d76072837d90591c1"
+    },
+    {
+      "date": "2024-07-24",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "cda80b9ff0f41616c1614b8041f76906ccd9c20f"
+    },
+    {
+      "date": "2024-07-25",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "3bf28d083880fb19c88512cf39a08e7c78518fd1"
+    },
+    {
+      "date": "2024-07-28",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "a2b4846273caad0e006b3026ccef1a9499d6e064"
+    },
+    {
+      "date": "2024-07-29",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "987f145b050ffb3a6d3a72eef2b8231b785f4c35"
+    },
+    {
+      "date": "2024-07-30",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "c0c2907b788a926ed93852dc3e5328f7a4249e72"
+    },
+    {
+      "date": "2024-07-31",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "0b7b69f747368fcfb02640f14c706b8e29a32243"
+    },
+    {
+      "date": "2024-08-01",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "0032dc4cf96fc50a5101866920289c186dc1c0e1"
+    },
+    {
+      "date": "2024-08-05",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "271883ce21bad49f7e6df209a5d22075f196c197"
+    },
+    {
+      "date": "2024-08-06",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "af66205f00b03e30e44c76cdce3dca502e641e6b"
+    },
+    {
+      "date": "2024-08-07",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "e05e596c625b6d776f03bcb3156addfb3f879577"
+    },
+    {
+      "date": "2024-08-08",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "affb09827be9036b69baa29060e0a287b8e030fd"
+    },
+    {
+      "date": "2024-08-11",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "3bea91a98ef8d0c0c08e80cfca0da1222cd7950d"
+    },
+    {
+      "date": "2024-08-12",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "482536c0ccdb3c132a755c5ffe83b248c78b4471"
+    },
+    {
+      "date": "2024-08-13",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "1422ed3163ae39328a94ff1011769bf40f11fe69"
+    },
+    {
+      "date": "2024-08-14",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "247fb434e91b9153fae0de75b3666d7c379b13ab"
+    },
+    {
+      "date": "2024-08-15",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "a3feae6b7d69d9766849685761dc9a5e74731023"
+    },
+    {
+      "date": "2024-08-18",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "9d7ea959394daef0f9498c3557a160b7a6dd4306"
+    },
+    {
+      "date": "2024-08-21",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "32c4d65e47272b9a7ff6ec0c9696d601a2e2d792"
+    },
+    {
+      "date": "2024-08-22",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "422d794bb3cd903cc2730ff29b9611dfacebed4f"
+    },
+    {
+      "date": "2024-08-25",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "ed7cb7721cfaae9a99d7a20f4c9eb5c6ad91ac09"
+    },
+    {
+      "date": "2024-08-27",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "4e81a68dde0b7b28273b3818668990edc62956a5"
+    },
+    {
+      "date": "2024-08-28",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "9fb9744207173bd19105f2c9a26e18ac9758a76e"
+    },
+    {
+      "date": "2024-08-29",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "47df13997b98fd83944f2a2f5ed09b9e842878c0"
+    },
+    {
+      "date": "2024-09-01",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "4b0aa90e83bbf68aed54cab091d551bc6e0129f6"
+    },
+    {
+      "date": "2024-09-02",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "869e14255537bfd82bb2de386f92e8dfaaced384"
+    },
+    {
+      "date": "2024-09-03",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "147a61d9068d4b8a15cd988e625d9966365e08f4"
+    },
+    {
+      "date": "2024-09-04",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "3bc2381494ab2d828360bd3787916b36f1503ff5"
+    },
+    {
+      "date": "2024-09-05",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "025d2747d87ab961fc256d9b4796b33e2c29009a"
+    },
+    {
+      "date": "2024-09-08",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "2310150ac84861cdcc544f2cfb82ac51164a57c1"
+    },
+    {
+      "date": "2024-09-09",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "089d26b7cc8bba9a042a2098539c8123b7187a58"
+    },
+    {
+      "date": "2024-09-10",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "fd3a99ac63504e70c86d543b78a946a521700a57"
+    },
+    {
+      "date": "2024-09-11",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "ab04687161000e496f7bf03e9746bdca166aea1a"
+    },
+    {
+      "date": "2024-09-12",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "0a7f1b56df9b4c63c0d393ed3c2f59d9cd98a066"
+    },
+    {
+      "date": "2024-09-15",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "472671d74cd8a0045cfa19d18f8df99ceb8e0b23"
+    },
+    {
+      "date": "2024-09-16",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "ca380250a009fd66247d41f040af0021ad424121"
+    },
+    {
+      "date": "2024-09-18",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "8ab1f649f5f9aca82ba1df30b92cd14ce256b5b7"
+    },
+    {
+      "date": "2024-09-22",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "1b22c5537e910207b88b0514e89f067632cc2555"
+    },
+    {
+      "date": "2024-09-23",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "3fae9f3079ee81bb458ac487b47e479acdd268e8"
+    },
+    {
+      "date": "2024-09-24",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "0451a5ef4e42cbb9588eabbcf2b9d0d1acb4834a"
+    },
+    {
+      "date": "2024-09-25",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "ade6fc87b000bbbb721be3892af80e3dd7d796cb"
+    },
+    {
+      "date": "2024-09-26",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "85fe2aba0981be4bedbcd95ec76ffb97d05f152e"
+    },
+    {
+      "date": "2024-09-29",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "f491e652f1fe7f9ac4ed89e34adb073fc54cacb1"
+    },
+    {
+      "date": "2024-09-30",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "35c0f62f70e3c18b2a4f5bc3b464ec464c5ed274"
+    },
+    {
+      "date": "2024-10-01",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "a978b5af7470518ee8ef1bd76c98e7e5a0dcd8dd"
+    },
+    {
+      "date": "2024-10-02",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "baf3e468b74a26f525973d1ab8e5d87211422265"
+    },
+    {
+      "date": "2024-10-06",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "17bc7ca9929592354dd463f7a0f6a97deb1f9374"
+    },
+    {
+      "date": "2024-10-07",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "365fa36e837ea0da2afe8dabecf3895220c44944"
+    },
+    {
+      "date": "2024-10-08",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "b5ba40593d2905597ceee5b609849adf327e6010"
+    },
+    {
+      "date": "2024-10-09",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "859a4be3659fc186b7901757a0732b6829ec1c4a"
+    },
+    {
+      "date": "2024-10-15",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "c2e4606e3b6356ee280771ae3076e93617fe00e3"
+    },
+    {
+      "date": "2024-10-16",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "118eef26e369509e5d6f82b822efcde0fc3b76f4"
+    },
+    {
+      "date": "2024-10-17",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "256a0e074927831adc61e11120f75ea335e84404"
+    },
+    {
+      "date": "2024-10-20",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "5f55a4103e9db58f538544bb55398a0e5865cde5"
+    },
+    {
+      "date": "2024-10-21",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "2a6a3c54e6418e15beb98816b905186381acb21c"
+    },
+    {
+      "date": "2024-10-22",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "946ea7463b1ca948c9c9f862af4bfa01c8629a61"
+    },
+    {
+      "date": "2024-10-23",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "fce1683bb924fcdc1bc1b61bb9f3f010c8b9c9d1"
+    },
+    {
+      "date": "2024-10-24",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "e82b96e044414290dcc18ce679e458d845f3d367"
+    },
+    {
+      "date": "2024-10-27",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "61df91da0a9343341f77d3b2aa00a4a3e3c6025f"
+    },
+    {
+      "date": "2024-10-28",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "b2fae8c573f05de085a597ef2cd4b00ac50d3206"
+    },
+    {
+      "date": "2024-10-29",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "34f249d5a14d6019abc24da1931c5a892b01d51d"
+    },
+    {
+      "date": "2024-10-30",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "59de5c612b5bca9a408abd06c7abd83a8f720199"
+    },
+    {
+      "date": "2024-11-05",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "599878dd4cd12344fb1d2cb766ee003aa9892a28"
+    },
+    {
+      "date": "2024-11-06",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "83f2f68876a1e83a8c6cfcc63294b6d4cd61f6cf"
+    },
+    {
+      "date": "2024-11-10",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "fe5f275eeb4b7a17ff11d4bb8e9ea6b02b66d0a2"
+    },
+    {
+      "date": "2024-11-11",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "df17dcdf16f92543dbe0addb5a0684925f5afc80"
+    },
+    {
+      "date": "2024-11-12",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "09d1106a3fbc6fa91e4422509a9e4f7518763180"
+    },
+    {
+      "date": "2024-11-13",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "36bb8015b114341badfd494677dd737d4006a14f"
+    },
+    {
+      "date": "2024-11-14",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "78bde091140672f023b22490339fcf5cdffb9ccd"
+    },
+    {
+      "date": "2024-11-17",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "698c5ee40697c20b492c32562842e3ee3bef3ac9"
+    },
+    {
+      "date": "2024-11-19",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "53edfa9c70a5da0161b1d09bbc23277187a007ca"
+    },
+    {
+      "date": "2024-11-20",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "a91c6f250554fe3edcb9e76f40f9bbe2433d7c63"
+    },
+    {
+      "date": "2024-11-21",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "17c80eaef784b80d37c19230b0727e7770f0d21f"
+    },
+    {
+      "date": "2024-11-24",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "1c813d45eb6953708e8ee4a053323fc6757ff0f8"
+    },
+    {
+      "date": "2024-11-25",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "ccc99806ab10a5e2bb02f5558075068a39cde8a4"
+    },
+    {
+      "date": "2024-11-26",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "f8c2390b4086aad36a20ba7e6a6a08162f957b20"
+    },
+    {
+      "date": "2024-11-27",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "372e177779dc22d24e0d37b1ac71b8dd95493c1d"
+    },
+    {
+      "date": "2024-11-28",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "470ae85a49c661c2ed2c90ec221ea96c8ba3af9e"
+    },
+    {
+      "date": "2024-12-01",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "e37f0ac97e386ee8f9414a182897ad8222585839"
+    },
+    {
+      "date": "2024-12-02",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "fff553467b2ca28a98646a39aeebf4aba2d0f8bd"
+    },
+    {
+      "date": "2024-12-03",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "06ae46d1c33d056adffa375a04ca3e3895345d91"
+    },
+    {
+      "date": "2024-12-04",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "e5679398962badaadb72e5706104328c5bf28a30"
+    },
+    {
+      "date": "2024-12-05",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "15f6c955695d8a77f566d9c070fb0f28c7f85b22"
+    },
+    {
+      "date": "2024-12-08",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "caf55d5aa273f73d7ae68fd06af0fd0023fb4a83"
+    },
+    {
+      "date": "2024-12-09",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "63fbfabc6a723687f033a449e0522a219ea72293"
+    },
+    {
+      "date": "2024-12-10",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "7ca4ab0420114fe23da9d2f2a103a56f2d42965b"
+    },
+    {
+      "date": "2024-12-11",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "aff4695592e4b08665b8205fb0596df6f4928109"
+    },
+    {
+      "date": "2024-12-12",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "3ecc89683da5527d1b74a33f22402c840165b7a6"
+    },
+    {
+      "date": "2024-12-16",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "7a269d7ab89e9dfc2732566ec74a37cbc741c708"
+    },
+    {
+      "date": "2024-12-17",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "5923687838cb75103838442dcebe32c62ec7295c"
+    },
+    {
+      "date": "2024-12-18",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "ad5c949a223ee39833eaf5654e71b5dea9956f05"
+    },
+    {
+      "date": "2024-12-19",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "331f0006552fd6d0f1d57fb534097f3f328f086c"
+    },
+    {
+      "date": "2024-12-22",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "1daa96dc1e375d94684d67bc3ac10ac6959f382a"
+    },
+    {
+      "date": "2024-12-23",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "7e6b94936e6726042912965ae05367468ea1c5dc"
+    },
+    {
+      "date": "2024-12-24",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "78cb4bca7bb51aeb996503c3b7a459303411c1e8"
+    },
+    {
+      "date": "2024-12-26",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "eb6c38032f15c1abefca0046be17e402d655feed"
+    },
+    {
+      "date": "2024-12-29",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "ccf0ad66451d3d0315e5d281949798f4bed3adf2"
+    },
+    {
+      "date": "2024-12-31",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "1446316ca12f82cf853924d1587ced27c9ae928a"
+    },
+    {
+      "date": "2025-01-01",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "d7d5c092e91064f4e483d2d13c1fead8299fd9b6"
+    },
+    {
+      "date": "2025-01-02",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "59cb4e6be7980beb48dfb029d1417aefb844022a"
+    },
+    {
+      "date": "2025-01-05",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "0e26d12bc64bd752691ab40532743b828844733d"
+    },
+    {
+      "date": "2025-01-06",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "6e966f2d8131e886f1ffd9ecd9b0a10ff59a8c45"
+    },
+    {
+      "date": "2025-01-07",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "8b2eea56a27ac754c4b007c96e76c3b07f151699"
+    },
+    {
+      "date": "2025-01-08",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "0c63f4f68bf1f6f4b568e236d2fc2599ef59a0dc"
+    },
+    {
+      "date": "2025-01-09",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "4344549a49a9b990e83c5a366542b8892478ea90"
+    },
+    {
+      "date": "2025-01-12",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "d140371cbdc82e8a6def3272195af6296d8d5f69"
+    },
+    {
+      "date": "2025-01-13",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "3c1142148e98dbaa613acfe76129d0689f49cba9"
+    },
+    {
+      "date": "2025-01-15",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "98a90bc6b2df7354620af199cabaf10c8c61f73e"
+    },
+    {
+      "date": "2025-01-16",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "cd8dcb239eb8ef7c6b5b054eb23572c8af15dd61"
+    },
+    {
+      "date": "2025-01-19",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "bf2eea8ffb53510a80d5908585d1b6f2007f6031"
+    },
+    {
+      "date": "2025-01-20",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "4b2b30152a6b0906c21c7dd4cc0412bf875ff21a"
+    },
+    {
+      "date": "2025-01-21",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "4b4d7a9e1add2c225636a90257997fdadfa301bb"
+    },
+    {
+      "date": "2025-01-22",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "ea2c2ed7be9b5cb3993cdab8c4317d696220b4da"
+    },
+    {
+      "date": "2025-01-23",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "db8a89326fd93f32a673b83fd43211f7d9770ca1"
+    },
+    {
+      "date": "2025-01-26",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "62c54d05828d4a5ce6621755b56361e45fdce206"
+    },
+    {
+      "date": "2025-01-27",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "29b22a8df38d0ee67a9d8ccce2a3abfcceafb160"
+    },
+    {
+      "date": "2025-01-28",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "1a3d8f8f82a6832a7f4e06e173456f2f0a886b6d"
+    },
+    {
+      "date": "2025-02-02",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "5cf9d25e226c6c7b5fa97289d0f29e2b1d99cc4c"
+    },
+    {
+      "date": "2025-02-03",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "d7712331eda1877b6477a021dd4155e896d9dfc1"
+    },
+    {
+      "date": "2025-02-04",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "e7d6e510612c9dd5b984e8754a5621b17aee201c"
+    },
+    {
+      "date": "2025-02-05",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "306b9f948443cbd306e0817b8cbf6c61dd82c0bb"
+    },
+    {
+      "date": "2025-02-06",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "7efae40c6f11f51c3a0a81ca2b3cc58001bcd077"
+    },
+    {
+      "date": "2025-02-09",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "e1567439b8af2ff2ff49453635bb63bcfb823165"
+    },
+    {
+      "date": "2025-02-10",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "8275a312c7f0c8feb3a6c7ee17f8252cb4d0ff11"
+    },
+    {
+      "date": "2025-02-11",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "52db2764ad10f9c73f63968ab9ca70edde942cc2"
+    },
+    {
+      "date": "2025-02-12",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "469aa8d85c4ae9e492ba43f695264af7f689b658"
+    },
+    {
+      "date": "2025-02-13",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "503ea8ed668ce1e98a6ffaa263c90eb12a5d8524"
+    },
+    {
+      "date": "2025-02-16",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "ce2bfcb0cd965fd1d2f50589e056220e6c18623b"
+    },
+    {
+      "date": "2025-02-17",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "29b0219c3082537ca3271f0a9e27d68a310f8223"
+    },
+    {
+      "date": "2025-02-18",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "ab58592694f420c6aa2c566036fcdd75eddad945"
+    },
+    {
+      "date": "2025-02-20",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "9267d466cb76baf631c808d45c62921cc7e104d2"
+    },
+    {
+      "date": "2025-02-23",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "a013cd1c9c18ef53959c9626d03b90ee354cc098"
+    },
+    {
+      "date": "2025-02-24",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "cd8975fa755320cdbbbd7cd5e896306f3bf93d15"
+    },
+    {
+      "date": "2025-02-25",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "cde7683f1b0ceb958b276279bb2d8bf8126d8547"
+    },
+    {
+      "date": "2025-02-27",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "69c79a7c44fe3181542b11b9acbeb8ed28645c6f"
+    },
+    {
+      "date": "2025-03-02",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "a299f9ac1709297db74b71d205c3016a8ffd21fa"
+    },
+    {
+      "date": "2025-03-03",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "a9251ad9579e0b3596825e6c350bbc59fbff5245"
+    },
+    {
+      "date": "2025-03-04",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "f53635b56524ade38f5046662d463bb90e922455"
+    },
+    {
+      "date": "2025-03-05",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "8239ad3a42072244c872c0583b273eefa566193e"
+    },
+    {
+      "date": "2025-03-06",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "eaf101eaf2f2318c400715d9cb140767fa1a587c"
+    },
+    {
+      "date": "2025-03-09",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "2f13d13f3b5d5aced3ef5d86a286e2a8c43b0824"
+    },
+    {
+      "date": "2025-03-10",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "e0cfb923a52c8d6a439a92ce5749ea5449cba19c"
+    },
+    {
+      "date": "2025-03-11",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "d9377c7e74c36e5b8275db824df5ef2082732894"
+    },
+    {
+      "date": "2025-03-12",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "eade4119efc8c7a3afc77eaf9eed1262517ac6e3"
+    },
+    {
+      "date": "2025-03-16",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "64d658f69e4fff587f854bfdf8200c3e57f5bcf2"
+    },
+    {
+      "date": "2025-03-17",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "aa4880d77e9e275b6acbc59674becf4e8904197b"
+    },
+    {
+      "date": "2025-03-18",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "5ca6e4eaf69f14554a01f0b7b8c760755ad40e34"
+    },
+    {
+      "date": "2025-03-19",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "37c17d104ecfd81d06ee63757181a1249424ee45"
+    },
+    {
+      "date": "2025-03-20",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "f5b916b48a3c861dd6f4d196362f6e68fbca7241"
+    },
+    {
+      "date": "2025-03-23",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "f33d06b53ad68e3926d672d986bb5b22d7aab561"
+    },
+    {
+      "date": "2025-03-24",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "31c8933b6b554b3cd3be1803fbce7dfa203bc19d"
+    },
+    {
+      "date": "2025-03-25",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "0fa5625e0af92a9e50e939b52c88d98287673ccd"
+    },
+    {
+      "date": "2025-03-26",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "f4613a1e63b9ecc516bb8df7d44a09bfc7dccf2e"
+    },
+    {
+      "date": "2025-03-27",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "88b41fac78c6c2b6b199181d1ddc7de247456601"
+    },
+    {
+      "date": "2025-03-30",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "6757a40092e5a038f4eae25fe446053b388f4d7b"
+    },
+    {
+      "date": "2025-04-01",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "bb318ffb8f91ff9c3ee28235420c1e8ed65e820d"
+    },
+    {
+      "date": "2025-04-02",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "ec5fc107ff8e792f95ecc735d0ec9c517ef17d86"
+    },
+    {
+      "date": "2025-04-03",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_missing",
+      "secondary_blob": "fdafd48ff0337d09653e88480823d03bdfb236f9"
+    },
+    {
+      "date": "2025-04-07",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "65fe744b8a541f51b3344294156b0004ffbb91ad"
+    },
+    {
+      "date": "2025-04-08",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "3298f963322f4ca4d88ed979193f2eb87073728a"
+    },
+    {
+      "date": "2025-04-09",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "a96a59d2fca340e8eb9dc98d7f0510e089dc7732"
+    },
+    {
+      "date": "2025-04-10",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "7185ee8ecd0cd94e57e7745cdb6fe690d5d0ec52"
+    },
+    {
+      "date": "2025-04-13",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "a8b4f8a5204df9e8f03f600c6731e6c6e7654a1f"
+    },
+    {
+      "date": "2025-04-15",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "52a632582660a092c37ee08b1e6fee19226f02a7"
+    },
+    {
+      "date": "2025-04-16",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "42cbd5cb7a002dd403d77c2b7b37c68a0dda3447"
+    },
+    {
+      "date": "2025-04-17",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "d6027e240eb404c9c1b69a61a2cab369af76c192"
+    },
+    {
+      "date": "2025-04-20",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "2d228be66112564747c37b789ef755ac3848de6c"
+    },
+    {
+      "date": "2025-04-21",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "c734ad111139d93aeedea8479391cc26019a315f"
+    },
+    {
+      "date": "2025-04-22",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "b40160133da1a56bc41be30b932c07c461b71078"
+    },
+    {
+      "date": "2025-04-23",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "f1a6808dcaa5800423b4cdcf9aa9ae21bb69f673"
+    },
+    {
+      "date": "2025-04-24",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "2379662e7f655e5518b444aa11c973e54fcc91b1"
+    },
+    {
+      "date": "2025-04-27",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "3eb2c3fe4882b0de63d7ffce0d8a2fe4399b7a4e"
+    },
+    {
+      "date": "2025-04-28",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "67c6a37a7e2a002e5270fca07fa80cc2482b1922"
+    },
+    {
+      "date": "2025-04-29",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "d326a6644c7a356309c40009acdcb58fd37ce8bb"
+    },
+    {
+      "date": "2025-04-30",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "d99185a3a49325be13f435dfe6633741e596417d"
+    },
+    {
+      "date": "2025-05-04",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "f6d83bec46f60551578619cd6d51cbb654170777"
+    },
+    {
+      "date": "2025-05-05",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "fd9c3e70cef659db19c5c54764fa74902e67438a"
+    },
+    {
+      "date": "2025-05-06",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "ce53236cb6e35e04994d517a7012b949e3d856e6"
+    },
+    {
+      "date": "2025-05-07",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "d6a9550e24c0c305496bf93fa62be5a070e0a328"
+    },
+    {
+      "date": "2025-05-08",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "dd0c060c535c7e9611886e45a6ca8aa7774b4127"
+    },
+    {
+      "date": "2025-05-11",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "f0f7cd152dafcbdeec104f3f0a2888fb7e8f148f"
+    },
+    {
+      "date": "2025-05-13",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "4990b04a7fc1a93759745bb67daa29ea36778023"
+    },
+    {
+      "date": "2025-05-14",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "8ee7d0f69c6f2c92edcdea71512284e3cbc5d6ac"
+    },
+    {
+      "date": "2025-05-15",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "8a29d4c40e389c632beb8546ef2e166b308590a9"
+    },
+    {
+      "date": "2025-05-18",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "24ab5fd13752436649e42803d08364fda69bfa4e"
+    },
+    {
+      "date": "2025-05-19",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "2a9e6e5541994f2fd678dc271bbb1bc33eddb34a"
+    },
+    {
+      "date": "2025-05-20",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "9181b7973f6339037f91022c8f8def5f55ddd1d2"
+    },
+    {
+      "date": "2025-05-21",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "5e8266633770e2b868fe6d028821b1d46d41a2e6"
+    },
+    {
+      "date": "2025-05-22",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "6795bceb3d6de5f90745dae0f4acf9e3388c6992"
+    },
+    {
+      "date": "2025-05-25",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "67c1a2c2b49c1ef4ebd83e20863572c79e09751b"
+    },
+    {
+      "date": "2025-05-26",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "82f4d806ca4caf10bb1a8c344d7d11e91f345952"
+    },
+    {
+      "date": "2025-05-27",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "7eba04a63b9e71ddb4081dc9b580aaa84b54c3a9"
+    },
+    {
+      "date": "2025-05-28",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "232cc96cbe9c24ac2b274f6da460711a8e4eb72b"
+    },
+    {
+      "date": "2025-06-02",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "9a5452e813964258a69d15bcc02f7447608b9d5a"
+    },
+    {
+      "date": "2025-06-03",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "31d99082d44865dedbfb009638d3107995990344"
+    },
+    {
+      "date": "2025-06-04",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "b64da890d01682452b8426d85ed6591b050126bb"
+    },
+    {
+      "date": "2025-06-05",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "56c7ab4c119a5ac55945c4b290b879d050da2da9"
+    },
+    {
+      "date": "2025-06-08",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "9c16cff06dffe9ba3de01494b410b72f1312cff0"
+    },
+    {
+      "date": "2025-06-09",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "22dd217f7c3b122e7e243c871e246ed6c882a29a"
+    },
+    {
+      "date": "2025-06-10",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "5291671b76bae98dda13026a24df61263d2b2920"
+    },
+    {
+      "date": "2025-06-11",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "4decf99ed6d2afd3f491684dda7c01176590648c"
+    },
+    {
+      "date": "2025-06-12",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "e0a99347a1fea524ba0f38e31a848e2a38c1a1d9"
+    },
+    {
+      "date": "2025-06-15",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "2e27afa03db59394ae8ff58f13c3642fef7dbf03"
+    },
+    {
+      "date": "2025-06-16",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "a0d2f46bca2727878bf20dc324eae2da8badae88"
+    },
+    {
+      "date": "2025-06-17",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "7f35ffe19163a37aa82c6b71711d0b0890dbacf9"
+    },
+    {
+      "date": "2025-06-18",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "16ec35a4ee6f7d03e83f9a24f5d64f2ce76c7ec6"
+    },
+    {
+      "date": "2025-06-19",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "99fdfa6a77389f3cfae2ca8d6ee88022b6b50875"
+    },
+    {
+      "date": "2025-06-22",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "9140411883d1fc7f47bd1830b6e9ae72231e0e81"
+    },
+    {
+      "date": "2025-06-23",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "e9034ed8dad98b0346210dcbea9906f05fdee084"
+    },
+    {
+      "date": "2025-06-24",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "0e15bcc4518cf3566ec15318bd557d915bff6dc8"
+    },
+    {
+      "date": "2025-06-25",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "1521ae0594c2d809b08b3edb9ccc444071ec49e0"
+    },
+    {
+      "date": "2025-06-26",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "ef348e16cbf070142373fbd31f326fa17c22fea6"
+    },
+    {
+      "date": "2025-06-29",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "a56c172736bdb66e49b38f1f715237c4702e0c0e"
+    },
+    {
+      "date": "2025-06-30",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "a4a819f4ca7d086b8c16698a86359c3975f09372"
+    },
+    {
+      "date": "2025-07-01",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "675d78f6ebf29c52aef0a027aec6118823b612a1"
+    },
+    {
+      "date": "2025-07-02",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "757230c2d7e549f1003869c2ce812fcb99c727da"
+    },
+    {
+      "date": "2025-07-03",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "ebe32f921607a90f4da921d46048dd8af5507442"
+    },
+    {
+      "date": "2025-07-06",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "8baa6d598c697b380defe50cd5fecf6766ef2dd6"
+    },
+    {
+      "date": "2025-07-07",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "6a6340fec4c85f035d3e8df7516c1521c718488c"
+    },
+    {
+      "date": "2025-07-08",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "1458a34c56c50e557f44b790656c6047de5948e1"
+    },
+    {
+      "date": "2025-07-09",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "b302702eb0ce0e8cbb2494efe82885da4a7f3ba5"
+    },
+    {
+      "date": "2025-07-10",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "0ce2552451abb908335593c7cdfe3896900d234c"
+    },
+    {
+      "date": "2025-07-13",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "8af2b38e6366558ec7529c925bc9a5a78e26f3e1"
+    },
+    {
+      "date": "2025-07-14",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "a5fc318d876633ac8028c6571cc03d6692e5514f"
+    },
+    {
+      "date": "2025-07-15",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "329d63d687ade7959f3abb0514ad1e3e55206a09"
+    },
+    {
+      "date": "2025-07-16",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "d9685092049ccec4c8aee258342a65d9289d45f2"
+    },
+    {
+      "date": "2025-07-17",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "610c56194d8bcce08f3a20c9c085272bb29c8109"
+    },
+    {
+      "date": "2025-07-20",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "50752669e6abfb49359703172cc03dab11ab1c5c"
+    },
+    {
+      "date": "2025-07-21",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "584e03b0d1ab5fc87dd3752f49ba22f422ac854d"
+    },
+    {
+      "date": "2025-07-22",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "706c1d734fc30b947ec13b76f737d497fd3bdbd4"
+    },
+    {
+      "date": "2025-07-23",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "fba4fb9ea44cdeb5fbad866178d4502042a3a996"
+    },
+    {
+      "date": "2025-07-24",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "a2b680589efb3cf0bf54c059ad9c0b072b0f188f"
+    },
+    {
+      "date": "2025-07-27",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "0f6922d1b08ca3d6cc347a147d10757467cc3474"
+    },
+    {
+      "date": "2025-07-28",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "329146bbdb0ef66722933f8aba0542c7e4ec78f8"
+    },
+    {
+      "date": "2025-07-29",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "e712561bcd8357dc031afc44e49e057b3d4572b1"
+    },
+    {
+      "date": "2025-07-30",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "dcfe698cc0ee884296919abf8841989e2b48234d"
+    },
+    {
+      "date": "2025-07-31",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "1daa06e8a4595894f831312594b057f1ba66bb07"
+    },
+    {
+      "date": "2025-08-03",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "04333e1554d83a267ad51a929e98e3b8d6ef624b"
+    },
+    {
+      "date": "2025-08-04",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "712efb3f9fb2e90e984541fdcce6dc42cc8e13ee"
+    },
+    {
+      "date": "2025-08-05",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "bd786a392c93996a77b9f16831e3bbd9ff00ec1c"
+    },
+    {
+      "date": "2025-08-06",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "e9bba08226f2fa37c58dafda5f5123484f0409f2"
+    },
+    {
+      "date": "2025-08-07",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "b2c6b13a29e1672e48a6b889add59179bd99b84b"
+    },
+    {
+      "date": "2025-08-11",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "803f8cf2f4960eb8df86e0402eaa039da0ac7129"
+    },
+    {
+      "date": "2025-08-12",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "d893905a611807df95c12d1160dab952d09b6e07"
+    },
+    {
+      "date": "2025-08-13",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "08101d4cca03cffc41f239586488413b5b191c56"
+    },
+    {
+      "date": "2025-08-14",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "d7a494f842debcbe8ebe0184fe22f317b72f0910"
+    },
+    {
+      "date": "2025-08-17",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "aa9131d42705296b5669efd3d7268bde21ec16cc"
+    },
+    {
+      "date": "2025-08-18",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "d1d51d76a4797102fa2286a139616e5641bdd84e"
+    },
+    {
+      "date": "2025-08-19",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "60c2c55562b442639b3c083df0f5893bbf46c8ee"
+    },
+    {
+      "date": "2025-08-20",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "b650325baf702f9fe847f1c901482268ca835eee"
+    },
+    {
+      "date": "2025-08-21",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "1fdee40800ceecf35ed086ed69fd33754f39352d"
+    },
+    {
+      "date": "2025-08-24",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "70c89d6cd294673de15e2637dd78cc37aecb6493"
+    },
+    {
+      "date": "2025-08-25",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "dba01e17962e6a3e40db9ba36aa9a9cc1e5b8ef0"
+    },
+    {
+      "date": "2025-08-26",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "aa3c412de7ba4d803e2770a57833f3c673a760fc"
+    },
+    {
+      "date": "2025-08-27",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "0e2bafa7e5462453fdd7ffb1198a26f39ffcc241"
+    },
+    {
+      "date": "2025-08-28",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "df6579174996d9bbffbf1d75acd65033f6e6f7d2"
+    },
+    {
+      "date": "2025-08-31",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "e8a8cc1330565e5f8f71db24d250792849f9a243"
+    },
+    {
+      "date": "2025-09-01",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "469d23516a1a60d81862e96e5a5c3ea5d522fead"
+    },
+    {
+      "date": "2025-09-02",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "d60514d275d7f0dcad99ed375015d50281b10c98"
+    },
+    {
+      "date": "2025-09-03",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "8afcdbb82f801097831f6eacc6f4bee9b21a4b6b"
+    },
+    {
+      "date": "2025-09-04",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "ccd9f44fc7489684cd0fb30b96c08ff5d8b45f2c"
+    },
+    {
+      "date": "2025-09-07",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "588de6b4a5c9760561bcb904a884df6f572a08af"
+    },
+    {
+      "date": "2025-09-08",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "930a91f81afe92cb8566d9b0b8d9f185858af431"
+    },
+    {
+      "date": "2025-09-18",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "e2cf49f4b56fe3778569994900379cfd62e70cd8"
+    },
+    {
+      "date": "2025-09-21",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "53c7741554c82cb6d46c12326d83e7a258bb9aa4"
+    },
+    {
+      "date": "2025-09-23",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "c6fb8224c93ffe7c2f55f18f63b9319d9e3ac01a"
+    },
+    {
+      "date": "2025-09-24",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "f033bfc817ec87677d567f0d507e32208e986907"
+    },
+    {
+      "date": "2025-09-25",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "84665e2c766a70ab3a2a63bd96b9ab2d0ee8ba49"
+    },
+    {
+      "date": "2025-09-28",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "1de267ccdb5593d452092db46b2528327fbed46e"
+    },
+    {
+      "date": "2025-10-07",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "a6fbef45b81a4cffa604e072de3d8f8c98afb6ea"
+    },
+    {
+      "date": "2025-10-08",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "4c295b66409c6abbd95e6c0218368fbce91fc046"
+    },
+    {
+      "date": "2025-10-09",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "9b43efc0f91fb0a8ea45507c64b1136d9fb23fd6"
+    },
+    {
+      "date": "2025-10-12",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "a2ef4ec4eb4baea3e072cc3099a7d1b990c930af"
+    },
+    {
+      "date": "2025-10-13",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "e56ba74d4b4a6229f11d36d212878f40bf4aab70"
+    },
+    {
+      "date": "2025-10-14",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "ba4e313f34fcedccbd9f1aeb9f430a4f26bd6b7b"
+    },
+    {
+      "date": "2025-10-15",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "a594a5c8ef3666dde8fcd3387b80411b939f05ec"
+    },
+    {
+      "date": "2025-10-16",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "95edf6b22c1109665267313655e72c30ff02a24d"
+    },
+    {
+      "date": "2025-10-19",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "8f2ca0c2c9dd443ffe6139dc8ff46abeaa730741"
+    },
+    {
+      "date": "2025-10-26",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "4668130bd6bec976f9ba6f6637c561484c1af67c"
+    },
+    {
+      "date": "2025-10-28",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "115011217c20299618a1685c1f25f6d8fd61e94e"
+    },
+    {
+      "date": "2025-10-29",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "67fa41313500fb6163bd403801fcf7ebd6e49096"
+    },
+    {
+      "date": "2025-10-30",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "5e175124050d9b540c5f797ee0283db210015b78"
+    },
+    {
+      "date": "2025-11-02",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "f3e2cd092fb75444d6d3d48d708b49830944e264"
+    },
+    {
+      "date": "2025-11-03",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "490b1eb0826a605011e5810f18360c1539a9af67"
+    },
+    {
+      "date": "2025-11-04",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "b1d7e774a4f029abacef57043ba5bd97e25db597"
+    },
+    {
+      "date": "2025-11-05",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "e2c5fd686b084d7a8e247f8e64ac4f5c14e363bd"
+    },
+    {
+      "date": "2025-11-06",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "b84f75a2c9d10a8eff789e6bc2e31f2a8daf58de"
+    },
+    {
+      "date": "2025-11-09",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "43f398a2bc57fe6a495e7e1e081b46c7db0cfba7"
+    },
+    {
+      "date": "2025-11-10",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "6b4d5ada403ffdc7d8521488ca175d7a50583b54"
+    },
+    {
+      "date": "2025-11-11",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "394e3d3dfe005afc70969f1b7c72a7878a82b9a4"
+    },
+    {
+      "date": "2025-11-12",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "fe5823ce892730f9cea2f5417210ee313ae53f43"
+    },
+    {
+      "date": "2025-11-13",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "096a6a185ea7cccf5607b21852d7d06e1ce74fd4"
+    },
+    {
+      "date": "2025-11-16",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "b2383cd4b5bc07b17144d1065ace907106e7ee77"
+    },
+    {
+      "date": "2025-11-17",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "261c09ebb4c79022627cdfe6e56355abe022d7e5"
+    },
+    {
+      "date": "2025-11-18",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "addfb46d60f9a64e3515e55e2ff0c37aa5fc6991"
+    },
+    {
+      "date": "2025-11-19",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "6d29ba05d38084f88ea2fc75927d7c8c81fe9b45"
+    },
+    {
+      "date": "2025-11-20",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "e2c3da0c06d5377accda5b8ba6055b8ab7acd041"
+    },
+    {
+      "date": "2025-11-23",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "4fb28cc71cbfada679fc85de2a0e8b734b841a51"
+    },
+    {
+      "date": "2025-11-24",
+      "status": "SECONDARY_OPEN_CANDIDATE",
+      "index_status": "index_file_found",
+      "secondary_blob": "9a42b960f431e7359b81cbdf64a71bdc3836d75c"
+    },
+    {
+      "date": "2026-11-26",
+      "status": "UNRESOLVED_SCHEDULE_OPEN_CANDIDATE",
+      "index_status": null,
+      "secondary_blob": null
+    }
+  ],
+  "limitations": [
+    "Schedule hints are not verified closures.",
+    "Sample report dates are not independently raw-validated positive trades.",
+    "File presence does not certify completeness.",
+    "No runtime promotion."
+  ]
+}

@@ -14,14 +14,37 @@
     "uncovered_source_date_keys": 23377,
     "uncovered_repeat_review_symbols": 203,
     "symbols_in_global_repeat_findings_but_not_review_queue": [
-      "MMFDB", "NFSPO", "NIFRAP", "NLBBL", "NRICP", "SFCLP"
+      "MMFDB",
+      "NFSPO",
+      "NIFRAP",
+      "NLBBL",
+      "NRICP",
+      "SFCLP"
     ]
   },
-  "date_range": {"first": "2024-03-06", "last": "2026-11-20"},
+  "date_range": {
+    "first": "2024-03-06",
+    "last": "2026-11-20"
+  },
   "interpretation": "Coverage gap in the strict equity security/date source-lineage table only; absence from that table is not proof that no other evidence exists.",
   "disposition": "HOLD_UNKNOWN_NO_INFERENCE",
   "promotion_allowed": false,
   "no_mutations": true,
   "symbol_summary_sha256": "d3914145f593880421668b9d9d42b20816a90991ef01369705b4a6e87a928aab",
-  "detailed_crosswalk_sha256": "02bfac1e92101d2615220492797abdbeabcc10834563900d5584a9b670940503"
+  "detailed_crosswalk_sha256": "02bfac1e92101d2615220492797abdbeabcc10834563900d5584a9b670940503",
+  "current_equity_manifest_crosscheck": {
+    "source_repository": "jaljala044/nepse-elite-ai-scanner-pro",
+    "source_commit": "470dcf63c6f5b74e01a0aa5a238a485f594e3e95",
+    "source_path": "data/reference/nepse_active_equity_manifest_2026-11-26.csv",
+    "source_blob_sha": "56bdb41c7307870ad755ceb24fc32b5340fee137",
+    "manifest_rows": 281,
+    "uncovered_symbols_matched": 3,
+    "matched_symbols": [
+      "NESDO",
+      "ULBSL",
+      "YMHL"
+    ],
+    "uncovered_symbols_not_matched": 206,
+    "limitation": "Third-party current active-equity snapshot only; non-match does not establish non-equity, inactive status, delisting, alias, or historical identity."
+  }
 }

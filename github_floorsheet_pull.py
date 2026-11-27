@@ -52,7 +52,7 @@ def extract_trading_date(page_text: str, cleaned_rows: list[list[str]], fallback
     return fallback_date
 
 
-def fetch_floorsheet(overlay):
+def fetch_floorsheet(overlay, controls):
     load_holds(overlay)  # Fail before network collection if evidence is unavailable.
     reached_end = False
     all_rows = []
@@ -151,11 +151,16 @@ def fetch_floorsheet(overlay):
     os.makedirs("floorsheet", exist_ok=True)
     filepath = f"floorsheet/floorsheet_{file_date}.csv"
     raw = df.to_csv(index=False).encode("utf-8")
-    result = publish_daily_floorsheet(raw, file_date, Path(filepath), overlay)
+    controls = Path(controls)
+    result = publish_daily_floorsheet(raw, file_date, Path(filepath), overlay,
+                                     control_path=controls / f'{file_date}.json',
+                                     evidence_path=controls / f'{file_date}.evidence.json')
     print(f"{result}: {len(cleaned_rows)} rows at {filepath}")
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--quarantine-overlay', type=Path, required=True)
-    fetch_floorsheet(parser.parse_args().quarantine_overlay)
+    parser.add_argument('--session-controls', type=Path, required=True)
+    args = parser.parse_args()
+    fetch_floorsheet(args.quarantine_overlay, args.session_controls)

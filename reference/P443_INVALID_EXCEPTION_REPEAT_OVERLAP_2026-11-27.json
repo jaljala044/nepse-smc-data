@@ -1,0 +1,64 @@
+{
+  "task": "P4.43 exact overlap reconciliation: invalid OHLCV exception register vs repeated OHLCV findings",
+  "pinned_commit": "56362fb4f65b91fdcca8f50b50e53ad80e703649",
+  "source_artifacts": {
+    "global_findings": "pinned global scan artifact 15167662985; global_findings.csv",
+    "strict_exception_join": "pinned strict audit artifact 15167263877; exception_join.csv"
+  },
+  "totals": {
+    "invalid_ohlcv_flags": 1331,
+    "exact_equity_exception_register_matches": 1329,
+    "non_equity_exceptions": 2,
+    "consecutive_identical_pair_findings": 94543,
+    "exception_rows_that_are_repeat_pair_endpoints": 4,
+    "distinct_consecutive_repeat_pairs_with_both_endpoints_in_exception_register": 2,
+    "repeat_findings_current_rows_also_in_exception_register": 2,
+    "exact_repeated_ohlcv_findings_current_rows_also_in_exception_register": 2
+  },
+  "pairs": [
+    {
+      "symbol": "AHPC",
+      "previous_date": "2011-06-19",
+      "current_date": "2011-06-20",
+      "source_blob_sha": "8adf41de96954d38e42f6353cb24a105d3e51082",
+      "previous_row": 303,
+      "current_row": 304,
+      "ohlcv": [
+        "319.0",
+        "325.0",
+        "325.0",
+        "325.0",
+        "16.0"
+      ],
+      "invalid_reason": "OPEN_OUTSIDE_RANGE"
+    },
+    {
+      "symbol": "API",
+      "previous_date": "2016-09-03",
+      "current_date": "2016-09-04",
+      "source_blob_sha": "d29d0442bac03704a80c25c87f23ba97515a9135",
+      "previous_row": 190,
+      "current_row": 191,
+      "ohlcv": [
+        "605.0",
+        "647.0",
+        "617.0",
+        "630.0",
+        "4512.0"
+      ],
+      "invalid_reason": "OPEN_OUTSIDE_RANGE"
+    }
+  ],
+  "method": "Exact join of strict exception_join rows to global findings using source path and physical row number; consecutive-pair keys also checked against symbol/date endpoints. The global findings file emits the repeated-pair finding on the current endpoint row, while the prior endpoint is preserved as related_line.",
+  "disposition": "HOLD_UNRESOLVED_NO_CORRECTION_NO_DEDUPLICATION",
+  "interpretation": "Two existing invalid OHLCV exception pairs are also counted in the consecutive-repeat audit. These are overlapping findings, not four additional unique data defects. Identical invalid tuples across adjacent rows do not establish duplicated trades or a correct price.",
+  "mutation": {
+    "raw_changed": false,
+    "canonical_changed": false,
+    "rows_deleted": 0,
+    "rows_shifted": 0,
+    "rows_corrected": 0,
+    "rows_deduplicated": 0,
+    "promotions": 0
+  }
+}

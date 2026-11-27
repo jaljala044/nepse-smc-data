@@ -1,0 +1,22 @@
+name: P443 publication gate
+on:
+  push:
+    paths:
+      - 'scanner_inputs/canonical_publication.py'
+      - 'scanner_inputs/retrieve_quarantine_overlay.py'
+      - 'github_floorsheet_pull.py'
+      - 'test_p443_canonical_publication.py'
+      - '.github/workflows/p443-publication-gate.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest test_p443_canonical_publication test_p443_historical_quarantine test_p443_scanner_quarantine -v
+      - run: python -m py_compile github_floorsheet_pull.py

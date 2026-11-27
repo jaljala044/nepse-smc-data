@@ -1,0 +1,154 @@
+{
+  "source": {
+    "repo": "Bibek773/nepse_historical_data",
+    "ref": "679c7bc10049772865f2a430b1f285d26e528f79",
+    "blob": "ebf26bdf271b30368ebd50d85d888f36c675d7a0",
+    "path": "data/index/NEPSE_2025_12_24_.csv"
+  },
+  "rows": [
+    {
+      "date": "2024-03-10",
+      "symbol": "NEPSE",
+      "open": "2032.58",
+      "high": "2061.2",
+      "low": "2032.58",
+      "close": "2052.65",
+      "volume": "2922771558",
+      "bounds_valid": true,
+      "promotion_allowed": false
+    },
+    {
+      "date": "2024-03-14",
+      "symbol": "NEPSE",
+      "open": "2110.55",
+      "high": "2110.55",
+      "low": "2074.05",
+      "close": "2080.87",
+      "volume": "3943592302",
+      "bounds_valid": true,
+      "promotion_allowed": false
+    },
+    {
+      "date": "2024-04-16",
+      "symbol": "NEPSE",
+      "open": "2004.97",
+      "high": "2004.96",
+      "low": "1988.19",
+      "close": "1991.71",
+      "volume": "2103019218",
+      "bounds_valid": false,
+      "promotion_allowed": false
+    },
+    {
+      "date": "2024-04-29",
+      "symbol": "NEPSE",
+      "open": "1990.32",
+      "high": "1990.31",
+      "low": "1974.52",
+      "close": "1980.34",
+      "volume": "2959458501",
+      "bounds_valid": false,
+      "promotion_allowed": false
+    },
+    {
+      "date": "2024-09-12",
+      "symbol": "NEPSE",
+      "open": "2625.46",
+      "high": "2688.55",
+      "low": "2604.83",
+      "close": "2688.53",
+      "volume": "8169274612",
+      "bounds_valid": true,
+      "promotion_allowed": false
+    },
+    {
+      "date": "2025-04-03",
+      "symbol": "NEPSE",
+      "open": "2700.23",
+      "high": "2732.85",
+      "low": "2700.23",
+      "close": "2703.39",
+      "volume": "7844642487",
+      "bounds_valid": true,
+      "promotion_allowed": false
+    },
+    {
+      "date": "2025-04-23",
+      "symbol": "NEPSE",
+      "open": "2687.68",
+      "high": "2687.68",
+      "low": "2653.74",
+      "close": "2655.94",
+      "volume": "7575517246",
+      "bounds_valid": true,
+      "promotion_allowed": false
+    },
+    {
+      "date": "2025-07-29",
+      "symbol": "NEPSE",
+      "open": "2976.0",
+      "high": "3028.79",
+      "low": "2976.0",
+      "close": "3002.07",
+      "volume": "18529322885",
+      "bounds_valid": true,
+      "promotion_allowed": false
+    },
+    {
+      "date": "2025-08-12",
+      "symbol": "NEPSE",
+      "open": "2824.0",
+      "high": "2828.57",
+      "low": "2796.24",
+      "close": "2796.24",
+      "volume": "6918983507",
+      "bounds_valid": true,
+      "promotion_allowed": false
+    },
+    {
+      "date": "2025-08-17",
+      "symbol": "NEPSE",
+      "open": "2789.85",
+      "high": "2803.25",
+      "low": "2761.22",
+      "close": "2761.22",
+      "volume": "7735195094",
+      "bounds_valid": true,
+      "promotion_allowed": false
+    },
+    {
+      "date": "2025-09-18",
+      "symbol": "NEPSE",
+      "open": "2637.97",
+      "high": "2637.97",
+      "low": "2511.91",
+      "close": "2511.91",
+      "volume": "728702830",
+      "bounds_valid": true,
+      "promotion_allowed": false
+    },
+    {
+      "date": "2025-11-23",
+      "symbol": "NEPSE",
+      "open": "2562.34",
+      "high": "2600.93",
+      "low": "2562.34",
+      "close": "2600.22",
+      "volume": "6286733916",
+      "bounds_valid": true,
+      "promotion_allowed": false
+    },
+    {
+      "date": "2025-11-24",
+      "symbol": "NEPSE",
+      "open": "2601.2",
+      "high": "2650.66",
+      "low": "2601.11",
+      "close": "2650.66",
+      "volume": "7035480136",
+      "bounds_valid": true,
+      "promotion_allowed": false
+    }
+  ],
+  "limitations": "Secondary source; upstream lineage not established. No promotion."
+}

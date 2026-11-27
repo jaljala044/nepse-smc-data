@@ -11,14 +11,16 @@ All 209 uncovered repeat-finding symbols were cross-checked against four dated r
 | Measure | Count |
 |---|---:|
 | Symbols assessed | 209 |
-| Current snapshot matches | 175 |
-| No current snapshot match | 34 |
+| Current snapshot matches before filename decoding | 175 |
+| Additional exact decoded filename-to-snapshot matches | 8 |
+| Current snapshot matches after decoding | 183 |
+| No current snapshot match after decoding | 26 |
 | Target-candidate registry classifies as Mutual Fund | 39 |
 | Current equity-crosswalk matches | 3 |
-| Snapshot-name debenture/bond candidates | 61 |
+| Snapshot-name debenture/bond candidates, including decoded matches | 69 |
 | Snapshot-name promoter-share candidates | 62 |
 | Other snapshot records requiring class review | 10 |
-| Unmatched-review rows | 34 (26 unresolved historical identity; 8 filename-encoding candidates) |
+| Unmatched-review rows | 34 before filename decoding (26 still absent from current snapshot; 8 now exact decoded matches) |
 
 Snapshot status among matches: 172 `A`, 3 `S`.
 
@@ -44,9 +46,16 @@ The row-level CSV preserves each source's symbol, candidate ID, snapshot ID/stat
 
 ## Historical identity evidence overlap for the 34 snapshot-unmatched symbols
 
-A further comparison against the existing Priority 97 historical-identity evidence JSON (external blob `589f4ac19451f3faecee41727b44fc62cdeeb818`) found records for **26 of the 34** symbols absent from the current security snapshot. The 26 existing records cover 17 equity, 6 mutual-fund, 10 debenture, and 3 promoter-share records in the source evidence dataset overall; for the 26 matched symbols specifically, the CSV records preserve their instrument classes and event notes. The eight without a matching Priority 97 record are: `GBILD84~2F85`, `GBILD86~2F87`, `MND84~2F85`, `NICAD85~2F86`, `NIFRAUR85~2F86`, `NMBD87~2F88`, `NMBD89~2F90`, `NMBUR93~2F94`.
+A further comparison against the existing Priority 97 historical-identity evidence JSON (external blob `589f4ac19451f3faecee41727b44fc62cdeeb818`) found records for **26 of the 34** symbols absent from the current security snapshot. The 26 existing records cover 17 equity, 6 mutual-fund, 10 debenture, and 3 promoter-share records in the source evidence dataset overall; for the 26 matched symbols specifically, the CSV records preserve their instrument classes and event notes. The eight without a matching Priority 97 historical record are now resolved as current-snapshot filename-decoding matches only; their historical IDs and lifecycle dates remain unverified.
 
 These records include secondary-source merger, maturity, redemption, delisting and ticker-identity evidence. They do not resolve historical stable IDs or exchange-certified effective trading intervals: all matched records retain `stable_id=null` and `effective_date_verified=false`. Corporate joint-transaction dates and reported last-trade dates must not be treated as the same boundary. No OHLCV rows were spliced or altered.
+
+
+
+## Filename-encoding identity review — 2026-11-27
+The eight slash-encoded historical filenames were decoded and cross-checked against the pinned 2026-11-25 security snapshot (scanner repository commit `5a8768828d58bdcebb82393262726d1d030b7ec4`, snapshot blob `ed548857eb550fbb237910eb903fc202751c63a1`). All **8/8** decoded symbols and candidate security IDs match exact snapshot rows, all status `A`; display names identify debentures/bonds. All eight legacy OHLCV files were fetched at pinned base `56362fb4f65b91fdcca8f50b50e53ad80e703649`, comprising 2,214 rows. The row-level mapping and source blob SHAs are in `P443_FILENAME_ENCODING_IDENTITY_REVIEW_2026-11-27.csv`. The snapshot marks `ohlcv_file_present=no` for these securities, while the historical archive has files; these are different coverage indicators and are not conflated.
+
+This resolves filename decoding/current-snapshot matching only. No Priority 97 historical identity record matched these eight; historical security-ID continuity, lifecycle dates and exchange-certified trading boundaries remain UNKNOWN. No stable IDs, aliases, or validity intervals were promoted; no OHLCV changes or promotions occurred.
 
 ## Limits and disposition
 

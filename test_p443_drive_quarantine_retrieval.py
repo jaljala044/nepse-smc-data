@@ -61,13 +61,18 @@ class DriveRetrievalTests(unittest.TestCase):
         }
 
     def test_output_created_only_after_full_quarantine_validation(self):
+        validated_bytes = []
+        def validate_before_publish(path):
+            validated_bytes.append(path.read_bytes())
+            return {("ABC", "2026-01-01"): "HOLD"}
+
         with patch.dict(sys.modules, self.modules), \
              patch.object(retrieve, "EXPECTED_BYTES", 7), \
-             patch.object(retrieve, "load_holds", return_value={("ABC", "2026-01-01"): "HOLD"}) as validate:
+             patch.object(retrieve, "load_holds", side_effect=validate_before_publish) as validate:
             retrieve.retrieve(self.output)
         self.assertEqual(self.output.read_bytes(), b"overlay")
         validate.assert_called_once()
-        self.assertEqual(validate.call_args.args[0].read_bytes(), b"overlay")
+        self.assertEqual(validated_bytes, [b"overlay"])
         self.auth.default.assert_called_once_with(scopes=["https://www.googleapis.com/auth/drive.readonly"])
         self.assertEqual(self.session.request[1]["allow_redirects"], False)
 

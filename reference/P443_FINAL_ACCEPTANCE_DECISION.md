@@ -79,3 +79,13 @@ Decision: audit review and tested contract foundation delivered; historical corr
 The eight slash-encoded historical filenames were decoded and cross-checked against the pinned 2026-11-25 security snapshot (scanner repository commit `5a8768828d58bdcebb82393262726d1d030b7ec4`, snapshot blob `ed548857eb550fbb237910eb903fc202751c63a1`). All **8/8** decoded symbols and candidate security IDs match exact snapshot rows, all status `A`; display names identify debentures/bonds. All eight legacy OHLCV files were fetched at pinned base `56362fb4f65b91fdcca8f50b50e53ad80e703649`, comprising 2,214 rows. The row-level mapping and source blob SHAs are in `P443_FILENAME_ENCODING_IDENTITY_REVIEW_2026-11-27.csv`. The snapshot marks `ohlcv_file_present=no` for these securities, while the historical archive has files; these are different coverage indicators and are not conflated.
 
 This resolves filename decoding/current-snapshot matching only. No Priority 97 historical identity record matched these eight; historical security-ID continuity, lifecycle dates and exchange-certified trading boundaries remain UNKNOWN. No stable IDs, aliases, or validity intervals were promoted; no OHLCV changes or promotions occurred.
+
+
+## Ten-record snapshot instrument-class review — 2026-11-27
+Cross-checked all ten `SNAPSHOT_PRESENT_CLASS_REVIEW` records against the pinned NEPSE security-list capture (`reference/p435_official_historical_floorsheets/security_list.json`, blob `0891e10b56de572816680c8065718ecd4420bd03`; 573 records). Exact symbol/security-ID matches were found for all ten. The captured master exposes only `id`, `symbol`, `securityName`, `name` and `activeStatus`; it contains no instrument-type field.
+
+- Two display names are debenture candidates: NICD88 (7986) and SBID89 (9211), both explicitly use “Rinpatra”.
+- Five display names are promoter-share candidates: ICFCPO (400), KBLPO (283), MBLPO (281), MLBLPO (620) and PMLIP (9237), each explicitly says “Promotor/Promoter”.
+- Three remain unresolved: EBLD86 (8044; name only “Everest Bank Limited”), KRBL (428; company-only name, status S), and WNLB (2781; company-only name, status S). Status S is not an instrument-type field.
+
+These are conservative display-name candidates, not authoritative instrument-type confirmations. The companion `P443_SNAPSHOT_INSTRUMENT_CLASS_REVIEW_2026-11-27.csv` preserves the exact records and reasoning. No instrument class, historical identity, OHLCV row, or scanner eligibility was promoted.

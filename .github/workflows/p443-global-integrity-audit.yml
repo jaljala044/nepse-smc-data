@@ -17,6 +17,7 @@ on:
       - "tools/p443_equity_first_repeat_review.py"
       - "tools/p443_equity_security_date_queue.py"
       - "tools/p443_bulk_equity_floorsheet_recovery.py"
+      - "tools/p443_secondary_bulk_coverage.py"
       - "test_p443_bulk_equity_floorsheet_recovery.py"
       - "tools/p443_hf_bulk_equity_floorsheet_recovery.py"
       - "test_p443_hf_bulk_equity_floorsheet_recovery.py"
@@ -50,6 +51,7 @@ on:
       - "tools/p443_equity_first_repeat_review.py"
       - "tools/p443_equity_security_date_queue.py"
       - "tools/p443_bulk_equity_floorsheet_recovery.py"
+      - "tools/p443_secondary_bulk_coverage.py"
       - "tools/p443_hf_bulk_equity_floorsheet_recovery.py"
       - "test_p443_bulk_equity_floorsheet_recovery.py"
       - "test_p443_hf_bulk_equity_floorsheet_recovery.py"
@@ -152,6 +154,8 @@ jobs:
         run: python tools/p443_hf_bulk_equity_floorsheet_recovery.py --directory audit-strict --max-dates 22 --offset 44
       - name: Map and reconcile fourth HF-only equity floorsheet batch
         run: python tools/p443_hf_bulk_equity_floorsheet_recovery.py --directory audit-strict --max-dates 22 --offset 66
+      - name: Map secondary historical floorsheet coverage
+        run: python tools/p443_secondary_bulk_coverage.py --directory audit-strict
       - name: Preserve strict audit outputs
         if: always()
         uses: actions/upload-artifact@v4

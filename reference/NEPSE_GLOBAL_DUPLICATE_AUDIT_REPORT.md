@@ -204,6 +204,18 @@ Preserve all rows. The source capture report reports unique archive-local record
 - Per-file scan coverage: `NEPSE_GLOBAL_DUPLICATE_AUDIT_SCAN_SUMMARY.csv`.
 - Strict pinned-byte row-level findings and exception join: preserved in the run's `p443-strict-content-audit` artifact (`findings.jsonl`, `coverage.json`, `summary.json`, `exception_join.csv`, `exception_join_summary.json`, `open_pair_security_evidence.csv`, `open_pair_security_summary.json`, `unresolved_pair_security_evidence.csv`, `unresolved_pair_security_summary.json`, `equity_first_repeat_review.csv`, `equity_first_repeat_summary.json`, `equity_security_date_recovery_queue.csv`, `equity_security_date_source_lineage.csv`, `equity_security_date_recovery_summary.json`).
 
+
+
+## Uncovered repeat-symbol identity triage — 2026-11-27
+The 209 symbols responsible for 23,377 of the 94,543 consecutive repeated-tuple pair findings but absent from the strict security/date lineage table were cross-checked against the dated current security snapshot, target-candidate register, equity crosswalk, unmatched-symbol review and existing Priority 97 historical-identity evidence.
+
+- 175/209 have a current snapshot row (172 status A, 3 status S); 34 do not.
+- 39 are listed as Mutual Fund in the target-candidate register; 61 snapshot names suggest debentures/bonds; 62 suggest promoter shares; 10 other snapshot records remain class-review items; 3 current equity-crosswalk matches are NESDO/8041, ULBSL/8063 and YMHL/9342.
+- Of the 34 without a current snapshot row, 26 match existing historical evidence records (9 equity, 9 debenture, 6 mutual fund, 2 promoter-share); eight filename-encoding candidates remain without a matching Priority 97 record: GBILD84~2F85, GBILD86~2F87, MND84~2F85, NICAD85~2F86, NIFRAUR85~2F86, NMBD87~2F88, NMBD89~2F90 and NMBUR93~2F94.
+- Historical evidence records still have `stable_id=null` and `effective_date_verified=false`. Name-based instrument classifications are prioritization only, not official type fields. Current IDs are not backdated; no ticker aliases, lifecycle dates, or price-history splices are promoted.
+
+Row-level detail: `P443_UNCOVERED_REPEAT_SYMBOL_IDENTITY_TRIAGE_2026-11-27.csv`; machine summary: `P443_UNCOVERED_REPEAT_SYMBOL_IDENTITY_TRIAGE_2026-11-27.json`. This narrows instrument-scope uncertainty but does not validate the 23,377 repeated pairs. All remain HOLD/UNKNOWN.
+
 ## Acceptance still open
 
 1. Classify the 94,543 repeated adjacent tuples using exact overlap with verified open/closed-session evidence and prior P4.37/P4.42 row-level matrices.

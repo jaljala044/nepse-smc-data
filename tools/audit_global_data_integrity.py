@@ -120,6 +120,20 @@ def scan_csv(path, category, findings, stats):
                     seen[date] = line
 
 
+
+def finding_totals(findings):
+    """Return explicitly named counts for emitted global-scan finding classes."""
+    return Counter({
+        "findings": len(findings),
+        "ohlcv_key_duplicates": sum(x["finding_type"] == "duplicate_symbol_date_key" for x in findings),
+        "ohlcv_exact_rows": sum(x["finding_type"] == "exact_duplicate_ohlcv_row" for x in findings),
+        "ohlcv_repeated_tuples": sum(x["finding_type"] == "repeated_ohlcv_tuple" for x in findings),
+        "ohlcv_consecutive_tuples": sum(x["finding_type"] == "consecutive_identical_ohlcv_tuple" for x in findings),
+        "floorsheet_record_id_repeats": sum(x["finding_type"] == "duplicate_floorsheet_record_id" for x in findings),
+        "floorsheet_exact_rows": sum(x["finding_type"] == "exact_duplicate_floorsheet_row" for x in findings),
+        "calendar_duplicate_dates": sum(x["finding_type"] == "duplicate_calendar_date" for x in findings),
+    })
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--write", action="store_true", help="write deterministic findings, summary and report")
@@ -162,14 +176,7 @@ def main():
             totals["parse_errors"] += 1
             totals["parse_error"] += 1
         summaries.append({"path":item["path"],"category":item["category"],"format":fmt,"status":status,"records":stats["records"],"unsupported_checks":stats["unsupported"],"error":error})
-    totals["findings"] = len(findings)
-    totals["ohlcv_key_duplicates"] = sum(x["finding_type"]=="duplicate_symbol_date_key" for x in findings)
-    totals["ohlcv_exact_rows"] = sum(x["finding_type"]=="exact_duplicate_ohlcv_row" for x in findings)
-    totals["ohlcv_repeated_tuples"] = sum(x["finding_type"]=="repeated_ohlcv_tuple" for x in findings)
-    totals["ohlcv_consecutive_tuples"] = sum(x["finding_type"]=="consecutive_identical_ohlcv_tuple" for x in findings)
-    totals["floorsheet_contract_duplicates"] = sum(x["finding_type"]=="duplicate_floorsheet_contract_key" for x in findings)
-    totals["floorsheet_exact_rows"] = sum(x["finding_type"]=="exact_duplicate_floorsheet_row" for x in findings)
-    totals["calendar_duplicate_dates"] = sum(x["finding_type"]=="duplicate_calendar_date" for x in findings)
+    totals.update(finding_totals(findings))
     if args.write:
         with FINDINGS.open("w", newline="", encoding="utf-8") as stream:
             fields = ["finding_type","category","path","line","related_line","key","detail"]
@@ -207,7 +214,7 @@ def main():
             ("ohlcv_exact_rows","OHLCV exact duplicate rows (same symbol/date/tuple)"),
             ("ohlcv_repeated_tuples","OHLCV repeated tuples across rows (not assumed erroneous)"),
             ("ohlcv_consecutive_tuples","consecutive identical OHLCV tuples"),
-            ("floorsheet_contract_duplicates","floorsheet duplicate contract keys"),
+            ("floorsheet_record_id_repeats","floorsheet record-ID repeats within source file/session"),
             ("floorsheet_exact_rows","floorsheet exact repeated rows"),
             ("calendar_duplicate_dates","duplicate dates within a calendar file"),
         ]:

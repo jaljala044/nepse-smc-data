@@ -53,3 +53,12 @@ A new read-only audit compares the 209-symbol repeat-pair matrix with the pinned
 - Run #325 exact tested SHA: `aae6050f9b366125a00aebf5b4c4d65e4ac3e553`. New test and audit steps #37–#40 completed successfully. Full workflow was still running at the time of this report update; artifact output read-back remains pending.
 
 **Disposition:** Work package #11 remains BLOCKED. This is a measured source/date coverage gap, not evidence of no trade. All pair rows remain `HOLD_UNKNOWN_NO_INFERENCE`; promotion is false; canonical data is unchanged.
+
+
+## Run #329 matrix audit read-back — 2026-11-27
+
+Run #329 completed all 63 workflow steps successfully on tested SHA `563923b91ce8ac530adbeda871291cd22a1795dc`. Its matrix audit reported 23,377 rows, 209 symbols, 23,377 unique pair IDs, zero logical issues, and all 23,377 previous/current execution evidence bundles absent. Historical stable IDs remained unpopulated; current-snapshot identity count was 21,082 and unresolved identity count 2,295. All rows remained held, promotion false and canonical data unchanged.
+
+The artifact ZIP SHA-256 matched GitHub's metadata: `032e17713a22bef5f4506926d0bd5ed00c1d4d42a2bac058ecada730b00079db`. However, inspection found the matrix read-back JSON ended with a literal escaped newline sequence rather than a real line terminator, making the JSON file invalid despite the workflow step's successful process exit. This is a serialization defect, not a matrix-row finding. It is explicitly **not accepted as a valid artifact read-back**.
+
+Correction: commit `14d93b1dfa8dd05b242fda33638a9467f73e9794` changes the summary writer to emit a real newline; commit `2f304554d3377c99fe72bd296312f99bb3b63fc1` adds a regression test that runs the CLI and parses the generated JSON. A new full workflow/artifact read-back is required before work package #12 can be marked complete.

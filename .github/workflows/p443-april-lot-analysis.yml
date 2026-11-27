@@ -1,0 +1,25 @@
+name: P4.43 April lot analysis
+on:
+  workflow_dispatch:
+  push:
+    branches: [p443-global-integrity-audit]
+    paths:
+      - 'tools/p443_april_lot_analysis.py'
+      - '.github/workflows/p443-april-lot-analysis.yml'
+permissions:
+  contents: read
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python tools/p443_april_lot_analysis.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: april-lot-evidence
+          path: april-lot-evidence/report.json
+          if-no-files-found: error

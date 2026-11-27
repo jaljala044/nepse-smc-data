@@ -1,3 +1,7 @@
+import argparse
+from pathlib import Path
+from scanner_inputs.canonical_publication import publish_daily_floorsheet
+from scanner_inputs.historical_quarantine import load_holds
 import datetime
 import os
 import re
@@ -48,7 +52,9 @@ def extract_trading_date(page_text: str, cleaned_rows: list[list[str]], fallback
     return fallback_date
 
 
-def fetch_floorsheet():
+def fetch_floorsheet(overlay):
+    load_holds(overlay)  # Fail before network collection if evidence is unavailable.
+    reached_end = False
     all_rows = []
     max_pages = 200
     page_text = ""
@@ -98,6 +104,7 @@ def fetch_floorsheet():
             btn_class = str(next_btn.get_attribute("class") or "").lower()
             aria_disabled = str(next_btn.get_attribute("aria-disabled") or "").lower()
             if next_btn.is_disabled() or aria_disabled == "true" or "disabled" in btn_class:
+                reached_end = True
                 print("Reached last page (Next button disabled).")
                 break
 
@@ -121,6 +128,8 @@ def fetch_floorsheet():
 
         browser.close()
 
+    if not reached_end:
+        raise ValueError("Pagination completeness not established; archive withheld")
     if not all_rows:
         print("No floorsheet rows collected.")
         sys.exit(1)
@@ -141,9 +150,12 @@ def fetch_floorsheet():
 
     os.makedirs("floorsheet", exist_ok=True)
     filepath = f"floorsheet/floorsheet_{file_date}.csv"
-    df.to_csv(filepath, index=False)
-    print(f"Successfully saved {len(cleaned_rows)} rows to {filepath}")
+    raw = df.to_csv(index=False).encode("utf-8")
+    result = publish_daily_floorsheet(raw, file_date, Path(filepath), overlay)
+    print(f"{result}: {len(cleaned_rows)} rows at {filepath}")
 
 
 if __name__ == "__main__":
-    fetch_floorsheet()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--quarantine-overlay', type=Path, required=True)
+    fetch_floorsheet(parser.parse_args().quarantine_overlay)

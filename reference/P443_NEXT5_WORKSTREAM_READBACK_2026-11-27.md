@@ -296,3 +296,54 @@ https://github.com/jaljala044/nepse-smc-data/actions/runs/46007287653
 - Independent official session completeness, March 1/2 date lineage, and primary corporate-action evidence remain unresolved.
 
 No canonical OHLCV, raw source, or overlay payload was changed, shifted, deduplicated, corrected, or promoted. PR #80 remains open, draft and unmerged; issue #82 remains open.
+
+
+## Next-30 continuation — Run #316 artifact read-back and lifecycle gate (2026-11-27)
+
+### Repository and validation state
+
+- Branch head immediately before this report append: `c0a10bb12c8f47b981f69c15e386d8d2b86362ec`.
+- PR #80 remains open, draft and unmerged; P4.44 issue #82 remains open.
+- Full P4.43 global audit Run #316 completed successfully with all 53 workflow steps:
+  https://github.com/jaljala044/nepse-smc-data/actions/runs/46009773312
+- Exact tested SHA: `4653263c575dee39243ccfb6e07d15b2d87ad0a3`. This is behind the branch head and is not current-head validation.
+
+### Run #316 artifact byte read-back
+
+Both artifacts were downloaded from Actions. Local SHA-256 matches the Actions API digest:
+
+| Artifact | ID | Local SHA-256 | Result |
+|---|---:|---|---|
+| p443-strict-content-audit | 15204346019 | `77dc65bff7ac0099f89b3c63383faf10e0b54d74e08d9bd88fe7e40fcb6206d3` | MATCH |
+| p443-global-integrity-audit | 15203766454 | `cb38c4e08bf0a36b0008a72f1e7b45e5c6e6b22cf998169361378020617c5f23` | MATCH |
+
+Strict artifact read-back:
+- P4.44 matrix: 23,377 rows, 209 symbols, 23,377 unique pair IDs, 2024-03-05 to 2026-11-20, zero audit issues.
+- Identity scope: 21,082 current-snapshot-only, 2,295 unresolved; historical effective-dated stable IDs verified: zero.
+- Current-side session evidence: 1,503 market-closed, 21,874 unknown.
+- Previous-side session evidence: 979 market-closed, 22,398 unknown.
+- Every matrix row remains `HOLD_UNKNOWN_NO_INFERENCE`; promotion false; canonical_data_modified=false.
+
+Global artifact read-back:
+- 928 pinned files; 784 parsed structured files; 138 inventory-only/unsupported; six non-JSON provider responses.
+- Strict parser reports 1,668,641 parsed records, 94,543 repeated-adjacent tuple findings, 1,331 invalid-OHLCV flags, and ten exact repeated JSON summary objects.
+- The separate global report's 1,650,883 is CSV rows plus JSON documents; it is not the same counting unit as strict JSON record elements.
+
+### P4.44 canonical lifecycle gate
+
+The 26-symbol P4.44 ledger is now loaded as symbol-wide wildcard holds by both canonical floorsheet publication and scanner staging. No effective-date boundaries are inferred because historical stable IDs and verified intervals remain absent.
+
+Publication gate #13 passed the combined regression tests and Python compilation, but failed closed at the actual private Drive retrieval step because `GDRIVE_SERVICE_ACCOUNT_JSON` was unavailable. Publication gate #14 added destination- and parent-symlink regression tests; its combined regression step and Python compilation passed, while the overall workflow again failed only at the private Drive credential step:
+https://github.com/jaljala044/nepse-smc-data/actions/runs/46010316571
+
+The tests cover exclusive publication, identical rerun, refusal to overwrite differing bytes, destination/parent symlinks, evidence digest mismatch, duplicate contract IDs, and preservation of existing target bytes. Work package #23 is complete. Work packages #21 is implemented and #22 regression coverage passed; actual private Drive verification remains externally blocked.
+
+### Remaining work and safeguards
+
+- Original NEPSE PDF byte capture still fails in this environment; no raw SHA-256, byte count, or retrieval timestamp was fabricated.
+- Lifecycle schema/provenance validation exists, but full interval-overlap and impossible-sequence auditing remains open.
+- The 26 lifecycle rows remain `HOLD_UNKNOWN`; historical stable IDs remain 0/26.
+- The 23,377 repeated-pair matrix remains held with zero promotions.
+- Run #316 does not validate the current branch head. This report append is included in the global workflow's push path filter to trigger a new full audit on the resulting commit; that run must be inspected before claiming current-head validation.
+
+No canonical OHLCV, floorsheet, calendar, lifecycle date, security ID, or scanner input data was changed, corrected, shifted, deduplicated, or promoted.

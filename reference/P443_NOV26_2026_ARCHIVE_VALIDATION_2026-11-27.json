@@ -1,0 +1,52 @@
+{
+  "date": "2026-11-26",
+  "floor_download": "PASS",
+  "floor": {
+    "date": "2026-11-26",
+    "source_path": "floorsheet/floorsheet_2026-11-26.csv",
+    "download_sha256": "29a41cf6a323c31b4a782755514c58c2ded8d57580e1a8ea143eeaed9888b674",
+    "git_blob_match": true,
+    "size_match": true,
+    "content_status": "PASS",
+    "completeness_status": "UNKNOWN",
+    "independent_source_sha256_match": false,
+    "independent_market_totals_match": false,
+    "rows": 49806,
+    "trades": 49806,
+    "shares": 14710298,
+    "turnover_npr": "5489584101.96",
+    "symbols": 355,
+    "duplicate_contracts": 0,
+    "amount_identity_failures": 0,
+    "amount_exact_matches": 49806,
+    "amount_floor_matches": 0,
+    "amount_identity_policy": "DECIMAL_EXACT_WITH_0_01_TOLERANCE",
+    "date_mismatches": 0,
+    "invalid_rows": 0,
+    "broker_ids_missing": 0,
+    "ohlcv_matches": 0,
+    "ohlcv_conflicts": 0,
+    "ohlcv_rows_absent": 0,
+    "validation_errors": "{}"
+  },
+  "index": {
+    "status": "PASS",
+    "sha256": "de62b929b1bbfaac03455d9507a5fad5b7d2c69fb0af8b366b565ae917a4c1eb",
+    "errors": {},
+    "symbols": 16,
+    "nepse": {
+      "open": 2650.77,
+      "high": 2651.1643,
+      "low": 2632.2007,
+      "close": 2636.75,
+      "volume": 5488702738.36
+    }
+  },
+  "promotion_allowed": false,
+  "run_id": 45930950829,
+  "job_id": 140283186679,
+  "artifact_id": 15167853258,
+  "turnover_difference_npr": "881363.60",
+  "disposition": "CONTENT_VALIDATED_COMPLETENESS_UNVERIFIED",
+  "notes": "No independent totals available; index volume field interpreted as reported turnover, comparability not established."
+}

@@ -122,3 +122,17 @@ This queue decomposes the open acceptance criteria into 30 reviewable work packa
 - All three payload SHA-256 values match their manifest entries and the existing parity report; Git blob SHAs and byte sizes are preserved in the companion report `reference/P444_281_SECURITY_HISTORY_CAPTURE_AUDIT_2026-11-27.md`.
 - Scope limit: this pass verified the 281-file inventory against the manifest and parsed only the three symbols already selected for parity analysis. It did not parse/validate all 281 JSON payload schemas or establish historical security-ID continuity. Current security IDs remain point-in-time labels only.
 - No source payloads, OHLCV, lifecycle dispositions, canonical rows or scanner inputs were modified. No promotion or date adjudication was authorized.
+
+
+### Run #324 — work package #10 full payload audit and P4.43 revalidation
+
+- Workflow Run #324 completed successfully (55/55 steps) on exact tested SHA `ebf0f59732da0b5c8f8b9244f77a706868712f00`: https://github.com/jaljala044/nepse-smc-data/actions/runs/46033103956
+- Strict artifact ID 15214839272 downloaded; local ZIP SHA-256 matched GitHub artifact digest: `afed913e7c2c45f98f90633f5c6c4a07ed2a54dfb6fb08a23c668fedab5aab98`.
+- Work package #10 audit JSON: 281 symbols, 281 payload files, 281 manifest entries, 8,142 total rows, all 281 SHA-256 entries match, zero row-level issues, audit valid=true. Date range 2026-10-05 through 2026-11-26. All 281 payloads lack Open; no Open was synthesized. `promotion_allowed=false`; `canonical_data_modified=false`.
+- The capture is point-in-time history and does not prove exchange completeness or historical security-ID continuity. Missing dates were not inferred to be non-trading days.
+- The same run read-back validated the 23,377-row / 209-symbol repeat-pair matrix: 23,377 unique pair IDs, zero read-back issues, all rows held and promotion disabled.
+- Work package #11 remains BLOCKED: 0/23,377 previous and current endpoint rows have per-security execution evidence populated; historical stable IDs remain 0/23,377. The 281-payload capture covers only 2026-10-05 to 2026-11-26 and does not supply historical ID continuity.
+- Work package #12 remains PARTIAL; matrix structure/read-back is validated, but execution fields and historical IDs remain empty.
+- Run #324 strict inventory summary: 928 files; 784 parsed, 89 text-inspected, 36 code-syntax-checked, 11 workflow-syntax-checked, 2 manual document reviews and 6 non-JSON responses. Unsupported/semantic coverage work remains under #14.
+- Run #324 tested an earlier code head than the current branch documentation head. It is not represented as validation of any later commit.
+- No raw source, OHLCV, floorsheet, lifecycle disposition, canonical row or scanner input was modified; no promotion or hold release occurred.

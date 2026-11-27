@@ -100,3 +100,23 @@ All 281 official-coverage values are `UNKNOWN`. The extracted artifact leaves ev
 5. Continue P4.44 stable-ID and lifecycle evidence acquisition; retain HOLD/UNKNOWN where provenance is incomplete.
 
 **Status: workstreams advanced; P4.43 and P4.44 remain incomplete. No data promotion or canonical OHLCV modification occurred.**
+
+
+## Follow-on refresh — current branch and audit trigger (2026-11-27)
+
+A later repository refresh found that the branch had advanced beyond the head recorded above:
+- Current branch / PR head before this follow-on: `e4fd90894541ec0830eb7f112799c66c38de88e3`.
+- PR #80 remains open, draft and unmerged; P4.44 issue #82 remains open.
+- The latest successful full P4.43 global-integrity run visible at that refresh was run 298 on `5b00a706c3e81513d41e71e67763f81554ba34dd`, not on the current head.
+- The separate 149-file session-source audit passed on `f3478fc7ced2c52daac481502c3600d3014e42e9`; it does not substitute for the full global audit.
+
+To close the documentation-trigger gap, the global-integrity workflow now watches this workstream read-back file under both `push` and `pull_request` path filters. The workflow-trigger change was committed as `9b28b4c9ff23260af97fbe8f06b9612b3fb8c156`. This report update should itself trigger the full workflow on the resulting branch head; the run must be inspected before claiming validation.
+
+### Active next-five gates
+1. Verify the full P4.43 global audit on the latest branch head and inspect every job/artifact.
+2. Seek an independent official session-level transaction-count/completeness benchmark for the 149 recovery dates.
+3. Resolve March 1/2 archive date lineage from primary exchange session evidence; do not relabel based on secondary candidates.
+4. Obtain primary exchange/issuer corporate-action notices before deriving dates or factors.
+5. Continue P4.44 effective-dated stable-ID and lifecycle evidence acquisition; preserve HOLD/UNKNOWN for unsupported symbols.
+
+No canonical OHLCV data was changed, promoted, deduplicated, or date-shifted by this follow-on.

@@ -20,7 +20,7 @@ This queue decomposes the open acceptance criteria into 30 reviewable work packa
 | 7 | Recover cancellation notices and raw payload provenance for NICAD8283, NICGF and SBLD2082 | PARTIAL | Original PDFs, SHA-256 and unambiguous Bikram Sambat/Gregorian date conversion |
 | 8 | Complete lifecycle event ledger schema validation (event types, dates, source tier, confidence, ID, successor) | IMPLEMENTED — seven validator regression tests passed in publication-gate run #19; overall workflow failed at private Drive verification | Requires all 15 ledger columns; validates event/date/tier/confidence, verified ID/provenance, successor and duplicate/conflict checks; no promotion |
 | 9 | Audit effective-date interval overlaps and impossible lifecycle sequences | IMPLEMENTED — regression tests and compile passed in run #18; overall workflow failed at private Drive verification | Review-only findings; no dates inferred and no holds released |
-| 10 | Parse and verify the existing 281 per-security NEPSE history captures without treating current IDs as historical IDs | PARTIAL EXISTING EVIDENCE | Raw response hashes, field coverage and explicit current-snapshot limitation |
+| 10 | Parse and verify the existing 281 per-security NEPSE history captures without treating current IDs as historical IDs | PARTIAL — exact 281/281 raw-file ↔ SHA256SUMS inventory parity verified; 3/281 payloads parsed and field-audited in this pass | Raw response hashes, field coverage and explicit current-snapshot limitation |
 | 11 | Build exact per-security execution evidence for every repeated-pair endpoint date | BLOCKED | Security identity plus date-matched execution payload; market totals are insufficient |
 | 12 | Expand the 23,377-pair matrix with source row identity, stable-ID confidence, session evidence and per-security evidence | PENDING | All rows retained; no inferred promotions |
 
@@ -111,3 +111,14 @@ This queue decomposes the open acceptance criteria into 30 reviewable work packa
 - Added validator tests and compile checks to the publication-gate workflow. Run #19 (`46031522183`) passed the full combined unittest step and Python compilation. Overall workflow failed at the separate private Drive overlay retrieval step because the credential secret is unavailable; no private overlay was retrieved.
 - Existing 26-row evidence ledger is unchanged. Existing `HOLD_UNKNOWN` dispositions remain intact; this change is validator/test/workflow code only.
 - Current branch head after the validator implementation and queue update is recorded by this documentation commit; run #19 validates the code commit `85ef6c86e0562d0c38cf9c6ae8beee8317f29635`, before the final queue-only update.
+
+
+### Work package #10 — 281-capture inventory and three-symbol payload audit
+
+- Inspected companion repository `jaljala044/nepse-elite-ai-scanner-pro`, branch `main`, exact tree commit `889f28be685385e27b2fc5350d5a744a32880c80`.
+- Found exactly 281 per-security raw response payloads under `data/evidence/raw/nepse/security-history/2026-10-05_to_2026-11-26/symbols/`, one for each of 281 unique symbols; aggregate Git tree byte size is 1,477,676.
+- Parsed the capture `SHA256SUMS` manifest: 281 symbol-response entries, 281 unique symbols, zero duplicate entries, zero missing manifest entries and zero extra manifest entries. Manifest Git blob SHA: `40c2d4d6b482c0aacf0f6cb0baf8083e0b3d37`.
+- Independently fetched and JSON-parsed NESDO, ULBSL and YMHL payloads: 29 rows each, date coverage 2026-10-05 through 2026-11-26. Each contains `businessDate`, `totalTrades`, `totalTradedQuantity`, `totalTradedValue`, `highPrice`, `lowPrice`, and `closePrice`; none contains Open.
+- All three payload SHA-256 values match their manifest entries and the existing parity report; Git blob SHAs and byte sizes are preserved in the companion report `reference/P444_281_SECURITY_HISTORY_CAPTURE_AUDIT_2026-11-27.md`.
+- Scope limit: this pass verified the 281-file inventory against the manifest and parsed only the three symbols already selected for parity analysis. It did not parse/validate all 281 JSON payload schemas or establish historical security-ID continuity. Current security IDs remain point-in-time labels only.
+- No source payloads, OHLCV, lifecycle dispositions, canonical rows or scanner inputs were modified. No promotion or date adjudication was authorized.

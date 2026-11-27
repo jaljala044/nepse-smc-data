@@ -21,7 +21,7 @@ This queue decomposes the open acceptance criteria into 30 reviewable work packa
 | 8 | Complete lifecycle event ledger schema validation (event types, dates, source tier, confidence, ID, successor) | IMPLEMENTED — seven validator regression tests passed in publication-gate run #19; overall workflow failed at private Drive verification | Requires all 15 ledger columns; validates event/date/tier/confidence, verified ID/provenance, successor and duplicate/conflict checks; no promotion |
 | 9 | Audit effective-date interval overlaps and impossible lifecycle sequences | IMPLEMENTED — regression tests and compile passed in run #18; overall workflow failed at private Drive verification | Review-only findings; no dates inferred and no holds released |
 | 10 | Parse and verify the existing 281 per-security NEPSE history captures without treating current IDs as historical IDs | COMPLETE — latest run 46033103956 audited all 281/281 payloads: 8,142 rows, all manifest hashes match, zero row issues; no Open field in any payload; see `P443_P444_ACTIVE_10_TASK_BATCH_READBACK_2026-11-27.md` | Point-in-time capture only; no historical-ID continuity inferred |
-| 11 | Build exact per-security execution evidence for every repeated-pair endpoint date | BLOCKED — 0/23,377 previous and current endpoint rows have per-security execution fields populated; see `P444_REPEAT_PAIR_EXECUTION_EVIDENCE_AUDIT_2026-11-27.md` | Security identity plus date-matched execution payload; market totals are insufficient |
+| 11 | Build exact per-security execution evidence for every repeated-pair endpoint date | BLOCKED — new exact-symbol/date coverage audit added; pinned 281-capture overlaps only NESDO/ULBSL/YMHL with 640 pair rows, but 0 endpoint dates fall in capture window; CI regression and audit steps passed in Run #325 (overall workflow still running) | Requires date-matched primary execution payloads joined through verified historical identity; no alias inference |
 | 12 | Expand the 23,377-pair matrix with source row identity, stable-ID confidence, session evidence and per-security evidence | PARTIAL — 36-column matrix includes source rows, identity/session/execution slots and gates; execution fields and historical IDs remain empty; see `P444_REPEAT_PAIR_EXECUTION_EVIDENCE_AUDIT_2026-11-27.md` | All rows retained; no inferred promotions |
 
 ## P4.43 — global integrity and canonical quarantine
@@ -136,3 +136,13 @@ This queue decomposes the open acceptance criteria into 30 reviewable work packa
 - Run #324 strict inventory summary: 928 files; 784 parsed, 89 text-inspected, 36 code-syntax-checked, 11 workflow-syntax-checked, 2 manual document reviews and 6 non-JSON responses. Unsupported/semantic coverage work remains under #14.
 - Run #324 tested an earlier code head than the current branch documentation head. It is not represented as validation of any later commit.
 - No raw source, OHLCV, floorsheet, lifecycle disposition, canonical row or scanner input was modified; no promotion or hold release occurred.
+
+
+### Work package #11 — exact-symbol endpoint coverage audit added
+
+- Added `tools/p444_audit_repeat_pair_capture_coverage.py` and `test_p444_audit_repeat_pair_capture_coverage.py`.
+- The audit compares exact symbol names and actual payload business dates only; it does not infer predecessor/successor aliases or ticker similarity.
+- Independent matrix/capture comparison: 209 repeat-matrix symbols; exact overlap is NESDO, ULBSL and YMHL only. Those symbols contribute 640 pair rows, but zero of their endpoint dates fall within the pinned capture window 2026-10-05 to 2026-11-26. Therefore this capture provides zero endpoint execution records for those pairs.
+- Run #325 on exact SHA `aae6050f9b366125a00aebf5b4c4d65e4ac3e553`: the new regression-test step (#37), exact-symbol endpoint coverage audit step (#38), matrix read-back tests (#39) and matrix read-back audit (#40) all completed successfully. Full workflow was still in progress at the time of this queue update; the output artifact has not yet been independently downloaded/read back.
+- This confirms the 281-capture cannot fill the historical repeated-pair execution gap. Work package #11 remains BLOCKED. All rows remain held; no promotion or canonical change.
+- Work packages #12–#20 remain at their existing evidence-based statuses. See `P443_P444_ACTIVE_10_TASK_BATCH_READBACK_2026-11-27.md` for the #13–#20 detailed read-back.

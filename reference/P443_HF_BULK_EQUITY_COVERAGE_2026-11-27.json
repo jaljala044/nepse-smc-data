@@ -1,0 +1,123 @@
+{
+  "task": "P4.43 HF-only bulk floorsheet recovery — complete available-date coverage",
+  "pinned_primary_input_commit": "56362fb4f65b91fdcca8f50b50e53ad80e703649",
+  "workflow_run": {
+    "id": 45926450308,
+    "run_number": 273,
+    "conclusion": "success",
+    "head_commit": "2269d1d350b7c34aacfc226c654089212b7d64e6",
+    "strict_artifact_id": 15166871401
+  },
+  "source_tree": {
+    "repository": "urekmazino69/Nepse-floorsheet-and-indices",
+    "api_url": "https://huggingface.co/api/datasets/urekmazino69/Nepse-floorsheet-and-indices/tree/main?recursive=true&expand=false",
+    "captured_tree_file": "reference/p433_floorsheets/huggingface_repo_tree.json",
+    "retrieved_at_utc": "2026-11-26T18:28:47.483997+00:00",
+    "file_count": 998,
+    "target_date_partition_count": 96,
+    "primary_overlap_dates": 22,
+    "hf_only_dates": 74,
+    "hf_only_dates_fetched_and_checked": 74
+  },
+  "queue": {
+    "total_p2_security_dates": 68773,
+    "unique_dates": 316,
+    "hf_only_security_dates": 15439,
+    "hf_only_dates_checked": 74,
+    "hf_only_requests_not_fetched": 0,
+    "primary_archive_already_checked_requests": 5235,
+    "no_hf_pinned_partition_requests": 48099
+  },
+  "batch_runs": [
+    {
+      "batch": "batch01",
+      "offset": 0,
+      "max_dates": 22,
+      "dates": 22,
+      "requests": 4907
+    },
+    {
+      "batch": "batch02",
+      "offset": 22,
+      "max_dates": 22,
+      "dates": 22,
+      "requests": 4768
+    },
+    {
+      "batch": "batch03",
+      "offset": 44,
+      "max_dates": 22,
+      "dates": 22,
+      "requests": 4706
+    },
+    {
+      "batch": "batch04",
+      "offset": 66,
+      "max_dates": 22,
+      "dates": 8,
+      "requests": 1058
+    }
+  ],
+  "fetched_session_integrity": {
+    "sessions": 74,
+    "rows": 6131763,
+    "valid_rows": 6059263,
+    "invalid_rows": 72500,
+    "invalid_session_dates": [
+      "2024-08-01"
+    ],
+    "invalid_error_counts": {
+      "amount_arithmetic_mismatch": 72500
+    },
+    "lfs_sha256_and_size_verified_for_all_74": true,
+    "empty_sessions": 0
+  },
+  "hf_only_request_dispositions": {
+    "high_low_volume_match_open_close_unverified": 4553,
+    "high_low_volume_conflict": 1801,
+    "contract_id_collision_review": 8872,
+    "row_validation_review": 213,
+    "total": 15439
+  },
+  "contract_number_reuse_review": {
+    "sessions_with_repeated_contract_number_values": 42,
+    "repeated_contract_number_values_across_sessions": 378766,
+    "occurrences_beyond_first": 3449823,
+    "treatment": "Preserved as source rows and reported as collisions; no deduplication and no H/L/V aggregation for affected sessions."
+  },
+  "clean_sessions": {
+    "sessions_without_contract_number_collisions_or_row_validation_errors": 32,
+    "comparison_fields": [
+      "high",
+      "low",
+      "volume"
+    ],
+    "open_close_verified": false,
+    "archive_completeness": "UNKNOWN",
+    "upstream_independence": "UNKNOWN",
+    "exchange_authority": "NOT_ESTABLISHED"
+  },
+  "artifacts": {
+    "batch01": "hf_bulk_equity_floorsheet_disposition_batch01.csv",
+    "batch02": "hf_bulk_equity_floorsheet_disposition_batch02.csv",
+    "batch03": "hf_bulk_equity_floorsheet_disposition_batch03.csv",
+    "batch04": "hf_bulk_equity_floorsheet_disposition_batch04.csv",
+    "collisions": "hf_bulk_equity_contract_collisions_batch01.csv through batch04.csv",
+    "invalid_rows": "hf_bulk_equity_invalid_rows_batch03.csv"
+  },
+  "safety": {
+    "raw_rows_changed": 0,
+    "rows_deleted": 0,
+    "rows_deduplicated": 0,
+    "rows_corrected": 0,
+    "rows_promoted": 0,
+    "promotion_allowed": false
+  },
+  "limitations": [
+    "HF is a third-party archive; LFS hash/size verification pins bytes to captured metadata but does not prove exchange origin or independent upstream lineage.",
+    "High/low/volume are corroborative fields only; open and close are not verified.",
+    "Repeated contract numbers are collision findings, not proof that the rows are duplicate trades.",
+    "The 2024-08-01 arithmetic failures remain quarantined for row-level review; no automatic amount correction is allowed.",
+    "No HF partition for a request is UNKNOWN, not proof of no trade."
+  ]
+}

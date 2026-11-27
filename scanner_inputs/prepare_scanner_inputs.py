@@ -80,7 +80,7 @@ BLOCKED_FLOORSHEET_SHA256 = {
 }
 
 
-def validate_floorsheet(path, closed_dates, holds=None):
+def validate_floorsheet(path, closed_dates, holds=None, shared_seen=None):
     """Validate canonical trade CSV; reject ambiguous schemas and unsupported formats."""
     raw = path.read_bytes()
     blob_sha = hashlib.sha1(f"blob {len(raw)}\0".encode() + raw).hexdigest()
@@ -128,6 +128,10 @@ def validate_floorsheet(path, closed_dates, holds=None):
                 identity = val("identity") if cols["identity"] else val("contract")
                 if not identity or (day, identity) in seen:
                     raise ValueError("Missing or duplicate transaction identity")
+                if shared_seen is not None:
+                    if (day, identity) in shared_seen:
+                        raise ValueError("Duplicate transaction identity across files")
+                    shared_seen.add((day, identity))
                 seen.add((day, identity))
                 q, p, a = (Decimal(val(k)) for k in ("quantity", "rate", "amount"))
                 if not all(x.is_finite() and x > 0 for x in (q, p, a)) or q != q.to_integral_value():
@@ -179,12 +183,39 @@ def validate_broker_table(path, closed_dates, holds):
                 raise ValueError("Broker row on verified closed session")
 
 
+def validate_staged_tree(stage, closed_dates, holds):
+    """Fail closed on alternate data paths and cross-file transaction identities."""
+    shared_seen = set()
+    generated = {"daily_prices.csv", "weekly_prices.csv", "monthly_prices.csv"}
+    metadata = {"sectors.csv", "sector_data.csv", "corporate_actions.csv"}
+    for candidate in sorted(stage.rglob("*")):
+        if candidate.is_symlink():
+            raise ValueError("Symlink in scanner staging tree")
+        if candidate.is_dir():
+            continue
+        if not candidate.is_file():
+            raise ValueError("Unsupported staging object")
+        relative = candidate.relative_to(stage)
+        name = candidate.name.lower()
+        parents = {p.lower() for p in relative.parts[:-1]}
+        if name.startswith(("floorsheet.", "floorsheet_")) or parents & {"floorsheet", "floorsheets", "02_floorsheet_daily"}:
+            validate_floorsheet(candidate, closed_dates, holds, shared_seen)
+        elif name.startswith(("broker_summary.", "broker_summary_", "brokers.", "brokers_")) or parents & {"broker_summary", "brokers"}:
+            validate_broker_table(candidate, closed_dates, holds)
+        elif len(relative.parts) == 1 and candidate.name in generated | metadata:
+            continue
+        else:
+            raise ValueError(f"Unclassified scanner staging file: {relative}")
+
+
 def prepare(original, output, overlay=None):
     if overlay is None:
         raise ValueError("Mandatory --quarantine-overlay required")
     holds = load_holds(overlay)
     if output.exists():
         raise FileExistsError(f"Choose a new output folder: {output}")
+    if original.is_symlink() or any(p.is_symlink() for p in original.rglob('*')):
+        raise ValueError("Symlink in scanner input tree")
     output.parent.mkdir(parents=True, exist_ok=True)
     with TemporaryDirectory(dir=output.parent) as temp:
         stage = Path(temp) / "scanner-data"
@@ -234,14 +265,7 @@ def prepare(original, output, overlay=None):
                 writer.writeheader()
                 for path in partitions:
                     writer.writerows(rows(path))
-        for candidate in stage.rglob("*"):
-            if not candidate.is_file():
-                continue
-            name = candidate.name.lower()
-            if name.startswith(("floorsheet.", "floorsheet_")) or "floorsheet" in candidate.relative_to(stage).parts[:-1]:
-                validate_floorsheet(candidate, closed_dates, holds)
-            elif name.startswith(("broker_summary.", "broker_summary_", "brokers.", "brokers_")) or any(p in {"broker_summary", "brokers"} for p in candidate.relative_to(stage).parts[:-1]):
-                validate_broker_table(candidate, closed_dates, holds)
+        validate_staged_tree(stage, closed_dates, holds)
         stage.rename(output)
     print(f"Prepared {output} with {len(additions)} new daily price rows.")
 

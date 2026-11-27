@@ -74,3 +74,24 @@ The same pinned capture archive includes `security-list-response-01.bin`. It par
 This is useful **current-snapshot instrument identity evidence**, not a complete all-instrument master satisfying the acceptance criteria. The response has no instrument-class field, no documented status-code semantics in the payload, and no effective dates or historical change log. It cannot establish past symbol/ID continuity or classify all instruments as equity/debt/fund/etc. without a separate authoritative classification source.
 
 Work package #2 therefore advances from BLOCKED to **PARTIAL — 573-row current snapshot parsed and uniqueness-checked; instrument class and effective-dated history absent**. No historical identity inference or promotion is authorized.
+
+
+## Superseding full-payload read-back — P4.43 Run #325 (2026-11-27)
+
+The earlier “three previously selected symbols” section above records an intermediate audit state and is superseded for the full 281-file inventory by the strict artifact from P4.43 Run #325.
+
+- Workflow run: `46037025935`; tested code SHA: `aae6050f9b366125a00aebf5b4c4d65e4ac3e553`.
+- Strict artifact ID: `15219745781`; GitHub ZIP digest: `sha256:140f1543d70f648fe8f6f2c70e994ae49ca33a6b8a1e152f8bc5aa6361a8c009`.
+- Machine-readable report: `P444_281_SECURITY_HISTORY_CAPTURE_AUDIT_2026-11-27.json` inside that artifact.
+- Payload files / manifest entries / symbols: **281 / 281 / 281**.
+- Total parsed history rows: **8,142**.
+- Business-date range: **2026-10-05 to 2026-11-26**.
+- Manifest SHA-256 matches: **281/281**.
+- Row-level issues: **0**.
+- Open field present: **0/281**.
+- Per-symbol row counts: 280 payloads have 29 rows; BENH has 22 rows (2026-10-14 through 2026-11-26). The shorter BENH history is reported as observed coverage, not treated as an error or filled with inferred rows.
+- `promotion_allowed=false`; canonical data modified: false.
+
+The artifact's limitations remain: payload validity and digest parity do not prove exchange completeness, historical security-ID continuity, or a complete expected-session denominator. Missing dates are not classified as non-trading days. No Open values are synthesized. No canonical or scanner-input rows were changed.
+
+This superseding read-back corrects the earlier partial wording without deleting the historical checkpoint.

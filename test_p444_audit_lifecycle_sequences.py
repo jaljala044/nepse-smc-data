@@ -44,7 +44,7 @@ class LifecycleSequenceAuditTests(unittest.TestCase):
              "effective_date_confidence": "verified", "disposition": "HOLD_UNKNOWN"},
         ])
         codes = [item["code"] for item in audit(path)["findings_detail"]]
-        self.assertIn("TERMINAL_EVENT_PRECEDES_LATER_TRading", codes)
+        self.assertIn("TERMINAL_EVENT_PRECEDES_LATER_TRADING", codes)
 
     def test_resumption_requires_prior_suspension_candidate(self):
         path = self.write([

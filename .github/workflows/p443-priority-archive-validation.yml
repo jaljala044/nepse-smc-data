@@ -1,0 +1,28 @@
+name: P443 priority archive validation
+on:
+  push:
+    branches: [p443-global-integrity-audit]
+    paths:
+      - '.github/workflows/p443-priority-archive-validation.yml'
+      - 'tools/p443_priority_archive_validation.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    strategy:
+      fail-fast: false
+      matrix:
+        batch: ['2026-11-26', '2024', '2025']
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python tools/p443_priority_archive_validation.py "${{ matrix.batch }}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: priority-validation-${{ matrix.batch }}
+          path: priority-validation-${{ matrix.batch }}.json

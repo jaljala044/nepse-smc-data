@@ -41,10 +41,13 @@ Audit scope: pinned base 56362fb4f65b91fdcca8f50b50e53ad80e703649. Audit investi
 Six P443_*_RECONCILIATION.json reports preserve initial classifications. Use the latest successful strict audit and pair-level/holiday review artifacts for authoritative current counts; older aggregate reports are snapshots, not replacement data. Preserve raw records. No invented contract IDs, dates or prices.
 
 
+
+## 2024-08-01 HF amount/rate anomaly
+Run 278 (45928679963) passed all 41 steps, including a reproducible diagnostic and tests for the 72,500 arithmetic-failing rows. All 72,500 stored rates are whole-rupee values; amount/quantity-derived unit rates are within 0.5 rupees of the stored value for every row, and 72,496 round half-up to the stored integer. There are 9,045 exact half-rupee ties and four rows that do not follow half-up rounding. This suggests possible source rate-precision loss, but does not establish the actual execution rates or authorize reconstruction. The four residuals and summary are in P443_HF_2024_08_01_RATE_PRECISION_DIAGNOSTIC_2026-11-27.json; full output is artifact 15167263877. No source values were changed or promoted.
 ## Date-lineage cross-audit reconciliation
 A machine-readable cross-audit index was added at P443_DATE_LINEAGE_CROSS_AUDIT_2026-11-27.json. It keeps prior work separate: P4.27/P4.28's 490 official EOD date-shift candidates (487 exact tuple matches, three Close differences); P4.42's 162 NMLBBL/SMPDA scrape-date lineage rows; P4.37's purposive 24-security sample (1,455 closed-date carry-forward rows, 36 official-only matches to closed-date canonical rows, three exact-date mismatches); and P4.5's 20 provisional overlay candidates. These scopes overlap and are not additive. Full 928-file date-shift scanning and key-level reconciliation remain incomplete; no raw/canonical dates were rewritten.
 ## Outstanding acceptance gates
-1. Confirm the full strict workflow after the latest report/decision refresh; Run 277 passed on the latest executable-code revision. The report refresh itself will trigger another strict run.
+1. Confirm the full strict workflow after executable-code changes; Run 278 passed all 41 steps, including the rate-precision diagnostic and tests. Subsequent updates are documentation-only.
 2. Obtain independently authenticated historical OHLCV/session and execution evidence for unresolved rows. The ten primary-archive observations and five secondary exact contract matches are corroboration only; no promotion is authorized.
 3. Complete source provenance, session completeness, point-in-time instrument identity, and cross-file/nested floorsheet ingestion protections. Current scanner-preparation validation is not full canonical-ingestion enforcement.
 4. Verify complete-period and point-in-time historical replay, including monthly consumers, SMC/ICT and authentic IDPAT V3 specification.

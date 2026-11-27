@@ -93,7 +93,7 @@ All 281 official-coverage values are `UNKNOWN`. The extracted artifact leaves ev
 
 ## Next acceptance gates
 
-1. Execute and inspect the new 149-file independent source audit on the exact current branch head.
+1. Run and inspect the full P4.43 global-integrity audit on the latest documentation head; the new 149-file session-source audit already passed on code commit `f3478fc7`.
 2. Obtain an independent session-level source or official market-summary transaction-count benchmark.
 3. Adjudicate March 1/2 date lineage from an authoritative exchange session record.
 4. Obtain primary exchange/issuer corporate-action notices before deriving effective dates or adjustment factors.

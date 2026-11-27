@@ -12,6 +12,8 @@ on:
       - 'test_p444_lifecycle_identity_holds.py'
       - 'tools/p444_audit_lifecycle_sequences.py'
       - 'test_p444_audit_lifecycle_sequences.py'
+      - 'tools/p444_validate_lifecycle_evidence.py'
+      - 'test_p444_validate_lifecycle_evidence.py'
       - 'reference/*_ohlc_exception_register_2026-11-26.csv'
       - 'scanner_inputs/retrieve_quarantine_overlay.py'
       - 'scanner_inputs/retrieve_drive_quarantine.py'
@@ -32,8 +34,8 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install google-auth requests
-      - run: python -m unittest test_p443_canonical_publication test_p443_historical_quarantine test_p443_scanner_quarantine test_p443_drive_quarantine test_p444_lifecycle_identity_holds test_p444_audit_lifecycle_sequences -v
-      - run: python -m py_compile github_floorsheet_pull.py
+      - run: python -m unittest test_p443_canonical_publication test_p443_historical_quarantine test_p443_scanner_quarantine test_p443_drive_quarantine test_p444_lifecycle_identity_holds test_p444_audit_lifecycle_sequences test_p444_validate_lifecycle_evidence -v
+      - run: python -m py_compile github_floorsheet_pull.py tools/p444_validate_lifecycle_evidence.py tools/p444_audit_lifecycle_sequences.py
       - name: Verify actual private Drive quarantine overlay
         env:
           GDRIVE_SERVICE_ACCOUNT_JSON: ${{ secrets.GDRIVE_SERVICE_ACCOUNT_JSON }}

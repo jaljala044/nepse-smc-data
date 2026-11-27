@@ -2,7 +2,7 @@ name: Daily NEPSE Floorsheet Pull
 
 on:
   schedule:
-    - cron: "15 11 * * 0-4"
+    - cron: "15 11 * * 1-5"
   workflow_dispatch:
 
 permissions:

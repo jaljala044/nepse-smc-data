@@ -41,7 +41,7 @@ on:
       - "test_p444_audit_281_security_history.py"
       - "tools/p444_audit_repeat_pair_matrix.py"
       - "tools/p444_audit_repeat_pair_capture_coverage.py"
-      - "test_p444_audit_repeat_pair_matrix.py"
+      - "test_p444_audit_repeat_pair_matrix.py"\n      - "tools/p444_audit_repeat_pair_matrix.py"
       - "test_p444_audit_repeat_pair_capture_coverage.py"
       - "reference/P444_EFFECTIVE_DATED_LIFECYCLE_EVIDENCE_2026-11-27.csv"
       - "test_p443_equity_first_repeat_review.py"

@@ -1,4 +1,7 @@
 import csv
+import json
+import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -98,6 +101,27 @@ class MatrixArtifactAuditTests(unittest.TestCase):
     def test_unresolved_identity_cannot_carry_current_id(self):
         result = self.run_rows([self.row(identity_scope="unresolved", current_snapshot_security_id="10")])
         self.assertIn("UNRESOLVED_SCOPE_HAS_CURRENT_ID", self.codes(result))
+
+    def test_cli_summary_is_valid_json_with_trailing_newline(self):
+        temp = tempfile.TemporaryDirectory()
+        self.addCleanup(temp.cleanup)
+        matrix = Path(temp.name) / "matrix.csv"
+        summary = Path(temp.name) / "summary.json"
+        with matrix.open("w", newline="", encoding="utf-8") as handle:
+            writer = csv.DictWriter(handle, fieldnames=FIELDS)
+            writer.writeheader()
+            writer.writerow(self.row())
+        result = subprocess.run(
+            [sys.executable, "tools/p444_audit_repeat_pair_matrix.py", str(matrix),
+             "--expected-pairs", "1", "--expected-symbols", "1",
+             "--summary-output", str(summary)],
+            capture_output=True, text=True, check=False,
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+        raw = summary.read_bytes()
+        self.assertTrue(raw.endswith(b"\\n"))
+        parsed = json.loads(raw)
+        self.assertTrue(parsed["valid"])
 
 
 if __name__ == "__main__":

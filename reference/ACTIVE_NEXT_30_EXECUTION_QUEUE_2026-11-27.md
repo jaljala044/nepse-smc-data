@@ -36,8 +36,8 @@ This queue decomposes the open acceptance criteria into 30 reviewable work packa
 | 18 | Complete full-scope row-level date-lineage scan across all 525 OHLCV files | BLOCKED | Effective-dated IDs, verified session calendar and official date-key evidence |
 | 19 | Reconcile March 1/2 archive lineage and 13 baseline-conflict rows | UNRESOLVED | Authoritative session date and complete transaction totals |
 | 20 | Verify floor-sheet contract identity uniqueness with session/source scoping | PENDING | Contract identity scope must not be assumed global |
-| 21 | Add P4.44 lifecycle-symbol/date hold source to scanner staging and publication gates | GAP IDENTIFIED | Explicit conservative hold behavior; unresolved lifecycle symbols cannot bypass |
-| 22 | Add regression tests for lifecycle holds, unknown symbols, date boundaries and bypass paths | PENDING | Tests demonstrate fail-closed behavior across all ingestion routes |
+| 21 | Add P4.44 lifecycle-symbol/date hold source to scanner staging and publication gates | IMPLEMENTED — code tested at `ccc1bd911e29c84a448dd05cd4bd0b782bb8d9b6` | Symbol-wide fail-closed holds wired into canonical publication and scanner staging; all 26 symbols remain held |
+| 22 | Add regression tests for lifecycle holds, unknown symbols, date boundaries and bypass paths | PARTIAL COMPLETE — combined unittest step passed | Tests cover 26-symbol scope, missing/incomplete ledger, unknown symbols, OHLCV, floorsheet and broker-summary paths; end-to-end workflow still fails at private Drive credential verification |
 | 23 | Validate atomic publication, no-overwrite behavior and raw archive immutability | EXISTING GATE; P4.44 COVERAGE GAP | Test exact destination, symlink, duplicate and overwrite scenarios |
 | 24 | Re-run complete P4.43 workflow on the final branch head after implementation | NOT RUN ON CURRENT HEAD | Successful run must identify exact head SHA and artifacts |
 | 25 | Reconcile final audit outputs and PR #80 acceptance checklist | OPEN | No merge until all issue acceptance criteria and review evidence are satisfied |

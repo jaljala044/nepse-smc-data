@@ -1,0 +1,34 @@
+{
+  "audit_run": 45900225212,
+  "artifact_id": 15154924388,
+  "artifact_sha256": "cdf166f7265ca8703011d22c46a2e51db4d946dc6f3d9749cf79a40306650c3a",
+  "evidence_revision": "90068918591023f0eb9e26f5fa0a74343c98a8fa",
+  "canonical_calendar_blob": "f8ed6cbb93a31f62811d39849d050333efff8d04",
+  "historical_holiday_blob": "621ccd504520ce25ecbca51493919950e014a9dd",
+  "positive_open_blob": "470d73d3409cded70cb603f4d9aeca28237c7e5b",
+  "total_missing_dates": 220,
+  "total_requests": 48099,
+  "status": {
+    "RECORDED_CALENDAR_CLOSURE_HOLD": {
+      "dates": 56,
+      "requests": 13312
+    },
+    "EARLIER_WEEKEND_UNVERIFIED": {
+      "dates": 159,
+      "requests": 34345
+    },
+    "OTHER_DATE_UNVERIFIED": {
+      "dates": 5,
+      "requests": 442
+    }
+  },
+  "other_dates": {
+    "2011-06-19": 1,
+    "2011-06-20": 1,
+    "2016-09-04": 4,
+    "2024-08-15": 215,
+    "2025-06-19": 221
+  },
+  "promoted": 0,
+  "limitations": "Read-only local classification from SHA256-verified audit artifact and captured evidence register date sets; recorded schedule-based closures are not independent exchange confirmation of each date; earlier weekend dates remain unverified. No canonical changes."
+}

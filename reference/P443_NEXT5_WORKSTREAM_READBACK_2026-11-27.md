@@ -195,3 +195,37 @@ The global artifact reports 928 inventory files, 1,650,883 CSV rows / JSON docum
 Run #305 closes the current-head CI evidence gap for the audited code and documentation state. It does not close P4.43 acceptance: unsupported inventory checks, independent source provenance/session completeness, full date-lineage adjudication, overlay payload recovery, and unresolved evidence queues remain open. P4.44 remains incomplete. PR #80 stays open, draft and unmerged.
 
 No canonical OHLCV or raw source values were changed, shifted, deduplicated, corrected, or promoted. No corporate-action factor, inferred rate, stable ID, or lifecycle date was approved.
+
+
+## Next-five continuation — authenticated overlay retrieval and CI gate (2026-11-27)
+
+### Drive retrieval helper review
+
+Commit `64ee704bd5949076de6b959e3ac24bef6e6c8035` added `scanner_inputs/retrieve_drive_quarantine.py`. Review of its call chain confirms that it does not rely on file size alone: after streaming the bounded expected byte count to a temporary file, it calls `scanner_inputs.historical_quarantine.load_holds()` before creating the final output link. That parser validates the pinned manifest, exact expected byte count, SHA-256 `6d76c2a161dc3a65067806b5114a418be6aee0a90ebdc5519e2a718a531f7a2d`, schema, unique symbol/date keys, row counts, dispositions, and non-promotion flags. The output link is created only after this validation succeeds. No overlay payload was retrieved in this review.
+
+### Actual private Drive gate result
+
+Publication-gate run #8:
+https://github.com/jaljala044/nepse-smc-data/actions/runs/46006958259
+
+- The 53 existing publication, quarantine and scanner regression tests passed.
+- Python compilation passed.
+- The actual Drive retrieval step failed closed because the Actions secret `GDRIVE_SERVICE_ACCOUNT_JSON` was empty / unavailable to the run. The log explicitly reports: `Missing GDRIVE_SERVICE_ACCOUNT_JSON secret; fail closed`.
+- This is an external credential/configuration blocker, not a failed overlay digest check. No Drive request was made, no payload was downloaded, and no overlay was promoted.
+
+### Added regression coverage and CI path wiring
+
+- Added `test_p443_drive_quarantine_retrieval.py` with mocked authenticated Drive responses. It checks that output creation follows quarantine validation, and that size or parser-validation failures leave no final output.
+- Added the retrieval script and its regression test to both push and pull-request path filters in `.github/workflows/p443-global-integrity-audit.yml`, and added the test command to the workflow.
+- Commits: test `ba4d37ea3879b69fee88e0eab45890192178bb4f`; path-filter wiring `16d93b2ceed33192d478b9e5fa42ff7a87872350`; test-step wiring `03e50222793b7d093ce5127d039097166f00b810`.
+- Full P4.43 run #308 passed on `c6ed9804b39bb75a962550b7b9b4b0ca7a971b42` (all 52 steps, no failed steps), but predates the Drive-retrieval test changes.
+- Run #309 is running on intermediate commit `16d93b2c...`; run #310 is running on current branch head `03e50222...`. Neither had completed at report time.
+
+### Current acceptance boundary
+
+The next full-current-head validation is run #310:
+https://github.com/jaljala044/nepse-smc-data/actions/runs/46007082433
+
+The Drive credential must be configured by an authorized repository administrator before the actual retrieval gate can pass. Do not add a credential to the repository, commit it, expose it in logs, or weaken the fail-closed check. After the secret is configured, rerun the publication gate and verify the downloaded file against the existing pinned SHA before any use.
+
+No canonical OHLCV, raw source, or overlay payload was changed or promoted. P4.43 and P4.44 remain incomplete; PR #80 remains open, draft and unmerged; issue #82 remains open.

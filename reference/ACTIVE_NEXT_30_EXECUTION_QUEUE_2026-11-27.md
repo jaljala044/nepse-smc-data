@@ -18,7 +18,7 @@ This queue decomposes the open acceptance criteria into 30 reviewable work packa
 | 5 | Reconcile JALPA/KLBSL → MATRI merger dates and distinguish integrated-business date from last trade | PARTIAL | Primary raw notice plus exchange trading boundary |
 | 6 | Resolve SABSL/SDLBSL → SMPDA conflicting 2024-07-14 vs 2025-07-14 claims | BLOCKED | Date-authentic primary notice and effective-date interpretation |
 | 7 | Recover cancellation notices and raw payload provenance for NICAD8283, NICGF and SBLD2082 | PARTIAL | Original PDFs, SHA-256 and unambiguous Bikram Sambat/Gregorian date conversion |
-| 8 | Complete lifecycle event ledger schema validation (event types, dates, source tier, confidence, ID, successor) | PENDING | Tests reject malformed dates, missing provenance and conflicting intervals |
+| 8 | Complete lifecycle event ledger schema validation (event types, dates, source tier, confidence, ID, successor) | PARTIAL — validator and regression tests exist; full interval-overlap / impossible-sequence coverage remains open | Current tests reject malformed dates/events, incomplete verified provenance, duplicate event records and same-date source conflicts |
 | 9 | Audit effective-date interval overlaps and impossible lifecycle sequences | PENDING | Deterministic report; conflicts remain HOLD |
 | 10 | Parse and verify the existing 281 per-security NEPSE history captures without treating current IDs as historical IDs | PARTIAL EXISTING EVIDENCE | Raw response hashes, field coverage and explicit current-snapshot limitation |
 | 11 | Build exact per-security execution evidence for every repeated-pair endpoint date | BLOCKED | Security identity plus date-matched execution payload; market totals are insufficient |
@@ -38,7 +38,7 @@ This queue decomposes the open acceptance criteria into 30 reviewable work packa
 | 20 | Verify floor-sheet contract identity uniqueness with session/source scoping | PENDING | Contract identity scope must not be assumed global |
 | 21 | Add P4.44 lifecycle-symbol/date hold source to scanner staging and publication gates | IMPLEMENTED — code tested at `ccc1bd911e29c84a448dd05cd4bd0b782bb8d9b6` | Symbol-wide fail-closed holds wired into canonical publication and scanner staging; all 26 symbols remain held |
 | 22 | Add regression tests for lifecycle holds, unknown symbols, date boundaries and bypass paths | PARTIAL COMPLETE — combined unittest step passed | Tests cover 26-symbol scope, missing/incomplete ledger, unknown symbols, OHLCV, floorsheet and broker-summary paths; end-to-end workflow still fails at private Drive credential verification |
-| 23 | Validate atomic publication, no-overwrite behavior and raw archive immutability | EXISTING GATE; P4.44 COVERAGE GAP | Test exact destination, symlink, duplicate and overwrite scenarios |
+| 23 | Validate atomic publication, no-overwrite behavior and raw archive immutability | IN PROGRESS — added destination/parent symlink regression tests; publication run #14 queued on `e272165b93a03f44cb42814d1a279a8c51646d7d` | Existing tests cover exclusive publish, identical rerun, differing-content no-overwrite, digest failure and duplicate contract; new symlink tests await CI |
 | 24 | Re-run complete P4.43 workflow on the final branch head after implementation | NOT RUN ON CURRENT HEAD | Successful run must identify exact head SHA and artifacts |
 | 25 | Reconcile final audit outputs and PR #80 acceptance checklist | OPEN | No merge until all issue acceptance criteria and review evidence are satisfied |
 

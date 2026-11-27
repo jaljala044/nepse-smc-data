@@ -6,6 +6,7 @@ import hashlib
 import json
 from collections import Counter
 from decimal import Decimal, InvalidOperation
+from datetime import date
 from pathlib import Path
 
 
@@ -30,7 +31,7 @@ def inspect(rows, symbol):
     for row in rows:
         values = {k: dec(row.get(k)) for k in ("Open", "High", "Low", "Close", "Volume")}
         o, h, l, c, v = (values[k] for k in ("Open", "High", "Low", "Close", "Volume"))
-        if any(x is None for x in values.values()):
+        if any(x is None or not x.is_finite() for x in values.values()):
             flags.append((symbol, row.get("Date", ""), "NON_NUMERIC_OR_MISSING"))
             continue
         if min(o, h, l, c) <= 0:
@@ -43,6 +44,14 @@ def inspect(rows, symbol):
             flags.append((symbol, row.get("Date", ""), "CLOSE_OUTSIDE_RANGE"))
         if v < 0:
             flags.append((symbol, row.get("Date", ""), "NEGATIVE_VOLUME"))
+        if v != v.to_integral_value():
+            flags.append((symbol, row.get("Date", ""), "FRACTIONAL_VOLUME"))
+        try:
+            day = row.get("Date", "")
+            if date.fromisoformat(day).isoformat() != day:
+                raise ValueError("Noncanonical date")
+        except (ValueError, TypeError):
+            flags.append((symbol, row.get("Date", ""), "INVALID_DATE"))
     return flags
 
 

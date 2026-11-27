@@ -1,0 +1,97 @@
+# P4.43 next-five workstream read-back — session candidates and corporate actions (2026-11-27)
+
+## Repository state
+
+- Branch: `p443-global-integrity-audit`
+- Branch / PR head at report creation: `f3478fc7ced2c52daac481502c3600d3014e42e9`
+- PR #80 remains open, draft and unmerged.
+- P4.44 issue #82 remains open.
+- No canonical OHLCV values were changed.
+
+## 1. Rechecked the 195-session recovery artifact
+
+The previous session-recovery workflow [run 46002462651](https://github.com/jaljala044/nepse-smc-data/actions/runs/46002462651) completed successfully on commit `4021b46f0cd695149354fd73ef4a11379f961a04`. Its artifact ZIP SHA-256 was independently rechecked locally as:
+
+`9cc96738fad27f6eb0c869aaf18259d0cc7f20d84a2e8ccc63040ec5d22d15ea`
+
+The consolidated artifact contains 195 unique session dates:
+- 148 secondary aggregate totals-match candidates;
+- one March 1 date-shift candidate;
+- five two-archive contract-parity candidates;
+- 41 existing-baseline candidates.
+
+The artifact still reports zero official approvals and zero promotions. All publication gates remain false.
+
+## 2. Independent sample inspection of daily source CSVs
+
+Eight representative daily files were fetched from the pinned ShareSansarScraper commit `524442d518d2f2705ade0680c9d2e3f90738e3d6` and independently parsed:
+
+`2026-01-01, 2026-02-24, 2026-03-03, 2026-04-29, 2026-05-25, 2026-06-18, 2026-08-20, 2026-09-09`
+
+All eight passed these sample checks:
+- returned content length matched the inventory byte count (ASCII CSV);
+- parsed per-security row count matched the market-summary traded-security count;
+- no duplicate symbols;
+- serial numbers were contiguous from 1;
+- summed volume and turnover matched the market-summary values.
+
+This is a purposive eight-file sample, not a full 148-file completeness conclusion. These are per-security daily EOD aggregate files, not underlying transaction-level floorsheets.
+
+## 3. Added an independent full-scope source-structure audit
+
+Added `tools/p443_audit_session_source_structure.py` and wired it into `.github/workflows/p443-session-count-recovery.yml`.
+
+The new audit independently reopens all 149 inventory files from the pinned Git commit and checks:
+- source byte count and recomputed Git blob SHA;
+- CSV headers and row shape;
+- symbol presence and uniqueness;
+- contiguous `S.No` sequence;
+- numeric volume, turnover and transaction fields;
+- aggregate symbols/volume/turnover against the baseline;
+- independently recomputed transaction sum against the recovery output;
+- publication gate remains false.
+
+Expected held-candidate profile is 148 structurally valid aggregate matches and one source-integrity-valid March 1 baseline conflict.
+
+**Execution status:** the code and workflow change are committed, but no workflow run on branch head `f3478fc7` has yet been observed. The new 149-file audit is therefore pending execution and must not be described as passed.
+
+Even a successful run will establish internal source-file consistency, not independent exchange completeness or transaction-level correctness. The baseline has no independent transaction-count benchmark for these 149 recovery dates.
+
+## 4. Rechecked the corporate-action source recovery artifact
+
+[P443 corporate-action recovery run 46003119493](https://github.com/jaljala044/nepse-smc-data/actions/runs/46003119493) completed successfully on checkout commit `52ec3f71ef71d3820f2f77d21fef8bf9b8126002`. Its artifact (ID `15198044455`) was downloaded and inspected.
+
+- Artifact ZIP SHA-256: `766dd83c0c71256be1610ebd162339f254474f825f1b0e739a7f3b4ff0b34047`
+- Candidate CSV SHA-256: `60711327d51c279d0543dcaeded432f2f5ff568c9e1ceaaafd404f4b67a4e825`
+- Coverage CSV SHA-256: `b0c13d09fbadff36b79c51191ee4d4ce50aebf360266292682684dd8cb60400b`
+- File audit CSV SHA-256: `bcdae8a831792bd873ea85e97cc763ddc1708f82f7f77f42fda538ebdb56ae0d`
+
+Artifact read-back:
+- 323 source files, 1,533 extracted candidate rows;
+- 281 target equities, with 200 symbols having source candidates and 81 without candidates;
+- 1,414 candidate rows associated with target equities;
+- 1,294 rows classified `UNVERIFIED_SECONDARY`;
+- 239 rows classified `SOURCE_FIELD_REVIEW`;
+- zero exact duplicate rows;
+- zero approved adjustments.
+
+All 281 official-coverage values are `UNKNOWN`. The extracted artifact leaves every effective date and adjustment factor blank, and every row has `adjustment_allowed=false`. The source is the pinned third-party repository `SamirWagle/Nepse-All-Scraper`, not an exchange-approved corporate-action register. The 3-event canonical action register remains the only registered adjustment input; the bounded comparison does not prove that other events are absent.
+
+## 5. Preserved the acceptance boundary
+
+- March 1 remains a 13-symbol partial archive partition.
+- The March 2 archive file remains only a secondary date-shift candidate; no relabeling is authorized.
+- The 148 same-date aggregate matches do not prove floorsheet completeness or execution-level correctness.
+- Corporate-action candidates remain secondary evidence only; no factor calculation, canonical adjustment, or promotion is authorized.
+- P4.44 historical stable-ID and lifecycle evidence remains unresolved; issue #82 stays open.
+- No full P4.43 global-integrity workflow was run on this report's branch head.
+
+## Next acceptance gates
+
+1. Execute and inspect the new 149-file independent source audit on the exact current branch head.
+2. Obtain an independent session-level source or official market-summary transaction-count benchmark.
+3. Adjudicate March 1/2 date lineage from an authoritative exchange session record.
+4. Obtain primary exchange/issuer corporate-action notices before deriving effective dates or adjustment factors.
+5. Continue P4.44 stable-ID and lifecycle evidence acquisition; retain HOLD/UNKNOWN where provenance is incomplete.
+
+**Status: workstreams advanced; P4.43 and P4.44 remain incomplete. No data promotion or canonical OHLCV modification occurred.**

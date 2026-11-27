@@ -243,11 +243,11 @@ jobs:
       - name: Verify repeat-pair lineage coverage audit regression tests
         run: python -m unittest test_p443_audit_repeat_lineage_coverage -v
       - name: Export exact repeat-pair lineage coverage gaps
-        run: |
-          python tools/p443_audit_repeat_lineage_coverage.py \\
-            --pairs audit-strict/repeat_calendar_triage.csv \\
-            --lineage audit-strict/equity_security_date_source_lineage.csv \\
-            --output-dir audit-strict
+        run: >-
+          python tools/p443_audit_repeat_lineage_coverage.py
+          --pairs audit-strict/repeat_calendar_triage.csv
+          --lineage audit-strict/equity_security_date_source_lineage.csv
+          --output-dir audit-strict
       - name: Bulk equity floorsheet recovery regression tests
         run: python -m unittest test_p443_bulk_equity_floorsheet_recovery -v
       - name: Map and reconcile first bulk equity floorsheet batch

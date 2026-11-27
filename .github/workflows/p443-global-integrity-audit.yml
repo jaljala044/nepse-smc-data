@@ -138,6 +138,7 @@ jobs:
           test "$(git -C scanner-backend rev-parse HEAD)" = e5790632d293a477cc930a25649f39f8829cbf05
           python -m unittest test_p443_cross_repository -v
       - name: Install document audit parsers
+        if: ${{ !cancelled() }}
         run: python -m pip install pypdf PyYAML
       - name: Run strict pinned-byte cross-check
         if: ${{ !cancelled() }}

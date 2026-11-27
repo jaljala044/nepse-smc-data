@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "retrieved_date": "2026-11-27",
+  "records": [
+    {
+      "date": "2025-04-03",
+      "ohlc": [
+        "2700.40",
+        "2732.85",
+        "2700.23",
+        "2703.39"
+      ],
+      "turnover": "7844642487.27",
+      "sources": [
+        "https://expertnepal.com/nepse-index/",
+        "https://kathmandupost.com/money/2025/04/03/nepse-index-increases-by-3-35-points-trading-volume-reaches-rs7-84-billion"
+      ],
+      "symbol": "NEPSE_index",
+      "bounds_valid": true,
+      "status": "SECONDARY_SOURCE_CANDIDATE",
+      "promotion_allowed": false
+    },
+    {
+      "date": "2025-08-17",
+      "ohlc": [
+        "2789.85",
+        "2803.25",
+        "2761.22",
+        "2761.22"
+      ],
+      "sources": [
+        "https://www.sharesansar.com/newsdetail/nepse-index-plunges-by-2714-points-to-settle-at-276122-nric-tops-the-turnover-2025-08-17",
+        "https://hamroshare.com.np/news/market-wrap/2025-08-17"
+      ],
+      "symbol": "NEPSE_index",
+      "bounds_valid": true,
+      "status": "SECONDARY_SOURCE_CANDIDATE",
+      "promotion_allowed": false
+    },
+    {
+      "date": "2025-11-24",
+      "ohlc": [
+        "2601.20",
+        "2650.66",
+        "2601.11",
+        "2650.66"
+      ],
+      "sources": [
+        "https://www.sharesansar.com/newsdetail/nepse-index-upsurges-by-significant-5044-points-all-indices-close-at-green-while-intraday-turnover-stood-at-703-arba-2025-11-24"
+      ],
+      "symbol": "NEPSE_index",
+      "bounds_valid": true,
+      "status": "SECONDARY_SOURCE_CANDIDATE",
+      "promotion_allowed": false
+    },
+    {
+      "date": "2025-08-12",
+      "ohlc": [
+        "2824.00",
+        "2828.57",
+        "2796.24",
+        "2796.24"
+      ],
+      "sources": [
+        "https://hamroshare.com.np/news/market-wrap/2025-08-12"
+      ],
+      "symbol": "NEPSE_index",
+      "bounds_valid": true,
+      "status": "SECONDARY_SOURCE_CANDIDATE",
+      "promotion_allowed": false
+    },
+    {
+      "date": "2025-09-18",
+      "ohlc": [
+        "2637.98",
+        "2637.97",
+        "2511.91",
+        "2511.91"
+      ],
+      "sources": [
+        "https://www.sharesansar.com/newsdetail/nepse-suffers-6-crash-investment-worth-rs-268-kharba-wiped-out-in-minutes-2025-09-18",
+        "https://kathmandupost.com/money/2025/09/18/nepse-plunges-160-points-trading-halted"
+      ],
+      "session": "shortened_by_circuit_breaker",
+      "symbol": "NEPSE_index",
+      "bounds_valid": false,
+      "status": "HOLD_INVALID_BOUNDS",
+      "promotion_allowed": false
+    },
+    {
+      "date": "2024-09-12",
+      "ohlc": [
+        "2625.46",
+        "2688.52",
+        "2604.83",
+        "2688.38"
+      ],
+      "conflicting_close": "2688.53",
+      "sources": [
+        "https://www.sharesansar.com/newsdetail/nepse-rebounds-after-6-days-of-decline-surges-by-7817-points-to-close-at-268838-with-rs-816-arba-turnover-2024-09-12",
+        "https://www.muktinathcapital.com/site_uploads/newsletter-171213741.pdf"
+      ],
+      "symbol": "NEPSE_index",
+      "bounds_valid": true,
+      "status": "HOLD_CONFLICTING_CLOSE",
+      "promotion_allowed": false
+    }
+  ],
+  "limitations": "Public published values, not authenticated official captures. Turnover absent unless explicitly recovered. Provider lineage independence and redistribution permission not established. No promotion."
+}

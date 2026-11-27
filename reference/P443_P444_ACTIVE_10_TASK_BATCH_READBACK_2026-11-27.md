@@ -148,3 +148,12 @@ Using the Run #336 strict artifact files `repeat_calendar_triage.csv` and `equit
 This refines the earlier symbol-only gap statement: 209 symbols are entirely uncovered, but partial gaps also remain across 245 other symbols. The crosswalk is therefore not full-scope even for symbols already represented. The count measures evidence-index coverage only; it does not prove missing sessions, non-trading days, date shifts or source errors. Work #18 remains PARTIAL pending the full 525-file lineage scan and authoritative identity/calendar evidence.
 
 No raw OHLCV, floorsheet, calendar, canonical or scanner-input rows were changed. No corrections, promotions or hold releases occurred.
+
+
+## Work package #18 — Run #338 CI and exact artifact read-back
+
+- The initial Run #337 export failed because its YAML folded command did not deliver the required CLI arguments; the three new regression tests passed. Corrected in commit `f0965688f085050e1a9499bfbca80d60dffe2c3f`.
+- Run #338 (`46046751745`) passed the complete P4.43 workflow on branch head `f0965688f085050e1a9499bfbca80d60dffe2c3f`. New regression step and exact gap-export step both passed.
+- Strict artifact `15222152680`: 58,728,598 bytes; SHA-256 `96cbdb5f7d4275c5ee93337b11525237910192897ef4482f92110a6b7f01109d` (matches GitHub metadata). Global artifact `15221704196`: 1,403,280 bytes; SHA-256 `3e6f452d17bf49f57d504706079e6fecddfd938e67b64c4503d60a38d651f0cc` (matches GitHub metadata).
+- New gap CSV: 46,878 unique uncovered `(symbol,date)` rows across 454 symbols. Summary: 94,543 repeat-pair keys / 462 symbols; 68,783 lineage keys / 253 symbols; 47,665 exact intersections; 46,878 uncovered; 21,118 lineage keys outside the repeat-pair set; 209 symbols with no lineage, 245 partial, 8 full. All exported gap rows are explicitly `lineage_covered=false` and `promotion_allowed=false`.
+- #18 remains PARTIAL: the exporter measures the current lineage register; it does not construct complete lineage for all 525 OHLCV files or supply authoritative identity, session-calendar and execution evidence. No source/canonical data changed and no hold was released.

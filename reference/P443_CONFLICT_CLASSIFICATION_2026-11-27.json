@@ -1,0 +1,21 @@
+{
+  "task": "P4.43.14.15",
+  "audit_run": 45900225212,
+  "artifact_id": 15154924388,
+  "artifact_sha256": "cdf166f7265ca8703011d22c46a2e51db4d946dc6f3d9749cf79a40306650c3a",
+  "conflict_count": 2058,
+  "symbols": 240,
+  "dates": 22,
+  "classification": {
+    "VOLUME_MATCH_PRICE_CONFLICT": 1841,
+    "OBSERVED_VOLUME_LOWER": 217,
+    "OBSERVED_VOLUME_GREATER": 0
+  },
+  "all_volume_conflict_date": "2026-04-10",
+  "date_conflicts": 221,
+  "date_price_only_conflicts": 4,
+  "exact_unique_lineage_matches": 2058,
+  "report_sha256": "43ace8670bdedacda64c03a5d9e0a8b5f14f5ab7a1c125c1add408bf80eeaf7f",
+  "promoted": 0,
+  "limitations": "Volume from checksum-verified repeat calendar audit joined by exact path/blob/row; original source high/low not present in this artifact, so individual high versus low mismatches and adjustment causes remain unverified. The CSV and JSON summary disagree on one status label in an unrelated non-conflict row: conflict total agrees. No raw changes."
+}

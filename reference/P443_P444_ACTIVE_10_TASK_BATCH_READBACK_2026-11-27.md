@@ -123,3 +123,28 @@ A fresh read-back of the committed official evidence supersedes the earlier stat
 The versioned derived OHLCV decision is therefore supported for RHGCL 2026-11-19: use the official full OHLCV tuple; preserve the discrepant SMC raw tuple unchanged. This does not resolve the other 86 conflict keys dated 2025-07-28. The 86-row secondary counterpart index remains complete (86/86, no missing or duplicate keys), but all 86 remain `CONFLICT_UNRESOLVED_PRIMARY_EVIDENCE_PENDING`. Their timestamp/order blocker remains: the candidate YONEPSE archive has no trade timestamps, so Open/Close must not be inferred from contract-ID ordering.
 
 **Corrected work-package #26 disposition:** 86 unresolved 2025-07-28 keys; RHGCL 2026-11-19 primary-confirmed separately. No raw source rows changed in this read-back.
+
+
+## Run #336 — explicit floorsheet row identity and global audit read-back
+
+- Run #336 completed successfully (59/59 workflow steps) on exact tested code SHA `c261b1c0e3c64cd1268a92eaaf0690cb028a738d`: https://github.com/jaljala044/nepse-smc-data/actions/runs/46043405148
+- Global artifact ID `15221652252`; downloaded ZIP SHA-256 `5dd8dd7ce89e538510745c28683058d2140b7fc9e50d65387c450b7606898248`, matching GitHub artifact metadata. Strict artifact ID `15221597345`; downloaded ZIP SHA-256 `1242b5abcd38f7a37f7f819b44992b8d202d2075d7b9f1a57f949138a1b30d01`, also matching GitHub metadata.
+- The global report covers the pinned 928-file inventory: 691 parsed CSV files, 93 parsed JSON documents, 1,650,883 CSV rows plus JSON documents, zero parse errors, and 150 unsupported file/check combinations. It reports zero OHLCV duplicate symbol/date keys, zero OHLCV exact duplicate rows, zero floorsheet explicit record-ID repeats within source file/session, zero exact repeated floorsheet rows and zero duplicate dates within a calendar file.
+- The audit no longer manufactures a record ID from contract number + symbol + buyer + seller when an explicit source transaction/record ID is absent. Such a check is marked unsupported; exact full-row repeat detection remains separate. This is a pinned-scope result, not a global uniqueness guarantee.
+- **#16 disposition:** complete for the pinned 928-file audit and implemented checks, with the 150 unsupported checks explicitly retained as limitations.
+- **#17 disposition:** complete for classification only. The strict artifact has 94,543 unique adjacent repeat-pair findings: 26,544 historical-holiday candidates, 9,027 recorded-closure pairs, 73 both-open/unverified pairs and 58,899 insufficient-session-evidence pairs. The review split is 35,571 quarantine-review and 58,972 independent-evidence. Zero rows corrected or promoted.
+
+## Work package #18 — exact lineage coverage gap recheck
+
+Using the Run #336 strict artifact files `repeat_calendar_triage.csv` and `equity_security_date_source_lineage.csv`, independently compared exact `(symbol, date)` keys without alias or ticker-similarity matching:
+
+- Repeat-pair set: 94,543 unique symbol/date keys across 462 symbols.
+- Existing lineage set: 68,783 unique symbol/date keys across 253 symbols.
+- Exact intersection: 47,665 keys.
+- Repeat-pair keys without lineage: 46,878.
+- Symbol coverage: 209 symbols have no lineage keys, 245 have partial coverage, and only 8 have every repeat-pair key covered.
+- Existing lineage keys outside the repeat-pair set: 21,118.
+
+This refines the earlier symbol-only gap statement: 209 symbols are entirely uncovered, but partial gaps also remain across 245 other symbols. The crosswalk is therefore not full-scope even for symbols already represented. The count measures evidence-index coverage only; it does not prove missing sessions, non-trading days, date shifts or source errors. Work #18 remains PARTIAL pending the full 525-file lineage scan and authoritative identity/calendar evidence.
+
+No raw OHLCV, floorsheet, calendar, canonical or scanner-input rows were changed. No corrections, promotions or hold releases occurred.

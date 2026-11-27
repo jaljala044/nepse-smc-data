@@ -1,0 +1,33 @@
+{
+  "task": "P4.43.14.15.7",
+  "source_audit": {
+    "run": 45901012377,
+    "artifact": 15155667000,
+    "sha256": "20b74549f8e73aa3f94067ef834e6023b888dd0ec6df69ba174a3ecce7cbeb86"
+  },
+  "price_only_records": 1841,
+  "regimes": [
+    {
+      "end": "2026-04-19",
+      "records": 1172,
+      "observed_low_below_source": 1143,
+      "max_reduction_pct": 2,
+      "regular_order_band_pct": 2
+    },
+    {
+      "start": "2026-04-20",
+      "records": 669,
+      "observed_low_below_source": 642,
+      "max_reduction_pct": 3,
+      "regular_order_band_pct": 3
+    }
+  ],
+  "evidence": [
+    "https://nepsealpha.com/post/detail/8302/data-architecture-improvements-in-nepsealpha-charts-pre-open-price-management-and-its-technical-objectivitynull",
+    "https://www.sharesansar.com/newsdetail/nepse-enables-market-depth-visibility-for-odd-lot-orders-from-shrawan-1-2025-07-17",
+    "https://kathmandupost.com/money/2026/04/16/nepse-allows-round-the-clock-order-placement-as-trading-rules-revised",
+    "https://thehimalayantimes.com/business/nepse-amends-trading-regulations-introduces-pre-market-order-queuing-and-tighter-circuit-breaker-rules"
+  ],
+  "disposition": "PRICE_SEMANTICS_HOLD",
+  "limitations": "Numerical regime association does not establish transaction category or official OHLC definition. NepseAlpha methodology is provider-specific and published after target sessions. No price replacements or canonical promotion."
+}

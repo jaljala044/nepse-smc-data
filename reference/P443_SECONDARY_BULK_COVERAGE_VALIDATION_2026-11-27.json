@@ -1,0 +1,48 @@
+{
+  "audit_run": 45900225212,
+  "artifact_id": 15154924388,
+  "artifact_sha256": "cdf166f7265ca8703011d22c46a2e51db4d946dc6f3d9749cf79a40306650c3a",
+  "inventory_path": "reference/p433_floorsheets/huggingface_repo_tree.json",
+  "inventory_pin": "56362fb4f65b91fdcca8f50b50e53ad80e703649",
+  "inventory_dates": 603,
+  "unique_requests": 68773,
+  "unique_dates": 316,
+  "coverage": {
+    "both": {
+      "dates": 22,
+      "requests": 5235
+    },
+    "secondary_only": {
+      "dates": 74,
+      "requests": 15439
+    },
+    "neither": {
+      "dates": 220,
+      "requests": 48099
+    }
+  },
+  "neither_by_weekday": {
+    "Friday": {
+      "dates": 98,
+      "requests": 21581
+    },
+    "Saturday": {
+      "dates": 105,
+      "requests": 23173
+    },
+    "Sunday": {
+      "dates": 14,
+      "requests": 2908
+    },
+    "Thursday": {
+      "dates": 2,
+      "requests": 436
+    },
+    "Monday": {
+      "dates": 1,
+      "requests": 1
+    }
+  },
+  "promotion_allowed": false,
+  "limitations": "Date inventory intersection only, not downloaded secondary content or verified session closures. Local calculation from checksum-matched audit ZIP and captured inventory date set; no raw data mutation."
+}

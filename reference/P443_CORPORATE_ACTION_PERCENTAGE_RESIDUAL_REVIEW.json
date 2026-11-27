@@ -1,0 +1,4813 @@
+{
+  "source_blob": "71d43c5e2b905c959a7f14c47db88e1edab290f5",
+  "counts": {
+    "ZERO_RESIDUAL_CANDIDATE": 207,
+    "EXTERNAL_EVIDENCE_REQUIRED": 32
+  },
+  "method": "Exact arithmetic residual from reported total minus populated component; not independent evidence; no source values replaced.",
+  "records": [
+    {
+      "symbol": "ALICL",
+      "source_path": "data/company-wise/ALICL/dividend.csv",
+      "source_line": 12,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2068/2069",
+        "bonus_share": "8.29",
+        "cash_dividend": "",
+        "total_dividend": "8.29",
+        "book_closure_date": "2013-01-19 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "API",
+      "source_path": "data/company-wise/API/dividend.csv",
+      "source_line": 10,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2073/2074",
+        "bonus_share": "8.00",
+        "cash_dividend": "",
+        "total_dividend": "8.00",
+        "book_closure_date": "2018-01-05 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "API",
+      "source_path": "data/company-wise/API/dividend.csv",
+      "source_line": 11,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2072/2073",
+        "bonus_share": "5.00",
+        "cash_dividend": "",
+        "total_dividend": "5.00",
+        "book_closure_date": "2016-08-17 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "BBC",
+      "source_path": "data/company-wise/BBC/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2075/2076",
+        "bonus_share": "",
+        "cash_dividend": "14.00",
+        "total_dividend": "14.00",
+        "book_closure_date": "2025-02-21 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "BFC",
+      "source_path": "data/company-wise/BFC/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2067/2068",
+        "bonus_share": "20.00",
+        "cash_dividend": "",
+        "total_dividend": "20.00",
+        "book_closure_date": "2012-02-10 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "BGWT",
+      "source_path": "data/company-wise/BGWT/dividend.csv",
+      "source_line": 4,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "10.5263",
+        "total_dividend": "10.5263",
+        "book_closure_date": "2023-12-21 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "BHDC",
+      "source_path": "data/company-wise/BHDC/dividend.csv",
+      "source_line": 4,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "8.00",
+        "cash_dividend": "",
+        "total_dividend": "8.00",
+        "book_closure_date": "2024-11-13 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "BHDC",
+      "source_path": "data/company-wise/BHDC/dividend.csv",
+      "source_line": 5,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "5.2632",
+        "total_dividend": "5.2632",
+        "book_closure_date": "2024-01-02 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "BNT",
+      "source_path": "data/company-wise/BNT/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "50.00",
+        "total_dividend": "50.00",
+        "book_closure_date": "2025-01-03 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "BNT",
+      "source_path": "data/company-wise/BNT/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "60.00",
+        "total_dividend": "60.00",
+        "book_closure_date": "2024-01-05 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "BPCL",
+      "source_path": "data/company-wise/BPCL/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "5.00",
+        "total_dividend": "5.00",
+        "book_closure_date": "2025-01-02 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "BPCL",
+      "source_path": "data/company-wise/BPCL/dividend.csv",
+      "source_line": 4,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "5.00",
+        "total_dividend": "5.00",
+        "book_closure_date": "2024-01-04 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "C30MF",
+      "source_path": "data/company-wise/C30MF/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "12.75",
+        "total_dividend": "12.75",
+        "book_closure_date": "2025-08-29 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "C30MF",
+      "source_path": "data/company-wise/C30MF/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": "2024-10-09 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "CBBL",
+      "source_path": "data/company-wise/CBBL/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "11.9631",
+        "cash_dividend": "13.0369",
+        "total_dividend": "25.00",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "CFCL",
+      "source_path": "data/company-wise/CFCL/dividend.csv",
+      "source_line": 10,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2069/2070",
+        "bonus_share": "10.00",
+        "cash_dividend": "",
+        "total_dividend": "10.00",
+        "book_closure_date": "2014-07-03 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "CHDC",
+      "source_path": "data/company-wise/CHDC/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "11.00",
+        "cash_dividend": "",
+        "total_dividend": "11.00",
+        "book_closure_date": "2024-09-23 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "CIT",
+      "source_path": "data/company-wise/CIT/dividend.csv",
+      "source_line": 15,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2068/2069",
+        "bonus_share": "38.89",
+        "cash_dividend": "",
+        "total_dividend": "38.89",
+        "book_closure_date": "2013-06-28 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "CIT",
+      "source_path": "data/company-wise/CIT/dividend.csv",
+      "source_line": 16,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2067/2068",
+        "bonus_share": "35.00",
+        "cash_dividend": "",
+        "total_dividend": "35.00",
+        "book_closure_date": "2012-07-21 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "CMF2",
+      "source_path": "data/company-wise/CMF2/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "8.25",
+        "total_dividend": "8.25",
+        "book_closure_date": "2025-08-29 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "CMF2",
+      "source_path": "data/company-wise/CMF2/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "6.5",
+        "total_dividend": "6.5",
+        "book_closure_date": "2024-10-09 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "CYCL",
+      "source_path": "data/company-wise/CYCL/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "12.76",
+        "cash_dividend": "0.67",
+        "total_dividend": "13.43",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "CZBIL",
+      "source_path": "data/company-wise/CZBIL/dividend.csv",
+      "source_line": 5,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "5.79",
+        "total_dividend": "5.79",
+        "book_closure_date": "2023-10-02 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "EDBL",
+      "source_path": "data/company-wise/EDBL/dividend.csv",
+      "source_line": 11,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2068/2069",
+        "bonus_share": "25.00",
+        "cash_dividend": "",
+        "total_dividend": "25.00",
+        "book_closure_date": "2012-12-31 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "EHPL",
+      "source_path": "data/company-wise/EHPL/right-share.csv",
+      "source_line": 2,
+      "flags": [
+        "SUBSCRIPTION_DATES_MISSING"
+      ],
+      "raw": {
+        "ratio": "1:0.871",
+        "total_units": "5400092.74",
+        "issue_price": "100.00",
+        "opening_date": "",
+        "closing_date": "",
+        "status": "",
+        "issue_manager": "None"
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "ENL",
+      "source_path": "data/company-wise/ENL/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "8.4211",
+        "total_dividend": "8.4211",
+        "book_closure_date": "2023-11-22 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "FMDBL",
+      "source_path": "data/company-wise/FMDBL/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "11.0526",
+        "total_dividend": "11.0526",
+        "book_closure_date": "2026-12-01"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "GBBL",
+      "source_path": "data/company-wise/GBBL/dividend.csv",
+      "source_line": 4,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "5.00",
+        "total_dividend": "5.00",
+        "book_closure_date": "2025-01-02 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "GBBL",
+      "source_path": "data/company-wise/GBBL/dividend.csv",
+      "source_line": 11,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2073/2074",
+        "bonus_share": "15.00",
+        "cash_dividend": "",
+        "total_dividend": "15.00",
+        "book_closure_date": "2017-12-29 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "GBBL",
+      "source_path": "data/company-wise/GBBL/dividend.csv",
+      "source_line": 12,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2072/2073",
+        "bonus_share": "20.00",
+        "cash_dividend": "",
+        "total_dividend": "20.00",
+        "book_closure_date": "2017-02-03 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "GBBL",
+      "source_path": "data/company-wise/GBBL/dividend.csv",
+      "source_line": 13,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2071/2072",
+        "bonus_share": "20.00",
+        "cash_dividend": "",
+        "total_dividend": "20.00",
+        "book_closure_date": "2015-12-29 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "GBIME",
+      "source_path": "data/company-wise/GBIME/dividend.csv",
+      "source_line": 12,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2072/2073",
+        "bonus_share": "16.00",
+        "cash_dividend": "",
+        "total_dividend": "16.00",
+        "book_closure_date": "2017-03-20 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "GBIME",
+      "source_path": "data/company-wise/GBIME/dividend.csv",
+      "source_line": 13,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2071/2072",
+        "bonus_share": "23.00",
+        "cash_dividend": "",
+        "total_dividend": "23.00",
+        "book_closure_date": "2015-10-29 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "GBIME",
+      "source_path": "data/company-wise/GBIME/dividend.csv",
+      "source_line": 15,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2069/2070",
+        "bonus_share": "15.00",
+        "cash_dividend": "",
+        "total_dividend": "15.00",
+        "book_closure_date": "2013-12-18 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "GCIL",
+      "source_path": "data/company-wise/GCIL/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "15.00",
+        "cash_dividend": "",
+        "total_dividend": "15.00",
+        "book_closure_date": "2024-01-01 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "GFCL",
+      "source_path": "data/company-wise/GFCL/dividend.csv",
+      "source_line": 8,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2071/2072",
+        "bonus_share": "10.00",
+        "cash_dividend": "",
+        "total_dividend": "10.00",
+        "book_closure_date": "2016-01-01 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "GILB",
+      "source_path": "data/company-wise/GILB/dividend.csv",
+      "source_line": 4,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": "2024-01-04 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "GMFIL",
+      "source_path": "data/company-wise/GMFIL/dividend.csv",
+      "source_line": 7,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2073/2074",
+        "bonus_share": "15.8",
+        "cash_dividend": "",
+        "total_dividend": "15.8",
+        "book_closure_date": "2018-01-03 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "GSY",
+      "source_path": "data/company-wise/GSY/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "5.1",
+        "total_dividend": "5.1",
+        "book_closure_date": "2025-08-12 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "GUFL",
+      "source_path": "data/company-wise/GUFL/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2071/2072",
+        "bonus_share": "7.00",
+        "cash_dividend": "",
+        "total_dividend": "7.00",
+        "book_closure_date": "2015-05-27 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "H8020",
+      "source_path": "data/company-wise/H8020/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "16.16",
+        "total_dividend": "16.16",
+        "book_closure_date": "2025-09-12 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "H8020",
+      "source_path": "data/company-wise/H8020/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "6.00",
+        "total_dividend": "6.00",
+        "book_closure_date": "2024-10-25 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "HATHY",
+      "source_path": "data/company-wise/HATHY/dividend.csv",
+      "source_line": 5,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2078/2079",
+        "bonus_share": "0.00",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "HATHY",
+      "source_path": "data/company-wise/HATHY/dividend.csv",
+      "source_line": 6,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2077/2078",
+        "bonus_share": "25.00",
+        "cash_dividend": "30.00",
+        "total_dividend": "55.00",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "HEI",
+      "source_path": "data/company-wise/HEI/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "8.75",
+        "total_dividend": "8.75",
+        "book_closure_date": "2025-02-27 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "HIDCL",
+      "source_path": "data/company-wise/HIDCL/dividend.csv",
+      "source_line": 4,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "5.263",
+        "total_dividend": "5.263",
+        "book_closure_date": "2024-01-03 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "HLI",
+      "source_path": "data/company-wise/HLI/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "8.00",
+        "total_dividend": "8.00",
+        "book_closure_date": "2025-06-11 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "HLI",
+      "source_path": "data/company-wise/HLI/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "14.00",
+        "cash_dividend": "",
+        "total_dividend": "14.00",
+        "book_closure_date": "2025-02-07 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "ICFC",
+      "source_path": "data/company-wise/ICFC/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "10.5263",
+        "total_dividend": "10.5263",
+        "book_closure_date": "2026-09-21 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "ICFC",
+      "source_path": "data/company-wise/ICFC/dividend.csv",
+      "source_line": 5,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "6.5",
+        "total_dividend": "6.5",
+        "book_closure_date": "2023-12-29 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "ICFCD88",
+      "source_path": "data/company-wise/ICFCD88/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE",
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "2.5",
+        "total_dividend": "2.5",
+        "book_closure_date": ""
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "ICFCD88",
+      "source_path": "data/company-wise/ICFCD88/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "0.00",
+        "cash_dividend": "2.5",
+        "total_dividend": "2.5",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "ICFCD88",
+      "source_path": "data/company-wise/ICFCD88/dividend.csv",
+      "source_line": 4,
+      "flags": [
+        "MISSING_BONUS_SHARE",
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "2.5",
+        "total_dividend": "2.5",
+        "book_closure_date": ""
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "ICFCD89",
+      "source_path": "data/company-wise/ICFCD89/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "6.00",
+        "cash_dividend": "0.316",
+        "total_dividend": "6.316",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "IGI",
+      "source_path": "data/company-wise/IGI/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "9.7368",
+        "total_dividend": "9.7368",
+        "book_closure_date": "2025-02-24 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "ILI",
+      "source_path": "data/company-wise/ILI/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "21.0526",
+        "total_dividend": "21.0526",
+        "book_closure_date": "2025-02-27 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "JBBL",
+      "source_path": "data/company-wise/JBBL/dividend.csv",
+      "source_line": 7,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2073/2074",
+        "bonus_share": "10.00",
+        "cash_dividend": "",
+        "total_dividend": "10.00",
+        "book_closure_date": "2017-12-31 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "JBBL",
+      "source_path": "data/company-wise/JBBL/dividend.csv",
+      "source_line": 8,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2072/2073",
+        "bonus_share": "11.7",
+        "cash_dividend": "",
+        "total_dividend": "11.7",
+        "book_closure_date": "2016-12-29 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "JBBL",
+      "source_path": "data/company-wise/JBBL/dividend.csv",
+      "source_line": 9,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2071/2072",
+        "bonus_share": "9.00",
+        "cash_dividend": "",
+        "total_dividend": "9.00",
+        "book_closure_date": "2015-10-19 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "JBBL",
+      "source_path": "data/company-wise/JBBL/dividend.csv",
+      "source_line": 10,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2070/2071",
+        "bonus_share": "7.00",
+        "cash_dividend": "",
+        "total_dividend": "7.00",
+        "book_closure_date": "2015-04-12 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "JFL",
+      "source_path": "data/company-wise/JFL/dividend.csv",
+      "source_line": 5,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2073/2074",
+        "bonus_share": "18.00",
+        "cash_dividend": "",
+        "total_dividend": "18.00",
+        "book_closure_date": "2018-01-03 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "JFL",
+      "source_path": "data/company-wise/JFL/dividend.csv",
+      "source_line": 6,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2072/2073",
+        "bonus_share": "10.00",
+        "cash_dividend": "",
+        "total_dividend": "10.00",
+        "book_closure_date": "2016-12-28 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "JFL",
+      "source_path": "data/company-wise/JFL/dividend.csv",
+      "source_line": 7,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2071/2072",
+        "bonus_share": "25.00",
+        "cash_dividend": "",
+        "total_dividend": "25.00",
+        "book_closure_date": "2015-10-27 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "JFL",
+      "source_path": "data/company-wise/JFL/dividend.csv",
+      "source_line": 9,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2068/2069",
+        "bonus_share": "50.00",
+        "cash_dividend": "",
+        "total_dividend": "50.00",
+        "book_closure_date": "2012-12-10 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "JSLBB",
+      "source_path": "data/company-wise/JSLBB/dividend.csv",
+      "source_line": 8,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2072/2073",
+        "bonus_share": "20.00",
+        "cash_dividend": "",
+        "total_dividend": "20.00",
+        "book_closure_date": "2016-11-30 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "KBL",
+      "source_path": "data/company-wise/KBL/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "2.1053",
+        "total_dividend": "2.1053",
+        "book_closure_date": "2026-10-05 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "KBL",
+      "source_path": "data/company-wise/KBL/dividend.csv",
+      "source_line": 12,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2069/2070",
+        "bonus_share": "14.00",
+        "cash_dividend": "",
+        "total_dividend": "14.00",
+        "book_closure_date": "2014-04-09 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "KBSH",
+      "source_path": "data/company-wise/KBSH/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "18.00",
+        "cash_dividend": "0.9474",
+        "total_dividend": "18.9474",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "KDBY",
+      "source_path": "data/company-wise/KDBY/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": "2026-08-20 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "KDBY",
+      "source_path": "data/company-wise/KDBY/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "10.5",
+        "total_dividend": "10.5",
+        "book_closure_date": "2025-08-25 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "KDBY",
+      "source_path": "data/company-wise/KDBY/dividend.csv",
+      "source_line": 4,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "9.5",
+        "total_dividend": "9.5",
+        "book_closure_date": "2024-09-04 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "KDBY",
+      "source_path": "data/company-wise/KDBY/dividend.csv",
+      "source_line": 5,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "6.00",
+        "total_dividend": "6.00",
+        "book_closure_date": "2023-09-04 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "KEF",
+      "source_path": "data/company-wise/KEF/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": "2026-08-20 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "KEF",
+      "source_path": "data/company-wise/KEF/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "11.5",
+        "total_dividend": "11.5",
+        "book_closure_date": "2025-08-25 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "KEF",
+      "source_path": "data/company-wise/KEF/dividend.csv",
+      "source_line": 4,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "9.5",
+        "total_dividend": "9.5",
+        "book_closure_date": "2024-09-04 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "KEF",
+      "source_path": "data/company-wise/KEF/dividend.csv",
+      "source_line": 5,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": "2023-09-04 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "KMCDB",
+      "source_path": "data/company-wise/KMCDB/dividend.csv",
+      "source_line": 7,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2075/2076",
+        "bonus_share": "12.00",
+        "cash_dividend": "0.63",
+        "total_dividend": "12.63",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "KMCDB",
+      "source_path": "data/company-wise/KMCDB/dividend.csv",
+      "source_line": 9,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2073/2074",
+        "bonus_share": "21.21",
+        "cash_dividend": "",
+        "total_dividend": "21.21",
+        "book_closure_date": "2018-02-18 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "KMCDB",
+      "source_path": "data/company-wise/KMCDB/dividend.csv",
+      "source_line": 10,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2072/2073",
+        "bonus_share": "65.00",
+        "cash_dividend": "",
+        "total_dividend": "65.00",
+        "book_closure_date": "2017-04-17 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "KSBBL",
+      "source_path": "data/company-wise/KSBBL/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "15.00",
+        "total_dividend": "15.00",
+        "book_closure_date": "2026-09-03 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "KSY",
+      "source_path": "data/company-wise/KSY/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "2.9",
+        "total_dividend": "2.9",
+        "book_closure_date": "2026-08-20 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "KSY",
+      "source_path": "data/company-wise/KSY/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "9.00",
+        "total_dividend": "9.00",
+        "book_closure_date": "2025-08-25 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "LICN",
+      "source_path": "data/company-wise/LICN/dividend.csv",
+      "source_line": 10,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2070/2071",
+        "bonus_share": "30.00",
+        "cash_dividend": "",
+        "total_dividend": "30.00",
+        "book_closure_date": "2015-02-13 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "LLBS",
+      "source_path": "data/company-wise/LLBS/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "4.75",
+        "cash_dividend": "0.25",
+        "total_dividend": "5.00",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "LUK",
+      "source_path": "data/company-wise/LUK/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "20.00",
+        "total_dividend": "20.00",
+        "book_closure_date": "2025-08-19 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "LUK",
+      "source_path": "data/company-wise/LUK/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "7.5",
+        "total_dividend": "7.5",
+        "book_closure_date": "2024-08-15 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "LUK",
+      "source_path": "data/company-wise/LUK/dividend.csv",
+      "source_line": 4,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "9.5",
+        "total_dividend": "9.5",
+        "book_closure_date": "2023-08-17 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "LVF2",
+      "source_path": "data/company-wise/LVF2/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "15.00",
+        "total_dividend": "15.00",
+        "book_closure_date": "2025-08-11 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "LVF2",
+      "source_path": "data/company-wise/LVF2/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "4.5",
+        "total_dividend": "4.5",
+        "book_closure_date": "2024-08-15 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MAKAR",
+      "source_path": "data/company-wise/MAKAR/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "13.00",
+        "cash_dividend": "0.6842",
+        "total_dividend": "13.6842",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MANDU",
+      "source_path": "data/company-wise/MANDU/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "12.00",
+        "total_dividend": "12.00",
+        "book_closure_date": "2026-08-21 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MANDU",
+      "source_path": "data/company-wise/MANDU/dividend.csv",
+      "source_line": 4,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "12.00",
+        "total_dividend": "12.00",
+        "book_closure_date": "2024-09-16 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MANDU",
+      "source_path": "data/company-wise/MANDU/dividend.csv",
+      "source_line": 5,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": "2023-11-20 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MBLEF",
+      "source_path": "data/company-wise/MBLEF/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "8.00",
+        "total_dividend": "8.00",
+        "book_closure_date": "2026-08-18 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MDB",
+      "source_path": "data/company-wise/MDB/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "5.00",
+        "cash_dividend": "6.00",
+        "total_dividend": "11.00",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MDB",
+      "source_path": "data/company-wise/MDB/dividend.csv",
+      "source_line": 16,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2068/2069",
+        "bonus_share": "20.00",
+        "cash_dividend": "",
+        "total_dividend": "20.00",
+        "book_closure_date": "2012-11-21 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MFIL",
+      "source_path": "data/company-wise/MFIL/dividend.csv",
+      "source_line": 5,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "5.263",
+        "total_dividend": "5.263",
+        "book_closure_date": "2023-12-27 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MFIL",
+      "source_path": "data/company-wise/MFIL/dividend.csv",
+      "source_line": 15,
+      "flags": [
+        "MISSING_CASH_DIVIDEND",
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2067/2068",
+        "bonus_share": "12.5",
+        "cash_dividend": "",
+        "total_dividend": "12.5",
+        "book_closure_date": ""
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MKJC",
+      "source_path": "data/company-wise/MKJC/right-share.csv",
+      "source_line": 2,
+      "flags": [
+        "SUBSCRIPTION_DATES_MISSING",
+        "UNVERIFIED_TOTAL_UNITS",
+        "UNVERIFIED_ISSUE_PRICE"
+      ],
+      "raw": {
+        "ratio": "1:0.70",
+        "total_units": "None",
+        "issue_price": "None",
+        "opening_date": "",
+        "closing_date": "",
+        "status": "",
+        "issue_manager": "None"
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MLBBL",
+      "source_path": "data/company-wise/MLBBL/dividend.csv",
+      "source_line": 11,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2071/2072",
+        "bonus_share": "20.00",
+        "cash_dividend": "",
+        "total_dividend": "20.00",
+        "book_closure_date": "2015-12-25 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MLBL",
+      "source_path": "data/company-wise/MLBL/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "3.7",
+        "cash_dividend": "3.78",
+        "total_dividend": "7.48",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MLBL",
+      "source_path": "data/company-wise/MLBL/dividend.csv",
+      "source_line": 5,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "6.4",
+        "total_dividend": "6.4",
+        "book_closure_date": "2024-01-04 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MLBL",
+      "source_path": "data/company-wise/MLBL/dividend.csv",
+      "source_line": 12,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2072/2073",
+        "bonus_share": "8.00",
+        "cash_dividend": "",
+        "total_dividend": "8.00",
+        "book_closure_date": "2017-04-20 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MMF1",
+      "source_path": "data/company-wise/MMF1/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "11.75",
+        "total_dividend": "11.75",
+        "book_closure_date": "2025-09-12 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MNMF1",
+      "source_path": "data/company-wise/MNMF1/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "2.2",
+        "total_dividend": "2.2",
+        "book_closure_date": "2026-09-09 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MNMF1",
+      "source_path": "data/company-wise/MNMF1/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "3.8",
+        "total_dividend": "3.8",
+        "book_closure_date": "2025-08-15 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MPFL",
+      "source_path": "data/company-wise/MPFL/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2072/2073",
+        "bonus_share": "12.00",
+        "cash_dividend": "",
+        "total_dividend": "12.00",
+        "book_closure_date": "2017-06-21 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MPFL",
+      "source_path": "data/company-wise/MPFL/dividend.csv",
+      "source_line": 4,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2071/2072",
+        "bonus_share": "15.00",
+        "cash_dividend": "",
+        "total_dividend": "15.00",
+        "book_closure_date": "2016-03-28 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MPFL",
+      "source_path": "data/company-wise/MPFL/dividend.csv",
+      "source_line": 5,
+      "flags": [
+        "MISSING_CASH_DIVIDEND",
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2070/2071",
+        "bonus_share": "12.00",
+        "cash_dividend": "",
+        "total_dividend": "12.00",
+        "book_closure_date": ""
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MPFL",
+      "source_path": "data/company-wise/MPFL/dividend.csv",
+      "source_line": 6,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2068/2069",
+        "bonus_share": "0.00",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MSHL",
+      "source_path": "data/company-wise/MSHL/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "15.00",
+        "cash_dividend": "0.789",
+        "total_dividend": "15.789",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MSLB",
+      "source_path": "data/company-wise/MSLB/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "9.5",
+        "cash_dividend": "0.5",
+        "total_dividend": "10.00",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NABIL",
+      "source_path": "data/company-wise/NABIL/dividend.csv",
+      "source_line": 4,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": "2024-11-25 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NABIL",
+      "source_path": "data/company-wise/NABIL/dividend.csv",
+      "source_line": 5,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "11.00",
+        "total_dividend": "11.00",
+        "book_closure_date": "2023-12-15 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NADEP",
+      "source_path": "data/company-wise/NADEP/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2075/2076",
+        "bonus_share": "10.00",
+        "cash_dividend": "",
+        "total_dividend": "10.00",
+        "book_closure_date": "2020-09-30 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NBF2",
+      "source_path": "data/company-wise/NBF2/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "3.5",
+        "total_dividend": "3.5",
+        "book_closure_date": "2026-09-23 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NBF2",
+      "source_path": "data/company-wise/NBF2/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "13.00",
+        "total_dividend": "13.00",
+        "book_closure_date": "2025-09-07 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NBF2",
+      "source_path": "data/company-wise/NBF2/dividend.csv",
+      "source_line": 4,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "8.00",
+        "total_dividend": "8.00",
+        "book_closure_date": "2024-09-27 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NBF2",
+      "source_path": "data/company-wise/NBF2/dividend.csv",
+      "source_line": 5,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "9.6",
+        "total_dividend": "9.6",
+        "book_closure_date": "2023-10-13 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NBF3",
+      "source_path": "data/company-wise/NBF3/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "2.5",
+        "total_dividend": "2.5",
+        "book_closure_date": "2026-09-23 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NBF3",
+      "source_path": "data/company-wise/NBF3/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "13.00",
+        "total_dividend": "13.00",
+        "book_closure_date": "2025-09-07 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NESDO",
+      "source_path": "data/company-wise/NESDO/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2078/2079",
+        "bonus_share": "",
+        "cash_dividend": "15.00",
+        "total_dividend": "15.00",
+        "book_closure_date": "2023-10-05 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NHDL",
+      "source_path": "data/company-wise/NHDL/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "10.00",
+        "cash_dividend": "0.53",
+        "total_dividend": "10.53",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NIBLGF",
+      "source_path": "data/company-wise/NIBLGF/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": "2025-09-12 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NIBLGF",
+      "source_path": "data/company-wise/NIBLGF/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "6.35",
+        "total_dividend": "6.35",
+        "book_closure_date": "2024-10-02 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NIBSF2",
+      "source_path": "data/company-wise/NIBSF2/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "7.00",
+        "total_dividend": "7.00",
+        "book_closure_date": "2025-09-12 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NICA",
+      "source_path": "data/company-wise/NICA/right-share.csv",
+      "source_line": 2,
+      "flags": [
+        "SUBSCRIPTION_DATES_MISSING"
+      ],
+      "raw": {
+        "ratio": "1:0.50",
+        "total_units": "74587835.00",
+        "issue_price": "100.00",
+        "opening_date": "",
+        "closing_date": "",
+        "status": "",
+        "issue_manager": "NIMB Ace Capital Limited"
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NICBF",
+      "source_path": "data/company-wise/NICBF/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "9.9",
+        "total_dividend": "9.9",
+        "book_closure_date": "2025-08-14 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NICBF",
+      "source_path": "data/company-wise/NICBF/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "9.25",
+        "total_dividend": "9.25",
+        "book_closure_date": "2024-09-13 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NICBF",
+      "source_path": "data/company-wise/NICBF/dividend.csv",
+      "source_line": 4,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": "2023-11-08 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NICFC",
+      "source_path": "data/company-wise/NICFC/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "10.1",
+        "total_dividend": "10.1",
+        "book_closure_date": "2025-08-14 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NICFC",
+      "source_path": "data/company-wise/NICFC/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "10.5",
+        "total_dividend": "10.5",
+        "book_closure_date": "2024-09-13 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NICL",
+      "source_path": "data/company-wise/NICL/dividend.csv",
+      "source_line": 10,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2073/2074",
+        "bonus_share": "4.52",
+        "cash_dividend": "",
+        "total_dividend": "4.52",
+        "book_closure_date": "2018-04-20 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NICL",
+      "source_path": "data/company-wise/NICL/dividend.csv",
+      "source_line": 11,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2072/2073",
+        "bonus_share": "5.00",
+        "cash_dividend": "",
+        "total_dividend": "5.00",
+        "book_closure_date": "2017-09-01 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NICL",
+      "source_path": "data/company-wise/NICL/dividend.csv",
+      "source_line": 14,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2067/2068",
+        "bonus_share": "7.37",
+        "cash_dividend": "",
+        "total_dividend": "7.37",
+        "book_closure_date": "2012-05-08 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NICLBSL",
+      "source_path": "data/company-wise/NICLBSL/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "15.00",
+        "total_dividend": "15.00",
+        "book_closure_date": "2023-12-11 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NICSF",
+      "source_path": "data/company-wise/NICSF/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "8.65",
+        "total_dividend": "8.65",
+        "book_closure_date": "2025-08-14 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NICSF",
+      "source_path": "data/company-wise/NICSF/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "14.00",
+        "total_dividend": "14.00",
+        "book_closure_date": "2024-09-13 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NIFRA",
+      "source_path": "data/company-wise/NIFRA/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "5.2632",
+        "total_dividend": "5.2632",
+        "book_closure_date": "2026-09-30 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NIFRA",
+      "source_path": "data/company-wise/NIFRA/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "6.3158",
+        "total_dividend": "6.3158",
+        "book_closure_date": "2025-11-28 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NIFRA",
+      "source_path": "data/company-wise/NIFRA/dividend.csv",
+      "source_line": 4,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "4.2105",
+        "total_dividend": "4.2105",
+        "book_closure_date": "2023-12-22 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NIL",
+      "source_path": "data/company-wise/NIL/dividend.csv",
+      "source_line": 13,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2068/2069",
+        "bonus_share": "11.5",
+        "cash_dividend": "",
+        "total_dividend": "11.5",
+        "book_closure_date": "2013-05-03 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NIL",
+      "source_path": "data/company-wise/NIL/dividend.csv",
+      "source_line": 14,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2067/2068",
+        "bonus_share": "5.00",
+        "cash_dividend": "",
+        "total_dividend": "5.00",
+        "book_closure_date": "2012-03-27 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NLG",
+      "source_path": "data/company-wise/NLG/dividend.csv",
+      "source_line": 11,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2071/2072",
+        "bonus_share": "20.00",
+        "cash_dividend": "",
+        "total_dividend": "20.00",
+        "book_closure_date": "2015-12-31 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NLG",
+      "source_path": "data/company-wise/NLG/dividend.csv",
+      "source_line": 14,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2068/2069",
+        "bonus_share": "20.00",
+        "cash_dividend": "",
+        "total_dividend": "20.00",
+        "book_closure_date": "2012-06-15 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NLIC",
+      "source_path": "data/company-wise/NLIC/dividend.csv",
+      "source_line": 4,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "21.05",
+        "total_dividend": "21.05",
+        "book_closure_date": "2024-06-18 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NLICL",
+      "source_path": "data/company-wise/NLICL/dividend.csv",
+      "source_line": 15,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2068/2069",
+        "bonus_share": "25.00",
+        "cash_dividend": "",
+        "total_dividend": "25.00",
+        "book_closure_date": "2013-03-14 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NMB",
+      "source_path": "data/company-wise/NMB/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "7.00",
+        "total_dividend": "7.00",
+        "book_closure_date": "2026-11-27 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NMB50",
+      "source_path": "data/company-wise/NMB50/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "3.15",
+        "total_dividend": "3.15",
+        "book_closure_date": "2026-08-24 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NMB50",
+      "source_path": "data/company-wise/NMB50/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "15.00",
+        "total_dividend": "15.00",
+        "book_closure_date": "2025-08-29 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NMB50",
+      "source_path": "data/company-wise/NMB50/dividend.csv",
+      "source_line": 4,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "15.00",
+        "total_dividend": "15.00",
+        "book_closure_date": "2024-09-27 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NMB50",
+      "source_path": "data/company-wise/NMB50/dividend.csv",
+      "source_line": 5,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "15.00",
+        "total_dividend": "15.00",
+        "book_closure_date": "2023-09-29 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NMBHF2",
+      "source_path": "data/company-wise/NMBHF2/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "4.5",
+        "total_dividend": "4.5",
+        "book_closure_date": "2026-08-24 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NMBMF",
+      "source_path": "data/company-wise/NMBMF/dividend.csv",
+      "source_line": 9,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2071/2072",
+        "bonus_share": "15.00",
+        "cash_dividend": "",
+        "total_dividend": "15.00",
+        "book_closure_date": "2016-04-28 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NSIF2",
+      "source_path": "data/company-wise/NSIF2/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": "2026-08-24 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NSIF2",
+      "source_path": "data/company-wise/NSIF2/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "15.00",
+        "total_dividend": "15.00",
+        "book_closure_date": "2025-08-29 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "NSIF2",
+      "source_path": "data/company-wise/NSIF2/dividend.csv",
+      "source_line": 4,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": "2024-09-27 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "OHL",
+      "source_path": "data/company-wise/OHL/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "5.2632",
+        "total_dividend": "5.2632",
+        "book_closure_date": "2023-09-29 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "OHL",
+      "source_path": "data/company-wise/OHL/dividend.csv",
+      "source_line": 8,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2071/2072",
+        "bonus_share": "20.00",
+        "cash_dividend": "",
+        "total_dividend": "20.00",
+        "book_closure_date": "2015-11-15 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "OHL",
+      "source_path": "data/company-wise/OHL/dividend.csv",
+      "source_line": 9,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2070/2071",
+        "bonus_share": "10.00",
+        "cash_dividend": "",
+        "total_dividend": "10.00",
+        "book_closure_date": "2014-09-18 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "PCBL",
+      "source_path": "data/company-wise/PCBL/dividend.csv",
+      "source_line": 9,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2073/2074",
+        "bonus_share": "27.00",
+        "cash_dividend": "",
+        "total_dividend": "27.00",
+        "book_closure_date": "2017-12-20 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "PRIN",
+      "source_path": "data/company-wise/PRIN/dividend.csv",
+      "source_line": 10,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2072/2073",
+        "bonus_share": "17.00",
+        "cash_dividend": "",
+        "total_dividend": "17.00",
+        "book_closure_date": "2016-10-18 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "PRIN",
+      "source_path": "data/company-wise/PRIN/dividend.csv",
+      "source_line": 11,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2071/2072",
+        "bonus_share": "12.00",
+        "cash_dividend": "",
+        "total_dividend": "12.00",
+        "book_closure_date": "2015-12-03 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "PRSF",
+      "source_path": "data/company-wise/PRSF/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "12.00",
+        "total_dividend": "12.00",
+        "book_closure_date": "2026-09-10 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "PRSF",
+      "source_path": "data/company-wise/PRSF/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": "2025-08-31 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "PRSF",
+      "source_path": "data/company-wise/PRSF/dividend.csv",
+      "source_line": 4,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "8.5",
+        "total_dividend": "8.5",
+        "book_closure_date": "2024-09-30 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "PSF",
+      "source_path": "data/company-wise/PSF/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "12.00",
+        "total_dividend": "12.00",
+        "book_closure_date": "2026-09-10 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "PSF",
+      "source_path": "data/company-wise/PSF/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "12.00",
+        "total_dividend": "12.00",
+        "book_closure_date": "2025-08-31 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "PSF",
+      "source_path": "data/company-wise/PSF/dividend.csv",
+      "source_line": 4,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": "2024-09-30 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "PSF",
+      "source_path": "data/company-wise/PSF/dividend.csv",
+      "source_line": 5,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "9.5",
+        "total_dividend": "9.5",
+        "book_closure_date": "2023-09-29 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "RHGCL",
+      "source_path": "data/company-wise/RHGCL/right-share.csv",
+      "source_line": 3,
+      "flags": [
+        "SUBSCRIPTION_DATES_MISSING"
+      ],
+      "raw": {
+        "ratio": "1:0.251411",
+        "total_units": "3081262.00",
+        "issue_price": "100.00",
+        "opening_date": "",
+        "closing_date": "",
+        "status": "",
+        "issue_manager": "None"
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "RLEL",
+      "source_path": "data/company-wise/RLEL/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "10.53",
+        "total_dividend": "10.53",
+        "book_closure_date": "2026-10-09 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "RMF1",
+      "source_path": "data/company-wise/RMF1/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "2.75",
+        "total_dividend": "2.75",
+        "book_closure_date": "2026-09-28 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "RMF1",
+      "source_path": "data/company-wise/RMF1/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "20.00",
+        "total_dividend": "20.00",
+        "book_closure_date": "2025-08-25 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "RMF1",
+      "source_path": "data/company-wise/RMF1/dividend.csv",
+      "source_line": 4,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "3.81",
+        "total_dividend": "3.81",
+        "book_closure_date": "2024-09-16 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "RMF2",
+      "source_path": "data/company-wise/RMF2/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "6.00",
+        "total_dividend": "6.00",
+        "book_closure_date": "2026-09-28 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "RMF2",
+      "source_path": "data/company-wise/RMF2/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "13.00",
+        "total_dividend": "13.00",
+        "book_closure_date": "2025-08-25 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "RMF2",
+      "source_path": "data/company-wise/RMF2/dividend.csv",
+      "source_line": 4,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "8.74",
+        "total_dividend": "8.74",
+        "book_closure_date": "2024-09-16 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "RSDC",
+      "source_path": "data/company-wise/RSDC/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "9.4",
+        "total_dividend": "9.4",
+        "book_closure_date": "2026-12-04"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "RSML",
+      "source_path": "data/company-wise/RSML/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "30.00",
+        "total_dividend": "30.00",
+        "book_closure_date": "2026-09-30 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "RSY",
+      "source_path": "data/company-wise/RSY/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "8.4211",
+        "total_dividend": "8.4211",
+        "book_closure_date": "2026-08-26 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "RURU",
+      "source_path": "data/company-wise/RURU/dividend.csv",
+      "source_line": 4,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "10.5263",
+        "total_dividend": "10.5263",
+        "book_closure_date": "2024-01-02 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SADBL",
+      "source_path": "data/company-wise/SADBL/dividend.csv",
+      "source_line": 13,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2071/2072",
+        "bonus_share": "20.85",
+        "cash_dividend": "",
+        "total_dividend": "20.85",
+        "book_closure_date": "2016-02-04 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SADBL",
+      "source_path": "data/company-wise/SADBL/dividend.csv",
+      "source_line": 16,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2068/2069",
+        "bonus_share": "0.00",
+        "cash_dividend": "11.00",
+        "total_dividend": "11.00",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SAGF",
+      "source_path": "data/company-wise/SAGF/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "5.00",
+        "total_dividend": "5.00",
+        "book_closure_date": "2026-09-03 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SAGF",
+      "source_path": "data/company-wise/SAGF/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "15.79",
+        "total_dividend": "15.79",
+        "book_closure_date": "2025-08-22 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SAGF",
+      "source_path": "data/company-wise/SAGF/dividend.csv",
+      "source_line": 4,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": "2024-09-11 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SALICO",
+      "source_path": "data/company-wise/SALICO/dividend.csv",
+      "source_line": 4,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "5.00",
+        "total_dividend": "5.00",
+        "book_closure_date": "2024-03-26 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SANIMA",
+      "source_path": "data/company-wise/SANIMA/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": "2026-09-17 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SANIMA",
+      "source_path": "data/company-wise/SANIMA/dividend.csv",
+      "source_line": 4,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "5.2632",
+        "total_dividend": "5.2632",
+        "book_closure_date": "2024-11-10 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SANIMA",
+      "source_path": "data/company-wise/SANIMA/dividend.csv",
+      "source_line": 11,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2073/2074",
+        "bonus_share": "16.00",
+        "cash_dividend": "",
+        "total_dividend": "16.00",
+        "book_closure_date": "2017-09-22 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SANVI",
+      "source_path": "data/company-wise/SANVI/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE",
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "5.25",
+        "total_dividend": "5.25",
+        "book_closure_date": ""
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SARBTM",
+      "source_path": "data/company-wise/SARBTM/dividend.csv",
+      "source_line": 5,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "15.00",
+        "total_dividend": "15.00",
+        "book_closure_date": "2024-04-12 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SBCF",
+      "source_path": "data/company-wise/SBCF/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "19.00",
+        "total_dividend": "19.00",
+        "book_closure_date": "2025-08-11 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SBL",
+      "source_path": "data/company-wise/SBL/dividend.csv",
+      "source_line": 5,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "4.21",
+        "total_dividend": "4.21",
+        "book_closure_date": "2023-11-07 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SBL",
+      "source_path": "data/company-wise/SBL/dividend.csv",
+      "source_line": 11,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2073/2074",
+        "bonus_share": "14.00",
+        "cash_dividend": "",
+        "total_dividend": "14.00",
+        "book_closure_date": "2018-03-04 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SBL",
+      "source_path": "data/company-wise/SBL/dividend.csv",
+      "source_line": 12,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2072/2073",
+        "bonus_share": "39.00",
+        "cash_dividend": "",
+        "total_dividend": "39.00",
+        "book_closure_date": "2017-02-02 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SCB",
+      "source_path": "data/company-wise/SCB/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "16.00",
+        "total_dividend": "16.00",
+        "book_closure_date": "2026-11-26 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SCB",
+      "source_path": "data/company-wise/SCB/dividend.csv",
+      "source_line": 5,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "19.00",
+        "total_dividend": "19.00",
+        "book_closure_date": "2023-11-23 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SEF",
+      "source_path": "data/company-wise/SEF/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "20.00",
+        "total_dividend": "20.00",
+        "book_closure_date": "2025-08-22 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SEF",
+      "source_path": "data/company-wise/SEF/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "5.00",
+        "total_dividend": "5.00",
+        "book_closure_date": "2023-08-30 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SFEF",
+      "source_path": "data/company-wise/SFEF/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "4.5",
+        "total_dividend": "4.5",
+        "book_closure_date": "2026-09-03 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SFEF",
+      "source_path": "data/company-wise/SFEF/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "13.5",
+        "total_dividend": "13.5",
+        "book_closure_date": "2025-08-19 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SFMF",
+      "source_path": "data/company-wise/SFMF/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "14.00",
+        "total_dividend": "14.00",
+        "book_closure_date": "2025-08-19 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SHINE",
+      "source_path": "data/company-wise/SHINE/dividend.csv",
+      "source_line": 11,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2073/2074",
+        "bonus_share": "25.00",
+        "cash_dividend": "",
+        "total_dividend": "25.00",
+        "book_closure_date": "2017-12-25 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SHINE",
+      "source_path": "data/company-wise/SHINE/dividend.csv",
+      "source_line": 12,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2072/2073",
+        "bonus_share": "27.00",
+        "cash_dividend": "",
+        "total_dividend": "27.00",
+        "book_closure_date": "2016-11-30 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SHINE",
+      "source_path": "data/company-wise/SHINE/dividend.csv",
+      "source_line": 15,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2069/2070",
+        "bonus_share": "20.00",
+        "cash_dividend": "",
+        "total_dividend": "20.00",
+        "book_closure_date": "2013-10-17 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SHL",
+      "source_path": "data/company-wise/SHL/dividend.csv",
+      "source_line": 15,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2067/2068",
+        "bonus_share": "20.00",
+        "cash_dividend": "32.63",
+        "total_dividend": "52.63",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SHPC",
+      "source_path": "data/company-wise/SHPC/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "10.00",
+        "cash_dividend": "5.00",
+        "total_dividend": "15.00",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SICL",
+      "source_path": "data/company-wise/SICL/dividend.csv",
+      "source_line": 10,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2069/2070",
+        "bonus_share": "20.00",
+        "cash_dividend": "",
+        "total_dividend": "20.00",
+        "book_closure_date": "2014-06-06 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SICL",
+      "source_path": "data/company-wise/SICL/dividend.csv",
+      "source_line": 11,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2068/2069",
+        "bonus_share": "40.00",
+        "cash_dividend": "",
+        "total_dividend": "40.00",
+        "book_closure_date": "2013-06-04 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SIFC",
+      "source_path": "data/company-wise/SIFC/dividend.csv",
+      "source_line": 4,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "5.05",
+        "total_dividend": "5.05",
+        "book_closure_date": "2024-01-05 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SIFC",
+      "source_path": "data/company-wise/SIFC/dividend.csv",
+      "source_line": 10,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2073/2074",
+        "bonus_share": "26.57",
+        "cash_dividend": "",
+        "total_dividend": "26.57",
+        "book_closure_date": "2018-06-18 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SIGS2",
+      "source_path": "data/company-wise/SIGS2/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "8.00",
+        "total_dividend": "8.00",
+        "book_closure_date": "2026-08-31 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SIGS2",
+      "source_path": "data/company-wise/SIGS2/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "20.00",
+        "total_dividend": "20.00",
+        "book_closure_date": "2025-08-22 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SIGS2",
+      "source_path": "data/company-wise/SIGS2/dividend.csv",
+      "source_line": 4,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "6.5",
+        "total_dividend": "6.5",
+        "book_closure_date": "2023-08-30 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SIGS3",
+      "source_path": "data/company-wise/SIGS3/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": "2026-08-31 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SIGS3",
+      "source_path": "data/company-wise/SIGS3/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "17.00",
+        "total_dividend": "17.00",
+        "book_closure_date": "2025-08-22 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SIGS3",
+      "source_path": "data/company-wise/SIGS3/dividend.csv",
+      "source_line": 4,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "7.00",
+        "total_dividend": "7.00",
+        "book_closure_date": "2024-09-08 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SIKLES",
+      "source_path": "data/company-wise/SIKLES/dividend.csv",
+      "source_line": 4,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "6.00",
+        "total_dividend": "6.00",
+        "book_closure_date": "2023-12-29 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SJLIC",
+      "source_path": "data/company-wise/SJLIC/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "20.00",
+        "total_dividend": "20.00",
+        "book_closure_date": "2024-12-06 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SLCF",
+      "source_path": "data/company-wise/SLCF/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "",
+        "cash_dividend": "21.05",
+        "total_dividend": "21.05",
+        "book_closure_date": "2025-08-22 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SMH",
+      "source_path": "data/company-wise/SMH/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "14.00",
+        "cash_dividend": "4.421",
+        "total_dividend": "18.421",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SMHL",
+      "source_path": "data/company-wise/SMHL/dividend.csv",
+      "source_line": 5,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "2.00",
+        "total_dividend": "2.00",
+        "book_closure_date": "2024-01-02 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SMPDA",
+      "source_path": "data/company-wise/SMPDA/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "4.00",
+        "cash_dividend": "0.21",
+        "total_dividend": "4.21",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SONA",
+      "source_path": "data/company-wise/SONA/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "5.263",
+        "total_dividend": "5.263",
+        "book_closure_date": "2026-11-26 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SPIL",
+      "source_path": "data/company-wise/SPIL/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "30.00",
+        "total_dividend": "30.00",
+        "book_closure_date": "2025-02-14 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SPIL",
+      "source_path": "data/company-wise/SPIL/dividend.csv",
+      "source_line": 4,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "11.00",
+        "total_dividend": "11.00",
+        "book_closure_date": "2024-02-23 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SRLI",
+      "source_path": "data/company-wise/SRLI/dividend.csv",
+      "source_line": 4,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "18.3811",
+        "cash_dividend": "",
+        "total_dividend": "18.3811",
+        "book_closure_date": "2024-09-27 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SWBBL",
+      "source_path": "data/company-wise/SWBBL/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "4.75",
+        "cash_dividend": "0.25",
+        "total_dividend": "5.00",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "SWMF",
+      "source_path": "data/company-wise/SWMF/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "MISSING_CASH_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "14.0051",
+        "cash_dividend": "",
+        "total_dividend": "14.0051",
+        "book_closure_date": "2024-08-08 [Closed]"
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "TAMOR",
+      "source_path": "data/company-wise/TAMOR/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "5.263",
+        "total_dividend": "5.263",
+        "book_closure_date": "2026-10-05 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "UHEWA",
+      "source_path": "data/company-wise/UHEWA/right-share.csv",
+      "source_line": 2,
+      "flags": [
+        "SUBSCRIPTION_DATES_MISSING"
+      ],
+      "raw": {
+        "ratio": "1:1",
+        "total_units": "5750000.00",
+        "issue_price": "100.00",
+        "opening_date": "",
+        "closing_date": "",
+        "status": "",
+        "issue_manager": "None"
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "UNL",
+      "source_path": "data/company-wise/UNL/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE",
+        "INVALID_CASH_DIVIDEND",
+        "INVALID_TOTAL_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "1,540.00",
+        "total_dividend": "1,540.00",
+        "book_closure_date": "2026-11-25 [Closed]"
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "UNL",
+      "source_path": "data/company-wise/UNL/dividend.csv",
+      "source_line": 5,
+      "flags": [
+        "MISSING_BONUS_SHARE",
+        "INVALID_CASH_DIVIDEND",
+        "INVALID_TOTAL_DIVIDEND"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "1,580.00",
+        "total_dividend": "1,580.00",
+        "book_closure_date": "2023-11-28 [Closed]"
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "UNL",
+      "source_path": "data/company-wise/UNL/dividend.csv",
+      "source_line": 10,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2074/2075",
+        "bonus_share": "0.00",
+        "cash_dividend": "700.00",
+        "total_dividend": "700.00",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "UNL",
+      "source_path": "data/company-wise/UNL/dividend.csv",
+      "source_line": 17,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2066/2067",
+        "bonus_share": "0.00",
+        "cash_dividend": "590.00",
+        "total_dividend": "590.00",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "UPCL",
+      "source_path": "data/company-wise/UPCL/right-share.csv",
+      "source_line": 2,
+      "flags": [
+        "SUBSCRIPTION_DATES_MISSING"
+      ],
+      "raw": {
+        "ratio": "1:1",
+        "total_units": "24851236.18",
+        "issue_price": "100.00",
+        "opening_date": "",
+        "closing_date": "",
+        "status": "",
+        "issue_manager": "Mukinath Capital Limited"
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "VLUCL",
+      "source_path": "data/company-wise/VLUCL/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "3.6842",
+        "total_dividend": "3.6842",
+        "book_closure_date": "2026-11-02 [Closed]"
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false
+    }
+  ]
+}

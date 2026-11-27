@@ -10,8 +10,10 @@ from tempfile import TemporaryDirectory
 
 try:
     from .historical_quarantine import load_holds, reject_held, validate_rows
+    from .equity_exception_holds import load_equity_holds
 except ImportError:
     from historical_quarantine import load_holds, reject_held, validate_rows
+    from scanner_inputs.equity_exception_holds import load_equity_holds
 
 SUPPLEMENT = Path(__file__).resolve().parent
 TABLE_EXTENSIONS = (".csv", ".xlsx", ".xls")
@@ -236,7 +238,7 @@ def validate_staged_tree(stage, closed_dates, holds):
 def prepare(original, output, overlay=None):
     if overlay is None:
         raise ValueError("Mandatory --quarantine-overlay required")
-    holds = load_holds(overlay)
+    holds = {**load_holds(overlay), **load_equity_holds()}
     if output.exists():
         raise FileExistsError(f"Choose a new output folder: {output}")
     if original.is_symlink() or any(p.is_symlink() for p in original.rglob('*')):

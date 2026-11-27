@@ -1,0 +1,38 @@
+{
+  "task": "P4.43 first-pass adjudication of 35,571 repeat quarantine-review pairs",
+  "pinned_input_commit": "56362fb4f65b91fdcca8f50b50e53ad80e703649",
+  "source_artifact": "p443-strict-content-audit.zip from workflow run 45928679963",
+  "pairs_reviewed": 35571,
+  "results": {
+    "recorded_closure_row_hold": 9027,
+    "historical_api_holiday_corroborated_hold": 26544,
+    "unexplained_requires_review": 0
+  },
+  "row_level_crosschecks": {
+    "closure_register_rows": 6232,
+    "closure_matches_current_pair_member": 6232,
+    "closure_matches_previous_pair_member": 4060,
+    "pairs_with_both_members_in_closure_register": 1265,
+    "holiday_register_rows": 22244,
+    "holiday_matches_current_pair_member": 22244,
+    "holiday_matches_previous_pair_member": 11517,
+    "pairs_with_both_members_in_holiday_register": 7217,
+    "holiday_source_blob_count": 2,
+    "symbols_in_closure_bucket": 379,
+    "symbols_in_holiday_bucket": 400
+  },
+  "decision": "All 35,571 pairs reconcile exactly to an existing row-level hold register. This establishes register consistency, not proof of no execution or permission to delete/correct rows.",
+  "limitations": [
+    "Holiday evidence is corroboration from two source blobs, not independently authenticated exchange-wide closure proof for every security/date.",
+    "A repeated OHLCV tuple alone does not prove a false candle.",
+    "Closure register entries remain pending independent adjudication.",
+    "No pair is promoted or deleted; promotion_allowed=false for all rows."
+  ],
+  "safeguards": {
+    "source_rows_modified": false,
+    "canonical_values_changed": false,
+    "automatic_deletions": 0,
+    "promotions": 0
+  },
+  "crosswalk_sha256": "b7d53ad75c0c03605ebe7d45b4bd9ac43d58470e20ea162170f98a91fad7a564"
+}

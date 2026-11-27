@@ -1,0 +1,24 @@
+{
+  "task": "P4.43 quarantine overlay retrieval preflight",
+  "artifact_id": 15155667000,
+  "artifact_sha256": "20b74549f8e73aa3f94067ef834e6023b888dd0ec6df69ba174a3ecce7cbeb86",
+  "artifact_bytes": 7139583,
+  "expected_overlay_bytes": 30352499,
+  "expected_overlay_sha256": "6d76c2a161dc3a65067806b5114a418be6aee0a90ebdc5519e2a718a531f7a2d",
+  "archive_member_count": 25,
+  "matching_members": 0,
+  "largest_member": {
+    "path": "findings.jsonl",
+    "bytes": 28142856,
+    "sha256": "b766bf75a5a5bff6d2eb0ef6e81fddaf443aaad042a0ee8d6c055ab0341ddd6"
+  },
+  "retrieval_result": "BLOCKED_EXPECTED_OVERLAY_NOT_PRESENT",
+  "actions_taken": [
+    "Downloaded artifact and verified archive SHA-256",
+    "Inspected all 25 archive members",
+    "Confirmed no member matches expected overlay byte size and SHA-256"
+  ],
+  "conclusion": "The current artifact is not the complete overlay bundle. Do not change the pinned digest or promote partial files. Rebuild/export artifact with the original overlay CSV included.",
+  "approved_replacements": 0,
+  "promoted": 0
+}

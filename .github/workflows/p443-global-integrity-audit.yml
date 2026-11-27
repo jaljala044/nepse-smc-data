@@ -162,11 +162,6 @@ jobs:
         run: python tools/p443_secondary_bulk_coverage.py --directory audit-strict
       - name: Verify secondary contract normalization and integrity regressions
         run: python -m unittest test_p443_secondary_bulk_recovery -v
-      - name: Recover secondary historical floorsheets in four disjoint batches
-        run: |
-          for offset in 0 20 40 60; do
-            python tools/p443_secondary_bulk_recovery.py --directory audit-strict --offset "$offset" --limit 20
-          done
       - name: Preserve strict audit outputs
         if: always()
         uses: actions/upload-artifact@v4

@@ -176,7 +176,7 @@ The branch head at the start of this validation was `e4c0364e58e4b0c946975156029
 
 - Run: https://github.com/jaljala044/nepse-smc-data/actions/runs/46005266027
 - Run ID: `46005266027`; conclusion: `success`; all 52 job steps completed with no failed steps.
-- Global artifact ID `15200727323`; archive size 1,403,274 bytes; GitHub-reported ZIP SHA-256 `963ba29f4205b3621356ed399eb5fb3650e670e5b0b6c93fdbcbc4be157eebc7`.
+- Global artifact ID `15200727323`; archive size 1,403,274 bytes; GitHub-reported ZIP SHA-256 `963ba29f4205b3621356ed399eb5fb3650e670e5e0b6c93fdbcbc4be157eebc7`.
 - Strict-content artifact ID `15200372454`; archive size 58,287,637 bytes; GitHub-reported ZIP SHA-256 `f57d23ac588e7a47471480452ca7242cf84ea9e3b27fcd29426006b755a348c8`. Both archives were downloaded and their local SHA-256 values matched the GitHub artifact digests.
 
 ### Global audit artifact read-back
@@ -186,7 +186,7 @@ The global artifact reports 928 inventory files, 1,650,883 CSV rows / JSON docum
 ### Strict audit artifact read-back
 
 - The strict summary independently records the 928-file pinned scope, 1,668,641 parsed records, 94,543 repeated adjacent tuple pairs, 1,331 invalid-OHLCV flags, and ten exact repeated JSON summary objects. Its record counter is a different parser/output measure from the global scan's CSV-row-plus-JSON-document counter; the two totals are not interchangeable.
-- HF-only fourth batch: eight selected dates / 1,058 requests; 916 H/L/volume matches with open/close still unverified and 142 H/L/volume conflicts. The eight fetched partitions contained valid arithmetic rows, unique contract IDs within each partition, no duplicate contract IDs, and matched pinned LFS size/SHA metadata. This is a selected subset, not all 74 HF-only dates; 14,381 HF-available requests remain not fetched in this batch plan, and 48,099 requests have no indexed HF partition.
+- HF-only fourth batch: eight selected dates / 1,058 requests; 916 H/L/volume matches with open/close still unverified and 142 H/L/volume conflicts. The eight fetched partitions contained valid arithmetic rows, unique contract IDs within each partition, no duplicate contract IDs, and matched pinned LFS size/SHA metadata. Across the four batch outputs, all 74 HF-only partitions / 15,439 requests were selected and fetched. Batch 04 itself covers the final eight selected dates / 1,058 requests; the other three batches account for the remaining 66 dates / 14,381 requests. The per-batch status counters retain the overall discovery queue's pre-batch `HF_AVAILABLE_NOT_FETCHED` baseline and must not be summed as residual work after all four batches.
 - 2024-08-01 rate diagnostic: all 72,500 rows remain strict amount-arithmetic failures; all stored rates are whole rupees; implied rates lie within 0.5 rupees; 72,496 round half-up to the stored rate; 9,045 are exact half-rupee ties and four do not follow half-up. This remains a hypothesis about source precision loss, not proof of execution rates. No reconstruction or promotion is authorized.
 - Secondary inventory mapping covers 603 indexed dates: 74 secondary-only candidate dates (15,439 requests), 22 dates also present in the primary archive (5,235 requests), and 220 dates with no indexed source (48,099 requests). Coverage inventory is not content validation or proof of no trade.
 - Observed opening/closing evidence covers 3,177 targets across 22 dates: 2,357 observed OHLCV matches, 790 ambiguous boundary ties, and 30 observed open/close conflicts. No candidate was promoted.

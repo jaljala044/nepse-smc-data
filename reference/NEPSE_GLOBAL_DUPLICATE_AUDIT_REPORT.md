@@ -260,3 +260,8 @@ Two dated reports for 2026-03-01 corroborate the alternative 341-company partiti
 ## PR #80 acceptance checklist
 
 A criterion-by-criterion reconciliation is maintained in `P443_PR80_ACCEPTANCE_CHECKLIST_2026-11-27.md`. P4.43 remains open: the pinned inventory, implemented scan and CI are reproducible, while source-level date adjudication, complete historical identity/session/execution evidence and final canonical-ingestion quarantine acceptance remain outstanding.
+
+
+## RHGCL 2026-11-19 — full official EOD capture verification (2026-11-27)
+
+The date-specific NEPSE `today-price` capture for 2026-11-19 has now been re-read from workflow artifact `15137973461`. ZIP SHA-256 `72266336645ba3191c441cfa66cd493462b44f7a92fcc68db4b968e0d693a6ee` matches the committed manifest; raw response member is 175,513 bytes with SHA-256 `303d92756ffbcaa2e6ab5020c29e1eab1b63ed99797bf024914dbb863cbae183`. The official row contains full O/H/L/C 252.10/259.50/252.10/258.00, volume 9,054, turnover NPR 2,332,952.50 and 47 trades (security ID 8108; 347 upstream records, one page). This distinct EOD endpoint provides Open even though an earlier per-security history response did not. The 87-key reconciliation index records RHGCL as `PRIMARY_CONFIRMED_DERIVED_VIEW_ONLY`; the raw SMC row remains unchanged. The 86 July 28 conflicts remain unresolved. No canonical promotion occurred.

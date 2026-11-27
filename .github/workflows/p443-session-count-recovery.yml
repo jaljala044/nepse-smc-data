@@ -1,0 +1,30 @@
+name: P443 session count recovery
+on:
+  push:
+    paths:
+      - 'tools/p443_recover_session_counts.py'
+      - 'reference/P443_SESSION_CONTROL_SECONDARY_SOURCE_INVENTORY.csv'
+      - '.github/workflows/p443-session-count-recovery.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Obtain pinned public archive
+        run: |
+          git init "$RUNNER_TEMP/sharesansar"
+          git -C "$RUNNER_TEMP/sharesansar" remote add origin https://github.com/OmitNomis/ShareSansarScraper.git
+          git -C "$RUNNER_TEMP/sharesansar" fetch --depth=1 origin 524442d518d2f2705ade0680c9d2e3f90738e3d6
+      - name: Recover and reconcile session counts
+        run: python tools/p443_recover_session_counts.py "$RUNNER_TEMP/sharesansar" session-recovery
+      - uses: actions/upload-artifact@v4
+        with:
+          name: p443-session-count-recovery
+          path: session-recovery/
+          if-no-files-found: error

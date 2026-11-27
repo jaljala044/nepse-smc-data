@@ -1,0 +1,40 @@
+{
+  "review_date": "2026-11-27",
+  "scope": "corporate-action date recovery queue",
+  "records": [
+    {
+      "symbol": "CBBL",
+      "event": "FY2082/83 dividend and 25th AGM",
+      "book_closure_date": "2026-12-08",
+      "agm_date": "2026-12-21",
+      "bonus_percent": "11.9631",
+      "cash_percent": "13.0369",
+      "evidence_level": "NEPSE_notice_reproduced_by_ShareSansar_and_Hamroshare",
+      "sources": [
+        "https://www.sharesansar.com/index.php/eventdetail/25th-agm-notice-of-cbbl-cbbl-2026-11-27",
+        "https://hamroshare.com.np/disclosure/71069/cbbl-general-meeting-2026-11-27",
+        "https://www.nepalstock.com/api/nots/security/fetchFiles?fileLocation=cbbl_user/2026-11-27/25th%20AGM%20NOTICE%20FOR%20NEPSE_1795748117215.pdf"
+      ],
+      "subscription_dates": null,
+      "adjustment_effective_date": null,
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "MKJC",
+      "event": "13th AGM book closure",
+      "book_closure_date": "2026-12-08",
+      "agm_date": "2026-12-18",
+      "evidence_level": "NEPSE_notice_reproduced_by_Hamroshare_and_Merolagani",
+      "sources": [
+        "https://hamroshare.com.np/disclosure/71061/mkjc-book-closure-2026-11-25",
+        "https://eng.merolagani.com/AnnouncementDetail.aspx?id=68588",
+        "https://nepsealpha.com/announcement/book-closure-for-the-13th-agm-np-news-alert-mkjc2026-11-26"
+      ],
+      "rights_ratio": "1:0.70 (proposal only; not confirmed as an approved/issued event)",
+      "subscription_dates": null,
+      "adjustment_effective_date": null,
+      "adjustment_allowed": false
+    }
+  ],
+  "limitations": "These notices verify book-closure dates for AGM entitlement. They do not supply rights subscription dates or prove the event's effective ex-date/price adjustment. Original raw source records remain unchanged."
+}

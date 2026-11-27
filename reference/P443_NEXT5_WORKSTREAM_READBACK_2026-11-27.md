@@ -347,3 +347,50 @@ The tests cover exclusive publication, identical rerun, refusal to overwrite dif
 - Run #316 does not validate the current branch head. This report append is included in the global workflow's push path filter to trigger a new full audit on the resulting commit; that run must be inspected before claiming current-head validation.
 
 No canonical OHLCV, floorsheet, calendar, lifecycle date, security ID, or scanner input data was changed, corrected, shifted, deduplicated, or promoted.
+
+
+## Run #317 — exact-head full audit and independent artifact read-back (2026-11-27)
+
+Full P4.43 global-integrity workflow Run #317 completed successfully, all 53 steps, on exact tested commit `ad4eca1c0892ec6c1e55e0a264fc87988dce86aa`:
+https://github.com/jaljala044/nepse-smc-data/actions/runs/46010696573
+
+Both artifacts were downloaded and local ZIP SHA-256 values independently matched the GitHub Actions artifact digests:
+
+| Artifact | ID | GitHub/local SHA-256 | Result |
+|---|---:|---|---|
+| Global audit | 15203502332 | `eaea2fa735031755dc2c1fecda0a396987933bbdc597127f99a64cf2c2ebef71` | MATCH |
+| Strict audit | 15202733267 | `1873b11145aaa55c18d0539bc108c35dd8942e21eeaa241460e136feaa0f2b61` | MATCH |
+
+### Strict artifact read-back
+
+- 928 pinned files; status totals: 784 parsed, 89 text-inspected, 36 code-syntax-checked, 11 workflow-syntax-checked, 2 manual document reviews and 6 non-JSON provider responses.
+- Strict parser: 1,668,641 parsed records; 94,543 repeated-adjacent OHLCV tuple findings; 1,331 invalid-OHLCV flags; 10 exact repeated JSON records.
+- Limitations: checks are within-file; unclassified records are parsed but not business-key validated; findings overlap; non-tabular checks are syntax/text extraction rather than semantic certification. No correction or canonical promotion.
+
+### Global artifact read-back
+
+- 928 files visited; 691 CSV files and 93 JSON documents; 146 unsupported file/check combinations; 6 non-JSON provider responses; zero parse errors; 189,899 findings.
+- 95,356 repeated tuples across rows, including 94,543 consecutive identical tuples. No OHLCV duplicate symbol/date keys, exact duplicate OHLCV rows, floorsheet duplicate contract keys, exact repeated floorsheet rows, or within-file duplicate calendar dates were found by these checks.
+- The global report's 1,650,883 count is CSV data rows plus JSON documents; it is not directly comparable to strict parsed-record count 1,668,641, which counts JSON record elements. Keep counting units explicitly distinct.
+
+### P4.44 matrix artifact read-back
+
+- 23,377 rows; 209 symbols; 23,377 unique pair IDs; date range 2024-03-05 to 2026-11-20; independent read-back auditor: valid=true, zero issues.
+- Identity: 21,082 current-snapshot-only; 2,295 unresolved; historical effective-dated stable IDs verified: 0.
+- Current-side session evidence: 1,503 market-closed, 21,874 unknown. Previous-side: 979 market-closed, 22,398 unknown.
+- Every row remains `HOLD_UNKNOWN_NO_INFERENCE`; promotion_allowed=false; canonical_data_modified=false.
+
+### Floorsheet and rate diagnostic boundaries
+
+- Primary-indexed bulk recovery: 22 dates / 5,235 requests; 3,177 H/L/volume matches and 2,058 conflicts. Open/Close and archive completeness remain unverified.
+- HF-only secondary inventory: 74 secondary-only dates / 15,439 requests; 48,099 requests without indexed source. The archive is third-party; byte hashes pin captured content to its source-tree metadata, not exchange origin or full-session completeness. No rows promoted.
+- 2024-08-01: 72,500 amount-arithmetic failures have whole-rupee stored rates; implied rates are within half a rupee for all, but four exact half-rupee cases do not follow half-up. This remains a diagnostic hypothesis; no rate/amount reconstruction is authorized.
+
+### Subsequent lifecycle sequence tests
+
+After Run #317, the branch added `tools/p444_audit_lifecycle_sequences.py` and regression tests. Publication-gate Run #18 (ID 46031200729) on `7ff62a8eb922196f63f805335148fdc4fe311fda` passed the combined regression suite, including lifecycle-sequence tests, and Python compilation. It failed closed only at private Drive retrieval because `GDRIVE_SERVICE_ACCOUNT_JSON` was unavailable; no private overlay was retrieved or promoted:
+https://github.com/jaljala044/nepse-smc-data/actions/runs/46031200729
+
+The latest branch head at this report update is newer than Run #317 and Run #18. Therefore Run #317 is a successful exact-head audit for `ad4eca1...`, but **not** validation of the latest branch head. A fresh full P4.43 run is still required after the documentation/test commits. Work #9 is implemented with regression tests passed; the actual lifecycle ledger sequence scan has not yet been executed as a CI acceptance step.
+
+PR #80 remains open/draft/unmerged; issue #82 remains open. No raw/canonical OHLCV, floorsheet, calendar, lifecycle date, security ID or scanner input row was changed, corrected, shifted, deduplicated or promoted.

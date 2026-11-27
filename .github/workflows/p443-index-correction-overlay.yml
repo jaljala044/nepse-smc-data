@@ -1,0 +1,24 @@
+name: P443 index correction overlay
+on:
+  push:
+    branches: [p443-global-integrity-audit]
+    paths:
+      - '.github/workflows/p443-index-correction-overlay.yml'
+      - 'tools/p443_index_correction_overlay.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  overlay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python tools/p443_index_correction_overlay.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: index-correction-overlay-v1
+          path: index-correction-overlay-v1.json

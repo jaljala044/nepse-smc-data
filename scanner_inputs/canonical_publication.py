@@ -10,6 +10,7 @@ from tempfile import TemporaryDirectory
 from datetime import date
 from .historical_quarantine import load_holds
 from .equity_exception_holds import load_equity_holds
+from .lifecycle_identity_holds import load_lifecycle_holds
 from .session_totals import reconcile
 from .prepare_scanner_inputs import validate_floorsheet, verified_closed_dates
 
@@ -17,7 +18,7 @@ from .prepare_scanner_inputs import validate_floorsheet, verified_closed_dates
 def publish_daily_floorsheet(raw, day, destination, overlay, *, control_path, evidence_path):
     if date.fromisoformat(day).isoformat() != day:
         raise ValueError("Invalid archive session")
-    holds = {**load_holds(overlay), **load_equity_holds()}
+    holds = {**load_holds(overlay), **load_equity_holds(), **load_lifecycle_holds()}
     closed = verified_closed_dates()
     destination = Path(destination)
     if destination.name != f"floorsheet_{day}.csv" or destination.is_symlink():

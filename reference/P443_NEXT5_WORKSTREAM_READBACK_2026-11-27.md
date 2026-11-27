@@ -120,3 +120,23 @@ To close the documentation-trigger gap, the global-integrity workflow now watche
 5. Continue P4.44 effective-dated stable-ID and lifecycle evidence acquisition; preserve HOLD/UNKNOWN for unsupported symbols.
 
 No canonical OHLCV data was changed, promoted, deduplicated, or date-shifted by this follow-on.
+
+
+## Next-five continuation — corporate-action queue safeguards (2026-11-27)
+
+Current branch head at this update: `f34a7783c4b32a206f611cb9786089a572fce46b`.
+
+The corporate-action date recovery queue was read back from blob `ed6d1d73a4356d368f9182ae2629c391da869349`:
+- 35 unique source rows: 30 `EXTERNAL_EVIDENCE_REQUIRED`, 5 `ZERO_RESIDUAL_CANDIDATE`.
+- Two UNL rows have comma-formatted cash/total values; the normalized strings preserve the exact numeric values while retaining raw fields.
+- All 35 queue rows remain `independent_verification=false` and `adjustment_allowed=false`; artifact `approved=0`.
+- The five zero-residual cases pass exact Decimal arithmetic, but arithmetic does not independently establish the missing dividend component as zero. Missing book-closure dates remain unresolved.
+
+Added `test_p443_corporate_action_date_recovery_queue.py` and integrated it into the full P4.43 workflow and both path filters. The test checks row provenance uniqueness, queue counts, exact residual arithmetic, UNL raw/normalized equivalence, and no-approval flags.
+
+Full P4.43 audit run #303 (`46004414129`) was triggered on this exact branch head:
+https://github.com/jaljala044/nepse-smc-data/actions/runs/46004414129
+
+At the last check, pinned inventory verification passed and the read-only global scan was in progress. The newly added date-queue test has not yet executed. Older runs #299–#302 target earlier commits and do not replace #303.
+
+No source CSVs or canonical OHLCV were changed. No corporate-action dates, dividend components, adjustment factors, or stable IDs were promoted. Remaining gates: complete the latest full audit; acquire an independent official session completeness benchmark; resolve March 1/2 date lineage from primary evidence; verify corporate actions against original notices; and continue P4.44 effective-dated identity/lifecycle evidence acquisition.

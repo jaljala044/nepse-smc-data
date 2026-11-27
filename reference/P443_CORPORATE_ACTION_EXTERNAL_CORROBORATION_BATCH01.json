@@ -1,0 +1,64 @@
+{
+  "review_date": "2026-11-27",
+  "records": [
+    {
+      "symbol": "NICA",
+      "ratio": "1:0.50",
+      "units": 74587835,
+      "book_close": "2026-11-27",
+      "last_eligible_trade": "2026-11-26",
+      "previous_close": "325",
+      "adjusted_reference": "250",
+      "factor_candidate": "0.7692307692307692",
+      "subscription_open": null,
+      "subscription_close": null,
+      "adjustment_effective_date": null,
+      "status": "SECONDARY_CORROBORATED_DATE_SEMANTICS_PENDING",
+      "sources": [
+        "https://www.sharesansar.com/index.php/newsdetail/nic-asia-bank-limited-unveils-book-closure-date-for-50-rights-offering-2026-11-19",
+        "https://www.eng.merolagani.com/NewsDetail.aspx?newsID=132671",
+        "https://eng.merolagani.com/NewsDetail.aspx?newsID=132961",
+        "https://hamroshare.com.np/disclosure/208848/nica-price-adjustment-2026-11-26"
+      ],
+      "adjustment_allowed": false,
+      "officially_approved": false
+    },
+    {
+      "symbol": "CYCL",
+      "fiscal_year": "2081/2082",
+      "bonus": "12.76",
+      "cash": "0.67",
+      "status": "PERCENTAGES_CORROBORATED_DATE_CONFLICT",
+      "sources": [
+        "https://www.sharesansar.com/index.php/company/cycl",
+        "https://trading.sajiloapps.com/company/cycl",
+        "https://shikharsignals.com/stock/CYCL",
+        "https://punji.app/stocks/CYCL"
+      ],
+      "adjustment_allowed": false,
+      "officially_approved": false
+    },
+    {
+      "symbol": "KMCDB",
+      "fiscal_year": "2075/2076",
+      "bonus": "12",
+      "cash": "0.63",
+      "status": "SECONDARY_PERCENTAGES_MATCH_DATE_MISSING",
+      "sources": [
+        "https://trading.sajiloapps.com/company/kmcdb"
+      ],
+      "adjustment_allowed": false,
+      "officially_approved": false
+    },
+    {
+      "symbol": "MKJC",
+      "ratio": "1:0.70",
+      "status": "PROPOSAL_ONLY",
+      "sources": [
+        "https://www.sharesansar.com/newsdetail/mailung-khola-jal-vidhyut-company-unveils-book-closure-date-and-12th-agm-company-proposes-to-issue-1-070-right-shares-2025-12-19"
+      ],
+      "adjustment_allowed": false,
+      "officially_approved": false
+    }
+  ]
+}

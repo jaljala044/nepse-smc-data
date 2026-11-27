@@ -79,4 +79,5 @@ class RepeatLineageCoverageTests(unittest.TestCase):
                 audit(pairs, lineage)
 
 
-if __ (not real)
+if __name__ == "__main__":
+    unittest.main()

@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "run_id": 45931362966,
+  "job_id": 140284511646,
+  "artifact_id": 15168438563,
+  "dates": 391,
+  "failed_index_dates": 135,
+  "index_violations": 220,
+  "classification": {
+    "WITHIN_0_005_ROUNDING_CANDIDATE": 47,
+    "WITHIN_0_01_ROUNDING_CANDIDATE": 13,
+    "MATERIAL_BOUNDS_VIOLATION": 160
+  },
+  "rejected_contract": {
+    "date": "2024-12-01",
+    "symbol": "KRBL",
+    "transaction": "2024120103027414",
+    "quantity": 200,
+    "rate": 0,
+    "amount": 0,
+    "disposition": "QUARANTINE_NO_REPLACEMENT"
+  },
+  "nov26": {
+    "turnover_npr": "5489584101.96",
+    "index_reported_turnover_npr": "5488702738.36",
+    "difference_npr": "881363.60",
+    "symbol_totals_examined": 355,
+    "single_symbol_exact_matches": 0,
+    "disposition": "UNRESOLVED"
+  },
+  "missing_index": "2025-04-03",
+  "promotion_allowed": false,
+  "limitations": [
+    "Threshold classification is not source-precision proof.",
+    "No independent replacement index values verified.",
+    "No independent session completeness verified."
+  ]
+}

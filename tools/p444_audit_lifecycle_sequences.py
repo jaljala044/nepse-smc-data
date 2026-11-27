@@ -69,7 +69,7 @@ def audit(path):
                 earlier = [e for e in ordered if e[2] > day and e[1] in {"listing", "trading_release", "resumption"}]
                 if earlier:
                     findings.append({"line": line, "symbol": symbol,
-                                     "code": "TERMINAL_EVENT_PRECEDES_LATER_TRading",
+                                     "code": "TERMINAL_EVENT_PRECEDES_LATER_TRADING",
                                      "severity": "REVIEW", "terminal_event": event,
                                      "later_event_lines": [e[0] for e in earlier]})
             if event == "resumption":

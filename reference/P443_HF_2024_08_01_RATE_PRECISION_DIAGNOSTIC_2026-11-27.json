@@ -1,0 +1,100 @@
+{
+  "task": "P4.43 diagnostic of 2024-08-01 HF floorsheet amount/rate arithmetic failures",
+  "source": {
+    "repository": "urekmazino69/Nepse-floorsheet-and-indices",
+    "path": "floorsheet/2024-08-01.csv.gz",
+    "compressed_sha256": "a6e6a6e11ad3bcbe5206736f7dc6fa5f9d342381e38d35a66f997783ed04f79b",
+    "git_blob": "c5d3649a461cbead64126e29be1d25e5e4bf7342",
+    "compressed_bytes": 3075480
+  },
+  "validation": {
+    "workflow_run": {
+      "id": 45928679963,
+      "run_number": 278,
+      "conclusion": "success",
+      "steps_passed": 41,
+      "artifact_id": 15167263877
+    },
+    "regression_tests": "PASS",
+    "diagnostic_script": "tools/p443_hf_20240801_rate_precision.py",
+    "diagnostic_test": "test_p443_hf_20240801_rate_precision.py"
+  },
+  "observed": {
+    "rows": 72500,
+    "strict_amount_arithmetic_failures": 72500,
+    "symbols": 295,
+    "unique_raw_contract_number_values": 20774,
+    "buyer_broker_ids": 88,
+    "seller_broker_ids": 90,
+    "stored_rate_whole_rupee_rows": 72500,
+    "implied_rate_within_half_rupee_rows": 72500,
+    "implied_rate_abs_deviation_quantiles": {
+      "min": "0.00833333333333333333333333",
+      "p50": "0.20",
+      "p90": "0.50",
+      "p99": "0.50",
+      "max": "0.50"
+    },
+    "implied_rate_rounds_half_up_to_stored_rate": 72496,
+    "exact_half_rupee_tie_rows": 9045,
+    "half_up_rounding_exception_rows": [
+      {
+        "contract": "2024080101042470",
+        "symbol": "KBL",
+        "buyer": "13",
+        "seller": "13",
+        "quantity": "2",
+        "stored_rate": "213.00",
+        "amount": "427.00",
+        "implied_rate": "213.50"
+      },
+      {
+        "contract": "2024080103056550",
+        "symbol": "RSDC",
+        "buyer": "42",
+        "seller": "42",
+        "quantity": "2",
+        "stored_rate": "815.00",
+        "amount": "1631.00",
+        "implied_rate": "815.50"
+      },
+      {
+        "contract": "2024080105038590",
+        "symbol": "HIDCL",
+        "buyer": "42",
+        "seller": "41",
+        "quantity": "2",
+        "stored_rate": "252.00",
+        "amount": "505.00",
+        "implied_rate": "252.50"
+      },
+      {
+        "contract": "2024080105051270",
+        "symbol": "HIDCL",
+        "buyer": "32",
+        "seller": "6",
+        "quantity": "4",
+        "stored_rate": "257.00",
+        "amount": "1030.00",
+        "implied_rate": "257.50"
+      }
+    ]
+  },
+  "interpretation": {
+    "hypothesis": "The source rate field may have been rounded to whole rupees while amount retains a more precise unit price.",
+    "status": "SYSTEMATIC_RATE_PRECISION_LOSS_PATTERN_REVIEW_ONLY",
+    "source_authority": "UNKNOWN",
+    "independent_confirmation": "NOT_AVAILABLE_IN_THIS_AUDIT",
+    "amount_or_rate_reconstruction_authorized": false,
+    "rows_changed": 0,
+    "rows_deduplicated": 0,
+    "rows_promoted": 0,
+    "promotion_allowed": false
+  },
+  "limitations": [
+    "The near-whole-rupee pattern is diagnostic evidence, not proof of the original exchange rate or transaction amount.",
+    "Do not replace stored rate with amount/quantity or use implied rate in canonical OHLCV without independent evidence.",
+    "The four half-rupee tie exceptions need row-level review; the source rounding convention is not established.",
+    "Repeated contract numbers remain a separate session/source identity issue."
+  ]
+}

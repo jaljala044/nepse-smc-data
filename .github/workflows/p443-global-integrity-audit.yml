@@ -40,8 +40,11 @@ on:
       - "tools/p444_audit_281_security_history.py"
       - "test_p444_audit_281_security_history.py"
       - "tools/p444_audit_repeat_pair_matrix.py"
+      - "test_p444_audit_repeat_pair_matrix.py"
+      - "tools/p444_audit_repeat_pair_matrix.py"
       - "tools/p444_audit_repeat_pair_capture_coverage.py"
-      - "test_p444_audit_repeat_pair_matrix.py"\n      - "tools/p444_audit_repeat_pair_matrix.py"
+      - "test_p444_audit_repeat_pair_matrix.py"
+      - "tools/p444_audit_repeat_pair_matrix.py"
       - "test_p444_audit_repeat_pair_capture_coverage.py"
       - "reference/P444_EFFECTIVE_DATED_LIFECYCLE_EVIDENCE_2026-11-27.csv"
       - "test_p443_equity_first_repeat_review.py"
@@ -226,6 +229,8 @@ jobs:
         run: python -m unittest test_p444_audit_repeat_pair_matrix -v
       - name: Audit generated P4.44 matrix read-back
         run: python tools/p444_audit_repeat_pair_matrix.py audit-strict/P444_UNCOVERED_REPEAT_PAIR_EVIDENCE_2026-11-27.csv --summary-output audit-strict/P444_UNCOVERED_REPEAT_PAIR_EVIDENCE_READBACK_AUDIT_2026-11-27.json
+      - name: Verify P4.44 matrix execution-evidence bundle audit tests
+        run: python -m unittest test_p444_audit_repeat_pair_matrix -v
       - name: Verify unique equity security-date queue regression tests
         run: python -m unittest test_p443_equity_security_date_queue -v
       - name: Export unique equity security-date recovery requests

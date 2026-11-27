@@ -12,7 +12,7 @@ This queue decomposes the open acceptance criteria into 30 reviewable work packa
 | # | Work package | Status | Acceptance / dependency |
 |---:|---|---|---|
 | 1 | Capture original bytes for the six already identified NEPSE lifecycle PDF leads; record UTC retrieval, byte length, SHA-256 and Git blob SHA | PARTIAL — readable rendering only for two PDFs; direct binary capture failed; see `P444_PRIMARY_DOCUMENT_CAPTURE_ATTEMPT_2026-11-27.md` | Raw unmodified payloads and reproducible hashes |
-| 2 | Recover the official all-instrument security master with instrument class, stable ID, symbol and status | BLOCKED | Exchange-issued raw response and provenance |
+| 2 | Recover the official all-instrument security master with instrument class, stable ID, symbol and status | PARTIAL — 573-row current snapshot parsed; no class field or effective-dated history | Exchange-issued raw response and provenance |
 | 3 | Establish effective-dated symbol/name/ID mappings for all 209 repeated-pair symbols | BLOCKED | No ticker-similarity inference; explicit unmatched set |
 | 4 | Resolve the 26 residual symbols against archived NEPSE security lists | BLOCKED | Historical IDs or explicit unresolved reason per symbol |
 | 5 | Reconcile JALPA/KLBSL → MATRI merger dates and distinguish integrated-business date from last trade | PARTIAL | Primary raw notice plus exchange trading boundary |

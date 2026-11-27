@@ -30,6 +30,10 @@ Machine summary: `P443_UNCOVERED_REPEAT_SYMBOL_LINEAGE_GAP_2026-11-27.json`.
 
 Detailed crosswalk SHA-256: `02bfac1e92101d2615220492797abdbeabcc10834563900d5584a9b670940503`
 
+## Current-equity manifest cross-check (prioritization only)
+
+Compared the 209 symbols with the pinned 281-row third-party active-equity manifest from `nepse-elite-ai-scanner-pro` at commit `470dcf63c6f5b74e01a0aa5a238a485f594e3e95` (blob `56bdb41c7307870ad755ceb24fc32b5340fee137`). Three symbols — `NESDO`, `ULBSL`, and `YMHL` — appear in that current manifest. The other 206 do not appear in this current active-equity snapshot. This is not an official historical instrument master: non-matches do not prove that a symbol is non-equity, inactive, delisted, or an alias. No instrument-class or lifecycle disposition was assigned.
+
 ## Interpretation and limits
 
 This is a **coverage-gap reconciliation**, not an independent date-shift adjudication. Absence from the strict equity security/date source-lineage table does not prove that no official or third-party evidence exists elsewhere. It also does not establish that any repeated OHLCV tuple is erroneous, that the dates were closed, or that a security traded.

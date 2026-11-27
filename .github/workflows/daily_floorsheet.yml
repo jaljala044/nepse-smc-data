@@ -2,11 +2,12 @@ name: Daily NEPSE Floorsheet Pull
 
 on:
   schedule:
-    - cron: "15 10 * * 1-5"
+    - cron: "15 11 * * 0-4"
   workflow_dispatch:
 
 permissions:
   contents: write
+  actions: read
 
 jobs:
   pull-floorsheet:
@@ -26,8 +27,16 @@ jobs:
           pip install -r requirements.txt
           playwright install --with-deps chromium
 
+      - name: Retrieve and verify pinned quarantine overlay
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          umask 077
+          gh api repos/${GITHUB_REPOSITORY}/actions/artifacts/15155667000/zip > "$RUNNER_TEMP/p443-overlay.zip"
+          python -m scanner_inputs.retrieve_quarantine_overlay "$RUNNER_TEMP/p443-overlay.zip" "$RUNNER_TEMP/p443-overlay.csv"
       - name: Pull Data
-        run: python github_floorsheet_pull.py
+        run: python github_floorsheet_pull.py --quarantine-overlay "$RUNNER_TEMP/p443-overlay.csv"
 
       - name: Commit and Push
         run: |

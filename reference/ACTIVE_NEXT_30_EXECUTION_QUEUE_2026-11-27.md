@@ -80,3 +80,25 @@ This queue decomposes the open acceptance criteria into 30 reviewable work packa
 - Added the new test module to `.github/workflows/p443-publication-gate.yml`. Workflow result has not yet been verified; do not count the tests as passed until a run is observed.
 - No lifecycle register, raw source, OHLCV, floorsheet, canonical or scanner-input data rows were changed.
 - Run #18 tested code commit: `7ff62a8eb922196f63f805335148fdc4fe311fda`. Queue/documentation head has advanced separately; no new full workflow has tested the final documentation-only head.
+
+
+## Run #317 current-head audit read-back — 2026-11-27
+
+- Full P4.43 workflow Run #317 completed successfully (53/53 steps) on exact tested SHA `ad4eca1c0892ec6c1e55e0a264fc87988dce86aa`: https://github.com/jaljala044/nepse-smc-data/actions/runs/46010696573
+- Both artifacts were downloaded and independently SHA-256 checked against GitHub Actions metadata:
+  - Global artifact ID 15203502332: `eaea2fa735031755dc2c1fecda0a396987933bbdc597127f99a64cf2c2ebef71` — MATCH.
+  - Strict artifact ID 15202733267: `1873b11145aaa55c18d0539bc108c35dd8942e21eeaa241460e136feaa0f2b61` — MATCH.
+- Strict read-back: 928 files; 784 parsed; 89 text-inspected; 36 code-syntax-checked; 11 workflow-syntax-checked; 2 manual document reviews; 6 non-JSON responses. Strict parsed records 1,668,641; 94,543 repeated-adjacent tuples; 1,331 invalid-OHLCV flags; 10 exact repeated JSON records. Findings overlap and are not unique affected-row counts.
+- Global report separately reports 1,650,883 CSV rows plus JSON documents; this is a different JSON counting unit from strict parsed record elements. It reports 95,356 repeated tuples across rows, of which 94,543 are consecutive identical tuples. These are separate, overlapping definitions.
+- P4.44 matrix read-back: 23,377 rows / 209 symbols / 23,377 unique pair IDs; zero read-back issues. Identity: 21,082 current-snapshot-only and 2,295 unresolved; historical stable IDs verified: 0. Current/previous market-closed evidence: 1,503 / 979; current/previous session unknown: 21,874 / 22,398. All rows remain `HOLD_UNKNOWN_NO_INFERENCE`; promotion false; canonical_data_modified=false.
+- Floorsheet coverage remains limited: 22 primary-indexed dates / 5,235 requests; 3,177 H/L/volume matches and 2,058 conflicts, with Open/Close unverified. HF-only archive inventory identifies 74 secondary-only dates / 15,439 requests; 48,099 requests have no indexed source. Third-party source lineage and full-session completeness remain unverified. No rows promoted.
+- 2024-08-01 diagnostic: 72,500 arithmetic-failing rows have whole-rupee stored rates; implied-rate proximity is a hypothesis only. Four half-rupee cases do not follow half-up; no amount/rate reconstruction authorized.
+- No raw/canonical market rows were changed, shifted, deduplicated, corrected or promoted.
+
+### Subsequent lifecycle-sequence audit work
+
+- Work #9 now has `tools/p444_audit_lifecycle_sequences.py` and regression tests. The audit is read-only and emits review flags only; it does not infer dates or release holds.
+- Publication-gate Run #18 (ID 46031200729) on SHA `7ff62a8eb922196f63f805335148fdc4fe311fda` passed the combined regression suite, including the lifecycle-sequence tests, and Python compilation. It failed closed only at actual private Drive retrieval because `GDRIVE_SERVICE_ACCOUNT_JSON` is unavailable; no private overlay was retrieved or promoted. https://github.com/jaljala044/nepse-smc-data/actions/runs/46031200729
+- The current branch/PR head at this queue update is `5395cb0d2727319375302d2fd67ac8d2c281653c`, a documentation follow-up after the lifecycle-test fixture correction. Run #317 predates these lifecycle-sequence changes; Run #18 tests the preceding code head. A new full P4.43 audit is still required for the latest branch head.
+- Work #9 status: IMPLEMENTED; regression tests passed in Run #18; actual lifecycle-ledger sequence scan is not yet an executed CI acceptance result. Work #24: Run #317 passed on its exact head, but the newer branch head still needs full-audit validation.
+- PR #80 remains open/draft/unmerged; issue #82 remains open. All unresolved lifecycle and repeat-pair dispositions remain held.

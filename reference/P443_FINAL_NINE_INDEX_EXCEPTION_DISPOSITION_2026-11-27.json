@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "sector_artifact": 15168809879,
+  "benchmark_report_blob": "11b2560a06501475eb0ec9ee637f28b37e3ee42f",
+  "records": [
+    {
+      "date": "2024-09-12",
+      "symbol": "NEPSE_index",
+      "status": "HOLD_CONFLICTING_CLOSE",
+      "published_close_groups": [
+        {
+          "value": "2688.38",
+          "sources": [
+            "https://www.sharesansar.com/newsdetail/nepse-rebounds-after-6-days-of-decline-surges-by-7817-points-to-close-at-268838-with-rs-816-arba-turnover-2024-09-12",
+            "https://thehimalayantimes.com/ampArticle/1028794",
+            "https://en.himalpress.com/nepse-snaps-six-day-losing-run-posts-78-17-points-gain/",
+            "https://risingnepaldaily.com/news/48860"
+          ]
+        },
+        {
+          "value": "2688.53",
+          "sources": [
+            "https://www.muktinathcapital.com/site_uploads/newsletter-171213741.pdf",
+            "https://nepallifecapital.com.np/AdminBoard/uploads/newsletter/966c7-september-8-september-13.pdf"
+          ]
+        }
+      ],
+      "promotion_allowed": false
+    },
+    {
+      "date": "2025-09-18",
+      "symbol": "NEPSE_index",
+      "status": "HOLD_INVALID_BOUNDS",
+      "published_ohlc": [
+        "2637.98",
+        "2637.97",
+        "2511.91",
+        "2511.91"
+      ],
+      "sources": [
+        "https://www.sharesansar.com/newsdetail/nepse-suffers-6-crash-investment-worth-rs-268-kharba-wiped-out-in-minutes-2025-09-18",
+        "https://english.onlinekhabar.com/trading-halted-after-triple-negative-circuit-break-on-nepse.html"
+      ],
+      "session": "shortened_open",
+      "promotion_allowed": false
+    },
+    {
+      "date": "2024-03-04",
+      "symbol": "Mutual%20Fund_index",
+      "original_gap": "0.01",
+      "alternate_gap": "0.01",
+      "status": "HOLD_BOTH_SOURCES_INVALID",
+      "promotion_allowed": false
+    },
+    {
+      "date": "2024-03-28",
+      "symbol": "Non%20Life%20Insurance_index",
+      "original_gap": "2.34",
+      "alternate_gap": "0.01",
+      "status": "HOLD_BOTH_SOURCES_INVALID",
+      "promotion_allowed": false
+    },
+    {
+      "date": "2024-05-26",
+      "symbol": "Finance_index",
+      "original_gap": "2.05",
+      "alternate_gap": "0.01",
+      "status": "HOLD_BOTH_SOURCES_INVALID",
+      "promotion_allowed": false
+    },
+    {
+      "date": "2024-11-21",
+      "symbol": "Trading_index",
+      "original_gap": "0.06",
+      "alternate_gap": "11.57",
+      "status": "HOLD_BOTH_SOURCES_INVALID",
+      "promotion_allowed": false
+    },
+    {
+      "date": "2024-12-04",
+      "symbol": "Others_index",
+      "original_gap": "3.00",
+      "alternate_gap": "0.40",
+      "status": "HOLD_BOTH_SOURCES_INVALID",
+      "promotion_allowed": false
+    },
+    {
+      "date": "2024-12-12",
+      "symbol": "Hotels%20and%20Tourism_index",
+      "original_gap": "1.03",
+      "alternate_gap": "61.49",
+      "status": "HOLD_BOTH_SOURCES_INVALID",
+      "promotion_allowed": false
+    },
+    {
+      "date": "2025-08-05",
+      "symbol": "Trading_index",
+      "original_gap": "0.01",
+      "alternate_gap": "9.80",
+      "status": "HOLD_BOTH_SOURCES_INVALID",
+      "promotion_allowed": false
+    }
+  ],
+  "limitations": "Public reports corroborate benchmark conflict and shortened session; no independent full sector OHLC obtained. Source voting not used as proof. All nine held."
+}

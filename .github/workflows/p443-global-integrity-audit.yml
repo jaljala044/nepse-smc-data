@@ -48,6 +48,8 @@ on:
       - "test_p443_corporate_action_percentage_residual_review.py"
       - "test_p443_corporate_action_date_recovery_queue.py"
       - "scanner_inputs/prepare_scanner_inputs.py"
+      - "scanner_inputs/retrieve_drive_quarantine.py"
+      - "test_p443_drive_quarantine_retrieval.py"
       - "test_global_duplicate_audit_inventory.py"
       - "test_global_duplicate_audit_scan.py"
       - ".github/workflows/p443-global-integrity-audit.yml"

@@ -46,6 +46,18 @@ Six P443_*_RECONCILIATION.json reports preserve initial classifications. Use the
 Run 278 (45928679963) passed all 41 steps, including a reproducible diagnostic and tests for the 72,500 arithmetic-failing rows. All 72,500 stored rates are whole-rupee values; amount/quantity-derived unit rates are within 0.5 rupees of the stored value for every row, and 72,496 round half-up to the stored integer. There are 9,045 exact half-rupee ties and four rows that do not follow half-up rounding. This suggests possible source rate-precision loss, but does not establish the actual execution rates or authorize reconstruction. The four residuals and summary are in P443_HF_2024_08_01_RATE_PRECISION_DIAGNOSTIC_2026-11-27.json; full output is artifact 15167263877. No source values were changed or promoted.
 ## Date-lineage cross-audit reconciliation
 A machine-readable cross-audit index was added at P443_DATE_LINEAGE_CROSS_AUDIT_2026-11-27.json. It keeps prior work separate: P4.27/P4.28's 490 official EOD date-shift candidates (487 exact tuple matches, three Close differences); P4.42's 162 NMLBBL/SMPDA scrape-date lineage rows; P4.37's purposive 24-security sample (1,455 closed-date carry-forward rows, 36 official-only matches to closed-date canonical rows, three exact-date mismatches); and P4.5's 20 provisional overlay candidates. These scopes overlap and are not additive. Full 928-file date-shift scanning and key-level reconciliation remain incomplete; no raw/canonical dates were rewritten.
+
+
+## Uncovered repeat-symbol identity triage — 2026-11-27
+The 209 symbols responsible for 23,377 of the 94,543 consecutive repeated-tuple pair findings but absent from the strict security/date lineage table were cross-checked against the dated current security snapshot, target-candidate register, equity crosswalk, unmatched-symbol review and existing Priority 97 historical-identity evidence.
+
+- 175/209 have a current snapshot row (172 status A, 3 status S); 34 do not.
+- 39 are listed as Mutual Fund in the target-candidate register; 61 snapshot names suggest debentures/bonds; 62 suggest promoter shares; 10 other snapshot records remain class-review items; 3 current equity-crosswalk matches are NESDO/8041, ULBSL/8063 and YMHL/9342.
+- Of the 34 without a current snapshot row, 26 match existing historical evidence records (9 equity, 9 debenture, 6 mutual fund, 2 promoter-share); eight filename-encoding candidates remain without a matching Priority 97 record: GBILD84~2F85, GBILD86~2F87, MND84~2F85, NICAD85~2F86, NIFRAUR85~2F86, NMBD87~2F88, NMBD89~2F90 and NMBUR93~2F94.
+- Historical evidence records still have `stable_id=null` and `effective_date_verified=false`. Name-based instrument classifications are prioritization only, not official type fields. Current IDs are not backdated; no ticker aliases, lifecycle dates, or price-history splices are promoted.
+
+Row-level detail: `P443_UNCOVERED_REPEAT_SYMBOL_IDENTITY_TRIAGE_2026-11-27.csv`; machine summary: `P443_UNCOVERED_REPEAT_SYMBOL_IDENTITY_TRIAGE_2026-11-27.json`. This narrows instrument-scope uncertainty but does not validate the 23,377 repeated pairs. All remain HOLD/UNKNOWN.
+
 ## Outstanding acceptance gates
 1. Confirm the full strict workflow after executable-code changes; Run 278 passed all 41 steps, including the rate-precision diagnostic and tests. Subsequent updates are documentation-only.
 2. Obtain independently authenticated historical OHLCV/session and execution evidence for unresolved rows. The ten primary-archive observations and five secondary exact contract matches are corroboration only; no promotion is authorized.

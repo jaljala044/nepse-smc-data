@@ -124,6 +124,8 @@ jobs:
         run: python -m unittest test_p443_content_audit -v
       - name: Scanner quarantine regression tests
         run: python -m unittest test_p443_scanner_quarantine -v
+      - name: Authenticated Drive quarantine retrieval regression tests
+        run: python -m unittest test_p443_drive_quarantine_retrieval -v
       - name: Checkout pinned public scanner backend
         uses: actions/checkout@v4
         with:

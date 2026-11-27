@@ -40,6 +40,9 @@ Audit scope: pinned base 56362fb4f65b91fdcca8f50b50e53ad80e703649. Audit investi
 - The two unmatched equity-register rows (KDBY 2026-04-29 and KEF 2026-04-28) are classified by the pinned official security master as investment-fund instruments (Kumari Dhanabriddhi Yojana and Kumari Equity Fund), not ordinary equity securities. They remain quarantined from the equity candle universe; this is an instrument-class disposition, not price validation.
 Six P443_*_RECONCILIATION.json reports preserve initial classifications. Use the latest successful strict audit and pair-level/holiday review artifacts for authoritative current counts; older aggregate reports are snapshots, not replacement data. Preserve raw records. No invented contract IDs, dates or prices.
 
+
+## Date-lineage cross-audit reconciliation
+A machine-readable cross-audit index was added at P443_DATE_LINEAGE_CROSS_AUDIT_2026-11-27.json. It keeps prior work separate: P4.27/P4.28's 490 official EOD date-shift candidates (487 exact tuple matches, three Close differences); P4.42's 162 NMLBBL/SMPDA scrape-date lineage rows; P4.37's purposive 24-security sample (1,455 closed-date carry-forward rows, 36 official-only matches to closed-date canonical rows, three exact-date mismatches); and P4.5's 20 provisional overlay candidates. These scopes overlap and are not additive. Full 928-file date-shift scanning and key-level reconciliation remain incomplete; no raw/canonical dates were rewritten.
 ## Outstanding acceptance gates
 1. Confirm the full strict workflow after the latest report/decision refresh; Run 277 passed on the latest executable-code revision. The report refresh itself will trigger another strict run.
 2. Obtain independently authenticated historical OHLCV/session and execution evidence for unresolved rows. The ten primary-archive observations and five secondary exact contract matches are corroboration only; no promotion is authorized.

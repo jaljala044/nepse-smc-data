@@ -58,6 +58,13 @@ The 209 symbols responsible for 23,377 of the 94,543 consecutive repeated-tuple 
 
 Row-level detail: `P443_UNCOVERED_REPEAT_SYMBOL_IDENTITY_TRIAGE_2026-11-27.csv`; machine summary: `P443_UNCOVERED_REPEAT_SYMBOL_IDENTITY_TRIAGE_2026-11-27.json`. This narrows instrument-scope uncertainty but does not validate the 23,377 repeated pairs. All remain HOLD/UNKNOWN.
 
+
+
+## Invalid-exception / repeated-candle overlap reconciliation — 2026-11-27
+An exact join of the 1,331 invalid-OHLCV findings to the global repeated-tuple findings found **two** overlapping consecutive pairs (four exception-register endpoint rows): AHPC 2011-06-19/20 (source rows 303/304) and API 2016-09-03/04 (rows 190/191). Both endpoints of each pair match their existing exception register; the current endpoint is the row emitted by the repeated-pair finding. Each repeated tuple remains invalid because Open is outside the High/Low range.
+
+These are overlap counts, not four additional unique defects. The 94,543 consecutive-pair count and 1,331 invalid-flag count must not be added. All four rows remain `HOLD_UNRESOLVED`; equal invalid tuples do not establish duplicated trades or a correct price. No correction, deletion, deduplication, shift, or promotion occurred. Row-level endpoints and exact source blob/row keys are in `P443_INVALID_EXCEPTION_REPEAT_OVERLAP_2026-11-27.csv` and the companion JSON/Markdown report.
+
 ## Outstanding acceptance gates
 1. Confirm the full strict workflow after executable-code changes; Run 278 passed all 41 steps, including the rate-precision diagnostic and tests. Subsequent updates are documentation-only.
 2. Obtain independently authenticated historical OHLCV/session and execution evidence for unresolved rows. The ten primary-archive observations and five secondary exact contract matches are corroboration only; no promotion is authorized.

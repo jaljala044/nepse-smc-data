@@ -1,0 +1,796 @@
+{
+  "source_blob": "eff8858487a2f0fd5a2af58b6cd14e28ed26b46a",
+  "normalized_candidates": [
+    {
+      "symbol": "UNL",
+      "source_path": "data/company-wise/UNL/dividend.csv",
+      "source_line": 2,
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "1,540.00",
+        "total_dividend": "1,540.00",
+        "book_closure_date": "2026-11-25 [Closed]"
+      },
+      "normalized_cash": "1540.00",
+      "normalized_total": "1540.00",
+      "derived_bonus": "0",
+      "status": "ZERO_RESIDUAL_FORMAT_NORMALIZED_CANDIDATE",
+      "adjustment_allowed": false
+    },
+    {
+      "symbol": "UNL",
+      "source_path": "data/company-wise/UNL/dividend.csv",
+      "source_line": 5,
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "1,580.00",
+        "total_dividend": "1,580.00",
+        "book_closure_date": "2023-11-28 [Closed]"
+      },
+      "normalized_cash": "1580.00",
+      "normalized_total": "1580.00",
+      "derived_bonus": "0",
+      "status": "ZERO_RESIDUAL_FORMAT_NORMALIZED_CANDIDATE",
+      "adjustment_allowed": false
+    }
+  ],
+  "date_recovery_queue": [
+    {
+      "symbol": "CBBL",
+      "source_path": "data/company-wise/CBBL/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "11.9631",
+        "cash_dividend": "13.0369",
+        "total_dividend": "25.00",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": true
+    },
+    {
+      "symbol": "CYCL",
+      "source_path": "data/company-wise/CYCL/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "12.76",
+        "cash_dividend": "0.67",
+        "total_dividend": "13.43",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": true
+    },
+    {
+      "symbol": "EHPL",
+      "source_path": "data/company-wise/EHPL/right-share.csv",
+      "source_line": 2,
+      "flags": [
+        "SUBSCRIPTION_DATES_MISSING"
+      ],
+      "raw": {
+        "ratio": "1:0.871",
+        "total_units": "5400092.74",
+        "issue_price": "100.00",
+        "opening_date": "",
+        "closing_date": "",
+        "status": "",
+        "issue_manager": "None"
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": true
+    },
+    {
+      "symbol": "HATHY",
+      "source_path": "data/company-wise/HATHY/dividend.csv",
+      "source_line": 5,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2078/2079",
+        "bonus_share": "0.00",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": true
+    },
+    {
+      "symbol": "HATHY",
+      "source_path": "data/company-wise/HATHY/dividend.csv",
+      "source_line": 6,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2077/2078",
+        "bonus_share": "25.00",
+        "cash_dividend": "30.00",
+        "total_dividend": "55.00",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": true
+    },
+    {
+      "symbol": "ICFCD88",
+      "source_path": "data/company-wise/ICFCD88/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE",
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "",
+        "cash_dividend": "2.5",
+        "total_dividend": "2.5",
+        "book_closure_date": ""
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": false
+    },
+    {
+      "symbol": "ICFCD88",
+      "source_path": "data/company-wise/ICFCD88/dividend.csv",
+      "source_line": 3,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "0.00",
+        "cash_dividend": "2.5",
+        "total_dividend": "2.5",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": false
+    },
+    {
+      "symbol": "ICFCD88",
+      "source_path": "data/company-wise/ICFCD88/dividend.csv",
+      "source_line": 4,
+      "flags": [
+        "MISSING_BONUS_SHARE",
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2080/2081",
+        "bonus_share": "",
+        "cash_dividend": "2.5",
+        "total_dividend": "2.5",
+        "book_closure_date": ""
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": false
+    },
+    {
+      "symbol": "ICFCD89",
+      "source_path": "data/company-wise/ICFCD89/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2081/2082",
+        "bonus_share": "6.00",
+        "cash_dividend": "0.316",
+        "total_dividend": "6.316",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": false
+    },
+    {
+      "symbol": "KBSH",
+      "source_path": "data/company-wise/KBSH/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "18.00",
+        "cash_dividend": "0.9474",
+        "total_dividend": "18.9474",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": true
+    },
+    {
+      "symbol": "KMCDB",
+      "source_path": "data/company-wise/KMCDB/dividend.csv",
+      "source_line": 7,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2075/2076",
+        "bonus_share": "12.00",
+        "cash_dividend": "0.63",
+        "total_dividend": "12.63",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": true
+    },
+    {
+      "symbol": "LLBS",
+      "source_path": "data/company-wise/LLBS/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "4.75",
+        "cash_dividend": "0.25",
+        "total_dividend": "5.00",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": true
+    },
+    {
+      "symbol": "MAKAR",
+      "source_path": "data/company-wise/MAKAR/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "13.00",
+        "cash_dividend": "0.6842",
+        "total_dividend": "13.6842",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": true
+    },
+    {
+      "symbol": "MDB",
+      "source_path": "data/company-wise/MDB/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "5.00",
+        "cash_dividend": "6.00",
+        "total_dividend": "11.00",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": true
+    },
+    {
+      "symbol": "MFIL",
+      "source_path": "data/company-wise/MFIL/dividend.csv",
+      "source_line": 15,
+      "flags": [
+        "MISSING_CASH_DIVIDEND",
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2067/2068",
+        "bonus_share": "12.5",
+        "cash_dividend": "",
+        "total_dividend": "12.5",
+        "book_closure_date": ""
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": true
+    },
+    {
+      "symbol": "MKJC",
+      "source_path": "data/company-wise/MKJC/right-share.csv",
+      "source_line": 2,
+      "flags": [
+        "SUBSCRIPTION_DATES_MISSING",
+        "UNVERIFIED_TOTAL_UNITS",
+        "UNVERIFIED_ISSUE_PRICE"
+      ],
+      "raw": {
+        "ratio": "1:0.70",
+        "total_units": "None",
+        "issue_price": "None",
+        "opening_date": "",
+        "closing_date": "",
+        "status": "",
+        "issue_manager": "None"
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": true
+    },
+    {
+      "symbol": "MLBL",
+      "source_path": "data/company-wise/MLBL/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "3.7",
+        "cash_dividend": "3.78",
+        "total_dividend": "7.48",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": true
+    },
+    {
+      "symbol": "MPFL",
+      "source_path": "data/company-wise/MPFL/dividend.csv",
+      "source_line": 5,
+      "flags": [
+        "MISSING_CASH_DIVIDEND",
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2070/2071",
+        "bonus_share": "12.00",
+        "cash_dividend": "",
+        "total_dividend": "12.00",
+        "book_closure_date": ""
+      },
+      "derived_field": "cash_dividend",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": true
+    },
+    {
+      "symbol": "MPFL",
+      "source_path": "data/company-wise/MPFL/dividend.csv",
+      "source_line": 6,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2068/2069",
+        "bonus_share": "0.00",
+        "cash_dividend": "10.00",
+        "total_dividend": "10.00",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": true
+    },
+    {
+      "symbol": "MSHL",
+      "source_path": "data/company-wise/MSHL/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "15.00",
+        "cash_dividend": "0.789",
+        "total_dividend": "15.789",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": true
+    },
+    {
+      "symbol": "MSLB",
+      "source_path": "data/company-wise/MSLB/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "9.5",
+        "cash_dividend": "0.5",
+        "total_dividend": "10.00",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": true
+    },
+    {
+      "symbol": "NHDL",
+      "source_path": "data/company-wise/NHDL/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "10.00",
+        "cash_dividend": "0.53",
+        "total_dividend": "10.53",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": true
+    },
+    {
+      "symbol": "NICA",
+      "source_path": "data/company-wise/NICA/right-share.csv",
+      "source_line": 2,
+      "flags": [
+        "SUBSCRIPTION_DATES_MISSING"
+      ],
+      "raw": {
+        "ratio": "1:0.50",
+        "total_units": "74587835.00",
+        "issue_price": "100.00",
+        "opening_date": "",
+        "closing_date": "",
+        "status": "",
+        "issue_manager": "NIMB Ace Capital Limited"
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": true
+    },
+    {
+      "symbol": "RHGCL",
+      "source_path": "data/company-wise/RHGCL/right-share.csv",
+      "source_line": 3,
+      "flags": [
+        "SUBSCRIPTION_DATES_MISSING"
+      ],
+      "raw": {
+        "ratio": "1:0.251411",
+        "total_units": "3081262.00",
+        "issue_price": "100.00",
+        "opening_date": "",
+        "closing_date": "",
+        "status": "",
+        "issue_manager": "None"
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": true
+    },
+    {
+      "symbol": "SADBL",
+      "source_path": "data/company-wise/SADBL/dividend.csv",
+      "source_line": 16,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2068/2069",
+        "bonus_share": "0.00",
+        "cash_dividend": "11.00",
+        "total_dividend": "11.00",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": true
+    },
+    {
+      "symbol": "SANVI",
+      "source_path": "data/company-wise/SANVI/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "MISSING_BONUS_SHARE",
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2079/2080",
+        "bonus_share": "",
+        "cash_dividend": "5.25",
+        "total_dividend": "5.25",
+        "book_closure_date": ""
+      },
+      "derived_field": "bonus_share",
+      "derived_value": "0.00000000",
+      "status": "ZERO_RESIDUAL_CANDIDATE",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": true
+    },
+    {
+      "symbol": "SHL",
+      "source_path": "data/company-wise/SHL/dividend.csv",
+      "source_line": 15,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2067/2068",
+        "bonus_share": "20.00",
+        "cash_dividend": "32.63",
+        "total_dividend": "52.63",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": true
+    },
+    {
+      "symbol": "SHPC",
+      "source_path": "data/company-wise/SHPC/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "10.00",
+        "cash_dividend": "5.00",
+        "total_dividend": "15.00",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": true
+    },
+    {
+      "symbol": "SMH",
+      "source_path": "data/company-wise/SMH/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "14.00",
+        "cash_dividend": "4.421",
+        "total_dividend": "18.421",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": true
+    },
+    {
+      "symbol": "SMPDA",
+      "source_path": "data/company-wise/SMPDA/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "4.00",
+        "cash_dividend": "0.21",
+        "total_dividend": "4.21",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": true
+    },
+    {
+      "symbol": "SWBBL",
+      "source_path": "data/company-wise/SWBBL/dividend.csv",
+      "source_line": 2,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2082/2083",
+        "bonus_share": "4.75",
+        "cash_dividend": "0.25",
+        "total_dividend": "5.00",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": true
+    },
+    {
+      "symbol": "UHEWA",
+      "source_path": "data/company-wise/UHEWA/right-share.csv",
+      "source_line": 2,
+      "flags": [
+        "SUBSCRIPTION_DATES_MISSING"
+      ],
+      "raw": {
+        "ratio": "1:1",
+        "total_units": "5750000.00",
+        "issue_price": "100.00",
+        "opening_date": "",
+        "closing_date": "",
+        "status": "",
+        "issue_manager": "None"
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": true
+    },
+    {
+      "symbol": "UNL",
+      "source_path": "data/company-wise/UNL/dividend.csv",
+      "source_line": 10,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2074/2075",
+        "bonus_share": "0.00",
+        "cash_dividend": "700.00",
+        "total_dividend": "700.00",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": true
+    },
+    {
+      "symbol": "UNL",
+      "source_path": "data/company-wise/UNL/dividend.csv",
+      "source_line": 17,
+      "flags": [
+        "BOOK_CLOSURE_DATE_UNRESOLVED"
+      ],
+      "raw": {
+        "fiscal_year": "2066/2067",
+        "bonus_share": "0.00",
+        "cash_dividend": "590.00",
+        "total_dividend": "590.00",
+        "book_closure_date": ""
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": true
+    },
+    {
+      "symbol": "UPCL",
+      "source_path": "data/company-wise/UPCL/right-share.csv",
+      "source_line": 2,
+      "flags": [
+        "SUBSCRIPTION_DATES_MISSING"
+      ],
+      "raw": {
+        "ratio": "1:1",
+        "total_units": "24851236.18",
+        "issue_price": "100.00",
+        "opening_date": "",
+        "closing_date": "",
+        "status": "",
+        "issue_manager": "Mukinath Capital Limited"
+      },
+      "derived_field": "",
+      "derived_value": "",
+      "status": "EXTERNAL_EVIDENCE_REQUIRED",
+      "independent_verification": false,
+      "adjustment_allowed": false,
+      "target_equity": true
+    }
+  ],
+  "approved": 0
+}

@@ -109,3 +109,8 @@ For confirmed mergers, represent the predecessor-to-successor relationship as a 
 ## Data safety
 
 No raw captures, OHLCV, canonical data, lifecycle dispositions or scanner inputs were modified or promoted by this read-back. This document records existing artifact evidence and corrects audit semantics only.
+
+
+## Merger successor mapping correction (2026-11-27)
+
+Current successor lookups are now explicit in `P444_MERGER_SUCCESSOR_CURRENT_ID_CROSSWALK_2026-11-27.csv`: JALPA/KLBSL → MATRI (security ID 694), SABSL/SDLBSL → SMPDA (security ID 2896), and SAMAJ → GBLBS (security ID 583), all using the 2026-11-25 snapshot. These five predecessor symbols are not to be treated as standalone current securities where the successor relationship is established. Preserve their historical OHLCV under the predecessor tickers; use successor code/ID for current lookups. Do not reuse a successor ID as the predecessor's historical stable ID, and do not infer unresolved merger dates or last-trade boundaries.

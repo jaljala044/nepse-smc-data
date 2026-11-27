@@ -39,3 +39,17 @@ Therefore no positive per-security execution payload is joined to either endpoin
 ## Data safety
 
 This audit read the downloaded artifact only. It did not modify raw captures, OHLCV, canonical data, lifecycle ledgers, scanner inputs or the source matrix. No disposition or promotion flag changed.
+
+
+## Exact-symbol capture-window cross-check — Run #325
+
+A new read-only audit compares the 209-symbol repeat-pair matrix with the pinned 281-symbol NEPSE security-history capture. It uses exact ticker equality and actual `businessDate` values only; no predecessor/successor or ticker-similarity aliases are inferred.
+
+- Exact symbol overlap: **3/209** — NESDO, ULBSL and YMHL.
+- Pair rows for those three symbols: **640** (NESDO 320; ULBSL 318; YMHL 2).
+- Repeated-pair endpoint dates within the capture window (2026-10-05 through 2026-11-26): **0**.
+- Therefore, this capture supplies **zero** endpoint execution rows for the 640 overlapping-symbol pair rows. The other 206 matrix symbols have no exact symbol match in this capture.
+- The audit script and tests are included in `tools/p444_audit_repeat_pair_capture_coverage.py` and `test_p444_audit_repeat_pair_capture_coverage.py`.
+- Run #325 exact tested SHA: `aae6050f9b366125a00aebf5b4c4d65e4ac3e553`. New test and audit steps #37–#40 completed successfully. Full workflow was still running at the time of this report update; artifact output read-back remains pending.
+
+**Disposition:** Work package #11 remains BLOCKED. This is a measured source/date coverage gap, not evidence of no trade. All pair rows remain `HOLD_UNKNOWN_NO_INFERENCE`; promotion is false; canonical data is unchanged.

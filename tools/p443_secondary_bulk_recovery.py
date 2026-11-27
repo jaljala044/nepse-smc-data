@@ -52,13 +52,12 @@ def main():
             total=0
             for r in reader:
                 total+=1
-                cid=pick(r,"contract_no")
-                ids[cid]+=1
                 try:key=signature(r,True,day)
                 except Exception:
                     invalid+=1
                     continue
-                if key[2] in targets:agg[key[2]].append((key[5],key[6],key[7],cid))
+                ids[key[1]]+=1
+                if key[2] in targets:agg[key[2]].append((key[5],key[6],key[7],key[1]))
             duplicates=sum(n-1 for n in ids.values() if n>1)
             result.update(rows=total,invalid_rows=invalid,duplicate_contract_occurrences=duplicates,status="PASS" if total and not invalid and not duplicates else "PARTITION_QUARANTINE_CANDIDATE")
         except Exception as e:result.update(status="UNAVAILABLE_OR_INTEGRITY_FAILED",error=str(e))

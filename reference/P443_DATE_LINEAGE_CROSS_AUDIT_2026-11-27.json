@@ -1,0 +1,119 @@
+{
+  "task": "P4.43 cross-audit reconciliation of known date-lineage investigations",
+  "audit_scope": {
+    "pinned_global_input_commit": "56362fb4f65b91fdcca8f50b50e53ad80e703649",
+    "global_inventory_files": 928,
+    "global_inventory_bytes": 60662491,
+    "structured_files_parsed": 784,
+    "inventory_only_or_unsupported": 138,
+    "non_json_provider_responses": 6,
+    "full_scope_date_shift_adjudication": "INCOMPLETE"
+  },
+  "prior_audits": [
+    {
+      "id": "P4.27/P4.28",
+      "scope": "490 one-day date-shift candidates from 2026-03-01 to 2026-03-02 and 2026-07-24 to 2026-07-25",
+      "candidate_rows": 490,
+      "official_eod_rows_found_exactly_once": 490,
+      "exact_ohlcv_matches": 487,
+      "official_close_differences": 3,
+      "disposition": "OFFICIAL_EOD_CONFIRMED_DATE; THREE_CLOSE_VALUES_REQUIRE_OFFICIAL_CORRECTION_LEDGER_REVIEW",
+      "raw_source_changed": false,
+      "evidence": [
+        "reference/p427_490_date_shift_audit_report_2026-11-26.md",
+        "reference/p427_490_date_shift_audit_2026-11-26.csv",
+        "reference/p428_599_official_eod_reconciliation_2026-11-26.csv",
+        "reference/p428_112_official_eod_corrections_2026-11-26.csv"
+      ],
+      "limitations": "The 490 candidates are a bounded prior task, not a scan of all 928 files."
+    },
+    {
+      "id": "P4.42",
+      "scope": "NMLBBL and SMPDA source-date lineage, 2025-11-26 through 2026-11-26",
+      "rows": 162,
+      "symbols": [
+        "NMLBBL",
+        "SMPDA"
+      ],
+      "source_daily_rows_found": 162,
+      "source_ohlcv_matches": 162,
+      "official_hlc_volume_matches_on_other_dates": 162,
+      "offsets_days": {
+        "+1": 74,
+        "+2": 62,
+        "+3": 18,
+        "+4": 6,
+        "+5": 2
+      },
+      "disposition": "SCRAPE_DATE_LABELING_CAUSE_SUPPORTED; BUSINESS_DATE_NOT_AUTOMATICALLY_RELABELED",
+      "raw_source_changed": false,
+      "evidence": [
+        "reference/p442_sharesansar_date_lineage_report_2026-11-26.md",
+        "reference/p442_sharesansar_date_lineage_matrix_2026-11-26.csv"
+      ],
+      "limitations": "Two-symbol one-year window; official endpoint does not provide Open; not a full-universe point-in-time identity audit."
+    },
+    {
+      "id": "P4.37",
+      "scope": "Cross-sector official EOD parity sample, 24 active securities across 12 sectors, 2025-11-26 through 2026-11-26",
+      "sample_symbols": 24,
+      "sectors": 12,
+      "official_date_keys_per_symbol": 228,
+      "canonical_only_rows_matching_other_official_date_hlc_volume": 1455,
+      "symbols_affected": 19,
+      "verified_closed_dates": 81,
+      "weekly_closure_dates": 60,
+      "listed_holiday_dates": 21,
+      "official_only_rows_matching_canonical_closed_date": 36,
+      "exact_date_hlc_volume_mismatches": 3,
+      "disposition": "CLOSED_DATE_CARRY_FORWARD_CONFIRMED_IN_PURPOSIVE_SAMPLE",
+      "raw_source_changed": false,
+      "evidence": [
+        "reference/p437_cross_sector_date_contamination_audit_2026-11-26.md"
+      ],
+      "limitations": "Purposive 24-security sample, not a full-universe estimate; official endpoint supplies H/L/C/V, not Open."
+    },
+    {
+      "id": "P4.5",
+      "scope": "20 provisional one-day overlay candidates across 2026-07-25 to 2026-07-24 and 2026-03-02 to 2026-03-01",
+      "overlay_rows": 20,
+      "date_pairs": 2,
+      "disposition": "SOURCE_MATCH_CANDIDATE",
+      "evidence": [
+        "reference/P4_5_date_shift_overlay_2026-11-26.csv",
+        "reference/P4_5_July24_date_reconciliation_batchA_2026-11-26.csv",
+        "reference/P4_5_July24_date_reconciliation_batchB_2026-11-26.csv",
+        "reference/P4_5_July24_date_reconciliation_batchC_2026-11-26.csv",
+        "reference/P4_5_July24_date_reconciliation_batchD_2026-11-26.csv",
+        "reference/P4_5_ECL_date_shift_evidence_2026-11-26.csv"
+      ],
+      "limitations": "Overlay candidates may overlap P4.27/P4.28 and are not additional unique findings without a key-level join."
+    }
+  ],
+  "overlap_and_counting": {
+    "counts_are_not_additive": true,
+    "known_overlap": "P4.5 overlays may be subsets of P4.27/P4.28; P4.37 and P4.42 have overlapping time windows and may overlap in security/date keys.",
+    "required_deduplication_key": "symbol + raw_source_path/blob + raw_date + candidate_business_date + source row/record identity",
+    "do_not_sum_without_join": true
+  },
+  "p443_global_findings": {
+    "repeated_adjacent_ohlcv_pairs": 94543,
+    "historical_holiday_candidate_pairs": 26544,
+    "recorded_closure_pairs": 9027,
+    "both_dates_open_tuple_unverified_pairs": 73,
+    "insufficient_session_evidence_pairs": 58899,
+    "quarantine_review_pairs": 35571,
+    "independent_security_date_evidence_pairs": 58972,
+    "unique_hold_candidate_rows": 28476,
+    "disposition": "READ_ONLY_REVIEW_AND_HOLD_CANDIDATES_ONLY"
+  },
+  "outstanding": {
+    "full_928_file_date_shift_scan_and_row_level_join": "NOT_COMPLETE",
+    "complete_historical_instrument_identity": "NOT_COMPLETE",
+    "full_period_independent_exchange_session_and_execution_evidence": "NOT_COMPLETE",
+    "raw_or_canonical_changes": 0,
+    "automatic_date_relabels": 0,
+    "promotions": 0
+  },
+  "policy": "Treat prior audits as bounded evidence sets. Do not sum overlapping row counts, infer trade dates from scrape labels, or rewrite raw/canonical dates. Full-scope date-lineage acceptance remains blocked."
+}

@@ -1,0 +1,32 @@
+{
+  "task": "P4.43.14.16",
+  "scope": "P2 equity recovery queue only",
+  "audit_run": 45901012377,
+  "artifact_id": 15155667000,
+  "artifact_sha256": "20b74549f8e73aa3f94067ef834e6023b888dd0ec6df69ba174a3ecce7cbeb86",
+  "rows": 68773,
+  "unique_keys": 68773,
+  "lineage_rows": 68773,
+  "dates": 316,
+  "dispositions": {
+    "SCHEDULE_CLOSURE_CANDIDATE_HOLD": 34345,
+    "SECONDARY_CONTENT_PENDING": 15439,
+    "RECORDED_CLOSURE_HOLD": 13312,
+    "PARTIAL_HLV_MATCH_HOLD": 3155,
+    "PRICE_SEMANTICS_HOLD": 1837,
+    "OPEN_SESSION_SECURITY_EVIDENCE_PENDING": 440,
+    "SESSION_COMPLETENESS_HOLD": 243,
+    "UNRESOLVED_HOLD": 2
+  },
+  "overlay_sha256": "6d76c2a161dc3a65067806b5114a418be6aee0a90ebdc5519e2a718a531f7a2d",
+  "overlay_bytes": 30352499,
+  "approved_replacements": 0,
+  "promoted": 0,
+  "source_files": {
+    "P443_secondary_date_coverage.csv": "17d55d9e3d429176262cc5156770a14ecd4a945998c5a9981f91644f14b7d672",
+    "P443_calendar_disposition_2026-11-27.csv": "2217376806ecf0be9ddd6dd398e939d24f7dba9ce4a47221691c0e3fbeb6453d",
+    "P443_earlier_calendar_review.csv": "8806bab7127e2ccda42b06fcece25bb3f53a1c98c3c25a34fe61ed94159ad894",
+    "P443_corporate_action_review_2026-11-27.csv": "fc0ae52769ac4ed7bdd61526cde6853a0ac9de8d26011439e29c9f35725e8a8c"
+  },
+  "limitations": "Read-only hold overlay, not corrected candles. Entire April 10 partition held including HLV matches. Calendar classifications rely on existing reviewed evidence, not fresh exchange confirmations. Secondary content and open/close validation remain pending. Full CSV delivered separately; this commit persists its manifest only."
+}

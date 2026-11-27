@@ -58,3 +58,19 @@ No Open field is present. The SHA-256 values above match the corresponding entri
 **PARTIAL — inventory and manifest coverage verified for all 281 captures; payload parsing verified for 3 captures only.**
 
 No raw response, OHLCV, floorsheet, lifecycle ledger, canonical row, date, or scanner input was changed. No row was shifted, deleted, deduplicated, corrected, promoted, or released from HOLD.
+
+
+## Related work package #2 — current security-list response audit
+
+The same pinned capture archive includes `security-list-response-01.bin`. It parses as a JSON array of **573 instruments** with five fields: `id`, `symbol`, `securityName`, `name`, and `activeStatus`.
+
+- All 573 rows have all five fields populated.
+- Duplicate IDs: 0.
+- Duplicate symbols: 0.
+- Status values: `A` = 546 rows; `S` = 27 rows.
+- Git blob SHA: `0891e10b56de572816680c8065718ecd4420bd03`.
+- SHA-256 from the archive's SHA256SUMS manifest: `5495d99a73aeb44e573936f59fc6a6d8dbf9ffc45c5a8ba62e672f0b0c6fa2f7`.
+
+This is useful **current-snapshot instrument identity evidence**, not a complete all-instrument master satisfying the acceptance criteria. The response has no instrument-class field, no documented status-code semantics in the payload, and no effective dates or historical change log. It cannot establish past symbol/ID continuity or classify all instruments as equity/debt/fund/etc. without a separate authoritative classification source.
+
+Work package #2 therefore advances from BLOCKED to **PARTIAL — 573-row current snapshot parsed and uniqueness-checked; instrument class and effective-dated history absent**. No historical identity inference or promotion is authorized.

@@ -9,6 +9,7 @@ ARTIFACT = Path(__file__).parent / "reference" / "P443_CORPORATE_ACTION_PERCENTA
 
 
 class CorporateActionPercentageResidualReviewTests(unittest.TestCase):
+    """Keep arithmetic residuals distinct from independently verified corporate actions."""
     @classmethod
     def setUpClass(cls):
         cls.document = json.loads(ARTIFACT.read_text(encoding="utf-8"))

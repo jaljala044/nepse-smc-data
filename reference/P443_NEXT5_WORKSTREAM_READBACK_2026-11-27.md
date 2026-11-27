@@ -53,9 +53,14 @@ The new audit independently reopens all 149 inventory files from the pinned Git 
 
 Expected held-candidate profile is 148 structurally valid aggregate matches and one source-integrity-valid March 1 baseline conflict.
 
-**Execution status:** the code and workflow change are committed, but no workflow run on branch head `f3478fc7` has yet been observed. The new 149-file audit is therefore pending execution and must not be described as passed.
+**Execution status: passed.** [Session recovery run 46003236951](https://github.com/jaljala044/nepse-smc-data/actions/runs/46003236951) completed successfully on code commit `f3478fc7ced2c52daac481502c3600d3014e42e9`. The independent audit read-back reports 149/149 files audited, zero errors, 148 `PASS_AGGREGATE_AND_STRUCTURE`, and one `SOURCE_INTEGRITY_OK_BASELINE_CONFLICT`. All 149 source blob hashes and byte counts matched; all 149 had unique symbols, contiguous serials, and independent totals equal to the recovery output. All publication flags remained false.
 
-Even a successful run will establish internal source-file consistency, not independent exchange completeness or transaction-level correctness. The baseline has no independent transaction-count benchmark for these 149 recovery dates.
+- Artifact ID: `15199675445`
+- Artifact ZIP SHA-256: `fbba570a93e8b6f6d8992f907b83db7bf6b1aa0d6e34b55e99df8279f23e06ba`
+- Independent audit CSV SHA-256: `7acb6ac711ed6a9138a7f8dcc0181ffd4e15a62ea79dfed39701f22cdd01c87c`
+- Independent audit JSON SHA-256: `e3512194595f2fb2dc9ed99ff06dc8ee5293163d484e468c182ae5bc90265333`
+
+The March 1 source file itself passed source-integrity and structure checks (13 unique symbols, serial sequence valid, 2,619 bytes, exact pinned blob SHA), but its aggregate totals conflict with the baseline. This confirms the archive partition is a valid pinned file but an incomplete session representation—not a corrupted download. The independent audit establishes per-security daily EOD file consistency, not independent exchange completeness or transaction-level correctness. The baseline still has no independent transaction-count benchmark for these 149 recovery dates.
 
 ## 4. Rechecked the corporate-action source recovery artifact
 

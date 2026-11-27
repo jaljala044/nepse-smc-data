@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "source_audit_artifact": 15168438563,
+  "nov26": {
+    "date": "2026-11-26",
+    "source": "https://www.sharesansar.com/market",
+    "market_summary": {
+      "turnover": "5489584101.96",
+      "shares": 14710298,
+      "transactions": 49806,
+      "symbols": 355
+    },
+    "archive_index": {
+      "open": "2650.77",
+      "high": "2651.1643",
+      "low": "2632.2007",
+      "close": "2636.75",
+      "turnover": "5488702738.36"
+    },
+    "published_index": {
+      "open": "2649.58",
+      "high": "2651.16",
+      "low": "2632.20",
+      "close": "2636.75",
+      "turnover": "5489584101.95"
+    },
+    "disposition": "MARKET_TOTALS_MATCH_SECONDARY_SOURCE_INDEX_CORRECTION_CANDIDATE",
+    "independent_upstream_capture": false
+  },
+  "april3": {
+    "date": "2025-04-03",
+    "close": "2703.39",
+    "change": "3.35",
+    "turnover_approx": "7845000000",
+    "open": null,
+    "high": null,
+    "low": null,
+    "sources": [
+      "https://nepallifecapital.com.np/AdminBoard/uploads/newsletter/b082b-march-30-april-4.pdf",
+      "https://forum.sharesansar.com/topic.php?post=44676"
+    ],
+    "disposition": "PARTIAL_RECOVERY"
+  },
+  "nov24": {
+    "date": "2025-11-24",
+    "close": "2650.66",
+    "archive_high": "2647.5827",
+    "source": "https://kathmandupost.com/money/2025/11/24/nepse-rises-50-44-points-turnover-reaches-rs7-03-billion",
+    "disposition": "CLOSE_CORROBORATED_HIGH_UNRESOLVED"
+  },
+  "benchmark_exceptions": 12,
+  "precision_candidates": 11,
+  "material": 1,
+  "promotion_allowed": false
+}

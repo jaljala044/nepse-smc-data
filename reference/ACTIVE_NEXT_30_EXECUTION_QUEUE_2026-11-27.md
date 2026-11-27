@@ -18,7 +18,7 @@ This queue decomposes the open acceptance criteria into 30 reviewable work packa
 | 5 | Reconcile JALPA/KLBSL → MATRI merger dates and distinguish integrated-business date from last trade | PARTIAL | Primary raw notice plus exchange trading boundary |
 | 6 | Resolve SABSL/SDLBSL → SMPDA conflicting 2024-07-14 vs 2025-07-14 claims | BLOCKED | Date-authentic primary notice and effective-date interpretation |
 | 7 | Recover cancellation notices and raw payload provenance for NICAD8283, NICGF and SBLD2082 | PARTIAL | Original PDFs, SHA-256 and unambiguous Bikram Sambat/Gregorian date conversion |
-| 8 | Complete lifecycle event ledger schema validation (event types, dates, source tier, confidence, ID, successor) | PARTIAL — validator and regression tests exist; full interval-overlap / impossible-sequence coverage remains open | Current tests reject malformed dates/events, incomplete verified provenance, duplicate event records and same-date source conflicts |
+| 8 | Complete lifecycle event ledger schema validation (event types, dates, source tier, confidence, ID, successor) | IMPLEMENTED — fail-closed schema/provenance validation and regression coverage added; CI pending | Requires all 15 ledger columns; validates event/date/tier/confidence, verified ID/provenance, successor and duplicate/conflict checks; no promotion |
 | 9 | Audit effective-date interval overlaps and impossible lifecycle sequences | IMPLEMENTED — regression tests and compile passed in run #18; overall workflow failed at private Drive verification | Review-only findings; no dates inferred and no holds released |
 | 10 | Parse and verify the existing 281 per-security NEPSE history captures without treating current IDs as historical IDs | PARTIAL EXISTING EVIDENCE | Raw response hashes, field coverage and explicit current-snapshot limitation |
 | 11 | Build exact per-security execution evidence for every repeated-pair endpoint date | BLOCKED | Security identity plus date-matched execution payload; market totals are insufficient |
@@ -54,7 +54,7 @@ This queue decomposes the open acceptance criteria into 30 reviewable work packa
 
 ## Execution order and guardrails
 
-1. Continue #1–#12 first because identity and per-security execution evidence are dependencies for the unresolved P4.44 repeated-pair matrix. #9 now has a non-mutating audit tool; next validate its CI result and address any flagged sequence conflicts.
+1. Continue #1–#12 first because identity and per-security execution evidence are dependencies for the unresolved P4.44 repeated-pair matrix. #8 now has fail-closed schema/provenance validation; #9 sequence audit remains review-only.
 2. In parallel, implement #21–#23 only after reviewing the existing scanner gate and test conventions; preserve a fail-closed default and avoid weakening existing overlay checks.
 3. Continue #18–#20 only when primary session and contract evidence is available.
 4. Treat #26–#30 as independent queues; do not import secondary mirrors as independent primary evidence.
@@ -102,3 +102,11 @@ This queue decomposes the open acceptance criteria into 30 reviewable work packa
 - The current branch/PR head at this queue update is `5395cb0d2727319375302d2fd67ac8d2c281653c`, a documentation follow-up after the lifecycle-test fixture correction. Run #317 predates these lifecycle-sequence changes; Run #18 tests the preceding code head. A new full P4.43 audit is still required for the latest branch head.
 - Work #9 status: IMPLEMENTED; regression tests passed in Run #18; actual lifecycle-ledger sequence scan is not yet an executed CI acceptance result. Work #24: Run #317 passed on its exact head, but the newer branch head still needs full-audit validation.
 - PR #80 remains open/draft/unmerged; issue #82 remains open. All unresolved lifecycle and repeat-pair dispositions remain held.
+
+
+### P4.44 lifecycle-ledger validator continuation
+
+- Strengthened `tools/p444_validate_lifecycle_evidence.py`: now rejects missing/duplicate required columns; validates source tiers and confidence vocabulary; requires dates for populated event types; checks merger successors; requires primary provenance, security ID and source statement for any `verified` event; validates SHA character sets; and detects duplicate/conflicting event records and impossible terminal/resumption sequences.
+- Replaced/expanded `test_p444_validate_lifecycle_evidence.py` with seven focused regression tests covering schema, event dates/types, source tier, confidence, verified provenance, successor, duplicate and conflict behavior.
+- Added validator tests and compile checks to the publication-gate workflow. CI result pending.
+- Existing 26-row evidence ledger is unchanged. Existing `HOLD_UNKNOWN` dispositions remain intact; this change is validator/test/workflow code only.

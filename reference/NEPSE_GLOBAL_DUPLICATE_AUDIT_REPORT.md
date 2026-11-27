@@ -3,7 +3,7 @@
 **Status: reproducible audit baseline complete; adjudication and canonical-ingestion acceptance remain open.**
 
 **Pinned input:** `main` at `56362fb4f65b91fdcca8f50b50e53ad80e703649`.  
-**Latest completed strict workflow:** [Run 266](https://github.com/jaljala044/nepse-smc-data/actions/runs/45903027490) passed all 32 steps on head `f8af44d4233d31a6f8eb92a1f99acb4fbe994a60`, including the primary and HF-only bulk recovery batches. The 22-session full-session parity [Run 33](https://github.com/jaljala044/nepse-smc-data/actions/runs/45902069128) passed with one preserved row-conflict finding; priority recovery [Run 48](https://github.com/jaljala044/nepse-smc-data/actions/runs/45902069182) and secondary comparison [Run 39](https://github.com/jaljala044/nepse-smc-data/actions/runs/45902069187) also passed.  
+**Latest completed full P4.43 workflow:** [Run 338](https://github.com/jaljala044/nepse-smc-data/actions/runs/46046751745) passed all workflow steps on code head `f0965688f085050e1a9499bfbca80d60dffe2c3f`; subsequent branch commits in this pass update documentation only. Strict artifact ID `15222152680` (58,728,598 bytes; SHA-256 `96cbdb5f7d4275c5ee93337b11525237910192897ef4482f92110a6b7f01109d`) and global artifact ID `15221704196` (1,403,280 bytes; SHA-256 `3e6f452d17bf49f57d504706079e6fecddfd938e67b64c4503d60a38d651f0cc`) independently match GitHub artifact metadata. Run #336 remains the detailed 59-step source for the bulk floorsheet and strict identity analyses. The 22-session full-session parity [Run 33](https://github.com/jaljala044/nepse-smc-data/actions/runs/45902069128) passed with one preserved row-conflict finding; priority recovery [Run 48](https://github.com/jaljala044/nepse-smc-data/actions/runs/45902069182) and secondary comparison [Run 39](https://github.com/jaljala044/nepse-smc-data/actions/runs/45902069187) also passed.  
 **Method:** deterministic, read-only scan of pinned file blobs. Findings are review flags, not automatic corrections.
 
 ## Coverage
@@ -247,3 +247,16 @@ Cross-checked all ten `SNAPSHOT_PRESENT_CLASS_REVIEW` records against the pinned
 - Three remain unresolved: EBLD86 (8044; name only “Everest Bank Limited”), KRBL (428; company-only name, status S), and WNLB (2781; company-only name, status S). Status S is not an instrument-type field.
 
 These are conservative display-name candidates, not authoritative instrument-type confirmations. The companion `P443_SNAPSHOT_INSTRUMENT_CLASS_REVIEW_2026-11-27.csv` preserves the exact records and reasoning. No instrument class, historical identity, OHLCV row, or scanner eligibility was promoted.
+
+
+## Run #338 — repeat-pair lineage coverage exporter
+
+The exact `(symbol,date)` coverage exporter and its three regression tests passed in Run #338. The strict artifact contains `P443_REPEAT_PAIR_LINEAGE_GAPS_2026-11-27.csv` (46,878 uncovered unique keys across 454 symbols) and `P443_REPEAT_PAIR_LINEAGE_COVERAGE_2026-11-27.json` (94,543 pair keys across 462 symbols; 68,783 lineage keys across 253 symbols; 47,665 exact intersections; 21,118 lineage keys outside the pair set; symbol states 209 `NO_LINEAGE`, 245 `PARTIAL_LINEAGE`, 8 `FULL_LINEAGE`). Every exported gap has `promotion_allowed=false`; summary has `canonical_data_modified=false`. This measures current register coverage only and does not adjudicate the underlying dates or trades.
+
+## March 1/2 archive conflict — secondary-source cross-check
+
+Two dated reports for 2026-03-01 corroborate the alternative 341-company partition's session totals: Nepal News reports 13,193,462 shares and 55,206 transactions with turnover rounded to NPR 5.64 billion (https://english.nepalnews.com/s/business/nepse-rises-by-19-27-points-to-close-at-2674-20/); Ratopati reports the same counts and exact turnover NPR 5,648,319,041.36 (https://english.ratopati.com/story/51155/nepse-rises-by-072-percent). NEPSE's public Market Summary History page currently exposes no rows (https://nepalstock.com.np/market-summary-history). These reports corroborate published session totals, not the raw archive bytes, retrieval provenance or 13-symbol partition. Both original partitions remain unchanged and publication remains disallowed.
+
+## PR #80 acceptance checklist
+
+A criterion-by-criterion reconciliation is maintained in `P443_PR80_ACCEPTANCE_CHECKLIST_2026-11-27.md`. P4.43 remains open: the pinned inventory, implemented scan and CI are reproducible, while source-level date adjudication, complete historical identity/session/execution evidence and final canonical-ingestion quarantine acceptance remain outstanding.

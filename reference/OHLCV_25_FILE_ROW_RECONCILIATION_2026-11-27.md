@@ -41,16 +41,18 @@ The [derived OHLCV v2 release](https://github.com/jaljala044/nepse-smc-data/blob
 
 The older cross-repository snapshot and master archive still say this RHGCL item is unresolved; this addendum supersedes that status for the derived v2 view while preserving the historical raw observation.
 
+The broader v2 release is still **not full-session clean**: its P4.30 audit retains 1,329 unique invalid OHLCV rows and 71,806 adjacent repeated rows across 281 symbols. This single RHGCL correction does not make the full derived dataset production-ready.
+
 ## History-side date-label and carry-forward risk
 
 Across the 25 history-starter files:
 
 | Check | Result |
 |---|---:|
-| Friday/Saturday-dated rows | 5,578 |
-| Weekend rows exactly matching the immediately preceding file row's OHLCV | 3,523 (63.16%) |
-| Weekend rows exactly matching the immediately following file row's OHLCV | 7,703 |
-| All adjacent identical OHLCV row pairs | NaN |
+| Friday/Saturday-dated rows | 6,250 |
+| Weekend rows exactly matching the immediately preceding file row's OHLCV | 5,578 (89.25%) |
+| Weekend rows exactly matching the immediately following file row's OHLCV | 3,523 |
+| All adjacent identical OHLCV row pairs | 7,703 |
 
 These are **suspected calendar-day carry-forward / scrape-date-label records**, not proven synthetic rows. Do not treat them as additional exchange sessions or use them in indicators/backtests until a dated NEPSE session calendar and symbol-specific evidence establish their business dates. P4.42 already documents that the same pinned ShareSansarScraper lineage can label stale OHLCV with the scrape date rather than the underlying NEPSE business date for NMLBBL/SMPDA; see [P4.42 source-date lineage report](https://github.com/jaljala044/nepse-smc-data/blob/main/reference/p442_sharesansar_date_lineage_report_2026-11-26.md).
 

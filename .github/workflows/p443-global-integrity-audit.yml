@@ -40,7 +40,9 @@ on:
       - "tools/p444_audit_281_security_history.py"
       - "test_p444_audit_281_security_history.py"
       - "tools/p444_audit_repeat_pair_matrix.py"
+      - "tools/p444_audit_repeat_pair_capture_coverage.py"
       - "test_p444_audit_repeat_pair_matrix.py"
+      - "test_p444_audit_repeat_pair_capture_coverage.py"
       - "reference/P444_EFFECTIVE_DATED_LIFECYCLE_EVIDENCE_2026-11-27.csv"
       - "test_p443_equity_first_repeat_review.py"
       - "reference/P443_AUTHENTICATED_HOLIDAY_EVIDENCE_2015_2026.csv"
@@ -212,6 +214,14 @@ jobs:
             --output audit-strict/P444_281_SECURITY_HISTORY_CAPTURE_AUDIT_2026-11-27.json
       - name: Build P4.44 row-level evidence matrix for 209 uncovered symbols
         run: python tools/p444_build_uncovered_repeat_pair_matrix.py --findings audit-strict/findings.jsonl --output-dir audit-strict
+      - name: Verify P4.44 repeat-pair capture coverage regression tests
+        run: python -m unittest test_p444_audit_repeat_pair_capture_coverage -v
+      - name: Audit exact-symbol repeat-pair endpoint coverage against pinned capture
+        run: |
+          python tools/p444_audit_repeat_pair_capture_coverage.py \
+            --matrix audit-strict/P444_UNCOVERED_REPEAT_PAIR_EVIDENCE_2026-11-27.csv \
+            --symbols-root scanner-history-capture/data/evidence/raw/nepse/security-history/2026-10-05_to_2026-11-26/symbols \
+            --output audit-strict/P444_REPEAT_PAIR_CAPTURE_ENDPOINT_COVERAGE_2026-11-27.json
       - name: Verify P4.44 matrix artifact read-back integrity tests
         run: python -m unittest test_p444_audit_repeat_pair_matrix -v
       - name: Audit generated P4.44 matrix read-back

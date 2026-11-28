@@ -11,6 +11,7 @@ import argparse
 import csv
 import hashlib
 import json
+from decimal import Decimal, InvalidOperation
 from collections import defaultdict
 from datetime import date, datetime
 from pathlib import Path
@@ -90,12 +91,16 @@ def build_matrix(pairs: list[dict[str, str]], identities: list[dict[str, str]],
             identity = eligible_identity[0]
             security_id = identity["security_id"].strip()
             exec_rows = executions_by_id_date.get((security_id, day.isoformat() if day else ""), [])
-            eligible_exec = [
-                row for row in exec_rows
-                if evidence_eligible(row)
-                and (parse_date(row.get("business_date", "")) == day)
-                and row.get("traded_quantity", "").strip() not in {"", "0", "0.0"}
-            ]
+            eligible_exec = []
+            for row in exec_rows:
+                try:
+                    quantity = Decimal(row.get("traded_quantity", "").strip())
+                except (InvalidOperation, ValueError):
+                    continue
+                if (evidence_eligible(row)
+                        and parse_date(row.get("business_date", "")) == day
+                        and quantity.is_finite() and quantity > 0):
+                    eligible_exec.append(row)
             if len(eligible_exec) == 1:
                 status, reason = "IDENTITY_AND_EXECUTION_EVIDENCE_MATCHED", "exact_security_id_and_date"
                 execution_sha = eligible_exec[0]["raw_sha256"].strip().lower()

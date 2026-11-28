@@ -1,6 +1,8 @@
 """Combine the supplemental NEPSE inputs with an existing scanner data directory."""
 import argparse
 import csv
+import hashlib
+import json
 import shutil
 from pathlib import Path
 from tempfile import TemporaryDirectory
@@ -63,6 +65,33 @@ def unique_rows(records, key_fields, numeric_fields):
         yield row
 
 
+def unique_rows_with_dispositions(records, key_fields, numeric_fields, source_path, source_sha256):
+    """Return deduplicated rows plus a row-level audit tied to immutable source bytes."""
+    seen = {}
+    retained = []
+    dispositions = []
+    for row_number, row in enumerate(records, start=2):
+        key = business_key(row, key_fields)
+        signature = numeric_signature(row, numeric_fields)
+        if key in seen:
+            if seen[key] != signature:
+                raise ValueError(f"Conflicting duplicate key: {key}")
+            disposition = "duplicate_identical_collapsed"
+        else:
+            seen[key] = signature
+            retained.append(row)
+            disposition = "retained"
+        dispositions.append({
+            "source_path": str(source_path),
+            "source_sha256": source_sha256,
+            "source_row_number": row_number,
+            "business_key": list(key),
+            "numeric_signature": [str(value) for value in signature],
+            "disposition": disposition,
+        })
+    return retained, dispositions
+
+
 def write(path, fields, values):
     with path.open("w", newline="", encoding="utf-8") as stream:
         writer = csv.DictWriter(stream, fields, extrasaction="ignore")
@@ -88,8 +117,15 @@ def prepare(original, output):
         if not fields or not {"symbol", "date", "open", "high", "low", "close", "volume"}.issubset(fields):
             raise ValueError("Expected a scanner-format daily_prices.csv in the input folder.")
         price_fields = ("open", "high", "low", "close", "volume")
+        raw_evidence = stage / "evidence" / "raw_inputs"
+        raw_evidence.mkdir(parents=True, exist_ok=True)
+        original_bytes = daily.read_bytes()
+        original_sha256 = hashlib.sha256(original_bytes).hexdigest()
+        (raw_evidence / "original_daily_prices.csv").write_bytes(original_bytes)
         original_raw = list(rows(daily))
-        original_rows = list(unique_rows(original_raw, ("symbol", "date"), price_fields))
+        original_rows, source_dispositions = unique_rows_with_dispositions(
+            original_raw, ("symbol", "date"), price_fields,
+            "original/daily_prices.csv", original_sha256)
         present = {business_key(row, ("symbol", "date")): numeric_signature(row, price_fields)
                    for row in original_rows}
         additions = []
@@ -131,11 +167,25 @@ def prepare(original, output):
                     ("buy_qty", "sell_qty", "buy_value", "sell_value")))
         elif broker_target.exists():
             # Existing supplied broker summaries must not silently contain duplicate keys.
+            broker_bytes = broker_target.read_bytes()
+            broker_sha256 = hashlib.sha256(broker_bytes).hexdigest()
+            (raw_evidence / "original_broker_summary.csv").write_bytes(broker_bytes)
             with broker_target.open(newline="", encoding="utf-8-sig") as stream:
                 fields = csv.DictReader(stream).fieldnames
-            records = list(unique_rows(rows(broker_target), ("symbol", "date", "broker"),
-                ("buy_qty", "sell_qty", "buy_value", "sell_value")))
+            records, broker_dispositions = unique_rows_with_dispositions(
+                list(rows(broker_target)), ("symbol", "date", "broker"),
+                ("buy_qty", "sell_qty", "buy_value", "sell_value"),
+                "original/broker_summary.csv", broker_sha256)
+            source_dispositions.extend(broker_dispositions)
             write(broker_target, fields, records)
+        manifest = {
+            "schema_version": 1,
+            "policy": "raw_inputs_preserved; identical_duplicates_collapsed_only_in_scanner_staging",
+            "canonical_promotion_allowed": False,
+            "records": source_dispositions,
+        }
+        manifest_path = stage / "evidence" / "duplicate_disposition_manifest.json"
+        manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
         stage.rename(output)
     print(f"Prepared {output} with {len(additions)} new daily price rows.")
 

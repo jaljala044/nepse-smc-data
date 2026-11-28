@@ -1,0 +1,39 @@
+{
+  "revision": "56362fb4f65b91fdcca8f50b50e53ad80e703649",
+  "scope": "contract ID prefix/format and within-file duplicates only; no business date column or completeness validation",
+  "report": [
+    {
+      "date": "2026-11-20",
+      "source_path": "floorsheet/floorsheet_2026-11-20.csv",
+      "blob": "43ce9b8cbbc5bbad79b7f31ea76b7d7a99b0ade9",
+      "bytes_ascii": 1872447,
+      "rows": 39966,
+      "distinct_ids": 39966,
+      "duplicate_occurrences": 0,
+      "contract_date_or_format_mismatch": 0,
+      "admission_allowed": false
+    },
+    {
+      "date": "2026-11-23",
+      "source_path": "floorsheet/floorsheet_2026-11-23.csv",
+      "blob": "8c6b3033e362fabfa06dd3141a74fa134bbac57a",
+      "bytes_ascii": 1987052,
+      "rows": 42854,
+      "distinct_ids": 42854,
+      "duplicate_occurrences": 0,
+      "contract_date_or_format_mismatch": 0,
+      "admission_allowed": false
+    },
+    {
+      "date": "2026-11-24",
+      "source_path": "floorsheet/floorsheet_2026-11-24.csv",
+      "blob": "6c7820f0fa3094cc332a5ef632319eec7d8dc4e4",
+      "bytes_ascii": 2430234,
+      "rows": 52387,
+      "distinct_ids": 52387,
+      "duplicate_occurrences": 0,
+      "contract_date_or_format_mismatch": 0,
+      "admission_allowed": false
+    }
+  ]
+}

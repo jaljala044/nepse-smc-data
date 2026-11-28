@@ -1,0 +1,24 @@
+name: Shared validation registry tests
+
+on:
+  push:
+    branches:
+      - project/shared-validation-foundation
+  pull_request:
+    paths:
+      - "tools/shared_validation_registry.py"
+      - "tools/tests/test_shared_validation_registry.py"
+      - ".github/workflows/shared-validation-registry-tests.yml"
+
+jobs:
+  registry-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install package
+        run: python -m pip install .
+      - name: Run shared validation registry tests
+        run: python -m unittest tools.tests.test_shared_validation_registry -v

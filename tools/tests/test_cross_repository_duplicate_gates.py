@@ -112,5 +112,34 @@ class DuplicateGateTests(unittest.TestCase):
             self.assertEqual(len(overlaps), 1)
             self.assertEqual(overlaps[0]["source_path"], "benchmark_daily.csv")
 
+    def test_cross_partition_broker_dispositions(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            original = root / "original"
+            original.mkdir()
+            supplement = root / "supplement"
+            (supplement / "price_gap_fills").mkdir(parents=True)
+            (supplement / "broker_summary").mkdir()
+            prep.write(original / "daily_prices.csv", KEY + PRICE, [price()])
+            prep.write(supplement / "benchmark_daily.csv", KEY + PRICE, [price()])
+            for name in ("sectors.csv", "sector_data.csv", "corporate_actions.csv"):
+                (original / name).write_text("symbol\n", encoding="utf-8")
+            fields = KEY + ("broker",) + BROKER
+            a = dict(symbol="ABC", date="2026-11-26", broker="01", buy_qty="10",
+                     sell_qty="5", buy_value="1000", sell_value="500")
+            prep.write(supplement / "broker_summary" / "a.csv", fields, [a])
+            prep.write(supplement / "broker_summary" / "b.csv", fields, [dict(a, broker="1")])
+            with patch.object(prep, "SUPPLEMENT", supplement):
+                prep.prepare(original, root / "out")
+                self.assertEqual(len(list(prep.rows(root / "out" / "broker_summary.csv"))), 1)
+                manifest = json.loads((root / "out" / "evidence" / "duplicate_disposition_manifest.json").read_text())
+                broker_rows = [row for row in manifest["records"] if row["source_path"].startswith("broker_summary/")]
+                self.assertEqual([row["disposition"] for row in broker_rows],
+                                 ["retained", "duplicate_identical_collapsed"])
+                prep.write(supplement / "broker_summary" / "b.csv", fields, [dict(a, sell_qty="6")])
+                with self.assertRaisesRegex(ValueError, "Conflicting duplicate"):
+                    prep.prepare(original, root / "conflict")
+                self.assertFalse((root / "conflict").exists())
+
 if __name__=="__main__":
     unittest.main()

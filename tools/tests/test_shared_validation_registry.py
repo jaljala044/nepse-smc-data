@@ -2,7 +2,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from tools.shared_validation_registry import ValidationRegistry
+from nepse_shared_validation import ValidationRegistry
 
 
 class SharedValidationRegistryTests(unittest.TestCase):

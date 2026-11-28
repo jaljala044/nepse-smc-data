@@ -132,3 +132,37 @@ class ValidationRegistry:
                     report_json,
                 ),
             )
+
+
+def run_cached_validation(
+    registry: ValidationRegistry,
+    path: str | Path,
+    *,
+    dataset_kind: str,
+    schema_version: str,
+    validator_version: str,
+    validator,
+) -> dict[str, Any]:
+    """Run a deterministic validator once per content/schema/version contract.
+
+    The callback must return a mapping with a boolean ``valid`` field. Exceptions
+    are propagated and are not cached, so infrastructure failures cannot become
+    permanent validation results. A cache hit reuses only this technical report;
+    callers must still evaluate authorization, provenance, coverage and approval.
+    """
+    key = registry.make_key(path, dataset_kind, schema_version, validator_version)
+    cached = registry.lookup(key)
+    if cached is not None:
+        return {**cached, "cache_hit": True}
+
+    report = validator(path)
+    if not isinstance(report, dict) or not isinstance(report.get("valid"), bool):
+        raise ValueError("validator must return a dict with a boolean 'valid' field")
+    status = "passed" if report["valid"] else "failed"
+    registry.record(key, status, report)
+    return {
+        "status": status,
+        "report": report,
+        "cache_hit": False,
+        "content_sha256": key.content_sha256,
+    }

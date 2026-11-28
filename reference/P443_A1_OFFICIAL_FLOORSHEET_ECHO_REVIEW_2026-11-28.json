@@ -1,0 +1,99 @@
+{
+  "repository": "jaljala044/nepse-smc-data",
+  "commit": "56362fb4f65b91fdcca8f50b50e53ad80e703649",
+  "scope": "five stored page-zero controls only; not full archive",
+  "records": [
+    {
+      "requested": "2024-05-16",
+      "blob": "732e3365b4304f7696a9d30dcd2e94451535caf8",
+      "rows": 500,
+      "business_dates": [
+        "2026-11-26"
+      ],
+      "contract_prefixes": [
+        "20261126"
+      ],
+      "trade_dates": [
+        "2026-11-26"
+      ],
+      "totalTrades": 49806,
+      "qty": 14710298,
+      "amount": 5489584101.96,
+      "normalized_matches_current": false
+    },
+    {
+      "requested": "2024-05-19",
+      "blob": "732e3365b4304f7696a9d30dcd2e94451535caf8",
+      "rows": 500,
+      "business_dates": [
+        "2026-11-26"
+      ],
+      "contract_prefixes": [
+        "20261126"
+      ],
+      "trade_dates": [
+        "2026-11-26"
+      ],
+      "totalTrades": 49806,
+      "qty": 14710298,
+      "amount": 5489584101.96,
+      "normalized_matches_current": false
+    },
+    {
+      "requested": "2024-08-14",
+      "blob": "732e3365b4304f7696a9d30dcd2e94451535caf8",
+      "rows": 500,
+      "business_dates": [
+        "2026-11-26"
+      ],
+      "contract_prefixes": [
+        "20261126"
+      ],
+      "trade_dates": [
+        "2026-11-26"
+      ],
+      "totalTrades": 49806,
+      "qty": 14710298,
+      "amount": 5489584101.96,
+      "normalized_matches_current": false
+    },
+    {
+      "requested": "2024-08-18",
+      "blob": "732e3365b4304f7696a9d30dcd2e94451535caf8",
+      "rows": 500,
+      "business_dates": [
+        "2026-11-26"
+      ],
+      "contract_prefixes": [
+        "20261126"
+      ],
+      "trade_dates": [
+        "2026-11-26"
+      ],
+      "totalTrades": 49806,
+      "qty": 14710298,
+      "amount": 5489584101.96,
+      "normalized_matches_current": false
+    },
+    {
+      "requested": "current",
+      "blob": "6d8b1c94c6ba124e747a86dea43f5279c6e57ba6",
+      "rows": 500,
+      "business_dates": [
+        "2026-11-26"
+      ],
+      "contract_prefixes": [
+        "20261126"
+      ],
+      "trade_dates": [
+        "2026-11-26"
+      ],
+      "totalTrades": 49806,
+      "qty": 14710298,
+      "amount": 5489584101.96,
+      "normalized_matches_current": true
+    }
+  ],
+  "canonical_training_allowed": false,
+  "complete_session_verified": false
+}

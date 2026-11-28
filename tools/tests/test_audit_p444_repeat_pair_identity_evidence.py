@@ -51,6 +51,21 @@ class P444EvidenceMatrixTests(unittest.TestCase):
         self.assertEqual(result["disposition"], "HOLD")
         self.assertEqual(result["reason"], "multiple_effective_identity_rows")
 
+    def test_zero_quantity_is_not_execution_evidence(self):
+        result = build_matrix([self.pair()], [self.identity()],
+                               [self.execution(traded_quantity="0.00")])[0]
+        self.assertEqual(result["disposition"], "HOLD")
+
+    def test_bad_raw_hash_is_not_eligible_evidence(self):
+        result = build_matrix([self.pair()],
+            [self.identity(raw_sha256="not-a-sha256")], [self.execution()])[0]
+        self.assertEqual(result["disposition"], "HOLD")
+
+    def test_pair_outside_identity_effective_interval_stays_held(self):
+        result = build_matrix([self.pair()],
+            [self.identity(effective_to="2026-01-04")], [self.execution()])[0]
+        self.assertEqual(result["disposition"], "HOLD")
+
     def test_csv_schema_is_fail_closed(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "bad.csv"

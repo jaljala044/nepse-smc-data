@@ -1,5 +1,20 @@
 name: P445 cross-repository wrong-session ingestion guard
 on:
+  push:
+    paths:
+      - 'scanner_inputs/prepare_scanner_inputs.py'
+      - 'scanner_inputs/canonical_publication.py'
+      - 'reference/P443_CROSS_REPOSITORY_DATE_QUARANTINE_2026-11-28.json'
+      - 'reference/p435_official_historical_floorsheets/control_marketwide_2024-05-16_page0.json'
+      - 'reference/p435_official_historical_floorsheets/control_marketwide_2024-05-19_page0.json'
+      - 'reference/p435_official_historical_floorsheets/control_marketwide_2024-08-14_page0.json'
+      - 'reference/p435_official_historical_floorsheets/control_marketwide_2024-08-18_page0.json'
+      - 'test_p445_cross_repository_quarantine.py'
+      - 'test_p443_scanner_quarantine.py'
+      - 'test_p443_canonical_publication.py'
+      - 'test_p443_historical_quarantine.py'
+      - 'test_p444_lifecycle_identity_holds.py'
+      - '.github/workflows/p445-cross-repository-quarantine.yml'
   pull_request:
     paths:
       - 'scanner_inputs/prepare_scanner_inputs.py'
@@ -15,6 +30,7 @@ on:
       - 'test_p443_historical_quarantine.py'
       - 'test_p444_lifecycle_identity_holds.py'
       - '.github/workflows/p445-cross-repository-quarantine.yml'
+  workflow_dispatch:
 permissions:
   contents: read
 jobs:
@@ -26,3 +42,4 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m unittest test_p445_cross_repository_quarantine test_p443_scanner_quarantine test_p443_canonical_publication test_p443_historical_quarantine test_p444_lifecycle_identity_holds -v
+      - run: python -m py_compile scanner_inputs/prepare_scanner_inputs.py scanner_inputs/canonical_publication.py

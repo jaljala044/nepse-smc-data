@@ -1,0 +1,19 @@
+name: P443 cross-repository duplicate gates
+on:
+  pull_request:
+    paths:
+      - 'scanner_inputs/prepare_scanner_inputs.py'
+      - 'tools/tests/test_cross_repository_duplicate_gates.py'
+      - 'reference/P443_CROSS_REPOSITORY_DATE_QUARANTINE_2026-11-28.json'
+      - '.github/workflows/p443-cross-repository-duplicate-gates.yml'
+permissions:
+  contents: read
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tools/tests -p test_cross_repository_duplicate_gates.py -v

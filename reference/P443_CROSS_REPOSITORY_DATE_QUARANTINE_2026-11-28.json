@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "source_repository": "jaljala044/nepse-smc-data",
+  "source_commit": "54fbed963830dd9f064332770309f1ffda5ebe42",
+  "records": [
+    {
+      "path": "reference/p435_official_historical_floorsheets/control_marketwide_2024-05-16_page0.json",
+      "requested_date": "2024-05-16",
+      "actual_dates": [
+        "2026-11-26"
+      ],
+      "blob_sha": "732e3365b4304f7696a9d30dcd2e94451535caf8",
+      "rows": 500,
+      "unique_contracts": 500,
+      "classification": "wrong_session_response",
+      "canonical_ingestion_allowed": false,
+      "retain_raw": true
+    },
+    {
+      "path": "reference/p435_official_historical_floorsheets/control_marketwide_2024-05-19_page0.json",
+      "requested_date": "2024-05-19",
+      "actual_dates": [
+        "2026-11-26"
+      ],
+      "blob_sha": "732e3365b4304f7696a9d30dcd2e94451535caf8",
+      "rows": 500,
+      "unique_contracts": 500,
+      "classification": "wrong_session_response",
+      "canonical_ingestion_allowed": false,
+      "retain_raw": true
+    },
+    {
+      "path": "reference/p435_official_historical_floorsheets/control_marketwide_2024-08-14_page0.json",
+      "requested_date": "2024-08-14",
+      "actual_dates": [
+        "2026-11-26"
+      ],
+      "blob_sha": "732e3365b4304f7696a9d30dcd2e94451535caf8",
+      "rows": 500,
+      "unique_contracts": 500,
+      "classification": "wrong_session_response",
+      "canonical_ingestion_allowed": false,
+      "retain_raw": true
+    },
+    {
+      "path": "reference/p435_official_historical_floorsheets/control_marketwide_2024-08-18_page0.json",
+      "requested_date": "2024-08-18",
+      "actual_dates": [
+        "2026-11-26"
+      ],
+      "blob_sha": "732e3365b4304f7696a9d30dcd2e94451535caf8",
+      "rows": 500,
+      "unique_contracts": 500,
+      "classification": "wrong_session_response",
+      "canonical_ingestion_allowed": false,
+      "retain_raw": true
+    }
+  ]
+}

@@ -107,5 +107,14 @@ class SharedValidationRegistryTests(unittest.TestCase):
         changed_key = self.registry.make_key(self.a, "daily_ohlcv", "ohlcv-v1", "v1")
         self.assertIsNone(self.registry.lookup(changed_key))
 
+    def test_conflicting_result_for_same_key_is_rejected(self):
+        key = self.key(self.a)
+        self.registry.record(key, "passed", {"rows": 1})
+        with self.assertRaisesRegex(ValueError, "Conflicting result"):
+            self.registry.record(key, "failed", {"errors": ["changed result"]})
+        cached = self.registry.lookup(key)
+        self.assertEqual(cached["status"], "passed")
+        self.assertEqual(cached["report"], {"rows": 1})
+
 if __name__ == "__main__":
     unittest.main()

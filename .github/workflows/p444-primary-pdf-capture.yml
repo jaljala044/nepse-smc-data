@@ -1,0 +1,30 @@
+name: P4.44 primary PDF byte capture
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Capture exact NEPSE PDF response bytes
+        run: |
+          python tools/capture_p444_primary_documents.py \
+            --url-list reference/P444_PRIMARY_DOCUMENT_URLS.csv \
+            --output-dir artifacts/p444_primary_documents/raw \
+            --manifest artifacts/p444_primary_documents/manifest.json
+      - name: Preserve raw bytes and manifest
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p444-primary-document-capture
+          path: artifacts/p444_primary_documents/
+          if-no-files-found: error
+          retention-days: 90

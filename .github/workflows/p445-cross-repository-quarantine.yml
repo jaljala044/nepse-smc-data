@@ -10,6 +10,10 @@ on:
       - 'reference/p435_official_historical_floorsheets/control_marketwide_2024-08-14_page0.json'
       - 'reference/p435_official_historical_floorsheets/control_marketwide_2024-08-18_page0.json'
       - 'test_p445_cross_repository_quarantine.py'
+      - 'test_p443_scanner_quarantine.py'
+      - 'test_p443_canonical_publication.py'
+      - 'test_p443_historical_quarantine.py'
+      - 'test_p444_lifecycle_identity_holds.py'
       - '.github/workflows/p445-cross-repository-quarantine.yml'
 permissions:
   contents: read
@@ -21,4 +25,4 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python -m unittest test_p445_cross_repository_quarantine -v
+      - run: python -m unittest test_p445_cross_repository_quarantine test_p443_scanner_quarantine test_p443_canonical_publication test_p443_historical_quarantine test_p444_lifecycle_identity_holds -v

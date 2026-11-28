@@ -2,7 +2,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from nepse_shared_validation import ValidationRegistry
+from nepse_shared_validation import ValidationRegistry, run_cached_validation
 
 
 class SharedValidationRegistryTests(unittest.TestCase):
@@ -48,6 +48,53 @@ class SharedValidationRegistryTests(unittest.TestCase):
     def test_invalid_status_is_rejected(self):
         with self.assertRaises(ValueError):
             self.registry.record(self.key(self.a), "approved")
+
+    def test_run_cached_validation_skips_identical_file_callback(self):
+        calls = []
+        def validator(path):
+            calls.append(path)
+            return {"valid": True, "rows": 1}
+        first = run_cached_validation(
+            self.registry, self.a, dataset_kind="daily_ohlcv",
+            schema_version="ohlcv-v1", validator_version="ohlcv-checks-v1",
+            validator=validator,
+        )
+        second = run_cached_validation(
+            self.registry, self.b, dataset_kind="daily_ohlcv",
+            schema_version="ohlcv-v1", validator_version="ohlcv-checks-v1",
+            validator=validator,
+        )
+        self.assertFalse(first["cache_hit"])
+        self.assertTrue(second["cache_hit"])
+        self.assertEqual(first["report"], second["report"])
+        self.assertEqual(len(calls), 1)
+
+    def test_changed_file_runs_validator_again(self):
+        calls = []
+        def validator(path):
+            calls.append(path)
+            return {"valid": True, "rows": len(calls)}
+        run_cached_validation(self.registry, self.a, dataset_kind="daily_ohlcv",
+            schema_version="ohlcv-v1", validator_version="v1", validator=validator)
+        self.b.write_bytes(self.b.read_bytes() + b"changed")
+        result = run_cached_validation(self.registry, self.b, dataset_kind="daily_ohlcv",
+            schema_version="ohlcv-v1", validator_version="v1", validator=validator)
+        self.assertFalse(result["cache_hit"])
+        self.assertEqual(len(calls), 2)
+
+    def test_validator_exception_is_not_cached(self):
+        def broken(path):
+            raise RuntimeError("temporary infrastructure error")
+        with self.assertRaises(RuntimeError):
+            run_cached_validation(self.registry, self.a, dataset_kind="daily_ohlcv",
+                schema_version="ohlcv-v1", validator_version="v1", validator=broken)
+        self.assertIsNone(self.registry.lookup(self.key(self.a)))
+
+    def test_validator_must_return_boolean_valid_field(self):
+        with self.assertRaises(ValueError):
+            run_cached_validation(self.registry, self.a, dataset_kind="daily_ohlcv",
+                schema_version="ohlcv-v1", validator_version="v1",
+                validator=lambda path: {"valid": "yes"})
 
 if __name__ == "__main__":
     unittest.main()

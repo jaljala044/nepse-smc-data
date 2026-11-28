@@ -1,5 +1,11 @@
 name: P443 four gzip floorsheet audit
 on:
+  push:
+    branches: [p443-global-integrity-audit]
+    paths:
+      - 'tools/audit_p443_gzip_floorsheets.py'
+      - 'reference/p433_floorsheets/**'
+      - '.github/workflows/p443-gzip-floorsheet-audit.yml'
   pull_request:
     paths:
       - 'tools/audit_p443_gzip_floorsheets.py'

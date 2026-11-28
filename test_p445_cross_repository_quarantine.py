@@ -15,7 +15,7 @@ MANIFEST_PATH = ROOT / "reference" / "P443_CROSS_REPOSITORY_DATE_QUARANTINE_2026
 
 
 def git_blob_sha(raw):
-    return hashlib.sha1(f"blob {len(raw)}\\0".encode() + raw).hexdigest()
+    return hashlib.sha1(b"blob " + str(len(raw)).encode() + bytes([0]) + raw).hexdigest()
 
 
 def one_trade_csv(trade, day=None):

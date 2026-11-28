@@ -88,7 +88,7 @@ class SharedValidationRegistryTests(unittest.TestCase):
         with self.assertRaises(RuntimeError):
             run_cached_validation(self.registry, self.a, dataset_kind="daily_ohlcv",
                 schema_version="ohlcv-v1", validator_version="v1", validator=broken)
-        self.assertIsNone(self.registry.lookup(self.key(self.a)))
+        self.assertIsNone(self.registry.lookup(self.registry.make_key(self.a, "daily_ohlcv", "ohlcv-v1", "v1")))
 
     def test_validator_must_return_boolean_valid_field(self):
         with self.assertRaises(ValueError):

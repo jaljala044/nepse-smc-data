@@ -84,6 +84,18 @@ BLOCKED_FLOORSHEET_SHA256 = {
 }
 
 
+def contract_session_date(contract):
+    """Return a YYYY-MM-DD prefix only for long numeric NEPSE-style contract IDs."""
+    value = str(contract or "").strip()
+    if len(value) < 14 or not value.isascii() or not value.isdecimal():
+        return None
+    prefix = value[:8]
+    try:
+        return date.fromisoformat(f"{prefix[:4]}-{prefix[4:6]}-{prefix[6:8]}").isoformat()
+    except ValueError:
+        return None
+
+
 def validate_floorsheet(path, closed_dates, holds=None, shared_seen=None):
     """Validate canonical trade CSV; reject ambiguous schemas and unsupported formats."""
     raw = path.read_bytes()
@@ -125,8 +137,12 @@ def validate_floorsheet(path, closed_dates, holds=None, shared_seen=None):
                 day = val("date")
                 if date.fromisoformat(day).isoformat() != day or day in closed_dates:
                     raise ValueError("Invalid or closed session")
-                if not all(val(k) for k in ("contract", "symbol", "buyer", "seller")):
+                contract = val("contract")
+                if not all((contract, val("symbol"), val("buyer"), val("seller"))):
                     raise ValueError("Missing trade fields")
+                contract_day = contract_session_date(contract)
+                if contract_day is not None and contract_day != day:
+                    raise ValueError("Contract session prefix does not match row date")
                 if holds is not None:
                     reject_held(val("symbol"), day, holds)
                 identity = val("identity") if cols["identity"] else val("contract")

@@ -69,5 +69,43 @@ class DuplicateGateTests(unittest.TestCase):
             self.assertNotIn(record["requested_date"],record["actual_dates"])
             self.assertFalse(record["canonical_ingestion_allowed"])
 
+    def test_prepare_preserves_raw_inputs_and_duplicate_disposition_manifest(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            original = root / "original"
+            supplement = root / "supplement"
+            original.mkdir()
+            (supplement / "price_gap_fills").mkdir(parents=True)
+            (supplement / "broker_summary").mkdir()
+            (supplement / "benchmark_daily.csv").write_text(
+                "symbol,date,open,high,low,close,volume\\n", encoding="utf-8")
+            daily_bytes = (
+                "symbol,date,open,high,low,close,volume\\n"
+                "ABC,2026-11-26,100,110,90,105,1000\\n"
+                " abc ,2026-11-26,100,110,90,105.00,1000\\n"
+            ).encode()
+            broker_bytes = (
+                "symbol,date,broker,buy_qty,sell_qty,buy_value,sell_value\\n"
+                "ABC,2026-11-26,01,10,5,1000,500\\n"
+                "ABC,2026-11-26,1,10,5,1000.00,500\\n"
+            ).encode()
+            (original / "daily_prices.csv").write_bytes(daily_bytes)
+            (original / "broker_summary.csv").write_bytes(broker_bytes)
+            for name in ("sectors.csv", "sector_data.csv", "corporate_actions.csv"):
+                (original / name).write_text("symbol\\n", encoding="utf-8")
+            output = root / "prepared"
+            with patch.object(prep, "SUPPLEMENT", supplement):
+                prep.prepare(original, output)
+            raw_dir = output / "evidence" / "raw_inputs"
+            self.assertEqual((raw_dir / "original_daily_prices.csv").read_bytes(), daily_bytes)
+            self.assertEqual((raw_dir / "original_broker_summary.csv").read_bytes(), broker_bytes)
+            manifest = json.loads((output / "evidence" / "duplicate_disposition_manifest.json").read_text())
+            self.assertFalse(manifest["canonical_promotion_allowed"])
+            self.assertEqual(len(manifest["raw_artifacts"]), 3)
+            collapsed = [row for row in manifest["records"]
+                         if row["disposition"] == "duplicate_identical_collapsed"]
+            self.assertEqual(len(collapsed), 2)
+            self.assertEqual({row["source_row_number"] for row in collapsed}, {3})
+
 if __name__=="__main__":
     unittest.main()

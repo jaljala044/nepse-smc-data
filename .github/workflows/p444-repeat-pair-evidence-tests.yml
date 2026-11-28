@@ -1,0 +1,27 @@
+name: P4.44 repeat-pair identity evidence tests
+
+on:
+  push:
+    paths:
+      - "tools/audit_p444_repeat_pair_identity_evidence.py"
+      - "tools/tests/test_audit_p444_repeat_pair_identity_evidence.py"
+      - ".github/workflows/p444-repeat-pair-evidence-tests.yml"
+  pull_request:
+    paths:
+      - "tools/audit_p444_repeat_pair_identity_evidence.py"
+      - "tools/tests/test_audit_p444_repeat_pair_identity_evidence.py"
+      - ".github/workflows/p444-repeat-pair-evidence-tests.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m unittest discover -s tools/tests -p 'test_audit_p444_repeat_pair_identity_evidence.py' -v

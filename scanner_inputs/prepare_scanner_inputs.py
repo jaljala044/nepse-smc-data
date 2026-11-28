@@ -129,7 +129,26 @@ def prepare(original, output):
         present = {business_key(row, ("symbol", "date")): numeric_signature(row, price_fields)
                    for row in original_rows}
         additions = []
-        for path in [SUPPLEMENT / "benchmark_daily.csv", *sorted((SUPPLEMENT / "price_gap_fills").glob("*.csv"))]:
+        raw_artifacts = [{
+            "source_path": "original/daily_prices.csv",
+            "evidence_path": "evidence/raw_inputs/original_daily_prices.csv",
+            "sha256": original_sha256,
+            "size_bytes": len(original_bytes),
+        }]
+        supplement_price_paths = [SUPPLEMENT / "benchmark_daily.csv", *sorted((SUPPLEMENT / "price_gap_fills").glob("*.csv"))]
+        for source_path in supplement_price_paths:
+            raw = source_path.read_bytes()
+            relative = Path("supplement") / source_path.relative_to(SUPPLEMENT)
+            target = raw_evidence / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(raw)
+            raw_artifacts.append({
+                "source_path": str(source_path.relative_to(SUPPLEMENT)),
+                "evidence_path": str(Path("evidence/raw_inputs") / relative),
+                "sha256": hashlib.sha256(raw).hexdigest(),
+                "size_bytes": len(raw),
+            })
+        for path in supplement_price_paths:
             for row in rows(path):
                 key = business_key(row, ("symbol", "date"))
                 signature = numeric_signature(row, price_fields)
@@ -162,7 +181,26 @@ def prepare(original, output):
             with broker_target.open("w", newline="", encoding="utf-8") as target:
                 writer = csv.DictWriter(target, expected)
                 writer.writeheader()
-                records = (row for path in partitions for row in rows(path))
+                records = []
+                for source_path in partitions:
+                    raw = source_path.read_bytes()
+                    relative = Path("supplement/broker_summary") / source_path.name
+                    evidence_path = raw_evidence / relative
+                    evidence_path.parent.mkdir(parents=True, exist_ok=True)
+                    evidence_path.write_bytes(raw)
+                    digest = hashlib.sha256(raw).hexdigest()
+                    raw_artifacts.append({
+                        "source_path": str(source_path.relative_to(SUPPLEMENT)),
+                        "evidence_path": str(Path("evidence/raw_inputs") / relative),
+                        "sha256": digest,
+                        "size_bytes": len(raw),
+                    })
+                    source_rows, dispositions = unique_rows_with_dispositions(
+                        list(rows(source_path)), ("symbol", "date", "broker"),
+                        ("buy_qty", "sell_qty", "buy_value", "sell_value"),
+                        str(source_path.relative_to(SUPPLEMENT)), digest)
+                    records.extend(source_rows)
+                    source_dispositions.extend(dispositions)
                 writer.writerows(unique_rows(records, ("symbol", "date", "broker"),
                     ("buy_qty", "sell_qty", "buy_value", "sell_value")))
         elif broker_target.exists():
@@ -178,10 +216,21 @@ def prepare(original, output):
                 "original/broker_summary.csv", broker_sha256)
             source_dispositions.extend(broker_dispositions)
             write(broker_target, fields, records)
+        if broker_target.exists() and not any(item["source_path"] == "original/broker_summary.csv" for item in raw_artifacts):
+            broker_bytes = broker_target.read_bytes()
+            broker_sha256 = hashlib.sha256(broker_bytes).hexdigest()
+            raw_artifacts.append({
+                "source_path": "original/broker_summary.csv",
+                "evidence_path": "evidence/raw_inputs/original_broker_summary.csv",
+                "sha256": broker_sha256,
+                "size_bytes": len(broker_bytes),
+            })
+            (raw_evidence / "original_broker_summary.csv").write_bytes(broker_bytes)
         manifest = {
             "schema_version": 1,
             "policy": "raw_inputs_preserved; identical_duplicates_collapsed_only_in_scanner_staging",
             "canonical_promotion_allowed": False,
+            "raw_artifacts": raw_artifacts,
             "records": source_dispositions,
         }
         manifest_path = stage / "evidence" / "duplicate_disposition_manifest.json"

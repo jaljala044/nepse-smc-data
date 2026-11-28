@@ -216,16 +216,6 @@ def prepare(original, output):
                 "original/broker_summary.csv", broker_sha256)
             source_dispositions.extend(broker_dispositions)
             write(broker_target, fields, records)
-        if broker_target.exists() and not any(item["source_path"] == "original/broker_summary.csv" for item in raw_artifacts):
-            broker_bytes = broker_target.read_bytes()
-            broker_sha256 = hashlib.sha256(broker_bytes).hexdigest()
-            raw_artifacts.append({
-                "source_path": "original/broker_summary.csv",
-                "evidence_path": "evidence/raw_inputs/original_broker_summary.csv",
-                "sha256": broker_sha256,
-                "size_bytes": len(broker_bytes),
-            })
-            (raw_evidence / "original_broker_summary.csv").write_bytes(broker_bytes)
         manifest = {
             "schema_version": 1,
             "policy": "raw_inputs_preserved; identical_duplicates_collapsed_only_in_scanner_staging",

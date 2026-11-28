@@ -1,0 +1,14 @@
+name: P445 main session guard
+on:
+  pull_request:
+  push:
+    branches: [fix/p445-main-session-prefix-integration]
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest test_p445_main_session_guard -v

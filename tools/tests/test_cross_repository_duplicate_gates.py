@@ -78,7 +78,8 @@ class DuplicateGateTests(unittest.TestCase):
             (supplement / "price_gap_fills").mkdir(parents=True)
             (supplement / "broker_summary").mkdir()
             (supplement / "benchmark_daily.csv").write_text(
-                "symbol,date,open,high,low,close,volume\n", encoding="utf-8")
+                "symbol,date,open,high,low,close,volume\n"
+                "ABC,2026-11-26,100,110,90,105,1000\n", encoding="utf-8")
             daily_bytes = (
                 "symbol,date,open,high,low,close,volume\n"
                 "ABC,2026-11-26,100,110,90,105,1000\n"
@@ -106,6 +107,10 @@ class DuplicateGateTests(unittest.TestCase):
                          if row["disposition"] == "duplicate_identical_collapsed"]
             self.assertEqual(len(collapsed), 2)
             self.assertEqual({row["source_row_number"] for row in collapsed}, {3})
+            overlaps = [row for row in manifest["records"]
+                        if row["disposition"] == "duplicate_identical_overlap_skipped"]
+            self.assertEqual(len(overlaps), 1)
+            self.assertEqual(overlaps[0]["source_path"], "benchmark_daily.csv")
 
 if __name__=="__main__":
     unittest.main()

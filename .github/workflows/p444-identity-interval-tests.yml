@@ -1,0 +1,26 @@
+name: P4.44 effective-dated identity schema tests
+on:
+  push:
+    paths:
+      - "schema/p444-effective-dated-identity-v1.schema.json"
+      - "tools/validate_p444_identity_interval.py"
+      - "tools/tests/test_validate_p444_identity_interval.py"
+      - ".github/workflows/p444-identity-interval-tests.yml"
+  pull_request:
+    paths:
+      - "schema/p444-effective-dated-identity-v1.schema.json"
+      - "tools/validate_p444_identity_interval.py"
+      - "tools/tests/test_validate_p444_identity_interval.py"
+      - ".github/workflows/p444-identity-interval-tests.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: PYTHONPATH=tools python -m unittest discover -s tools/tests -p 'test_validate_p444_identity_interval.py' -v

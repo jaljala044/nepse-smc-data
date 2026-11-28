@@ -104,6 +104,56 @@ def has_table(directory, *names):
                for name in names for suffix in TABLE_EXTENSIONS)
 
 
+def contract_session_date(contract):
+    """Interpret only long numeric IDs with a valid YYYYMMDD prefix."""
+    value = str(contract or "").strip()
+    if len(value) < 14 or not value.isascii() or not value.isdecimal():
+        return None
+    try:
+        return date.fromisoformat(f"{value[:4]}-{value[4:6]}-{value[6:8]}").isoformat()
+    except ValueError:
+        return None
+
+
+def validate_floorsheet_sessions(stage):
+    """Reject mismatched date-coded contracts before publishing staged inputs."""
+    for path in sorted(stage.rglob("*")):
+        if not path.is_file():
+            continue
+        relative = path.relative_to(stage)
+        if relative.parts[0] == "evidence":
+            continue
+        name = path.name.lower()
+        parents = {p.lower() for p in relative.parts[:-1]}
+        if not (name.startswith(("floorsheet.", "floorsheet_")) or
+                parents & {"floorsheet", "floorsheets", "02_floorsheet_daily"}):
+            continue
+        if path.suffix.lower() != ".csv":
+            raise ValueError(f"Unsupported floorsheet format: {relative}")
+        with path.open(newline="", encoding="utf-8-sig") as stream:
+            reader = csv.DictReader(stream)
+            headers = reader.fieldnames or []
+            normalized = ["".join(c.lower() for c in h if c.isalnum()) for h in headers]
+            if len(set(normalized)) != len(normalized):
+                raise ValueError(f"Ambiguous floorsheet headers: {relative}")
+            def column(aliases):
+                matches = [h for h, n in zip(headers, normalized) if n in aliases]
+                if len(matches) != 1:
+                    raise ValueError(f"Missing or ambiguous floorsheet field: {relative}")
+                return matches[0]
+            contract_col = column({"contractno", "contractnumber", "contractid"})
+            day_col = column({"date", "tradingdate", "tradedate", "businessdate", "calculationdate"})
+            for number, row in enumerate(reader, 2):
+                if None in row or any(v is None for v in row.values()):
+                    raise ValueError(f"Malformed floorsheet row: {relative}:{number}")
+                day = row[day_col].strip()
+                if date.fromisoformat(day).isoformat() != day or not row[contract_col].strip():
+                    raise ValueError(f"Invalid floorsheet identity: {relative}:{number}")
+                prefix = contract_session_date(row[contract_col])
+                if prefix is not None and prefix != day:
+                    raise ValueError(f"Contract session prefix does not match row date: {relative}:{number}")
+
+
 def prepare(original, output):
     if output.exists():
         raise FileExistsError(f"Choose a new output folder: {output}")
@@ -257,6 +307,7 @@ def prepare(original, output):
         }
         manifest_path = stage / "evidence" / "duplicate_disposition_manifest.json"
         manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        validate_floorsheet_sessions(stage)
         stage.rename(output)
     print(f"Prepared {output} with {len(additions)} new daily price rows.")
 

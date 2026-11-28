@@ -155,9 +155,16 @@ def run_cached_validation(
     if cached is not None:
         return {**cached, "cache_hit": True}
 
+    # Refuse to cache a report if the source changes while the validator reads it.
+    # The cache key describes the exact bytes hashed above; checking again after the
+    # callback prevents a concurrent writer from associating a mixed-file result
+    # with that earlier digest.
     report = validator(path)
     if not isinstance(report, dict) or not isinstance(report.get("valid"), bool):
         raise ValueError("validator must return a dict with a boolean 'valid' field")
+    observed_sha256 = sha256_file(path)
+    if observed_sha256 != key.content_sha256:
+        raise RuntimeError("input file changed during validation; result was not cached")
     status = "passed" if report["valid"] else "failed"
     registry.record(key, status, report)
     return {

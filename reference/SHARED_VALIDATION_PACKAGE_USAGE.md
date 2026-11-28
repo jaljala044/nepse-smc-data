@@ -36,3 +36,25 @@ else:
 Every process that is expected to reuse results must connect to the same durable database path or a future centralized registry service. A local runner can use a mounted shared volume. Separate GitHub-hosted runners do not share local files; do not assume this SQLite path alone provides cross-runner or cross-repository persistence. Until a durable shared store is deployed, CI tests verify the package behavior only, not global cache reuse.
 
 Do not use a GitHub Actions cache as an authoritative evidence store. Cache eviction and scope rules make it unsuitable as the only copy of validation evidence.
+
+## Preferred cached-validator wrapper
+
+`run_cached_validation` keeps the cache lookup/record sequence consistent and ensures exceptions are not cached as validation results:
+
+```python
+from nepse_shared_validation import ValidationRegistry, run_cached_validation
+
+registry = ValidationRegistry("/shared/nepse/validation/registry.sqlite3")
+result = run_cached_validation(
+    registry, "/data/incoming/session.csv",
+    dataset_kind="daily_floorsheet",
+    schema_version="floorsheet-csv-v1",
+    validator_version="floorsheet-validator-v1",
+    validator=lambda path: validate_floorsheet(path),
+)
+technical_report = result["report"]
+```
+
+The validator callback must return a dictionary containing a boolean `valid` field. `True` means the deterministic technical validation completed and passed; it is not source approval. A `False` result is cached as failed. Exceptions propagate and are not cached, so transient I/O or infrastructure errors do not become permanent validation results. Cache hits return the prior report with `cache_hit=true`.
+
+The cache key must include every input that can change the validator result. If an expected session/symbol grid, parser options, or other context affects the result, include a stable fingerprint of that context in `schema_version` or the validator contract version. Do not reuse a result across different expected grids.

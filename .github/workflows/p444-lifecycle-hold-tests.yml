@@ -1,0 +1,26 @@
+name: P4.44 lifecycle identity hold tests
+on:
+  push:
+    paths:
+      - "reference/P444_EFFECTIVE_DATED_LIFECYCLE_EVIDENCE_2026-11-27.csv"
+      - "scanner_inputs/lifecycle_identity_holds.py"
+      - "scanner_inputs/tests/test_lifecycle_identity_holds.py"
+      - ".github/workflows/p444-lifecycle-hold-tests.yml"
+  pull_request:
+    paths:
+      - "reference/P444_EFFECTIVE_DATED_LIFECYCLE_EVIDENCE_2026-11-27.csv"
+      - "scanner_inputs/lifecycle_identity_holds.py"
+      - "scanner_inputs/tests/test_lifecycle_identity_holds.py"
+      - ".github/workflows/p444-lifecycle-hold-tests.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: PYTHONPATH=scanner_inputs python -m unittest discover -s scanner_inputs/tests -p 'test_lifecycle_identity_holds.py' -v

@@ -1,0 +1,210 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/jaljala044/nepse-smc-data/blob/main/schema/p444-effective-dated-identity-v1.schema.json",
+  "title": "P4.44 effective-dated security identity record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type",
+    "security_id",
+    "symbol",
+    "instrument_type",
+    "status",
+    "effective_from",
+    "effective_to",
+    "source_url",
+    "retrieved_at_utc",
+    "raw_sha256",
+    "source_git_blob_sha",
+    "authorization_status",
+    "evidence_tier",
+    "effective_date_confidence",
+    "canonical_promotion_allowed"
+  ],
+  "properties": {
+    "record_type": {
+      "enum": [
+        "snapshot_identity",
+        "lifecycle_interval"
+      ]
+    },
+    "security_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "symbol": {
+      "type": "string",
+      "pattern": "^[A-Z0-9._-]+$"
+    },
+    "instrument_type": {
+      "enum": [
+        "EQUITY",
+        "PROMOTER",
+        "MUTUAL_FUND",
+        "DEBENTURE",
+        "BOND",
+        "OTHER",
+        "UNKNOWN"
+      ]
+    },
+    "status": {
+      "enum": [
+        "ACTIVE",
+        "SUSPENDED",
+        "MERGED",
+        "DELISTED",
+        "CANCELLED",
+        "UNKNOWN"
+      ]
+    },
+    "effective_from": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "effective_to": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "source_url": {
+      "type": "string"
+    },
+    "retrieved_at_utc": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "raw_sha256": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[a-fA-F0-9]{64}$"
+    },
+    "source_git_blob_sha": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[a-fA-F0-9]{40}$"
+    },
+    "authorization_status": {
+      "enum": [
+        "authorized",
+        "rights_cleared",
+        "not_assessed",
+        "restricted",
+        "denied"
+      ]
+    },
+    "evidence_tier": {
+      "enum": [
+        "primary",
+        "approved",
+        "current_snapshot_only",
+        "secondary_lead",
+        "unreviewed"
+      ]
+    },
+    "effective_date_confidence": {
+      "enum": [
+        "verified",
+        "corroborated",
+        "lead_only",
+        "unknown"
+      ]
+    },
+    "canonical_promotion_allowed": {
+      "const": false
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "record_type": {
+            "const": "lifecycle_interval"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "effective_from": {
+            "type": "string",
+            "format": "date"
+          },
+          "source_url": {
+            "minLength": 1
+          },
+          "retrieved_at_utc": {
+            "type": "string",
+            "minLength": 1
+          },
+          "raw_sha256": {
+            "type": "string",
+            "pattern": "^[a-fA-F0-9]{64}$"
+          },
+          "authorization_status": {
+            "enum": [
+              "authorized",
+              "rights_cleared"
+            ]
+          },
+          "evidence_tier": {
+            "enum": [
+              "primary",
+              "approved"
+            ]
+          },
+          "effective_date_confidence": {
+            "const": "verified"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "record_type": {
+            "const": "snapshot_identity"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "evidence_tier": {
+            "const": "current_snapshot_only"
+          },
+          "effective_date_confidence": {
+            "const": "unknown"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "effective_from": {
+            "type": "string"
+          },
+          "effective_to": {
+            "type": "string"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "effective_to": {
+            "format": "date"
+          }
+        }
+      }
+    }
+  ]
+}

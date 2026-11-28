@@ -96,5 +96,16 @@ class SharedValidationRegistryTests(unittest.TestCase):
                 schema_version="ohlcv-v1", validator_version="v1",
                 validator=lambda path: {"valid": "yes"})
 
+    def test_file_mutated_during_validation_is_not_cached(self):
+        def mutating_validator(path):
+            path.write_bytes(path.read_bytes() + b"concurrent-change")
+            return {"valid": True, "rows": 1}
+        with self.assertRaisesRegex(RuntimeError, "changed during validation"):
+            run_cached_validation(self.registry, self.a, dataset_kind="daily_ohlcv",
+                schema_version="ohlcv-v1", validator_version="v1",
+                validator=mutating_validator)
+        changed_key = self.registry.make_key(self.a, "daily_ohlcv", "ohlcv-v1", "v1")
+        self.assertIsNone(self.registry.lookup(changed_key))
+
 if __name__ == "__main__":
     unittest.main()

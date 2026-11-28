@@ -38,7 +38,12 @@ A dedicated GitHub Actions workflow runs the five new tests plus the existing sc
 4. Accept a contract prefix when it matches the actual 2026-11-26 session.
 5. Preserve compatibility for a non-date-coded contract identifier.
 
-CI status is pending until GitHub Actions runs on the pull request. No test result is claimed in advance.
+## Validation result
+
+- Focused workflow: [Run 3](https://github.com/jaljala044/nepse-smc-data/actions/runs/46113726363) — **success**.
+- Five new P4.45 tests plus existing scanner-quarantine, canonical-publication, historical-quarantine and lifecycle-identity suites: **69 tests passed** (`Ran 69 tests ... OK`).
+- Python compilation of `scanner_inputs/prepare_scanner_inputs.py` and `scanner_inputs/canonical_publication.py`: **success**.
+- The separate P4.43 global audit workflow Run #343 was still in progress at the time of this read-back; it is not counted as a P4.45 test result.
 
 ## Safety and limitations
 

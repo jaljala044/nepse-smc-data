@@ -208,6 +208,12 @@ def prepare(original, output):
             broker_bytes = broker_target.read_bytes()
             broker_sha256 = hashlib.sha256(broker_bytes).hexdigest()
             (raw_evidence / "original_broker_summary.csv").write_bytes(broker_bytes)
+            raw_artifacts.append({
+                "source_path": "original/broker_summary.csv",
+                "evidence_path": "evidence/raw_inputs/original_broker_summary.csv",
+                "sha256": broker_sha256,
+                "size_bytes": len(broker_bytes),
+            })
             with broker_target.open(newline="", encoding="utf-8-sig") as stream:
                 fields = csv.DictReader(stream).fieldnames
             records, broker_dispositions = unique_rows_with_dispositions(

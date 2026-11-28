@@ -1,0 +1,37 @@
+{
+  "repository": "jaljala044/nepse-smc-data",
+  "revision": "56362fb4f65b91fdcca8f50b50e53ad80e703649",
+  "scope": "three accessible CSV files; date and contract prefix checks only",
+  "report": [
+    {
+      "path": "02_floorsheet_daily/floorsheet_2026-11-19.csv",
+      "blob": "7bf7360d7598627d453a6c06e3e7f6143888d781",
+      "requested_date": "2026-11-19",
+      "row_occurrences": 500,
+      "distinct_contracts": 500,
+      "date_mismatch": 0,
+      "duplicate_id_occurrences": 0,
+      "admission_allowed": false
+    },
+    {
+      "path": "02_floorsheet_daily/floorsheet_2026-11-20.csv",
+      "blob": "0ca3de49d855b240ddf568fa95ce5999e4603c40",
+      "requested_date": "2026-11-20",
+      "row_occurrences": 500,
+      "distinct_contracts": 500,
+      "date_mismatch": 0,
+      "duplicate_id_occurrences": 0,
+      "admission_allowed": false
+    },
+    {
+      "path": "reference/p423_rhgcl_2026-11-19_merolagani_floorsheet_rows_2026-11-26.csv",
+      "blob": "4031bd39e24fdbd878188ea0d70bb5efc5cbbc55",
+      "requested_date": "2026-11-19",
+      "row_occurrences": 47,
+      "distinct_contracts": 47,
+      "date_mismatch": 0,
+      "duplicate_id_occurrences": 0,
+      "admission_allowed": false
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+name: P4.44 snapshot master normalization tests
+on:
+  push:
+    paths:
+      - "tools/build_p444_snapshot_master.py"
+      - "tools/tests/test_build_p444_snapshot_master.py"
+      - ".github/workflows/p444-snapshot-master-tests.yml"
+  pull_request:
+    paths:
+      - "tools/build_p444_snapshot_master.py"
+      - "tools/tests/test_build_p444_snapshot_master.py"
+      - ".github/workflows/p444-snapshot-master-tests.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: PYTHONPATH=tools python -m unittest discover -s tools/tests -p 'test_build_p444_snapshot_master.py' -v
+      - name: Build normalized snapshot-only master
+        run: python tools/build_p444_snapshot_master.py --input reference/nepse_security_id_snapshot_2026-11-25.csv --output /tmp/p444_snapshot_only_master.csv

@@ -78,21 +78,21 @@ class DuplicateGateTests(unittest.TestCase):
             (supplement / "price_gap_fills").mkdir(parents=True)
             (supplement / "broker_summary").mkdir()
             (supplement / "benchmark_daily.csv").write_text(
-                "symbol,date,open,high,low,close,volume\\n", encoding="utf-8")
+                "symbol,date,open,high,low,close,volume\n", encoding="utf-8")
             daily_bytes = (
-                "symbol,date,open,high,low,close,volume\\n"
-                "ABC,2026-11-26,100,110,90,105,1000\\n"
-                " abc ,2026-11-26,100,110,90,105.00,1000\\n"
+                "symbol,date,open,high,low,close,volume\n"
+                "ABC,2026-11-26,100,110,90,105,1000\n"
+                " abc ,2026-11-26,100,110,90,105.00,1000\n"
             ).encode()
             broker_bytes = (
-                "symbol,date,broker,buy_qty,sell_qty,buy_value,sell_value\\n"
-                "ABC,2026-11-26,01,10,5,1000,500\\n"
-                "ABC,2026-11-26,1,10,5,1000.00,500\\n"
+                "symbol,date,broker,buy_qty,sell_qty,buy_value,sell_value\n"
+                "ABC,2026-11-26,01,10,5,1000,500\n"
+                "ABC,2026-11-26,1,10,5,1000.00,500\n"
             ).encode()
             (original / "daily_prices.csv").write_bytes(daily_bytes)
             (original / "broker_summary.csv").write_bytes(broker_bytes)
             for name in ("sectors.csv", "sector_data.csv", "corporate_actions.csv"):
-                (original / name).write_text("symbol\\n", encoding="utf-8")
+                (original / name).write_text("symbol\n", encoding="utf-8")
             output = root / "prepared"
             with patch.object(prep, "SUPPLEMENT", supplement):
                 prep.prepare(original, output)

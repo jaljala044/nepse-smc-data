@@ -16,6 +16,11 @@ class LifecycleHoldTests(unittest.TestCase):
             holds=load_lifecycle_holds(path)
             self.assertEqual(len(holds),26)
             self.assertEqual(holds[("JALPA","*")],"P444_LIFECYCLE_IDENTITY_HOLD")
+    def test_committed_26_symbol_ledger_is_loaded_as_hold(self):
+        holds=load_lifecycle_holds()
+        self.assertEqual(len(holds),26)
+        self.assertEqual(holds[("SBLD2082","*")],"P444_LIFECYCLE_IDENTITY_HOLD")
+
     def test_missing_symbol_fails_closed(self):
         with tempfile.TemporaryDirectory() as tmp:
             path=Path(tmp)/"ledger.csv"; write_ledger(path,["JALPA"])

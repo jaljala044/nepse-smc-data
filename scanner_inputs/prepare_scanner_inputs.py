@@ -195,6 +195,7 @@ def prepare(original, output):
                 writer = csv.DictWriter(target, expected)
                 writer.writeheader()
                 records = []
+                broker_seen = {}
                 for source_path in partitions:
                     raw = source_path.read_bytes()
                     relative = Path("supplement/broker_summary") / source_path.name
@@ -208,14 +209,26 @@ def prepare(original, output):
                         "sha256": digest,
                         "size_bytes": len(raw),
                     })
-                    source_rows, dispositions = unique_rows_with_dispositions(
-                        list(rows(source_path)), ("symbol", "date", "broker"),
-                        ("buy_qty", "sell_qty", "buy_value", "sell_value"),
-                        str(source_path.relative_to(SUPPLEMENT)), digest)
-                    records.extend(source_rows)
-                    source_dispositions.extend(dispositions)
-                writer.writerows(unique_rows(records, ("symbol", "date", "broker"),
-                    ("buy_qty", "sell_qty", "buy_value", "sell_value")))
+                    for row_number, row in enumerate(rows(evidence_path), start=2):
+                        key = business_key(row, ("symbol", "date", "broker"))
+                        signature = numeric_signature(row, ("buy_qty", "sell_qty", "buy_value", "sell_value"))
+                        if key in broker_seen:
+                            if broker_seen[key] != signature:
+                                raise ValueError(f"Conflicting duplicate key: {key}")
+                            disposition = "duplicate_identical_collapsed"
+                        else:
+                            broker_seen[key] = signature
+                            records.append(row)
+                            disposition = "retained"
+                        source_dispositions.append({
+                            "source_path": str(source_path.relative_to(SUPPLEMENT)),
+                            "source_sha256": digest,
+                            "source_row_number": row_number,
+                            "business_key": list(key),
+                            "numeric_signature": [str(value) for value in signature],
+                            "disposition": disposition,
+                        })
+                writer.writerows(records)
         elif broker_target.exists():
             # Existing supplied broker summaries must not silently contain duplicate keys.
             broker_bytes = broker_target.read_bytes()

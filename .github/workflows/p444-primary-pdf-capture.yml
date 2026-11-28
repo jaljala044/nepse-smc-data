@@ -1,6 +1,11 @@
 name: P4.44 primary PDF byte capture
 
 on:
+  push:
+    paths:
+      - "tools/capture_p444_primary_documents.py"
+      - "reference/P444_PRIMARY_DOCUMENT_URLS.csv"
+      - ".github/workflows/p444-primary-pdf-capture.yml"
   workflow_dispatch:
 
 permissions:

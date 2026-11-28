@@ -18,7 +18,7 @@ The four raw files are:
 - `control_marketwide_2024-08-14_page0.json`
 - `control_marketwide_2024-08-18_page0.json`
 
-Each is 217,094 bytes with Git blob SHA `732e3365b4304f7696a9d30dcd2e94451535caf8`. Each contains 500 rows and 500 unique `contractId` values; all rows have `businessDate=2026-11-26`, not the requested date. The raw payloads are preserved and are not deleted or rewritten.
+All four return the same Git blob SHA `732e3365b4304f7696a9d30dcd2e94451535caf8`. Each contains 500 rows and 500 unique `contractId` values; all rows have `businessDate=2026-11-26`, not the requested date. The raw payloads are preserved and are not deleted or rewritten.
 
 ## Engineering change
 
@@ -30,7 +30,7 @@ Non-date-coded contract identifiers are not reinterpreted. The check does not in
 
 ## Regression coverage
 
-A dedicated GitHub Actions workflow runs five tests:
+A dedicated GitHub Actions workflow runs the five new tests plus the existing scanner-quarantine, canonical-publication, historical-quarantine and lifecycle-identity regression suites:
 
 1. Pin all four raw payload hashes, row counts, unique contract counts and actual dates to the manifest.
 2. Reject all four historical requested-date labels in staged floorsheet CSVs.

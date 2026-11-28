@@ -149,15 +149,28 @@ def prepare(original, output):
                 "size_bytes": len(raw),
             })
         for path in supplement_price_paths:
-            for row in rows(path):
+            source_path = str(path.relative_to(SUPPLEMENT))
+            source_sha256 = next(item["sha256"] for item in raw_artifacts
+                                 if item["source_path"] == source_path)
+            for row_number, row in enumerate(rows(path), start=2):
                 key = business_key(row, ("symbol", "date"))
                 signature = numeric_signature(row, price_fields)
                 if key in present:
                     if present[key] != signature:
                         raise ValueError(f"Conflicting OHLCV overlap: {key}")
-                    continue
-                additions.append(row)
-                present[key] = signature
+                    disposition = "duplicate_identical_overlap_skipped"
+                else:
+                    additions.append(row)
+                    present[key] = signature
+                    disposition = "new_row_added_to_staging"
+                source_dispositions.append({
+                    "source_path": source_path,
+                    "source_sha256": source_sha256,
+                    "source_row_number": row_number,
+                    "business_key": list(key),
+                    "numeric_signature": [str(value) for value in signature],
+                    "disposition": disposition,
+                })
         if additions or len(original_raw) != len(original_rows):
             extra = dict.fromkeys(field for row in additions for field in row if field not in fields)
             combined = sorted(original_rows + additions, key=lambda row: (row["symbol"], row["date"]))

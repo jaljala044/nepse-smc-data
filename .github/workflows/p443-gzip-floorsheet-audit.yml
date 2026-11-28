@@ -1,0 +1,26 @@
+name: P443 four gzip floorsheet audit
+on:
+  pull_request:
+    paths:
+      - 'tools/audit_p443_gzip_floorsheets.py'
+      - 'reference/p433_floorsheets/**'
+      - '.github/workflows/p443-gzip-floorsheet-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python tools/audit_p443_gzip_floorsheets.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: p443-gzip-date-scan
+          path: artifacts/p443-gzip-date-scan.json
+          if-no-files-found: error

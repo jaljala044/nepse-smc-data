@@ -112,15 +112,25 @@ class ValidationRegistry:
             raise ValueError("status must be 'passed' or 'failed'")
         report_json = json.dumps(report or {}, sort_keys=True, separators=(",", ":"))
         with self._connect() as connection:
+            # Serialize writers for this SQLite database. A cache key is immutable:
+            # a second, different result for the same content/schema/validator
+            # contract signals nondeterminism or a broken caller and must not
+            # silently overwrite the first result.
+            connection.execute("BEGIN IMMEDIATE")
+            existing = connection.execute(
+                "SELECT status, report_json FROM validation_cache WHERE cache_id = ?",
+                (key.cache_id(),),
+            ).fetchone()
+            if existing is not None:
+                if existing["status"] != status or existing["report_json"] != report_json:
+                    raise ValueError("Conflicting result for identical validation key")
+                return
             connection.execute(
                 """
                 INSERT INTO validation_cache (
                     cache_id, content_sha256, dataset_kind, schema_version,
                     validator_version, status, report_json
                 ) VALUES (?, ?, ?, ?, ?, ?, ?)
-                ON CONFLICT(cache_id) DO UPDATE SET
-                    status=excluded.status, report_json=excluded.report_json,
-                    created_at=CURRENT_TIMESTAMP
                 """,
                 (
                     key.cache_id(),

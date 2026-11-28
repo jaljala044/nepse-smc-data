@@ -84,14 +84,14 @@ class CrossRepositoryWrongSessionTests(unittest.TestCase):
                 trade = payload["floorsheets"]["content"][0]
                 raw = one_trade_csv(trade)
                 destination = root / f"floorsheet_{record['requested_date']}.csv"
-                with patch.object(publication, "load_holds", return_value={}), \\
-                     patch.object(publication, "load_equity_holds", return_value={}), \\
-                     patch.object(publication, "load_lifecycle_holds", return_value={}), \\
-                     patch.object(publication, "verified_closed_dates", return_value=set()):
-                    with self.assertRaisesRegex(ValueError, "Contract session not established"):
-                        publication.publish_daily_floorsheet(
-                            raw, record["requested_date"], destination, root / "overlay.csv",
-                            control_path=root / "control.json", evidence_path=root / "evidence.json")
+                with patch.object(publication, "load_holds", return_value={}):
+                    with patch.object(publication, "load_equity_holds", return_value={}):
+                        with patch.object(publication, "load_lifecycle_holds", return_value={}):
+                            with patch.object(publication, "verified_closed_dates", return_value=set()):
+                                with self.assertRaisesRegex(ValueError, "Contract session not established"):
+                                    publication.publish_daily_floorsheet(
+                                        raw, record["requested_date"], destination, root / "overlay.csv",
+                                        control_path=root / "control.json", evidence_path=root / "evidence.json")
                 self.assertFalse(destination.exists())
 
     def test_actual_session_prefix_is_accepted_by_staged_validator(self):
